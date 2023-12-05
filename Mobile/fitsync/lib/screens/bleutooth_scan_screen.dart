@@ -19,6 +19,7 @@ class BluetoothScanScreen extends StatelessWidget {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(state.errorText),
+                backgroundColor: Colors.red,
               ),
             );
           }
