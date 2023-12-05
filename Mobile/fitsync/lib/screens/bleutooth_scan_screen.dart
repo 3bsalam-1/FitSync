@@ -14,13 +14,23 @@ class BluetoothScanScreen extends StatelessWidget {
         title: const Text('Scan Devices'),
       ),
       body: BlocConsumer<BluetoothCubit, BluetoothState>(
+        buildWhen: (context, state) {
+          return state is BluetoothScanDevice || state is BluetoothFailur;
+        },
         listener: (context, state) {
-          if (state is ConnectedDeviceFailed) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(state.errorText),
-                backgroundColor: Colors.red,
-              ),
+          if (state is BluetoothConnectToDevice) {
+            // Start for loading until the process of connection end
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (_) {
+                Future.delayed(const Duration(seconds: 5), () {
+                  Navigator.of(_).pop(true);
+                });
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
             );
           }
         },

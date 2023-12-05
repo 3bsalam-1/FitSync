@@ -11,6 +11,8 @@ final class BluetoothScanDevice extends BluetoothInitial {
   BluetoothScanDevice(this.devices);
 }
 
+final class BluetoothConnectToDevice extends BluetoothInitial {}
+
 final class BluetoothDeviceService extends BluetoothInitial {
   final List<int> receivedData;
 
