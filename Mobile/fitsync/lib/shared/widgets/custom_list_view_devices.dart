@@ -6,7 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 import '../../cubits_logic/cubit/bluetooth_cubit.dart' as cubit;
-import '../../screens/hone_screen.dart';
+import '../../screens/home_screen.dart';
 
 class CustomListViewDevices extends StatelessWidget {
   final List<ScanResult> devices;
