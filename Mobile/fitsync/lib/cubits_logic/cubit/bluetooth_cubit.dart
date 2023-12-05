@@ -20,9 +20,11 @@ class BluetoothCubit extends Cubit<BluetoothState> {
             'assets/images/blue_connection_error.png', // Error image that will show to the user
           ));
         });
+      } else if (state == BluetoothAdapterState.turningOn) {
+        scanDevices();
       }
       // The bluetooth is turn on
-      if (state == BluetoothAdapterState.on) {
+      else if (state == BluetoothAdapterState.on) {
         // Will start to scan for devices
         scanDevices();
       }
@@ -30,29 +32,30 @@ class BluetoothCubit extends Cubit<BluetoothState> {
   }
 
   void scanDevices() {
-    // flag to check if there are devices or NOT
-    bool isTheredevices = false;
+    // Will be used to check if there are devices or NOT
+    List<ScanResult> devices = [];
 
     // Start for scanning devices
-    FlutterBluePlus.startScan(timeout: const Duration(seconds: 10));
+    FlutterBluePlus.startScan(timeout: const Duration(days: 1));
+
     // Show the results of the scanning devices
     FlutterBluePlus.scanResults.listen((results) {
-      // Devices was founded
-      // active BluetoothScanDevice state
-      emit(BluetoothScanDevice(results));
+      // Assign the result of scanning to the devices
+      devices = results;
+    });
 
-      if (results.isNotEmpty) {
-        isTheredevices = true;
-      }
-    }, onDone: () {
-      isTheredevices
-      ? null // When there is a device do nothing
-      : emit(BluetoothFailur(
-        'There Is No Devices In This Location', // Error text that will show to the user
-        'assets/images/no_device_found.png', // Error image that will show to the user
+    if (devices.isEmpty) {
+      emit(
+        BluetoothFailur(
+          'There Is No Devices In This Location', // Error text that will show to the user
+          'assets/images/no_device_found.png', // Error image that will show to the user
         ),
       );
-    });
+    } else {
+      // Devices was founded
+      // active BluetoothScanDevice state
+      emit(BluetoothScanDevice(devices));
+    }
   }
 
   void connectToDevice(BluetoothDevice device) {

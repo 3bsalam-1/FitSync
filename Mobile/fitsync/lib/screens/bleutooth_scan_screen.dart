@@ -15,6 +15,7 @@ class BluetoothScanScreen extends StatelessWidget {
       ),
       body: BlocConsumer<BluetoothCubit, BluetoothState>(
         buildWhen: (context, state) {
+          // ReBuild when this condition come true only
           return state is BluetoothScanDevice || state is BluetoothFailur;
         },
         listener: (context, state) {
@@ -36,9 +37,15 @@ class BluetoothScanScreen extends StatelessWidget {
         },
         builder: (context, state) {
           if (state is BluetoothScanDevice) {
-            return CustomListViewDevices(
-              devices: state.devices,
-            );
+            if (state.devices.isNotEmpty) {
+              return CustomListViewDevices(
+                devices: state.devices,
+              );
+            } else {
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
+            }
           } else if (state is BluetoothFailur) {
             return CustomBluetoothError(
               errorText: state.errorText,
