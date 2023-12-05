@@ -1,4 +1,4 @@
-import 'package:fitsync/shared/widgets/custom_bluetooth_error.dart';
+import '../shared/widgets/custom_bluetooth_error.dart';
 import 'package:fitsync/shared/widgets/custom_list_view_devices.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,19 +9,16 @@ class BluetoothScanScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text('Scan Devices'),
       ),
       body: BlocConsumer<BluetoothCubit, BluetoothState>(
         listener: (context, state) {
-          if (state is BluetoothFailur) {
-            showDialog(
-              barrierDismissible: false,
-              context: context, 
-              builder: (_) => CustomBluetoothError(
-                errorText: state.error,
-                imagePath: '',
+          if (state is ConnectedDeviceFailed) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(state.errorText),
               ),
             );
           }
@@ -30,6 +27,11 @@ class BluetoothScanScreen extends StatelessWidget {
           if (state is BluetoothScanDevice) {
             return CustomListViewDevices(
               devices: state.devices,
+            );
+          } else if (state is BluetoothFailur) {
+            return CustomBluetoothError(
+              errorText: state.errorText,
+              imagePath: state.imagePath,
             );
           }
           return const Center(

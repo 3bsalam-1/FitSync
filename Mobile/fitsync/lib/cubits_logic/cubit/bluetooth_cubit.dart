@@ -17,6 +17,7 @@ class BluetoothCubit extends Cubit<BluetoothState> {
           // Here will show error when NOT turn on the bluetooth
           emit(BluetoothFailur(
             'Please Turn On Your Bluetooth', // Error text that will show to the user
+            'assets/images/blue_connection_error.png', // Error image that will show to the user
           ));
         });
       }
@@ -35,27 +36,23 @@ class BluetoothCubit extends Cubit<BluetoothState> {
     // Start for scanning devices
     FlutterBluePlus.startScan(timeout: const Duration(days: 1));
     // Show the results of the scanning devices
-    FlutterBluePlus.scanResults.listen(
-        (results) {
-          // Devices was founded
-          // active BluetoothScanDevice state
-          emit(BluetoothScanDevice(results));
+    FlutterBluePlus.scanResults.listen((results) {
+      // Devices was founded
+      // active BluetoothScanDevice state
+      emit(BluetoothScanDevice(results));
 
-          if (results.isNotEmpty) {
-            isTheredevices = true;
-          }
-        },
-        onError: (_) => // No devices was founded
-            emit(BluetoothFailur(
-              'There Is No Devices In This Location', // Error text that will show to the user
-            )),
-        onDone: () {
-          isTheredevices
-              ? null
-              : emit(BluetoothFailur(
-                  'There Is No Devices In This Location', // Error text that will show to the user
-                ));
-        });
+      if (results.isNotEmpty) {
+        isTheredevices = true;
+      }
+    },
+    onDone: () {
+      isTheredevices
+      ? null // When there is a device do nothing 
+      : emit(BluetoothFailur(
+        'There Is No Devices In This Location', // Error text that will show to the user
+        'assets/images/no_device_found.png', // Error image that will show to the user
+      ));
+    });
   }
 
   void connectToDevice(BluetoothDevice device) {
@@ -64,29 +61,20 @@ class BluetoothCubit extends Cubit<BluetoothState> {
       // Active BluetoothConnectedDevice state
       discoverServicesAndData(device);
     }).timeout(
-      Duration(minutes: 1),
+      const Duration(seconds: 3),
       onTimeout: () {
         // Will show error if can NOT connect to the device
-        emit(BluetoothFailur(
-          'Failed To Connect To Your Device', // Error text that will show to the user
-        ));
+        emit(ConnectedDeviceFailed('Failed To Connect To The Device'));
       },
     );
   }
 
   void discoverServicesAndData(BluetoothDevice connectedDevice) {
-    List<Map<String, dynamic>> dataServices = [];
     List<int> recievedData = [];
 
     // To discover the services of the connected device
     connectedDevice.discoverServices().then((services) {
       for (var service in services) {
-        // Add all the services and characteristics values on dataServices variable
-        dataServices.add({
-          "servicesUUID": service.uuid.toString(),
-          "characteristicsUUID":
-              service.characteristics.map((c) => c.uuid.toString()).toList(),
-        });
         for (var c in service.characteristics) {
           if (c.uuid.toString() == '6e400001-b5a3-f393-e0a9-e50e24dcca9f') {
             c.setNotifyValue(true);
@@ -97,7 +85,7 @@ class BluetoothCubit extends Cubit<BluetoothState> {
           }
         }
       }
-      emit(BluetoothDeviceService(recievedData, dataServices));
+      emit(BluetoothDeviceService(recievedData));
     });
   }
 }

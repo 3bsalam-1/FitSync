@@ -1,3 +1,5 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'screens/bleutooth_scan_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +19,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const BluetoothScanScreen(),
+      home: BlocProvider(
+        create: (context) => BluetoothCubit()..checkBluetoothConnectivity(),
+        child: const BluetoothScanScreen(),
+      ),
     );
   }
 }
