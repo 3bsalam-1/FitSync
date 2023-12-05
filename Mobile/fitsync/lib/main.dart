@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
-import 'screens/bleutooth_scan_screen.dart';
+import 'screens/bluetooth_scan_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
