@@ -44,18 +44,26 @@ class BluetoothCubit extends Cubit<BluetoothState> {
       devices = results;
     });
 
-    if (devices.isEmpty) {
-      emit(
-        BluetoothFailur(
-          'There Is No Devices In This Location', // Error text that will show to the user
-          'assets/images/no_device_found.png', // Error image that will show to the user
-        ),
-      );
-    } else {
-      // Devices was founded
-      // active BluetoothScanDevice state
-      emit(BluetoothScanDevice(devices));
-    }
+    Future.delayed(
+      // Wait 3 secondes for searching devices 
+      const Duration(seconds: 3),
+      () {
+        // If there are NOT devices 
+        if (devices.isEmpty) {
+          emit(
+            BluetoothFailur(
+              'There Is No Devices In This Location', // Error text that will show to the user
+              'assets/images/no_device_found.png', // Error image that will show to the user
+            ),
+          );
+        // If there are devices  
+        } else {
+          // Devices was founded
+          // active BluetoothScanDevice state
+          emit(BluetoothScanDevice(devices));
+        }
+      },
+    );
   }
 
   void connectToDevice(BluetoothDevice device) {
