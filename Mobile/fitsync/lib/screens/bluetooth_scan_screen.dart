@@ -25,7 +25,7 @@ class BluetoothScanScreen extends StatelessWidget {
               context: context,
               barrierDismissible: false,
               builder: (_) {
-                Future.delayed(const Duration(seconds: 5), () {
+                Future.delayed(const Duration(seconds: 3), () {
                   Navigator.of(_).pop(true);
                 });
                 return const Center(

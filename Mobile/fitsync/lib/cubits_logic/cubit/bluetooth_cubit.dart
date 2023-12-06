@@ -75,7 +75,7 @@ class BluetoothCubit extends Cubit<BluetoothState> {
       // Active BluetoothConnectedDevice state
       discoverServicesAndData(device);
     }).timeout(
-      const Duration(seconds: 5),
+      const Duration(seconds: 3),
       onTimeout: () {
         // Will show error if can NOT connect to the device
         emit(ConnectedDeviceFailed('Failed To Connect To The Device'));
