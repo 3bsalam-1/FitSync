@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import '../../colors/colors.dart';
-import '../custom_button.dart';
+import '../global/custom_button.dart';
 import 'custom_text_form_field.dart';
 
 class WeightQuestion extends StatelessWidget {

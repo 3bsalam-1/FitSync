@@ -1,4 +1,4 @@
-import '../../widgets/custom_button.dart';
+import '../global/custom_button.dart';
 import '../../widgets/survey_comp/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import '../../colors/colors.dart';
