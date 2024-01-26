@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Can NOT delete this Becuase devices varaible which it's data type is ScanResult
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
-
 import '../../../cubits_logic/cubit/bluetooth_cubit.dart' as cubit;
 
 class CustomListViewDevices extends StatelessWidget {
