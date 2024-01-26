@@ -1,3 +1,4 @@
+import 'package:fitsync/screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'screens/bluetooth_scan_screen.dart';
@@ -15,13 +16,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'FitSync',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       home: BlocProvider(
         create: (context) => BluetoothCubit()..checkBluetoothConnectivity(),
-        child: const BluetoothScanScreen(),
+        child: const SplashScreen(),
       ),
     );
   }
