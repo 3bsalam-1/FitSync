@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
 
 import '../../cubits_logic/cubit/bluetooth_cubit.dart' as cubit;
-import '../../screens/home_screen.dart';
 
 class CustomListViewDevices extends StatelessWidget {
   final List<ScanResult> devices;
@@ -18,16 +17,13 @@ class CustomListViewDevices extends StatelessWidget {
       listener: (context, state) {
         if (state is cubit.BluetoothDeviceService) {
           // Navigate to the result page with the connected device
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(
-              builder: (_) => HomeScreen(
-                // Will take received data of the connected device
-                receivedData: state.receivedData,
-              ),
-            ),
-            (Route<dynamic> route) => false,
-          );
+          // Navigator.pushAndRemoveUntil(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (_) => HomeScreen(),
+          //   ),
+          //   (Route<dynamic> route) => false,
+          // );
         }
         if (state is cubit.ConnectedDeviceFailed) {
           // If there error in connecting tothe device show snakBar with error message
