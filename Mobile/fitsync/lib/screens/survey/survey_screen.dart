@@ -2,6 +2,7 @@ import '../../shared/widgets/survey_comp/first_name_question.dart';
 import 'package:flutter/material.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/survey_comp/age_question.dart';
+import '../../shared/widgets/survey_comp/weight_question.dart';
 
 class SurveyScreen extends StatelessWidget {
   const SurveyScreen({super.key});
@@ -25,7 +26,7 @@ class SurveyScreen extends StatelessWidget {
       body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),
         // TODO here
-        child: AgeQuestion(), //FirstNameQuestion(),
+        child: WeightQuestion() //AgeQuestion(), //FirstNameQuestion(),
       ),
     );
   }
