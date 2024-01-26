@@ -4,6 +4,7 @@ const Color black = Color(0xff000000);
 const Color black2 = Color(0xff1D1617);
 const Color gray = Color(0xff94A2AF);
 const Color gray2 = Color(0xff8F8F8F);
+const Color gray3 = Color(0xffADA4A5);
 const Color white = Color(0xffffffff);
 const Color purple = Color(0xff8D70F8);
 const Color cyan = Color(0xff9DCDFF);
