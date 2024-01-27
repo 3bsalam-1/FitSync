@@ -1,5 +1,5 @@
 import '../shared/colors/colors.dart';
-import '../shared/widgets/custom_icon_button.dart';
+import '../shared/widgets/global/custom_icon_button.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {

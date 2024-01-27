@@ -1,4 +1,4 @@
-import '../../shared/widgets/custom_button.dart';
+import '../../shared/widgets/global/custom_button.dart';
 import '../../shared/widgets/survey_comp/custom_card.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
