@@ -109,6 +109,8 @@ class loginPage extends StatelessWidget {
                         width: 24,
                         height: 24,
                       ),
+                      websiteUri:
+                          Uri.parse('https://fitsync.onrender.com/auth/google'),
                     ),
                   ),
                   Icon_Button(
@@ -118,12 +120,13 @@ class loginPage extends StatelessWidget {
                     size: 30,
                   )),
                   Icon_Button(
-                    principle_widget: Image.asset(
-                      "assets/images/Icons/facebook_icon.png",
-                      width: 30,
-                      height: 30,
-                    ),
-                  ),
+                      principle_widget: Image.asset(
+                        "assets/images/Icons/facebook_icon.png",
+                        width: 30,
+                        height: 30,
+                      ),
+                      websiteUri: Uri.parse(
+                          'https://fitsync.onrender.com/auth/facebook')),
                 ],
               ),
               SizedBox(
