@@ -128,14 +128,16 @@ class signup extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don’t have an account? ",
+                    "Do you have an account? ",
                     style: TextStyle(
                         color: gray2,
                         fontWeight: FontWeight.w500,
                         fontSize: 14),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      
+                    },
                     child: Text(
                       "Sign in",
                       style: TextStyle(
