@@ -25,7 +25,7 @@ class FirstNameQuestion extends StatelessWidget {
         ),
         const Spacer(),
         CustomButton(
-          label: 'Continue', 
+          label: 'Continue',
           horizontalPadding: 0,
           onPressed: () {
             // TODO

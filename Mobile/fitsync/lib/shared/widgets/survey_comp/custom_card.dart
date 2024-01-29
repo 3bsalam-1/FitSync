@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class CustomCard extends StatelessWidget {
   final String imagePath;
   final String label;
+  final Color labelColor;
   final Color background;
   final void Function()? onTap;
 
@@ -11,15 +12,17 @@ class CustomCard extends StatelessWidget {
     super.key,
     required this.imagePath,
     required this.label,
-    this.background = white,
+    required this.background,
     required this.onTap,
+    required this.labelColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: Container(
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
             color: background,
             borderRadius: BorderRadius.circular(19),
@@ -39,11 +42,10 @@ class CustomCard extends StatelessWidget {
             children: [
               Text(
                 label,
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w600,
-                  color: black,
-                  decoration: TextDecoration.none,
+                  color: labelColor,
                 ),
               ),
               Image.asset(

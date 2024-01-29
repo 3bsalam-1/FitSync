@@ -1,9 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'package:flutter/material.dart';
-import 'screens/survey/survey_screen.dart';
+import 'screens/survey/welcome_survey_screen.dart';
+import 'shared/pref.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Prefs.init();
   runApp(const MyApp());
 }
 
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: BlocProvider(
         create: (context) => BluetoothCubit()..checkBluetoothConnectivity(),
-        child: const SurveyScreen(),
+        child: const WelcomeSurveyScreen(),
       ),
     );
   }
