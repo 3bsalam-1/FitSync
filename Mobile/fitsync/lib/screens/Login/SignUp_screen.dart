@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 import 'package:iconly/iconly.dart';
 
-class loginPage extends StatelessWidget {
-  const loginPage({super.key});
+class signup extends StatelessWidget {
+  const signup({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class loginPage extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      'Welcome Back !',
+                      'Hi!',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 26,
@@ -44,11 +44,11 @@ class loginPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 4, left: 19),
+                padding: const EdgeInsets.only(top: 3, left: 19),
                 child: Row(
                   children: [
                     Text(
-                      'Glad to see you again',
+                      'Create a new account',
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
                         fontSize: 16,
@@ -60,14 +60,28 @@ class loginPage extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 4, top: 40),
+                padding: const EdgeInsets.only(left: 4, top: 30),
                 child: custom_TextFormField(
-                  icon_var: IconlyLight.message,
-                  hint_text: "Email",
+                  icon_var: IconlyLight.profile,
+                  hint_text: "First Name",
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 27,
+              ),
+              custom_TextFormField(
+                icon_var: IconlyLight.profile,
+                hint_text: "Last Name",
+              ),
+              SizedBox(
+                height: 27,
+              ),
+              custom_TextFormField(
+                icon_var: IconlyLight.message,
+                hint_text: "Email",
+              ),
+              SizedBox(
+                height: 27,
               ),
               custom_TextFormField(
                 icon_var: IconlyLight.lock,
@@ -75,43 +89,21 @@ class loginPage extends StatelessWidget {
                 suffix_icon: IconlyLight.hide,
               ),
               SizedBox(
-                height: 20,
+                height: 35,
               ),
+              CustomButton(label: "Sign in", onPressed: () {}),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
               Row(
-                mainAxisAlignment: MainAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  InkWell(
-                      onTap: () {},
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 27),
-                        child: Text(
-                          'Forgot Password',
-                          style: TextStyle(
-                              color: gray4,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16),
-                        ),
-                      )),
-                ],
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              CustomButton(label: "Log in", onPressed: () {}),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.08),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 55),
-                    child: Icon_Button(
-                      principle_widget: Image.asset(
-                        "assets/images/Icons/google_icon.png",
-                        width: 24,
-                        height: 24,
-                      ),
-                      websiteUri:
-                          Uri.parse('https://fitsync.onrender.com/auth/google'),
+                  Icon_Button(
+                    principle_widget: Image.asset(
+                      "assets/images/Icons/google_icon.png",
+                      width: 24,
+                      height: 24,
                     ),
+                    websiteUri:
+                        Uri.parse('https://fitsync.onrender.com/auth/google'),
                   ),
                   Icon_Button(
                       principle_widget: Icon(
@@ -130,22 +122,24 @@ class loginPage extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 40,
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don’t have an account? ",
+                    "Do you have an account? ",
                     style: TextStyle(
                         color: gray2,
                         fontWeight: FontWeight.w500,
                         fontSize: 14),
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      
+                    },
                     child: Text(
-                      "Signup",
+                      "Sign in",
                       style: TextStyle(
                           color: purple5,
                           fontWeight: FontWeight.w600,
