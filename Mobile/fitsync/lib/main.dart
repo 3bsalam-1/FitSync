@@ -1,3 +1,4 @@
+import 'package:fitsync/screens/Login/SignUp_screen.dart';
 import 'package:fitsync/screens/Login/login_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: BlocProvider(
         create: (context) => BluetoothCubit()..checkBluetoothConnectivity(),
-        child: const loginPage(),
+        child: const signup(),
       ),
     );
   }
