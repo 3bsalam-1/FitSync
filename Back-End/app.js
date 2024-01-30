@@ -17,6 +17,7 @@ const AppError = require("./utils/appError");
 const { ERROR } = require("./utils/httpStatusText");
 const authRouter = require("./routes/auth.router");
 const authCW = require("./routes/authCW.router");
+const userInfoRouter = require("./routes/userInfo.route");
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(
     },
   })
 );
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -41,6 +43,7 @@ app.use(helmet());
 
 app.use("/api/user", authRouter);
 app.use("/auth", authCW);
+app.use("/api/userInfo", userInfoRouter);
 
 app.all("*", (req, res, next) => [
   next(AppError.create("Page not found", ERROR, 404)),
