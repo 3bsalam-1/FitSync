@@ -19,14 +19,47 @@ exports.loginWith = asyncWrapper(async(req,res,next)=>{
   });
 })
 
+// exports.Register = asyncWrapper(async (req, res, next) => {
+//   const newUser = await User.create(req.body);
+//   const token = signToken(newUser._id);
+//   res.status(201).json({
+//     status: SUCCESS,
+//     token,
+//     user: newUser,
+//   });
+// });
+
+
 exports.Register = asyncWrapper(async (req, res, next) => {
-  const newUser = await User.create(req.body);
+  const newUser = new User(req.body);
+  newUser.code = Math.random().toString().slice(2, 8);
+  newUser.codeExpires = Date.now() + 10 * 60 * 1000;
+  await newUser.save();
   const token = signToken(newUser._id);
-  res.status(201).json({
-    status: SUCCESS,
-    token,
-    user: newUser,
-  });
+  try {
+    await sendEmail({
+      email: newUser.email,
+      username: newUser.username,
+      code: newUser.code,
+      subject: "Verfiy Email",
+    });
+    res.status(200).json({
+      status: SUCCESS,
+      token,
+      message: "Code sent to email! Check Your gamil account",
+    });
+  } catch (err) {
+    newUser.code = undefined;
+    newUser.codeExpires = undefined;
+    await newUser.save({ validateBeforeSave: false });
+    return next(
+      AppError.create(
+        "There was an error sending the email. try again later!",
+        FAIL,
+        500
+      )
+    );
+  }
 });
 
 exports.sendCodeVerfiy = asyncWrapper(async (req, res, next) => {
