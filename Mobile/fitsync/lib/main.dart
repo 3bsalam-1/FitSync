@@ -1,3 +1,5 @@
+import 'package:fitsync/screens/Home/home_screen.dart';
+import 'package:fitsync/screens/Home/profile_screen.dart';
 import 'package:fitsync/screens/Login/SignUp_screen.dart';
 import 'package:fitsync/screens/Login/forgot_password_screen.dart';
 import 'package:fitsync/screens/Login/login_screen.dart';

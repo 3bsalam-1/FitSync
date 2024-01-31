@@ -1,8 +1,11 @@
 import 'package:fitsync/shared/colors/colors.dart';
-import 'package:fitsync/shared/widgets/custom_button.dart';
+import 'package:fitsync/shared/widgets/global/custom_button.dart';
+
 import 'package:fitsync/shared/widgets/login_comp/custom_icon_button.dart';
+import 'package:fitsync/shared/widgets/login_comp/custom_otp_widget.dart';
 import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:iconly/iconly.dart';
 
@@ -60,7 +63,31 @@ class VerificationPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 27,
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  CustomOtpWidget(
+                    first: true,
+                    last: false,
+                  ),
+                  CustomOtpWidget(
+                    first: false,
+                    last: false,
+                  ),
+                  CustomOtpWidget(
+                    first: false,
+                    last: false,
+                  ),
+                  CustomOtpWidget(
+                    first: false,
+                    last: true,
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.07,
               ),
               CustomButton(label: "Verify", onPressed: () {}),
             ],

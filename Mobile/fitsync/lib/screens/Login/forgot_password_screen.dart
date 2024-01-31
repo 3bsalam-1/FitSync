@@ -1,5 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
-import 'package:fitsync/shared/widgets/custom_button.dart';
+
+import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:fitsync/shared/widgets/login_comp/custom_icon_button.dart';
 import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
 import 'package:flutter/material.dart';
@@ -76,7 +77,7 @@ class forgotPasswordPage extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height*0.07,
+                height: MediaQuery.of(context).size.height * 0.07,
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 4),
@@ -88,7 +89,6 @@ class forgotPasswordPage extends StatelessWidget {
               SizedBox(
                 height: 8,
               ),
-             
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -110,9 +110,6 @@ class forgotPasswordPage extends StatelessWidget {
                 height: 27,
               ),
               CustomButton(label: "Send", onPressed: () {}),
-              
-             
-              
             ],
           ),
         ),
