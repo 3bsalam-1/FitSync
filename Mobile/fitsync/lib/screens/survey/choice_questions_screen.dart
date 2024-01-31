@@ -89,7 +89,7 @@ class ChoiceQuestionScreen extends StatelessWidget {
                                   context,
                                   const ExerciseSurveyScreen(),
                                 );
-                              } else if (indexQuestion.length == indexQuestion[0]) {
+                              } else if (questionSurvey.length-1 == indexQuestion[0]) {
                                 // TODO navigate to the home screen
                               } else {
                                 context.read<ChoiseQuestionsCubit>().isSelected(

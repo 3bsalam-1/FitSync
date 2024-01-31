@@ -1,3 +1,6 @@
+import 'package:fitsync/screens/survey/welcome_survey_screen.dart';
+import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
+
 import '../shared/colors/colors.dart';
 import '../shared/widgets/global/custom_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +21,7 @@ class SplashScreen extends StatelessWidget {
             'assets/images/logo.png',
             fit: BoxFit.fill,
             width: double.infinity,
-            height: height*0.5,
+            height: height * 0.5,
           ),
           const SizedBox(height: 30),
           Image.asset(
@@ -35,9 +38,12 @@ class SplashScreen extends StatelessWidget {
           ),
           const Spacer(),
           CustomIconButton(
-            label: 'start now', 
-            onPressed: (){
-              // TODO here
+            label: 'start now',
+            onPressed: () {
+              AnimatedNavigator().pushAndRemoveUntil(
+                context,
+                const WelcomeSurveyScreen(),
+              );
             },
           ),
           const SizedBox(height: 30),

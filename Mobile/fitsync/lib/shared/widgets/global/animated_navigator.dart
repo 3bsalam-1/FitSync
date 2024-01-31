@@ -6,6 +6,7 @@ class AnimatedNavigator {
     Navigator.pushAndRemoveUntil(
       context, 
       PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
         pageBuilder: (context, animation, secondaryAnimation) => screen,
         transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
           opacity: animation,
