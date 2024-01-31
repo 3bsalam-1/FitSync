@@ -48,6 +48,10 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    firstTime:{
+        type: Boolean,
+        default: true
+    },
     code:{
         type: String,
         default: undefined
