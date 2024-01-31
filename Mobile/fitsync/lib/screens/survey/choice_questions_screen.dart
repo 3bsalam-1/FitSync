@@ -1,15 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../cubits_logic/cubit/animated_list_view.dart';
-import '../../../cubits_logic/cubit/choise_questions_cubit.dart';
-import '../../question_survey.dart';
+import '../../cubits_logic/cubit/animated_list_view.dart';
+import '../../cubits_logic/cubit/choise_questions_cubit.dart';
+import '../../shared/question_survey.dart';
 import 'package:flutter/material.dart';
-import '../../colors/colors.dart';
-import '../global/animated_navigator.dart';
-import 'custom_icon_app_bar.dart';
-import 'list_question_item.dart';
+import '../../shared/colors/colors.dart';
+import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
+import '../../shared/widgets/survey_comp/list_question_item.dart';
 
-class ChoiceQuestion extends StatelessWidget {
-  const ChoiceQuestion({super.key});
+class ChoiceQuestionScreen extends StatelessWidget {
+  const ChoiceQuestionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

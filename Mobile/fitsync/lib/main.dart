@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'cubits_logic/cubit/text_form_validation.dart';
 import 'screens/survey/welcome_survey_screen.dart';
 import 'shared/pref.dart';
-import 'shared/widgets/survey_comp/weight_question.dart';
+import 'screens/survey/weight_question_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: WeightQuestion()//WelcomeSurveyScreen(), 
+        home: WelcomeSurveyScreen(), 
       ),
     );
   }

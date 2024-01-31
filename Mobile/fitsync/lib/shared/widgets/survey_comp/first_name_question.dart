@@ -1,4 +1,4 @@
-import '../survey_comp/age_question.dart';
+import '../../../screens/survey/age_question_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../cubits_logic/cubit/text_form_validation.dart';
 import '../global/animated_navigator.dart';
@@ -18,7 +18,7 @@ class FirstNameQuestion extends StatelessWidget {
         if (state[0] == 1) {
           AnimatedNavigator().push(
             context,
-            const AgeQuestion(),
+            const AgeQuestionScreen(),
           );
         }
       }, 

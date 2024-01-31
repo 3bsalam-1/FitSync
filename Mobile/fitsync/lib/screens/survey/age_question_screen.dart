@@ -1,15 +1,15 @@
-import '../survey_comp/weight_question.dart';
+import 'weight_question_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../cubits_logic/cubit/text_form_validation.dart';
-import '../../colors/colors.dart';
-import '../global/animated_navigator.dart';
-import '../global/custom_button.dart';
-import 'custom_icon_app_bar.dart';
-import 'custom_text_form_field.dart';
+import '../../cubits_logic/cubit/text_form_validation.dart';
+import '../../shared/colors/colors.dart';
+import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/global/custom_button.dart';
+import '../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
+import '../../shared/widgets/survey_comp/custom_text_form_field.dart';
 
-class AgeQuestion extends StatelessWidget {
-  const AgeQuestion({super.key});
+class AgeQuestionScreen extends StatelessWidget {
+  const AgeQuestionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class AgeQuestion extends StatelessWidget {
           if (state[1] == 1) {
             AnimatedNavigator().push(
               context,
-              const WeightQuestion(),
+              const WeightQuestionScreen(),
             );
           }
         }, 

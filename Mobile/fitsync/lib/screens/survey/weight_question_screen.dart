@@ -1,17 +1,17 @@
-import '../survey_comp/choice_questions.dart';
-import '../../../cubits_logic/cubit/weight_switch_measure_cubit.dart';
-import '../survey_comp/custom_toggle_switch.dart';
+import 'choice_questions_screen.dart';
+import '../../cubits_logic/cubit/weight_switch_measure_cubit.dart';
+import '../../shared/widgets/survey_comp/custom_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../cubits_logic/cubit/text_form_validation.dart';
-import '../../colors/colors.dart';
-import '../global/animated_navigator.dart';
-import '../global/custom_button.dart';
-import 'custom_icon_app_bar.dart';
-import 'custom_text_form_field.dart';
+import '../../cubits_logic/cubit/text_form_validation.dart';
+import '../../shared/colors/colors.dart';
+import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/global/custom_button.dart';
+import '../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
+import '../../shared/widgets/survey_comp/custom_text_form_field.dart';
 
-class WeightQuestion extends StatelessWidget {
-  const WeightQuestion({super.key});
+class WeightQuestionScreen extends StatelessWidget {
+  const WeightQuestionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class WeightQuestion extends StatelessWidget {
           if (validate[2] == 1) {
             AnimatedNavigator().push(
               context,
-              const ChoiceQuestion(),
+              const ChoiceQuestionScreen(),
             );
           }
         }, builder: (context, isValidated) {
