@@ -51,7 +51,6 @@ class CustomToggleSwitch extends StatelessWidget {
               ),
             ),
           ),
-          
           InkWell(
             onTap: onTapBs,
             child: Container(

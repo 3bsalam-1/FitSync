@@ -1,10 +1,12 @@
+import 'package:fitsync/screens/survey/choice_questions_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'cubits_logic/cubit/choise_questions_cubit.dart';
 import 'cubits_logic/cubit/text_form_validation.dart';
+import 'screens/survey/exercise_survey_screen.dart';
 import 'screens/survey/welcome_survey_screen.dart';
 import 'shared/pref.dart';
-import 'screens/survey/weight_question_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +26,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => BluetoothCubit()..checkBluetoothConnectivity(),
+        ),
+        BlocProvider(
+          create: (context) => ChoiseQuestionsCubit(),
         ),
       ],
       child: const MaterialApp(

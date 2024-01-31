@@ -1,3 +1,4 @@
+import 'exercise_survey_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits_logic/cubit/animated_list_view.dart';
 import '../../cubits_logic/cubit/choise_questions_cubit.dart';
@@ -16,9 +17,6 @@ class ChoiceQuestionScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => ChoiseQuestionsCubit(),
-        ),
-        BlocProvider(
           create: (context) => AnimatedListView()..startAnimation(),
         ),
       ],
@@ -28,8 +26,15 @@ class ChoiceQuestionScreen extends StatelessWidget {
             builder: (context, indexQuestion) {
               return Scaffold(
                 appBar: customIconAppBar(onPressed: () {
+                  if (indexQuestion[0] == 7) {
+                    AnimatedNavigator().pushAndRemoveUntil(
+                      context,
+                      const ExerciseSurveyScreen(),
+                    );
+                  }
                   // if the number of the questions > 0 then back to prevoius question
-                  if (indexQuestion[0] > 0) {
+                  else if (indexQuestion[0] > 0 &&
+                      indexQuestion[0] < questionSurvey.length) {
                     Future.delayed(
                       const Duration(milliseconds: 500),
                       () {
@@ -40,12 +45,11 @@ class ChoiceQuestionScreen extends StatelessWidget {
                       const Duration(seconds: 2),
                       () {
                         context.read<ChoiseQuestionsCubit>().backQuestion(
-                          indexQuestion[0],
-                        );
+                              indexQuestion[0],
+                            );
                         context.read<AnimatedListView>().startAnimation();
                       },
                     );
-                    
                   } else {
                     AnimatedNavigator().pop(context);
                   }
@@ -80,25 +84,40 @@ class ChoiceQuestionScreen extends StatelessWidget {
                               questionSurvey[indexQuestion[0]].choice.length,
                           itemBuilder: (_, index) => InkWell(
                             onTap: () {
-                              context.read<ChoiseQuestionsCubit>().isSelected(
-                                indexQuestion[0],
-                                index,
-                              );
-                              Future.delayed(
-                                const Duration(milliseconds: 500),
-                                () {
-                                  context.read<AnimatedListView>().stopAnimation();
-                                },
-                              );
-                              Future.delayed(
-                                const Duration(seconds: 2),
-                                () {
-                                  context.read<ChoiseQuestionsCubit>().nextQuestion(
-                                    indexQuestion[0],
-                                  );
-                                  context.read<AnimatedListView>().startAnimation();
-                                },
-                              );
+                              if (indexQuestion[0] == 6) {
+                                AnimatedNavigator().pushAndRemoveUntil(
+                                  context,
+                                  const ExerciseSurveyScreen(),
+                                );
+                              } else if (indexQuestion.length == indexQuestion[0]) {
+                                // TODO navigate to the home screen
+                              } else {
+                                context.read<ChoiseQuestionsCubit>().isSelected(
+                                      indexQuestion[0],
+                                      index,
+                                    );
+                                Future.delayed(
+                                  const Duration(milliseconds: 500),
+                                  () {
+                                    context
+                                        .read<AnimatedListView>()
+                                        .stopAnimation();
+                                  },
+                                );
+                                Future.delayed(
+                                  const Duration(seconds: 2),
+                                  () {
+                                    context
+                                        .read<ChoiseQuestionsCubit>()
+                                        .nextQuestion(
+                                          indexQuestion[0],
+                                        );
+                                    context
+                                        .read<AnimatedListView>()
+                                        .startAnimation();
+                                  },
+                                );
+                              }
                             },
                             borderRadius: BorderRadius.circular(19),
                             child: ListQuestionItem(

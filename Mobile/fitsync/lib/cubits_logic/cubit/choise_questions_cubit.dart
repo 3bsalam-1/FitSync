@@ -10,7 +10,7 @@ class ChoiseQuestionsCubit extends Cubit<List<int>> {
   void backQuestion(int questionIndex) {
     List<String> answer = Prefs.getStringList('answers');
     emit([
-      questionIndex - 1, 
+      questionIndex - 1,
       int.parse(answer[questionIndex - 1]),
     ]);
   }
@@ -23,5 +23,17 @@ class ChoiseQuestionsCubit extends Cubit<List<int>> {
     }
     Prefs.setStringList('answers', answers);
     emit([index, answerIndex]);
+  }
+
+  void navigateToNewQuestion() {
+    emit([7, -1]);
+  }
+
+  void navigateToPreviuoseQuestion() {
+    List<String> answer = Prefs.getStringList('answers');
+    emit([
+      6,
+      int.parse(answer[6]),
+    ]);
   }
 }
