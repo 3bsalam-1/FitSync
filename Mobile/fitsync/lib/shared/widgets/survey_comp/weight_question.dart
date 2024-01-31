@@ -1,7 +1,13 @@
+import '../survey_comp/choice_questions.dart';
+import '../../../cubits_logic/cubit/weight_switch_measure_cubit.dart';
+import '../survey_comp/custom_toggle_switch.dart';
 import 'package:flutter/material.dart';
-import 'package:toggle_switch/toggle_switch.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../cubits_logic/cubit/text_form_validation.dart';
 import '../../colors/colors.dart';
+import '../global/animated_navigator.dart';
 import '../global/custom_button.dart';
+import 'custom_icon_app_bar.dart';
 import 'custom_text_form_field.dart';
 
 class WeightQuestion extends StatelessWidget {
@@ -9,57 +15,108 @@ class WeightQuestion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'What’s Your Weight?',
-          style: TextStyle(
-            fontSize: 26,
-            fontWeight: FontWeight.w600,
-            color: black,
-          ),
-        ),
-        const Spacer(),
-        const CustomTextFormField(
-          hintText: '0',
-        ),
-        ToggleSwitch(
-          cornerRadius: 20.0,
-          activeBgColors: const [
-            [white],
-            [white],
-          ],
-          borderColor: const [purple2],
-          borderWidth: 1,
-          activeFgColor: black,
-          inactiveBgColor: purple2,
-          inactiveFgColor: white,
-          initialLabelIndex: 1,
-          totalSwitches: 2,
-          labels: const ['kg', '1bs'],
-          customTextStyles: const [
-            TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),
-          ],
-          radiusStyle: true,
-          onToggle: (index) {
-            // TODO here
-            print('switched to: $index');
-          },
-        ),
-        const Spacer(),
-        CustomButton(
-          label: 'Continue',
-          horizontalPadding: 0,
+    final formKey = GlobalKey<FormState>();
+    return BlocProvider(
+      create: (context) => WeightSwitchMeasureCubit(),
+      child: Scaffold(
+        appBar: customIconAppBar(
           onPressed: () {
-            // TODO
+            AnimatedNavigator().pop(context);
           },
         ),
-        const SizedBox(height: 30),
-      ],
+        body: BlocConsumer<TextFormValidation, List<int>>(
+          listener: (context, validate) {
+          if (validate[2] == 1) {
+            AnimatedNavigator().push(
+              context,
+              const ChoiceQuestion(),
+            );
+          }
+        }, builder: (context, isValidated) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Form(
+              key: formKey,
+              child: BlocBuilder<WeightSwitchMeasureCubit,
+                  WeightSwitchMeasureInitial>(builder: (context, state) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'What’s Your Weight?',
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.w600,
+                        color: black,
+                      ),
+                    ),
+                    const Spacer(),
+                    CustomTextFormField(
+                      hintText: '0',
+                      keyboardType: TextInputType.number,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return '';
+                        }
+                        return null;
+                      },
+                      controller: state.controller,
+                    ),
+                    Center(
+                      child: CustomToggleSwitch(
+                        onTapkg: () {
+                          // if the controller has value then convert it
+                          if (state.controller.text.isNotEmpty) {
+                            // convert from 1bs to kg
+                            if (!state.isKgSelected) {
+                              context
+                                  .read<WeightSwitchMeasureCubit>()
+                                  .convertToKg(state.controller);
+                            }
+                          }
+                        },
+                        isSelected: state.isKgSelected,
+                        onTapBs: () {
+                          // if the controller has value then convert it
+                          if (state.controller.text.isNotEmpty) {
+                            // convert from kg to 1bs
+                            if (state.isKgSelected) {
+                              context
+                                  .read<WeightSwitchMeasureCubit>()
+                                  .convertToBs(state.controller);
+                            }
+                          }
+                        },
+                      ),
+                    ),
+                    isValidated[2] == 0
+                        ? const Center(
+                            child: Text(
+                              'Can Not Be Empty',
+                              style: TextStyle(
+                                color: red,
+                              ),
+                            ),
+                          )
+                        : const SizedBox(),
+                    const Spacer(),
+                    CustomButton(
+                      label: 'Continue',
+                      horizontalPadding: 0,
+                      onPressed: () {
+                        context
+                            .read<TextFormValidation>()
+                            .weightValidate(formKey);
+                      },
+                    ),
+                    const SizedBox(height: 30),
+                  ],
+                );
+              }),
+            ),
+          );
+        }),
+      ),
     );
   }
 }
