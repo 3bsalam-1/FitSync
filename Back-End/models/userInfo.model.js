@@ -14,19 +14,19 @@ const userInfoSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'Height is required']
     },
-    age: {
-        type: Number,
+    birthdate: {
+        type: Date,
         required: [true, 'Age is required']
     },
     gender: {
-        type: String,
+        type: Number,
         required: [true, 'Gender is required'],
-        enum: ['Male', 'Female', 'Other']
+        enum: [1,0]
     },
     activityLevel: {
-        type: String,
+        type: Number,
         required: [true, 'Activity Level is required'],
-        enum: ['Low', 'Moderate', 'High']
+        enum: [0,1,2,3,4]
     },
     systolicBP: {
         type: Number,
@@ -40,42 +40,39 @@ const userInfoSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'Cholesterol Level is required']
     },
-    bloodSugar: {
+    bloodsugar: {
         type: Number,
         required: [true, 'Blood Sugar is required']
     },
     hypertension: {
-        type: Boolean,
-        default: false
+        type: Number,
+        default: 0
     },
     diabetes: {
-        type: Boolean,
-        default: false
+        type: Number,
+        default: 0
     },
     heartCondition: {
-        type: Boolean,
-        default: false
+        type: Number,
+        default: 0
     },
     LowPressure: {
         type: Number,
         required: [true, 'LowPressure is required']
     },
-    bmr: {
+    BMR: {
         type: Number,
         required: [true, 'BMR is required']
     },
     kneePain: {
-        type: Boolean,
-        default: false
+        type: Number,
+        default: 0
     },
     backPain: {
-        type: Boolean,
-        default: false
+        type: Number,
+        default: 0
     },
-    vegetarian:{
-        type: Boolean,
-        default: false
-    }
+
 });
 
 module.exports = mongoose.model('user-info', userInfoSchema)
