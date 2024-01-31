@@ -5,28 +5,81 @@ const asyncWrapper = require("../utils/asyncWrapper");
 const AppError = require("../utils/appError");
 const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
 const sendEmail = require("../utils/email");
+const userInfo = require('../models/userInfo.model')
 
-const signToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "30d" });
-};
+
+const signToken = async (user)=>{
+  if(user.firstTime){
+    return jwt.sign({ id:user._id,firstTime:user.firstTime}, process.env.JWT_SECRET, { expiresIn:"1h" });
+  }else{
+    let newUserInfo = await userInfo.find({userId: user._id});
+    return jwt.sign({
+         id: user._id,
+         firstName: user.firstName,
+         lastName: user.lastName,
+         username: user.username,
+         email: user.email,
+         avatar: user.avatar,
+         weight: newUserInfo.weight,
+         height: newUserInfo.height,
+         birthdate: newUserInfo.birthdate,
+         gender: newUserInfo.gender,
+         activityLevel: newUserInfo.activityLevel,
+         systolicBP: newUserInfo.systolicBP,
+         cholesterolLevel: newUserInfo.cholesterolLevel,
+         bloodsugar: newUserInfo.bloodsugar,
+         hypertension: newUserInfo.hypertension,
+         diabetes: newUserInfo.diabetes,
+         heartCondition: newUserInfo.heartCondition,
+         BMR: newUserInfo.BMR,
+         kneePain: newUserInfo.kneePain,  
+         backPain: newUserInfo.backPain,
+         firstTime: user.firstTime
+     }, process.env.JWT_SECRET, { expiresIn: "30d" });
+  }
+}
+
 
 exports.loginWith = asyncWrapper(async(req,res,next)=>{
   const user = req.user;
-  const token = signToken(user._id);
+  let token = await signToken(user)
   res.status(200).json({
     status: SUCCESS,
     token,
   });
 })
 
+
 exports.Register = asyncWrapper(async (req, res, next) => {
-  const newUser = await User.create(req.body);
-  const token = signToken(newUser._id);
-  res.status(201).json({
-    status: SUCCESS,
-    token,
-    user: newUser,
-  });
+  const newUser = new User(req.body);
+  newUser.code = Math.random().toString().slice(2, 8);
+  newUser.codeExpires = Date.now() + 10 * 60 * 1000;
+  await newUser.save();
+  const token = await signToken(newUser);
+  try {
+    await sendEmail({
+      email: newUser.email,
+      username: newUser.username,
+      code: newUser.code,
+      subject: "Verfiy Email",
+    });
+    res.status(200).json({
+      status: SUCCESS,
+      token,
+      message: "Code sent to email! Check Your gamil account",
+    });
+  } catch (err) {
+    newUser.code = undefined;
+    newUser.codeExpires = undefined;
+    await newUser.save({ validateBeforeSave: false });
+    return next(
+      AppError.create(
+        "There was an error sending the email. try again later!",
+        FAIL,
+        500
+      )
+    );
+  }
 });
 
 exports.sendCodeVerfiy = asyncWrapper(async (req, res, next) => {
@@ -72,7 +125,7 @@ exports.verfiyAccount = asyncWrapper(async (req, res, next) => {
   user.code = undefined;
   user.codeExpires = undefined;
   await user.save({ validateBeforeSave: false });
-  const token = signToken(user._id);
+  const token = await signToken(user);
   res.status(200).json({
     status: SUCCESS,
     token,
@@ -104,7 +157,7 @@ exports.Login = asyncWrapper(async (req, res, next) => {
   if (!user || !(await user.correctPassword(password, user.password))) {
     return next(AppError.create("Incorrect email or password", ERROR, 401));
   }
-  const token = signToken(user._id);
+  let token = await signToken(user)
   res.status(200).json({
     status: SUCCESS,
     token,
@@ -244,7 +297,7 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
   user.codeExpires = undefined;
   user.isVerify = true;
   await user.save();
-  const token = signToken(user._id);
+  const token = await signToken(user);
   res.status(200).json({
     status: SUCCESS,
     token,
@@ -263,7 +316,7 @@ exports.updatePassword = asyncWrapper(async (req, res, next) => {
   user.passwordConfirm = req.body.passwordConfirm;
   await user.save();
 
-  const token = signToken(user._id);
+  const token = await signToken(user);
   res.status(200).json({
     status: SUCCESS,
     token,

@@ -1,5 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
-import 'package:fitsync/shared/widgets/custom_button.dart';
+import 'package:fitsync/shared/widgets/global/custom_button.dart';
+
 import 'package:fitsync/shared/widgets/login_comp/custom_icon_button.dart';
 import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
 import 'package:flutter/material.dart';
@@ -109,6 +110,8 @@ class loginPage extends StatelessWidget {
                         width: 24,
                         height: 24,
                       ),
+                      websiteUri:
+                          Uri.parse('https://fitsync.onrender.com/auth/google'),
                     ),
                   ),
                   Icon_Button(
@@ -118,12 +121,13 @@ class loginPage extends StatelessWidget {
                     size: 30,
                   )),
                   Icon_Button(
-                    principle_widget: Image.asset(
-                      "assets/images/Icons/facebook_icon.png",
-                      width: 30,
-                      height: 30,
-                    ),
-                  ),
+                      principle_widget: Image.asset(
+                        "assets/images/Icons/facebook_icon.png",
+                        width: 30,
+                        height: 30,
+                      ),
+                      websiteUri: Uri.parse(
+                          'https://fitsync.onrender.com/auth/facebook')),
                 ],
               ),
               SizedBox(

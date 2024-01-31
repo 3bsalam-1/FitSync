@@ -3,6 +3,14 @@ const validator = require('validator');
 const bcrypt = require('bcrypt');
 
 const userSchema = new mongoose.Schema({
+    firstName:{
+        type: String,
+        required: [true,"FirstName is required"],
+    },
+    lastName:{
+        type: String,
+        required: [true,"LastName is required"],
+    },
     username:{
         type: String,
         required: [true,"Username is required"],
@@ -39,6 +47,10 @@ const userSchema = new mongoose.Schema({
     isVerify:{
         type: Boolean,
         default: false
+    },
+    firstTime:{
+        type: Boolean,
+        default: true
     },
     code:{
         type: String,
