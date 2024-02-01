@@ -1,9 +1,9 @@
 import 'choice_questions_screen.dart';
-import '../../cubits_logic/cubit/weight_switch_measure_cubit.dart';
+import '../../cubits_logic/survey_logic/weight_switch_measure_cubit.dart';
 import '../../shared/widgets/survey_comp/custom_toggle_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../cubits_logic/cubit/text_form_validation.dart';
+import '../../cubits_logic/survey_logic/text_form_validation.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_button.dart';

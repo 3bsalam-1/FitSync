@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../cubits_logic/cubit/choice_gender.dart';
+import '../../cubits_logic/survey_logic/choice_gender.dart';
 import '../../screens/survey/survey_screen.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_button.dart';

@@ -3,7 +3,7 @@ import '../../shared/widgets/global/custom_button.dart';
 import '../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../cubits_logic/cubit/choise_questions_cubit.dart';
+import '../../cubits_logic/survey_logic/choise_questions_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 

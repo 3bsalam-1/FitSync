@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'package:flutter/material.dart';
-import 'cubits_logic/cubit/choise_questions_cubit.dart';
-import 'cubits_logic/cubit/text_form_validation.dart';
+import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
+import 'cubits_logic/survey_logic/text_form_validation.dart';
 import 'screens/splash_screen.dart';
 import 'shared/pref.dart';
 

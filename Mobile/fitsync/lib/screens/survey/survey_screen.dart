@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../cubits_logic/cubit/choise_questions_cubit.dart';
+import '../../cubits_logic/survey_logic/choise_questions_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import '../../shared/widgets/survey_comp/first_name_question.dart';

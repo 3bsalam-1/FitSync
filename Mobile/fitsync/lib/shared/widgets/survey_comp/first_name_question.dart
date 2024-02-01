@@ -1,6 +1,6 @@
 import '../../../screens/survey/age_question_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../cubits_logic/cubit/text_form_validation.dart';
+import '../../../cubits_logic/survey_logic/text_form_validation.dart';
 import '../global/animated_navigator.dart';
 import '../global/custom_button.dart';
 import '../../widgets/survey_comp/custom_text_form_field.dart';
