@@ -88,7 +88,6 @@ class ExerciseSurveyScreen extends StatelessWidget {
               CustomButton(
                 label: 'continue',
                 onPressed: () {
-                  context.read<ChoiseQuestionsCubit>().navigateToNewQuestion();
                   AnimatedNavigator().pushAndRemoveUntil(
                     context,
                     const ChoiceQuestionScreen(),

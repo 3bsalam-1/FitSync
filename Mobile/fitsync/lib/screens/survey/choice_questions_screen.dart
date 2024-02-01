@@ -84,40 +84,36 @@ class ChoiceQuestionScreen extends StatelessWidget {
                               questionSurvey[indexQuestion[0]].choice.length,
                           itemBuilder: (_, index) => InkWell(
                             onTap: () {
-                              if (indexQuestion[0] == 6) {
-                                AnimatedNavigator().pushAndRemoveUntil(
-                                  context,
-                                  const ExerciseSurveyScreen(),
-                                );
-                              } else if (questionSurvey.length-1 == indexQuestion[0]) {
-                                // TODO navigate to the home screen
-                              } else {
-                                context.read<ChoiseQuestionsCubit>().isSelected(
-                                      indexQuestion[0],
-                                      index,
+                              context.read<ChoiseQuestionsCubit>().isSelected(
+                                indexQuestion[0],
+                                index,
+                              );
+                              Future.delayed(
+                                const Duration(milliseconds: 500),
+                                () {
+                                  context.read<AnimatedListView>().stopAnimation();
+                                },
+                              );
+                              Future.delayed(
+                                const Duration(seconds: 2),
+                                () {
+                                  if (indexQuestion[0] == 6) {
+                                    context.read<ChoiseQuestionsCubit>().navigateToNewQuestion();
+                                    AnimatedNavigator().pushAndRemoveUntil(
+                                      context,
+                                      const ExerciseSurveyScreen(),
                                     );
-                                Future.delayed(
-                                  const Duration(milliseconds: 500),
-                                  () {
-                                    context
-                                        .read<AnimatedListView>()
-                                        .stopAnimation();
-                                  },
-                                );
-                                Future.delayed(
-                                  const Duration(seconds: 2),
-                                  () {
-                                    context
-                                        .read<ChoiseQuestionsCubit>()
-                                        .nextQuestion(
-                                          indexQuestion[0],
-                                        );
-                                    context
-                                        .read<AnimatedListView>()
-                                        .startAnimation();
-                                  },
-                                );
-                              }
+                                  } else if (questionSurvey.length-1 == indexQuestion[0]) {
+                                    // TODO navigate to the home screen
+                                  } 
+                                  else {
+                                    context.read<ChoiseQuestionsCubit>().nextQuestion(
+                                      indexQuestion[0],
+                                    );
+                                  }
+                                  context.read<AnimatedListView>().startAnimation();
+                                },
+                              );
                             },
                             borderRadius: BorderRadius.circular(19),
                             child: ListQuestionItem(

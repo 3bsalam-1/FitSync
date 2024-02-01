@@ -27,13 +27,17 @@ class SplashScreen extends StatelessWidget {
           Image.asset(
             'assets/images/logo_name.png',
           ),
-          const Text(
-            'Fuel Your Fitness Journey with',
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.w600,
-              decoration: TextDecoration.none,
-              color: gray,
+          const SizedBox(
+            width: double.maxFinite,
+            child: Text(
+              'Fuel Your Fitness Journey with',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.w600,
+                decoration: TextDecoration.none,
+                color: gray,
+              ),
             ),
           ),
           const Spacer(),

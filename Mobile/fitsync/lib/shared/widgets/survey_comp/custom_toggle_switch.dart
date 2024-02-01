@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-
 import '../../colors/colors.dart';
 
 class CustomToggleSwitch extends StatelessWidget {
