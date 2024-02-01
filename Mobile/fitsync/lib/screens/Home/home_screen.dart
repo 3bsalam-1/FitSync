@@ -1,4 +1,5 @@
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:fitsync/shared/widgets/home_comp/custom_properties_card.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -12,11 +13,14 @@ class HomePage extends StatelessWidget {
       backgroundColor: white,
       appBar: AppBar(
         backgroundColor: white,
+        
           title: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+            UserWidget(),
               Column(
                 children: [
+                  
                   Text(
                     "Good Morning",
                     style: TextStyle(
