@@ -2,7 +2,7 @@ import 'exercise_survey_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits_logic/survey_logic/animated_list_view.dart';
 import '../../cubits_logic/survey_logic/choise_questions_cubit.dart';
-import '../../shared/question_survey.dart';
+import '../../shared/widgets/survey_comp/question_survey.dart';
 import 'package:flutter/material.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
