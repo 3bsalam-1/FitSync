@@ -35,7 +35,10 @@ passport.use(
         name = name + num;
       }
 
-      name = name.split(" ").join("");
+      name = name.split(" ");
+      firstName = name[0];
+      lastName = name[1];
+      name=name.join("");
       const newUser = new User({ username: name, email, isVerify: true });
 
       await newUser.save({ validateBeforeSave: false });
