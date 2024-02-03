@@ -1,1001 +1,1001 @@
-Exercise Type,Duration (minutes),Intensity Level,Hypertension,Low Pressure,Diabetes,Heart Condition
-Balance,23,High,True,True,False,False
-Flexibility,50,Moderate,True,True,True,True
-Aerobic,66,Low,True,True,True,True
-Flexibility,51,Moderate,True,True,True,True
-Strength Training,43,Moderate,True,True,True,True
-Balance,12,Moderate,True,False,False,False
-Balance,54,Low,True,True,False,True
-Strength Training,34,Low,False,False,True,False
-Flexibility,70,High,False,False,False,True
-Flexibility,32,High,False,True,True,True
-Strength Training,32,Moderate,True,False,False,False
-Flexibility,49,High,False,False,False,True
-Aerobic,48,Moderate,False,True,True,False
-Aerobic,13,Moderate,False,True,False,False
-Aerobic,34,Moderate,False,True,False,False
-Balance,47,Low,False,False,True,False
-Balance,45,High,False,False,True,False
-Strength Training,14,Low,False,True,False,False
-Flexibility,36,High,True,False,False,False
-Strength Training,52,Moderate,False,False,False,True
-Strength Training,47,High,False,False,False,False
-Flexibility,37,Low,True,True,False,False
-Aerobic,58,Low,True,False,False,True
-Flexibility,28,Low,False,False,False,True
-Balance,43,Low,True,True,False,True
-Strength Training,44,Moderate,False,False,True,True
-Flexibility,7,Low,False,False,True,False
-Flexibility,47,Moderate,True,True,False,True
-Aerobic,51,Moderate,False,True,False,False
-Strength Training,39,Moderate,False,True,True,True
-Aerobic,54,Low,True,True,False,True
-Flexibility,15,Low,False,True,True,False
-Balance,60,Moderate,False,False,False,False
-Flexibility,34,High,False,True,True,False
-Balance,36,High,False,False,True,True
-Strength Training,50,Moderate,True,False,False,False
-Balance,20,Low,True,False,True,False
-Balance,13,Moderate,False,False,False,False
-Aerobic,14,Moderate,True,True,False,False
-Strength Training,32,Low,False,True,False,False
-Strength Training,28,Moderate,False,False,True,True
-Aerobic,40,High,False,False,False,False
-Balance,20,Low,True,False,False,True
-Flexibility,27,Moderate,True,False,False,True
-Aerobic,21,Low,False,False,False,False
-Aerobic,17,Low,False,True,False,True
-Flexibility,65,Moderate,True,True,False,True
-Balance,43,Low,True,True,False,False
-Aerobic,44,Low,True,False,False,True
-Flexibility,10,Low,True,False,True,True
-Strength Training,40,Low,True,True,True,False
-Strength Training,58,Moderate,False,True,False,True
-Flexibility,41,High,True,True,False,False
-Flexibility,25,Moderate,True,True,False,True
-Flexibility,54,Moderate,True,False,True,True
-Aerobic,24,Moderate,False,True,False,False
-Balance,55,High,False,False,False,False
-Balance,18,Low,False,False,True,True
-Strength Training,23,Moderate,False,False,True,True
-Flexibility,33,High,True,True,False,True
-Balance,57,Moderate,True,False,False,False
-Aerobic,20,Low,True,False,False,False
-Strength Training,35,Moderate,True,False,False,True
-Flexibility,12,Low,True,True,True,False
-Flexibility,32,Moderate,False,False,False,False
-Aerobic,36,Low,False,False,False,False
-Flexibility,8,Moderate,False,False,True,False
-Aerobic,32,Low,True,False,False,False
-Balance,41,High,True,False,False,True
-Aerobic,44,Low,True,True,False,True
-Flexibility,29,Moderate,False,False,False,True
-Strength Training,21,Moderate,False,False,False,True
-Flexibility,38,High,False,True,False,False
-Aerobic,27,Low,False,False,True,True
-Flexibility,29,Moderate,False,True,True,False
-Balance,49,Moderate,False,True,False,True
-Aerobic,36,Low,True,True,False,True
-Flexibility,44,Moderate,False,False,True,True
-Aerobic,23,Moderate,False,True,True,False
-Aerobic,25,Low,False,False,False,True
-Flexibility,22,Low,False,False,True,False
-Aerobic,52,Moderate,True,True,False,False
-Balance,55,Low,False,False,False,False
-Flexibility,14,Low,False,False,True,False
-Flexibility,7,High,True,False,True,False
-Aerobic,30,Low,True,False,True,True
-Aerobic,51,Low,True,True,False,True
-Balance,44,Moderate,True,False,True,False
-Flexibility,40,Moderate,True,True,False,False
-Aerobic,24,Low,True,True,False,True
-Flexibility,33,High,True,True,False,False
-Aerobic,50,Low,True,False,True,False
-Flexibility,18,Moderate,False,True,True,False
-Flexibility,35,High,True,True,True,True
-Balance,19,High,True,True,True,False
-Flexibility,27,High,False,True,True,True
-Aerobic,56,Low,True,True,True,True
-Aerobic,62,Low,True,False,True,True
-Strength Training,16,Moderate,True,True,True,True
-Balance,27,Low,False,False,True,True
-Aerobic,41,Low,False,False,True,True
-Balance,43,Low,True,True,True,False
-Balance,39,Low,True,True,True,False
-Flexibility,13,Low,True,False,True,False
-Aerobic,41,Low,True,False,True,False
-Flexibility,52,Moderate,False,True,True,True
-Flexibility,10,High,False,False,False,False
-Aerobic,33,Moderate,False,True,False,False
-Aerobic,27,Low,True,False,False,True
-Strength Training,10,Moderate,False,False,False,False
-Aerobic,70,Low,False,True,True,True
-Flexibility,19,Low,False,True,False,False
-Flexibility,25,Low,False,True,False,False
-Flexibility,36,Moderate,True,True,False,True
-Aerobic,43,Moderate,False,True,False,False
-Balance,50,Low,True,True,False,False
-Flexibility,18,Moderate,False,False,True,True
-Aerobic,40,Low,True,True,True,True
-Flexibility,59,High,False,False,False,True
-Strength Training,47,Moderate,True,False,True,True
-Strength Training,35,Moderate,True,False,False,True
-Aerobic,41,High,False,False,False,False
-Aerobic,40,Moderate,False,False,False,False
-Aerobic,37,Low,False,True,True,True
-Flexibility,35,Low,True,False,False,False
-Flexibility,4,Moderate,False,True,True,False
-Balance,41,Moderate,True,False,False,True
-Balance,14,Moderate,True,True,False,True
-Aerobic,15,Low,True,False,False,True
-Aerobic,44,Moderate,True,True,False,False
-Flexibility,46,Low,False,True,False,True
-Balance,49,Low,False,True,False,False
-Strength Training,46,Moderate,False,False,False,True
-Strength Training,43,Moderate,True,True,False,True
-Balance,15,Moderate,False,False,True,False
-Flexibility,41,Low,False,True,False,False
-Aerobic,40,Low,True,False,True,True
-Balance,42,Low,False,False,True,False
-Flexibility,55,Moderate,True,True,True,True
-Balance,54,High,True,False,True,True
-Aerobic,40,Moderate,False,False,True,False
-Aerobic,47,Low,False,False,False,True
-Strength Training,48,Moderate,False,True,True,True
-Strength Training,10,Moderate,True,False,True,True
-Balance,51,Low,True,True,True,True
-Balance,18,Low,False,False,True,True
-Balance,23,High,False,True,True,True
-Strength Training,46,Moderate,False,True,False,True
-Aerobic,42,Moderate,True,True,False,False
-Strength Training,29,Moderate,False,False,True,False
-Aerobic,55,Low,True,False,True,True
-Strength Training,36,Moderate,True,False,True,True
-Flexibility,27,Moderate,False,False,False,True
-Balance,28,Moderate,True,False,False,False
-Flexibility,34,High,True,True,True,False
-Flexibility,17,High,True,True,False,False
-Flexibility,41,High,True,True,True,True
-Flexibility,49,Moderate,False,True,True,False
-Strength Training,46,Low,False,True,True,False
-Flexibility,48,High,True,True,False,False
-Aerobic,53,Low,True,False,False,False
-Balance,48,Moderate,False,False,False,False
-Aerobic,41,Moderate,False,True,False,False
-Balance,13,High,True,False,True,False
-Flexibility,35,Low,True,False,True,False
-Balance,56,Low,True,False,False,True
-Balance,17,High,False,True,False,False
-Flexibility,14,High,False,True,False,False
-Flexibility,26,Low,False,False,True,True
-Aerobic,29,Low,True,False,False,True
-Strength Training,54,Low,True,True,True,False
-Balance,13,Low,False,True,True,False
-Balance,21,High,False,True,False,False
-Aerobic,11,Low,True,False,False,False
-Flexibility,48,High,True,True,True,False
-Flexibility,54,Low,True,False,False,True
-Aerobic,43,Moderate,True,True,True,False
-Flexibility,47,High,False,False,True,False
-Balance,45,Low,True,False,False,False
-Strength Training,35,Moderate,True,False,False,True
-Aerobic,14,Low,True,False,False,False
-Strength Training,46,Moderate,True,False,False,True
-Flexibility,55,Moderate,True,True,False,False
-Aerobic,53,Low,True,True,False,True
-Balance,13,Moderate,False,True,True,False
-Aerobic,34,Moderate,True,True,True,False
-Balance,37,Low,False,False,False,True
-Strength Training,56,Moderate,False,False,True,True
-Balance,21,Moderate,True,False,True,True
-Aerobic,65,Low,False,True,True,True
-Aerobic,59,Moderate,True,True,False,False
-Balance,22,Moderate,False,True,False,True
-Flexibility,36,Moderate,False,True,False,True
-Balance,29,Low,True,True,True,True
-Balance,30,High,False,True,True,False
-Flexibility,55,High,True,False,False,False
-Strength Training,17,Moderate,True,False,False,True
-Flexibility,26,Low,False,False,True,True
-Strength Training,17,Low,False,True,False,False
-Aerobic,41,Low,False,True,True,True
-Strength Training,59,Low,False,True,True,False
-Strength Training,60,Moderate,False,True,False,True
-Strength Training,22,Moderate,False,False,False,False
-Strength Training,25,Low,False,False,False,False
-Balance,37,High,False,True,False,False
-Flexibility,11,Moderate,True,True,True,False
-Strength Training,38,Moderate,True,True,False,True
-Strength Training,49,Moderate,True,False,False,True
-Balance,47,High,True,True,True,False
-Aerobic,52,Low,True,False,True,False
-Aerobic,56,Moderate,True,True,False,False
-Aerobic,30,Moderate,False,True,False,False
-Balance,49,Moderate,False,False,True,True
-Balance,13,Moderate,False,False,False,True
-Strength Training,57,Moderate,False,False,True,True
-Strength Training,18,High,False,False,False,False
-Balance,47,Low,True,False,False,True
-Balance,45,Low,False,True,True,False
-Strength Training,44,High,False,False,True,False
-Balance,31,Moderate,False,False,True,False
-Aerobic,56,Low,False,True,False,True
-Flexibility,5,High,False,True,True,False
-Aerobic,54,Low,False,False,True,True
-Balance,51,High,False,True,False,True
-Strength Training,36,Moderate,True,False,True,False
-Flexibility,1,Low,False,False,True,False
-Aerobic,58,Low,True,False,True,False
-Balance,25,Low,False,True,False,True
-Aerobic,60,Low,True,True,True,True
-Balance,37,High,True,True,True,True
-Balance,14,Low,False,False,True,False
-Strength Training,24,Moderate,True,True,False,True
-Aerobic,23,Moderate,False,True,True,False
-Aerobic,17,Moderate,False,True,False,False
-Flexibility,7,Low,False,True,True,False
-Strength Training,32,Low,True,True,True,False
-Balance,23,Low,True,True,True,False
-Balance,23,Low,False,False,True,True
-Strength Training,28,Moderate,True,True,True,True
-Flexibility,14,Low,True,False,True,False
-Flexibility,60,Moderate,False,True,True,True
-Aerobic,65,Low,True,False,True,True
-Balance,24,Low,False,True,True,False
-Flexibility,50,High,False,False,True,False
-Aerobic,35,Low,True,True,True,True
-Balance,46,Low,True,False,True,False
-Flexibility,19,Moderate,False,True,True,False
-Flexibility,56,Moderate,False,True,False,True
-Aerobic,44,Low,False,True,False,True
-Aerobic,43,Low,True,False,False,True
-Flexibility,57,High,False,True,True,True
-Balance,19,Moderate,False,False,True,False
-Flexibility,34,Low,True,False,False,True
-Balance,33,Low,True,False,False,True
-Balance,21,High,False,False,False,True
-Flexibility,56,Moderate,True,True,True,True
-Aerobic,40,Moderate,True,True,True,False
-Aerobic,27,Moderate,False,True,True,False
-Strength Training,13,Low,False,True,True,False
-Strength Training,22,Moderate,True,True,False,True
-Balance,12,Moderate,True,False,True,True
-Strength Training,18,High,False,False,True,False
-Aerobic,20,Low,True,True,False,True
-Aerobic,27,Low,True,True,True,True
-Strength Training,12,Low,False,True,True,False
-Strength Training,54,Moderate,True,True,True,True
-Strength Training,53,Moderate,True,True,False,True
-Aerobic,59,Low,True,False,False,False
-Strength Training,28,Moderate,False,True,True,True
-Aerobic,37,Moderate,False,True,True,False
-Flexibility,29,Low,False,False,False,False
-Balance,21,High,False,False,False,False
-Balance,45,Low,False,False,False,False
-Strength Training,37,Moderate,True,False,True,False
-Strength Training,53,Low,True,True,True,False
-Strength Training,42,Low,True,True,True,False
-Flexibility,36,High,True,False,True,True
-Flexibility,10,High,True,False,True,True
-Aerobic,23,Low,True,False,True,False
-Strength Training,23,Low,False,True,False,False
-Strength Training,47,Moderate,True,True,False,True
-Flexibility,46,Low,False,False,False,True
-Aerobic,26,Low,True,True,True,True
-Balance,58,High,False,False,True,False
-Balance,59,Low,True,True,True,False
-Aerobic,19,Low,True,False,False,False
-Flexibility,52,High,False,True,False,True
-Flexibility,45,Low,False,False,True,False
-Strength Training,20,Moderate,True,False,True,True
-Flexibility,40,High,False,True,False,False
-Strength Training,23,Moderate,True,False,True,True
-Aerobic,57,Moderate,True,True,False,False
-Flexibility,50,Low,True,False,True,True
-Flexibility,31,Low,False,False,False,True
-Aerobic,67,Moderate,True,True,True,False
-Flexibility,36,Low,True,False,True,False
-Balance,23,Moderate,False,True,False,False
-Flexibility,58,Moderate,False,True,False,False
-Flexibility,56,Low,True,True,False,True
-Balance,36,Moderate,False,True,False,False
-Aerobic,39,Moderate,False,True,True,False
-Flexibility,34,Moderate,True,True,True,True
-Strength Training,56,Moderate,False,True,True,True
-Flexibility,45,Moderate,True,False,True,False
-Flexibility,35,Moderate,True,True,True,True
-Strength Training,28,Moderate,False,False,True,False
-Strength Training,13,Moderate,True,True,True,True
-Aerobic,54,Low,False,False,True,True
-Aerobic,33,Moderate,False,True,False,False
-Flexibility,11,Low,False,False,True,False
-Aerobic,68,Low,True,False,True,True
-Flexibility,57,High,False,True,True,True
-Strength Training,38,Moderate,False,True,False,True
-Flexibility,23,High,True,True,True,True
-Flexibility,20,Moderate,True,False,True,False
-Balance,51,High,False,False,False,False
-Aerobic,53,Low,True,False,True,False
-Strength Training,53,Low,False,True,False,False
-Flexibility,13,High,True,True,False,False
-Strength Training,13,Moderate,False,True,False,True
-Strength Training,59,Low,False,True,False,False
-Aerobic,47,Low,True,True,False,True
-Strength Training,31,Low,False,True,False,False
-Balance,59,High,True,True,False,True
-Balance,60,High,True,False,False,False
-Strength Training,19,Moderate,True,False,True,False
-Strength Training,45,High,False,False,True,False
-Strength Training,48,Moderate,False,False,True,True
-Aerobic,11,Low,True,False,False,False
-Strength Training,38,Moderate,True,False,True,True
-Strength Training,25,Moderate,True,False,False,False
-Flexibility,36,High,True,False,True,True
-Strength Training,55,Moderate,False,False,False,True
-Aerobic,24,Moderate,True,True,False,False
-Flexibility,38,High,False,False,False,False
-Flexibility,32,Low,False,True,False,True
-Flexibility,24,Moderate,False,True,True,False
-Flexibility,4,Moderate,False,False,True,False
-Strength Training,35,Moderate,False,False,True,True
-Aerobic,34,Low,True,False,False,True
-Flexibility,24,Low,False,False,False,False
-Strength Training,44,Moderate,True,False,True,True
-Balance,22,Low,False,True,True,False
-Aerobic,67,Low,False,True,True,True
-Strength Training,13,Moderate,False,False,False,False
-Strength Training,30,Moderate,True,False,True,False
-Flexibility,38,High,True,True,True,False
-Flexibility,10,Moderate,False,False,True,True
-Balance,36,Moderate,True,False,True,False
-Strength Training,58,Moderate,True,False,False,False
-Aerobic,34,Low,True,True,False,True
-Aerobic,18,Low,True,False,False,False
-Strength Training,11,Low,False,False,False,False
-Balance,58,Moderate,True,False,False,True
-Aerobic,40,Moderate,False,True,True,False
-Balance,44,Low,True,True,False,False
-Strength Training,26,Low,True,True,False,False
-Strength Training,43,Moderate,False,False,True,True
-Aerobic,28,Low,True,False,True,False
-Aerobic,50,Low,False,False,True,False
-Flexibility,29,High,False,True,True,False
-Flexibility,40,High,False,False,False,True
-Aerobic,24,Low,True,True,False,True
-Strength Training,51,Low,False,True,True,False
-Flexibility,60,High,False,False,False,False
-Balance,28,High,True,True,True,True
-Flexibility,32,Moderate,True,True,False,False
-Aerobic,20,Low,True,False,True,True
-Aerobic,42,Low,True,True,True,True
-Strength Training,44,Moderate,False,True,True,True
-Aerobic,38,Low,True,False,True,True
-Strength Training,42,Moderate,True,True,False,True
-Balance,38,Low,True,False,True,False
-Strength Training,27,Low,False,True,False,False
-Balance,30,High,False,False,False,True
-Strength Training,29,High,False,False,True,False
-Aerobic,20,Low,True,True,False,True
-Aerobic,53,Moderate,False,False,False,False
-Aerobic,63,Moderate,True,True,True,False
-Balance,58,Moderate,False,False,False,False
-Aerobic,37,Low,True,True,True,True
-Flexibility,57,High,True,False,False,False
-Aerobic,56,Low,True,True,False,True
-Strength Training,18,Moderate,True,False,False,True
-Aerobic,57,Low,False,False,False,False
-Balance,22,Moderate,True,False,True,True
-Aerobic,20,Low,True,False,False,False
-Aerobic,34,Low,False,True,False,True
-Flexibility,32,Moderate,False,False,False,False
-Balance,34,Moderate,True,True,True,False
-Balance,33,Moderate,True,False,True,False
-Balance,49,Low,False,False,True,False
-Flexibility,48,High,False,False,False,False
-Flexibility,23,Low,True,True,False,True
-Balance,48,Moderate,True,False,True,True
-Strength Training,43,Moderate,True,False,False,False
-Strength Training,43,Moderate,False,False,False,True
-Flexibility,48,Low,False,False,False,True
-Flexibility,20,High,True,False,False,True
-Flexibility,44,High,False,False,True,False
-Strength Training,32,Moderate,False,True,False,True
-Strength Training,29,Moderate,True,False,True,False
-Strength Training,49,Moderate,False,False,False,False
-Strength Training,58,Moderate,False,True,False,True
-Strength Training,26,Moderate,False,True,True,True
-Flexibility,22,High,False,True,False,False
-Strength Training,11,Low,True,True,False,False
-Aerobic,59,Low,True,False,True,True
-Aerobic,48,Moderate,True,True,True,False
-Flexibility,38,High,False,True,True,True
-Balance,56,Low,False,False,True,False
-Strength Training,14,Low,True,True,True,False
-Flexibility,25,Moderate,True,True,False,False
-Flexibility,45,High,False,False,False,False
-Aerobic,51,Moderate,True,True,True,False
-Strength Training,59,Low,False,True,False,False
-Strength Training,19,Moderate,True,True,False,True
-Strength Training,49,Moderate,False,True,False,True
-Aerobic,54,Moderate,True,True,False,False
-Flexibility,34,Moderate,False,False,True,True
-Flexibility,24,Low,True,False,False,True
-Aerobic,29,Low,False,True,False,True
-Aerobic,40,Moderate,True,True,True,False
-Strength Training,43,Low,False,True,False,False
-Strength Training,57,Low,True,True,False,False
-Flexibility,33,High,True,True,True,False
-Balance,37,Low,False,True,False,False
-Balance,27,Moderate,False,True,True,False
-Strength Training,60,Moderate,True,False,False,False
-Aerobic,67,Moderate,True,True,True,False
-Aerobic,27,Low,False,False,False,True
-Aerobic,51,Low,True,False,True,True
-Flexibility,50,Low,True,False,False,True
-Aerobic,41,Moderate,False,True,True,False
-Balance,28,Low,True,True,False,False
-Balance,55,Moderate,True,True,False,True
-Aerobic,11,Low,False,False,False,False
-Aerobic,21,Low,True,False,True,True
-Balance,50,Moderate,True,False,True,False
-Flexibility,67,Moderate,True,False,False,True
-Flexibility,37,Moderate,False,False,False,True
-Flexibility,29,Moderate,False,False,True,False
-Flexibility,35,High,False,False,False,True
-Balance,51,Moderate,True,True,False,True
-Flexibility,28,Moderate,False,True,False,False
-Strength Training,53,Moderate,False,True,True,True
-Aerobic,23,Low,False,False,True,False
-Balance,26,Moderate,True,True,True,True
-Aerobic,18,Low,True,True,False,True
-Aerobic,55,Low,False,False,True,False
-Flexibility,40,Moderate,True,True,False,True
-Balance,36,Moderate,False,False,True,False
-Strength Training,59,High,False,False,False,False
-Flexibility,55,High,False,True,False,False
-Strength Training,42,Moderate,True,True,False,True
-Strength Training,21,Moderate,True,False,False,False
-Strength Training,13,Moderate,True,True,False,True
-Flexibility,27,High,False,True,False,False
-Aerobic,16,Low,False,False,False,False
-Balance,13,High,False,True,True,False
-Aerobic,54,Low,False,False,True,True
-Strength Training,13,Moderate,False,False,False,False
-Flexibility,39,Low,False,True,False,True
-Strength Training,43,Moderate,True,False,False,False
-Strength Training,18,Low,True,True,False,False
-Flexibility,34,Moderate,False,True,True,True
-Strength Training,60,Low,False,True,False,False
-Strength Training,16,Moderate,True,False,True,False
-Strength Training,39,Moderate,True,False,False,False
-Flexibility,26,Low,True,False,False,False
-Balance,23,Low,False,False,True,False
-Balance,40,Low,False,False,True,True
-Strength Training,30,Low,False,True,True,False
-Flexibility,43,Low,True,True,True,False
-Aerobic,50,Low,False,False,True,False
-Strength Training,47,Low,False,True,True,False
-Balance,32,High,True,False,False,False
-Strength Training,56,Moderate,True,True,True,True
-Balance,17,Low,True,False,False,False
-Flexibility,10,Moderate,False,False,False,False
-Flexibility,30,Low,True,False,True,False
-Aerobic,27,Low,True,False,False,False
-Flexibility,34,High,False,True,False,True
-Strength Training,36,Low,False,True,False,False
-Strength Training,32,Moderate,True,True,False,True
-Aerobic,28,Moderate,False,True,False,False
-Balance,27,High,True,False,False,True
-Aerobic,12,Low,True,True,False,True
-Flexibility,13,Moderate,True,False,True,False
-Balance,35,Moderate,True,True,True,False
-Flexibility,41,Moderate,False,True,True,True
-Aerobic,37,Moderate,False,True,True,False
-Balance,11,Moderate,False,False,False,False
-Strength Training,58,Moderate,True,False,False,True
-Balance,47,Moderate,True,True,True,False
-Strength Training,26,Moderate,True,False,True,True
-Flexibility,22,Moderate,True,True,True,True
-Aerobic,60,Low,False,True,True,True
-Strength Training,60,Low,True,True,True,False
-Balance,32,Moderate,True,False,True,True
-Aerobic,13,Low,True,True,False,True
-Aerobic,63,Low,True,False,True,True
-Strength Training,60,Moderate,False,False,True,True
-Strength Training,35,Moderate,True,True,False,True
-Balance,43,Low,True,True,True,True
-Flexibility,4,Low,True,False,True,False
-Balance,44,Low,True,False,True,True
-Flexibility,27,Low,False,True,False,True
-Strength Training,20,High,False,False,True,False
-Balance,21,High,True,True,True,True
-Aerobic,12,Low,False,True,False,True
-Aerobic,15,Low,False,False,False,False
-Balance,24,Moderate,False,True,False,False
-Flexibility,54,Low,True,True,False,True
-Strength Training,32,Moderate,False,False,True,True
-Aerobic,24,Low,True,True,True,True
-Aerobic,67,Low,True,True,True,True
-Balance,47,Moderate,True,True,False,False
-Flexibility,17,Low,False,False,True,False
-Flexibility,12,Low,False,True,True,False
-Aerobic,53,Low,True,True,True,True
-Flexibility,12,Low,False,False,False,False
-Balance,22,Low,False,False,False,False
-Flexibility,56,Low,False,False,False,False
-Aerobic,44,Low,True,False,True,False
-Strength Training,37,Moderate,False,True,False,True
-Strength Training,16,Moderate,True,False,True,True
-Aerobic,63,Low,False,False,True,True
-Balance,34,Low,True,False,False,False
-Strength Training,39,Low,False,True,True,False
-Aerobic,64,Low,False,True,True,True
-Aerobic,17,Low,True,False,False,True
-Aerobic,57,Low,True,False,True,False
-Aerobic,51,Moderate,True,True,False,False
-Balance,19,Low,True,True,False,True
-Strength Training,42,Low,False,True,False,False
-Flexibility,25,High,False,False,True,True
-Aerobic,39,Moderate,True,True,False,False
-Flexibility,60,High,False,True,False,True
-Strength Training,25,Moderate,True,False,False,True
-Strength Training,57,High,False,False,False,False
-Strength Training,50,Moderate,True,False,False,False
-Aerobic,51,Low,False,False,False,True
-Aerobic,11,Low,True,False,False,True
-Flexibility,33,Moderate,True,False,True,False
-Flexibility,16,Moderate,True,True,False,False
-Aerobic,32,Low,True,False,True,True
-Aerobic,58,Low,True,True,False,True
-Strength Training,45,Moderate,True,False,False,True
-Balance,41,Moderate,False,False,True,False
-Aerobic,59,Low,False,True,False,True
-Strength Training,49,Moderate,True,False,True,False
-Strength Training,24,Low,False,True,True,False
-Strength Training,30,Moderate,False,False,False,True
-Balance,28,Low,False,True,False,False
-Balance,60,Low,False,True,True,True
-Flexibility,48,Low,True,True,True,False
-Aerobic,40,Moderate,True,True,True,False
-Aerobic,57,Low,True,True,True,True
-Strength Training,22,Moderate,False,True,False,True
-Aerobic,33,Moderate,False,True,False,False
-Balance,12,Moderate,False,True,False,False
-Strength Training,11,Low,False,True,True,False
-Flexibility,27,High,False,False,True,False
-Aerobic,58,Low,True,True,True,True
-Balance,12,Moderate,False,False,False,True
-Aerobic,21,Moderate,False,True,False,False
-Strength Training,40,Moderate,False,True,False,True
-Flexibility,27,Low,False,True,False,True
-Aerobic,16,Low,True,False,False,False
-Strength Training,10,Moderate,True,True,True,True
-Flexibility,38,Moderate,True,True,True,True
-Balance,60,High,True,True,True,False
-Balance,14,High,False,False,False,False
-Strength Training,23,Moderate,False,True,True,True
-Flexibility,41,Moderate,True,False,True,False
-Balance,16,High,False,False,False,False
-Balance,14,Moderate,False,True,False,False
-Balance,24,Low,True,True,False,False
-Balance,43,Low,True,False,False,True
-Strength Training,55,Low,True,True,False,False
-Balance,26,Low,False,False,False,False
-Flexibility,39,Low,True,False,False,False
-Flexibility,30,Moderate,True,False,False,False
-Balance,41,High,False,False,False,False
-Balance,19,High,True,True,False,True
-Balance,22,Low,False,True,False,True
-Strength Training,20,Moderate,False,False,True,True
-Aerobic,43,Low,False,True,False,True
-Flexibility,59,Low,False,False,False,True
-Flexibility,2,High,True,False,True,False
-Aerobic,52,Low,False,False,True,True
-Balance,38,Low,False,True,True,False
-Aerobic,59,Low,False,False,False,True
-Balance,57,Low,True,False,False,True
-Flexibility,41,High,True,True,True,False
-Flexibility,52,Moderate,False,True,False,True
-Strength Training,47,Moderate,False,True,False,True
-Balance,26,Moderate,True,False,True,False
-Balance,45,High,True,False,False,True
-Aerobic,29,Moderate,True,True,True,False
-Strength Training,30,Moderate,True,True,False,True
-Balance,33,Moderate,True,False,True,False
-Strength Training,18,Low,True,True,False,False
-Aerobic,32,Low,True,False,False,True
-Strength Training,26,Moderate,True,True,False,True
-Aerobic,60,Moderate,False,True,True,False
-Aerobic,52,Low,False,True,True,True
-Strength Training,35,Moderate,True,False,True,False
-Aerobic,29,Moderate,False,True,False,False
-Strength Training,29,Moderate,False,True,True,True
-Balance,17,High,False,True,False,True
-Strength Training,45,Low,False,False,False,False
-Aerobic,46,Low,False,True,False,True
-Aerobic,43,Moderate,False,False,True,False
-Balance,48,High,False,False,False,True
-Aerobic,17,Low,True,False,False,False
-Balance,24,High,False,False,False,False
-Balance,43,High,False,False,True,True
-Balance,13,Low,False,False,True,True
-Balance,14,High,False,True,True,True
-Aerobic,20,Low,True,True,True,True
-Strength Training,11,Low,True,True,False,False
-Flexibility,32,Moderate,True,True,False,True
-Flexibility,3,High,False,True,True,False
-Flexibility,49,Low,True,False,True,True
-Aerobic,51,Low,True,False,False,True
-Strength Training,53,Low,True,True,True,False
-Aerobic,58,Low,False,False,False,True
-Balance,20,Moderate,True,True,False,True
-Strength Training,60,Moderate,True,False,False,False
-Aerobic,23,Low,True,True,True,True
-Balance,23,High,False,True,False,True
-Strength Training,50,Moderate,True,False,False,True
-Strength Training,16,Moderate,False,True,True,True
-Aerobic,51,Moderate,True,True,False,False
-Balance,48,Low,False,False,False,False
-Balance,42,Moderate,False,True,True,True
-Balance,50,Moderate,False,False,True,False
-Aerobic,17,Low,False,False,False,True
-Aerobic,51,Low,True,False,False,True
-Aerobic,16,Low,True,False,False,False
-Aerobic,59,Low,False,False,False,True
-Balance,46,High,True,False,False,True
-Aerobic,27,Low,False,True,True,True
-Balance,60,Low,False,False,True,True
-Balance,55,Moderate,True,False,False,True
-Strength Training,32,Moderate,False,True,True,True
-Balance,27,High,False,False,True,False
-Aerobic,39,Low,False,False,True,True
-Flexibility,20,High,False,True,False,True
-Balance,51,Moderate,False,True,False,False
-Balance,15,Moderate,False,True,False,True
-Balance,32,High,True,True,False,False
-Balance,42,Low,False,False,False,False
-Strength Training,36,Moderate,True,True,False,True
-Flexibility,50,High,False,False,False,True
-Flexibility,16,High,True,False,True,True
-Strength Training,10,Moderate,True,True,False,True
-Balance,29,High,True,False,False,False
-Flexibility,64,Moderate,False,False,False,True
-Aerobic,47,Low,False,True,False,True
-Balance,21,Moderate,False,False,False,False
-Balance,38,High,False,False,False,False
-Balance,37,High,True,False,False,False
-Balance,57,Moderate,False,True,True,False
-Flexibility,11,High,True,True,False,False
-Flexibility,41,Low,True,True,False,True
-Strength Training,31,Low,False,True,False,False
-Aerobic,58,Low,True,False,False,True
-Strength Training,56,Moderate,True,False,False,False
-Strength Training,47,Low,False,True,True,False
-Flexibility,36,Moderate,True,False,False,True
-Aerobic,53,Low,False,True,True,True
-Flexibility,47,Low,False,True,True,True
-Flexibility,60,Low,True,False,False,False
-Aerobic,43,Moderate,True,True,False,False
-Balance,33,High,True,False,True,True
-Flexibility,34,Moderate,True,True,True,False
-Aerobic,11,Low,True,False,False,True
-Flexibility,23,Low,False,False,False,True
-Balance,42,Low,False,True,True,True
-Strength Training,44,Moderate,False,False,True,True
-Flexibility,40,Low,False,True,True,True
-Strength Training,21,Moderate,False,False,False,False
-Strength Training,59,Moderate,False,False,True,False
-Flexibility,36,Moderate,True,False,True,False
-Aerobic,69,Low,True,True,True,True
-Strength Training,18,Moderate,False,False,True,True
-Flexibility,46,High,False,False,False,True
-Aerobic,54,Low,True,True,False,True
-Balance,57,Low,True,True,False,True
-Flexibility,44,High,True,False,False,False
-Balance,30,Low,True,False,False,True
-Balance,21,Low,True,True,False,False
-Aerobic,35,Moderate,False,True,True,False
-Strength Training,60,Moderate,True,False,True,True
-Balance,35,High,False,True,False,False
-Flexibility,2,Moderate,True,True,True,False
-Balance,42,Low,True,True,False,True
-Aerobic,66,Low,True,False,True,True
-Aerobic,49,Low,True,True,True,True
-Aerobic,64,Moderate,False,False,True,False
-Balance,17,Low,False,True,True,True
-Strength Training,22,Moderate,False,False,False,True
-Balance,55,Moderate,False,True,True,False
-Balance,56,Moderate,True,True,False,True
-Balance,31,Moderate,True,True,True,False
-Flexibility,25,Moderate,False,True,True,True
-Balance,60,Low,False,False,True,False
-Aerobic,25,Low,False,True,True,True
-Balance,55,Moderate,False,True,True,True
-Aerobic,32,Low,True,False,False,False
-Balance,19,Moderate,True,True,True,False
-Balance,57,Low,True,False,True,True
-Strength Training,30,Moderate,False,False,False,True
-Aerobic,45,Low,True,False,True,True
-Flexibility,22,Moderate,False,False,True,True
-Balance,49,Low,False,False,True,False
-Aerobic,65,Moderate,False,True,True,False
-Flexibility,5,High,False,True,True,False
-Flexibility,41,Low,True,False,True,False
-Strength Training,21,Moderate,False,True,False,True
-Strength Training,47,Low,False,True,False,False
-Balance,39,Moderate,True,False,True,False
-Balance,14,High,True,False,False,False
-Aerobic,25,Moderate,True,True,False,False
-Aerobic,54,Moderate,False,True,True,False
-Aerobic,12,Low,True,True,False,True
-Balance,32,Moderate,False,True,True,False
-Aerobic,31,Moderate,False,True,False,False
-Flexibility,22,Low,False,False,False,False
-Aerobic,35,Low,True,True,True,True
-Aerobic,53,Low,False,False,False,True
-Aerobic,35,Low,True,True,True,True
-Balance,48,High,True,False,False,True
-Aerobic,13,Low,True,True,False,True
-Balance,12,Low,True,True,True,False
-Strength Training,22,Low,False,True,False,False
-Flexibility,60,Low,False,True,True,True
-Aerobic,67,Moderate,False,True,True,False
-Balance,19,High,True,False,False,True
-Flexibility,32,High,True,True,False,True
-Strength Training,28,Low,True,True,False,False
-Strength Training,45,Moderate,False,False,True,True
-Flexibility,46,High,False,False,False,False
-Flexibility,22,High,True,True,True,True
-Aerobic,39,High,False,False,False,False
-Flexibility,48,High,True,True,False,False
-Balance,18,Low,True,False,True,False
-Aerobic,20,Low,False,True,True,True
-Strength Training,58,Low,False,True,False,False
-Strength Training,18,Low,False,True,True,False
-Aerobic,21,Low,True,True,False,True
-Flexibility,31,Moderate,True,True,False,True
-Aerobic,30,Moderate,True,True,True,False
-Balance,17,Moderate,True,True,True,True
-Balance,18,Low,False,False,False,False
-Aerobic,56,Moderate,False,True,False,False
-Aerobic,58,Low,True,True,False,True
-Aerobic,28,Low,False,True,True,True
-Aerobic,35,Low,False,True,True,True
-Strength Training,49,Moderate,True,False,False,True
-Strength Training,15,High,False,False,True,False
-Aerobic,56,Low,False,True,True,True
-Strength Training,26,Low,False,True,False,False
-Balance,40,Low,False,False,True,False
-Aerobic,59,Low,True,False,False,False
-Aerobic,52,Low,True,True,True,True
-Aerobic,26,Low,False,True,True,True
-Strength Training,40,Moderate,True,False,True,False
-Balance,21,Low,False,True,True,True
-Balance,11,High,False,False,False,False
-Aerobic,55,Low,False,False,True,True
-Strength Training,53,Moderate,True,True,False,True
-Strength Training,33,Moderate,False,True,False,True
-Aerobic,64,Low,False,False,True,True
-Aerobic,53,Moderate,False,True,True,False
-Flexibility,10,High,False,True,True,True
-Flexibility,42,High,True,True,False,False
-Aerobic,47,Low,False,False,False,False
-Aerobic,59,Low,True,False,False,False
-Aerobic,49,Low,True,True,True,True
-Balance,14,Moderate,True,True,True,False
-Flexibility,19,Moderate,False,False,False,False
-Balance,13,High,False,False,False,True
-Aerobic,29,High,False,False,False,False
-Strength Training,37,Low,False,False,True,False
-Aerobic,52,Low,False,False,True,True
-Balance,10,High,False,False,False,False
-Aerobic,39,High,False,False,True,False
-Aerobic,49,Low,True,False,False,True
-Aerobic,55,Moderate,False,True,False,False
-Flexibility,60,Moderate,False,False,False,False
-Flexibility,22,Low,True,False,False,True
-Flexibility,48,Low,False,True,False,True
-Aerobic,64,Low,True,False,True,True
-Aerobic,53,Moderate,True,True,False,False
-Strength Training,28,Moderate,False,True,False,True
-Aerobic,29,Low,True,True,False,True
-Balance,46,High,False,False,True,False
-Flexibility,50,Moderate,False,False,False,False
-Balance,60,Moderate,True,True,False,False
-Aerobic,40,Low,True,True,True,True
-Aerobic,22,Moderate,False,True,True,False
-Flexibility,48,High,True,True,False,False
-Balance,55,High,False,True,True,True
-Flexibility,17,High,False,False,True,True
-Strength Training,10,Moderate,False,False,True,True
-Aerobic,20,Moderate,True,True,False,False
-Balance,41,High,True,True,True,False
-Strength Training,49,Moderate,False,True,True,True
-Flexibility,0,High,False,True,True,False
-Balance,57,Moderate,False,False,True,False
-Aerobic,31,Moderate,False,False,False,False
-Aerobic,18,Low,False,True,False,True
-Flexibility,58,Moderate,False,True,True,True
-Aerobic,68,Low,True,False,True,True
-Strength Training,47,Low,True,True,False,False
-Aerobic,49,Moderate,False,True,False,False
-Balance,14,Low,True,True,True,False
-Aerobic,15,Low,True,False,False,True
-Aerobic,34,Low,True,False,True,True
-Flexibility,21,Low,True,False,False,False
-Aerobic,65,Low,True,False,True,False
-Balance,45,Low,False,False,False,False
-Strength Training,55,Moderate,True,True,False,True
-Balance,23,Low,False,True,False,False
-Strength Training,37,Low,False,False,False,False
-Strength Training,31,Moderate,False,False,True,False
-Aerobic,47,Moderate,True,True,False,False
-Strength Training,43,Moderate,True,False,True,True
-Strength Training,41,Moderate,True,False,True,True
-Strength Training,13,Moderate,True,False,False,True
-Flexibility,32,High,False,True,True,True
-Strength Training,43,Moderate,True,False,True,False
-Flexibility,40,Low,False,False,False,True
-Strength Training,20,Moderate,False,False,False,True
-Balance,35,Low,True,True,True,False
-Aerobic,34,Moderate,False,True,False,False
-Aerobic,59,Low,True,False,False,False
-Aerobic,42,High,False,False,True,False
-Aerobic,22,Moderate,True,True,True,False
-Flexibility,15,High,False,True,True,True
-Aerobic,27,Low,False,False,True,True
-Flexibility,29,Low,False,False,False,False
-Flexibility,1,Moderate,True,False,True,False
-Balance,45,Moderate,True,False,True,False
-Flexibility,52,High,False,False,False,True
-Balance,50,High,False,True,True,False
-Flexibility,18,Moderate,True,True,True,True
-Flexibility,66,High,True,True,False,True
-Aerobic,52,Low,False,True,False,True
-Flexibility,13,High,False,False,False,False
-Flexibility,30,High,False,False,False,False
-Balance,16,Moderate,False,True,False,False
-Strength Training,49,Moderate,False,False,True,False
-Strength Training,15,Low,False,True,False,False
-Flexibility,59,Moderate,False,True,True,True
-Flexibility,10,High,True,False,False,False
-Strength Training,15,Moderate,True,False,False,True
-Flexibility,11,Low,False,False,True,True
-Aerobic,39,Low,False,False,False,True
-Flexibility,50,Low,True,True,True,False
-Balance,41,Low,True,False,False,True
-Strength Training,37,Low,False,True,False,False
-Balance,18,Moderate,False,True,False,False
-Flexibility,70,Low,True,True,False,True
-Flexibility,14,High,True,False,True,True
-Aerobic,22,Low,False,False,True,True
-Aerobic,40,Low,False,True,True,True
-Balance,38,Low,True,True,True,True
-Flexibility,23,High,False,True,False,True
-Balance,58,Moderate,False,True,False,False
-Strength Training,46,Moderate,False,False,False,True
-Flexibility,29,Moderate,True,True,True,False
-Flexibility,47,Low,True,False,False,True
-Balance,30,High,False,True,False,True
-Strength Training,54,Low,True,True,True,False
-Strength Training,53,Low,False,True,False,False
-Flexibility,5,Low,False,True,True,False
-Flexibility,38,Moderate,True,True,False,False
-Flexibility,33,Moderate,True,True,True,True
-Strength Training,50,Moderate,False,False,False,False
-Aerobic,43,Low,False,True,False,True
-Aerobic,40,Low,True,True,True,True
-Strength Training,57,Moderate,False,True,False,True
-Balance,26,Moderate,True,True,False,True
-Strength Training,17,High,False,False,False,False
-Balance,12,High,True,True,False,True
-Aerobic,28,Low,False,True,True,True
-Aerobic,36,Low,False,False,False,False
-Balance,11,Low,False,True,False,True
-Flexibility,12,High,True,True,True,False
-Aerobic,40,Low,True,False,True,True
-Flexibility,30,Low,True,False,True,True
-Strength Training,60,Moderate,True,True,True,True
-Aerobic,14,Low,True,False,False,True
-Balance,52,Moderate,True,False,False,False
-Balance,53,High,False,True,False,True
-Strength Training,57,Moderate,True,True,True,True
-Balance,27,High,True,True,True,True
-Flexibility,60,High,False,True,False,True
-Aerobic,57,Moderate,False,True,True,False
-Flexibility,16,High,True,True,True,False
-Flexibility,55,Moderate,False,False,True,True
-Flexibility,68,Low,False,True,False,True
-Strength Training,21,Moderate,True,False,True,False
-Strength Training,58,Moderate,True,False,True,False
-Balance,43,Low,False,False,True,False
-Aerobic,42,Moderate,True,True,True,False
-Aerobic,24,Low,True,False,False,True
-Balance,40,Low,False,False,False,True
-Flexibility,22,Low,False,True,True,False
-Flexibility,36,Moderate,False,True,True,True
-Flexibility,47,Low,False,True,False,True
-Balance,14,High,False,False,True,True
-Aerobic,51,Moderate,True,True,True,False
-Flexibility,50,Low,False,True,False,True
-Flexibility,39,Low,False,False,False,True
-Aerobic,67,Moderate,True,True,True,False
-Flexibility,39,High,False,True,True,True
-Aerobic,32,Low,True,False,True,True
-Aerobic,30,Low,False,True,False,True
-Aerobic,36,Low,True,False,False,True
-Aerobic,11,Low,False,True,False,True
-Aerobic,52,Low,True,False,True,True
-Strength Training,28,Moderate,True,False,False,True
-Flexibility,10,Low,True,False,True,False
-Balance,22,Moderate,True,True,False,True
-Aerobic,38,Moderate,False,True,True,False
-Strength Training,45,Low,False,True,True,False
-Flexibility,39,Moderate,False,True,False,False
-Flexibility,12,Moderate,True,False,False,False
-Balance,43,Moderate,True,True,False,False
-Balance,49,Low,True,True,True,True
-Flexibility,43,High,False,False,True,True
-Balance,35,Moderate,True,False,False,True
-Aerobic,33,Low,False,False,False,True
-Flexibility,42,Moderate,True,False,False,False
-Aerobic,56,Low,True,False,True,True
-Aerobic,58,High,False,False,True,False
-Flexibility,40,High,False,False,True,False
-Flexibility,30,Moderate,False,True,True,True
-Flexibility,34,High,True,False,False,False
-Balance,12,Moderate,True,False,True,False
-Flexibility,7,High,True,False,True,False
-Balance,32,Moderate,True,False,True,True
-Strength Training,53,Low,False,True,True,False
-Strength Training,54,Low,False,True,True,False
-Balance,38,Moderate,True,True,True,True
-Flexibility,24,Moderate,False,True,True,False
-Aerobic,28,Low,True,False,False,False
-Flexibility,50,Moderate,False,True,False,False
-Aerobic,21,Moderate,True,True,False,False
-Flexibility,28,High,True,True,True,True
-Flexibility,17,Low,False,True,True,False
-Aerobic,39,Low,True,True,False,True
-Aerobic,48,Low,True,False,False,False
-Flexibility,44,High,True,False,True,True
-Flexibility,70,Moderate,False,False,False,True
-Flexibility,22,Moderate,False,False,True,True
-Balance,26,Low,True,False,False,True
-Aerobic,42,Moderate,True,True,True,False
-Flexibility,29,Moderate,False,True,False,True
-Strength Training,39,Low,False,False,False,False
-Flexibility,66,Moderate,True,False,False,True
-Balance,32,Moderate,False,True,False,False
-Flexibility,48,Moderate,True,False,False,True
-Balance,40,High,False,False,False,True
-Flexibility,15,Low,False,True,True,False
-Aerobic,44,Moderate,True,True,True,False
-Aerobic,30,Moderate,False,False,False,False
-Strength Training,58,Low,False,True,False,False
-Aerobic,11,Low,False,True,False,True
-Strength Training,60,Moderate,False,False,True,False
-Balance,19,Low,False,False,False,True
-Aerobic,60,Low,True,True,False,True
-Balance,53,Low,False,False,False,True
-Flexibility,52,High,True,True,True,True
-Strength Training,15,Moderate,True,False,True,True
-Flexibility,9,High,False,True,True,False
-Strength Training,34,Moderate,True,False,False,True
-Flexibility,47,High,True,False,True,False
-Aerobic,28,Low,False,False,False,True
-Flexibility,29,High,False,True,False,True
-Strength Training,33,Moderate,True,True,True,True
-Balance,58,Moderate,False,True,False,False
-Balance,18,Moderate,True,True,False,False
-Flexibility,35,Low,True,False,True,True
-Aerobic,30,Low,False,False,False,True
-Strength Training,35,Moderate,False,False,False,True
-Balance,21,High,False,True,False,False
-Strength Training,42,Moderate,True,False,False,False
-Strength Training,39,Moderate,True,False,False,True
-Flexibility,41,Low,True,True,True,True
-Balance,21,Low,False,True,True,False
-Aerobic,58,Low,False,True,False,True
-Balance,46,Low,True,False,True,False
-Flexibility,57,High,True,False,True,True
+Exercise Type     ,Duration (minutes) ,Intensity Level ,Hypertension ,Low Pressure ,Diabetes ,Heart Condition
+Balance           ,                23 ,High            ,True         ,True         ,False    ,False
+Flexibility       ,                50 ,Moderate        ,True         ,True         ,True     ,True
+Aerobic           ,                66 ,Low             ,True         ,True         ,True     ,True
+Flexibility       ,                51 ,Moderate        ,True         ,True         ,True     ,True
+Strength Training ,                43 ,Moderate        ,True         ,True         ,True     ,True
+Balance           ,                12 ,Moderate        ,True         ,False        ,False    ,False
+Balance           ,                54 ,Low             ,True         ,True         ,False    ,True
+Strength Training ,                34 ,Low             ,False        ,False        ,True     ,False
+Flexibility       ,                70 ,High            ,False        ,False        ,False    ,True
+Flexibility       ,                32 ,High            ,False        ,True         ,True     ,True
+Strength Training ,                32 ,Moderate        ,True         ,False        ,False    ,False
+Flexibility       ,                49 ,High            ,False        ,False        ,False    ,True
+Aerobic           ,                48 ,Moderate        ,False        ,True         ,True     ,False
+Aerobic           ,                13 ,Moderate        ,False        ,True         ,False    ,False
+Aerobic           ,                34 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                47 ,Low             ,False        ,False        ,True     ,False
+Balance           ,                45 ,High            ,False        ,False        ,True     ,False
+Strength Training ,                14 ,Low             ,False        ,True         ,False    ,False
+Flexibility       ,                36 ,High            ,True         ,False        ,False    ,False
+Strength Training ,                52 ,Moderate        ,False        ,False        ,False    ,True
+Strength Training ,                47 ,High            ,False        ,False        ,False    ,False
+Flexibility       ,                37 ,Low             ,True         ,True         ,False    ,False
+Aerobic           ,                58 ,Low             ,True         ,False        ,False    ,True
+Flexibility       ,                28 ,Low             ,False        ,False        ,False    ,True
+Balance           ,                43 ,Low             ,True         ,True         ,False    ,True
+Strength Training ,                44 ,Moderate        ,False        ,False        ,True     ,True
+Flexibility       ,                 7 ,Low             ,False        ,False        ,True     ,False
+Flexibility       ,                47 ,Moderate        ,True         ,True         ,False    ,True
+Aerobic           ,                51 ,Moderate        ,False        ,True         ,False    ,False
+Strength Training ,                39 ,Moderate        ,False        ,True         ,True     ,True
+Aerobic           ,                54 ,Low             ,True         ,True         ,False    ,True
+Flexibility       ,                15 ,Low             ,False        ,True         ,True     ,False
+Balance           ,                60 ,Moderate        ,False        ,False        ,False    ,False
+Flexibility       ,                34 ,High            ,False        ,True         ,True     ,False
+Balance           ,                36 ,High            ,False        ,False        ,True     ,True
+Strength Training ,                50 ,Moderate        ,True         ,False        ,False    ,False
+Balance           ,                20 ,Low             ,True         ,False        ,True     ,False
+Balance           ,                13 ,Moderate        ,False        ,False        ,False    ,False
+Aerobic           ,                14 ,Moderate        ,True         ,True         ,False    ,False
+Strength Training ,                32 ,Low             ,False        ,True         ,False    ,False
+Strength Training ,                28 ,Moderate        ,False        ,False        ,True     ,True
+Aerobic           ,                40 ,High            ,False        ,False        ,False    ,False
+Balance           ,                20 ,Low             ,True         ,False        ,False    ,True
+Flexibility       ,                27 ,Moderate        ,True         ,False        ,False    ,True
+Aerobic           ,                21 ,Low             ,False        ,False        ,False    ,False
+Aerobic           ,                17 ,Low             ,False        ,True         ,False    ,True
+Flexibility       ,                65 ,Moderate        ,True         ,True         ,False    ,True
+Balance           ,                43 ,Low             ,True         ,True         ,False    ,False
+Aerobic           ,                44 ,Low             ,True         ,False        ,False    ,True
+Flexibility       ,                10 ,Low             ,True         ,False        ,True     ,True
+Strength Training ,                40 ,Low             ,True         ,True         ,True     ,False
+Strength Training ,                58 ,Moderate        ,False        ,True         ,False    ,True
+Flexibility       ,                41 ,High            ,True         ,True         ,False    ,False
+Flexibility       ,                25 ,Moderate        ,True         ,True         ,False    ,True
+Flexibility       ,                54 ,Moderate        ,True         ,False        ,True     ,True
+Aerobic           ,                24 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                55 ,High            ,False        ,False        ,False    ,False
+Balance           ,                18 ,Low             ,False        ,False        ,True     ,True
+Strength Training ,                23 ,Moderate        ,False        ,False        ,True     ,True
+Flexibility       ,                33 ,High            ,True         ,True         ,False    ,True
+Balance           ,                57 ,Moderate        ,True         ,False        ,False    ,False
+Aerobic           ,                20 ,Low             ,True         ,False        ,False    ,False
+Strength Training ,                35 ,Moderate        ,True         ,False        ,False    ,True
+Flexibility       ,                12 ,Low             ,True         ,True         ,True     ,False
+Flexibility       ,                32 ,Moderate        ,False        ,False        ,False    ,False
+Aerobic           ,                36 ,Low             ,False        ,False        ,False    ,False
+Flexibility       ,                 8 ,Moderate        ,False        ,False        ,True     ,False
+Aerobic           ,                32 ,Low             ,True         ,False        ,False    ,False
+Balance           ,                41 ,High            ,True         ,False        ,False    ,True
+Aerobic           ,                44 ,Low             ,True         ,True         ,False    ,True
+Flexibility       ,                29 ,Moderate        ,False        ,False        ,False    ,True
+Strength Training ,                21 ,Moderate        ,False        ,False        ,False    ,True
+Flexibility       ,                38 ,High            ,False        ,True         ,False    ,False
+Aerobic           ,                27 ,Low             ,False        ,False        ,True     ,True
+Flexibility       ,                29 ,Moderate        ,False        ,True         ,True     ,False
+Balance           ,                49 ,Moderate        ,False        ,True         ,False    ,True
+Aerobic           ,                36 ,Low             ,True         ,True         ,False    ,True
+Flexibility       ,                44 ,Moderate        ,False        ,False        ,True     ,True
+Aerobic           ,                23 ,Moderate        ,False        ,True         ,True     ,False
+Aerobic           ,                25 ,Low             ,False        ,False        ,False    ,True
+Flexibility       ,                22 ,Low             ,False        ,False        ,True     ,False
+Aerobic           ,                52 ,Moderate        ,True         ,True         ,False    ,False
+Balance           ,                55 ,Low             ,False        ,False        ,False    ,False
+Flexibility       ,                14 ,Low             ,False        ,False        ,True     ,False
+Flexibility       ,                 7 ,High            ,True         ,False        ,True     ,False
+Aerobic           ,                30 ,Low             ,True         ,False        ,True     ,True
+Aerobic           ,                51 ,Low             ,True         ,True         ,False    ,True
+Balance           ,                44 ,Moderate        ,True         ,False        ,True     ,False
+Flexibility       ,                40 ,Moderate        ,True         ,True         ,False    ,False
+Aerobic           ,                24 ,Low             ,True         ,True         ,False    ,True
+Flexibility       ,                33 ,High            ,True         ,True         ,False    ,False
+Aerobic           ,                50 ,Low             ,True         ,False        ,True     ,False
+Flexibility       ,                18 ,Moderate        ,False        ,True         ,True     ,False
+Flexibility       ,                35 ,High            ,True         ,True         ,True     ,True
+Balance           ,                19 ,High            ,True         ,True         ,True     ,False
+Flexibility       ,                27 ,High            ,False        ,True         ,True     ,True
+Aerobic           ,                56 ,Low             ,True         ,True         ,True     ,True
+Aerobic           ,                62 ,Low             ,True         ,False        ,True     ,True
+Strength Training ,                16 ,Moderate        ,True         ,True         ,True     ,True
+Balance           ,                27 ,Low             ,False        ,False        ,True     ,True
+Aerobic           ,                41 ,Low             ,False        ,False        ,True     ,True
+Balance           ,                43 ,Low             ,True         ,True         ,True     ,False
+Balance           ,                39 ,Low             ,True         ,True         ,True     ,False
+Flexibility       ,                13 ,Low             ,True         ,False        ,True     ,False
+Aerobic           ,                41 ,Low             ,True         ,False        ,True     ,False
+Flexibility       ,                52 ,Moderate        ,False        ,True         ,True     ,True
+Flexibility       ,                10 ,High            ,False        ,False        ,False    ,False
+Aerobic           ,                33 ,Moderate        ,False        ,True         ,False    ,False
+Aerobic           ,                27 ,Low             ,True         ,False        ,False    ,True
+Strength Training ,                10 ,Moderate        ,False        ,False        ,False    ,False
+Aerobic           ,                70 ,Low             ,False        ,True         ,True     ,True
+Flexibility       ,                19 ,Low             ,False        ,True         ,False    ,False
+Flexibility       ,                25 ,Low             ,False        ,True         ,False    ,False
+Flexibility       ,                36 ,Moderate        ,True         ,True         ,False    ,True
+Aerobic           ,                43 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                50 ,Low             ,True         ,True         ,False    ,False
+Flexibility       ,                18 ,Moderate        ,False        ,False        ,True     ,True
+Aerobic           ,                40 ,Low             ,True         ,True         ,True     ,True
+Flexibility       ,                59 ,High            ,False        ,False        ,False    ,True
+Strength Training ,                47 ,Moderate        ,True         ,False        ,True     ,True
+Strength Training ,                35 ,Moderate        ,True         ,False        ,False    ,True
+Aerobic           ,                41 ,High            ,False        ,False        ,False    ,False
+Aerobic           ,                40 ,Moderate        ,False        ,False        ,False    ,False
+Aerobic           ,                37 ,Low             ,False        ,True         ,True     ,True
+Flexibility       ,                35 ,Low             ,True         ,False        ,False    ,False
+Flexibility       ,                 4 ,Moderate        ,False        ,True         ,True     ,False
+Balance           ,                41 ,Moderate        ,True         ,False        ,False    ,True
+Balance           ,                14 ,Moderate        ,True         ,True         ,False    ,True
+Aerobic           ,                15 ,Low             ,True         ,False        ,False    ,True
+Aerobic           ,                44 ,Moderate        ,True         ,True         ,False    ,False
+Flexibility       ,                46 ,Low             ,False        ,True         ,False    ,True
+Balance           ,                49 ,Low             ,False        ,True         ,False    ,False
+Strength Training ,                46 ,Moderate        ,False        ,False        ,False    ,True
+Strength Training ,                43 ,Moderate        ,True         ,True         ,False    ,True
+Balance           ,                15 ,Moderate        ,False        ,False        ,True     ,False
+Flexibility       ,                41 ,Low             ,False        ,True         ,False    ,False
+Aerobic           ,                40 ,Low             ,True         ,False        ,True     ,True
+Balance           ,                42 ,Low             ,False        ,False        ,True     ,False
+Flexibility       ,                55 ,Moderate        ,True         ,True         ,True     ,True
+Balance           ,                54 ,High            ,True         ,False        ,True     ,True
+Aerobic           ,                40 ,Moderate        ,False        ,False        ,True     ,False
+Aerobic           ,                47 ,Low             ,False        ,False        ,False    ,True
+Strength Training ,                48 ,Moderate        ,False        ,True         ,True     ,True
+Strength Training ,                10 ,Moderate        ,True         ,False        ,True     ,True
+Balance           ,                51 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                18 ,Low             ,False        ,False        ,True     ,True
+Balance           ,                23 ,High            ,False        ,True         ,True     ,True
+Strength Training ,                46 ,Moderate        ,False        ,True         ,False    ,True
+Aerobic           ,                42 ,Moderate        ,True         ,True         ,False    ,False
+Strength Training ,                29 ,Moderate        ,False        ,False        ,True     ,False
+Aerobic           ,                55 ,Low             ,True         ,False        ,True     ,True
+Strength Training ,                36 ,Moderate        ,True         ,False        ,True     ,True
+Flexibility       ,                27 ,Moderate        ,False        ,False        ,False    ,True
+Balance           ,                28 ,Moderate        ,True         ,False        ,False    ,False
+Flexibility       ,                34 ,High            ,True         ,True         ,True     ,False
+Flexibility       ,                17 ,High            ,True         ,True         ,False    ,False
+Flexibility       ,                41 ,High            ,True         ,True         ,True     ,True
+Flexibility       ,                49 ,Moderate        ,False        ,True         ,True     ,False
+Strength Training ,                46 ,Low             ,False        ,True         ,True     ,False
+Flexibility       ,                48 ,High            ,True         ,True         ,False    ,False
+Aerobic           ,                53 ,Low             ,True         ,False        ,False    ,False
+Balance           ,                48 ,Moderate        ,False        ,False        ,False    ,False
+Aerobic           ,                41 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                13 ,High            ,True         ,False        ,True     ,False
+Flexibility       ,                35 ,Low             ,True         ,False        ,True     ,False
+Balance           ,                56 ,Low             ,True         ,False        ,False    ,True
+Balance           ,                17 ,High            ,False        ,True         ,False    ,False
+Flexibility       ,                14 ,High            ,False        ,True         ,False    ,False
+Flexibility       ,                26 ,Low             ,False        ,False        ,True     ,True
+Aerobic           ,                29 ,Low             ,True         ,False        ,False    ,True
+Strength Training ,                54 ,Low             ,True         ,True         ,True     ,False
+Balance           ,                13 ,Low             ,False        ,True         ,True     ,False
+Balance           ,                21 ,High            ,False        ,True         ,False    ,False
+Aerobic           ,                11 ,Low             ,True         ,False        ,False    ,False
+Flexibility       ,                48 ,High            ,True         ,True         ,True     ,False
+Flexibility       ,                54 ,Low             ,True         ,False        ,False    ,True
+Aerobic           ,                43 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                47 ,High            ,False        ,False        ,True     ,False
+Balance           ,                45 ,Low             ,True         ,False        ,False    ,False
+Strength Training ,                35 ,Moderate        ,True         ,False        ,False    ,True
+Aerobic           ,                14 ,Low             ,True         ,False        ,False    ,False
+Strength Training ,                46 ,Moderate        ,True         ,False        ,False    ,True
+Flexibility       ,                55 ,Moderate        ,True         ,True         ,False    ,False
+Aerobic           ,                53 ,Low             ,True         ,True         ,False    ,True
+Balance           ,                13 ,Moderate        ,False        ,True         ,True     ,False
+Aerobic           ,                34 ,Moderate        ,True         ,True         ,True     ,False
+Balance           ,                37 ,Low             ,False        ,False        ,False    ,True
+Strength Training ,                56 ,Moderate        ,False        ,False        ,True     ,True
+Balance           ,                21 ,Moderate        ,True         ,False        ,True     ,True
+Aerobic           ,                65 ,Low             ,False        ,True         ,True     ,True
+Aerobic           ,                59 ,Moderate        ,True         ,True         ,False    ,False
+Balance           ,                22 ,Moderate        ,False        ,True         ,False    ,True
+Flexibility       ,                36 ,Moderate        ,False        ,True         ,False    ,True
+Balance           ,                29 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                30 ,High            ,False        ,True         ,True     ,False
+Flexibility       ,                55 ,High            ,True         ,False        ,False    ,False
+Strength Training ,                17 ,Moderate        ,True         ,False        ,False    ,True
+Flexibility       ,                26 ,Low             ,False        ,False        ,True     ,True
+Strength Training ,                17 ,Low             ,False        ,True         ,False    ,False
+Aerobic           ,                41 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                59 ,Low             ,False        ,True         ,True     ,False
+Strength Training ,                60 ,Moderate        ,False        ,True         ,False    ,True
+Strength Training ,                22 ,Moderate        ,False        ,False        ,False    ,False
+Strength Training ,                25 ,Low             ,False        ,False        ,False    ,False
+Balance           ,                37 ,High            ,False        ,True         ,False    ,False
+Flexibility       ,                11 ,Moderate        ,True         ,True         ,True     ,False
+Strength Training ,                38 ,Moderate        ,True         ,True         ,False    ,True
+Strength Training ,                49 ,Moderate        ,True         ,False        ,False    ,True
+Balance           ,                47 ,High            ,True         ,True         ,True     ,False
+Aerobic           ,                52 ,Low             ,True         ,False        ,True     ,False
+Aerobic           ,                56 ,Moderate        ,True         ,True         ,False    ,False
+Aerobic           ,                30 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                49 ,Moderate        ,False        ,False        ,True     ,True
+Balance           ,                13 ,Moderate        ,False        ,False        ,False    ,True
+Strength Training ,                57 ,Moderate        ,False        ,False        ,True     ,True
+Strength Training ,                18 ,High            ,False        ,False        ,False    ,False
+Balance           ,                47 ,Low             ,True         ,False        ,False    ,True
+Balance           ,                45 ,Low             ,False        ,True         ,True     ,False
+Strength Training ,                44 ,High            ,False        ,False        ,True     ,False
+Balance           ,                31 ,Moderate        ,False        ,False        ,True     ,False
+Aerobic           ,                56 ,Low             ,False        ,True         ,False    ,True
+Flexibility       ,                 5 ,High            ,False        ,True         ,True     ,False
+Aerobic           ,                54 ,Low             ,False        ,False        ,True     ,True
+Balance           ,                51 ,High            ,False        ,True         ,False    ,True
+Strength Training ,                36 ,Moderate        ,True         ,False        ,True     ,False
+Flexibility       ,                 1 ,Low             ,False        ,False        ,True     ,False
+Aerobic           ,                58 ,Low             ,True         ,False        ,True     ,False
+Balance           ,                25 ,Low             ,False        ,True         ,False    ,True
+Aerobic           ,                60 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                37 ,High            ,True         ,True         ,True     ,True
+Balance           ,                14 ,Low             ,False        ,False        ,True     ,False
+Strength Training ,                24 ,Moderate        ,True         ,True         ,False    ,True
+Aerobic           ,                23 ,Moderate        ,False        ,True         ,True     ,False
+Aerobic           ,                17 ,Moderate        ,False        ,True         ,False    ,False
+Flexibility       ,                 7 ,Low             ,False        ,True         ,True     ,False
+Strength Training ,                32 ,Low             ,True         ,True         ,True     ,False
+Balance           ,                23 ,Low             ,True         ,True         ,True     ,False
+Balance           ,                23 ,Low             ,False        ,False        ,True     ,True
+Strength Training ,                28 ,Moderate        ,True         ,True         ,True     ,True
+Flexibility       ,                14 ,Low             ,True         ,False        ,True     ,False
+Flexibility       ,                60 ,Moderate        ,False        ,True         ,True     ,True
+Aerobic           ,                65 ,Low             ,True         ,False        ,True     ,True
+Balance           ,                24 ,Low             ,False        ,True         ,True     ,False
+Flexibility       ,                50 ,High            ,False        ,False        ,True     ,False
+Aerobic           ,                35 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                46 ,Low             ,True         ,False        ,True     ,False
+Flexibility       ,                19 ,Moderate        ,False        ,True         ,True     ,False
+Flexibility       ,                56 ,Moderate        ,False        ,True         ,False    ,True
+Aerobic           ,                44 ,Low             ,False        ,True         ,False    ,True
+Aerobic           ,                43 ,Low             ,True         ,False        ,False    ,True
+Flexibility       ,                57 ,High            ,False        ,True         ,True     ,True
+Balance           ,                19 ,Moderate        ,False        ,False        ,True     ,False
+Flexibility       ,                34 ,Low             ,True         ,False        ,False    ,True
+Balance           ,                33 ,Low             ,True         ,False        ,False    ,True
+Balance           ,                21 ,High            ,False        ,False        ,False    ,True
+Flexibility       ,                56 ,Moderate        ,True         ,True         ,True     ,True
+Aerobic           ,                40 ,Moderate        ,True         ,True         ,True     ,False
+Aerobic           ,                27 ,Moderate        ,False        ,True         ,True     ,False
+Strength Training ,                13 ,Low             ,False        ,True         ,True     ,False
+Strength Training ,                22 ,Moderate        ,True         ,True         ,False    ,True
+Balance           ,                12 ,Moderate        ,True         ,False        ,True     ,True
+Strength Training ,                18 ,High            ,False        ,False        ,True     ,False
+Aerobic           ,                20 ,Low             ,True         ,True         ,False    ,True
+Aerobic           ,                27 ,Low             ,True         ,True         ,True     ,True
+Strength Training ,                12 ,Low             ,False        ,True         ,True     ,False
+Strength Training ,                54 ,Moderate        ,True         ,True         ,True     ,True
+Strength Training ,                53 ,Moderate        ,True         ,True         ,False    ,True
+Aerobic           ,                59 ,Low             ,True         ,False        ,False    ,False
+Strength Training ,                28 ,Moderate        ,False        ,True         ,True     ,True
+Aerobic           ,                37 ,Moderate        ,False        ,True         ,True     ,False
+Flexibility       ,                29 ,Low             ,False        ,False        ,False    ,False
+Balance           ,                21 ,High            ,False        ,False        ,False    ,False
+Balance           ,                45 ,Low             ,False        ,False        ,False    ,False
+Strength Training ,                37 ,Moderate        ,True         ,False        ,True     ,False
+Strength Training ,                53 ,Low             ,True         ,True         ,True     ,False
+Strength Training ,                42 ,Low             ,True         ,True         ,True     ,False
+Flexibility       ,                36 ,High            ,True         ,False        ,True     ,True
+Flexibility       ,                10 ,High            ,True         ,False        ,True     ,True
+Aerobic           ,                23 ,Low             ,True         ,False        ,True     ,False
+Strength Training ,                23 ,Low             ,False        ,True         ,False    ,False
+Strength Training ,                47 ,Moderate        ,True         ,True         ,False    ,True
+Flexibility       ,                46 ,Low             ,False        ,False        ,False    ,True
+Aerobic           ,                26 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                58 ,High            ,False        ,False        ,True     ,False
+Balance           ,                59 ,Low             ,True         ,True         ,True     ,False
+Aerobic           ,                19 ,Low             ,True         ,False        ,False    ,False
+Flexibility       ,                52 ,High            ,False        ,True         ,False    ,True
+Flexibility       ,                45 ,Low             ,False        ,False        ,True     ,False
+Strength Training ,                20 ,Moderate        ,True         ,False        ,True     ,True
+Flexibility       ,                40 ,High            ,False        ,True         ,False    ,False
+Strength Training ,                23 ,Moderate        ,True         ,False        ,True     ,True
+Aerobic           ,                57 ,Moderate        ,True         ,True         ,False    ,False
+Flexibility       ,                50 ,Low             ,True         ,False        ,True     ,True
+Flexibility       ,                31 ,Low             ,False        ,False        ,False    ,True
+Aerobic           ,                67 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                36 ,Low             ,True         ,False        ,True     ,False
+Balance           ,                23 ,Moderate        ,False        ,True         ,False    ,False
+Flexibility       ,                58 ,Moderate        ,False        ,True         ,False    ,False
+Flexibility       ,                56 ,Low             ,True         ,True         ,False    ,True
+Balance           ,                36 ,Moderate        ,False        ,True         ,False    ,False
+Aerobic           ,                39 ,Moderate        ,False        ,True         ,True     ,False
+Flexibility       ,                34 ,Moderate        ,True         ,True         ,True     ,True
+Strength Training ,                56 ,Moderate        ,False        ,True         ,True     ,True
+Flexibility       ,                45 ,Moderate        ,True         ,False        ,True     ,False
+Flexibility       ,                35 ,Moderate        ,True         ,True         ,True     ,True
+Strength Training ,                28 ,Moderate        ,False        ,False        ,True     ,False
+Strength Training ,                13 ,Moderate        ,True         ,True         ,True     ,True
+Aerobic           ,                54 ,Low             ,False        ,False        ,True     ,True
+Aerobic           ,                33 ,Moderate        ,False        ,True         ,False    ,False
+Flexibility       ,                11 ,Low             ,False        ,False        ,True     ,False
+Aerobic           ,                68 ,Low             ,True         ,False        ,True     ,True
+Flexibility       ,                57 ,High            ,False        ,True         ,True     ,True
+Strength Training ,                38 ,Moderate        ,False        ,True         ,False    ,True
+Flexibility       ,                23 ,High            ,True         ,True         ,True     ,True
+Flexibility       ,                20 ,Moderate        ,True         ,False        ,True     ,False
+Balance           ,                51 ,High            ,False        ,False        ,False    ,False
+Aerobic           ,                53 ,Low             ,True         ,False        ,True     ,False
+Strength Training ,                53 ,Low             ,False        ,True         ,False    ,False
+Flexibility       ,                13 ,High            ,True         ,True         ,False    ,False
+Strength Training ,                13 ,Moderate        ,False        ,True         ,False    ,True
+Strength Training ,                59 ,Low             ,False        ,True         ,False    ,False
+Aerobic           ,                47 ,Low             ,True         ,True         ,False    ,True
+Strength Training ,                31 ,Low             ,False        ,True         ,False    ,False
+Balance           ,                59 ,High            ,True         ,True         ,False    ,True
+Balance           ,                60 ,High            ,True         ,False        ,False    ,False
+Strength Training ,                19 ,Moderate        ,True         ,False        ,True     ,False
+Strength Training ,                45 ,High            ,False        ,False        ,True     ,False
+Strength Training ,                48 ,Moderate        ,False        ,False        ,True     ,True
+Aerobic           ,                11 ,Low             ,True         ,False        ,False    ,False
+Strength Training ,                38 ,Moderate        ,True         ,False        ,True     ,True
+Strength Training ,                25 ,Moderate        ,True         ,False        ,False    ,False
+Flexibility       ,                36 ,High            ,True         ,False        ,True     ,True
+Strength Training ,                55 ,Moderate        ,False        ,False        ,False    ,True
+Aerobic           ,                24 ,Moderate        ,True         ,True         ,False    ,False
+Flexibility       ,                38 ,High            ,False        ,False        ,False    ,False
+Flexibility       ,                32 ,Low             ,False        ,True         ,False    ,True
+Flexibility       ,                24 ,Moderate        ,False        ,True         ,True     ,False
+Flexibility       ,                 4 ,Moderate        ,False        ,False        ,True     ,False
+Strength Training ,                35 ,Moderate        ,False        ,False        ,True     ,True
+Aerobic           ,                34 ,Low             ,True         ,False        ,False    ,True
+Flexibility       ,                24 ,Low             ,False        ,False        ,False    ,False
+Strength Training ,                44 ,Moderate        ,True         ,False        ,True     ,True
+Balance           ,                22 ,Low             ,False        ,True         ,True     ,False
+Aerobic           ,                67 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                13 ,Moderate        ,False        ,False        ,False    ,False
+Strength Training ,                30 ,Moderate        ,True         ,False        ,True     ,False
+Flexibility       ,                38 ,High            ,True         ,True         ,True     ,False
+Flexibility       ,                10 ,Moderate        ,False        ,False        ,True     ,True
+Balance           ,                36 ,Moderate        ,True         ,False        ,True     ,False
+Strength Training ,                58 ,Moderate        ,True         ,False        ,False    ,False
+Aerobic           ,                34 ,Low             ,True         ,True         ,False    ,True
+Aerobic           ,                18 ,Low             ,True         ,False        ,False    ,False
+Strength Training ,                11 ,Low             ,False        ,False        ,False    ,False
+Balance           ,                58 ,Moderate        ,True         ,False        ,False    ,True
+Aerobic           ,                40 ,Moderate        ,False        ,True         ,True     ,False
+Balance           ,                44 ,Low             ,True         ,True         ,False    ,False
+Strength Training ,                26 ,Low             ,True         ,True         ,False    ,False
+Strength Training ,                43 ,Moderate        ,False        ,False        ,True     ,True
+Aerobic           ,                28 ,Low             ,True         ,False        ,True     ,False
+Aerobic           ,                50 ,Low             ,False        ,False        ,True     ,False
+Flexibility       ,                29 ,High            ,False        ,True         ,True     ,False
+Flexibility       ,                40 ,High            ,False        ,False        ,False    ,True
+Aerobic           ,                24 ,Low             ,True         ,True         ,False    ,True
+Strength Training ,                51 ,Low             ,False        ,True         ,True     ,False
+Flexibility       ,                60 ,High            ,False        ,False        ,False    ,False
+Balance           ,                28 ,High            ,True         ,True         ,True     ,True
+Flexibility       ,                32 ,Moderate        ,True         ,True         ,False    ,False
+Aerobic           ,                20 ,Low             ,True         ,False        ,True     ,True
+Aerobic           ,                42 ,Low             ,True         ,True         ,True     ,True
+Strength Training ,                44 ,Moderate        ,False        ,True         ,True     ,True
+Aerobic           ,                38 ,Low             ,True         ,False        ,True     ,True
+Strength Training ,                42 ,Moderate        ,True         ,True         ,False    ,True
+Balance           ,                38 ,Low             ,True         ,False        ,True     ,False
+Strength Training ,                27 ,Low             ,False        ,True         ,False    ,False
+Balance           ,                30 ,High            ,False        ,False        ,False    ,True
+Strength Training ,                29 ,High            ,False        ,False        ,True     ,False
+Aerobic           ,                20 ,Low             ,True         ,True         ,False    ,True
+Aerobic           ,                53 ,Moderate        ,False        ,False        ,False    ,False
+Aerobic           ,                63 ,Moderate        ,True         ,True         ,True     ,False
+Balance           ,                58 ,Moderate        ,False        ,False        ,False    ,False
+Aerobic           ,                37 ,Low             ,True         ,True         ,True     ,True
+Flexibility       ,                57 ,High            ,True         ,False        ,False    ,False
+Aerobic           ,                56 ,Low             ,True         ,True         ,False    ,True
+Strength Training ,                18 ,Moderate        ,True         ,False        ,False    ,True
+Aerobic           ,                57 ,Low             ,False        ,False        ,False    ,False
+Balance           ,                22 ,Moderate        ,True         ,False        ,True     ,True
+Aerobic           ,                20 ,Low             ,True         ,False        ,False    ,False
+Aerobic           ,                34 ,Low             ,False        ,True         ,False    ,True
+Flexibility       ,                32 ,Moderate        ,False        ,False        ,False    ,False
+Balance           ,                34 ,Moderate        ,True         ,True         ,True     ,False
+Balance           ,                33 ,Moderate        ,True         ,False        ,True     ,False
+Balance           ,                49 ,Low             ,False        ,False        ,True     ,False
+Flexibility       ,                48 ,High            ,False        ,False        ,False    ,False
+Flexibility       ,                23 ,Low             ,True         ,True         ,False    ,True
+Balance           ,                48 ,Moderate        ,True         ,False        ,True     ,True
+Strength Training ,                43 ,Moderate        ,True         ,False        ,False    ,False
+Strength Training ,                43 ,Moderate        ,False        ,False        ,False    ,True
+Flexibility       ,                48 ,Low             ,False        ,False        ,False    ,True
+Flexibility       ,                20 ,High            ,True         ,False        ,False    ,True
+Flexibility       ,                44 ,High            ,False        ,False        ,True     ,False
+Strength Training ,                32 ,Moderate        ,False        ,True         ,False    ,True
+Strength Training ,                29 ,Moderate        ,True         ,False        ,True     ,False
+Strength Training ,                49 ,Moderate        ,False        ,False        ,False    ,False
+Strength Training ,                58 ,Moderate        ,False        ,True         ,False    ,True
+Strength Training ,                26 ,Moderate        ,False        ,True         ,True     ,True
+Flexibility       ,                22 ,High            ,False        ,True         ,False    ,False
+Strength Training ,                11 ,Low             ,True         ,True         ,False    ,False
+Aerobic           ,                59 ,Low             ,True         ,False        ,True     ,True
+Aerobic           ,                48 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                38 ,High            ,False        ,True         ,True     ,True
+Balance           ,                56 ,Low             ,False        ,False        ,True     ,False
+Strength Training ,                14 ,Low             ,True         ,True         ,True     ,False
+Flexibility       ,                25 ,Moderate        ,True         ,True         ,False    ,False
+Flexibility       ,                45 ,High            ,False        ,False        ,False    ,False
+Aerobic           ,                51 ,Moderate        ,True         ,True         ,True     ,False
+Strength Training ,                59 ,Low             ,False        ,True         ,False    ,False
+Strength Training ,                19 ,Moderate        ,True         ,True         ,False    ,True
+Strength Training ,                49 ,Moderate        ,False        ,True         ,False    ,True
+Aerobic           ,                54 ,Moderate        ,True         ,True         ,False    ,False
+Flexibility       ,                34 ,Moderate        ,False        ,False        ,True     ,True
+Flexibility       ,                24 ,Low             ,True         ,False        ,False    ,True
+Aerobic           ,                29 ,Low             ,False        ,True         ,False    ,True
+Aerobic           ,                40 ,Moderate        ,True         ,True         ,True     ,False
+Strength Training ,                43 ,Low             ,False        ,True         ,False    ,False
+Strength Training ,                57 ,Low             ,True         ,True         ,False    ,False
+Flexibility       ,                33 ,High            ,True         ,True         ,True     ,False
+Balance           ,                37 ,Low             ,False        ,True         ,False    ,False
+Balance           ,                27 ,Moderate        ,False        ,True         ,True     ,False
+Strength Training ,                60 ,Moderate        ,True         ,False        ,False    ,False
+Aerobic           ,                67 ,Moderate        ,True         ,True         ,True     ,False
+Aerobic           ,                27 ,Low             ,False        ,False        ,False    ,True
+Aerobic           ,                51 ,Low             ,True         ,False        ,True     ,True
+Flexibility       ,                50 ,Low             ,True         ,False        ,False    ,True
+Aerobic           ,                41 ,Moderate        ,False        ,True         ,True     ,False
+Balance           ,                28 ,Low             ,True         ,True         ,False    ,False
+Balance           ,                55 ,Moderate        ,True         ,True         ,False    ,True
+Aerobic           ,                11 ,Low             ,False        ,False        ,False    ,False
+Aerobic           ,                21 ,Low             ,True         ,False        ,True     ,True
+Balance           ,                50 ,Moderate        ,True         ,False        ,True     ,False
+Flexibility       ,                67 ,Moderate        ,True         ,False        ,False    ,True
+Flexibility       ,                37 ,Moderate        ,False        ,False        ,False    ,True
+Flexibility       ,                29 ,Moderate        ,False        ,False        ,True     ,False
+Flexibility       ,                35 ,High            ,False        ,False        ,False    ,True
+Balance           ,                51 ,Moderate        ,True         ,True         ,False    ,True
+Flexibility       ,                28 ,Moderate        ,False        ,True         ,False    ,False
+Strength Training ,                53 ,Moderate        ,False        ,True         ,True     ,True
+Aerobic           ,                23 ,Low             ,False        ,False        ,True     ,False
+Balance           ,                26 ,Moderate        ,True         ,True         ,True     ,True
+Aerobic           ,                18 ,Low             ,True         ,True         ,False    ,True
+Aerobic           ,                55 ,Low             ,False        ,False        ,True     ,False
+Flexibility       ,                40 ,Moderate        ,True         ,True         ,False    ,True
+Balance           ,                36 ,Moderate        ,False        ,False        ,True     ,False
+Strength Training ,                59 ,High            ,False        ,False        ,False    ,False
+Flexibility       ,                55 ,High            ,False        ,True         ,False    ,False
+Strength Training ,                42 ,Moderate        ,True         ,True         ,False    ,True
+Strength Training ,                21 ,Moderate        ,True         ,False        ,False    ,False
+Strength Training ,                13 ,Moderate        ,True         ,True         ,False    ,True
+Flexibility       ,                27 ,High            ,False        ,True         ,False    ,False
+Aerobic           ,                16 ,Low             ,False        ,False        ,False    ,False
+Balance           ,                13 ,High            ,False        ,True         ,True     ,False
+Aerobic           ,                54 ,Low             ,False        ,False        ,True     ,True
+Strength Training ,                13 ,Moderate        ,False        ,False        ,False    ,False
+Flexibility       ,                39 ,Low             ,False        ,True         ,False    ,True
+Strength Training ,                43 ,Moderate        ,True         ,False        ,False    ,False
+Strength Training ,                18 ,Low             ,True         ,True         ,False    ,False
+Flexibility       ,                34 ,Moderate        ,False        ,True         ,True     ,True
+Strength Training ,                60 ,Low             ,False        ,True         ,False    ,False
+Strength Training ,                16 ,Moderate        ,True         ,False        ,True     ,False
+Strength Training ,                39 ,Moderate        ,True         ,False        ,False    ,False
+Flexibility       ,                26 ,Low             ,True         ,False        ,False    ,False
+Balance           ,                23 ,Low             ,False        ,False        ,True     ,False
+Balance           ,                40 ,Low             ,False        ,False        ,True     ,True
+Strength Training ,                30 ,Low             ,False        ,True         ,True     ,False
+Flexibility       ,                43 ,Low             ,True         ,True         ,True     ,False
+Aerobic           ,                50 ,Low             ,False        ,False        ,True     ,False
+Strength Training ,                47 ,Low             ,False        ,True         ,True     ,False
+Balance           ,                32 ,High            ,True         ,False        ,False    ,False
+Strength Training ,                56 ,Moderate        ,True         ,True         ,True     ,True
+Balance           ,                17 ,Low             ,True         ,False        ,False    ,False
+Flexibility       ,                10 ,Moderate        ,False        ,False        ,False    ,False
+Flexibility       ,                30 ,Low             ,True         ,False        ,True     ,False
+Aerobic           ,                27 ,Low             ,True         ,False        ,False    ,False
+Flexibility       ,                34 ,High            ,False        ,True         ,False    ,True
+Strength Training ,                36 ,Low             ,False        ,True         ,False    ,False
+Strength Training ,                32 ,Moderate        ,True         ,True         ,False    ,True
+Aerobic           ,                28 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                27 ,High            ,True         ,False        ,False    ,True
+Aerobic           ,                12 ,Low             ,True         ,True         ,False    ,True
+Flexibility       ,                13 ,Moderate        ,True         ,False        ,True     ,False
+Balance           ,                35 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                41 ,Moderate        ,False        ,True         ,True     ,True
+Aerobic           ,                37 ,Moderate        ,False        ,True         ,True     ,False
+Balance           ,                11 ,Moderate        ,False        ,False        ,False    ,False
+Strength Training ,                58 ,Moderate        ,True         ,False        ,False    ,True
+Balance           ,                47 ,Moderate        ,True         ,True         ,True     ,False
+Strength Training ,                26 ,Moderate        ,True         ,False        ,True     ,True
+Flexibility       ,                22 ,Moderate        ,True         ,True         ,True     ,True
+Aerobic           ,                60 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                60 ,Low             ,True         ,True         ,True     ,False
+Balance           ,                32 ,Moderate        ,True         ,False        ,True     ,True
+Aerobic           ,                13 ,Low             ,True         ,True         ,False    ,True
+Aerobic           ,                63 ,Low             ,True         ,False        ,True     ,True
+Strength Training ,                60 ,Moderate        ,False        ,False        ,True     ,True
+Strength Training ,                35 ,Moderate        ,True         ,True         ,False    ,True
+Balance           ,                43 ,Low             ,True         ,True         ,True     ,True
+Flexibility       ,                 4 ,Low             ,True         ,False        ,True     ,False
+Balance           ,                44 ,Low             ,True         ,False        ,True     ,True
+Flexibility       ,                27 ,Low             ,False        ,True         ,False    ,True
+Strength Training ,                20 ,High            ,False        ,False        ,True     ,False
+Balance           ,                21 ,High            ,True         ,True         ,True     ,True
+Aerobic           ,                12 ,Low             ,False        ,True         ,False    ,True
+Aerobic           ,                15 ,Low             ,False        ,False        ,False    ,False
+Balance           ,                24 ,Moderate        ,False        ,True         ,False    ,False
+Flexibility       ,                54 ,Low             ,True         ,True         ,False    ,True
+Strength Training ,                32 ,Moderate        ,False        ,False        ,True     ,True
+Aerobic           ,                24 ,Low             ,True         ,True         ,True     ,True
+Aerobic           ,                67 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                47 ,Moderate        ,True         ,True         ,False    ,False
+Flexibility       ,                17 ,Low             ,False        ,False        ,True     ,False
+Flexibility       ,                12 ,Low             ,False        ,True         ,True     ,False
+Aerobic           ,                53 ,Low             ,True         ,True         ,True     ,True
+Flexibility       ,                12 ,Low             ,False        ,False        ,False    ,False
+Balance           ,                22 ,Low             ,False        ,False        ,False    ,False
+Flexibility       ,                56 ,Low             ,False        ,False        ,False    ,False
+Aerobic           ,                44 ,Low             ,True         ,False        ,True     ,False
+Strength Training ,                37 ,Moderate        ,False        ,True         ,False    ,True
+Strength Training ,                16 ,Moderate        ,True         ,False        ,True     ,True
+Aerobic           ,                63 ,Low             ,False        ,False        ,True     ,True
+Balance           ,                34 ,Low             ,True         ,False        ,False    ,False
+Strength Training ,                39 ,Low             ,False        ,True         ,True     ,False
+Aerobic           ,                64 ,Low             ,False        ,True         ,True     ,True
+Aerobic           ,                17 ,Low             ,True         ,False        ,False    ,True
+Aerobic           ,                57 ,Low             ,True         ,False        ,True     ,False
+Aerobic           ,                51 ,Moderate        ,True         ,True         ,False    ,False
+Balance           ,                19 ,Low             ,True         ,True         ,False    ,True
+Strength Training ,                42 ,Low             ,False        ,True         ,False    ,False
+Flexibility       ,                25 ,High            ,False        ,False        ,True     ,True
+Aerobic           ,                39 ,Moderate        ,True         ,True         ,False    ,False
+Flexibility       ,                60 ,High            ,False        ,True         ,False    ,True
+Strength Training ,                25 ,Moderate        ,True         ,False        ,False    ,True
+Strength Training ,                57 ,High            ,False        ,False        ,False    ,False
+Strength Training ,                50 ,Moderate        ,True         ,False        ,False    ,False
+Aerobic           ,                51 ,Low             ,False        ,False        ,False    ,True
+Aerobic           ,                11 ,Low             ,True         ,False        ,False    ,True
+Flexibility       ,                33 ,Moderate        ,True         ,False        ,True     ,False
+Flexibility       ,                16 ,Moderate        ,True         ,True         ,False    ,False
+Aerobic           ,                32 ,Low             ,True         ,False        ,True     ,True
+Aerobic           ,                58 ,Low             ,True         ,True         ,False    ,True
+Strength Training ,                45 ,Moderate        ,True         ,False        ,False    ,True
+Balance           ,                41 ,Moderate        ,False        ,False        ,True     ,False
+Aerobic           ,                59 ,Low             ,False        ,True         ,False    ,True
+Strength Training ,                49 ,Moderate        ,True         ,False        ,True     ,False
+Strength Training ,                24 ,Low             ,False        ,True         ,True     ,False
+Strength Training ,                30 ,Moderate        ,False        ,False        ,False    ,True
+Balance           ,                28 ,Low             ,False        ,True         ,False    ,False
+Balance           ,                60 ,Low             ,False        ,True         ,True     ,True
+Flexibility       ,                48 ,Low             ,True         ,True         ,True     ,False
+Aerobic           ,                40 ,Moderate        ,True         ,True         ,True     ,False
+Aerobic           ,                57 ,Low             ,True         ,True         ,True     ,True
+Strength Training ,                22 ,Moderate        ,False        ,True         ,False    ,True
+Aerobic           ,                33 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                12 ,Moderate        ,False        ,True         ,False    ,False
+Strength Training ,                11 ,Low             ,False        ,True         ,True     ,False
+Flexibility       ,                27 ,High            ,False        ,False        ,True     ,False
+Aerobic           ,                58 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                12 ,Moderate        ,False        ,False        ,False    ,True
+Aerobic           ,                21 ,Moderate        ,False        ,True         ,False    ,False
+Strength Training ,                40 ,Moderate        ,False        ,True         ,False    ,True
+Flexibility       ,                27 ,Low             ,False        ,True         ,False    ,True
+Aerobic           ,                16 ,Low             ,True         ,False        ,False    ,False
+Strength Training ,                10 ,Moderate        ,True         ,True         ,True     ,True
+Flexibility       ,                38 ,Moderate        ,True         ,True         ,True     ,True
+Balance           ,                60 ,High            ,True         ,True         ,True     ,False
+Balance           ,                14 ,High            ,False        ,False        ,False    ,False
+Strength Training ,                23 ,Moderate        ,False        ,True         ,True     ,True
+Flexibility       ,                41 ,Moderate        ,True         ,False        ,True     ,False
+Balance           ,                16 ,High            ,False        ,False        ,False    ,False
+Balance           ,                14 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                24 ,Low             ,True         ,True         ,False    ,False
+Balance           ,                43 ,Low             ,True         ,False        ,False    ,True
+Strength Training ,                55 ,Low             ,True         ,True         ,False    ,False
+Balance           ,                26 ,Low             ,False        ,False        ,False    ,False
+Flexibility       ,                39 ,Low             ,True         ,False        ,False    ,False
+Flexibility       ,                30 ,Moderate        ,True         ,False        ,False    ,False
+Balance           ,                41 ,High            ,False        ,False        ,False    ,False
+Balance           ,                19 ,High            ,True         ,True         ,False    ,True
+Balance           ,                22 ,Low             ,False        ,True         ,False    ,True
+Strength Training ,                20 ,Moderate        ,False        ,False        ,True     ,True
+Aerobic           ,                43 ,Low             ,False        ,True         ,False    ,True
+Flexibility       ,                59 ,Low             ,False        ,False        ,False    ,True
+Flexibility       ,                 2 ,High            ,True         ,False        ,True     ,False
+Aerobic           ,                52 ,Low             ,False        ,False        ,True     ,True
+Balance           ,                38 ,Low             ,False        ,True         ,True     ,False
+Aerobic           ,                59 ,Low             ,False        ,False        ,False    ,True
+Balance           ,                57 ,Low             ,True         ,False        ,False    ,True
+Flexibility       ,                41 ,High            ,True         ,True         ,True     ,False
+Flexibility       ,                52 ,Moderate        ,False        ,True         ,False    ,True
+Strength Training ,                47 ,Moderate        ,False        ,True         ,False    ,True
+Balance           ,                26 ,Moderate        ,True         ,False        ,True     ,False
+Balance           ,                45 ,High            ,True         ,False        ,False    ,True
+Aerobic           ,                29 ,Moderate        ,True         ,True         ,True     ,False
+Strength Training ,                30 ,Moderate        ,True         ,True         ,False    ,True
+Balance           ,                33 ,Moderate        ,True         ,False        ,True     ,False
+Strength Training ,                18 ,Low             ,True         ,True         ,False    ,False
+Aerobic           ,                32 ,Low             ,True         ,False        ,False    ,True
+Strength Training ,                26 ,Moderate        ,True         ,True         ,False    ,True
+Aerobic           ,                60 ,Moderate        ,False        ,True         ,True     ,False
+Aerobic           ,                52 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                35 ,Moderate        ,True         ,False        ,True     ,False
+Aerobic           ,                29 ,Moderate        ,False        ,True         ,False    ,False
+Strength Training ,                29 ,Moderate        ,False        ,True         ,True     ,True
+Balance           ,                17 ,High            ,False        ,True         ,False    ,True
+Strength Training ,                45 ,Low             ,False        ,False        ,False    ,False
+Aerobic           ,                46 ,Low             ,False        ,True         ,False    ,True
+Aerobic           ,                43 ,Moderate        ,False        ,False        ,True     ,False
+Balance           ,                48 ,High            ,False        ,False        ,False    ,True
+Aerobic           ,                17 ,Low             ,True         ,False        ,False    ,False
+Balance           ,                24 ,High            ,False        ,False        ,False    ,False
+Balance           ,                43 ,High            ,False        ,False        ,True     ,True
+Balance           ,                13 ,Low             ,False        ,False        ,True     ,True
+Balance           ,                14 ,High            ,False        ,True         ,True     ,True
+Aerobic           ,                20 ,Low             ,True         ,True         ,True     ,True
+Strength Training ,                11 ,Low             ,True         ,True         ,False    ,False
+Flexibility       ,                32 ,Moderate        ,True         ,True         ,False    ,True
+Flexibility       ,                 3 ,High            ,False        ,True         ,True     ,False
+Flexibility       ,                49 ,Low             ,True         ,False        ,True     ,True
+Aerobic           ,                51 ,Low             ,True         ,False        ,False    ,True
+Strength Training ,                53 ,Low             ,True         ,True         ,True     ,False
+Aerobic           ,                58 ,Low             ,False        ,False        ,False    ,True
+Balance           ,                20 ,Moderate        ,True         ,True         ,False    ,True
+Strength Training ,                60 ,Moderate        ,True         ,False        ,False    ,False
+Aerobic           ,                23 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                23 ,High            ,False        ,True         ,False    ,True
+Strength Training ,                50 ,Moderate        ,True         ,False        ,False    ,True
+Strength Training ,                16 ,Moderate        ,False        ,True         ,True     ,True
+Aerobic           ,                51 ,Moderate        ,True         ,True         ,False    ,False
+Balance           ,                48 ,Low             ,False        ,False        ,False    ,False
+Balance           ,                42 ,Moderate        ,False        ,True         ,True     ,True
+Balance           ,                50 ,Moderate        ,False        ,False        ,True     ,False
+Aerobic           ,                17 ,Low             ,False        ,False        ,False    ,True
+Aerobic           ,                51 ,Low             ,True         ,False        ,False    ,True
+Aerobic           ,                16 ,Low             ,True         ,False        ,False    ,False
+Aerobic           ,                59 ,Low             ,False        ,False        ,False    ,True
+Balance           ,                46 ,High            ,True         ,False        ,False    ,True
+Aerobic           ,                27 ,Low             ,False        ,True         ,True     ,True
+Balance           ,                60 ,Low             ,False        ,False        ,True     ,True
+Balance           ,                55 ,Moderate        ,True         ,False        ,False    ,True
+Strength Training ,                32 ,Moderate        ,False        ,True         ,True     ,True
+Balance           ,                27 ,High            ,False        ,False        ,True     ,False
+Aerobic           ,                39 ,Low             ,False        ,False        ,True     ,True
+Flexibility       ,                20 ,High            ,False        ,True         ,False    ,True
+Balance           ,                51 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                15 ,Moderate        ,False        ,True         ,False    ,True
+Balance           ,                32 ,High            ,True         ,True         ,False    ,False
+Balance           ,                42 ,Low             ,False        ,False        ,False    ,False
+Strength Training ,                36 ,Moderate        ,True         ,True         ,False    ,True
+Flexibility       ,                50 ,High            ,False        ,False        ,False    ,True
+Flexibility       ,                16 ,High            ,True         ,False        ,True     ,True
+Strength Training ,                10 ,Moderate        ,True         ,True         ,False    ,True
+Balance           ,                29 ,High            ,True         ,False        ,False    ,False
+Flexibility       ,                64 ,Moderate        ,False        ,False        ,False    ,True
+Aerobic           ,                47 ,Low             ,False        ,True         ,False    ,True
+Balance           ,                21 ,Moderate        ,False        ,False        ,False    ,False
+Balance           ,                38 ,High            ,False        ,False        ,False    ,False
+Balance           ,                37 ,High            ,True         ,False        ,False    ,False
+Balance           ,                57 ,Moderate        ,False        ,True         ,True     ,False
+Flexibility       ,                11 ,High            ,True         ,True         ,False    ,False
+Flexibility       ,                41 ,Low             ,True         ,True         ,False    ,True
+Strength Training ,                31 ,Low             ,False        ,True         ,False    ,False
+Aerobic           ,                58 ,Low             ,True         ,False        ,False    ,True
+Strength Training ,                56 ,Moderate        ,True         ,False        ,False    ,False
+Strength Training ,                47 ,Low             ,False        ,True         ,True     ,False
+Flexibility       ,                36 ,Moderate        ,True         ,False        ,False    ,True
+Aerobic           ,                53 ,Low             ,False        ,True         ,True     ,True
+Flexibility       ,                47 ,Low             ,False        ,True         ,True     ,True
+Flexibility       ,                60 ,Low             ,True         ,False        ,False    ,False
+Aerobic           ,                43 ,Moderate        ,True         ,True         ,False    ,False
+Balance           ,                33 ,High            ,True         ,False        ,True     ,True
+Flexibility       ,                34 ,Moderate        ,True         ,True         ,True     ,False
+Aerobic           ,                11 ,Low             ,True         ,False        ,False    ,True
+Flexibility       ,                23 ,Low             ,False        ,False        ,False    ,True
+Balance           ,                42 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                44 ,Moderate        ,False        ,False        ,True     ,True
+Flexibility       ,                40 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                21 ,Moderate        ,False        ,False        ,False    ,False
+Strength Training ,                59 ,Moderate        ,False        ,False        ,True     ,False
+Flexibility       ,                36 ,Moderate        ,True         ,False        ,True     ,False
+Aerobic           ,                69 ,Low             ,True         ,True         ,True     ,True
+Strength Training ,                18 ,Moderate        ,False        ,False        ,True     ,True
+Flexibility       ,                46 ,High            ,False        ,False        ,False    ,True
+Aerobic           ,                54 ,Low             ,True         ,True         ,False    ,True
+Balance           ,                57 ,Low             ,True         ,True         ,False    ,True
+Flexibility       ,                44 ,High            ,True         ,False        ,False    ,False
+Balance           ,                30 ,Low             ,True         ,False        ,False    ,True
+Balance           ,                21 ,Low             ,True         ,True         ,False    ,False
+Aerobic           ,                35 ,Moderate        ,False        ,True         ,True     ,False
+Strength Training ,                60 ,Moderate        ,True         ,False        ,True     ,True
+Balance           ,                35 ,High            ,False        ,True         ,False    ,False
+Flexibility       ,                 2 ,Moderate        ,True         ,True         ,True     ,False
+Balance           ,                42 ,Low             ,True         ,True         ,False    ,True
+Aerobic           ,                66 ,Low             ,True         ,False        ,True     ,True
+Aerobic           ,                49 ,Low             ,True         ,True         ,True     ,True
+Aerobic           ,                64 ,Moderate        ,False        ,False        ,True     ,False
+Balance           ,                17 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                22 ,Moderate        ,False        ,False        ,False    ,True
+Balance           ,                55 ,Moderate        ,False        ,True         ,True     ,False
+Balance           ,                56 ,Moderate        ,True         ,True         ,False    ,True
+Balance           ,                31 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                25 ,Moderate        ,False        ,True         ,True     ,True
+Balance           ,                60 ,Low             ,False        ,False        ,True     ,False
+Aerobic           ,                25 ,Low             ,False        ,True         ,True     ,True
+Balance           ,                55 ,Moderate        ,False        ,True         ,True     ,True
+Aerobic           ,                32 ,Low             ,True         ,False        ,False    ,False
+Balance           ,                19 ,Moderate        ,True         ,True         ,True     ,False
+Balance           ,                57 ,Low             ,True         ,False        ,True     ,True
+Strength Training ,                30 ,Moderate        ,False        ,False        ,False    ,True
+Aerobic           ,                45 ,Low             ,True         ,False        ,True     ,True
+Flexibility       ,                22 ,Moderate        ,False        ,False        ,True     ,True
+Balance           ,                49 ,Low             ,False        ,False        ,True     ,False
+Aerobic           ,                65 ,Moderate        ,False        ,True         ,True     ,False
+Flexibility       ,                 5 ,High            ,False        ,True         ,True     ,False
+Flexibility       ,                41 ,Low             ,True         ,False        ,True     ,False
+Strength Training ,                21 ,Moderate        ,False        ,True         ,False    ,True
+Strength Training ,                47 ,Low             ,False        ,True         ,False    ,False
+Balance           ,                39 ,Moderate        ,True         ,False        ,True     ,False
+Balance           ,                14 ,High            ,True         ,False        ,False    ,False
+Aerobic           ,                25 ,Moderate        ,True         ,True         ,False    ,False
+Aerobic           ,                54 ,Moderate        ,False        ,True         ,True     ,False
+Aerobic           ,                12 ,Low             ,True         ,True         ,False    ,True
+Balance           ,                32 ,Moderate        ,False        ,True         ,True     ,False
+Aerobic           ,                31 ,Moderate        ,False        ,True         ,False    ,False
+Flexibility       ,                22 ,Low             ,False        ,False        ,False    ,False
+Aerobic           ,                35 ,Low             ,True         ,True         ,True     ,True
+Aerobic           ,                53 ,Low             ,False        ,False        ,False    ,True
+Aerobic           ,                35 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                48 ,High            ,True         ,False        ,False    ,True
+Aerobic           ,                13 ,Low             ,True         ,True         ,False    ,True
+Balance           ,                12 ,Low             ,True         ,True         ,True     ,False
+Strength Training ,                22 ,Low             ,False        ,True         ,False    ,False
+Flexibility       ,                60 ,Low             ,False        ,True         ,True     ,True
+Aerobic           ,                67 ,Moderate        ,False        ,True         ,True     ,False
+Balance           ,                19 ,High            ,True         ,False        ,False    ,True
+Flexibility       ,                32 ,High            ,True         ,True         ,False    ,True
+Strength Training ,                28 ,Low             ,True         ,True         ,False    ,False
+Strength Training ,                45 ,Moderate        ,False        ,False        ,True     ,True
+Flexibility       ,                46 ,High            ,False        ,False        ,False    ,False
+Flexibility       ,                22 ,High            ,True         ,True         ,True     ,True
+Aerobic           ,                39 ,High            ,False        ,False        ,False    ,False
+Flexibility       ,                48 ,High            ,True         ,True         ,False    ,False
+Balance           ,                18 ,Low             ,True         ,False        ,True     ,False
+Aerobic           ,                20 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                58 ,Low             ,False        ,True         ,False    ,False
+Strength Training ,                18 ,Low             ,False        ,True         ,True     ,False
+Aerobic           ,                21 ,Low             ,True         ,True         ,False    ,True
+Flexibility       ,                31 ,Moderate        ,True         ,True         ,False    ,True
+Aerobic           ,                30 ,Moderate        ,True         ,True         ,True     ,False
+Balance           ,                17 ,Moderate        ,True         ,True         ,True     ,True
+Balance           ,                18 ,Low             ,False        ,False        ,False    ,False
+Aerobic           ,                56 ,Moderate        ,False        ,True         ,False    ,False
+Aerobic           ,                58 ,Low             ,True         ,True         ,False    ,True
+Aerobic           ,                28 ,Low             ,False        ,True         ,True     ,True
+Aerobic           ,                35 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                49 ,Moderate        ,True         ,False        ,False    ,True
+Strength Training ,                15 ,High            ,False        ,False        ,True     ,False
+Aerobic           ,                56 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                26 ,Low             ,False        ,True         ,False    ,False
+Balance           ,                40 ,Low             ,False        ,False        ,True     ,False
+Aerobic           ,                59 ,Low             ,True         ,False        ,False    ,False
+Aerobic           ,                52 ,Low             ,True         ,True         ,True     ,True
+Aerobic           ,                26 ,Low             ,False        ,True         ,True     ,True
+Strength Training ,                40 ,Moderate        ,True         ,False        ,True     ,False
+Balance           ,                21 ,Low             ,False        ,True         ,True     ,True
+Balance           ,                11 ,High            ,False        ,False        ,False    ,False
+Aerobic           ,                55 ,Low             ,False        ,False        ,True     ,True
+Strength Training ,                53 ,Moderate        ,True         ,True         ,False    ,True
+Strength Training ,                33 ,Moderate        ,False        ,True         ,False    ,True
+Aerobic           ,                64 ,Low             ,False        ,False        ,True     ,True
+Aerobic           ,                53 ,Moderate        ,False        ,True         ,True     ,False
+Flexibility       ,                10 ,High            ,False        ,True         ,True     ,True
+Flexibility       ,                42 ,High            ,True         ,True         ,False    ,False
+Aerobic           ,                47 ,Low             ,False        ,False        ,False    ,False
+Aerobic           ,                59 ,Low             ,True         ,False        ,False    ,False
+Aerobic           ,                49 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                14 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                19 ,Moderate        ,False        ,False        ,False    ,False
+Balance           ,                13 ,High            ,False        ,False        ,False    ,True
+Aerobic           ,                29 ,High            ,False        ,False        ,False    ,False
+Strength Training ,                37 ,Low             ,False        ,False        ,True     ,False
+Aerobic           ,                52 ,Low             ,False        ,False        ,True     ,True
+Balance           ,                10 ,High            ,False        ,False        ,False    ,False
+Aerobic           ,                39 ,High            ,False        ,False        ,True     ,False
+Aerobic           ,                49 ,Low             ,True         ,False        ,False    ,True
+Aerobic           ,                55 ,Moderate        ,False        ,True         ,False    ,False
+Flexibility       ,                60 ,Moderate        ,False        ,False        ,False    ,False
+Flexibility       ,                22 ,Low             ,True         ,False        ,False    ,True
+Flexibility       ,                48 ,Low             ,False        ,True         ,False    ,True
+Aerobic           ,                64 ,Low             ,True         ,False        ,True     ,True
+Aerobic           ,                53 ,Moderate        ,True         ,True         ,False    ,False
+Strength Training ,                28 ,Moderate        ,False        ,True         ,False    ,True
+Aerobic           ,                29 ,Low             ,True         ,True         ,False    ,True
+Balance           ,                46 ,High            ,False        ,False        ,True     ,False
+Flexibility       ,                50 ,Moderate        ,False        ,False        ,False    ,False
+Balance           ,                60 ,Moderate        ,True         ,True         ,False    ,False
+Aerobic           ,                40 ,Low             ,True         ,True         ,True     ,True
+Aerobic           ,                22 ,Moderate        ,False        ,True         ,True     ,False
+Flexibility       ,                48 ,High            ,True         ,True         ,False    ,False
+Balance           ,                55 ,High            ,False        ,True         ,True     ,True
+Flexibility       ,                17 ,High            ,False        ,False        ,True     ,True
+Strength Training ,                10 ,Moderate        ,False        ,False        ,True     ,True
+Aerobic           ,                20 ,Moderate        ,True         ,True         ,False    ,False
+Balance           ,                41 ,High            ,True         ,True         ,True     ,False
+Strength Training ,                49 ,Moderate        ,False        ,True         ,True     ,True
+Flexibility       ,                 0 ,High            ,False        ,True         ,True     ,False
+Balance           ,                57 ,Moderate        ,False        ,False        ,True     ,False
+Aerobic           ,                31 ,Moderate        ,False        ,False        ,False    ,False
+Aerobic           ,                18 ,Low             ,False        ,True         ,False    ,True
+Flexibility       ,                58 ,Moderate        ,False        ,True         ,True     ,True
+Aerobic           ,                68 ,Low             ,True         ,False        ,True     ,True
+Strength Training ,                47 ,Low             ,True         ,True         ,False    ,False
+Aerobic           ,                49 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                14 ,Low             ,True         ,True         ,True     ,False
+Aerobic           ,                15 ,Low             ,True         ,False        ,False    ,True
+Aerobic           ,                34 ,Low             ,True         ,False        ,True     ,True
+Flexibility       ,                21 ,Low             ,True         ,False        ,False    ,False
+Aerobic           ,                65 ,Low             ,True         ,False        ,True     ,False
+Balance           ,                45 ,Low             ,False        ,False        ,False    ,False
+Strength Training ,                55 ,Moderate        ,True         ,True         ,False    ,True
+Balance           ,                23 ,Low             ,False        ,True         ,False    ,False
+Strength Training ,                37 ,Low             ,False        ,False        ,False    ,False
+Strength Training ,                31 ,Moderate        ,False        ,False        ,True     ,False
+Aerobic           ,                47 ,Moderate        ,True         ,True         ,False    ,False
+Strength Training ,                43 ,Moderate        ,True         ,False        ,True     ,True
+Strength Training ,                41 ,Moderate        ,True         ,False        ,True     ,True
+Strength Training ,                13 ,Moderate        ,True         ,False        ,False    ,True
+Flexibility       ,                32 ,High            ,False        ,True         ,True     ,True
+Strength Training ,                43 ,Moderate        ,True         ,False        ,True     ,False
+Flexibility       ,                40 ,Low             ,False        ,False        ,False    ,True
+Strength Training ,                20 ,Moderate        ,False        ,False        ,False    ,True
+Balance           ,                35 ,Low             ,True         ,True         ,True     ,False
+Aerobic           ,                34 ,Moderate        ,False        ,True         ,False    ,False
+Aerobic           ,                59 ,Low             ,True         ,False        ,False    ,False
+Aerobic           ,                42 ,High            ,False        ,False        ,True     ,False
+Aerobic           ,                22 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                15 ,High            ,False        ,True         ,True     ,True
+Aerobic           ,                27 ,Low             ,False        ,False        ,True     ,True
+Flexibility       ,                29 ,Low             ,False        ,False        ,False    ,False
+Flexibility       ,                 1 ,Moderate        ,True         ,False        ,True     ,False
+Balance           ,                45 ,Moderate        ,True         ,False        ,True     ,False
+Flexibility       ,                52 ,High            ,False        ,False        ,False    ,True
+Balance           ,                50 ,High            ,False        ,True         ,True     ,False
+Flexibility       ,                18 ,Moderate        ,True         ,True         ,True     ,True
+Flexibility       ,                66 ,High            ,True         ,True         ,False    ,True
+Aerobic           ,                52 ,Low             ,False        ,True         ,False    ,True
+Flexibility       ,                13 ,High            ,False        ,False        ,False    ,False
+Flexibility       ,                30 ,High            ,False        ,False        ,False    ,False
+Balance           ,                16 ,Moderate        ,False        ,True         ,False    ,False
+Strength Training ,                49 ,Moderate        ,False        ,False        ,True     ,False
+Strength Training ,                15 ,Low             ,False        ,True         ,False    ,False
+Flexibility       ,                59 ,Moderate        ,False        ,True         ,True     ,True
+Flexibility       ,                10 ,High            ,True         ,False        ,False    ,False
+Strength Training ,                15 ,Moderate        ,True         ,False        ,False    ,True
+Flexibility       ,                11 ,Low             ,False        ,False        ,True     ,True
+Aerobic           ,                39 ,Low             ,False        ,False        ,False    ,True
+Flexibility       ,                50 ,Low             ,True         ,True         ,True     ,False
+Balance           ,                41 ,Low             ,True         ,False        ,False    ,True
+Strength Training ,                37 ,Low             ,False        ,True         ,False    ,False
+Balance           ,                18 ,Moderate        ,False        ,True         ,False    ,False
+Flexibility       ,                70 ,Low             ,True         ,True         ,False    ,True
+Flexibility       ,                14 ,High            ,True         ,False        ,True     ,True
+Aerobic           ,                22 ,Low             ,False        ,False        ,True     ,True
+Aerobic           ,                40 ,Low             ,False        ,True         ,True     ,True
+Balance           ,                38 ,Low             ,True         ,True         ,True     ,True
+Flexibility       ,                23 ,High            ,False        ,True         ,False    ,True
+Balance           ,                58 ,Moderate        ,False        ,True         ,False    ,False
+Strength Training ,                46 ,Moderate        ,False        ,False        ,False    ,True
+Flexibility       ,                29 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                47 ,Low             ,True         ,False        ,False    ,True
+Balance           ,                30 ,High            ,False        ,True         ,False    ,True
+Strength Training ,                54 ,Low             ,True         ,True         ,True     ,False
+Strength Training ,                53 ,Low             ,False        ,True         ,False    ,False
+Flexibility       ,                 5 ,Low             ,False        ,True         ,True     ,False
+Flexibility       ,                38 ,Moderate        ,True         ,True         ,False    ,False
+Flexibility       ,                33 ,Moderate        ,True         ,True         ,True     ,True
+Strength Training ,                50 ,Moderate        ,False        ,False        ,False    ,False
+Aerobic           ,                43 ,Low             ,False        ,True         ,False    ,True
+Aerobic           ,                40 ,Low             ,True         ,True         ,True     ,True
+Strength Training ,                57 ,Moderate        ,False        ,True         ,False    ,True
+Balance           ,                26 ,Moderate        ,True         ,True         ,False    ,True
+Strength Training ,                17 ,High            ,False        ,False        ,False    ,False
+Balance           ,                12 ,High            ,True         ,True         ,False    ,True
+Aerobic           ,                28 ,Low             ,False        ,True         ,True     ,True
+Aerobic           ,                36 ,Low             ,False        ,False        ,False    ,False
+Balance           ,                11 ,Low             ,False        ,True         ,False    ,True
+Flexibility       ,                12 ,High            ,True         ,True         ,True     ,False
+Aerobic           ,                40 ,Low             ,True         ,False        ,True     ,True
+Flexibility       ,                30 ,Low             ,True         ,False        ,True     ,True
+Strength Training ,                60 ,Moderate        ,True         ,True         ,True     ,True
+Aerobic           ,                14 ,Low             ,True         ,False        ,False    ,True
+Balance           ,                52 ,Moderate        ,True         ,False        ,False    ,False
+Balance           ,                53 ,High            ,False        ,True         ,False    ,True
+Strength Training ,                57 ,Moderate        ,True         ,True         ,True     ,True
+Balance           ,                27 ,High            ,True         ,True         ,True     ,True
+Flexibility       ,                60 ,High            ,False        ,True         ,False    ,True
+Aerobic           ,                57 ,Moderate        ,False        ,True         ,True     ,False
+Flexibility       ,                16 ,High            ,True         ,True         ,True     ,False
+Flexibility       ,                55 ,Moderate        ,False        ,False        ,True     ,True
+Flexibility       ,                68 ,Low             ,False        ,True         ,False    ,True
+Strength Training ,                21 ,Moderate        ,True         ,False        ,True     ,False
+Strength Training ,                58 ,Moderate        ,True         ,False        ,True     ,False
+Balance           ,                43 ,Low             ,False        ,False        ,True     ,False
+Aerobic           ,                42 ,Moderate        ,True         ,True         ,True     ,False
+Aerobic           ,                24 ,Low             ,True         ,False        ,False    ,True
+Balance           ,                40 ,Low             ,False        ,False        ,False    ,True
+Flexibility       ,                22 ,Low             ,False        ,True         ,True     ,False
+Flexibility       ,                36 ,Moderate        ,False        ,True         ,True     ,True
+Flexibility       ,                47 ,Low             ,False        ,True         ,False    ,True
+Balance           ,                14 ,High            ,False        ,False        ,True     ,True
+Aerobic           ,                51 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                50 ,Low             ,False        ,True         ,False    ,True
+Flexibility       ,                39 ,Low             ,False        ,False        ,False    ,True
+Aerobic           ,                67 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                39 ,High            ,False        ,True         ,True     ,True
+Aerobic           ,                32 ,Low             ,True         ,False        ,True     ,True
+Aerobic           ,                30 ,Low             ,False        ,True         ,False    ,True
+Aerobic           ,                36 ,Low             ,True         ,False        ,False    ,True
+Aerobic           ,                11 ,Low             ,False        ,True         ,False    ,True
+Aerobic           ,                52 ,Low             ,True         ,False        ,True     ,True
+Strength Training ,                28 ,Moderate        ,True         ,False        ,False    ,True
+Flexibility       ,                10 ,Low             ,True         ,False        ,True     ,False
+Balance           ,                22 ,Moderate        ,True         ,True         ,False    ,True
+Aerobic           ,                38 ,Moderate        ,False        ,True         ,True     ,False
+Strength Training ,                45 ,Low             ,False        ,True         ,True     ,False
+Flexibility       ,                39 ,Moderate        ,False        ,True         ,False    ,False
+Flexibility       ,                12 ,Moderate        ,True         ,False        ,False    ,False
+Balance           ,                43 ,Moderate        ,True         ,True         ,False    ,False
+Balance           ,                49 ,Low             ,True         ,True         ,True     ,True
+Flexibility       ,                43 ,High            ,False        ,False        ,True     ,True
+Balance           ,                35 ,Moderate        ,True         ,False        ,False    ,True
+Aerobic           ,                33 ,Low             ,False        ,False        ,False    ,True
+Flexibility       ,                42 ,Moderate        ,True         ,False        ,False    ,False
+Aerobic           ,                56 ,Low             ,True         ,False        ,True     ,True
+Aerobic           ,                58 ,High            ,False        ,False        ,True     ,False
+Flexibility       ,                40 ,High            ,False        ,False        ,True     ,False
+Flexibility       ,                30 ,Moderate        ,False        ,True         ,True     ,True
+Flexibility       ,                34 ,High            ,True         ,False        ,False    ,False
+Balance           ,                12 ,Moderate        ,True         ,False        ,True     ,False
+Flexibility       ,                 7 ,High            ,True         ,False        ,True     ,False
+Balance           ,                32 ,Moderate        ,True         ,False        ,True     ,True
+Strength Training ,                53 ,Low             ,False        ,True         ,True     ,False
+Strength Training ,                54 ,Low             ,False        ,True         ,True     ,False
+Balance           ,                38 ,Moderate        ,True         ,True         ,True     ,True
+Flexibility       ,                24 ,Moderate        ,False        ,True         ,True     ,False
+Aerobic           ,                28 ,Low             ,True         ,False        ,False    ,False
+Flexibility       ,                50 ,Moderate        ,False        ,True         ,False    ,False
+Aerobic           ,                21 ,Moderate        ,True         ,True         ,False    ,False
+Flexibility       ,                28 ,High            ,True         ,True         ,True     ,True
+Flexibility       ,                17 ,Low             ,False        ,True         ,True     ,False
+Aerobic           ,                39 ,Low             ,True         ,True         ,False    ,True
+Aerobic           ,                48 ,Low             ,True         ,False        ,False    ,False
+Flexibility       ,                44 ,High            ,True         ,False        ,True     ,True
+Flexibility       ,                70 ,Moderate        ,False        ,False        ,False    ,True
+Flexibility       ,                22 ,Moderate        ,False        ,False        ,True     ,True
+Balance           ,                26 ,Low             ,True         ,False        ,False    ,True
+Aerobic           ,                42 ,Moderate        ,True         ,True         ,True     ,False
+Flexibility       ,                29 ,Moderate        ,False        ,True         ,False    ,True
+Strength Training ,                39 ,Low             ,False        ,False        ,False    ,False
+Flexibility       ,                66 ,Moderate        ,True         ,False        ,False    ,True
+Balance           ,                32 ,Moderate        ,False        ,True         ,False    ,False
+Flexibility       ,                48 ,Moderate        ,True         ,False        ,False    ,True
+Balance           ,                40 ,High            ,False        ,False        ,False    ,True
+Flexibility       ,                15 ,Low             ,False        ,True         ,True     ,False
+Aerobic           ,                44 ,Moderate        ,True         ,True         ,True     ,False
+Aerobic           ,                30 ,Moderate        ,False        ,False        ,False    ,False
+Strength Training ,                58 ,Low             ,False        ,True         ,False    ,False
+Aerobic           ,                11 ,Low             ,False        ,True         ,False    ,True
+Strength Training ,                60 ,Moderate        ,False        ,False        ,True     ,False
+Balance           ,                19 ,Low             ,False        ,False        ,False    ,True
+Aerobic           ,                60 ,Low             ,True         ,True         ,False    ,True
+Balance           ,                53 ,Low             ,False        ,False        ,False    ,True
+Flexibility       ,                52 ,High            ,True         ,True         ,True     ,True
+Strength Training ,                15 ,Moderate        ,True         ,False        ,True     ,True
+Flexibility       ,                 9 ,High            ,False        ,True         ,True     ,False
+Strength Training ,                34 ,Moderate        ,True         ,False        ,False    ,True
+Flexibility       ,                47 ,High            ,True         ,False        ,True     ,False
+Aerobic           ,                28 ,Low             ,False        ,False        ,False    ,True
+Flexibility       ,                29 ,High            ,False        ,True         ,False    ,True
+Strength Training ,                33 ,Moderate        ,True         ,True         ,True     ,True
+Balance           ,                58 ,Moderate        ,False        ,True         ,False    ,False
+Balance           ,                18 ,Moderate        ,True         ,True         ,False    ,False
+Flexibility       ,                35 ,Low             ,True         ,False        ,True     ,True
+Aerobic           ,                30 ,Low             ,False        ,False        ,False    ,True
+Strength Training ,                35 ,Moderate        ,False        ,False        ,False    ,True
+Balance           ,                21 ,High            ,False        ,True         ,False    ,False
+Strength Training ,                42 ,Moderate        ,True         ,False        ,False    ,False
+Strength Training ,                39 ,Moderate        ,True         ,False        ,False    ,True
+Flexibility       ,                41 ,Low             ,True         ,True         ,True     ,True
+Balance           ,                21 ,Low             ,False        ,True         ,True     ,False
+Aerobic           ,                58 ,Low             ,False        ,True         ,False    ,True
+Balance           ,                46 ,Low             ,True         ,False        ,True     ,False
+Flexibility       ,                57 ,High            ,True         ,False        ,True     ,True
