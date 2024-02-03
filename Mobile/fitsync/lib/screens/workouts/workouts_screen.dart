@@ -2,6 +2,7 @@ import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../../shared/widgets/workouts_comp/custom_date_item.dart';
+import '../../shared/widgets/workouts_comp/workouts_body.dart';
 
 class WorkoutsScreen extends StatelessWidget {
   const WorkoutsScreen({super.key});
@@ -30,7 +31,17 @@ class WorkoutsScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: CustomDayItem(),
+      body: const SingleChildScrollView(
+        child: Padding(
+          padding:  EdgeInsets.symmetric(horizontal: 15),
+          child: Column(
+            children: [
+              CustomDayItem(),
+              WorkOustBody(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
