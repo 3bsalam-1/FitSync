@@ -29,7 +29,8 @@ passport.use(
         return done(null, currentUser);
       }
 
-      const currentUserName = await User.findOne({ username: name });
+      const currentUserName = await User.findOne({ username: name }); 
+      
 
       if (currentUserName) {
         const num = Math.floor(Math.random() * 100);
