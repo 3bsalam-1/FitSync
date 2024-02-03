@@ -20,8 +20,9 @@ passport.use(
       callbackURL: "https://fitsync.onrender.com/auth/facebook/redirect",
     },
     async (accessToken, refreshToken, profile, done) => {
-      let { name, id } = profile._json;
+      let { name, id,picture } = profile._json;
       let email = id;
+      let avatar = picture.data.url;
       const currentUser = await User.findOne({ email });
 
       if (currentUser) {
@@ -39,7 +40,7 @@ passport.use(
       firstName = name[0];
       lastName = name[1];
       name=name.join("");
-      const newUser = new User({ username: name, email, isVerify: true });
+      const newUser = new User({ username: name, email, isVerify: true,firstName,lastName,avatar });
 
       await newUser.save({ validateBeforeSave: false });
       return done(null, newUser);
