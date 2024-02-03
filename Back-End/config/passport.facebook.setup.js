@@ -16,7 +16,7 @@ passport.use(
     {
       clientID: process.env.clientFacebookID,
       clientSecret: process.env.clientFacebookSecret,
-      profileFields: ["id", "displayName", "email"],
+      profileFields: ["id", "displayName", "email","picture"],
       callbackURL: "https://fitsync.onrender.com/auth/facebook/redirect",
     },
     async (accessToken, refreshToken, profile, done) => {
@@ -30,7 +30,7 @@ passport.use(
       }
 
       const currentUserName = await User.findOne({ username: name }); 
-      
+
 
       if (currentUserName) {
         const num = Math.floor(Math.random() * 100);
