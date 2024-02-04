@@ -15,30 +15,10 @@ const signToken = async (user)=>{
   if(user.firstTime){
     return jwt.sign({ id:user._id,firstTime:user.firstTime}, process.env.JWT_SECRET, { expiresIn:"1h" });
   }else{
-    let newUserInfo = await userInfo.find({userId: user._id});
-    return jwt.sign({
-         id: user._id,
-         firstName: user.firstName,
-         lastName: user.lastName,
-         username: user.username,
-         email: user.email,
-         avatar: user.avatar,
-         weight: newUserInfo.weight,
-         height: newUserInfo.height,
-         birthdate: newUserInfo.birthdate,
-         gender: newUserInfo.gender,
-         activityLevel: newUserInfo.activityLevel,
-         systolicBP: newUserInfo.systolicBP,
-         cholesterolLevel: newUserInfo.cholesterolLevel,
-         bloodsugar: newUserInfo.bloodsugar,
-         hypertension: newUserInfo.hypertension,
-         diabetes: newUserInfo.diabetes,
-         heartCondition: newUserInfo.heartCondition,
-         BMR: newUserInfo.BMR,
-         kneePain: newUserInfo.kneePain,  
-         backPain: newUserInfo.backPain,
-         firstTime: user.firstTime
-     }, process.env.JWT_SECRET, { expiresIn: "30d" });
+    let newUserInfo = await userInfo.findOne({userId: user._id}).select('-_id -userId -__v');
+    user.password = undefined;
+    user={user,userInfo:newUserInfo}
+    return jwt.sign({...user}, process.env.JWT_SECRET, { expiresIn: "30d" });
   }
 }
 
