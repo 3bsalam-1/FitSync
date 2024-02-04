@@ -1,6 +1,9 @@
 const User = require("../models/user.model");
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
+const firebase = require('firebase/app');
+const { getStorage, ref, uploadBytes } = require('firebase/storage');
+const firebaseConfig = require('../config/firebase');
 const asyncWrapper = require("../utils/asyncWrapper");
 const AppError = require("../utils/appError");
 const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
@@ -324,9 +327,16 @@ exports.updatePassword = asyncWrapper(async (req, res, next) => {
   });
 });
 
-exports.changeAvater = asyncWrapper(async(req,res,next)=>{
-  const user = await User.findById(req.user._id)
-  user.avatar = req.file.filename;
+firebase.initializeApp(firebaseConfig.firebaseConfig);
+const storage = getStorage();
+
+exports.changeAvatar = asyncWrapper(async (req, res, next) => {
+  const ext = req.file.mimetype.split("/")[1];
+  const fileName = `${req.file.originalname.split(".")[0]}-${Date.now()}.${ext}`;
+  const storageRef = ref(storage, `Avatar/${fileName}`);
+  const snapshot = await uploadBytes(storageRef, req.file.buffer);
+  const user = await User.findById(req.user._id);
+  user.avatar = `https://firebasestorage.googleapis.com/v0/b/${storageRef.bucket}/o/${encodeURIComponent(snapshot.metadata.fullPath)}?alt=media`; 
   await user.save({ validateBeforeSave: false });
-  res.status(201).json({status: SUCCESS,message: "Avatar changed done"})
-})
+  res.status(201).json({ status: 'SUCCESS', message: 'Avatar changed done' });
+});
