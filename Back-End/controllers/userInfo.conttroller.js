@@ -8,32 +8,12 @@ const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
 
 exports.createUserInfo = asyncWrapper(async(req,res,next)=>{
     let newUserInfo = await userInfo.create({...req.body,userId: req.user._id});
-    let user = await User.findById(req.user._id);
+    let user = await User.findById(req.user._id).select('-__v');
     user.firstTime=false;
     user.save({ validateBeforeSave: false });
-    const token = jwt.sign({
-         id: user._id,
-         firstName: user.firstName,
-         lastName: user.lastName,
-         username: user.username,
-         email: user.email,
-         avatar: user.avatar,
-         weight: newUserInfo.weight,
-         height: newUserInfo.height,
-         birthdate: newUserInfo.birthdate,
-         gender: newUserInfo.gender,
-         activityLevel: newUserInfo.activityLevel,
-         systolicBP: newUserInfo.systolicBP,
-         cholesterolLevel: newUserInfo.cholesterolLevel,
-         bloodsugar: newUserInfo.bloodsugar,
-         hypertension: newUserInfo.hypertension,
-         diabetes: newUserInfo.diabetes,
-         heartCondition: newUserInfo.heartCondition,
-         BMR: newUserInfo.BMR,
-         kneePain: newUserInfo.kneePain,  
-         backPain: newUserInfo.backPain,
-         firstTime: user.firstTime
-     }, process.env.JWT_SECRET, { expiresIn: "30d" });
+    newUserInfo.__v = undefined
+    user = {user,userInfo: newUserInfo}
+    const token = jwt.sign({...user}, process.env.JWT_SECRET, { expiresIn: "30d" });
     res.status(201).json({
         status: SUCCESS,
         token,
