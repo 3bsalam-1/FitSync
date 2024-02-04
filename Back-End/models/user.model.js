@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar:{
         type:String,
-        default: "2024644_login_user_avatar_person_users_icon.png"
+        default: "https://firebasestorage.googleapis.com/v0/b/fitsync-1d1c9.appspot.com/o/Avatar%2F2024644_login_user_avatar_person_users_icon.png?alt=media&token=49a045a7-9da7-4ab9-8534-a43fec50edb2"
     },
     password:{
         type: String,
