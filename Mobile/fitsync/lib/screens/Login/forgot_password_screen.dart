@@ -1,7 +1,5 @@
 import 'package:fitsync/shared/colors/colors.dart';
-
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
-import 'package:fitsync/shared/widgets/login_comp/custom_icon_button.dart';
 import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 
