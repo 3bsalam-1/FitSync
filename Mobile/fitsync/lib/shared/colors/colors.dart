@@ -17,5 +17,6 @@ const Color purple = Color(0xff8D70F8);
 const Color cyan = Color(0xff9DCDFF);
 const Color purple2 = Color(0xffA48CF9);
 const Color purple3 = Color(0xffD1C6FC);
+const Color red = Color(0xFFD31A0D);
 const Color purple4 = Color(0xff8F7DF9);
 const Color purple5 = Color(0xff8D6FF8);
