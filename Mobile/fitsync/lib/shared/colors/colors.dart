@@ -10,16 +10,13 @@ const Color gray3 = Color(0xffADA4A5);
 const Color gray4 = Color(0xff7B6F72);
 const Color gray5 = Color(0xffF4F4F6);
 const Color gray6 = Color(0xff79797B);
+const Color gray7 = Color(0xffD9D9D9);
+const Color gray8 = Color(0xffABABAB);
 const Color white = Color(0xffffffff);
 const Color purple = Color(0xff8D70F8);
 const Color cyan = Color(0xff9DCDFF);
 const Color purple2 = Color(0xffA48CF9);
 const Color purple3 = Color(0xffD1C6FC);
+const Color red = Color(0xFFD31A0D);
 const Color purple4 = Color(0xff8F7DF9);
 const Color purple5 = Color(0xff8D6FF8);
-
-
-
-
-
-
