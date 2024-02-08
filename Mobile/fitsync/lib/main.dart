@@ -1,3 +1,13 @@
+import 'package:fitsync/screens/Diet/diet_screen.dart';
+import 'package:fitsync/screens/Diet/empty_state_screen.dart';
+import 'package:fitsync/screens/Diet/meal_overview_screen.dart';
+import 'package:fitsync/screens/Diet/saved_recipes_screen.dart';
+import 'package:fitsync/screens/Home/home_screen.dart';
+import 'package:fitsync/screens/Home/profile_screen.dart';
+import 'package:fitsync/screens/Login/SignUp_screen.dart';
+import 'package:fitsync/screens/Login/forgot_password_screen.dart';
+import 'package:fitsync/screens/Login/login_screen.dart';
+import 'package:fitsync/screens/Login/verification_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'package:flutter/material.dart';
@@ -18,25 +28,12 @@ class MyApp extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => TextFormValidation(),
-        ),
-        BlocProvider(
-          create: (context) => BluetoothCubit()..checkBluetoothConnectivity(),
-        ),
-        BlocProvider(
-          create: (context) => ChoiseQuestionsCubit(),
-        ),
-        BlocProvider(
-          create: (context) => WeekDatesCubit(),
-        ),
-      ],
-      child: const MaterialApp(
-        title: 'FitSync',
-        debugShowCheckedModeBanner: false,
-        home: ProfileMainScreen(), 
+    return MaterialApp(
+      title: 'FitSync',
+      debugShowCheckedModeBanner: false,
+      home: BlocProvider(
+        create: (context) => BluetoothCubit()..checkBluetoothConnectivity(),
+        child:  MealOverviewScreen(),
       ),
     );
   }
