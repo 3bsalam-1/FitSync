@@ -1,3 +1,7 @@
+import 'package:fitsync/screens/Diet/diet_screen.dart';
+import 'package:fitsync/screens/Diet/empty_state_screen.dart';
+import 'package:fitsync/screens/Diet/meal_overview_screen.dart';
+import 'package:fitsync/screens/Diet/saved_recipes_screen.dart';
 import 'package:fitsync/screens/Home/home_screen.dart';
 import 'package:fitsync/screens/Home/profile_screen.dart';
 import 'package:fitsync/screens/Login/SignUp_screen.dart';
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: BlocProvider(
         create: (context) => BluetoothCubit()..checkBluetoothConnectivity(),
-        child: const VerificationPage(),
+        child:  MealOverviewScreen(),
       ),
     );
   }
