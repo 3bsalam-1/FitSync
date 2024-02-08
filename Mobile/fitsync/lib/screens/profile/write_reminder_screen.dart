@@ -25,26 +25,35 @@ class WriteReminderScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          CustomTextFormField(
-            hintText: 'Write a Reminder Name',
-            fontSize: 22,
-            textColor: gray4,
-            fontWeight: FontWeight.w600,
-            validator: (value) {
-              // todo add validation here
-              return null;
-            },
+          const SizedBox(height: 15),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: CustomTextFormField(
+              hintText: 'Write a Reminder Name',
+              fontSize: 22,
+              textColor: gray4,
+              textAlign: TextAlign.start,
+              fontWeight: FontWeight.w600,
+              validator: (value) {
+                // todo add validation here
+                return null;
+              },
+            ),
           ),
-          CustomTextFormField(
-            hintText: 'details about reminder',
-            fontSize: 16,
-            textColor: gray3,
-            validator: (value) {
-              // todo add validation here
-              return null;
-            },
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: CustomTextFormField(
+              hintText: 'details about reminder',
+              fontSize: 16,
+              textColor: gray3,
+              textAlign: TextAlign.start,
+              validator: (value) {
+                // todo add validation here
+                return null;
+              },
+            ),
           ),
-          const SizedBox(height: 25),
+          const SizedBox(height: 85),
           CustomButton(
             label: 'Submit a Reminder',
             onPressed: () {

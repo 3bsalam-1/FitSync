@@ -36,19 +36,24 @@ class CustomItemReminder extends StatelessWidget {
                   color: white,
                 ),
               ),
-              Container(
-                padding: const EdgeInsets.all(1),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    width: 1.5,
-                    color: white,
+              InkWell(
+                onTap: () {
+                  // todo delete the item when clicked here
+                },
+                child: Container(
+                  padding: const EdgeInsets.all(1),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      width: 1.5,
+                      color: white,
+                    ),
                   ),
-                ),
-                child: const Icon(
-                  Icons.delete_outline_outlined,
-                  color: white,
-                  size: 17,
+                  child: const Icon(
+                    Icons.delete_outline_outlined,
+                    color: white,
+                    size: 17,
+                  ),
                 ),
               ),
             ],

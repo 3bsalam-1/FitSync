@@ -10,6 +10,7 @@ class CustomTextFormField extends StatelessWidget {
   final double fontSize;
   final Color textColor;
   final FontWeight fontWeight;
+  final TextAlign textAlign;
   final TextInputType? keyboardType;
 
   const CustomTextFormField({
@@ -23,6 +24,7 @@ class CustomTextFormField extends StatelessWidget {
     this.fontSize = 26,
     this.textColor = gray3,
     this.fontWeight = FontWeight.w500,
+    this.textAlign = TextAlign.center,
   });
 
   @override
@@ -37,7 +39,7 @@ class CustomTextFormField extends StatelessWidget {
         fontSize: fontSize,
         color: textColor,
       ),
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       decoration: InputDecoration(
         border: InputBorder.none,
         hintText: hintText,

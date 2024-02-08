@@ -55,7 +55,7 @@ class ReminderMainScreen extends StatelessWidget {
             children: [
               const SizedBox(height: 18),
               Text(
-                DateFormat.yMMMMd().format(DateTime.now())+DateFormat.jm().format(DateTime.now()), //DateTime.now().toString(),
+                '${DateFormat.yMMMMd().format(DateTime.now())} ${DateFormat.jm().format(DateTime.now())}', //DateTime.now().toString(),
                 style: const TextStyle(
                   fontSize: 14,
                   fontWeight: FontWeight.w600,
