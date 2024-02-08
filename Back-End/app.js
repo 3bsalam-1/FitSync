@@ -18,6 +18,7 @@ const { ERROR } = require("./utils/httpStatusText");
 const authRouter = require("./routes/auth.router");
 const authCW = require("./routes/authCW.router");
 const userInfoRouter = require("./routes/userInfo.route");
+const vitalsignalRouter= require('./routes/vitalSig.route');
 
 const app = express();
 
@@ -44,6 +45,7 @@ app.use(helmet());
 app.use("/api/user", authRouter);
 app.use("/auth", authCW);
 app.use("/api/userInfo", userInfoRouter);
+app.use('/api/vitalsignal', vitalsignalRouter);
 
 app.all("*", (req, res, next) => [
   next(AppError.create("Page not found", ERROR, 404)),
