@@ -5,6 +5,7 @@ import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation.dart';
 import 'cubits_logic/workouts/week_dates.dart';
 import 'screens/profile/profile_main_screen.dart';
+import 'screens/profile/reminder_main_screen.dart';
 import 'shared/pref.dart';
 
 Future<void> main() async {
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: ProfileMainScreen(), 
+        home: ReminderMainScreen(),//ProfileMainScreen(), 
       ),
     );
   }
