@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../colors/colors.dart';
+import '../../../colors/colors.dart';
 
 class CustomStartButton extends StatelessWidget {
   final void Function()? onTap;
