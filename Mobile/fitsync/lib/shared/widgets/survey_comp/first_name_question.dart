@@ -1,6 +1,6 @@
-import '../../../screens/survey/age_question_screen.dart';
+import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../cubits_logic/survey_logic/text_form_validation.dart';
+import '../../../screens/survey/writing_questions.dart/date_birth_screen.dart';
 import '../global/animated_navigator.dart';
 import '../global/custom_button.dart';
 import '../global/custom_text_form_field.dart';
@@ -12,62 +12,53 @@ class FirstNameQuestion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formKey = GlobalKey<FormState>();
-    return BlocConsumer<TextFormValidation, List<int>>(
+    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
       listener: (context, state) {
-        if (state[0] == 1) {
-          AnimatedNavigator().push(
-            context,
-            const AgeQuestionScreen(),
-          );
-        }
-      }, 
-      builder: (context, isValidated) {
-        return Form(
-          key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Text(
-                'What’s Your Name?',
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w600,
-                  color: black,
+        if (state is NameValidation) {
+          if (state.errorText == null) {
+            AnimatedNavigator().push(
+              context,
+              const DateBirthScreen(),
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: red,
+                content: Text(
+                  state.errorText!,
                 ),
               ),
-              const Spacer(),
-              CustomTextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return '';
-                  }
-                  return null;
-                },
-                hintText: 'First name',
+            );
+          }
+        }
+      },
+      builder: (context, isValidated) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'What’s Your Name?',
+              style: TextStyle(
+                fontSize: 26,
+                fontWeight: FontWeight.w600,
+                color: black,
               ),
-              isValidated[0] == 0
-              ? const Center(
-                child: Text(
-                  'Can Not Be Empty',
-                  style: TextStyle(
-                    color: red,
-                    ),
-                  ),
-              ): const SizedBox(),
-              const Spacer(),
-              CustomButton(
-                label: 'Continue',
-                horizontalPadding: 0,
-                onPressed: () {
-                  context.read<TextFormValidation>().firstNameValidate(
-                    formKey,
-                  );
-                },
-              ),
-              const SizedBox(height: 30),
-            ],
-          ),
+            ),
+            const Spacer(),
+            CustomTextFormField(
+              controller: context.read<TextFormValidationCubit>().nameController,
+              hintText: 'First name',
+            ),
+            const Spacer(),
+            CustomButton(
+              label: 'Continue',
+              horizontalPadding: 0,
+              onPressed: () {
+                context.read<TextFormValidationCubit>().nameValidate();
+              },
+            ),
+            const SizedBox(height: 30),
+          ],
         );
       },
     );
