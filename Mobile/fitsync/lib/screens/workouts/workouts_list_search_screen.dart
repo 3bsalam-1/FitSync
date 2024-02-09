@@ -3,6 +3,7 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_list/custom_workouts_list.dart';
 import '../../shared/widgets/workouts_comp/workouts_list/text_form_search.dart';
+import 'filters_workouts_screen.dart';
 
 class WorkoutsListSearchScreen extends StatelessWidget {
   const WorkoutsListSearchScreen({super.key});
@@ -31,14 +32,34 @@ class WorkoutsListSearchScreen extends StatelessWidget {
         ),
         centerTitle: true,
         actions: [
-          IconButton(
-            onPressed: () {
-              // todo navigate to the filter screen
-            },
-            icon: const Icon(
-              Icons.filter_alt_outlined,
-              color: purple2,
-              size: 37,
+          Padding(
+            padding: const EdgeInsets.only(right: 15),
+            child: InkWell(
+              onTap: () {
+                AnimatedNavigator().push(
+                  context,
+                  const FiltersWorkoutsScreen(),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(3),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: white,
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 8,
+                      spreadRadius: 1,
+                      color: gray4.withOpacity(0.08),
+                    ),
+                  ],
+                ),
+                child: Image.asset(
+                  'assets/images/Icons/filter_icon.png',
+                  height: 25,
+                  width: 25,
+                ),
+              ),
             ),
           ),
         ],
