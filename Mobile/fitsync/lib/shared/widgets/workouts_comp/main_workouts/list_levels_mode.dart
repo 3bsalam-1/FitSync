@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../cubits_logic/workouts/selected_level_mode.dart';
-import '../../colors/colors.dart';
+import '../../../../cubits_logic/workouts/selected_level_mode.dart';
+import '../../../colors/colors.dart';
 
 class ListLevelsMode extends StatelessWidget {
   const ListLevelsMode({super.key});

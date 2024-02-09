@@ -2,7 +2,10 @@ import 'package:fitsync/shared/widgets/profile_comp.dart/custom_card_icon.dart';
 import 'package:fitsync/shared/widgets/profile_comp.dart/custom_card_switch.dart';
 import 'package:flutter/material.dart';
 import '../../shared/colors/colors.dart';
+import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/profile_comp.dart/profile_card.dart';
+import 'reminder_main_screen.dart';
+import 'write_reminder_screen.dart';
 
 class ProfileMainScreen extends StatelessWidget {
   const ProfileMainScreen({super.key});
@@ -19,6 +22,56 @@ class ProfileMainScreen extends StatelessWidget {
             color: black,
           ),
         ),
+        actions: [
+          Theme(
+            data: Theme.of(context).copyWith(
+              dividerTheme: const DividerThemeData(
+                color: white,
+                indent: 10,
+                endIndent: 10,
+              ),
+            ),
+            child: PopupMenuButton<int>(
+              iconColor: purple2,
+              color: purple2,
+              elevation: 2,
+              onSelected: (value) {
+                if (value == 0) {
+                  AnimatedNavigator().push(
+                    context,
+                    const WriteReminderScreen(),
+                  );
+                } else {
+                  AnimatedNavigator().push(
+                    context,
+                    const ReminderMainScreen(),
+                  );
+                }
+              },
+              itemBuilder: (context) => [
+                const PopupMenuItem<int>(
+                  value: 0,
+                  child: Text(
+                    'Add reminder',
+                    style: TextStyle(
+                      color: white,
+                    ),
+                  ),
+                ),
+                const PopupMenuDivider(),
+                const PopupMenuItem<int>(
+                  value: 1,
+                  child: Text(
+                    'My reminders',
+                    style: TextStyle(
+                      color: white,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
       body: const Padding(
         padding: EdgeInsets.symmetric(horizontal: 15),

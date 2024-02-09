@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../colors/colors.dart';
+import '../../../colors/colors.dart';
 import 'custom_start_button.dart';
 
 class WorkOutsChallengCard extends StatelessWidget {
