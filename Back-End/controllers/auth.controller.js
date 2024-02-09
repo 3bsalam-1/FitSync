@@ -1,6 +1,9 @@
 const User = require("../models/user.model");
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
+const firebase = require('firebase/app');
+const { getStorage, ref, uploadBytes } = require('firebase/storage');
+const firebaseConfig = require('../config/firebase');
 const asyncWrapper = require("../utils/asyncWrapper");
 const AppError = require("../utils/appError");
 const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
@@ -12,30 +15,10 @@ const signToken = async (user)=>{
   if(user.firstTime){
     return jwt.sign({ id:user._id,firstTime:user.firstTime}, process.env.JWT_SECRET, { expiresIn:"1h" });
   }else{
-    let newUserInfo = await userInfo.find({userId: user._id});
-    return jwt.sign({
-         id: user._id,
-         firstName: user.firstName,
-         lastName: user.lastName,
-         username: user.username,
-         email: user.email,
-         avatar: user.avatar,
-         weight: newUserInfo.weight,
-         height: newUserInfo.height,
-         birthdate: newUserInfo.birthdate,
-         gender: newUserInfo.gender,
-         activityLevel: newUserInfo.activityLevel,
-         systolicBP: newUserInfo.systolicBP,
-         cholesterolLevel: newUserInfo.cholesterolLevel,
-         bloodsugar: newUserInfo.bloodsugar,
-         hypertension: newUserInfo.hypertension,
-         diabetes: newUserInfo.diabetes,
-         heartCondition: newUserInfo.heartCondition,
-         BMR: newUserInfo.BMR,
-         kneePain: newUserInfo.kneePain,  
-         backPain: newUserInfo.backPain,
-         firstTime: user.firstTime
-     }, process.env.JWT_SECRET, { expiresIn: "30d" });
+    let newUserInfo = await userInfo.findOne({userId: user._id}).select('-_id -userId -__v');
+    user.password = undefined;
+    user={user,userInfo:newUserInfo}
+    return jwt.sign({...user}, process.env.JWT_SECRET, { expiresIn: "30d" });
   }
 }
 
@@ -324,9 +307,16 @@ exports.updatePassword = asyncWrapper(async (req, res, next) => {
   });
 });
 
-exports.changeAvater = asyncWrapper(async(req,res,next)=>{
-  const user = await User.findById(req.user._id)
-  user.avatar = req.file.filename;
+firebase.initializeApp(firebaseConfig.firebaseConfig);
+const storage = getStorage();
+
+exports.changeAvatar = asyncWrapper(async (req, res, next) => {
+  const ext = req.file.mimetype.split("/")[1];
+  const fileName = `${req.file.originalname.split(".")[0]}-${Date.now()}.${ext}`;
+  const storageRef = ref(storage, `Avatar/${fileName}`);
+  const snapshot = await uploadBytes(storageRef, req.file.buffer);
+  const user = await User.findById(req.user._id);
+  user.avatar = `https://firebasestorage.googleapis.com/v0/b/${storageRef.bucket}/o/${encodeURIComponent(snapshot.metadata.fullPath)}?alt=media`; 
   await user.save({ validateBeforeSave: false });
-  res.status(201).json({status: SUCCESS,message: "Avatar changed done"})
-})
+  res.status(201).json({ status: 'SUCCESS', message: 'Avatar changed done' });
+});

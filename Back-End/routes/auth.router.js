@@ -5,16 +5,7 @@ const AppError = require("../utils/appError");
 const authController = require("../controllers/auth.controller");
 const {registerValidate}=require('../middlewares/userValidate')
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "images/avatar");
-  },
-  filename: function (req, file, cb) {
-    const ext = file.mimetype.split("/")[1];
-    const fileName = `${file.originalname.split(".")[0]}-${Date.now()}.${ext}`;
-    cb(null, fileName);
-  },
-});
+
 
 const fileFilter = (req, file, cb) => {
   const imageType = file.mimetype.split("/")[0];
@@ -23,7 +14,7 @@ const fileFilter = (req, file, cb) => {
   }
   return cb(AppError.create("file must be an image",'Error', 400), false);
 };
-const upload = multer({ storage, fileFilter });
+const upload = multer({ storage:multer.memoryStorage(), fileFilter });
 
 router.post("/register",registerValidate, authController.Register);
 router.get(
@@ -51,6 +42,6 @@ router
   .route("/updatePassword")
   .patch(authController.protect, authController.updatePassword);
 
-router.patch("/changeAvatar",authController.protect,upload.single("avatar"),authController.changeAvater)
+router.patch("/changeAvatar",authController.protect,upload.single("avatar"),authController.changeAvatar)
 
 module.exports = router;

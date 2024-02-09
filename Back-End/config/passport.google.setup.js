@@ -16,10 +16,10 @@ passport.use(
     {
       clientID: process.env.clientID,
       clientSecret: process.env.clientSecret,
-      callbackURL: "/auth/google/redirect",
+      callbackURL: "https://fitsync.onrender.com/auth/google/redirect",
     },
     async (accessToken, refreshToken, profile, done) => {
-      let { name, email } = profile._json;
+      let { name, email ,picture} = profile._json;
       const currentUser = await User.findOne({ email });
 
       if (currentUser) {
@@ -33,8 +33,11 @@ passport.use(
         name = name + num;
       }
 
-      name = name.split(" ").join("");
-      const newUser = new User({ username: name, email, isVerify: true });
+      name = name.split(" ");
+      firstName = name[0];
+      lastName = name[1];
+      name=name.join("");
+      const newUser = new User({ username: name, email, isVerify: true,firstName,lastName,avatar: picture});
 
       await newUser.save({ validateBeforeSave: false });
       return done(null, newUser);
