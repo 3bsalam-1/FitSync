@@ -40,12 +40,10 @@ dependencies:
   shared_preferences: ^2.2.2
   iconly: ^1.0.1
   url_launcher: ^6.2.4
-<<<<<<< HEAD
   http: ^1.2.0
-=======
+  intl: ^0.19.0
   google_fonts: ^6.1.0
   smooth_page_indicator: ^1.1.0
->>>>>>> 34c244866af99c4108827583924c62d38b261e4c
 
 dev_dependencies:
   flutter_test:
@@ -72,6 +70,7 @@ flutter:
   assets:
     - assets/images/
     - assets/images/Icons/
+    - assets/images/wourkouts_list/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

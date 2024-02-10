@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../cubits_logic/workouts/week_dates.dart';
-import '../../../services/week_dates.dart';
-import '../../colors/colors.dart';
+import '../../../../cubits_logic/workouts/week_dates.dart';
+import '../../../../services/week_dates.dart';
+import '../../../colors/colors.dart';
 
 class CustomDayItem extends StatelessWidget {
   const CustomDayItem({super.key});
