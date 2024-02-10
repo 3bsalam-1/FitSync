@@ -1,0 +1,1001 @@
+ID,Age,Gender,Resting_Heart_Rate_Range,Sports_Heart_Rate_Range,Stress,Anxiety,Medication,Caffeine,Alcohol,Illness,Exercise Intensity,Temperature,Humidity,Altitude,Hydration,Other,High_Pressure,Low_Pressure,Heart_Condition,Diabetic
+1,Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,High,High,Low,Moderate,Adequate,Absent,No,No,Yes,Yes
+2,Toddler,Male,90-150,120-170,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,Moderate,Moderate,Inadequate,Present,No,No,No,Yes
+3,Teenager,Male,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Absent,Low,Low,Low,Moderate,Adequate,Present,Yes,Yes,No,Yes
+4,Teenager,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,Low,Moderate,High,Inadequate,Present,No,Yes,No,Yes
+5,Toddler,Male,90-150,120-170,Low,High,Taken,Consumed,Not Consumed,Absent,High,Moderate,High,Low,Adequate,Present,No,Yes,No,Yes
+6,Adult,Male,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Present,Low,Moderate,High,High,Adequate,Absent,No,No,Yes,Yes
+7,Toddler,Male,90-150,120-170,Low,Low,Taken,Consumed,Not Consumed,Absent,Moderate,Low,High,Moderate,Adequate,Present,Yes,No,No,No
+8,Infant,Female,100-160,130-180,High,High,Taken,Consumed,Not Consumed,Present,Moderate,Low,Moderate,Moderate,Inadequate,Absent,No,Yes,Yes,Yes
+9,Infant,Female,100-160,130-180,High,High,Taken,Consumed,Not Consumed,Present,Moderate,Low,Low,Low,Inadequate,Absent,Yes,Yes,Yes,Yes
+10,Preschooler,Female,80-140,110-160,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,Moderate,High,Low,Inadequate,Present,Yes,Yes,No,No
+11,Toddler,Male,90-150,120-170,High,Low,Taken,Consumed,Not Consumed,Present,High,Moderate,Low,Moderate,Adequate,Absent,No,No,Yes,No
+12,Older Adult,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Present,Moderate,Low,Moderate,High,Adequate,Absent,No,Yes,Yes,No
+13,Adult,Male,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Present,Moderate,High,High,Moderate,Adequate,Present,Yes,No,Yes,No
+14,Adult,Female,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Absent,High,High,Low,Moderate,Inadequate,Absent,No,Yes,No,Yes
+15,School-age,Male,70-120,100-150,High,Low,Taken,Not Consumed,Consumed,Present,Low,High,Low,Low,Adequate,Absent,No,Yes,No,No
+16,Preschooler,Female,80-140,110-160,Low,High,Not Taken,Not Consumed,Consumed,Present,Low,High,Low,Moderate,Inadequate,Present,Yes,Yes,Yes,No
+17,School-age,Male,70-120,100-150,High,Low,Not Taken,Consumed,Consumed,Present,Moderate,Low,Low,Low,Inadequate,Present,No,Yes,No,Yes
+18,School-age,Male,70-120,100-150,Low,High,Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,High,High,Adequate,Absent,Yes,No,No,No
+19,Infant,Female,100-160,130-180,High,Low,Taken,Consumed,Consumed,Absent,Low,Low,Moderate,Moderate,Inadequate,Absent,No,No,No,No
+20,Infant,Female,100-160,130-180,High,High,Not Taken,Consumed,Consumed,Absent,High,High,Moderate,High,Inadequate,Absent,No,No,No,No
+21,Adult,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Low,Moderate,Low,Adequate,Absent,No,Yes,Yes,No
+22,Teenager,Female,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Present,Low,Moderate,High,Moderate,Inadequate,Present,No,Yes,No,Yes
+23,Infant,Female,100-160,130-180,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Low,High,High,High,Inadequate,Present,No,Yes,Yes,No
+24,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Present,Moderate,Moderate,Low,Moderate,Inadequate,Absent,Yes,Yes,No,Yes
+25,Toddler,Female,90-150,120-170,Low,Low,Not Taken,Consumed,Consumed,Absent,Low,High,Moderate,High,Adequate,Present,No,Yes,No,Yes
+26,Teenager,Male,60-100,90-140,High,Low,Taken,Consumed,Consumed,Present,High,Moderate,Low,High,Inadequate,Present,Yes,Yes,Yes,No
+27,Preschooler,Male,80-140,110-160,High,High,Not Taken,Consumed,Consumed,Present,High,Moderate,Moderate,High,Adequate,Absent,Yes,No,No,No
+28,Infant,Female,100-160,130-180,High,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,High,Moderate,Adequate,Present,Yes,No,Yes,Yes
+29,Preschooler,Female,80-140,110-160,Low,High,Not Taken,Not Consumed,Consumed,Absent,Low,Low,High,Low,Inadequate,Present,No,No,No,No
+30,Toddler,Female,90-150,120-170,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,High,Low,Low,Moderate,Inadequate,Present,Yes,Yes,No,Yes
+31,Preschooler,Male,80-140,110-160,High,High,Not Taken,Consumed,Not Consumed,Present,High,Low,High,Low,Inadequate,Absent,No,No,No,Yes
+32,Adult,Male,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Present,Low,Low,Low,Moderate,Inadequate,Absent,Yes,Yes,Yes,Yes
+33,Teenager,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Moderate,High,Moderate,Low,Inadequate,Present,No,Yes,No,Yes
+34,Adult,Female,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Present,High,High,Moderate,High,Inadequate,Absent,Yes,No,No,Yes
+35,Toddler,Female,90-150,120-170,High,High,Taken,Consumed,Not Consumed,Absent,High,High,Moderate,High,Inadequate,Absent,Yes,Yes,No,No
+36,Older Adult,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Present,Low,High,Moderate,Low,Inadequate,Absent,No,Yes,Yes,Yes
+37,Older Adult,Male,60-100,90-140,Low,High,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,Low,High,Inadequate,Absent,Yes,Yes,No,No
+38,Toddler,Female,90-150,120-170,Low,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,Moderate,High,High,Adequate,Absent,Yes,No,No,No
+39,School-age,Male,70-120,100-150,High,Low,Not Taken,Consumed,Not Consumed,Present,Moderate,Low,Low,Moderate,Inadequate,Absent,No,Yes,Yes,Yes
+40,Toddler,Female,90-150,120-170,High,High,Not Taken,Consumed,Consumed,Present,High,High,Low,Moderate,Inadequate,Present,Yes,Yes,No,Yes
+41,Infant,Male,100-160,130-180,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Moderate,High,Adequate,Absent,No,Yes,Yes,No
+42,Teenager,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Low,High,Adequate,Present,Yes,Yes,Yes,Yes
+43,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Absent,High,Low,Moderate,Low,Adequate,Present,No,No,No,Yes
+44,Infant,Female,100-160,130-180,Low,High,Taken,Not Consumed,Consumed,Absent,Moderate,Low,High,Low,Adequate,Absent,Yes,Yes,No,Yes
+45,Preschooler,Female,80-140,110-160,High,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,High,High,High,Inadequate,Present,Yes,Yes,Yes,No
+46,Adult,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,High,High,Adequate,Absent,No,Yes,Yes,Yes
+47,Toddler,Male,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Absent,High,High,Low,Moderate,Inadequate,Present,Yes,No,No,Yes
+48,Teenager,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Low,Adequate,Absent,No,No,No,No
+49,Infant,Female,100-160,130-180,Low,Low,Not Taken,Consumed,Not Consumed,Present,Moderate,High,Moderate,Moderate,Inadequate,Present,No,No,Yes,No
+50,Preschooler,Female,80-140,110-160,High,High,Taken,Consumed,Consumed,Absent,High,High,High,High,Inadequate,Absent,Yes,Yes,Yes,Yes
+51,Toddler,Male,90-150,120-170,High,High,Taken,Not Consumed,Not Consumed,Present,Low,Moderate,Low,Moderate,Inadequate,Absent,No,Yes,Yes,Yes
+52,Teenager,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Present,High,Moderate,Low,High,Adequate,Absent,No,No,No,Yes
+53,Preschooler,Female,80-140,110-160,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Moderate,High,Inadequate,Absent,No,No,Yes,Yes
+54,Preschooler,Male,80-140,110-160,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Low,High,High,Moderate,Adequate,Absent,Yes,Yes,Yes,No
+55,Teenager,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Moderate,High,Low,Moderate,Adequate,Present,Yes,Yes,Yes,No
+56,Infant,Female,100-160,130-180,High,Low,Not Taken,Not Consumed,Consumed,Present,Low,Moderate,High,Low,Inadequate,Absent,No,No,No,Yes
+57,Older Adult,Female,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Absent,High,High,Moderate,Low,Inadequate,Present,Yes,Yes,Yes,Yes
+58,Teenager,Female,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Present,Low,Moderate,Moderate,High,Inadequate,Present,No,Yes,Yes,Yes
+59,Infant,Male,100-160,130-180,Low,High,Not Taken,Consumed,Consumed,Present,High,High,Moderate,Low,Inadequate,Absent,No,No,Yes,No
+60,Adult,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Present,High,High,Moderate,Moderate,Adequate,Present,Yes,No,Yes,No
+61,Preschooler,Female,80-140,110-160,High,High,Not Taken,Not Consumed,Consumed,Present,Low,Low,Moderate,Moderate,Inadequate,Present,No,Yes,No,Yes
+62,Toddler,Female,90-150,120-170,Low,High,Taken,Not Consumed,Consumed,Absent,Moderate,Low,High,High,Adequate,Absent,No,Yes,No,Yes
+63,Toddler,Female,90-150,120-170,Low,High,Not Taken,Consumed,Consumed,Present,Moderate,High,Moderate,High,Inadequate,Present,Yes,Yes,Yes,Yes
+64,Teenager,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Absent,Low,Moderate,Moderate,High,Adequate,Absent,No,No,No,No
+65,School-age,Female,70-120,100-150,Low,Low,Taken,Consumed,Consumed,Absent,Moderate,High,Moderate,Low,Adequate,Absent,No,Yes,Yes,No
+66,Older Adult,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Present,Moderate,High,Low,High,Adequate,Present,Yes,Yes,Yes,Yes
+67,School-age,Female,70-120,100-150,High,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,High,Low,High,Inadequate,Absent,No,No,No,No
+68,Toddler,Female,90-150,120-170,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,Low,High,High,Inadequate,Absent,Yes,Yes,No,Yes
+69,Infant,Female,100-160,130-180,Low,Low,Not Taken,Not Consumed,Consumed,Absent,High,Low,Low,Low,Adequate,Present,No,No,No,Yes
+70,Preschooler,Female,80-140,110-160,Low,High,Taken,Not Consumed,Consumed,Present,High,Moderate,Low,High,Adequate,Absent,Yes,Yes,Yes,No
+71,Teenager,Male,60-100,90-140,Low,High,Not Taken,Consumed,Consumed,Absent,Moderate,Low,Moderate,High,Adequate,Absent,Yes,No,No,Yes
+72,Toddler,Female,90-150,120-170,Low,High,Not Taken,Not Consumed,Consumed,Absent,Low,Low,Moderate,Low,Inadequate,Absent,Yes,No,Yes,No
+73,Teenager,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Present,Moderate,Low,High,Low,Inadequate,Present,No,Yes,No,No
+74,Preschooler,Male,80-140,110-160,High,Low,Taken,Consumed,Not Consumed,Absent,Moderate,Low,Low,High,Adequate,Absent,Yes,Yes,Yes,No
+75,School-age,Female,70-120,100-150,Low,High,Taken,Consumed,Not Consumed,Absent,High,Moderate,Low,Low,Inadequate,Present,Yes,Yes,No,No
+76,Preschooler,Male,80-140,110-160,Low,High,Taken,Not Consumed,Consumed,Present,High,High,High,Low,Inadequate,Present,No,No,No,No
+77,Adult,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Consumed,Present,Moderate,High,Low,Moderate,Inadequate,Absent,Yes,No,No,Yes
+78,School-age,Male,70-120,100-150,Low,Low,Not Taken,Consumed,Not Consumed,Absent,High,High,High,Low,Adequate,Present,No,No,No,Yes
+79,Teenager,Male,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Present,Moderate,Low,Low,Low,Inadequate,Absent,No,No,Yes,No
+80,Teenager,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Present,Low,Low,High,Low,Adequate,Absent,No,No,No,Yes
+81,School-age,Female,70-120,100-150,Low,High,Not Taken,Consumed,Not Consumed,Present,Moderate,High,Moderate,High,Inadequate,Absent,Yes,Yes,No,Yes
+82,School-age,Female,70-120,100-150,High,High,Taken,Consumed,Consumed,Present,High,Moderate,Moderate,Low,Adequate,Absent,Yes,No,Yes,Yes
+83,Adult,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Present,High,Low,High,Moderate,Adequate,Present,Yes,No,Yes,No
+84,Toddler,Female,90-150,120-170,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Low,High,Low,Moderate,Inadequate,Present,Yes,Yes,Yes,Yes
+85,Older Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Absent,High,High,Moderate,Moderate,Inadequate,Present,No,Yes,No,Yes
+86,Teenager,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Present,High,Moderate,Low,Moderate,Adequate,Present,Yes,No,No,Yes
+87,School-age,Male,70-120,100-150,Low,High,Not Taken,Not Consumed,Consumed,Present,Low,Moderate,Moderate,Low,Inadequate,Present,Yes,No,Yes,Yes
+88,Teenager,Male,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Absent,Moderate,Low,High,Low,Inadequate,Present,Yes,Yes,Yes,Yes
+89,Infant,Male,100-160,130-180,High,High,Not Taken,Not Consumed,Consumed,Present,Moderate,Low,High,High,Adequate,Present,Yes,No,No,Yes
+90,Older Adult,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,Low,Low,High,Inadequate,Present,Yes,Yes,Yes,No
+91,Teenager,Female,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,Moderate,Moderate,Low,Inadequate,Present,Yes,No,No,Yes
+92,Infant,Male,100-160,130-180,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Low,High,Low,Moderate,Adequate,Present,Yes,Yes,Yes,No
+93,School-age,Female,70-120,100-150,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,High,Moderate,Low,Moderate,Adequate,Present,Yes,Yes,Yes,No
+94,Older Adult,Female,60-100,90-140,Low,High,Taken,Consumed,Consumed,Present,Low,High,Low,Low,Inadequate,Absent,Yes,No,Yes,Yes
+95,Adult,Male,60-100,90-140,High,Low,Taken,Not Consumed,Consumed,Absent,High,Low,Moderate,High,Inadequate,Present,Yes,No,Yes,No
+96,Teenager,Female,60-100,90-140,High,Low,Taken,Consumed,Consumed,Absent,High,Low,Low,High,Adequate,Present,Yes,Yes,No,Yes
+97,Toddler,Male,90-150,120-170,Low,High,Not Taken,Consumed,Not Consumed,Present,Low,Moderate,Low,Moderate,Inadequate,Absent,Yes,No,No,No
+98,Older Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Absent,Moderate,High,Low,Moderate,Adequate,Present,No,No,Yes,Yes
+99,Infant,Male,100-160,130-180,Low,High,Taken,Consumed,Consumed,Absent,High,High,Moderate,High,Inadequate,Present,No,Yes,No,No
+100,Adult,Female,60-100,90-140,Low,High,Taken,Consumed,Consumed,Absent,High,High,High,Low,Inadequate,Present,Yes,No,No,Yes
+101,Adult,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,High,High,Low,Low,Adequate,Absent,Yes,Yes,Yes,Yes
+102,Infant,Male,100-160,130-180,High,Low,Taken,Consumed,Consumed,Absent,Low,Moderate,Moderate,Low,Adequate,Present,No,No,No,Yes
+103,Older Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Present,Low,Moderate,High,High,Adequate,Absent,No,No,No,Yes
+104,Teenager,Male,60-100,90-140,High,High,Taken,Consumed,Consumed,Present,Low,High,Moderate,Moderate,Inadequate,Present,No,No,Yes,No
+105,Adult,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Low,Low,Adequate,Present,No,No,No,No
+106,Preschooler,Male,80-140,110-160,High,Low,Not Taken,Not Consumed,Consumed,Present,High,Moderate,Moderate,Moderate,Adequate,Absent,Yes,Yes,No,No
+107,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,Low,Low,Inadequate,Present,Yes,No,Yes,No
+108,Toddler,Male,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,High,High,Inadequate,Absent,No,No,Yes,No
+109,Teenager,Female,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,High,Low,Low,High,Adequate,Present,Yes,Yes,No,No
+110,Teenager,Female,60-100,90-140,Low,High,Taken,Not Consumed,Consumed,Present,Moderate,High,High,Low,Inadequate,Absent,No,Yes,Yes,No
+111,Adult,Male,60-100,90-140,Low,High,Not Taken,Consumed,Consumed,Absent,High,Moderate,High,High,Inadequate,Present,Yes,No,No,No
+112,Preschooler,Female,80-140,110-160,High,Low,Taken,Consumed,Consumed,Present,High,High,High,High,Inadequate,Present,Yes,Yes,No,No
+113,Teenager,Male,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Absent,Moderate,Moderate,High,Moderate,Adequate,Absent,No,Yes,Yes,No
+114,Preschooler,Female,80-140,110-160,High,Low,Taken,Not Consumed,Not Consumed,Absent,High,Moderate,High,Moderate,Inadequate,Present,No,Yes,No,Yes
+115,Infant,Female,100-160,130-180,Low,High,Not Taken,Consumed,Consumed,Absent,Moderate,High,Moderate,High,Inadequate,Absent,No,Yes,No,Yes
+116,Toddler,Male,90-150,120-170,Low,High,Not Taken,Not Consumed,Consumed,Absent,Low,High,Low,High,Inadequate,Present,No,No,No,Yes
+117,School-age,Male,70-120,100-150,High,High,Taken,Consumed,Consumed,Present,Moderate,High,High,Moderate,Inadequate,Absent,No,Yes,No,Yes
+118,Adult,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,Low,High,Low,High,Inadequate,Absent,No,Yes,Yes,No
+119,Infant,Female,100-160,130-180,High,High,Taken,Consumed,Consumed,Absent,High,High,Moderate,High,Inadequate,Absent,Yes,Yes,Yes,No
+120,School-age,Female,70-120,100-150,Low,Low,Not Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,Moderate,Inadequate,Absent,Yes,Yes,No,Yes
+121,Older Adult,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,High,High,High,Moderate,Adequate,Absent,No,Yes,No,No
+122,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,Moderate,High,Inadequate,Absent,No,No,No,No
+123,Older Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Present,Moderate,High,Moderate,Moderate,Adequate,Absent,No,Yes,Yes,No
+124,Teenager,Female,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,Moderate,High,High,Low,Inadequate,Present,No,Yes,No,No
+125,Teenager,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,Moderate,Low,Moderate,Low,Adequate,Absent,Yes,Yes,Yes,No
+126,Older Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Present,Low,High,Low,Low,Adequate,Present,Yes,Yes,No,No
+127,Teenager,Male,60-100,90-140,Low,High,Taken,Not Consumed,Consumed,Absent,Low,High,Moderate,Low,Inadequate,Present,Yes,No,No,Yes
+128,Teenager,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Low,High,Low,Inadequate,Present,No,No,Yes,Yes
+129,Toddler,Female,90-150,120-170,Low,Low,Taken,Not Consumed,Not Consumed,Present,High,High,High,High,Adequate,Absent,No,Yes,No,Yes
+130,Teenager,Male,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Absent,High,Low,Moderate,High,Inadequate,Absent,No,No,No,Yes
+131,Older Adult,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Low,High,Adequate,Absent,Yes,No,No,Yes
+132,Older Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Absent,High,Low,Low,Moderate,Adequate,Present,Yes,Yes,No,No
+133,Toddler,Female,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Present,Low,High,High,Moderate,Adequate,Absent,No,Yes,No,No
+134,Teenager,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Present,Low,High,Low,Low,Adequate,Absent,No,Yes,No,Yes
+135,Toddler,Male,90-150,120-170,Low,Low,Taken,Not Consumed,Consumed,Present,Moderate,Low,Low,Moderate,Adequate,Absent,No,No,No,Yes
+136,Preschooler,Male,80-140,110-160,High,High,Taken,Consumed,Not Consumed,Present,Moderate,Moderate,Low,Moderate,Adequate,Absent,Yes,No,Yes,Yes
+137,Toddler,Female,90-150,120-170,High,High,Taken,Consumed,Not Consumed,Absent,High,Moderate,Low,Moderate,Inadequate,Absent,Yes,Yes,No,Yes
+138,Toddler,Female,90-150,120-170,High,Low,Taken,Not Consumed,Consumed,Present,High,High,Low,Moderate,Inadequate,Absent,No,Yes,No,No
+139,Preschooler,Male,80-140,110-160,Low,High,Taken,Not Consumed,Consumed,Present,Moderate,High,Moderate,Moderate,Adequate,Present,No,No,No,No
+140,Toddler,Female,90-150,120-170,Low,High,Taken,Consumed,Not Consumed,Absent,Moderate,High,Low,Low,Adequate,Absent,Yes,No,Yes,Yes
+141,Preschooler,Male,80-140,110-160,Low,Low,Taken,Consumed,Consumed,Absent,Moderate,High,Low,High,Inadequate,Absent,No,No,Yes,Yes
+142,Adult,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Moderate,Moderate,Adequate,Absent,Yes,Yes,Yes,Yes
+143,Older Adult,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,Low,High,High,Moderate,Inadequate,Absent,Yes,No,No,Yes
+144,Teenager,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Present,High,Low,High,Moderate,Inadequate,Absent,No,Yes,No,Yes
+145,Toddler,Male,90-150,120-170,High,Low,Taken,Consumed,Consumed,Present,Low,High,High,Moderate,Inadequate,Present,No,No,Yes,Yes
+146,School-age,Female,70-120,100-150,High,High,Taken,Not Consumed,Not Consumed,Present,Moderate,High,High,Low,Inadequate,Present,No,No,Yes,Yes
+147,Older Adult,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Present,Low,High,Moderate,Moderate,Inadequate,Absent,Yes,No,No,Yes
+148,Teenager,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,Low,Moderate,Moderate,High,Inadequate,Absent,Yes,Yes,Yes,No
+149,School-age,Male,70-120,100-150,Low,High,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,Low,High,Adequate,Absent,Yes,No,No,Yes
+150,School-age,Female,70-120,100-150,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,Low,High,High,Inadequate,Absent,Yes,Yes,Yes,Yes
+151,Teenager,Male,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Absent,Low,Moderate,Low,Low,Adequate,Present,No,Yes,Yes,Yes
+152,School-age,Female,70-120,100-150,High,Low,Not Taken,Consumed,Not Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Present,Yes,Yes,Yes,Yes
+153,Preschooler,Female,80-140,110-160,Low,High,Not Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,Moderate,Adequate,Absent,No,Yes,Yes,Yes
+154,Adult,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,High,High,Inadequate,Absent,No,No,No,Yes
+155,School-age,Female,70-120,100-150,High,Low,Taken,Consumed,Consumed,Present,Moderate,Moderate,Low,Low,Adequate,Absent,Yes,Yes,No,No
+156,School-age,Female,70-120,100-150,Low,High,Taken,Not Consumed,Not Consumed,Present,Low,High,High,Low,Adequate,Absent,Yes,No,Yes,Yes
+157,Toddler,Female,90-150,120-170,Low,High,Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,High,Moderate,Inadequate,Absent,No,No,Yes,Yes
+158,Infant,Female,100-160,130-180,Low,Low,Taken,Consumed,Consumed,Absent,Low,Moderate,Moderate,Moderate,Inadequate,Present,Yes,Yes,No,Yes
+159,Adult,Male,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,Low,Moderate,Low,High,Adequate,Absent,No,No,No,No
+160,Toddler,Male,90-150,120-170,Low,Low,Not Taken,Not Consumed,Consumed,Present,Low,Moderate,Low,Low,Adequate,Present,Yes,No,Yes,Yes
+161,Infant,Male,100-160,130-180,Low,Low,Taken,Consumed,Not Consumed,Absent,Low,Low,Low,Moderate,Adequate,Present,Yes,Yes,No,Yes
+162,Teenager,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Absent,Low,Low,High,Moderate,Inadequate,Present,No,Yes,Yes,Yes
+163,Toddler,Male,90-150,120-170,High,High,Taken,Consumed,Not Consumed,Absent,Low,Moderate,High,High,Inadequate,Present,No,No,Yes,No
+164,Adult,Female,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Absent,Low,Moderate,Moderate,Low,Inadequate,Absent,No,No,No,Yes
+165,Toddler,Male,90-150,120-170,High,High,Not Taken,Not Consumed,Not Consumed,Absent,High,Moderate,High,Moderate,Adequate,Absent,No,Yes,No,Yes
+166,Infant,Male,100-160,130-180,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,High,Low,Moderate,Adequate,Present,Yes,No,No,No
+167,Older Adult,Male,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Present,Low,Low,Low,Low,Adequate,Present,No,No,No,Yes
+168,School-age,Male,70-120,100-150,Low,High,Taken,Consumed,Consumed,Absent,High,High,Moderate,High,Inadequate,Absent,Yes,Yes,Yes,No
+169,Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Present,Low,Moderate,Low,High,Adequate,Present,Yes,Yes,No,No
+170,Toddler,Male,90-150,120-170,High,High,Taken,Consumed,Consumed,Present,High,High,High,Moderate,Inadequate,Absent,No,No,No,Yes
+171,Toddler,Female,90-150,120-170,High,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Moderate,High,Inadequate,Absent,Yes,Yes,No,Yes
+172,Teenager,Male,60-100,90-140,High,Low,Taken,Consumed,Consumed,Present,High,Low,High,High,Inadequate,Present,No,No,No,No
+173,School-age,Female,70-120,100-150,Low,High,Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Low,Inadequate,Present,No,No,Yes,Yes
+174,Teenager,Male,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Absent,High,Moderate,Low,High,Inadequate,Absent,Yes,No,No,Yes
+175,Teenager,Female,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Absent,High,Low,High,High,Adequate,Present,No,Yes,No,Yes
+176,School-age,Male,70-120,100-150,High,High,Not Taken,Not Consumed,Consumed,Absent,Moderate,Low,Moderate,Low,Adequate,Present,Yes,Yes,No,Yes
+177,Infant,Male,100-160,130-180,Low,Low,Not Taken,Consumed,Consumed,Absent,High,Moderate,Moderate,Low,Adequate,Present,Yes,Yes,Yes,No
+178,Infant,Female,100-160,130-180,High,High,Taken,Consumed,Not Consumed,Present,Moderate,High,Low,High,Inadequate,Present,No,Yes,Yes,No
+179,Teenager,Female,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Present,High,Moderate,Low,High,Inadequate,Absent,No,Yes,Yes,No
+180,School-age,Male,70-120,100-150,High,Low,Taken,Not Consumed,Consumed,Present,High,Moderate,High,Moderate,Inadequate,Absent,Yes,Yes,No,No
+181,Older Adult,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Absent,High,Moderate,High,Low,Adequate,Absent,No,No,No,No
+182,Preschooler,Female,80-140,110-160,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Moderate,Moderate,Adequate,Present,No,Yes,No,No
+183,Teenager,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Present,Yes,Yes,Yes,No
+184,Infant,Female,100-160,130-180,High,Low,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,High,Low,Inadequate,Absent,Yes,No,Yes,Yes
+185,Infant,Male,100-160,130-180,High,High,Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Low,Low,Adequate,Absent,No,No,No,No
+186,Older Adult,Male,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Present,Low,Moderate,High,Low,Adequate,Absent,No,No,No,Yes
+187,Toddler,Male,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,Low,Moderate,Adequate,Present,No,Yes,Yes,No
+188,School-age,Female,70-120,100-150,Low,High,Taken,Consumed,Consumed,Present,Low,Low,Low,Low,Adequate,Present,No,No,Yes,Yes
+189,Toddler,Male,90-150,120-170,High,Low,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,High,Low,Inadequate,Absent,No,No,Yes,No
+190,Preschooler,Female,80-140,110-160,Low,Low,Not Taken,Consumed,Consumed,Absent,High,High,High,High,Adequate,Present,Yes,No,No,No
+191,Older Adult,Male,60-100,90-140,High,High,Taken,Consumed,Consumed,Present,High,Low,Low,Low,Inadequate,Present,No,Yes,No,Yes
+192,Adult,Female,60-100,90-140,Low,High,Taken,Consumed,Consumed,Absent,Moderate,Moderate,High,Low,Adequate,Present,Yes,Yes,No,No
+193,Toddler,Female,90-150,120-170,High,Low,Not Taken,Not Consumed,Consumed,Present,High,High,High,High,Inadequate,Present,Yes,Yes,Yes,Yes
+194,Preschooler,Female,80-140,110-160,Low,Low,Taken,Consumed,Not Consumed,Present,High,Low,Moderate,Low,Adequate,Present,Yes,No,No,Yes
+195,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Present,Moderate,Moderate,High,Low,Adequate,Present,No,Yes,Yes,Yes
+196,Teenager,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Low,Low,Adequate,Absent,Yes,Yes,No,Yes
+197,Adult,Male,60-100,90-140,High,Low,Taken,Not Consumed,Not Consumed,Present,High,Low,High,Low,Adequate,Absent,Yes,No,No,No
+198,Infant,Male,100-160,130-180,High,High,Taken,Not Consumed,Consumed,Absent,High,High,Moderate,High,Adequate,Present,Yes,Yes,No,No
+199,School-age,Male,70-120,100-150,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Moderate,High,Low,Low,Adequate,Absent,No,Yes,Yes,No
+200,Adult,Male,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Low,Moderate,Low,Adequate,Present,Yes,Yes,No,Yes
+201,Adult,Male,60-100,90-140,High,Low,Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Moderate,Moderate,Adequate,Absent,No,No,No,Yes
+202,Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,High,High,High,Moderate,Adequate,Present,No,Yes,No,Yes
+203,Toddler,Male,90-150,120-170,High,Low,Taken,Consumed,Not Consumed,Present,Moderate,Low,Moderate,Low,Adequate,Present,No,Yes,Yes,Yes
+204,Infant,Male,100-160,130-180,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Low,Moderate,Adequate,Absent,Yes,No,Yes,No
+205,School-age,Female,70-120,100-150,High,Low,Taken,Not Consumed,Consumed,Present,Low,Moderate,Moderate,Moderate,Adequate,Absent,Yes,Yes,Yes,No
+206,Preschooler,Female,80-140,110-160,High,Low,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,Low,Low,Adequate,Present,Yes,No,Yes,No
+207,Older Adult,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Absent,Low,Low,Moderate,Moderate,Adequate,Present,No,Yes,Yes,Yes
+208,Teenager,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Moderate,Moderate,Adequate,Absent,Yes,Yes,No,No
+209,School-age,Male,70-120,100-150,Low,High,Not Taken,Consumed,Consumed,Absent,Low,Low,Moderate,High,Inadequate,Absent,No,No,Yes,No
+210,Adult,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,High,High,Low,Low,Inadequate,Present,Yes,No,Yes,Yes
+211,Adult,Female,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Absent,Low,Low,Moderate,High,Inadequate,Present,Yes,No,Yes,No
+212,Preschooler,Female,80-140,110-160,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,Low,High,High,Inadequate,Present,No,Yes,No,No
+213,Toddler,Male,90-150,120-170,High,Low,Taken,Not Consumed,Consumed,Present,Low,Low,Moderate,High,Inadequate,Present,Yes,Yes,Yes,No
+214,Preschooler,Female,80-140,110-160,High,High,Not Taken,Consumed,Consumed,Absent,Low,Low,High,High,Adequate,Absent,Yes,Yes,Yes,No
+215,Adult,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Absent,High,Low,Moderate,High,Inadequate,Present,No,No,Yes,Yes
+216,Toddler,Male,90-150,120-170,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Moderate,Moderate,High,Inadequate,Absent,No,Yes,Yes,No
+217,Preschooler,Male,80-140,110-160,Low,High,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,Low,High,Adequate,Absent,No,No,Yes,No
+218,Older Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,Low,High,Low,High,Inadequate,Present,Yes,Yes,No,No
+219,Preschooler,Female,80-140,110-160,Low,Low,Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Low,Moderate,Adequate,Absent,Yes,No,Yes,Yes
+220,School-age,Female,70-120,100-150,High,High,Taken,Consumed,Not Consumed,Present,Moderate,Moderate,High,Moderate,Inadequate,Present,Yes,Yes,Yes,Yes
+221,Infant,Male,100-160,130-180,Low,Low,Taken,Consumed,Consumed,Absent,Low,Low,Moderate,Moderate,Adequate,Absent,No,Yes,Yes,No
+222,Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,High,Moderate,Moderate,Low,Adequate,Present,No,Yes,Yes,Yes
+223,Preschooler,Male,80-140,110-160,High,High,Taken,Consumed,Consumed,Absent,Low,Moderate,High,High,Adequate,Absent,Yes,No,No,Yes
+224,Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Present,Low,Low,Moderate,High,Inadequate,Present,Yes,No,Yes,Yes
+225,Teenager,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Present,High,Low,Moderate,High,Adequate,Present,No,No,Yes,Yes
+226,School-age,Female,70-120,100-150,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,High,High,High,Low,Inadequate,Present,No,No,No,No
+227,Older Adult,Male,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,Moderate,High,High,Moderate,Adequate,Present,No,No,Yes,No
+228,Preschooler,Male,80-140,110-160,Low,Low,Taken,Consumed,Consumed,Present,Moderate,Low,Moderate,Moderate,Inadequate,Present,Yes,No,Yes,Yes
+229,Preschooler,Female,80-140,110-160,High,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Low,High,Moderate,Adequate,Present,Yes,No,Yes,Yes
+230,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Moderate,High,Adequate,Absent,No,No,Yes,No
+231,Toddler,Female,90-150,120-170,Low,Low,Not Taken,Not Consumed,Consumed,Present,Low,Low,Low,High,Adequate,Present,No,No,No,Yes
+232,Older Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Absent,Moderate,High,High,High,Adequate,Absent,No,No,No,Yes
+233,School-age,Male,70-120,100-150,High,High,Taken,Consumed,Consumed,Present,High,Moderate,High,Moderate,Adequate,Present,No,Yes,Yes,No
+234,Preschooler,Male,80-140,110-160,High,High,Not Taken,Not Consumed,Not Consumed,Present,High,Moderate,Low,Low,Inadequate,Present,No,No,No,No
+235,Infant,Female,100-160,130-180,Low,High,Taken,Not Consumed,Consumed,Absent,Low,Low,Low,Low,Inadequate,Present,No,No,No,No
+236,School-age,Female,70-120,100-150,Low,High,Taken,Not Consumed,Consumed,Present,High,Low,Low,High,Adequate,Absent,Yes,Yes,No,Yes
+237,School-age,Male,70-120,100-150,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Low,High,High,Inadequate,Absent,No,Yes,Yes,No
+238,School-age,Female,70-120,100-150,High,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,High,Moderate,Low,Adequate,Present,Yes,No,Yes,No
+239,Teenager,Male,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Present,High,Low,Low,Low,Adequate,Present,Yes,Yes,No,Yes
+240,Adult,Male,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Present,Moderate,High,Low,Low,Adequate,Present,No,Yes,Yes,No
+241,Adult,Female,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Absent,No,No,Yes,Yes
+242,Preschooler,Male,80-140,110-160,High,Low,Not Taken,Not Consumed,Consumed,Absent,Low,High,Low,Low,Inadequate,Present,Yes,Yes,Yes,Yes
+243,Infant,Male,100-160,130-180,Low,High,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,Moderate,High,Inadequate,Absent,Yes,No,Yes,Yes
+244,Older Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Present,High,Low,Low,Low,Inadequate,Present,Yes,Yes,No,Yes
+245,Adult,Male,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Absent,Low,Low,Low,Low,Adequate,Present,No,No,Yes,No
+246,Teenager,Male,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Absent,High,Low,High,High,Adequate,Absent,No,Yes,No,Yes
+247,Older Adult,Male,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Present,Moderate,Moderate,High,High,Adequate,Absent,Yes,Yes,No,No
+248,Teenager,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,Moderate,Moderate,Inadequate,Present,Yes,Yes,Yes,No
+249,Infant,Female,100-160,130-180,Low,High,Taken,Consumed,Not Consumed,Present,Moderate,Moderate,Low,Moderate,Inadequate,Present,No,Yes,No,No
+250,Toddler,Female,90-150,120-170,Low,High,Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,Moderate,Low,Inadequate,Present,Yes,No,No,Yes
+251,Preschooler,Female,80-140,110-160,Low,Low,Not Taken,Not Consumed,Consumed,Present,High,High,Moderate,Moderate,Inadequate,Absent,Yes,Yes,No,No
+252,Older Adult,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,High,Moderate,Low,Inadequate,Present,Yes,Yes,Yes,No
+253,Adult,Female,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Present,Moderate,Moderate,Low,Moderate,Adequate,Present,Yes,No,Yes,No
+254,School-age,Female,70-120,100-150,High,Low,Not Taken,Not Consumed,Consumed,Absent,High,Moderate,High,High,Inadequate,Absent,Yes,No,No,Yes
+255,Preschooler,Female,80-140,110-160,Low,High,Not Taken,Consumed,Not Consumed,Present,Moderate,Low,Low,High,Adequate,Present,Yes,Yes,Yes,Yes
+256,Toddler,Female,90-150,120-170,High,High,Taken,Consumed,Consumed,Present,High,Moderate,High,Low,Adequate,Present,Yes,Yes,No,No
+257,Teenager,Female,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Present,Low,Moderate,Low,High,Adequate,Present,Yes,Yes,No,No
+258,Older Adult,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,Low,Low,Moderate,Inadequate,Absent,Yes,Yes,Yes,No
+259,School-age,Female,70-120,100-150,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Inadequate,Present,No,Yes,Yes,Yes
+260,Teenager,Male,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Inadequate,Present,Yes,Yes,No,No
+261,Preschooler,Male,80-140,110-160,High,High,Taken,Not Consumed,Not Consumed,Present,Moderate,Low,Low,Low,Inadequate,Present,Yes,No,Yes,No
+262,Toddler,Male,90-150,120-170,High,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Low,Inadequate,Present,Yes,No,No,No
+263,Infant,Male,100-160,130-180,High,High,Not Taken,Consumed,Consumed,Absent,High,Low,Low,High,Adequate,Present,No,No,Yes,Yes
+264,Toddler,Female,90-150,120-170,Low,Low,Taken,Not Consumed,Consumed,Present,Low,Moderate,Moderate,High,Inadequate,Present,No,Yes,No,Yes
+265,Older Adult,Female,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,Moderate,Adequate,Present,Yes,No,No,No
+266,Toddler,Male,90-150,120-170,Low,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Low,Adequate,Absent,No,No,No,No
+267,School-age,Male,70-120,100-150,High,High,Taken,Not Consumed,Consumed,Present,Low,High,Moderate,High,Adequate,Absent,Yes,No,Yes,No
+268,School-age,Female,70-120,100-150,High,High,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,Moderate,Low,Adequate,Present,Yes,No,No,No
+269,School-age,Female,70-120,100-150,Low,High,Taken,Consumed,Consumed,Absent,High,Moderate,High,High,Inadequate,Present,Yes,Yes,No,No
+270,Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Present,Moderate,High,High,Low,Inadequate,Present,Yes,No,No,No
+271,Older Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Present,Moderate,Low,Low,High,Adequate,Absent,Yes,No,Yes,No
+272,Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,Low,Low,High,Moderate,Inadequate,Absent,Yes,Yes,No,Yes
+273,Infant,Female,100-160,130-180,Low,Low,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,High,Low,Inadequate,Present,No,No,No,Yes
+274,Preschooler,Female,80-140,110-160,Low,Low,Taken,Consumed,Consumed,Absent,Moderate,High,High,Low,Adequate,Absent,Yes,No,No,Yes
+275,Toddler,Female,90-150,120-170,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Low,Low,Adequate,Absent,Yes,No,No,No
+276,Adult,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Present,Low,High,Low,Low,Adequate,Present,Yes,Yes,No,Yes
+277,Preschooler,Female,80-140,110-160,High,High,Taken,Consumed,Consumed,Absent,Moderate,High,Low,Low,Adequate,Present,Yes,Yes,Yes,Yes
+278,Older Adult,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Consumed,Present,Low,Moderate,High,Low,Inadequate,Present,No,No,No,No
+279,Older Adult,Male,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,High,Low,Inadequate,Present,No,Yes,No,Yes
+280,Toddler,Female,90-150,120-170,Low,Low,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,Low,High,Adequate,Present,Yes,Yes,Yes,Yes
+281,Toddler,Male,90-150,120-170,Low,Low,Not Taken,Consumed,Consumed,Absent,High,Low,Low,Low,Inadequate,Absent,No,Yes,No,No
+282,Teenager,Female,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Present,High,Moderate,High,Moderate,Adequate,Absent,No,No,No,No
+283,Teenager,Male,60-100,90-140,Low,High,Taken,Consumed,Consumed,Present,High,Low,High,Low,Adequate,Present,Yes,Yes,Yes,No
+284,Infant,Male,100-160,130-180,High,Low,Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Moderate,Moderate,Adequate,Absent,No,No,Yes,No
+285,Infant,Male,100-160,130-180,High,High,Taken,Consumed,Consumed,Absent,High,Moderate,High,High,Adequate,Absent,Yes,No,No,Yes
+286,Infant,Male,100-160,130-180,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Moderate,Moderate,Low,Inadequate,Absent,No,Yes,No,No
+287,Preschooler,Male,80-140,110-160,Low,Low,Not Taken,Consumed,Consumed,Present,Low,Low,High,Low,Adequate,Present,Yes,No,No,No
+288,Preschooler,Female,80-140,110-160,High,Low,Taken,Consumed,Consumed,Present,Moderate,High,Moderate,Low,Adequate,Present,Yes,No,Yes,No
+289,Teenager,Male,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Present,Moderate,High,Low,Moderate,Adequate,Absent,Yes,No,Yes,Yes
+290,Teenager,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Moderate,Moderate,Adequate,Present,Yes,Yes,No,No
+291,Infant,Female,100-160,130-180,High,High,Not Taken,Consumed,Consumed,Present,Moderate,Moderate,High,High,Inadequate,Absent,No,Yes,Yes,No
+292,Older Adult,Male,60-100,90-140,High,Low,Taken,Consumed,Consumed,Absent,Moderate,Moderate,High,High,Adequate,Present,No,No,No,No
+293,Toddler,Male,90-150,120-170,High,Low,Taken,Not Consumed,Consumed,Absent,Low,Moderate,High,Low,Inadequate,Absent,No,Yes,Yes,Yes
+294,Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,Moderate,High,Inadequate,Present,Yes,No,Yes,No
+295,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Absent,Moderate,High,Moderate,Low,Adequate,Present,Yes,Yes,Yes,No
+296,Teenager,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Present,High,Low,Moderate,High,Inadequate,Absent,Yes,Yes,No,No
+297,Toddler,Male,90-150,120-170,Low,High,Taken,Consumed,Consumed,Absent,Moderate,Low,Low,Low,Adequate,Absent,Yes,Yes,No,Yes
+298,Toddler,Male,90-150,120-170,High,Low,Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,High,Inadequate,Absent,No,No,Yes,No
+299,Older Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Present,High,Low,Low,Moderate,Inadequate,Present,No,Yes,No,No
+300,Toddler,Male,90-150,120-170,Low,High,Taken,Consumed,Consumed,Present,High,Low,High,Moderate,Adequate,Present,No,Yes,No,No
+301,Preschooler,Male,80-140,110-160,Low,High,Not Taken,Consumed,Not Consumed,Present,Moderate,Moderate,Low,Low,Inadequate,Present,No,Yes,No,Yes
+302,Infant,Female,100-160,130-180,Low,Low,Taken,Not Consumed,Consumed,Absent,Moderate,Low,High,High,Adequate,Absent,Yes,No,Yes,Yes
+303,Toddler,Female,90-150,120-170,High,Low,Not Taken,Consumed,Consumed,Absent,Moderate,High,High,Moderate,Adequate,Present,Yes,Yes,No,Yes
+304,Older Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,High,High,Moderate,Low,Adequate,Present,No,Yes,Yes,No
+305,Teenager,Male,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Present,Moderate,Low,Low,Low,Inadequate,Absent,No,No,No,No
+306,Adult,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,High,Moderate,Adequate,Present,Yes,No,Yes,Yes
+307,Teenager,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,High,High,Moderate,Low,Inadequate,Absent,No,No,Yes,Yes
+308,Adult,Female,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Present,High,Low,High,High,Adequate,Absent,No,No,No,No
+309,Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,Moderate,Low,Moderate,Low,Inadequate,Absent,No,Yes,Yes,Yes
+310,Teenager,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Present,High,Low,Moderate,Moderate,Adequate,Present,Yes,No,No,No
+311,Adult,Male,60-100,90-140,High,High,Taken,Consumed,Consumed,Present,High,Moderate,Moderate,High,Adequate,Present,No,No,Yes,No
+312,Infant,Female,100-160,130-180,Low,Low,Taken,Not Consumed,Not Consumed,Absent,High,High,High,Moderate,Inadequate,Present,Yes,Yes,No,No
+313,Toddler,Male,90-150,120-170,High,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,High,High,Inadequate,Absent,No,No,Yes,No
+314,Older Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,High,Moderate,Low,High,Adequate,Present,No,No,Yes,Yes
+315,Teenager,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Low,Moderate,Moderate,Moderate,Adequate,Present,Yes,No,Yes,Yes
+316,Toddler,Male,90-150,120-170,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Moderate,Low,High,Moderate,Adequate,Present,Yes,Yes,No,Yes
+317,Preschooler,Female,80-140,110-160,Low,High,Taken,Consumed,Not Consumed,Present,Moderate,Low,High,Low,Inadequate,Present,No,Yes,Yes,No
+318,Adult,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,High,High,Moderate,Moderate,Inadequate,Present,No,Yes,No,Yes
+319,School-age,Female,70-120,100-150,Low,High,Taken,Not Consumed,Consumed,Absent,High,Low,Moderate,High,Adequate,Present,Yes,Yes,No,Yes
+320,School-age,Female,70-120,100-150,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,Low,Moderate,High,Inadequate,Absent,Yes,Yes,No,No
+321,Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Absent,Moderate,High,High,Low,Adequate,Present,No,No,No,Yes
+322,School-age,Male,70-120,100-150,Low,Low,Not Taken,Consumed,Not Consumed,Present,Low,Low,High,Low,Inadequate,Present,Yes,Yes,Yes,Yes
+323,Older Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Present,High,High,Moderate,Moderate,Adequate,Present,Yes,No,Yes,No
+324,Teenager,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,High,High,Low,Adequate,Present,Yes,Yes,Yes,Yes
+325,Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Present,Low,Low,High,Moderate,Inadequate,Present,No,No,No,No
+326,Older Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Present,Moderate,Low,High,Low,Inadequate,Absent,No,Yes,Yes,No
+327,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,High,Low,Moderate,High,Adequate,Absent,Yes,Yes,No,No
+328,Toddler,Female,90-150,120-170,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,High,Low,Adequate,Present,Yes,Yes,Yes,Yes
+329,Preschooler,Female,80-140,110-160,Low,High,Taken,Not Consumed,Not Consumed,Present,High,Low,High,High,Inadequate,Absent,No,No,Yes,Yes
+330,Preschooler,Female,80-140,110-160,High,High,Taken,Not Consumed,Not Consumed,Present,Low,Moderate,Moderate,Low,Adequate,Present,Yes,No,Yes,Yes
+331,Infant,Male,100-160,130-180,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,High,Moderate,Adequate,Present,No,No,Yes,No
+332,Older Adult,Female,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Present,Moderate,Low,High,Low,Adequate,Present,Yes,No,Yes,Yes
+333,Preschooler,Male,80-140,110-160,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Low,High,High,High,Adequate,Present,Yes,Yes,Yes,Yes
+334,Infant,Male,100-160,130-180,Low,High,Taken,Not Consumed,Not Consumed,Absent,Moderate,High,High,High,Adequate,Present,Yes,Yes,Yes,No
+335,Teenager,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Present,No,Yes,No,Yes
+336,Adult,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,High,Low,Adequate,Absent,Yes,Yes,No,No
+337,Teenager,Male,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Moderate,Inadequate,Present,Yes,Yes,No,No
+338,School-age,Male,70-120,100-150,High,Low,Taken,Consumed,Consumed,Absent,High,Low,High,Moderate,Inadequate,Present,No,Yes,No,Yes
+339,Adult,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Consumed,Present,Low,Moderate,High,High,Adequate,Present,Yes,Yes,No,No
+340,Preschooler,Female,80-140,110-160,High,High,Taken,Consumed,Not Consumed,Present,Moderate,High,Moderate,High,Inadequate,Absent,Yes,No,Yes,No
+341,Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Present,Low,Moderate,High,Moderate,Adequate,Absent,No,Yes,No,No
+342,Toddler,Female,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,Low,Moderate,Inadequate,Absent,No,No,Yes,Yes
+343,Teenager,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Absent,Low,Low,Low,Moderate,Inadequate,Present,No,No,Yes,No
+344,Older Adult,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Consumed,Present,High,Moderate,Moderate,Low,Adequate,Present,Yes,Yes,Yes,Yes
+345,Adult,Male,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,High,Low,Moderate,Inadequate,Absent,No,Yes,Yes,Yes
+346,School-age,Male,70-120,100-150,Low,Low,Taken,Not Consumed,Not Consumed,Absent,High,Low,Low,High,Inadequate,Present,No,No,Yes,No
+347,Adult,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Present,Low,Low,Moderate,High,Adequate,Absent,No,No,Yes,No
+348,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Moderate,Moderate,Low,Inadequate,Present,No,Yes,Yes,Yes
+349,School-age,Female,70-120,100-150,Low,High,Taken,Consumed,Consumed,Absent,Low,Moderate,Moderate,Low,Inadequate,Absent,No,No,Yes,Yes
+350,Preschooler,Female,80-140,110-160,High,High,Not Taken,Consumed,Not Consumed,Present,High,Low,Low,Moderate,Inadequate,Absent,No,No,Yes,Yes
+351,Preschooler,Male,80-140,110-160,Low,Low,Taken,Consumed,Consumed,Present,Moderate,Moderate,Moderate,Moderate,Adequate,Absent,Yes,No,Yes,Yes
+352,Adult,Male,60-100,90-140,High,Low,Taken,Consumed,Consumed,Present,Low,High,Moderate,Low,Inadequate,Absent,Yes,No,No,Yes
+353,Preschooler,Female,80-140,110-160,Low,High,Taken,Consumed,Not Consumed,Absent,High,Moderate,High,Moderate,Inadequate,Absent,Yes,Yes,No,No
+354,Preschooler,Male,80-140,110-160,Low,Low,Taken,Consumed,Not Consumed,Present,Moderate,Low,Low,Low,Adequate,Absent,Yes,No,Yes,No
+355,Adult,Female,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,High,High,High,High,Inadequate,Absent,Yes,Yes,No,Yes
+356,Adult,Female,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Present,Moderate,Moderate,High,Moderate,Adequate,Present,Yes,Yes,Yes,No
+357,Toddler,Female,90-150,120-170,High,Low,Not Taken,Not Consumed,Consumed,Absent,Low,Low,Moderate,Moderate,Inadequate,Absent,No,No,Yes,No
+358,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Present,Low,Low,Low,Low,Inadequate,Absent,No,No,Yes,Yes
+359,Adult,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Consumed,Present,Moderate,Low,Low,Moderate,Inadequate,Present,Yes,No,No,Yes
+360,Toddler,Female,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Absent,No,Yes,Yes,Yes
+361,Infant,Female,100-160,130-180,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,Moderate,High,Adequate,Absent,Yes,Yes,Yes,No
+362,Older Adult,Male,60-100,90-140,Low,High,Taken,Not Consumed,Consumed,Present,High,Low,High,Moderate,Inadequate,Present,Yes,Yes,Yes,No
+363,Preschooler,Female,80-140,110-160,Low,Low,Taken,Not Consumed,Consumed,Present,Low,High,Moderate,High,Inadequate,Absent,Yes,No,Yes,Yes
+364,Toddler,Male,90-150,120-170,Low,Low,Not Taken,Not Consumed,Consumed,Present,High,Moderate,Moderate,Low,Adequate,Present,No,No,Yes,Yes
+365,School-age,Male,70-120,100-150,High,High,Taken,Consumed,Not Consumed,Present,Low,High,Low,Low,Inadequate,Present,No,Yes,Yes,Yes
+366,School-age,Male,70-120,100-150,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Low,Low,High,High,Adequate,Present,No,No,Yes,Yes
+367,Preschooler,Male,80-140,110-160,High,High,Taken,Consumed,Consumed,Absent,Moderate,Moderate,High,Moderate,Adequate,Present,Yes,Yes,No,Yes
+368,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,Moderate,Moderate,Inadequate,Present,Yes,Yes,No,Yes
+369,Preschooler,Female,80-140,110-160,High,High,Not Taken,Consumed,Not Consumed,Present,Moderate,High,Moderate,Low,Inadequate,Absent,No,Yes,No,Yes
+370,Adult,Female,60-100,90-140,Low,High,Not Taken,Consumed,Consumed,Present,High,Low,Moderate,High,Inadequate,Absent,Yes,Yes,Yes,No
+371,Infant,Male,100-160,130-180,High,High,Not Taken,Consumed,Not Consumed,Absent,Low,Low,Moderate,High,Adequate,Present,No,No,No,No
+372,Older Adult,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Present,Low,Moderate,Moderate,Low,Inadequate,Present,Yes,No,Yes,Yes
+373,Older Adult,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,Moderate,High,Adequate,Present,Yes,No,Yes,No
+374,Preschooler,Male,80-140,110-160,High,Low,Taken,Not Consumed,Consumed,Absent,Low,High,Low,High,Adequate,Present,No,No,Yes,No
+375,Toddler,Male,90-150,120-170,High,Low,Taken,Not Consumed,Consumed,Present,High,High,High,High,Adequate,Present,Yes,Yes,Yes,Yes
+376,Infant,Female,100-160,130-180,High,High,Taken,Not Consumed,Consumed,Present,Moderate,High,High,Low,Adequate,Absent,No,No,Yes,Yes
+377,Preschooler,Male,80-140,110-160,High,Low,Taken,Consumed,Not Consumed,Absent,Low,Moderate,High,High,Inadequate,Present,No,Yes,No,Yes
+378,Preschooler,Male,80-140,110-160,High,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,High,High,Adequate,Present,No,Yes,No,Yes
+379,Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,High,High,Low,Low,Adequate,Absent,Yes,No,Yes,No
+380,Toddler,Female,90-150,120-170,Low,Low,Taken,Not Consumed,Consumed,Present,Low,Moderate,High,Moderate,Inadequate,Absent,No,Yes,Yes,Yes
+381,School-age,Female,70-120,100-150,Low,High,Not Taken,Not Consumed,Not Consumed,Present,High,Moderate,Low,High,Adequate,Absent,No,No,No,No
+382,Toddler,Female,90-150,120-170,High,Low,Not Taken,Consumed,Not Consumed,Present,High,Moderate,Moderate,Low,Inadequate,Present,Yes,No,No,No
+383,Preschooler,Female,80-140,110-160,Low,Low,Not Taken,Consumed,Consumed,Absent,Moderate,High,Moderate,Low,Inadequate,Present,No,Yes,No,No
+384,School-age,Female,70-120,100-150,Low,High,Taken,Consumed,Consumed,Present,High,Low,Low,Low,Adequate,Absent,No,Yes,Yes,Yes
+385,Teenager,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,High,Low,Adequate,Absent,Yes,Yes,Yes,No
+386,School-age,Female,70-120,100-150,High,High,Taken,Not Consumed,Not Consumed,Present,Low,Moderate,Moderate,Moderate,Adequate,Absent,No,No,No,Yes
+387,Preschooler,Male,80-140,110-160,High,Low,Taken,Not Consumed,Not Consumed,Absent,High,Low,High,Moderate,Inadequate,Present,Yes,No,Yes,No
+388,Adult,Male,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Present,High,High,Moderate,Low,Inadequate,Absent,Yes,No,No,No
+389,Toddler,Male,90-150,120-170,Low,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,High,Moderate,High,Adequate,Present,No,Yes,No,Yes
+390,Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,Low,Low,High,Moderate,Inadequate,Present,No,Yes,No,Yes
+391,School-age,Female,70-120,100-150,High,Low,Not Taken,Not Consumed,Consumed,Present,High,Low,High,Low,Inadequate,Present,No,No,Yes,Yes
+392,Teenager,Female,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Absent,High,Moderate,High,Moderate,Inadequate,Present,Yes,No,Yes,No
+393,Infant,Male,100-160,130-180,High,Low,Not Taken,Consumed,Not Consumed,Absent,Moderate,Low,Low,Low,Adequate,Absent,No,No,Yes,No
+394,School-age,Female,70-120,100-150,Low,High,Taken,Consumed,Consumed,Present,Low,Low,High,High,Adequate,Absent,No,No,No,No
+395,Preschooler,Male,80-140,110-160,High,High,Taken,Not Consumed,Consumed,Present,Moderate,Low,High,High,Inadequate,Absent,Yes,Yes,Yes,No
+396,Adult,Male,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Absent,Low,Moderate,High,High,Adequate,Present,No,No,Yes,Yes
+397,School-age,Female,70-120,100-150,High,High,Not Taken,Consumed,Not Consumed,Absent,High,High,Moderate,Low,Adequate,Present,No,Yes,Yes,Yes
+398,Teenager,Male,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Absent,High,High,High,High,Adequate,Present,Yes,Yes,No,No
+399,Preschooler,Male,80-140,110-160,Low,High,Taken,Not Consumed,Not Consumed,Present,High,Moderate,High,Moderate,Inadequate,Present,Yes,No,No,No
+400,School-age,Male,70-120,100-150,Low,Low,Taken,Consumed,Not Consumed,Absent,Low,Low,High,Moderate,Inadequate,Present,Yes,Yes,No,No
+401,Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,Low,Inadequate,Present,Yes,Yes,Yes,Yes
+402,Teenager,Female,60-100,90-140,Low,High,Taken,Consumed,Consumed,Absent,Low,Low,High,High,Inadequate,Present,No,No,Yes,No
+403,Preschooler,Female,80-140,110-160,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,High,Low,Moderate,Moderate,Inadequate,Absent,Yes,Yes,Yes,No
+404,Infant,Male,100-160,130-180,High,High,Taken,Consumed,Not Consumed,Absent,Moderate,High,Moderate,Low,Inadequate,Absent,Yes,Yes,Yes,No
+405,Teenager,Male,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Present,Yes,No,Yes,Yes
+406,School-age,Male,70-120,100-150,High,Low,Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,High,High,Adequate,Absent,No,No,Yes,Yes
+407,Infant,Male,100-160,130-180,High,High,Taken,Consumed,Consumed,Absent,Moderate,Moderate,Moderate,Low,Inadequate,Absent,Yes,Yes,Yes,Yes
+408,Teenager,Female,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Absent,Low,Moderate,High,Moderate,Inadequate,Absent,Yes,Yes,No,Yes
+409,Preschooler,Female,80-140,110-160,Low,High,Taken,Consumed,Consumed,Absent,Moderate,Moderate,Low,Low,Adequate,Absent,Yes,No,No,No
+410,Preschooler,Female,80-140,110-160,Low,High,Taken,Not Consumed,Consumed,Absent,High,High,Moderate,High,Inadequate,Present,Yes,No,No,Yes
+411,School-age,Male,70-120,100-150,Low,High,Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Low,High,Adequate,Absent,Yes,No,Yes,Yes
+412,Toddler,Male,90-150,120-170,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,High,Moderate,High,Moderate,Adequate,Present,Yes,Yes,No,No
+413,Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,Low,Low,Low,Moderate,Inadequate,Present,Yes,No,No,No
+414,Infant,Female,100-160,130-180,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,Low,Low,Adequate,Present,Yes,Yes,Yes,No
+415,Preschooler,Female,80-140,110-160,High,High,Not Taken,Not Consumed,Consumed,Present,High,Moderate,Low,High,Adequate,Absent,Yes,No,No,No
+416,Teenager,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Present,Low,Moderate,Low,Low,Adequate,Present,No,No,Yes,No
+417,Toddler,Male,90-150,120-170,High,High,Not Taken,Consumed,Consumed,Absent,High,Low,High,Low,Adequate,Absent,Yes,No,No,No
+418,Infant,Female,100-160,130-180,High,High,Not Taken,Consumed,Consumed,Present,Moderate,Low,Moderate,Moderate,Adequate,Present,No,No,Yes,No
+419,Older Adult,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,High,Low,Low,High,Adequate,Absent,No,Yes,Yes,Yes
+420,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,High,High,High,Moderate,Adequate,Present,No,Yes,No,No
+421,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Moderate,High,Adequate,Absent,No,Yes,Yes,No
+422,Older Adult,Male,60-100,90-140,High,Low,Taken,Consumed,Consumed,Absent,High,Low,High,Low,Adequate,Present,No,No,Yes,No
+423,Adult,Female,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Absent,Moderate,Low,Low,Low,Adequate,Present,No,Yes,No,Yes
+424,Toddler,Female,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Moderate,Low,Inadequate,Absent,No,Yes,Yes,No
+425,Infant,Male,100-160,130-180,Low,Low,Not Taken,Not Consumed,Consumed,Present,Moderate,Low,Low,Moderate,Inadequate,Present,Yes,Yes,No,No
+426,School-age,Male,70-120,100-150,High,High,Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,High,Moderate,Inadequate,Present,No,No,Yes,No
+427,Older Adult,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,Moderate,High,Moderate,Inadequate,Present,Yes,No,Yes,Yes
+428,Toddler,Male,90-150,120-170,High,High,Taken,Not Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Inadequate,Absent,No,No,Yes,No
+429,School-age,Male,70-120,100-150,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,High,Low,Inadequate,Absent,Yes,Yes,Yes,Yes
+430,Preschooler,Male,80-140,110-160,High,High,Not Taken,Consumed,Consumed,Present,High,High,Low,Moderate,Adequate,Absent,No,No,Yes,Yes
+431,Preschooler,Male,80-140,110-160,High,High,Not Taken,Consumed,Not Consumed,Absent,Low,Low,Low,High,Inadequate,Present,No,Yes,Yes,No
+432,School-age,Female,70-120,100-150,High,High,Taken,Not Consumed,Consumed,Present,High,High,High,Moderate,Inadequate,Absent,Yes,No,Yes,Yes
+433,Teenager,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Absent,Moderate,Low,High,Low,Inadequate,Absent,Yes,Yes,Yes,Yes
+434,Teenager,Female,60-100,90-140,Low,High,Taken,Not Consumed,Consumed,Absent,High,Moderate,Low,Moderate,Adequate,Present,No,Yes,No,Yes
+435,Teenager,Male,60-100,90-140,High,Low,Taken,Not Consumed,Not Consumed,Present,High,High,Low,Moderate,Inadequate,Present,Yes,No,Yes,No
+436,School-age,Female,70-120,100-150,High,High,Not Taken,Not Consumed,Not Consumed,Absent,High,Moderate,High,Moderate,Inadequate,Present,Yes,No,No,Yes
+437,Toddler,Female,90-150,120-170,High,Low,Taken,Not Consumed,Not Consumed,Present,High,Low,Moderate,Moderate,Inadequate,Present,Yes,Yes,Yes,No
+438,Infant,Female,100-160,130-180,High,Low,Taken,Consumed,Not Consumed,Absent,High,High,Moderate,Low,Adequate,Absent,No,Yes,No,Yes
+439,Teenager,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,High,Moderate,High,Moderate,Inadequate,Present,No,No,No,No
+440,Older Adult,Female,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Present,Low,Low,High,High,Inadequate,Absent,Yes,Yes,Yes,Yes
+441,Older Adult,Male,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Present,High,Low,Moderate,Low,Inadequate,Present,Yes,No,No,No
+442,Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Present,High,Low,High,High,Adequate,Absent,Yes,Yes,No,No
+443,Teenager,Female,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Present,Moderate,Low,Moderate,Moderate,Inadequate,Present,Yes,No,No,No
+444,School-age,Female,70-120,100-150,Low,Low,Not Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,Low,Adequate,Absent,Yes,Yes,Yes,Yes
+445,School-age,Female,70-120,100-150,Low,High,Not Taken,Consumed,Consumed,Absent,Moderate,Low,High,High,Adequate,Absent,Yes,Yes,No,Yes
+446,Toddler,Male,90-150,120-170,Low,Low,Not Taken,Not Consumed,Consumed,Present,High,High,High,High,Inadequate,Absent,No,Yes,Yes,Yes
+447,Adult,Female,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,Low,Moderate,Moderate,Low,Adequate,Absent,No,Yes,No,No
+448,Infant,Male,100-160,130-180,Low,Low,Not Taken,Not Consumed,Consumed,Absent,High,Moderate,Low,Moderate,Inadequate,Absent,Yes,No,No,Yes
+449,Teenager,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Moderate,Moderate,Inadequate,Present,No,Yes,No,No
+450,Toddler,Male,90-150,120-170,Low,High,Taken,Consumed,Not Consumed,Present,Low,Moderate,High,High,Inadequate,Absent,Yes,Yes,Yes,Yes
+451,Older Adult,Male,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,Moderate,Low,Moderate,High,Adequate,Absent,Yes,Yes,Yes,Yes
+452,Teenager,Female,60-100,90-140,High,Low,Taken,Consumed,Consumed,Present,Moderate,Moderate,High,High,Adequate,Absent,No,Yes,Yes,Yes
+453,Toddler,Male,90-150,120-170,Low,High,Not Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,Moderate,High,Adequate,Absent,Yes,Yes,Yes,No
+454,Adult,Female,60-100,90-140,Low,High,Taken,Not Consumed,Consumed,Present,Moderate,Low,Low,Low,Adequate,Absent,Yes,No,Yes,Yes
+455,Teenager,Female,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Present,Moderate,Low,Moderate,Low,Adequate,Absent,Yes,Yes,No,Yes
+456,Adult,Male,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Absent,Low,Moderate,High,Low,Adequate,Present,Yes,No,Yes,No
+457,Toddler,Female,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Absent,High,Moderate,Low,High,Adequate,Absent,No,Yes,No,No
+458,Adult,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,Moderate,High,Moderate,Adequate,Present,No,Yes,No,No
+459,School-age,Female,70-120,100-150,High,High,Taken,Not Consumed,Consumed,Absent,High,Low,High,Low,Inadequate,Present,Yes,No,Yes,Yes
+460,Older Adult,Female,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,High,High,Moderate,High,Inadequate,Absent,Yes,No,No,Yes
+461,Adult,Male,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Low,High,Low,Inadequate,Absent,Yes,No,Yes,No
+462,Adult,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Present,High,Low,High,Low,Adequate,Present,Yes,Yes,No,Yes
+463,Older Adult,Male,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Present,Low,Low,Low,High,Adequate,Present,Yes,No,Yes,No
+464,Adult,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Present,High,High,High,Moderate,Inadequate,Absent,No,No,No,Yes
+465,School-age,Male,70-120,100-150,Low,Low,Not Taken,Consumed,Consumed,Present,High,High,Low,Moderate,Inadequate,Present,Yes,No,No,Yes
+466,Teenager,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,Low,Low,High,Inadequate,Present,No,No,No,Yes
+467,Toddler,Female,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Present,Low,Low,Moderate,Low,Inadequate,Absent,No,No,No,No
+468,Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Absent,High,Moderate,Moderate,Moderate,Adequate,Absent,Yes,No,Yes,Yes
+469,Toddler,Female,90-150,120-170,Low,High,Taken,Not Consumed,Not Consumed,Present,High,Moderate,Low,Low,Inadequate,Present,Yes,No,No,Yes
+470,Toddler,Male,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,High,High,Adequate,Present,Yes,Yes,Yes,Yes
+471,Teenager,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,Low,High,Low,Moderate,Inadequate,Absent,Yes,Yes,No,No
+472,Preschooler,Male,80-140,110-160,Low,Low,Not Taken,Consumed,Consumed,Absent,High,Moderate,Moderate,Low,Adequate,Present,Yes,Yes,Yes,No
+473,Preschooler,Male,80-140,110-160,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,Low,Low,Low,Inadequate,Present,No,Yes,No,Yes
+474,Preschooler,Male,80-140,110-160,Low,High,Taken,Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Moderate,Adequate,Absent,Yes,Yes,Yes,No
+475,Infant,Female,100-160,130-180,High,High,Taken,Not Consumed,Consumed,Absent,Low,Low,High,Low,Adequate,Absent,Yes,Yes,Yes,Yes
+476,Toddler,Female,90-150,120-170,High,Low,Not Taken,Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Low,Inadequate,Present,No,No,No,No
+477,Preschooler,Male,80-140,110-160,High,High,Taken,Not Consumed,Not Consumed,Present,Moderate,High,Low,Moderate,Inadequate,Absent,Yes,No,No,Yes
+478,Adult,Male,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Absent,Low,Low,Moderate,Moderate,Inadequate,Absent,Yes,Yes,Yes,Yes
+479,School-age,Female,70-120,100-150,High,Low,Not Taken,Not Consumed,Consumed,Present,High,Low,Low,Low,Adequate,Present,No,Yes,No,No
+480,Teenager,Male,60-100,90-140,High,Low,Taken,Not Consumed,Consumed,Present,High,High,High,Moderate,Adequate,Present,Yes,No,Yes,Yes
+481,Older Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Absent,High,Low,Low,High,Inadequate,Absent,Yes,Yes,Yes,Yes
+482,Infant,Male,100-160,130-180,High,Low,Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,High,Moderate,Adequate,Present,No,No,No,No
+483,Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,High,High,High,Inadequate,Absent,No,No,No,No
+484,Toddler,Male,90-150,120-170,High,Low,Not Taken,Not Consumed,Consumed,Absent,Low,Low,Low,Moderate,Inadequate,Present,Yes,Yes,Yes,Yes
+485,Preschooler,Female,80-140,110-160,Low,High,Not Taken,Consumed,Consumed,Present,Moderate,Low,High,High,Inadequate,Absent,No,No,Yes,Yes
+486,Infant,Female,100-160,130-180,High,High,Not Taken,Not Consumed,Consumed,Absent,Low,Low,High,High,Adequate,Present,No,Yes,No,Yes
+487,Teenager,Male,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Present,Moderate,High,High,High,Inadequate,Absent,No,Yes,Yes,No
+488,Infant,Male,100-160,130-180,High,Low,Not Taken,Consumed,Not Consumed,Present,High,Low,High,High,Inadequate,Present,No,Yes,No,No
+489,Toddler,Female,90-150,120-170,Low,High,Taken,Consumed,Not Consumed,Absent,Low,Moderate,Low,Moderate,Inadequate,Absent,Yes,Yes,Yes,No
+490,Adult,Male,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,High,Moderate,Low,Low,Inadequate,Absent,Yes,No,Yes,No
+491,School-age,Male,70-120,100-150,High,Low,Not Taken,Not Consumed,Consumed,Absent,Low,Low,High,Low,Adequate,Absent,Yes,Yes,Yes,No
+492,Teenager,Female,60-100,90-140,High,Low,Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,High,High,Inadequate,Present,Yes,No,No,No
+493,Toddler,Female,90-150,120-170,High,High,Taken,Consumed,Not Consumed,Absent,Low,High,Moderate,Low,Adequate,Present,No,Yes,No,No
+494,Infant,Female,100-160,130-180,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,High,Low,Adequate,Present,Yes,No,No,Yes
+495,Infant,Male,100-160,130-180,High,Low,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,High,Moderate,Adequate,Present,No,No,Yes,No
+496,Preschooler,Female,80-140,110-160,Low,Low,Taken,Not Consumed,Consumed,Present,High,High,Low,Low,Inadequate,Present,Yes,Yes,Yes,Yes
+497,Teenager,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,High,Low,Moderate,Moderate,Inadequate,Present,No,Yes,Yes,Yes
+498,Preschooler,Female,80-140,110-160,High,Low,Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,High,Adequate,Present,No,No,No,No
+499,Toddler,Male,90-150,120-170,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,Moderate,High,Low,Inadequate,Absent,No,No,Yes,Yes
+500,Preschooler,Female,80-140,110-160,High,High,Taken,Consumed,Not Consumed,Present,Low,Moderate,High,Moderate,Inadequate,Absent,No,Yes,Yes,No
+501,Preschooler,Female,80-140,110-160,Low,High,Taken,Consumed,Not Consumed,Absent,Low,Low,Low,Moderate,Adequate,Present,Yes,No,No,No
+502,Preschooler,Female,80-140,110-160,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,High,Moderate,Adequate,Present,No,No,No,No
+503,Older Adult,Female,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Present,Low,Low,High,Low,Adequate,Present,No,No,No,Yes
+504,Older Adult,Male,60-100,90-140,Low,High,Not Taken,Consumed,Consumed,Absent,Moderate,High,Moderate,High,Inadequate,Absent,No,Yes,No,Yes
+505,Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Consumed,Absent,Low,High,Low,Low,Adequate,Present,Yes,No,Yes,Yes
+506,Toddler,Female,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,Low,High,Inadequate,Present,Yes,No,No,Yes
+507,Preschooler,Male,80-140,110-160,Low,Low,Not Taken,Not Consumed,Consumed,Absent,High,Low,Moderate,Low,Inadequate,Absent,No,No,No,Yes
+508,Preschooler,Male,80-140,110-160,High,High,Not Taken,Not Consumed,Not Consumed,Present,Low,Moderate,Moderate,High,Inadequate,Absent,Yes,Yes,No,No
+509,Infant,Male,100-160,130-180,Low,High,Not Taken,Consumed,Not Consumed,Present,Low,High,High,Moderate,Inadequate,Absent,No,No,Yes,Yes
+510,Older Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Present,High,Moderate,Moderate,Moderate,Adequate,Absent,Yes,Yes,Yes,Yes
+511,Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Present,Moderate,Low,Moderate,Moderate,Inadequate,Absent,No,Yes,No,Yes
+512,Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Consumed,Present,Low,High,Low,Low,Adequate,Absent,No,Yes,Yes,No
+513,Preschooler,Male,80-140,110-160,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,High,Moderate,Moderate,Adequate,Absent,Yes,No,No,Yes
+514,Teenager,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,High,Low,Adequate,Present,No,Yes,Yes,No
+515,Infant,Female,100-160,130-180,High,Low,Not Taken,Consumed,Not Consumed,Present,High,Moderate,Low,High,Adequate,Present,Yes,No,Yes,Yes
+516,Teenager,Female,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Present,Low,Moderate,Low,High,Adequate,Absent,No,No,Yes,Yes
+517,Teenager,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Absent,Moderate,Low,Moderate,High,Inadequate,Absent,No,No,No,No
+518,Preschooler,Female,80-140,110-160,Low,Low,Taken,Consumed,Not Consumed,Absent,High,High,Moderate,Moderate,Inadequate,Present,No,No,No,No
+519,Toddler,Female,90-150,120-170,Low,High,Not Taken,Not Consumed,Consumed,Present,Low,Low,High,High,Inadequate,Absent,Yes,Yes,Yes,Yes
+520,Older Adult,Female,60-100,90-140,Low,High,Taken,Consumed,Consumed,Absent,Moderate,Moderate,Moderate,Low,Inadequate,Absent,Yes,No,No,Yes
+521,Preschooler,Male,80-140,110-160,Low,Low,Taken,Consumed,Consumed,Present,Moderate,Low,Low,Low,Adequate,Present,Yes,Yes,No,No
+522,Toddler,Female,90-150,120-170,High,High,Not Taken,Consumed,Not Consumed,Absent,High,Low,Low,Moderate,Adequate,Present,No,No,No,No
+523,Toddler,Female,90-150,120-170,Low,High,Taken,Not Consumed,Not Consumed,Absent,Low,Low,High,Moderate,Inadequate,Absent,No,Yes,Yes,No
+524,Teenager,Male,60-100,90-140,Low,High,Taken,Consumed,Consumed,Absent,High,Low,High,Moderate,Adequate,Present,No,No,No,No
+525,Preschooler,Male,80-140,110-160,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Moderate,High,Inadequate,Absent,Yes,No,Yes,No
+526,Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Absent,High,High,Low,Low,Adequate,Present,Yes,No,Yes,No
+527,Teenager,Female,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,Low,Low,Low,High,Inadequate,Absent,No,No,Yes,Yes
+528,Infant,Female,100-160,130-180,High,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Moderate,Low,Inadequate,Absent,Yes,Yes,Yes,No
+529,School-age,Male,70-120,100-150,Low,High,Not Taken,Not Consumed,Consumed,Present,High,High,High,Low,Adequate,Absent,No,Yes,Yes,No
+530,Toddler,Male,90-150,120-170,Low,High,Taken,Consumed,Not Consumed,Present,Moderate,Moderate,Low,High,Adequate,Absent,Yes,No,No,Yes
+531,Toddler,Female,90-150,120-170,Low,Low,Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,High,Moderate,Adequate,Present,No,Yes,Yes,No
+532,Preschooler,Female,80-140,110-160,High,Low,Not Taken,Not Consumed,Not Consumed,Present,High,Low,Moderate,Low,Inadequate,Absent,Yes,No,No,No
+533,Teenager,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Absent,Low,Moderate,High,Moderate,Inadequate,Absent,Yes,No,Yes,Yes
+534,School-age,Male,70-120,100-150,High,High,Not Taken,Consumed,Consumed,Absent,Moderate,Low,Low,High,Inadequate,Present,Yes,Yes,Yes,Yes
+535,Older Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,High,Moderate,Moderate,Low,Inadequate,Absent,No,No,Yes,Yes
+536,School-age,Male,70-120,100-150,Low,High,Not Taken,Consumed,Consumed,Present,Moderate,Low,Moderate,Moderate,Adequate,Present,No,No,No,Yes
+537,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,High,High,High,Inadequate,Present,No,Yes,Yes,Yes
+538,Teenager,Male,60-100,90-140,Low,High,Taken,Consumed,Consumed,Present,Moderate,High,High,Moderate,Adequate,Present,No,No,Yes,No
+539,Infant,Female,100-160,130-180,Low,High,Taken,Consumed,Not Consumed,Absent,Moderate,High,Moderate,Moderate,Inadequate,Present,No,No,Yes,No
+540,Teenager,Female,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Present,Low,High,Low,Low,Inadequate,Absent,Yes,No,No,No
+541,School-age,Male,70-120,100-150,High,High,Taken,Not Consumed,Consumed,Absent,High,High,High,Moderate,Adequate,Present,Yes,No,No,No
+542,Infant,Male,100-160,130-180,High,High,Not Taken,Not Consumed,Consumed,Absent,High,High,Low,Low,Adequate,Absent,Yes,Yes,Yes,No
+543,Teenager,Male,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Absent,Low,Moderate,Moderate,Moderate,Inadequate,Absent,Yes,No,No,Yes
+544,Toddler,Female,90-150,120-170,High,Low,Not Taken,Not Consumed,Consumed,Present,Moderate,Moderate,High,Low,Inadequate,Present,No,Yes,Yes,No
+545,Infant,Female,100-160,130-180,Low,High,Taken,Not Consumed,Not Consumed,Present,Moderate,Low,High,High,Adequate,Absent,No,No,No,No
+546,School-age,Female,70-120,100-150,High,High,Taken,Not Consumed,Not Consumed,Absent,High,Low,High,High,Adequate,Present,Yes,Yes,No,Yes
+547,Infant,Female,100-160,130-180,High,Low,Taken,Not Consumed,Not Consumed,Absent,High,Moderate,Moderate,High,Inadequate,Absent,No,Yes,No,No
+548,Older Adult,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Consumed,Present,Low,Low,Low,Moderate,Adequate,Absent,No,Yes,Yes,No
+549,Preschooler,Female,80-140,110-160,High,High,Taken,Consumed,Not Consumed,Present,Low,High,Low,Low,Adequate,Absent,Yes,No,No,No
+550,Teenager,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,Moderate,Moderate,Low,Adequate,Absent,No,No,Yes,No
+551,Preschooler,Female,80-140,110-160,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,High,Low,High,Adequate,Present,Yes,Yes,Yes,Yes
+552,Adult,Female,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,High,High,Inadequate,Present,No,No,Yes,Yes
+553,Adult,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,High,Moderate,Moderate,Moderate,Inadequate,Absent,Yes,No,Yes,Yes
+554,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Moderate,Low,Low,Moderate,Adequate,Present,Yes,Yes,Yes,Yes
+555,Preschooler,Female,80-140,110-160,High,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,High,Low,Inadequate,Present,No,Yes,Yes,No
+556,School-age,Male,70-120,100-150,Low,High,Taken,Not Consumed,Consumed,Absent,Low,Moderate,High,Moderate,Inadequate,Absent,No,Yes,Yes,Yes
+557,Preschooler,Female,80-140,110-160,Low,High,Taken,Not Consumed,Consumed,Absent,Moderate,High,Low,Low,Inadequate,Present,Yes,No,Yes,No
+558,Infant,Female,100-160,130-180,Low,High,Taken,Consumed,Not Consumed,Absent,High,High,High,High,Inadequate,Absent,Yes,Yes,Yes,No
+559,Infant,Male,100-160,130-180,High,Low,Taken,Consumed,Not Consumed,Present,Moderate,High,Low,Low,Adequate,Present,No,Yes,Yes,No
+560,Preschooler,Female,80-140,110-160,Low,Low,Not Taken,Not Consumed,Consumed,Present,High,High,High,Moderate,Inadequate,Absent,No,Yes,Yes,Yes
+561,Toddler,Male,90-150,120-170,High,Low,Not Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,Low,Inadequate,Absent,Yes,Yes,No,No
+562,School-age,Female,70-120,100-150,Low,Low,Taken,Consumed,Not Consumed,Present,Low,High,Low,Moderate,Inadequate,Absent,Yes,No,Yes,No
+563,Adult,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Present,High,Moderate,High,High,Inadequate,Absent,No,Yes,No,Yes
+564,Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Present,Moderate,Moderate,High,Low,Adequate,Absent,No,No,Yes,No
+565,Adult,Male,60-100,90-140,High,Low,Taken,Not Consumed,Consumed,Present,Low,High,Low,High,Inadequate,Present,Yes,No,No,No
+566,Infant,Male,100-160,130-180,High,High,Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,Low,Inadequate,Present,No,No,No,No
+567,Infant,Female,100-160,130-180,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,High,Low,Inadequate,Absent,Yes,No,No,No
+568,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Present,Moderate,Moderate,Low,Moderate,Adequate,Present,No,Yes,Yes,No
+569,Preschooler,Female,80-140,110-160,High,High,Taken,Not Consumed,Not Consumed,Present,Low,Low,High,Low,Adequate,Absent,Yes,No,Yes,No
+570,Older Adult,Male,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Absent,High,Moderate,Low,Moderate,Inadequate,Absent,Yes,Yes,No,No
+571,Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Moderate,High,Adequate,Absent,No,No,No,Yes
+572,Infant,Female,100-160,130-180,High,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,Low,Low,Moderate,Inadequate,Present,Yes,Yes,No,Yes
+573,School-age,Female,70-120,100-150,High,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,Low,High,Inadequate,Absent,No,Yes,No,No
+574,Adult,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,Moderate,Moderate,Low,Adequate,Present,No,Yes,No,Yes
+575,Adult,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Absent,High,High,Moderate,Moderate,Adequate,Present,No,Yes,Yes,Yes
+576,Infant,Female,100-160,130-180,Low,High,Taken,Not Consumed,Not Consumed,Present,Moderate,Low,Low,Moderate,Inadequate,Present,No,No,Yes,No
+577,Preschooler,Male,80-140,110-160,High,Low,Not Taken,Not Consumed,Consumed,Present,Moderate,High,Moderate,High,Adequate,Present,Yes,No,Yes,No
+578,Adult,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Not Consumed,Present,High,Moderate,Moderate,Low,Inadequate,Absent,Yes,Yes,No,No
+579,Older Adult,Female,60-100,90-140,High,Low,Taken,Not Consumed,Consumed,Absent,High,Moderate,Moderate,High,Adequate,Present,Yes,Yes,Yes,Yes
+580,School-age,Female,70-120,100-150,High,Low,Taken,Consumed,Consumed,Present,Moderate,Low,Low,Low,Inadequate,Present,No,Yes,No,Yes
+581,School-age,Male,70-120,100-150,Low,Low,Taken,Not Consumed,Consumed,Absent,Moderate,High,Low,Low,Inadequate,Present,No,Yes,Yes,No
+582,Infant,Female,100-160,130-180,Low,High,Taken,Consumed,Consumed,Absent,Moderate,Moderate,High,Low,Inadequate,Absent,Yes,Yes,No,No
+583,Teenager,Female,60-100,90-140,High,Low,Taken,Not Consumed,Not Consumed,Present,Low,Moderate,Moderate,Low,Inadequate,Absent,No,Yes,No,No
+584,Preschooler,Male,80-140,110-160,Low,High,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,Low,Moderate,Adequate,Absent,Yes,No,Yes,No
+585,Infant,Female,100-160,130-180,High,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Moderate,High,Inadequate,Absent,Yes,No,Yes,Yes
+586,Toddler,Female,90-150,120-170,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,High,Moderate,Moderate,Moderate,Adequate,Absent,No,No,Yes,No
+587,Preschooler,Male,80-140,110-160,Low,Low,Not Taken,Not Consumed,Consumed,Present,High,High,Moderate,Low,Adequate,Present,Yes,No,No,No
+588,Infant,Male,100-160,130-180,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,High,Moderate,Inadequate,Absent,No,No,No,No
+589,Adult,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Present,No,No,No,No
+590,Adult,Female,60-100,90-140,High,Low,Taken,Not Consumed,Consumed,Present,Low,High,Low,Low,Adequate,Present,Yes,No,Yes,No
+591,School-age,Male,70-120,100-150,High,Low,Taken,Consumed,Not Consumed,Absent,Low,Moderate,High,High,Inadequate,Absent,No,No,Yes,Yes
+592,Older Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Adequate,Present,Yes,Yes,Yes,No
+593,Preschooler,Female,80-140,110-160,High,Low,Not Taken,Consumed,Consumed,Present,High,Moderate,Moderate,Low,Inadequate,Present,No,No,Yes,No
+594,Teenager,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Absent,High,Moderate,Low,High,Inadequate,Absent,No,Yes,Yes,Yes
+595,School-age,Female,70-120,100-150,High,High,Taken,Consumed,Not Consumed,Absent,Moderate,Low,High,Moderate,Adequate,Absent,Yes,No,Yes,Yes
+596,Older Adult,Female,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Present,High,Moderate,High,Low,Adequate,Present,No,No,No,Yes
+597,Teenager,Female,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Absent,Low,High,Moderate,Low,Inadequate,Present,Yes,Yes,No,Yes
+598,Toddler,Female,90-150,120-170,Low,High,Taken,Consumed,Consumed,Present,Moderate,Moderate,High,Low,Inadequate,Present,Yes,Yes,No,No
+599,Adult,Female,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Present,High,High,Moderate,High,Adequate,Present,Yes,No,No,No
+600,Preschooler,Female,80-140,110-160,Low,High,Taken,Consumed,Not Consumed,Present,High,Moderate,Moderate,Moderate,Inadequate,Present,No,Yes,Yes,Yes
+601,Infant,Male,100-160,130-180,High,High,Taken,Consumed,Not Consumed,Absent,Low,Low,Low,Low,Adequate,Present,Yes,Yes,No,Yes
+602,Preschooler,Male,80-140,110-160,High,Low,Taken,Not Consumed,Not Consumed,Absent,Low,Moderate,Low,Moderate,Adequate,Present,No,Yes,Yes,Yes
+603,Preschooler,Female,80-140,110-160,Low,Low,Taken,Consumed,Consumed,Present,Low,Moderate,High,Moderate,Inadequate,Present,Yes,Yes,Yes,No
+604,Toddler,Male,90-150,120-170,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Moderate,Moderate,Adequate,Present,Yes,No,No,Yes
+605,Adult,Female,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Present,Low,Moderate,High,Low,Inadequate,Present,Yes,No,No,Yes
+606,School-age,Female,70-120,100-150,Low,Low,Taken,Consumed,Not Consumed,Absent,Moderate,Low,Low,High,Inadequate,Absent,No,No,Yes,Yes
+607,Preschooler,Male,80-140,110-160,High,Low,Not Taken,Consumed,Consumed,Absent,High,High,Moderate,Low,Adequate,Absent,Yes,Yes,No,Yes
+608,Preschooler,Female,80-140,110-160,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Moderate,High,Inadequate,Present,No,Yes,Yes,Yes
+609,Teenager,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,Low,Moderate,Moderate,Low,Inadequate,Absent,Yes,No,No,No
+610,Teenager,Female,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Present,High,High,Moderate,Moderate,Inadequate,Present,No,No,Yes,Yes
+611,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Low,High,Moderate,High,Adequate,Present,No,Yes,No,Yes
+612,Teenager,Female,60-100,90-140,High,Low,Taken,Not Consumed,Consumed,Absent,High,Low,High,High,Inadequate,Absent,No,No,Yes,Yes
+613,School-age,Female,70-120,100-150,Low,High,Taken,Not Consumed,Consumed,Present,Moderate,Low,High,High,Adequate,Present,Yes,Yes,Yes,No
+614,Preschooler,Male,80-140,110-160,Low,Low,Taken,Consumed,Not Consumed,Present,High,High,High,High,Adequate,Present,Yes,No,No,Yes
+615,Toddler,Male,90-150,120-170,High,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,Moderate,High,Adequate,Present,Yes,Yes,No,Yes
+616,Adult,Female,60-100,90-140,Low,High,Not Taken,Consumed,Consumed,Absent,High,Low,Low,Moderate,Adequate,Absent,No,No,No,No
+617,School-age,Male,70-120,100-150,Low,High,Not Taken,Consumed,Not Consumed,Absent,Low,High,Low,High,Inadequate,Present,Yes,No,Yes,No
+618,Preschooler,Male,80-140,110-160,High,Low,Taken,Consumed,Not Consumed,Absent,Low,High,Moderate,Moderate,Inadequate,Absent,No,Yes,No,No
+619,Toddler,Male,90-150,120-170,High,Low,Not Taken,Not Consumed,Consumed,Present,Moderate,High,Low,High,Inadequate,Absent,Yes,Yes,No,No
+620,Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Absent,High,Low,Low,Low,Adequate,Present,Yes,Yes,Yes,Yes
+621,Toddler,Male,90-150,120-170,Low,High,Taken,Not Consumed,Consumed,Absent,High,Moderate,Low,High,Inadequate,Present,No,Yes,No,No
+622,Adult,Female,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Present,Moderate,Moderate,Low,High,Inadequate,Absent,No,Yes,Yes,No
+623,Infant,Male,100-160,130-180,Low,High,Taken,Consumed,Not Consumed,Absent,Low,Moderate,Moderate,Moderate,Adequate,Absent,No,Yes,No,No
+624,Teenager,Male,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Present,Moderate,Low,High,High,Inadequate,Present,Yes,No,No,No
+625,Infant,Male,100-160,130-180,High,High,Taken,Consumed,Consumed,Present,High,Moderate,Moderate,Moderate,Inadequate,Absent,Yes,No,Yes,Yes
+626,School-age,Male,70-120,100-150,Low,High,Taken,Consumed,Consumed,Absent,High,High,High,Low,Inadequate,Present,Yes,No,Yes,Yes
+627,Preschooler,Male,80-140,110-160,Low,High,Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,Low,Low,Inadequate,Present,Yes,Yes,No,Yes
+628,Preschooler,Male,80-140,110-160,Low,High,Taken,Not Consumed,Consumed,Present,High,High,High,High,Inadequate,Present,Yes,No,Yes,No
+629,School-age,Female,70-120,100-150,High,Low,Taken,Not Consumed,Consumed,Absent,Low,Low,Moderate,Low,Inadequate,Present,No,No,Yes,Yes
+630,Older Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,High,Low,Adequate,Absent,No,Yes,Yes,No
+631,Infant,Male,100-160,130-180,High,Low,Not Taken,Consumed,Not Consumed,Absent,High,High,Moderate,High,Adequate,Present,Yes,No,No,Yes
+632,Toddler,Male,90-150,120-170,High,High,Not Taken,Not Consumed,Not Consumed,Absent,High,Moderate,High,Low,Inadequate,Absent,No,No,Yes,No
+633,Toddler,Female,90-150,120-170,High,Low,Taken,Consumed,Not Consumed,Absent,High,High,Low,Moderate,Inadequate,Absent,No,No,Yes,No
+634,Infant,Female,100-160,130-180,Low,Low,Taken,Consumed,Consumed,Present,Moderate,Low,Moderate,Moderate,Adequate,Present,No,No,Yes,Yes
+635,Older Adult,Male,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Absent,High,High,High,Moderate,Adequate,Present,Yes,No,No,Yes
+636,Teenager,Female,60-100,90-140,Low,High,Taken,Consumed,Consumed,Absent,Low,High,High,Low,Adequate,Absent,No,No,No,Yes
+637,Infant,Female,100-160,130-180,Low,Low,Taken,Consumed,Consumed,Present,High,Moderate,High,Low,Adequate,Present,Yes,Yes,No,Yes
+638,Preschooler,Male,80-140,110-160,Low,Low,Taken,Not Consumed,Consumed,Absent,Moderate,Low,Moderate,High,Inadequate,Absent,No,Yes,Yes,No
+639,Infant,Female,100-160,130-180,High,Low,Not Taken,Consumed,Consumed,Absent,High,Moderate,Moderate,High,Inadequate,Absent,No,No,No,Yes
+640,Teenager,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,High,Low,High,Low,Inadequate,Present,No,No,No,No
+641,Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,High,Low,Moderate,High,Adequate,Absent,No,No,No,Yes
+642,Infant,Male,100-160,130-180,High,High,Taken,Not Consumed,Not Consumed,Present,High,Moderate,Low,Low,Inadequate,Present,Yes,No,Yes,Yes
+643,Preschooler,Female,80-140,110-160,High,High,Taken,Not Consumed,Not Consumed,Present,High,Low,Moderate,Low,Inadequate,Absent,Yes,No,Yes,No
+644,Infant,Female,100-160,130-180,Low,High,Not Taken,Consumed,Consumed,Present,High,Low,Low,High,Adequate,Present,Yes,Yes,Yes,Yes
+645,Infant,Female,100-160,130-180,Low,Low,Taken,Not Consumed,Not Consumed,Present,High,Moderate,Moderate,High,Adequate,Present,Yes,No,Yes,Yes
+646,Teenager,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,Moderate,High,Adequate,Present,No,No,No,Yes
+647,Toddler,Male,90-150,120-170,High,Low,Taken,Not Consumed,Consumed,Present,Moderate,Low,Moderate,Moderate,Adequate,Present,Yes,Yes,Yes,Yes
+648,Toddler,Female,90-150,120-170,Low,High,Not Taken,Not Consumed,Consumed,Absent,Moderate,Low,High,Low,Adequate,Present,No,Yes,No,No
+649,Adult,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Present,Low,Moderate,Low,Low,Adequate,Absent,Yes,No,Yes,No
+650,Teenager,Male,60-100,90-140,Low,High,Taken,Not Consumed,Consumed,Absent,Low,High,High,Moderate,Adequate,Absent,Yes,No,No,No
+651,School-age,Female,70-120,100-150,Low,Low,Taken,Not Consumed,Not Consumed,Absent,High,High,Low,High,Adequate,Absent,Yes,Yes,No,Yes
+652,Teenager,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,Moderate,Moderate,Adequate,Absent,No,Yes,No,No
+653,Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,High,Moderate,Inadequate,Absent,No,No,No,Yes
+654,Toddler,Female,90-150,120-170,High,Low,Not Taken,Consumed,Not Consumed,Absent,Moderate,High,Low,Moderate,Adequate,Present,No,Yes,No,No
+655,Toddler,Male,90-150,120-170,High,Low,Not Taken,Consumed,Consumed,Present,Moderate,High,Low,High,Adequate,Absent,No,No,Yes,No
+656,Teenager,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,High,High,Inadequate,Absent,No,Yes,No,No
+657,Preschooler,Female,80-140,110-160,Low,High,Taken,Not Consumed,Consumed,Present,High,High,High,Moderate,Inadequate,Present,Yes,No,No,Yes
+658,Toddler,Male,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Present,Low,Low,Moderate,Low,Inadequate,Absent,No,Yes,Yes,No
+659,Infant,Male,100-160,130-180,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,High,High,Moderate,Adequate,Present,Yes,Yes,No,Yes
+660,Preschooler,Female,80-140,110-160,High,Low,Not Taken,Consumed,Not Consumed,Present,Low,Low,High,High,Inadequate,Present,Yes,Yes,Yes,No
+661,Older Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Present,Low,High,High,Moderate,Inadequate,Present,No,Yes,No,Yes
+662,Infant,Female,100-160,130-180,High,High,Taken,Consumed,Not Consumed,Present,Moderate,Low,Low,High,Adequate,Present,No,No,No,Yes
+663,Infant,Male,100-160,130-180,High,Low,Taken,Consumed,Consumed,Present,High,Low,Low,Low,Adequate,Present,Yes,Yes,Yes,No
+664,School-age,Female,70-120,100-150,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Low,High,Moderate,Low,Inadequate,Present,Yes,No,Yes,Yes
+665,Older Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Absent,High,Low,Low,Low,Adequate,Absent,Yes,Yes,No,No
+666,Infant,Female,100-160,130-180,Low,Low,Taken,Not Consumed,Consumed,Absent,Low,Low,High,High,Adequate,Present,Yes,No,No,No
+667,Toddler,Male,90-150,120-170,Low,Low,Not Taken,Not Consumed,Consumed,Present,High,Low,Moderate,High,Inadequate,Absent,Yes,No,Yes,No
+668,Preschooler,Male,80-140,110-160,Low,Low,Taken,Not Consumed,Consumed,Present,Low,Low,High,High,Inadequate,Present,Yes,Yes,No,No
+669,School-age,Female,70-120,100-150,High,Low,Taken,Not Consumed,Consumed,Present,Low,Moderate,Low,High,Adequate,Absent,Yes,No,No,Yes
+670,Toddler,Male,90-150,120-170,Low,Low,Not Taken,Consumed,Not Consumed,Present,High,Low,High,Moderate,Adequate,Present,Yes,No,Yes,No
+671,Toddler,Male,90-150,120-170,Low,Low,Taken,Consumed,Consumed,Absent,High,High,High,Low,Inadequate,Present,No,Yes,Yes,No
+672,Teenager,Male,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Absent,High,Moderate,High,High,Adequate,Absent,No,Yes,No,No
+673,School-age,Female,70-120,100-150,High,High,Not Taken,Not Consumed,Not Consumed,Present,Low,Low,Low,High,Adequate,Absent,No,No,No,Yes
+674,Infant,Male,100-160,130-180,High,High,Taken,Not Consumed,Consumed,Present,Moderate,Low,Moderate,Moderate,Adequate,Present,No,No,Yes,Yes
+675,Older Adult,Female,60-100,90-140,Low,High,Taken,Not Consumed,Consumed,Absent,High,Low,High,Low,Inadequate,Absent,No,Yes,Yes,No
+676,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Present,High,High,Low,Low,Adequate,Absent,No,No,No,No
+677,Toddler,Female,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Absent,Low,High,High,High,Adequate,Present,No,Yes,No,Yes
+678,Adult,Male,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Absent,High,High,High,Low,Adequate,Absent,No,No,No,Yes
+679,Infant,Female,100-160,130-180,High,High,Not Taken,Consumed,Consumed,Present,Moderate,High,Low,Low,Adequate,Present,Yes,Yes,No,Yes
+680,Teenager,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Low,Low,Inadequate,Present,No,No,No,Yes
+681,Preschooler,Male,80-140,110-160,High,High,Not Taken,Consumed,Consumed,Absent,Moderate,Low,Moderate,Moderate,Inadequate,Present,No,No,No,No
+682,Older Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Absent,Moderate,Low,High,Low,Adequate,Present,No,Yes,Yes,No
+683,Preschooler,Male,80-140,110-160,High,High,Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,High,Moderate,Inadequate,Present,Yes,No,Yes,Yes
+684,Older Adult,Female,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,Moderate,Moderate,Adequate,Absent,No,Yes,Yes,Yes
+685,Toddler,Male,90-150,120-170,Low,Low,Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,High,Inadequate,Present,Yes,Yes,Yes,No
+686,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,High,Low,High,High,Adequate,Absent,No,Yes,Yes,Yes
+687,School-age,Male,70-120,100-150,Low,High,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,Moderate,Low,Adequate,Present,No,Yes,No,No
+688,Preschooler,Female,80-140,110-160,Low,High,Taken,Consumed,Not Consumed,Absent,High,Low,Moderate,High,Adequate,Absent,Yes,Yes,Yes,No
+689,Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Moderate,Inadequate,Present,Yes,No,No,Yes
+690,Teenager,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,High,Moderate,Adequate,Absent,No,No,Yes,Yes
+691,Teenager,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Absent,High,High,Moderate,Low,Adequate,Present,Yes,No,Yes,No
+692,School-age,Male,70-120,100-150,Low,High,Taken,Not Consumed,Consumed,Present,Low,Moderate,Low,High,Adequate,Absent,Yes,No,No,Yes
+693,Preschooler,Female,80-140,110-160,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,High,Moderate,Inadequate,Present,No,Yes,Yes,Yes
+694,Teenager,Female,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Present,High,Low,High,Moderate,Inadequate,Absent,Yes,No,Yes,Yes
+695,Teenager,Male,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Absent,Moderate,High,High,Low,Adequate,Present,No,No,No,Yes
+696,Infant,Male,100-160,130-180,Low,High,Not Taken,Consumed,Consumed,Present,High,Low,Low,High,Adequate,Absent,No,No,Yes,Yes
+697,Teenager,Female,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,Low,Moderate,Low,High,Adequate,Present,No,No,No,No
+698,Older Adult,Male,60-100,90-140,High,Low,Taken,Not Consumed,Consumed,Absent,High,Moderate,Moderate,Low,Inadequate,Present,No,No,Yes,Yes
+699,Infant,Male,100-160,130-180,High,High,Taken,Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Adequate,Present,Yes,Yes,Yes,Yes
+700,Toddler,Male,90-150,120-170,High,High,Taken,Consumed,Not Consumed,Present,Low,Moderate,High,Low,Inadequate,Present,No,Yes,Yes,Yes
+701,Preschooler,Female,80-140,110-160,High,High,Taken,Not Consumed,Consumed,Absent,Low,Low,High,Low,Adequate,Absent,No,No,Yes,Yes
+702,Infant,Male,100-160,130-180,Low,Low,Not Taken,Consumed,Consumed,Absent,Low,Moderate,Moderate,High,Inadequate,Absent,No,No,Yes,No
+703,Infant,Female,100-160,130-180,Low,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Inadequate,Present,Yes,Yes,Yes,No
+704,Older Adult,Male,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Absent,Moderate,Moderate,Moderate,Moderate,Inadequate,Present,No,Yes,Yes,Yes
+705,Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,High,Moderate,High,High,Adequate,Present,No,Yes,Yes,Yes
+706,Infant,Female,100-160,130-180,High,Low,Not Taken,Not Consumed,Consumed,Present,Moderate,Low,Low,High,Adequate,Absent,No,Yes,No,Yes
+707,Infant,Female,100-160,130-180,Low,High,Not Taken,Consumed,Not Consumed,Present,High,High,Low,Low,Adequate,Absent,No,No,Yes,Yes
+708,Toddler,Female,90-150,120-170,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,Low,Low,High,Adequate,Present,Yes,Yes,Yes,No
+709,School-age,Female,70-120,100-150,High,High,Taken,Consumed,Consumed,Present,Moderate,High,Low,Moderate,Adequate,Absent,Yes,No,Yes,Yes
+710,Infant,Male,100-160,130-180,High,Low,Not Taken,Consumed,Not Consumed,Absent,Moderate,High,Moderate,Moderate,Inadequate,Absent,Yes,Yes,No,Yes
+711,School-age,Female,70-120,100-150,Low,Low,Taken,Consumed,Not Consumed,Absent,Low,High,Low,Moderate,Inadequate,Absent,No,Yes,No,No
+712,Teenager,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Present,Moderate,High,High,High,Inadequate,Absent,No,Yes,No,No
+713,Teenager,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Absent,High,Moderate,Moderate,High,Inadequate,Absent,No,Yes,Yes,No
+714,Teenager,Male,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Adequate,Absent,Yes,No,Yes,Yes
+715,Infant,Male,100-160,130-180,Low,Low,Taken,Not Consumed,Consumed,Absent,High,Low,High,High,Inadequate,Present,Yes,No,No,No
+716,Toddler,Male,90-150,120-170,High,Low,Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Moderate,Moderate,Adequate,Present,No,Yes,Yes,Yes
+717,School-age,Male,70-120,100-150,High,Low,Taken,Not Consumed,Not Consumed,Present,High,Low,High,High,Inadequate,Absent,Yes,Yes,Yes,No
+718,Toddler,Female,90-150,120-170,Low,Low,Taken,Not Consumed,Consumed,Present,Low,Moderate,Moderate,Moderate,Inadequate,Absent,Yes,Yes,No,Yes
+719,Older Adult,Female,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Present,Moderate,High,High,High,Inadequate,Present,No,Yes,No,No
+720,Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Present,High,Low,Moderate,Low,Inadequate,Absent,No,No,Yes,Yes
+721,Teenager,Male,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Present,Low,Moderate,Moderate,Moderate,Adequate,Present,No,Yes,No,Yes
+722,Preschooler,Female,80-140,110-160,Low,Low,Taken,Consumed,Not Consumed,Absent,Low,Low,Moderate,Moderate,Inadequate,Present,No,Yes,No,Yes
+723,School-age,Male,70-120,100-150,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Low,High,Low,Adequate,Absent,Yes,Yes,No,Yes
+724,Preschooler,Female,80-140,110-160,High,High,Not Taken,Not Consumed,Consumed,Present,High,Moderate,Moderate,High,Adequate,Present,No,No,Yes,Yes
+725,Adult,Female,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,Moderate,Low,Moderate,High,Inadequate,Absent,Yes,No,No,No
+726,Teenager,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Low,High,Moderate,Low,Adequate,Present,No,No,Yes,Yes
+727,Older Adult,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Low,Moderate,High,Moderate,Adequate,Present,Yes,No,No,Yes
+728,Older Adult,Female,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Absent,Low,High,Low,Low,Adequate,Present,Yes,No,No,Yes
+729,Toddler,Female,90-150,120-170,High,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Moderate,Adequate,Absent,Yes,No,Yes,No
+730,Older Adult,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Consumed,Present,High,Moderate,High,High,Inadequate,Present,No,No,No,No
+731,Preschooler,Male,80-140,110-160,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Low,High,High,Low,Adequate,Absent,Yes,Yes,No,Yes
+732,School-age,Male,70-120,100-150,Low,High,Taken,Consumed,Not Consumed,Absent,High,High,Low,High,Inadequate,Present,Yes,Yes,No,Yes
+733,Older Adult,Female,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Absent,High,Moderate,Moderate,Moderate,Adequate,Present,No,No,Yes,Yes
+734,Teenager,Female,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Present,Moderate,Low,Moderate,Low,Adequate,Present,Yes,No,Yes,Yes
+735,Older Adult,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Absent,Low,Moderate,Moderate,Low,Inadequate,Present,Yes,Yes,No,No
+736,Adult,Male,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Absent,High,High,High,Moderate,Adequate,Absent,Yes,Yes,No,Yes
+737,Adult,Male,60-100,90-140,High,High,Taken,Consumed,Consumed,Present,Moderate,High,Moderate,High,Adequate,Absent,Yes,Yes,Yes,Yes
+738,Older Adult,Male,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Present,Low,Moderate,High,Low,Inadequate,Absent,Yes,Yes,Yes,No
+739,Toddler,Female,90-150,120-170,High,Low,Not Taken,Consumed,Consumed,Present,Low,Moderate,Low,Moderate,Adequate,Present,Yes,Yes,Yes,Yes
+740,Older Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Present,Low,Low,High,Low,Inadequate,Present,Yes,Yes,No,Yes
+741,Toddler,Female,90-150,120-170,High,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,High,Moderate,Inadequate,Absent,No,No,No,No
+742,Teenager,Male,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Absent,Moderate,Low,Low,High,Adequate,Present,Yes,Yes,Yes,Yes
+743,Older Adult,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Low,High,Moderate,High,Inadequate,Present,No,No,No,No
+744,Infant,Female,100-160,130-180,High,Low,Taken,Not Consumed,Consumed,Present,Moderate,High,Moderate,High,Adequate,Present,Yes,No,No,No
+745,Older Adult,Female,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Present,Yes,No,Yes,No
+746,Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Absent,High,Moderate,High,Low,Inadequate,Absent,Yes,No,Yes,No
+747,Teenager,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,High,High,Low,Moderate,Inadequate,Absent,No,No,Yes,No
+748,Adult,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Absent,High,High,Moderate,High,Inadequate,Absent,Yes,Yes,Yes,No
+749,Toddler,Male,90-150,120-170,Low,High,Not Taken,Consumed,Not Consumed,Present,Low,High,High,High,Inadequate,Absent,Yes,Yes,No,No
+750,Infant,Male,100-160,130-180,High,Low,Not Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,Moderate,Adequate,Absent,No,Yes,No,No
+751,Adult,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,High,Moderate,Low,High,Inadequate,Absent,No,No,Yes,No
+752,Toddler,Female,90-150,120-170,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,High,Moderate,Moderate,Inadequate,Present,Yes,No,Yes,Yes
+753,Infant,Male,100-160,130-180,High,High,Taken,Consumed,Not Consumed,Absent,High,Low,High,High,Adequate,Present,Yes,No,Yes,Yes
+754,Teenager,Female,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Present,High,Moderate,Moderate,Moderate,Adequate,Present,No,No,Yes,Yes
+755,Toddler,Female,90-150,120-170,Low,Low,Taken,Not Consumed,Not Consumed,Present,Low,Low,Low,Moderate,Inadequate,Absent,No,No,Yes,Yes
+756,Infant,Female,100-160,130-180,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,Low,Moderate,Moderate,Inadequate,Present,No,No,No,No
+757,Toddler,Male,90-150,120-170,Low,High,Taken,Consumed,Consumed,Present,Low,Low,Low,High,Adequate,Present,No,No,Yes,No
+758,Older Adult,Male,60-100,90-140,High,High,Taken,Consumed,Consumed,Present,Moderate,Moderate,High,High,Adequate,Absent,No,Yes,Yes,No
+759,Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Present,High,High,Moderate,High,Adequate,Present,No,No,Yes,No
+760,Adult,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Present,High,High,Low,Moderate,Inadequate,Absent,No,No,Yes,Yes
+761,Teenager,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Low,Moderate,Moderate,Inadequate,Absent,No,Yes,Yes,Yes
+762,School-age,Male,70-120,100-150,Low,Low,Taken,Not Consumed,Not Consumed,Absent,High,High,Low,Moderate,Adequate,Present,Yes,No,No,Yes
+763,Preschooler,Male,80-140,110-160,High,High,Not Taken,Not Consumed,Not Consumed,Present,Low,High,High,High,Inadequate,Absent,No,No,Yes,Yes
+764,School-age,Female,70-120,100-150,High,High,Not Taken,Consumed,Consumed,Absent,Low,Low,Moderate,Moderate,Inadequate,Absent,No,Yes,Yes,No
+765,Teenager,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Not Consumed,Present,Moderate,High,Low,High,Inadequate,Absent,No,Yes,No,No
+766,Toddler,Female,90-150,120-170,Low,Low,Taken,Consumed,Not Consumed,Absent,Moderate,High,Moderate,High,Inadequate,Present,Yes,No,Yes,Yes
+767,Toddler,Male,90-150,120-170,Low,Low,Taken,Not Consumed,Not Consumed,Present,Moderate,High,Moderate,High,Adequate,Present,No,No,No,No
+768,Toddler,Female,90-150,120-170,High,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,High,High,High,Inadequate,Absent,Yes,No,Yes,No
+769,Adult,Male,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Adequate,Present,Yes,Yes,Yes,Yes
+770,Preschooler,Male,80-140,110-160,Low,High,Taken,Not Consumed,Consumed,Absent,High,High,Moderate,Moderate,Inadequate,Present,No,No,No,Yes
+771,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Absent,Low,Moderate,High,Low,Inadequate,Absent,No,No,Yes,No
+772,Teenager,Male,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Moderate,Low,High,Inadequate,Absent,Yes,Yes,Yes,No
+773,School-age,Female,70-120,100-150,High,Low,Not Taken,Consumed,Consumed,Absent,High,High,Low,Moderate,Inadequate,Present,Yes,No,No,No
+774,Infant,Female,100-160,130-180,Low,Low,Taken,Consumed,Not Consumed,Absent,Low,Low,Moderate,Low,Inadequate,Absent,No,No,Yes,No
+775,Teenager,Male,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Absent,Low,Moderate,Moderate,Low,Inadequate,Absent,Yes,No,Yes,Yes
+776,Teenager,Male,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Present,Low,Moderate,Low,Low,Inadequate,Present,Yes,No,No,Yes
+777,School-age,Male,70-120,100-150,High,High,Not Taken,Consumed,Not Consumed,Absent,Low,High,Low,Moderate,Adequate,Present,No,No,Yes,No
+778,Older Adult,Female,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Present,High,Low,High,Moderate,Adequate,Absent,Yes,No,Yes,No
+779,School-age,Male,70-120,100-150,Low,High,Taken,Consumed,Consumed,Present,Moderate,Low,Low,Moderate,Adequate,Present,No,Yes,Yes,No
+780,Toddler,Female,90-150,120-170,High,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,Low,Moderate,Inadequate,Absent,No,No,Yes,Yes
+781,Adult,Male,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Present,Low,Moderate,High,Moderate,Adequate,Present,No,No,Yes,No
+782,Adult,Male,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Absent,Low,High,High,Moderate,Adequate,Present,No,Yes,No,No
+783,School-age,Male,70-120,100-150,Low,High,Taken,Not Consumed,Consumed,Absent,Moderate,Low,High,Moderate,Adequate,Absent,No,No,No,Yes
+784,Infant,Male,100-160,130-180,Low,Low,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,High,Moderate,Adequate,Present,No,No,Yes,Yes
+785,Infant,Female,100-160,130-180,High,High,Taken,Not Consumed,Not Consumed,Present,High,Low,High,Low,Adequate,Absent,No,Yes,Yes,Yes
+786,School-age,Female,70-120,100-150,Low,High,Taken,Not Consumed,Not Consumed,Present,High,Low,Low,Moderate,Inadequate,Present,No,Yes,Yes,Yes
+787,Preschooler,Female,80-140,110-160,High,High,Not Taken,Consumed,Consumed,Present,Low,High,Low,Moderate,Inadequate,Present,Yes,Yes,Yes,No
+788,Older Adult,Female,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Absent,High,Low,Moderate,High,Adequate,Absent,Yes,Yes,Yes,No
+789,Toddler,Female,90-150,120-170,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Moderate,Moderate,High,Inadequate,Absent,Yes,Yes,Yes,Yes
+790,Preschooler,Female,80-140,110-160,High,High,Not Taken,Consumed,Consumed,Absent,Moderate,Low,Moderate,Moderate,Inadequate,Absent,No,No,No,Yes
+791,School-age,Female,70-120,100-150,High,Low,Not Taken,Not Consumed,Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Present,Yes,Yes,No,Yes
+792,School-age,Female,70-120,100-150,Low,High,Taken,Consumed,Consumed,Present,Low,Moderate,Low,Moderate,Inadequate,Absent,No,No,No,No
+793,School-age,Male,70-120,100-150,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,Low,High,High,Inadequate,Absent,Yes,Yes,No,Yes
+794,Teenager,Female,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Absent,Moderate,Low,Low,Moderate,Inadequate,Present,No,Yes,Yes,Yes
+795,Toddler,Female,90-150,120-170,Low,High,Not Taken,Consumed,Consumed,Present,High,Moderate,High,Moderate,Inadequate,Absent,Yes,No,No,Yes
+796,Preschooler,Female,80-140,110-160,High,High,Taken,Not Consumed,Not Consumed,Absent,Low,Low,Low,High,Inadequate,Absent,No,No,No,Yes
+797,Adult,Female,60-100,90-140,High,Low,Taken,Not Consumed,Not Consumed,Absent,Low,High,High,High,Inadequate,Absent,Yes,No,No,No
+798,Toddler,Male,90-150,120-170,Low,Low,Not Taken,Consumed,Consumed,Absent,Low,High,Low,Moderate,Inadequate,Absent,Yes,No,Yes,No
+799,Preschooler,Female,80-140,110-160,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,Low,High,Moderate,Adequate,Present,No,Yes,No,Yes
+800,Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Present,High,Moderate,High,Low,Inadequate,Absent,No,No,Yes,Yes
+801,Preschooler,Female,80-140,110-160,Low,Low,Not Taken,Consumed,Not Consumed,Absent,High,Low,Low,High,Inadequate,Present,Yes,Yes,No,No
+802,Teenager,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,Low,Low,Low,High,Inadequate,Present,No,No,Yes,Yes
+803,Older Adult,Male,60-100,90-140,Low,Low,Taken,Consumed,Consumed,Absent,Moderate,Moderate,High,High,Adequate,Absent,No,Yes,Yes,Yes
+804,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,Low,Low,Inadequate,Absent,Yes,Yes,No,No
+805,Toddler,Female,90-150,120-170,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,Moderate,High,Low,Inadequate,Present,Yes,Yes,No,Yes
+806,Older Adult,Male,60-100,90-140,High,Low,Taken,Not Consumed,Not Consumed,Absent,High,High,Low,High,Adequate,Present,No,Yes,No,Yes
+807,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Adequate,Absent,Yes,No,Yes,Yes
+808,Preschooler,Female,80-140,110-160,Low,High,Not Taken,Not Consumed,Consumed,Absent,High,High,Moderate,Low,Adequate,Absent,No,No,No,No
+809,Preschooler,Male,80-140,110-160,Low,High,Not Taken,Consumed,Not Consumed,Present,Low,Moderate,Low,High,Adequate,Absent,Yes,Yes,No,Yes
+810,Older Adult,Female,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Absent,High,Moderate,Low,Low,Adequate,Present,No,No,Yes,No
+811,Teenager,Male,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Present,Low,High,High,Low,Adequate,Present,No,No,Yes,Yes
+812,Infant,Male,100-160,130-180,High,High,Not Taken,Not Consumed,Not Consumed,Absent,High,High,Low,Moderate,Inadequate,Present,Yes,Yes,No,Yes
+813,Older Adult,Female,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,Low,Moderate,Moderate,High,Adequate,Present,No,Yes,Yes,Yes
+814,School-age,Male,70-120,100-150,High,Low,Not Taken,Not Consumed,Consumed,Present,High,Low,High,High,Adequate,Absent,Yes,Yes,Yes,No
+815,Infant,Female,100-160,130-180,High,Low,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,High,Moderate,Inadequate,Absent,Yes,Yes,Yes,Yes
+816,School-age,Male,70-120,100-150,High,High,Taken,Not Consumed,Consumed,Present,Low,Moderate,Moderate,High,Adequate,Absent,No,Yes,No,No
+817,Teenager,Female,60-100,90-140,High,Low,Taken,Consumed,Not Consumed,Absent,Moderate,High,Low,Moderate,Adequate,Absent,Yes,No,Yes,No
+818,Infant,Female,100-160,130-180,Low,Low,Not Taken,Consumed,Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Absent,No,No,No,Yes
+819,Toddler,Male,90-150,120-170,Low,High,Taken,Not Consumed,Consumed,Present,Low,Low,High,Low,Inadequate,Absent,No,Yes,Yes,No
+820,Older Adult,Female,60-100,90-140,High,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,High,Low,Adequate,Absent,No,Yes,Yes,No
+821,Toddler,Female,90-150,120-170,Low,Low,Taken,Not Consumed,Not Consumed,Present,High,Low,Low,High,Inadequate,Absent,No,Yes,Yes,Yes
+822,Preschooler,Male,80-140,110-160,High,High,Not Taken,Not Consumed,Not Consumed,Absent,Low,High,Low,High,Inadequate,Absent,Yes,No,Yes,Yes
+823,Infant,Female,100-160,130-180,High,High,Not Taken,Consumed,Not Consumed,Present,Low,Moderate,Low,Moderate,Inadequate,Present,No,Yes,Yes,No
+824,Infant,Female,100-160,130-180,Low,High,Not Taken,Consumed,Not Consumed,Absent,Low,High,Moderate,Moderate,Adequate,Absent,No,No,Yes,No
+825,Preschooler,Male,80-140,110-160,High,High,Not Taken,Not Consumed,Consumed,Present,Low,Moderate,High,High,Adequate,Present,No,Yes,No,Yes
+826,School-age,Female,70-120,100-150,Low,Low,Not Taken,Consumed,Consumed,Present,Moderate,High,High,Low,Adequate,Present,Yes,No,No,No
+827,Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,Low,Low,Moderate,Adequate,Present,Yes,Yes,No,No
+828,Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Absent,Low,Moderate,Moderate,Low,Inadequate,Present,No,No,No,Yes
+829,Older Adult,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Moderate,Moderate,Inadequate,Absent,No,Yes,No,Yes
+830,Toddler,Male,90-150,120-170,High,Low,Taken,Not Consumed,Consumed,Absent,High,High,Low,Moderate,Adequate,Absent,Yes,Yes,Yes,No
+831,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,High,High,Moderate,Low,Adequate,Absent,No,Yes,Yes,Yes
+832,Infant,Female,100-160,130-180,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,High,Moderate,Moderate,Adequate,Absent,Yes,Yes,No,No
+833,School-age,Male,70-120,100-150,Low,High,Not Taken,Not Consumed,Consumed,Present,Moderate,High,High,Low,Adequate,Absent,No,Yes,Yes,Yes
+834,Preschooler,Female,80-140,110-160,Low,High,Taken,Consumed,Consumed,Present,Low,High,Low,Low,Adequate,Absent,Yes,No,No,Yes
+835,Teenager,Female,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,Low,Low,Inadequate,Absent,Yes,No,Yes,Yes
+836,Teenager,Male,60-100,90-140,Low,High,Not Taken,Consumed,Consumed,Absent,Low,Low,High,Moderate,Inadequate,Present,Yes,No,No,No
+837,Older Adult,Female,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,Moderate,Low,Moderate,High,Adequate,Absent,Yes,No,No,No
+838,Infant,Male,100-160,130-180,Low,High,Taken,Not Consumed,Not Consumed,Absent,Low,Moderate,Low,Low,Inadequate,Absent,No,Yes,No,Yes
+839,School-age,Female,70-120,100-150,High,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,Low,Moderate,Moderate,Inadequate,Present,Yes,No,No,Yes
+840,Adult,Male,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Present,High,Low,Low,High,Adequate,Present,Yes,Yes,Yes,Yes
+841,Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Low,Low,Adequate,Present,No,Yes,Yes,No
+842,Older Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Absent,High,Low,Moderate,Low,Inadequate,Present,Yes,No,No,No
+843,Infant,Male,100-160,130-180,High,High,Taken,Consumed,Consumed,Present,Low,Moderate,Moderate,High,Adequate,Present,Yes,Yes,No,No
+844,Toddler,Male,90-150,120-170,High,High,Taken,Not Consumed,Consumed,Present,Low,High,Low,Moderate,Adequate,Absent,Yes,No,No,Yes
+845,Older Adult,Female,60-100,90-140,Low,High,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,High,High,Inadequate,Present,Yes,Yes,No,Yes
+846,Adult,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Absent,High,Moderate,Low,Moderate,Inadequate,Absent,Yes,Yes,Yes,Yes
+847,Older Adult,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Absent,High,Low,Low,Moderate,Inadequate,Present,Yes,No,No,Yes
+848,School-age,Male,70-120,100-150,High,Low,Taken,Not Consumed,Not Consumed,Present,High,High,Low,Moderate,Inadequate,Present,No,No,No,Yes
+849,Infant,Female,100-160,130-180,Low,High,Taken,Consumed,Consumed,Present,Moderate,High,High,Low,Inadequate,Present,No,No,Yes,No
+850,Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,Low,Moderate,Moderate,Inadequate,Absent,Yes,Yes,No,No
+851,Older Adult,Male,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Present,Moderate,High,Low,Low,Inadequate,Absent,No,No,Yes,Yes
+852,Infant,Female,100-160,130-180,Low,Low,Taken,Consumed,Consumed,Absent,High,Moderate,Low,Low,Inadequate,Present,No,Yes,Yes,Yes
+853,Infant,Male,100-160,130-180,Low,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,Moderate,Moderate,Adequate,Absent,Yes,Yes,Yes,Yes
+854,Toddler,Female,90-150,120-170,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Moderate,Moderate,Low,High,Inadequate,Present,No,No,No,No
+855,Adult,Male,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Present,Moderate,Moderate,Moderate,High,Inadequate,Absent,No,No,No,Yes
+856,Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Absent,Low,High,Low,High,Inadequate,Present,Yes,No,Yes,No
+857,Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Present,High,Moderate,Low,Moderate,Inadequate,Present,Yes,No,No,Yes
+858,Infant,Female,100-160,130-180,High,High,Taken,Not Consumed,Consumed,Present,Moderate,Moderate,High,High,Adequate,Absent,No,No,No,No
+859,Preschooler,Female,80-140,110-160,High,Low,Not Taken,Not Consumed,Consumed,Present,High,Moderate,Low,Low,Inadequate,Absent,Yes,Yes,No,No
+860,Infant,Female,100-160,130-180,High,Low,Not Taken,Consumed,Not Consumed,Absent,Low,High,Low,Low,Adequate,Absent,Yes,No,Yes,No
+861,School-age,Male,70-120,100-150,Low,Low,Not Taken,Consumed,Not Consumed,Present,High,Moderate,Moderate,Moderate,Adequate,Absent,No,No,Yes,Yes
+862,Older Adult,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Absent,High,High,Low,High,Adequate,Present,No,Yes,No,No
+863,Toddler,Male,90-150,120-170,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Moderate,Low,Inadequate,Present,Yes,No,Yes,Yes
+864,Preschooler,Female,80-140,110-160,High,Low,Not Taken,Not Consumed,Consumed,Absent,Low,Moderate,Moderate,Low,Adequate,Absent,No,Yes,Yes,Yes
+865,Toddler,Male,90-150,120-170,High,High,Not Taken,Consumed,Consumed,Present,High,Moderate,Low,Moderate,Adequate,Present,No,No,Yes,Yes
+866,School-age,Female,70-120,100-150,High,Low,Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,High,Moderate,Inadequate,Absent,Yes,No,Yes,No
+867,School-age,Male,70-120,100-150,Low,High,Not Taken,Not Consumed,Consumed,Present,Low,High,High,High,Adequate,Absent,Yes,No,No,Yes
+868,School-age,Female,70-120,100-150,Low,Low,Not Taken,Not Consumed,Consumed,Present,High,Low,Low,Moderate,Inadequate,Present,No,Yes,No,No
+869,School-age,Female,70-120,100-150,High,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Moderate,Moderate,Adequate,Absent,Yes,Yes,Yes,Yes
+870,Adult,Male,60-100,90-140,Low,Low,Taken,Consumed,Not Consumed,Absent,High,Moderate,Moderate,Low,Adequate,Present,No,Yes,Yes,No
+871,Toddler,Female,90-150,120-170,High,High,Not Taken,Consumed,Not Consumed,Absent,Low,Moderate,Moderate,Low,Inadequate,Absent,No,No,No,No
+872,Older Adult,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,High,Moderate,High,Moderate,Inadequate,Present,No,Yes,Yes,Yes
+873,Toddler,Male,90-150,120-170,High,High,Not Taken,Not Consumed,Consumed,Absent,Low,High,Low,High,Adequate,Absent,No,No,No,Yes
+874,Toddler,Female,90-150,120-170,High,Low,Taken,Consumed,Not Consumed,Absent,Moderate,High,Low,Low,Inadequate,Present,Yes,Yes,Yes,No
+875,Teenager,Male,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,High,High,High,High,Adequate,Present,No,No,No,No
+876,Adult,Male,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,Low,Low,High,High,Adequate,Absent,Yes,No,No,Yes
+877,Older Adult,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Consumed,Present,High,Moderate,High,Moderate,Adequate,Absent,Yes,No,Yes,No
+878,School-age,Female,70-120,100-150,Low,High,Taken,Not Consumed,Not Consumed,Present,Moderate,High,Low,High,Adequate,Absent,Yes,No,Yes,Yes
+879,Adult,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Consumed,Present,Low,High,Low,High,Inadequate,Present,Yes,No,No,No
+880,Preschooler,Female,80-140,110-160,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,Moderate,Low,Low,Inadequate,Absent,Yes,Yes,No,Yes
+881,Older Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Absent,Moderate,Low,Moderate,Moderate,Adequate,Absent,No,No,No,No
+882,Teenager,Male,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Present,High,Moderate,Low,High,Inadequate,Absent,Yes,No,Yes,No
+883,Preschooler,Male,80-140,110-160,Low,Low,Taken,Consumed,Consumed,Present,High,Moderate,Low,High,Adequate,Present,Yes,No,Yes,Yes
+884,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,High,High,Moderate,High,Adequate,Present,No,Yes,Yes,Yes
+885,Preschooler,Male,80-140,110-160,Low,High,Not Taken,Consumed,Not Consumed,Present,Moderate,High,High,Low,Adequate,Absent,No,Yes,No,No
+886,School-age,Male,70-120,100-150,High,High,Not Taken,Not Consumed,Consumed,Absent,High,Low,Moderate,High,Inadequate,Absent,Yes,No,Yes,No
+887,School-age,Female,70-120,100-150,High,High,Not Taken,Not Consumed,Not Consumed,Present,High,High,High,Low,Inadequate,Absent,Yes,No,Yes,Yes
+888,School-age,Female,70-120,100-150,High,Low,Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Low,Moderate,Inadequate,Absent,No,No,No,Yes
+889,Older Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Consumed,Absent,High,Low,Moderate,High,Adequate,Absent,No,No,No,No
+890,Preschooler,Male,80-140,110-160,High,Low,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,Low,High,Adequate,Absent,No,No,No,Yes
+891,Teenager,Male,60-100,90-140,High,Low,Taken,Not Consumed,Not Consumed,Absent,High,Low,Low,Low,Inadequate,Absent,No,Yes,Yes,No
+892,Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Consumed,Absent,Moderate,High,Low,Moderate,Adequate,Present,No,No,No,Yes
+893,School-age,Female,70-120,100-150,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Low,Low,Low,Low,Inadequate,Present,Yes,Yes,Yes,Yes
+894,Toddler,Female,90-150,120-170,Low,Low,Taken,Not Consumed,Consumed,Present,Low,High,Moderate,High,Inadequate,Present,No,No,No,No
+895,Older Adult,Male,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Absent,Low,Moderate,Moderate,Low,Inadequate,Present,No,Yes,No,No
+896,Infant,Male,100-160,130-180,High,Low,Taken,Consumed,Consumed,Present,Low,Low,Low,High,Inadequate,Present,Yes,No,No,Yes
+897,Toddler,Male,90-150,120-170,High,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,Moderate,Moderate,High,Inadequate,Absent,No,No,Yes,Yes
+898,Teenager,Female,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Present,Moderate,High,Moderate,High,Adequate,Absent,No,Yes,Yes,Yes
+899,Infant,Female,100-160,130-180,Low,Low,Taken,Consumed,Consumed,Present,High,Moderate,Moderate,Low,Adequate,Present,No,Yes,Yes,Yes
+900,School-age,Female,70-120,100-150,High,Low,Taken,Consumed,Consumed,Present,Moderate,Low,High,Low,Inadequate,Absent,Yes,No,Yes,Yes
+901,Teenager,Male,60-100,90-140,High,High,Not Taken,Consumed,Not Consumed,Absent,High,Low,High,Low,Adequate,Present,Yes,Yes,Yes,No
+902,School-age,Male,70-120,100-150,High,High,Taken,Consumed,Not Consumed,Absent,High,Moderate,Moderate,High,Inadequate,Present,Yes,No,Yes,No
+903,Toddler,Female,90-150,120-170,Low,High,Taken,Not Consumed,Not Consumed,Present,Low,High,High,Low,Inadequate,Absent,Yes,Yes,Yes,Yes
+904,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,High,Low,Low,Low,Adequate,Present,Yes,No,Yes,No
+905,Teenager,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Consumed,Present,Low,Low,Low,Low,Inadequate,Present,No,No,No,Yes
+906,Infant,Female,100-160,130-180,Low,High,Not Taken,Not Consumed,Consumed,Absent,High,Low,Moderate,Moderate,Adequate,Absent,No,No,No,Yes
+907,Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Not Consumed,Present,High,Moderate,Low,Moderate,Inadequate,Present,Yes,Yes,Yes,No
+908,Toddler,Female,90-150,120-170,High,Low,Not Taken,Consumed,Not Consumed,Absent,High,High,Moderate,Low,Adequate,Absent,No,No,No,No
+909,Preschooler,Female,80-140,110-160,High,Low,Taken,Consumed,Consumed,Present,High,High,Low,High,Adequate,Absent,No,No,No,No
+910,Preschooler,Male,80-140,110-160,High,High,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,Moderate,Low,Inadequate,Present,No,No,No,No
+911,Adult,Male,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Present,Low,Low,High,High,Inadequate,Present,Yes,No,No,Yes
+912,Adult,Female,60-100,90-140,Low,High,Taken,Consumed,Consumed,Present,Moderate,Moderate,High,Low,Adequate,Present,No,No,No,No
+913,Infant,Female,100-160,130-180,High,Low,Not Taken,Not Consumed,Not Consumed,Present,Low,Moderate,Moderate,Low,Inadequate,Absent,No,No,No,Yes
+914,Adult,Female,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Absent,Low,Moderate,High,Low,Inadequate,Absent,Yes,No,Yes,Yes
+915,Toddler,Male,90-150,120-170,Low,Low,Taken,Consumed,Consumed,Absent,Low,High,Moderate,Moderate,Adequate,Absent,No,Yes,No,No
+916,Toddler,Male,90-150,120-170,Low,Low,Taken,Consumed,Not Consumed,Absent,High,High,Moderate,Low,Inadequate,Present,Yes,No,No,No
+917,Toddler,Female,90-150,120-170,Low,Low,Taken,Consumed,Consumed,Absent,Moderate,Low,Moderate,Low,Inadequate,Present,No,No,Yes,Yes
+918,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Present,High,High,Low,Low,Inadequate,Present,Yes,No,No,No
+919,Infant,Female,100-160,130-180,Low,Low,Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,High,Moderate,Inadequate,Present,Yes,No,Yes,Yes
+920,Preschooler,Male,80-140,110-160,High,Low,Taken,Consumed,Not Consumed,Absent,Low,High,Low,Low,Inadequate,Present,No,Yes,Yes,No
+921,Toddler,Male,90-150,120-170,High,Low,Not Taken,Not Consumed,Consumed,Present,Low,High,Moderate,High,Adequate,Present,No,Yes,No,Yes
+922,Infant,Male,100-160,130-180,High,Low,Taken,Consumed,Not Consumed,Present,High,High,High,High,Inadequate,Absent,Yes,No,Yes,Yes
+923,Older Adult,Male,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Low,Moderate,High,High,Adequate,Present,Yes,No,No,Yes
+924,Adult,Male,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Absent,High,Moderate,Moderate,High,Inadequate,Absent,No,No,Yes,No
+925,Adult,Female,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,High,Moderate,High,High,Adequate,Absent,Yes,Yes,No,No
+926,Older Adult,Female,60-100,90-140,Low,Low,Not Taken,Consumed,Consumed,Present,Moderate,Low,Low,High,Adequate,Absent,Yes,No,Yes,Yes
+927,Older Adult,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Low,Inadequate,Absent,No,Yes,Yes,Yes
+928,Teenager,Female,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,High,Moderate,Moderate,Moderate,Inadequate,Present,Yes,No,No,No
+929,Teenager,Female,60-100,90-140,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Low,Low,High,Low,Inadequate,Absent,Yes,No,Yes,Yes
+930,Toddler,Male,90-150,120-170,High,High,Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Low,Moderate,Adequate,Absent,No,Yes,No,Yes
+931,Preschooler,Male,80-140,110-160,High,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Moderate,Adequate,Absent,No,Yes,No,Yes
+932,Teenager,Female,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Absent,High,Low,Low,Low,Inadequate,Present,Yes,No,No,Yes
+933,School-age,Female,70-120,100-150,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,High,High,Low,Inadequate,Absent,No,No,Yes,Yes
+934,Adult,Female,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Present,High,Low,High,Low,Inadequate,Present,No,Yes,Yes,No
+935,Preschooler,Female,80-140,110-160,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,Low,Low,High,Adequate,Absent,No,No,Yes,No
+936,School-age,Male,70-120,100-150,High,High,Not Taken,Not Consumed,Consumed,Present,Low,High,Moderate,Low,Inadequate,Present,No,No,Yes,Yes
+937,Adult,Female,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Inadequate,Absent,Yes,No,No,Yes
+938,Teenager,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Present,Low,Low,High,High,Inadequate,Present,Yes,Yes,Yes,Yes
+939,Older Adult,Male,60-100,90-140,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,High,Moderate,Low,Inadequate,Present,No,No,Yes,Yes
+940,Teenager,Male,60-100,90-140,High,Low,Taken,Not Consumed,Not Consumed,Absent,Low,High,Low,High,Inadequate,Absent,No,No,No,No
+941,Adult,Male,60-100,90-140,Low,High,Not Taken,Consumed,Consumed,Absent,Moderate,High,Low,High,Adequate,Present,No,Yes,No,Yes
+942,School-age,Male,70-120,100-150,Low,High,Not Taken,Consumed,Not Consumed,Absent,Low,High,High,Low,Inadequate,Present,Yes,Yes,No,Yes
+943,Preschooler,Female,80-140,110-160,Low,Low,Taken,Not Consumed,Not Consumed,Present,High,Low,Low,Moderate,Inadequate,Absent,No,Yes,Yes,No
+944,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Moderate,Low,Inadequate,Absent,No,Yes,Yes,Yes
+945,Toddler,Female,90-150,120-170,High,Low,Not Taken,Not Consumed,Not Consumed,Present,High,Low,High,Moderate,Adequate,Absent,No,Yes,No,Yes
+946,Infant,Female,100-160,130-180,High,Low,Not Taken,Consumed,Not Consumed,Present,Low,Moderate,Moderate,Moderate,Inadequate,Present,Yes,No,Yes,No
+947,Preschooler,Male,80-140,110-160,Low,Low,Taken,Consumed,Consumed,Absent,Low,High,Low,Low,Inadequate,Absent,Yes,No,Yes,Yes
+948,School-age,Male,70-120,100-150,Low,Low,Taken,Consumed,Consumed,Absent,High,Moderate,Low,Moderate,Inadequate,Absent,Yes,No,No,Yes
+949,Teenager,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,High,High,Low,Adequate,Present,No,Yes,Yes,Yes
+950,School-age,Male,70-120,100-150,Low,High,Not Taken,Not Consumed,Not Consumed,Present,High,Moderate,Moderate,Moderate,Inadequate,Absent,Yes,Yes,No,Yes
+951,Toddler,Male,90-150,120-170,Low,Low,Taken,Not Consumed,Consumed,Present,Moderate,Low,Moderate,Moderate,Adequate,Absent,Yes,Yes,Yes,No
+952,School-age,Female,70-120,100-150,High,High,Not Taken,Consumed,Not Consumed,Present,High,High,High,Low,Inadequate,Absent,Yes,Yes,No,Yes
+953,Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Consumed,Present,Moderate,Moderate,Low,Moderate,Adequate,Absent,Yes,No,No,No
+954,Adult,Female,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Absent,Moderate,High,High,Moderate,Adequate,Absent,Yes,No,No,No
+955,Preschooler,Male,80-140,110-160,Low,Low,Taken,Not Consumed,Not Consumed,Absent,Moderate,High,High,Moderate,Inadequate,Absent,Yes,No,Yes,No
+956,Teenager,Male,60-100,90-140,High,High,Taken,Not Consumed,Consumed,Present,Moderate,Moderate,Low,Low,Inadequate,Present,Yes,No,Yes,Yes
+957,Older Adult,Female,60-100,90-140,High,Low,Not Taken,Consumed,Consumed,Absent,Low,Moderate,Moderate,Low,Adequate,Absent,No,Yes,Yes,Yes
+958,Older Adult,Male,60-100,90-140,High,High,Not Taken,Not Consumed,Consumed,Present,Low,High,Moderate,Moderate,Inadequate,Present,Yes,No,Yes,Yes
+959,School-age,Male,70-120,100-150,High,Low,Not Taken,Consumed,Not Consumed,Absent,High,Moderate,Moderate,Moderate,Adequate,Present,Yes,No,No,Yes
+960,Teenager,Male,60-100,90-140,High,High,Taken,Consumed,Consumed,Present,Moderate,Moderate,Moderate,Low,Adequate,Absent,Yes,No,Yes,No
+961,Teenager,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Absent,High,Moderate,High,Moderate,Adequate,Present,No,No,No,No
+962,Teenager,Female,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Absent,High,High,Low,High,Inadequate,Absent,No,Yes,No,Yes
+963,Infant,Male,100-160,130-180,Low,Low,Not Taken,Consumed,Not Consumed,Present,Low,Low,Moderate,Low,Adequate,Present,No,Yes,No,Yes
+964,Adult,Female,60-100,90-140,High,High,Taken,Not Consumed,Not Consumed,Absent,High,Moderate,Moderate,High,Adequate,Absent,Yes,No,Yes,No
+965,Toddler,Female,90-150,120-170,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,High,Low,Inadequate,Absent,Yes,No,Yes,No
+966,Teenager,Male,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Absent,High,Moderate,Low,High,Adequate,Absent,No,No,No,No
+967,Adult,Female,60-100,90-140,High,High,Not Taken,Consumed,Consumed,Absent,Moderate,Moderate,Moderate,Moderate,Adequate,Absent,No,Yes,No,No
+968,Adult,Male,60-100,90-140,Low,High,Taken,Not Consumed,Consumed,Present,High,Moderate,Low,High,Inadequate,Absent,Yes,Yes,Yes,No
+969,School-age,Male,70-120,100-150,High,Low,Not Taken,Not Consumed,Consumed,Absent,Moderate,Moderate,High,Low,Adequate,Present,Yes,No,No,Yes
+970,School-age,Male,70-120,100-150,High,Low,Taken,Not Consumed,Not Consumed,Present,Low,Moderate,High,High,Inadequate,Present,No,No,Yes,No
+971,Preschooler,Male,80-140,110-160,High,High,Not Taken,Consumed,Not Consumed,Present,High,High,Low,Low,Adequate,Absent,Yes,Yes,Yes,No
+972,Toddler,Male,90-150,120-170,Low,High,Not Taken,Not Consumed,Consumed,Present,Low,Low,High,Low,Inadequate,Present,Yes,Yes,No,No
+973,Infant,Female,100-160,130-180,Low,High,Taken,Not Consumed,Not Consumed,Present,Moderate,Low,Moderate,Low,Inadequate,Absent,No,Yes,Yes,Yes
+974,Infant,Male,100-160,130-180,Low,Low,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Low,Moderate,Adequate,Present,Yes,No,No,No
+975,Teenager,Male,60-100,90-140,High,High,Taken,Consumed,Consumed,Absent,High,Low,Low,Moderate,Adequate,Present,No,Yes,No,Yes
+976,Adult,Male,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,Low,High,High,Moderate,Adequate,Absent,No,Yes,Yes,Yes
+977,Older Adult,Male,60-100,90-140,High,Low,Not Taken,Not Consumed,Not Consumed,Absent,Low,High,Moderate,High,Inadequate,Present,Yes,No,Yes,Yes
+978,Teenager,Male,60-100,90-140,High,Low,Taken,Not Consumed,Not Consumed,Present,High,High,Low,Low,Inadequate,Absent,No,Yes,No,No
+979,Teenager,Male,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Present,Moderate,Low,Low,Low,Inadequate,Absent,Yes,Yes,Yes,No
+980,Preschooler,Female,80-140,110-160,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Low,High,Moderate,Low,Inadequate,Absent,Yes,Yes,Yes,No
+981,Infant,Female,100-160,130-180,High,High,Taken,Consumed,Consumed,Absent,Moderate,Moderate,High,Low,Inadequate,Absent,No,No,No,No
+982,Toddler,Male,90-150,120-170,High,Low,Taken,Not Consumed,Not Consumed,Present,Low,Low,High,High,Inadequate,Present,Yes,Yes,No,Yes
+983,Older Adult,Female,60-100,90-140,Low,High,Taken,Consumed,Not Consumed,Present,Low,High,Moderate,Low,Adequate,Present,Yes,Yes,No,No
+984,Older Adult,Female,60-100,90-140,High,Low,Not Taken,Not Consumed,Consumed,Present,Low,Moderate,Moderate,High,Inadequate,Absent,Yes,Yes,No,No
+985,Infant,Male,100-160,130-180,High,High,Not Taken,Not Consumed,Consumed,Absent,High,Low,High,Moderate,Inadequate,Absent,No,No,Yes,No
+986,Toddler,Female,90-150,120-170,High,Low,Taken,Consumed,Consumed,Absent,High,Low,High,High,Inadequate,Absent,Yes,No,No,Yes
+987,Adult,Female,60-100,90-140,Low,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Moderate,Low,High,Adequate,Absent,Yes,Yes,Yes,Yes
+988,Adult,Male,60-100,90-140,High,High,Taken,Consumed,Not Consumed,Absent,High,Moderate,Low,Low,Adequate,Present,No,No,No,Yes
+989,Toddler,Female,90-150,120-170,Low,Low,Taken,Not Consumed,Consumed,Absent,High,Moderate,Moderate,Low,Inadequate,Present,No,Yes,Yes,Yes
+990,Older Adult,Female,60-100,90-140,High,Low,Taken,Consumed,Consumed,Absent,High,Low,Low,Low,Inadequate,Present,Yes,No,No,Yes
+991,Adult,Female,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Absent,High,High,Low,Moderate,Adequate,Absent,No,No,No,No
+992,School-age,Female,70-120,100-150,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Moderate,High,Moderate,Low,Adequate,Present,Yes,No,Yes,No
+993,Toddler,Female,90-150,120-170,High,Low,Not Taken,Not Consumed,Consumed,Absent,High,High,Moderate,High,Inadequate,Present,No,Yes,No,Yes
+994,Teenager,Female,60-100,90-140,High,Low,Not Taken,Consumed,Not Consumed,Present,Low,Moderate,Low,Moderate,Adequate,Absent,Yes,No,No,No
+995,Preschooler,Female,80-140,110-160,High,High,Not Taken,Not Consumed,Not Consumed,Absent,Moderate,Low,High,Moderate,Adequate,Present,Yes,No,No,Yes
+996,Infant,Male,100-160,130-180,Low,Low,Not Taken,Consumed,Not Consumed,Absent,Low,Low,Low,Low,Adequate,Present,No,No,Yes,No
+997,Preschooler,Female,80-140,110-160,Low,High,Not Taken,Not Consumed,Not Consumed,Present,Low,Low,Low,Moderate,Inadequate,Absent,Yes,No,No,No
+998,Teenager,Female,60-100,90-140,Low,High,Taken,Not Consumed,Not Consumed,Present,High,Moderate,Moderate,High,Inadequate,Absent,No,No,No,Yes
+999,Adult,Female,60-100,90-140,Low,High,Not Taken,Consumed,Not Consumed,Present,Low,High,Low,High,Inadequate,Present,Yes,Yes,Yes,Yes
+1000,Toddler,Male,90-150,120-170,High,High,Taken,Not Consumed,Consumed,Absent,Moderate,Low,Moderate,High,Adequate,Present,No,No,No,Yes
