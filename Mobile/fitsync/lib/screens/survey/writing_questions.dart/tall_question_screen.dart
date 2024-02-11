@@ -5,7 +5,7 @@ import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/survey_comp/body_tall_question.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
-import '../survey_screen.dart';
+import '../choice_questions.dart/choice_questions_screen.dart';
 
 class TallQuestionScreen extends StatelessWidget {
   const TallQuestionScreen({super.key});
@@ -18,14 +18,14 @@ class TallQuestionScreen extends StatelessWidget {
           AnimatedNavigator().pop(context);
         },
       ),
+      backgroundColor: white,
       body: BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
         listener: (context, state) {
           if (state is TallValidation) {
             if (state.errorText == null) {
               AnimatedNavigator().push(
                 context,
-                // todo here
-                const SurveyScreen(),
+                const ChoiceExperienceQuestion(),
               );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(

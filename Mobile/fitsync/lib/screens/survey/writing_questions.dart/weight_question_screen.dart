@@ -23,6 +23,7 @@ class WeightQuestionScreen extends StatelessWidget {
             AnimatedNavigator().pop(context);
           },
         ),
+        backgroundColor: white,
         body: BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
             listener: (context, state) {
           if (state is WeightValidation) {

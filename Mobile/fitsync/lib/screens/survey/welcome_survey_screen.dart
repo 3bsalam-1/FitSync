@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../cubits_logic/survey_logic/choice_gender.dart';
-import '../../screens/survey/survey_screen.dart';
+import 'name_question_screen.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import '../../shared/widgets/survey_comp/custom_card.dart';
@@ -52,12 +52,13 @@ class WelcomeSurveyScreen extends StatelessWidget {
                         background: isSelected == 1 ? purple2 : white,
                         onTap: () {
                           context.read<ChoiceGender>().isFemale();
+                          // todo here remove this below line
                           Future.delayed(
                             const Duration(milliseconds: 700),
                             () {
                               AnimatedNavigator().push(
                                 context,
-                                const SurveyScreen(),
+                                const NameQuestionScreen(),
                               );
                             }
                           );
@@ -73,12 +74,13 @@ class WelcomeSurveyScreen extends StatelessWidget {
                         background: isSelected == 0 ? purple2 : white,
                         onTap: () {
                           context.read<ChoiceGender>().isMale();
+                          // todo here remove this below line
                           Future.delayed(
                             const Duration(milliseconds: 700),
                             () {
                               AnimatedNavigator().push(
                                 context,
-                                const SurveyScreen(),
+                                const NameQuestionScreen(),
                               );
                             }
                           );

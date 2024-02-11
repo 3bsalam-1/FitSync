@@ -17,11 +17,21 @@ class SplashScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Image.asset(
-            'assets/images/logo.png',
-            fit: BoxFit.fill,
-            width: double.infinity,
-            height: height * 0.5,
+          Container(
+            width: double.maxFinite,
+            padding: EdgeInsets.only(top: height*0.1),
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage('assets/images/background_logo.png'),
+              ),
+            ),
+            child: Image.asset(
+              'assets/images/logo.png',
+              fit: BoxFit.contain,
+              width: 200,
+              height: height * 0.43,
+            ),
           ),
           const SizedBox(height: 30),
           Image.asset(
