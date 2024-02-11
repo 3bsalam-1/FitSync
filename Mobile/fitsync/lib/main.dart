@@ -6,7 +6,6 @@ import 'cubits_logic/survey_logic/animated_list_view.dart';
 import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'cubits_logic/workouts/week_dates.dart';
-import 'screens/survey/writing_questions.dart/writing_health_questions.dart';
 import 'shared/pref.dart';
 
 Future<void> main() async {
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: BloodSugarQuestion(),//SplashScreen(), 
+        home: SplashScreen(), 
       ),
     );
   }

@@ -6,6 +6,7 @@ import '../../../shared/widgets/global/custom_text_form_field.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/colors/colors.dart';
+import '../../../shared/widgets/survey_comp/custom_snackbar.dart';
 import 'date_birth_screen.dart';
 
 class NameQuestionScreen extends StatelessWidget {
@@ -31,14 +32,7 @@ class NameQuestionScreen extends StatelessWidget {
                   const DateBirthScreen(),
                 );
               } else {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    backgroundColor: red,
-                    content: Text(
-                      state.errorText!,
-                    ),
-                  ),
-                );
+                customSnackBar(context, state.errorText!);
               }
             }
           },
@@ -56,8 +50,7 @@ class NameQuestionScreen extends StatelessWidget {
                 ),
                 const Spacer(),
                 CustomTextFormField(
-                  controller:
-                      context.read<TextFormValidationCubit>().nameController,
+                  controller: context.read<TextFormValidationCubit>().nameController,
                   hintText: 'First name',
                 ),
                 const Spacer(),

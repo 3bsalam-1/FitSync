@@ -1,3 +1,4 @@
+import '../../../shared/widgets/survey_comp/custom_snackbar.dart';
 import 'tall_question_screen.dart';
 import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import '../../../cubits_logic/survey_logic/weight_switch_measure_cubit.dart';
@@ -33,14 +34,7 @@ class WeightQuestionScreen extends StatelessWidget {
                 const TallQuestionScreen(),
               );
             } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  backgroundColor: red,
-                  content: Text(
-                    state.errorText!,
-                  ),
-                ),
-              );
+              customSnackBar(context, state.errorText!);
             }
           }
         }, builder: (context, isValidated) {

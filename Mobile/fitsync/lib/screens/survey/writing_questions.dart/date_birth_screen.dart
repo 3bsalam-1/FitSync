@@ -7,6 +7,7 @@ import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/widgets/global/custom_text_form_field.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
+import '../../../shared/widgets/survey_comp/custom_snackbar.dart';
 
 class DateBirthScreen extends StatelessWidget {
   const DateBirthScreen({super.key});
@@ -29,14 +30,7 @@ class DateBirthScreen extends StatelessWidget {
                 const WeightQuestionScreen(),
               );
             } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  backgroundColor: red,
-                  content: Text(
-                    state.errorText!,
-                  ),
-                ),
-              );
+              customSnackBar(context, state.errorText!);
             }
           }
         },

@@ -5,6 +5,7 @@ import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/survey_comp/body_tall_question.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
+import '../../../shared/widgets/survey_comp/custom_snackbar.dart';
 import '../choice_questions.dart/choice_questions_screen.dart';
 
 class TallQuestionScreen extends StatelessWidget {
@@ -28,14 +29,7 @@ class TallQuestionScreen extends StatelessWidget {
                 const ChoiceExperienceQuestion(),
               );
             } else {
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  backgroundColor: red,
-                  content: Text(
-                    state.errorText!,
-                  ),
-                ),
-              );
+              customSnackBar(context, state.errorText!);
             }
           }
         },
