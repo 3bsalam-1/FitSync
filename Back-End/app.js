@@ -18,7 +18,7 @@ const { ERROR } = require("./utils/httpStatusText");
 const authRouter = require("./routes/auth.router");
 const authCW = require("./routes/authCW.router");
 const userInfoRouter = require("./routes/userInfo.route");
-const vitalsignalRouter= require('./routes/vitalSig.route');
+const vitalsignalRouter= require("./routes/vitalSig.route");
 
 const app = express();
 
