@@ -84,7 +84,7 @@ class ExerciseSurveyRestrictScreen extends StatelessWidget {
             CustomButton(
               label: 'continue',
               onPressed: () {
-                AnimatedNavigator().pushAndRemoveUntil(
+                AnimatedNavigator().push(
                   context,
                   screen,
                 );
