@@ -1,4 +1,3 @@
-import 'package:fitsync/screens/survey/choice_questions_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
@@ -6,6 +5,7 @@ import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/survey_comp/body_tall_question.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
+import '../survey_screen.dart';
 
 class TallQuestionScreen extends StatelessWidget {
   const TallQuestionScreen({super.key});
@@ -24,7 +24,8 @@ class TallQuestionScreen extends StatelessWidget {
             if (state.errorText == null) {
               AnimatedNavigator().push(
                 context,
-                const ChoiceQuestionScreen(),
+                // todo here
+                const SurveyScreen(),
               );
             } else {
               ScaffoldMessenger.of(context).showSnackBar(

@@ -1,12 +1,18 @@
-import '../../shared/widgets/global/custom_button.dart';
-import '../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/global/custom_button.dart';
+import '../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 
-class ExerciseSurveyScreen extends StatelessWidget {
+class ExerciseSurveyRestrictScreen extends StatelessWidget {
+  final String labelProblem;
   final Widget screen;
-  const ExerciseSurveyScreen({super.key, required this.screen});
+
+  const ExerciseSurveyRestrictScreen({
+    super.key, 
+    required this.labelProblem,
+    required this.screen,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +27,11 @@ class ExerciseSurveyScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
-            const SizedBox(
+            SizedBox(
               width: double.maxFinite,
               child: Text(
-                'We will recommend exercises and suitable healthy diet',
-                style: TextStyle(
+                'We will restrict exercises that are hard on your $labelProblem',
+                style: const TextStyle(
                   fontSize: 26,
                   fontWeight: FontWeight.w600,
                   color: black,
@@ -42,12 +48,12 @@ class ExerciseSurveyScreen extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.contain,
                   image: AssetImage(
-                    'assets/images/exercise_male.png',
+                    'assets/images/exercise_female.png',
                   ),
                 ),
               ),
               child: Image.asset(
-                'assets/images/man.png',
+                'assets/images/lady.png',
                 height: 270,
                 width: double.maxFinite,
               ),
@@ -78,7 +84,7 @@ class ExerciseSurveyScreen extends StatelessWidget {
             CustomButton(
               label: 'continue',
               onPressed: () {
-                AnimatedNavigator().push(
+                AnimatedNavigator().pushAndRemoveUntil(
                   context,
                   screen,
                 );
