@@ -3,7 +3,7 @@ import '../../colors/colors.dart';
 
 class CustomButton extends StatelessWidget {
   final String label;
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final double horizontalPadding;
 
   const CustomButton({
@@ -38,6 +38,7 @@ class CustomButton extends StatelessWidget {
       ),
       child: ElevatedButton(
         onPressed: onPressed,
+        
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.transparent,
           shadowColor: Colors.transparent,

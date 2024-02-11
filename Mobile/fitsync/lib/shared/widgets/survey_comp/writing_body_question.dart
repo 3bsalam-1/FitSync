@@ -6,10 +6,11 @@ import 'package:flutter/material.dart';
 import '../global/animated_navigator.dart';
 
 class WritingBodyQuestion extends StatelessWidget {
-  final void Function() onPressed;
+  final void Function()? onPressed;
   final String labelQuestion;
   final String labelField;
   final String labelMeagure;
+  final TextEditingController? controller;
 
   const WritingBodyQuestion({
     super.key,
@@ -17,6 +18,7 @@ class WritingBodyQuestion extends StatelessWidget {
     required this.labelQuestion,
     required this.labelField,
     required this.labelMeagure,
+    required this.controller,
   });
 
   @override
@@ -43,7 +45,10 @@ class WritingBodyQuestion extends StatelessWidget {
               ),
             ),
             const Spacer(),
-            CustomTextFormField(hintText: labelField),
+            CustomTextFormField(
+              hintText: labelField,
+              controller: controller,
+            ),
             Center(
               child: Text(
                 labelMeagure,

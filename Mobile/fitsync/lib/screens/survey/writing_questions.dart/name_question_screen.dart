@@ -1,12 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
-import '../../shared/widgets/global/animated_navigator.dart';
-import '../../shared/widgets/global/custom_button.dart';
-import '../../shared/widgets/global/custom_text_form_field.dart';
-import '../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
+import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
+import '../../../shared/widgets/global/animated_navigator.dart';
+import '../../../shared/widgets/global/custom_button.dart';
+import '../../../shared/widgets/global/custom_text_form_field.dart';
+import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
-import '../../shared/colors/colors.dart';
-import 'writing_questions.dart/date_birth_screen.dart';
+import '../../../shared/colors/colors.dart';
+import 'date_birth_screen.dart';
 
 class NameQuestionScreen extends StatelessWidget {
   const NameQuestionScreen({super.key});

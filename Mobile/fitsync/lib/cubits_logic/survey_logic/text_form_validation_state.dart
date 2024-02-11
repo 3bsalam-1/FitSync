@@ -35,3 +35,23 @@ final class TallSwitchConverter extends TextFormValidationState {
   TallSwitchConverter(this.isCmSelected);
 }
 
+final class BloodSugarValidation extends TextFormValidationState {
+  final String? errorText;
+  BloodSugarValidation(this.errorText);
+}
+
+final class SystolicBloodValidation extends TextFormValidationState {
+  final String? errorText;
+  SystolicBloodValidation(this.errorText);
+}
+
+final class DiastolicBloodValidation extends TextFormValidationState {
+  final String? errorText;
+  DiastolicBloodValidation(this.errorText);
+}
+
+final class CholesterolValidation extends TextFormValidationState {
+  final String? errorText;
+  CholesterolValidation(this.errorText);
+}
+

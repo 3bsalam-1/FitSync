@@ -13,6 +13,10 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   final birthYearController = TextEditingController();
   final weightController = TextEditingController();
   final tallController = TextEditingController();
+  final bloodSugarController = TextEditingController();
+  final systolicController = TextEditingController();
+  final diastolicController = TextEditingController();
+  final cholesterolController = TextEditingController();
   bool isCmSelected = true;
 
   void nameValidate() {
@@ -145,6 +149,58 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
       } else {
         emit(TallValidation('Can not be empty'));
       }
+    }
+  }
+
+  void bloodSugarValidate() {
+    if (bloodSugarController.text.isNotEmpty) {
+      try {
+        double.parse(bloodSugarController.text);
+        emit(BloodSugarValidation(null));
+      } on FormatException {
+        emit(BloodSugarValidation('The value must be a number'));
+      }
+    } else {
+      emit(BloodSugarValidation('Can not be empty'));
+    }
+  }
+
+  void systolicBloodValidate() {
+    if (systolicController.text.isNotEmpty) {
+      try {
+        double.parse(systolicController.text);
+        emit(SystolicBloodValidation(null));
+      } on FormatException {
+        emit(SystolicBloodValidation('The value must be a number'));
+      }
+    } else {
+      emit(SystolicBloodValidation('Can not be empty'));
+    }
+  }
+
+  void diastolicBloodValidate() {
+    if (diastolicController.text.isNotEmpty) {
+      try {
+        double.parse(diastolicController.text);
+        emit(DiastolicBloodValidation(null));
+      } on FormatException {
+        emit(DiastolicBloodValidation('The value must be a number'));
+      }
+    } else {
+      emit(DiastolicBloodValidation('Can not be empty'));
+    }
+  }
+
+  void cholesterolValidate() {
+    if (cholesterolController.text.isNotEmpty) {
+      try {
+        double.parse(cholesterolController.text);
+        emit(CholesterolValidation(null));
+      } on FormatException {
+        emit(CholesterolValidation('The value must be a number'));
+      }
+    } else {
+      emit(CholesterolValidation('Can not be empty'));
     }
   }
 }

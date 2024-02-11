@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../cubits_logic/survey_logic/choice_gender.dart';
-import 'name_question_screen.dart';
+import 'writing_questions.dart/name_question_screen.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import '../../shared/widgets/survey_comp/custom_card.dart';

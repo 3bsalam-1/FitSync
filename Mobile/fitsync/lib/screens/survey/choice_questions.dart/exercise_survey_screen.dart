@@ -1,8 +1,8 @@
-import '../../shared/widgets/global/custom_button.dart';
-import '../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
+import '../../../shared/widgets/global/custom_button.dart';
+import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
-import '../../shared/colors/colors.dart';
-import '../../shared/widgets/global/animated_navigator.dart';
+import '../../../shared/colors/colors.dart';
+import '../../../shared/widgets/global/animated_navigator.dart';
 
 class ExerciseSurveyScreen extends StatelessWidget {
   final Widget screen;

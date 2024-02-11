@@ -1,4 +1,4 @@
-import '../exercise_survey_restrict_screen.dart';
+import 'exercise_survey_restrict_screen.dart';
 import '../welcome_survey_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/widgets/survey_comp/choices_body_question.dart';
