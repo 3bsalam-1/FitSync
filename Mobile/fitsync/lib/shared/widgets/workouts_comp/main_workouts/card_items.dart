@@ -1,4 +1,6 @@
+import '../../global/animated_navigator.dart';
 import 'package:flutter/material.dart';
+import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
 import 'custom_start_button.dart';
 
@@ -25,7 +27,7 @@ class CardItems extends StatelessWidget {
             child: Image.asset(
               'assets/images/workouts.png',
               height: 200,
-              width: width*0.42,
+              width: width * 0.42,
               fit: BoxFit.cover,
             ),
           ),
@@ -36,7 +38,7 @@ class CardItems extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
-                  width: width*0.42,
+                  width: width * 0.42,
                   child: const Text(
                     'Strong Glutes Lean Legs',
                     style: TextStyle(
@@ -76,10 +78,13 @@ class CardItems extends StatelessWidget {
                   ),
                 ),
                 CustomStartButton(
-                  onTap: (){
-                     // TODO start the workouts
-                  }
-                ),
+                  onTap: () {
+                  // TODO start the workouts
+                  AnimatedNavigator().push(
+                    context,
+                    const WorkoutsViewChallenge(),
+                  );
+                }),
               ],
             ),
           ),
