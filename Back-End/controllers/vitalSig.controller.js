@@ -17,7 +17,7 @@ exports.getvitalsignal = asyncWrapper(async(req,res,next)=>{
 })
 exports.postvitalsignal = asyncWrapper(async(req,res,next)=>{
   const userId = req.user._id;
-  const vitalData = await vitalsignal.findOne({ userId });
+  let vitalData = await vitalsignal.findOne({ userId });
   const { steps, avaheartbeat } = req.body;
 
   if (!vitalData) {
