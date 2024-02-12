@@ -21,7 +21,7 @@ exports.postvitalsignal = asyncWrapper(async(req,res,next)=>{
   const { steps, avaheartbeat } = req.body;
 
   if (!vitalData) {
-    vitalData = new vitalData({
+    vitalData = new vitalsignal({
       userId,
       steps: [{ steps, timestamp: Date.now() }],
       avaheartbeat: [{ avaheartbeat, timestamp: Date.now() }],
