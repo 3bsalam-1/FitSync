@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express').Router();
 const vitalsignalController = require('../controllers/vitalSig.controller');
 const {protect} = require('../controllers/auth.controller')
 
