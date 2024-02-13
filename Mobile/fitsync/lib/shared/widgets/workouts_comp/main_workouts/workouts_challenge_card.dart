@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
+import '../../global/animated_navigator.dart';
 import 'custom_start_button.dart';
 
 class WorkOutsChallengCard extends StatelessWidget {
@@ -76,7 +78,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: width*0.42,
+                    width: width * 0.42,
                     child: const Text(
                       'FULL BODY Stretching',
                       style: TextStyle(
@@ -90,6 +92,10 @@ class WorkOutsChallengCard extends StatelessWidget {
                   CustomStartButton(
                     onTap: () {
                       // TODO start the challenge workouts
+                      AnimatedNavigator().push(
+                        context,
+                        const WorkoutsViewChallenge(),
+                      );
                     },
                   ),
                 ],
