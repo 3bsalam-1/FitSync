@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
-
 import '../../colors/colors.dart';
 import 'question_survey.dart';
 
 class ListQuestionItem extends StatelessWidget {
   final bool isStarted;
   final int index;
-  final List<int> indexQuestion;
-  final List<QuestionModel> questionSurvey;
+  final int indexAnswer;
+  final QuestionModel question;
+  final void Function()? onTap;
 
   const ListQuestionItem({
     super.key,
     required this.index,
-    required this.indexQuestion,
+    required this.indexAnswer,
     required this.isStarted,
-    required this.questionSurvey,
+    required this.question,
+    required this.onTap,
   });
 
   @override
@@ -23,15 +24,9 @@ class ListQuestionItem extends StatelessWidget {
       curve: Curves.easeInOut,
       transform: Matrix4.translationValues(isStarted ? 0 : 2000, 0, 0),
       duration: Duration(milliseconds: 800 + (200 * index)),
-      width: double.infinity,
-      padding: const EdgeInsets.only(
-        left: 19,
-        top: 33,
-        bottom: 33,
-      ),
       decoration: BoxDecoration(
         // index = 1 for the answer checking if it selected or NOT
-        color: indexQuestion[1] == index ? purple2 : white,
+        color: indexAnswer == index ? purple2 : white,
         borderRadius: BorderRadius.circular(19),
         boxShadow: [
           BoxShadow(
@@ -42,13 +37,25 @@ class ListQuestionItem extends StatelessWidget {
           ),
         ],
       ),
-      child: Text(
-        questionSurvey[indexQuestion[0]].choice[index],
-        style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.w600,
-          // index = 1 for the answer checking if it selected or NOT
-          color: indexQuestion[1] == index ? white : black,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(19),
+        child: Container(
+          width: double.infinity,
+          padding: const EdgeInsets.only(
+            left: 19,
+            top: 33,
+            bottom: 33,
+          ),
+          child: Text(
+            question.choice[index],
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              // index = 1 for the answer checking if it selected or NOT
+              color: indexAnswer == index ? white : black,
+            ),
+          ),
         ),
       ),
     );
