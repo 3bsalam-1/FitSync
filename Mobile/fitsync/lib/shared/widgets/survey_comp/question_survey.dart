@@ -71,14 +71,6 @@ List<QuestionModel> questionSurvey = [
     answer: -1,
   ),
   QuestionModel(
-    question: 'Do You Suffer from Knee Pain?', 
-    choice: [
-      'NO',
-      'YES',
-    ], 
-    answer: -1,
-  ),
-  QuestionModel(
     question: 'How Serious are Your Problem?', 
     choice: [
       'Mid pain',

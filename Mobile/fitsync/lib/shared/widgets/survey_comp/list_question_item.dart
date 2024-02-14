@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../colors/colors.dart';
-import '../../question_survey.dart';
+import 'question_survey.dart';
 
 class ListQuestionItem extends StatelessWidget {
   final bool isStarted;
