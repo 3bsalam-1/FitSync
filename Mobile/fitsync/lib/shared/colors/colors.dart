@@ -28,3 +28,4 @@ const Color red2 = Color(0xFFF77070);
 const Color purple4 = Color(0xff8F7DF9);
 const Color purple5 = Color(0xff8D6FF8);
 const Color gold = Color(0xffFECE24);
+const Color gold2 = Color(0xffF8B704);
