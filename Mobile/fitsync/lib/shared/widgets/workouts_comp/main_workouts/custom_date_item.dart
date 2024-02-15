@@ -10,12 +10,9 @@ class CustomDayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Container(
-      height: 85,
+    return SizedBox(
+      height: 100,
       width: width,
-      margin: const EdgeInsets.symmetric(
-        vertical: 7,
-      ),
       child: BlocBuilder<WeekDatesCubit, List<Map<int, String>>>(
         builder: (context, state) {
           return Center(
@@ -27,7 +24,10 @@ class CustomDayItem extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Container(
                     width: width / getWeekDates().length - 14,
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 5,
+                      vertical: 12,
+                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(70),
                       boxShadow: [
