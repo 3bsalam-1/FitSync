@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import '../../shared/colors/colors.dart';
-import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/global/custom_app_bar.dart';
 import '../../shared/widgets/profile_comp.dart/grid_reminder_items.dart';
 import '../../shared/widgets/profile_comp.dart/list_reminder_items.dart';
 
@@ -11,42 +11,7 @@ class ReminderMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Profile',
-          style: TextStyle(
-            fontSize: 24,
-            fontWeight: FontWeight.w600,
-            color: black,
-          ),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            AnimatedNavigator().pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_circle_left,
-            color: purple2,
-            size: 37,
-          ),
-        ),
-        actions: [
-          // todo show imageProfile here
-          Padding(
-            padding: const EdgeInsets.only(right: 14.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(100),
-              child: Image.asset(
-                'assets/images/profile.png',
-                height: 48,
-                width: 48,
-                fit: BoxFit.fill,
-              ),
-            ),
-          ),
-        ],
-      ),
+      appBar: customAppBar(context, 'Reminders'),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14),
