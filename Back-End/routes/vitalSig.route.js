@@ -1,5 +1,5 @@
-const express = require('express');
-const vitalsignalController = require('../controllers/vitalSign.controller');
+const router = require('express').Router();
+const vitalsignalController = require('../controllers/vitalSig.controller');
 const {protect} = require('../controllers/auth.controller')
 
 
