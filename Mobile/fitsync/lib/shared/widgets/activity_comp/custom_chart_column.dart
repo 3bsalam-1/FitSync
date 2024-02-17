@@ -89,7 +89,8 @@ class CustomChartColumn extends StatelessWidget {
               ),
             ],
           ),
-          Padding(
+          Container(
+            height: 230,
             padding: const EdgeInsets.only(
               top: 37,
               bottom: 30,
