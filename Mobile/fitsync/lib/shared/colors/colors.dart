@@ -33,6 +33,7 @@ const Color cyan2 = Color(0xff64BEFF);
 const Color cyan3 = Color(0xff42C9F4);
 const Color cyan4 = Color(0xff4285F4);
 const Color cyan5 = Color(0xff4189DD);
+const Color cyan6 = Color(0xffA5E8FD);
 const Color gold = Color(0xffFECE24);
 const Color gold2 = Color(0xffF8B704);
 const Color gold3 = Color(0xffF8FD08);
