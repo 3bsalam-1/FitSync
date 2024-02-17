@@ -6,6 +6,7 @@ import 'cubits_logic/survey_logic/animated_list_view.dart';
 import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'cubits_logic/workouts/week_dates.dart';
+import 'screens/activity/daily_intake_activity_screen.dart';
 import 'screens/activity/hydration_activity_screen.dart';
 import 'shared/pref.dart';
 
@@ -41,7 +42,7 @@ class MyApp extends StatelessWidget {
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: HydrationActivityScreen(),//ActivityMainScreen(),//SplashScreen(), 
+        home: DailyIntakeActivityScreen(),//HydrationActivityScreen(),//ActivityMainScreen(),//SplashScreen(), 
       ),
     );
   }

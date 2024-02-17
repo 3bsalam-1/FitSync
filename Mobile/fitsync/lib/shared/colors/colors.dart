@@ -29,6 +29,7 @@ const Color red3 = Color(0xFFEF2020);
 const Color purple4 = Color(0xff8F7DF9);
 const Color purple5 = Color(0xff8D6FF8);
 const Color purple6 = Color(0xff6A70E9);
+const Color purple7 = Color(0xff92A3FD);
 const Color cyan2 = Color(0xff64BEFF);
 const Color cyan3 = Color(0xff42C9F4);
 const Color cyan4 = Color(0xff4285F4);
