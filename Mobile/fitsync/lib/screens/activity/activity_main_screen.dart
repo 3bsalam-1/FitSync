@@ -3,7 +3,12 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/chart_data.dart';
 import '../../shared/widgets/activity_comp/custom_chart_column.dart';
 import '../../shared/widgets/activity_comp/custom_progress_challenge.dart';
+import '../../shared/widgets/global/custom_menu_button.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
+import 'daily_intake_activity_screen.dart';
+import 'daily_steps_activity_screen.dart';
+import 'hydration_activity_screen.dart';
+import 'sleep_activity_screen.dart';
 
 class ActivityMainScreen extends StatelessWidget {
   const ActivityMainScreen({super.key});
@@ -12,7 +17,9 @@ class ActivityMainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: white,
         elevation: 0,
+        scrolledUnderElevation: 0,
         title: const Text(
           'Activity',
           style: TextStyle(
@@ -21,21 +28,19 @@ class ActivityMainScreen extends StatelessWidget {
             color: black,
           ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              // AnimatedNavigator().push(
-              //   context,
-              //   // todo
-              // );
-            },
-            icon: const Icon(
-              Icons.menu_outlined,
-              color: purple2,
-            ),
+        actions: const [
+          CustomMenuButton(
+            labels: ['Sleep', 'Daily Steps', 'Hydration', 'Daily Intake'],
+            screens: [
+              SleepActivityScreen(),
+              DailyStepsActivityScreen(),
+              HydrationActivityScreen(),
+              DailyIntakeActivityScreen(),
+            ],
           ),
         ],
       ),
+      backgroundColor: white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 17),

@@ -12,7 +12,7 @@ class ProfileCard extends StatelessWidget {
     return InkWell(
       onTap: () {
         AnimatedNavigator().push(
-          context, 
+          context,
           const ProfileInformationScreen(),
         );
       },
@@ -28,9 +28,9 @@ class ProfileCard extends StatelessWidget {
             color: gray7,
             width: 0.6,
           ),
-          boxShadow: const [
+          boxShadow: [
             BoxShadow(
-              color: gray7,
+              color: gray7.withOpacity(0.2),
               blurRadius: 8,
             ),
           ],

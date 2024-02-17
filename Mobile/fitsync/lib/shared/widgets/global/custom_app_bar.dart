@@ -5,6 +5,7 @@ import 'animated_navigator.dart';
 PreferredSizeWidget customAppBar(BuildContext context, String title) {
   return AppBar(
     backgroundColor: white,
+    scrolledUnderElevation: 0,
     title: Text(
       title,
       style: const TextStyle(

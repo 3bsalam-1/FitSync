@@ -12,6 +12,8 @@ class WorkoutsListSearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
+        backgroundColor: white,
         title: const Text(
           'Workout List',
           style: TextStyle(
@@ -22,6 +24,7 @@ class WorkoutsListSearchScreen extends StatelessWidget {
         ),
         leading: IconButton(
           onPressed: () {
+            FocusManager.instance.primaryFocus?.unfocus();
             AnimatedNavigator().pop(context);
           },
           icon: const Icon(
@@ -36,6 +39,7 @@ class WorkoutsListSearchScreen extends StatelessWidget {
             padding: const EdgeInsets.only(right: 15),
             child: InkWell(
               onTap: () {
+                FocusManager.instance.primaryFocus?.unfocus();
                 AnimatedNavigator().push(
                   context,
                   const FiltersWorkoutsScreen(),
@@ -64,6 +68,7 @@ class WorkoutsListSearchScreen extends StatelessWidget {
           ),
         ],
       ),
+      backgroundColor: white,
       body: const SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(

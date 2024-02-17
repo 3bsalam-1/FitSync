@@ -6,8 +6,9 @@ import 'cubits_logic/survey_logic/animated_list_view.dart';
 import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'cubits_logic/workouts/week_dates.dart';
-import 'screens/activity/daily_intake_activity_screen.dart';
-import 'screens/activity/hydration_activity_screen.dart';
+import 'screens/activity/activity_main_screen.dart';
+import 'screens/profile/profile_main_screen.dart';
+import 'screens/workouts/workouts_screen.dart';
 import 'shared/pref.dart';
 
 Future<void> main() async {
@@ -18,7 +19,7 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(), 
+        home: SplashScreen(),
       ),
     );
   }

@@ -1,6 +1,5 @@
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
-
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/workouts_body.dart';
@@ -13,6 +12,8 @@ class WorkoutsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
+        backgroundColor: white,
         title: const Text(
           'Workouts',
           style: TextStyle(
@@ -33,6 +34,7 @@ class WorkoutsScreen extends StatelessWidget {
           ),
         ],
       ),
+      backgroundColor: white,
       body: const SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15),
