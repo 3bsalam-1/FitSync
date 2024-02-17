@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: DailyIntakeActivityScreen(),//HydrationActivityScreen(),//ActivityMainScreen(),//SplashScreen(), 
+        home: SplashScreen(), 
       ),
     );
   }

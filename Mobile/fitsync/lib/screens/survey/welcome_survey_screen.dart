@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../cubits_logic/survey_logic/choice_gender.dart';
+import '../Login/SignUp_screen.dart';
+import '../Login/login_screen.dart';
 import 'writing_questions.dart/name_question_screen.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_button.dart';
@@ -90,7 +91,10 @@ class WelcomeSurveyScreen extends StatelessWidget {
                     const SizedBox(height: 60),
                     TextButton(
                       onPressed: () {
-                        //TODO Go to register page
+                        AnimatedNavigator().push(
+                          context,
+                          const signup(),
+                        );
                       },
                       child: const Center(
                         child: Text(
@@ -107,7 +111,10 @@ class WelcomeSurveyScreen extends StatelessWidget {
                     CustomButton(
                       label: 'log in',
                       onPressed: () {
-                        // TODO Go to login page
+                        AnimatedNavigator().push(
+                          context,
+                          const loginPage(),
+                        );
                       },
                     ),
                     const SizedBox(height: 60),
