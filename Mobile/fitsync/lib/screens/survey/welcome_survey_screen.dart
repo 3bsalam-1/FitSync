@@ -49,8 +49,9 @@ class WelcomeSurveyScreen extends StatelessWidget {
                       child: CustomCard(
                         imagePath: 'assets/images/female.png',
                         label: 'Female',
-                        labelColor: isSelected == 1 ? white : black,
-                        background: isSelected == 1 ? purple2 : white,
+                        labelColor: black,
+                        background: white,
+                        borderColor: isSelected == 1 ? purple2 : white,
                         onTap: () {
                           context.read<ChoiceGender>().isFemale();
                           // todo here remove this below line
@@ -71,8 +72,9 @@ class WelcomeSurveyScreen extends StatelessWidget {
                       child: CustomCard(
                         imagePath: 'assets/images/male.png',
                         label: 'Male',
-                        labelColor: isSelected == 0 ? white : black,
-                        background: isSelected == 0 ? purple2 : white,
+                        labelColor: black,
+                        background: white,
+                        borderColor: isSelected == 0 ? purple2 : white,
                         onTap: () {
                           context.read<ChoiceGender>().isMale();
                           // todo here remove this below line

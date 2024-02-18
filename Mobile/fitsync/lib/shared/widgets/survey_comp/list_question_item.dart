@@ -25,9 +25,13 @@ class ListQuestionItem extends StatelessWidget {
       transform: Matrix4.translationValues(isStarted ? 0 : 2000, 0, 0),
       duration: Duration(milliseconds: 800 + (200 * index)),
       decoration: BoxDecoration(
-        // index = 1 for the answer checking if it selected or NOT
-        color: indexAnswer == index ? purple2 : white,
+        color: white,
         borderRadius: BorderRadius.circular(19),
+        border: Border.all(
+          width: 2,
+          // index = 1 for the answer checking if it selected or NOT
+          color: indexAnswer == index ? purple2 : white,
+        ),
         boxShadow: [
           BoxShadow(
             spreadRadius: 1,
@@ -49,11 +53,10 @@ class ListQuestionItem extends StatelessWidget {
           ),
           child: Text(
             question.choice[index],
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w600,
-              // index = 1 for the answer checking if it selected or NOT
-              color: indexAnswer == index ? white : black,
+              color: black,
             ),
           ),
         ),

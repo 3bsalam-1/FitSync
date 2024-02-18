@@ -6,15 +6,17 @@ class CustomCard extends StatelessWidget {
   final String label;
   final Color labelColor;
   final Color background;
+  final Color borderColor;
   final void Function()? onTap;
 
   const CustomCard({
     super.key,
     required this.imagePath,
     required this.label,
-    required this.background,
+    this.background = white,
     required this.onTap,
     required this.labelColor,
+    required this.borderColor,
   });
 
   @override
@@ -26,6 +28,10 @@ class CustomCard extends StatelessWidget {
         decoration: BoxDecoration(
             color: background,
             borderRadius: BorderRadius.circular(19),
+            border: Border.all(
+              width: 2,
+              color: borderColor,
+            ),
             boxShadow: [
               BoxShadow(
                 spreadRadius: 1,
