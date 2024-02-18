@@ -37,13 +37,13 @@ class MyApp extends StatelessWidget {
           create: (context) => AnimatedListView()..startAnimation(),
         ),
         BlocProvider(
-          create: (context) => WeekDatesCubit(),
+          create: (context) => WeekDatesCubit()..showWeekDays(),
         ),
       ],
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+        home: ActivityMainScreen(), //SplashScreen(),
       ),
     );
   }

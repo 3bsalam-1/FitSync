@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../../colors/colors.dart';
+import '../../global/custom_animated_opacity.dart';
 import '../chart_data.dart';
 
 class CustomChartLine extends StatelessWidget {
@@ -12,57 +13,61 @@ class CustomChartLine extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 235,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: purple5,
-      ),
-      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 12),
-      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 22),
-      child: SfCartesianChart(
-        plotAreaBorderWidth: 0,
-        enableAxisAnimation: true,
-        backgroundColor: purple5,
-        enableSideBySideSeriesPlacement: false,
-        primaryXAxis: const CategoryAxis(
-          axisLine: AxisLine(width: 1, color: white),
-          labelStyle: TextStyle(
-            color: white,
-            fontSize: 12,
-            fontWeight: FontWeight.w500,
-          ),
-          majorGridLines: MajorGridLines(width: 0),
-          majorTickLines: MajorTickLines(width: 0),
+    return CustomAnimatedOpacity(
+      child: Container(
+        height: 235,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: purple5,
         ),
-        primaryYAxis: const NumericAxis(
-          minimum: 4000,
-          maximum: 9000,
-          labelStyle: TextStyle(
-            fontSize: 0,
-          ),
-          minorGridLines: MinorGridLines(width: 0),
-          majorGridLines: MajorGridLines(width: 1, color: white),
-          axisLine: AxisLine(width: 0, color: white),
-          majorTickLines: MajorTickLines(width: 0),
-        ),
-        series: <CartesianSeries<ChartData, String>>[
-          SplineSeries<ChartData, String>(
-            splineType: SplineType.cardinal,
-            markerSettings: const MarkerSettings(
-              isVisible: true,
-              color: cyan5,
-              width: 10,
-              height: 10,
-              borderColor: cyan5,
+        padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 12),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 22),
+        child: SfCartesianChart(
+          plotAreaBorderWidth: 0,
+          enableAxisAnimation: true,
+          backgroundColor: purple5,
+          enableSideBySideSeriesPlacement: false,
+          primaryXAxis: const CategoryAxis(
+            axisLine: AxisLine(width: 1, color: white),
+            labelStyle: TextStyle(
+              color: white,
+              fontSize: 12,
+              fontWeight: FontWeight.w500,
             ),
-            dataSource: data,
-            xValueMapper: (ChartData data, _) => data.x,
-            yValueMapper: (ChartData data, _) => data.y,
-            color: white,
-            width: 4,
+            majorGridLines: MajorGridLines(width: 0),
+            majorTickLines: MajorTickLines(width: 0),
           ),
-        ],
+          primaryYAxis: const NumericAxis(
+            minimum: 4000,
+            maximum: 9000,
+            labelStyle: TextStyle(
+              fontSize: 0,
+            ),
+            minorGridLines: MinorGridLines(width: 0),
+            majorGridLines: MajorGridLines(width: 1, color: white),
+            axisLine: AxisLine(width: 0, color: white),
+            majorTickLines: MajorTickLines(width: 0),
+          ),
+          series: <CartesianSeries<ChartData, String>>[
+            SplineSeries<ChartData, String>(
+              animationDuration: 2700,
+              animationDelay: 800,
+              splineType: SplineType.cardinal,
+              markerSettings: const MarkerSettings(
+                isVisible: true,
+                color: cyan5,
+                width: 10,
+                height: 10,
+                borderColor: cyan5,
+              ),
+              dataSource: data,
+              xValueMapper: (ChartData data, _) => data.x,
+              yValueMapper: (ChartData data, _) => data.y,
+              color: white,
+              width: 4,
+            ),
+          ],
+        ),
       ),
     );
   }

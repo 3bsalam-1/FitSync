@@ -37,6 +37,10 @@ class ActivityMainScreen extends StatelessWidget {
               HydrationActivityScreen(),
               DailyIntakeActivityScreen(),
             ],
+            child: Icon(
+              Icons.menu_outlined,
+              color: purple2,
+            ),
           ),
         ],
       ),

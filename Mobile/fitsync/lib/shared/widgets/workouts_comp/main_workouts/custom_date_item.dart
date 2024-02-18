@@ -17,12 +17,16 @@ class CustomDayItem extends StatelessWidget {
         builder: (context, state) {
           return Center(
             child: ListView.builder(
-                itemCount: state.length,
-                scrollDirection: Axis.horizontal,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return Container(
+              itemCount: state.length,
+              scrollDirection: Axis.horizontal,
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    context.read<WeekDatesCubit>().isSeleced(index);
+                  },
+                  child: Container(
                     width: width / getWeekDates().length - 14,
                     margin: const EdgeInsets.symmetric(
                       horizontal: 5,
@@ -37,18 +41,18 @@ class CustomDayItem extends StatelessWidget {
                         ),
                       ],
                       gradient: LinearGradient(
-                        colors: state[index][0]! == DateTime.now().day.toString()
-                        ? [
-                          purple2,
-                          cyan,
-                        ]: [
-                          white,
-                          white,
-                        ],
+                        colors: index == context.read<WeekDatesCubit>().isSelected
+                            ? [
+                                purple2,
+                                cyan,
+                              ]
+                            : [
+                                white,
+                                white,
+                              ],
                         begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter, 
+                        end: Alignment.bottomCenter,
                       ),
-                      
                     ),
                     child: Center(
                       child: Column(
@@ -59,28 +63,30 @@ class CustomDayItem extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
-                              color: getWeekDates()[index][0]! ==
-                                      DateTime.now().day.toString()
-                                  ? white
-                                  : gray4,
+                              color:
+                                  index == context.read<WeekDatesCubit>().isSelected
+                                      ? white
+                                      : gray4,
                             ),
                           ),
                           Text(
-                            getWeekDates()[index][1]!,
+                            state[index][1]!,
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
-                              color: getWeekDates()[index][0]! ==
-                                      DateTime.now().day.toString()
-                                  ? white
-                                  : gray4,
+                              color:
+                                  index == context.read<WeekDatesCubit>().isSelected
+                                      ? white
+                                      : gray4,
                             ),
                           ),
                         ],
                       ),
                     ),
-                  );
-                }),
+                  ),
+                );
+              },
+            ),
           );
         },
       ),

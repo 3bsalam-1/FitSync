@@ -13,6 +13,8 @@ class CustomChartColumn extends StatelessWidget {
   final List<ChartData> data;
   final double increaseData;
   final double? interval;
+  final double delayAnimation;
+  final double animationDuration;
 
   const CustomChartColumn({
     super.key,
@@ -25,6 +27,8 @@ class CustomChartColumn extends StatelessWidget {
     required this.minYlabel,
     required this.increaseData,
     this.interval,
+    this.delayAnimation = 0,
+    this.animationDuration = 1500,
   });
 
   @override
@@ -119,6 +123,8 @@ class CustomChartColumn extends StatelessWidget {
               series: <CartesianSeries<ChartData, String>>[
                 ColumnSeries<ChartData, String>(
                   dataSource: data,
+                  animationDuration: animationDuration,
+                  animationDelay: animationDuration,
                   xValueMapper: (ChartData data, _) => data.x,
                   yValueMapper: (ChartData data, _) => data.y + increaseData,
                   color: gray13.withOpacity(0.57),
