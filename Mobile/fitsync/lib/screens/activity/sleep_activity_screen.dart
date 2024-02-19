@@ -13,7 +13,7 @@ class SleepActivityScreen extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(context, 'Sleep'),
       backgroundColor: white,
-      body: const SizedBox(
+      body: SizedBox(
         height: double.maxFinite,
         child: Stack(
           alignment: Alignment.bottomCenter,
@@ -24,22 +24,22 @@ class SleepActivityScreen extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBox(height: 30),
-                    SleepHours(
+                    const SizedBox(height: 30),
+                    const SleepHours(
                       title: 'Hours',
                       basic: ' /8.00',
                       current: '7.40',
                     ),
-                    Icon(
-                      Icons.nightlight_round_outlined,
-                      color: purple5,
-                      size: 30,
+                    Image.asset(
+                      'assets/images/Icons/night.png',
+                      height: 30,
+                      width: 30,
                     ),
                   ],
                 ),
               ),
             ),
-            DraggableScrollSleep(),
+            const DraggableScrollSleep(),
           ],
         ),
       ),

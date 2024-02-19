@@ -45,6 +45,7 @@ dependencies:
   google_fonts: ^6.1.0
   smooth_page_indicator: ^1.1.0
   syncfusion_flutter_charts: ^24.2.6
+  font_awesome_flutter: ^10.7.0
 
 dev_dependencies:
   flutter_test:
