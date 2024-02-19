@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../cubits_logic/navigation_page_cubit.dart';
 import '../shared/colors/colors.dart';
+import '../shared/widgets/item_bottom_app_bar.dart';
 
 class HomeMainScreen extends StatelessWidget {
   const HomeMainScreen({super.key});
@@ -8,7 +11,13 @@ class HomeMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //todo body: ,
+      body: BlocBuilder<NavigationPageCubit, Widget>(
+        builder: (context, page) => Padding(
+          padding: const EdgeInsets.only(bottom: 50),
+          child: page,
+        ),
+      ),
+      backgroundColor: white,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(top: 5),
@@ -19,7 +28,9 @@ class HomeMainScreen extends StatelessWidget {
             shape: const CircleBorder(),
             backgroundColor: purple5,
             elevation: 0,
-            onPressed: () {},
+            onPressed: () {
+              context.read<NavigationPageCubit>().changePage(0);
+            },
             child: const Icon(
               Icons.home_rounded,
               color: white,
@@ -46,71 +57,45 @@ class HomeMainScreen extends StatelessWidget {
           shape: const CircularNotchedRectangle(),
           surfaceTintColor: white,
           padding: const EdgeInsets.all(0),
-          child: DefaultTextStyle(
-            style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w500,
-              color: gray7,
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        FontAwesomeIcons.dumbbell,
-                        color: gray7,
-                      ),
-                    ),
-                    const Text('Workout'),
-                  ],
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        FontAwesomeIcons.bowlFood,
-                        color: gray7,
-                      ),
-                    ),
-                    const Text('Diet'),
-                  ],
-                ),
-                const SizedBox(width: 30),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.timeline_outlined,
-                        color: gray7,
-                      ),
-                    ),
-                    const Text('Activity'),
-                  ],
-                ),
-                Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.person_outlined,
-                        color: gray7,
-                      ),
-                    ),
-                    const Text('Profile'),
-                  ],
-                ),
-              ],
-            ),
+          child: Row(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              ItemBottomAppBar(
+                onTap: () {
+                  context.read<NavigationPageCubit>().changePage(1);
+                },
+                indexPage: 1,
+                icon: FontAwesomeIcons.dumbbell,
+                label: 'Workout',
+                paddingLeft: 4,
+              ),
+              ItemBottomAppBar(
+                label: 'Diet',
+                icon: FontAwesomeIcons.bowlFood,
+                indexPage: 2,
+                onTap: () {
+                  context.read<NavigationPageCubit>().changePage(2);
+                },
+              ),
+              const SizedBox(width: 30),
+              ItemBottomAppBar(
+                label: 'Activity',
+                icon: Icons.timeline_outlined,
+                indexPage: 3,
+                onTap: () {
+                  context.read<NavigationPageCubit>().changePage(3);
+                },
+              ),
+              ItemBottomAppBar(
+                label: 'Profile',
+                icon: FontAwesomeIcons.user,
+                indexPage: 4,
+                onTap: () {
+                  context.read<NavigationPageCubit>().changePage(4);
+                },
+              ),
+            ],
           ),
         ),
       ),

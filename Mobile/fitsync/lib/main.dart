@@ -2,6 +2,7 @@ import 'package:fitsync/screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'cubits_logic/navigation_page_cubit.dart';
 import 'cubits_logic/survey_logic/animated_list_view.dart';
 import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
@@ -40,6 +41,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => WeekDatesCubit()..showWeekDays(),
+        ),
+        BlocProvider(
+          create: (context) => NavigationPageCubit(),
         ),
       ],
       child: const MaterialApp(
