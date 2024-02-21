@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
 import 'custom_item_reminder.dart';
 
@@ -11,23 +12,23 @@ class ListReminderItems extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         const SizedBox(height: 26),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
               'Soon',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 18,
-                fontWeight: FontWeight.w500,
                 color: gray3,
+                fontWeight: FontWeight.w500,
               ),
             ),
             Text(
               'View All',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 16,
-                fontWeight: FontWeight.w600,
                 color: purple5,
+                fontWeight: FontWeight.w600,
               ),
             ),
           ],

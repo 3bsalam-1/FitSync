@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../workouts/workouts_screen.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -24,20 +26,20 @@ class CongratulationsScreen extends StatelessWidget {
             height: 280,
             fit: BoxFit.fill,
           ),
-          const Text(
+          Text(
             'Congratulations!',
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 35,
-              fontWeight: FontWeight.w800,
               color: gold2,
+              fontWeight: FontWeight.w800,
             ),
           ),
-          const Text(
+          Text(
             'You have completed the workout',
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 20,
-              fontWeight: FontWeight.w400,
               color: black,
+              fontWeight: FontWeight.w400,
             ),
           ),
           const Spacer(),
@@ -52,21 +54,21 @@ class CongratulationsScreen extends StatelessWidget {
           ),
           const Spacer(),
           CustomButton(
-            label: 'Next workout', 
-            horizontalPadding: 30,
-            onPressed: (){
-            // todo go to the next workouts
-          }),
+              label: 'Next workout',
+              horizontalPadding: 30,
+              onPressed: () {
+                // todo go to the next workouts
+              }),
           const SizedBox(height: 20),
           CustomButton(
-            label: 'Workout', 
-            horizontalPadding: 30,
-            onPressed: (){
-            AnimatedNavigator().pushAndRemoveUntil(
-              context, 
-              const WorkoutsScreen(),
-            );
-          }),
+              label: 'Workout',
+              horizontalPadding: 30,
+              onPressed: () {
+                AnimatedNavigator().pushAndRemoveUntil(
+                  context,
+                  const WorkoutsScreen(),
+                );
+              }),
           const SizedBox(height: 37),
         ],
       ),
@@ -75,7 +77,7 @@ class CongratulationsScreen extends StatelessWidget {
 }
 
 Widget congratulateData({
-  required String title, 
+  required String title,
   required String value,
 }) {
   return Column(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/chart_data.dart';
 import '../../shared/widgets/activity_comp/custom_chart_column.dart';
@@ -20,12 +21,12 @@ class ActivityMainScreen extends StatelessWidget {
         backgroundColor: white,
         elevation: 0,
         scrolledUnderElevation: 0,
-        title: const Text(
+        title: Text(
           'Activity',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 22,
-            fontWeight: FontWeight.w600,
             color: black,
+            fontWeight: FontWeight.w600,
           ),
         ),
         actions: const [
@@ -104,12 +105,12 @@ class ActivityMainScreen extends StatelessWidget {
                 data: dataCalories,
               ),
               const SizedBox(height: 30),
-              const Text(
+              Text(
                 'Challenges Progress',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 18,
-                  fontWeight: FontWeight.w600,
                   color: black,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const SizedBox(height: 22),

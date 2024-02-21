@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
 
 class CustomProgressChallenge extends StatelessWidget {
@@ -45,29 +46,29 @@ class CustomProgressChallenge extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 10,
-              fontWeight: FontWeight.w800,
               color: gray4,
+              fontWeight: FontWeight.w500,
             ),
           ),
           Row(
             children: [
               Text(
                 subTitle,
-                style: const TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 12,
-                  fontWeight: FontWeight.w700,
                   color: black,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               const Spacer(),
               Text(
                 progress,
-                style: const TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 12,
-                  fontWeight: FontWeight.w800,
                   color: gray4,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               const SizedBox(width: 7),
@@ -85,7 +86,7 @@ class CustomProgressChallenge extends StatelessWidget {
           ),
           const SizedBox(height: 3),
           Container(
-            width: width*0.5,
+            width: width * 0.5,
             height: 12,
             alignment: Alignment.centerLeft,
             decoration: BoxDecoration(
@@ -95,7 +96,7 @@ class CustomProgressChallenge extends StatelessWidget {
             child: UnconstrainedBox(
               child: Container(
                 height: 12,
-                width: width*0.5*(progressPrecent/100),
+                width: width * 0.5 * (progressPrecent / 100),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
                   color: progressColor,
@@ -104,10 +105,10 @@ class CustomProgressChallenge extends StatelessWidget {
                   child: Text(
                     '$progressPrecent%',
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: white,
+                    style: GoogleFonts.poppins(
                       fontSize: 8,
-                      fontWeight: FontWeight.w800,
+                      color: white,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),

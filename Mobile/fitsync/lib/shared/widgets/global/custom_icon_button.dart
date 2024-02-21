@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
 
 class CustomIconButton extends StatelessWidget {
@@ -51,11 +52,11 @@ class CustomIconButton extends StatelessWidget {
           children: [
             Text(
               label,
-              style: const TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 18,
-                fontWeight: FontWeight.w600,
                 color: white,
-                textBaseline: TextBaseline.alphabetic
+                fontWeight: FontWeight.w600,
+                textBaseline: TextBaseline.alphabetic,
               ),
             ),
             const SizedBox(

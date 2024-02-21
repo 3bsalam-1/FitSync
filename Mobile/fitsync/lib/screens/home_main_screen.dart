@@ -53,6 +53,7 @@ class HomeMainScreen extends StatelessWidget {
           notchMargin: 0,
           shape: const CircularNotchedRectangle(),
           surfaceTintColor: white,
+          color: white,
           padding: const EdgeInsets.all(0),
           child: Row(
             mainAxisSize: MainAxisSize.max,

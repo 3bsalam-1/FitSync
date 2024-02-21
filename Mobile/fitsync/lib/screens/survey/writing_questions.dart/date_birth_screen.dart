@@ -1,6 +1,7 @@
 import 'package:fitsync/screens/survey/writing_questions.dart/weight_question_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
@@ -39,12 +40,12 @@ class DateBirthScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 'What’s Your Date of Birth?',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 26,
-                  fontWeight: FontWeight.w600,
                   color: black,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const Spacer(),
@@ -54,21 +55,27 @@ class DateBirthScreen extends StatelessWidget {
                     child: CustomTextFormField(
                       hintText: 'DD',
                       keyboardType: TextInputType.number,
-                      controller: context.read<TextFormValidationCubit>().birthDayController,
+                      controller: context
+                          .read<TextFormValidationCubit>()
+                          .birthDayController,
                     ),
                   ),
                   Flexible(
                     child: CustomTextFormField(
                       hintText: 'MM',
                       keyboardType: TextInputType.number,
-                      controller: context.read<TextFormValidationCubit>().birthMonthController,
+                      controller: context
+                          .read<TextFormValidationCubit>()
+                          .birthMonthController,
                     ),
                   ),
                   Flexible(
                     child: CustomTextFormField(
                       hintText: 'YYY',
                       keyboardType: TextInputType.number,
-                      controller: context.read<TextFormValidationCubit>().birthYearController,
+                      controller: context
+                          .read<TextFormValidationCubit>()
+                          .birthYearController,
                     ),
                   ),
                 ],

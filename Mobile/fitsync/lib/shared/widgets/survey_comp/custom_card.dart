@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../colors/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -48,10 +50,10 @@ class CustomCard extends StatelessWidget {
             children: [
               Text(
                 label,
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 20,
-                  fontWeight: FontWeight.w600,
                   color: labelColor,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               Image.asset(

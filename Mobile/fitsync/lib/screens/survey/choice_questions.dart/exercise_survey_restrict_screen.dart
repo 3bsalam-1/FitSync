@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -9,7 +10,7 @@ class ExerciseSurveyRestrictScreen extends StatelessWidget {
   final Widget screen;
 
   const ExerciseSurveyRestrictScreen({
-    super.key, 
+    super.key,
     required this.labelProblem,
     required this.screen,
   });
@@ -31,10 +32,10 @@ class ExerciseSurveyRestrictScreen extends StatelessWidget {
               width: double.maxFinite,
               child: Text(
                 'We will restrict exercises that are hard on your $labelProblem',
-                style: const TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 26,
-                  fontWeight: FontWeight.w600,
                   color: black,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -59,23 +60,23 @@ class ExerciseSurveyRestrictScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
+            Text(
               'You can always change this setting later',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 18,
                 color: black,
               ),
             ),
-            const Text(
+            Text(
               'please consult your physician or other',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 18,
                 color: black,
               ),
             ),
-            const Text(
+            Text(
               'health care professional when in doubt',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 18,
                 color: black,
               ),

@@ -1,6 +1,7 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../../shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
-
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
@@ -28,11 +29,11 @@ class ChallengeBeginScreen extends StatelessWidget {
             height: 200,
             fit: BoxFit.contain,
           ),
-          const Text(
+          Text(
             'Reclining to big toe',
-            style: TextStyle(
-              color: black,
+            style: GoogleFonts.poppins(
               fontSize: 26,
+              color: black,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -44,22 +45,22 @@ class ChallengeBeginScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomButton(
-                label: 'Previous', 
+                label: 'Previous',
                 shadowColor: Colors.transparent,
                 colors: const [gray14, gray14],
-                onPressed: (){
+                onPressed: () {
                   // todo start the challenge
                 },
                 horizontalPadding: 15,
-                width: width*0.38,
+                width: width * 0.38,
               ),
               CustomButton(
-                label: 'Skip', 
-                onPressed: (){
+                label: 'Skip',
+                onPressed: () {
                   // todo start the challenge
                 },
                 horizontalPadding: 15,
-                width: width*0.38,
+                width: width * 0.38,
               ),
             ],
           ),

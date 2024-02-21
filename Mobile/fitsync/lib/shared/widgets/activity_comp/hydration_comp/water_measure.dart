@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 
 class WaterMeasure extends StatelessWidget {
@@ -47,12 +48,12 @@ class WaterMeasure extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Text(
+                  Text(
                     // todo the value of the water ML
                     '750',
-                    style: TextStyle(
-                      color: white,
+                    style: GoogleFonts.poppins(
                       fontSize: 16,
+                      color: white,
                       fontWeight: FontWeight.w600,
                     ),
                   ),

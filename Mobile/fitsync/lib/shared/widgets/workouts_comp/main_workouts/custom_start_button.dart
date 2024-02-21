@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../colors/colors.dart';
 
@@ -23,11 +24,12 @@ class CustomStartButton extends StatelessWidget {
             color: purple5,
           ),
         ),
-        child: const Text(
+        child: Text(
           'Start Now',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 12,
             color: white,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ),

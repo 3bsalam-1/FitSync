@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
 import 'animated_navigator.dart';
 
@@ -34,8 +35,9 @@ class CustomMenuButton extends StatelessWidget {
             value: index,
             child: Text(
               labels[index],
-              style: const TextStyle(
+              style: GoogleFonts.poppins(
                 color: purple5,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),

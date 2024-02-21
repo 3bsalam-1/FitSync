@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
 
@@ -64,25 +65,25 @@ class ProgressBarSleepHours extends StatelessWidget {
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.only(top: 8.0),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
                     '22:32 PM',
-                    style: TextStyle(
-                      color: gray10,
+                    style: GoogleFonts.poppins(
                       fontSize: 12,
+                      color: gray10,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     '5:08 AM',
-                    style: TextStyle(
-                      color: gray10,
+                    style: GoogleFonts.poppins(
                       fontSize: 12,
+                      color: gray10,
                       fontWeight: FontWeight.w600,
                     ),
                   ),

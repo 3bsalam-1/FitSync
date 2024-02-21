@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../global/custom_button.dart';
 import '../global/custom_text_form_field.dart';
 import '../../colors/colors.dart';
@@ -38,9 +40,9 @@ class WritingBodyQuestion extends StatelessWidget {
             const SizedBox(height: 5),
             Text(
               labelQuestion,
-              style: const TextStyle(
-                color: black,
+              style: GoogleFonts.poppins(
                 fontSize: 24,
+                color: black,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -52,7 +54,7 @@ class WritingBodyQuestion extends StatelessWidget {
             Center(
               child: Text(
                 labelMeagure,
-                style: const TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 26,
                   color: gray3,
                   fontWeight: FontWeight.w600,

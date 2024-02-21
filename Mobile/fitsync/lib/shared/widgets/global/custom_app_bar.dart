@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
 import 'animated_navigator.dart';
 
@@ -8,10 +9,10 @@ PreferredSizeWidget customAppBar(BuildContext context, String title) {
     scrolledUnderElevation: 0,
     title: Text(
       title,
-      style: const TextStyle(
+      style: GoogleFonts.poppins(
         fontSize: 24,
-        fontWeight: FontWeight.w600,
         color: black,
+        fontWeight: FontWeight.w600,
       ),
     ),
     centerTitle: true,

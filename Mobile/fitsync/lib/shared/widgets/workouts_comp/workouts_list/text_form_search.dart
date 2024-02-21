@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../colors/colors.dart';
 
@@ -9,9 +10,10 @@ class TextFormSearch extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       cursorColor: purple2,
-      style: const TextStyle(
-        color: gray4,
+      style: GoogleFonts.poppins(
         fontSize: 16,
+        color: gray4,
+        fontWeight: FontWeight.w500,
       ),
       decoration: InputDecoration(
         border: OutlineInputBorder(

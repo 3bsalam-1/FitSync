@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 
 class CircleProgress extends StatelessWidget {
@@ -42,18 +43,18 @@ class CircleProgress extends StatelessWidget {
                 const SizedBox(height: 7),
                 Text(
                   steps,
-                  style: const TextStyle(
-                    color: black,
+                  style: GoogleFonts.poppins(
                     fontSize: 14,
+                    color: black,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 const SizedBox(height: 10),
-                const Text(
+                Text(
                   'steps',
-                  style: TextStyle(
-                    color: black,
+                  style: GoogleFonts.poppins(
                     fontSize: 10,
+                    color: black,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

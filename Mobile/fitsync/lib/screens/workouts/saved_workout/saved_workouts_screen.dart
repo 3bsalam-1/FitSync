@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 
@@ -13,9 +14,9 @@ class SavedWorkOutsScreen extends StatelessWidget {
         scrolledUnderElevation: 0,
         elevation: 0,
         title: const Text('Saved Workout'),
-        titleTextStyle: const TextStyle(
-          color: black,
+        titleTextStyle: GoogleFonts.poppins(
           fontSize: 22,
+          color: black,
           fontWeight: FontWeight.w600,
         ),
         centerTitle: true,
@@ -81,32 +82,32 @@ class SavedWorkOutsScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Column(
+                    Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           'Full Body',
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                             fontSize: 22,
-                            fontWeight: FontWeight.w600,
                             color: black,
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
                         Text(
                           '20 Exercises',
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                             fontSize: 12,
-                            fontWeight: FontWeight.w500,
                             color: gray4,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                         Text(
                           '60 Minutes',
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                             fontSize: 12,
-                            fontWeight: FontWeight.w500,
                             color: gray4,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ],

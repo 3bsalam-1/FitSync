@@ -45,9 +45,9 @@ class ProgressDailyGools extends StatelessWidget {
                 const SizedBox(height: 7),
                 Text(
                   '$progress%',
-                  style: const TextStyle(
-                    color: purple5,
+                  style: GoogleFonts.poppins(
                     fontSize: 30,
+                    color: purple5,
                     fontWeight: FontWeight.w500,
                   ),
                 ),

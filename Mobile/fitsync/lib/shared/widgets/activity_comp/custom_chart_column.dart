@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../colors/colors.dart';
 import 'chart_data.dart';
@@ -63,10 +64,10 @@ class CustomChartColumn extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: const TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 16,
-                      fontWeight: FontWeight.w600,
                       color: black,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const SizedBox(height: 7),
@@ -74,10 +75,10 @@ class CustomChartColumn extends StatelessWidget {
                     width: width * 0.7,
                     child: Text(
                       subTitle,
-                      style: const TextStyle(
+                      style: GoogleFonts.poppins(
                         fontSize: 13,
-                        fontWeight: FontWeight.w500,
                         color: gray6,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                   ),

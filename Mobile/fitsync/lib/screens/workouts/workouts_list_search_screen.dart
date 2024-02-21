@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_list/custom_workouts_list.dart';
@@ -14,12 +15,12 @@ class WorkoutsListSearchScreen extends StatelessWidget {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         backgroundColor: white,
-        title: const Text(
+        title: Text(
           'Workout List',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 22,
-            fontWeight: FontWeight.w600,
             color: black,
+            fontWeight: FontWeight.w600,
           ),
         ),
         leading: IconButton(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/workouts/week_dates.dart';
 import '../../../../services/week_dates.dart';
 import '../../../colors/colors.dart';
@@ -41,15 +42,16 @@ class CustomDayItem extends StatelessWidget {
                         ),
                       ],
                       gradient: LinearGradient(
-                        colors: index == context.read<WeekDatesCubit>().isSelected
-                            ? [
-                                purple2,
-                                cyan,
-                              ]
-                            : [
-                                white,
-                                white,
-                              ],
+                        colors:
+                            index == context.read<WeekDatesCubit>().isSelected
+                                ? [
+                                    purple2,
+                                    cyan,
+                                  ]
+                                : [
+                                    white,
+                                    white,
+                                  ],
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                       ),
@@ -60,24 +62,24 @@ class CustomDayItem extends StatelessWidget {
                         children: [
                           Text(
                             state[index][0]!,
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color:
-                                  index == context.read<WeekDatesCubit>().isSelected
-                                      ? white
-                                      : gray4,
+                              color: index ==
+                                      context.read<WeekDatesCubit>().isSelected
+                                  ? white
+                                  : gray4,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           Text(
                             state[index][1]!,
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color:
-                                  index == context.read<WeekDatesCubit>().isSelected
-                                      ? white
-                                      : gray4,
+                              color: index ==
+                                      context.read<WeekDatesCubit>().isSelected
+                                  ? white
+                                  : gray4,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
 import 'square_info.dart';
 
@@ -59,18 +60,18 @@ class ProfileUserInfo extends StatelessWidget {
                   children: [
                     Text(
                       userInfo[index][0]!,
-                      style: const TextStyle(
-                        color: gray4,
+                      style: GoogleFonts.poppins(
                         fontSize: 14,
+                        color: gray4,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
                     const Spacer(),
                     Text(
                       userInfo[index][1]!,
-                      style: const TextStyle(
-                        color: gray4,
+                      style: GoogleFonts.poppins(
                         fontSize: 14,
+                        color: gray4,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -91,17 +92,17 @@ class ProfileUserInfo extends StatelessWidget {
             ),
             const Spacer(flex: 2),
             TextButton(
-              onPressed: (){
+              onPressed: () {
                 // todo here delete the user account
-              }, 
-              child: const Text(
+              },
+              child: Text(
                 'Delete Account',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 14,
+                  color: red2,
                   fontWeight: FontWeight.w700,
                   decoration: TextDecoration.underline,
                   decorationColor: red2,
-                  color: red2,
                 ),
               ),
             ),

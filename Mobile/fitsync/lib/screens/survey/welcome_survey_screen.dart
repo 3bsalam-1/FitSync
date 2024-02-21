@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/survey_logic/choice_gender.dart';
 import '../Login/SignUp_screen.dart';
 import '../Login/login_screen.dart';
@@ -28,21 +29,23 @@ class WelcomeSurveyScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 26),
-                    const Text(
+                    Text(
                       'Welcome to FitSync',
-                      style: TextStyle(
-                          color: gray2,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.none),
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        color: gray2,
+                        fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.none,
+                      ),
                     ),
-                    const Text(
+                    Text(
                       'What’s Your Gender ?',
-                      style: TextStyle(
-                          color: black,
-                          fontSize: 26,
-                          fontWeight: FontWeight.w600,
-                          decoration: TextDecoration.none),
+                      style: GoogleFonts.poppins(
+                        fontSize: 26,
+                        color: black,
+                        fontWeight: FontWeight.w600,
+                        decoration: TextDecoration.none,
+                      ),
                     ),
                     const SizedBox(height: 55),
                     Expanded(
@@ -55,15 +58,12 @@ class WelcomeSurveyScreen extends StatelessWidget {
                         onTap: () {
                           context.read<ChoiceGender>().isFemale();
                           // todo here remove this below line
-                          Future.delayed(
-                            const Duration(milliseconds: 700),
-                            () {
-                              AnimatedNavigator().push(
-                                context,
-                                const NameQuestionScreen(),
-                              );
-                            }
-                          );
+                          Future.delayed(const Duration(milliseconds: 700), () {
+                            AnimatedNavigator().push(
+                              context,
+                              const NameQuestionScreen(),
+                            );
+                          });
                         },
                       ),
                     ),
@@ -78,15 +78,12 @@ class WelcomeSurveyScreen extends StatelessWidget {
                         onTap: () {
                           context.read<ChoiceGender>().isMale();
                           // todo here remove this below line
-                          Future.delayed(
-                            const Duration(milliseconds: 700),
-                            () {
-                              AnimatedNavigator().push(
-                                context,
-                                const NameQuestionScreen(),
-                              );
-                            }
-                          );
+                          Future.delayed(const Duration(milliseconds: 700), () {
+                            AnimatedNavigator().push(
+                              context,
+                              const NameQuestionScreen(),
+                            );
+                          });
                         },
                       ),
                     ),
@@ -98,14 +95,15 @@ class WelcomeSurveyScreen extends StatelessWidget {
                           const signup(),
                         );
                       },
-                      child: const Center(
+                      child: Center(
                         child: Text(
                           'Already have an account?',
-                          style: TextStyle(
-                              color: gray2,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              decoration: TextDecoration.none),
+                          style: GoogleFonts.poppins(
+                            fontSize: 18,
+                            color: gray2,
+                            fontWeight: FontWeight.w500,
+                            decoration: TextDecoration.none,
+                          ),
                         ),
                       ),
                     ),

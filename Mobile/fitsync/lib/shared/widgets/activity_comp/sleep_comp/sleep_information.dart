@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 
 class SleepInformation extends StatelessWidget {
@@ -19,9 +20,9 @@ class SleepInformation extends StatelessWidget {
       children: [
         Text(
           value,
-          style: const TextStyle(
-            color: black,
+          style: GoogleFonts.poppins(
             fontSize: 20,
+            color: black,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -35,9 +36,9 @@ class SleepInformation extends StatelessWidget {
             const SizedBox(width: 3),
             Text(
               title,
-              style: const TextStyle(
-                color: gray10,
+              style: GoogleFonts.poppins(
                 fontSize: 11,
+                color: gray10,
                 fontWeight: FontWeight.w500,
               ),
             ),

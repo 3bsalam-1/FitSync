@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_app_bar.dart';
@@ -22,10 +23,10 @@ class ReminderMainScreen extends StatelessWidget {
               const SizedBox(height: 18),
               Text(
                 '${DateFormat.yMMMMd().format(DateTime.now())} ${DateFormat.jm().format(DateTime.now())}', //DateTime.now().toString(),
-                style: const TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 14,
-                  fontWeight: FontWeight.w600,
                   color: black,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const ListReminderItems(),

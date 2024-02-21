@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/daily_intake_comp/draggable_scroll_intake.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
@@ -12,7 +13,7 @@ class DailyIntakeActivityScreen extends StatelessWidget {
     return Scaffold(
       appBar: customAppBar(context, 'Daily Intake'),
       backgroundColor: white,
-      body: const SizedBox(
+      body: SizedBox(
         height: double.maxFinite,
         child: Stack(
           alignment: Alignment.bottomCenter,
@@ -23,12 +24,12 @@ class DailyIntakeActivityScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Text(
                       'Today you have',
-                      style: TextStyle(
-                        color: black,
+                      style: GoogleFonts.poppins(
                         fontSize: 24,
+                        color: black,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -37,18 +38,18 @@ class DailyIntakeActivityScreen extends StatelessWidget {
                       children: [
                         Text(
                           'Consumed ',
-                          style: TextStyle(
-                            color: black,
+                          style: GoogleFonts.poppins(
                             fontSize: 24,
+                            color: black,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                         // todo here add value of the
                         Text(
                           '500 cal',
-                          style: TextStyle(
-                            color: purple5,
+                          style: GoogleFonts.poppins(
                             fontSize: 24,
+                            color: purple5,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
@@ -58,7 +59,7 @@ class DailyIntakeActivityScreen extends StatelessWidget {
                 ),
               ),
             ),
-            DraggableScrollIntake(),
+            const DraggableScrollIntake(),
           ],
         ),
       ),

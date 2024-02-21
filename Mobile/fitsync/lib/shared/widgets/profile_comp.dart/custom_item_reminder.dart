@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../colors/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -28,12 +30,12 @@ class CustomItemReminder extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
+              Text(
                 'Cardio',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 16,
-                  fontWeight: FontWeight.w500,
                   color: white,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               InkWell(
@@ -61,12 +63,12 @@ class CustomItemReminder extends StatelessWidget {
           Container(
             width: 90,
             padding: const EdgeInsets.symmetric(vertical: 12),
-            child: const Text(
+            child: Text(
               'Time to cardio exercise',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 12,
-                fontWeight: FontWeight.w500,
                 color: gold,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
@@ -79,13 +81,13 @@ class CustomItemReminder extends StatelessWidget {
               borderRadius: BorderRadius.circular(4),
               color: white,
             ),
-            child: const Text(
+            child: Text(
               'Today , 4:50',
               textAlign: TextAlign.center,
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 7,
-                fontWeight: FontWeight.w700,
                 color: black,
+                fontWeight: FontWeight.w700,
               ),
             ),
           ),

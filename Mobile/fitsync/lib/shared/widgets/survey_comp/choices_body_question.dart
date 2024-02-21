@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../../cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../cubits_logic/survey_logic/animated_list_view.dart';
@@ -59,7 +61,7 @@ class ChoiceBodyQuestion extends StatelessWidget {
                     child: Text(
                       // index = 0 for the question index
                       question.question,
-                      style: const TextStyle(
+                      style: GoogleFonts.poppins(
                         fontSize: 26,
                         color: black,
                         fontWeight: FontWeight.w600,
@@ -80,29 +82,41 @@ class ChoiceBodyQuestion extends StatelessWidget {
                           indexAnswer: state,
                           onTap: () {
                             // todo save the answers of the questions here
-                            context.read<ChoiseQuestionsCubit>().isSelected(index);
+                            context
+                                .read<ChoiseQuestionsCubit>()
+                                .isSelected(index);
                             Future.delayed(
                               const Duration(milliseconds: 500),
                               () {
-                                context.read<AnimatedListView>().stopAnimation();
+                                context
+                                    .read<AnimatedListView>()
+                                    .stopAnimation();
                               },
                             );
                             Future.delayed(
                               const Duration(seconds: 2),
                               () {
-                                context.read<AnimatedListView>().startAnimation();
-                                context.read<ChoiseQuestionsCubit>().isSelected(-1);
+                                context
+                                    .read<AnimatedListView>()
+                                    .startAnimation();
+                                context
+                                    .read<ChoiseQuestionsCubit>()
+                                    .isSelected(-1);
                                 // if the checkQuestion true then go to another writing question
-                                bool checkQuestion = questionIndex == 2 || questionIndex == 4 || questionIndex == 6 || questionIndex == 7 || questionIndex == 8;
+                                bool checkQuestion = questionIndex == 2 ||
+                                    questionIndex == 4 ||
+                                    questionIndex == 6 ||
+                                    questionIndex == 7 ||
+                                    questionIndex == 8;
                                 if (index == 1 && checkQuestion) {
                                   AnimatedNavigator().push(
-                                    context, 
+                                    context,
                                     nextScreen2!,
                                   );
                                 } else {
                                   // if the checkQuestion false then go to the next question
                                   AnimatedNavigator().push(
-                                    context, 
+                                    context,
                                     nextScreen,
                                   );
                                 }

@@ -1,6 +1,7 @@
-import 'package:fitsync/screens/survey/welcome_survey_screen.dart';
-import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import 'survey/welcome_survey_screen.dart';
+import '../shared/widgets/global/animated_navigator.dart';
 import '../shared/colors/colors.dart';
 import '../shared/widgets/global/custom_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -72,16 +73,16 @@ class SplashScreen extends StatelessWidget {
               builder: (context, value, _) {
                 return Transform.translate(
                   offset: Offset(value, 0),
-                  child: const SizedBox(
+                  child: SizedBox(
                     width: double.maxFinite,
                     child: Text(
                       'Fuel Your Fitness Journey with',
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         fontSize: 22,
+                        color: gray,
                         fontWeight: FontWeight.w600,
                         decoration: TextDecoration.none,
-                        color: gray,
                       ),
                     ),
                   ),

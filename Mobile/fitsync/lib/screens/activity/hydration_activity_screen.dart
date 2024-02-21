@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/hydration_comp/draggable_scroll_hydration.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
@@ -24,11 +25,11 @@ class HydrationActivityScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 30),
-                    const Text(
+                    Text(
                       'Today you took ',
-                      style: TextStyle(
-                        color: black,
+                      style: GoogleFonts.poppins(
                         fontSize: 24,
+                        color: black,
                         fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -36,21 +37,21 @@ class HydrationActivityScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         // todo here add value of the
-                        const Text(
+                        Text(
                           '750 ml',
-                          style: TextStyle(
-                            color: purple5,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style: GoogleFonts.poppins(
+                        fontSize: 24,
+                        color: purple5,
+                        fontWeight: FontWeight.w600,
+                      ),
                         ),
-                        const Text(
+                        Text(
                           ' of water',
-                          style: TextStyle(
-                            color: black,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w600,
-                          ),
+                          style: GoogleFonts.poppins(
+                        fontSize: 24,
+                        color: black,
+                        fontWeight: FontWeight.w600,
+                      ),
                         ),
                         Image.asset(
                           'assets/images/water.png',
@@ -59,11 +60,11 @@ class HydrationActivityScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const Text(
+                    Text(
                       'Almost there!  Keep Hydrated',
-                      style: TextStyle(
-                        color: gray4,
+                      style: GoogleFonts.poppins(
                         fontSize: 12,
+                        color: gray4,
                         fontWeight: FontWeight.w600,
                       ),
                     ),

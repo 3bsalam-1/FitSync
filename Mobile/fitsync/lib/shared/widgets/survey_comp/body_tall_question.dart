@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import '../../colors/colors.dart';
 import '../global/custom_button.dart';
@@ -24,12 +25,12 @@ class BodyTallQuestion extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             'How tall are you?',
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 26,
-              fontWeight: FontWeight.w600,
               color: black,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const Spacer(),
@@ -43,15 +44,17 @@ class BodyTallQuestion extends StatelessWidget {
                   hintText: '0',
                   textAlign: TextAlign.right,
                   keyboardType: TextInputType.number,
-                  controller: context.read<TextFormValidationCubit>().tallController,
+                  controller:
+                      context.read<TextFormValidationCubit>().tallController,
                 ),
               ),
               const SizedBox(width: 5),
               Text(
                 label,
-                style: const TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 16,
                   color: black,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
             ],

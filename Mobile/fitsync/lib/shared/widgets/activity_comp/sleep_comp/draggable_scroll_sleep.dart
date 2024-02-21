@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
 import '../chart_data.dart';
@@ -76,25 +77,25 @@ class DraggableScrollSleep extends StatelessWidget {
                 opacity: value,
                 duration: const Duration(milliseconds: 400),
                 curve: Curves.easeIn,
-                child: const Text(
+                child: Text(
                   'you slept better than 53% of users',
-                  style: TextStyle(
-                    color: gray10,
+                  style: GoogleFonts.poppins(
                     fontSize: 10,
+                    color: gray10,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
             ),
             const SizedBox(height: 40),
-            const CustomAnimatedOpacity(
+            CustomAnimatedOpacity(
               child: Align(
                 alignment: Alignment.topLeft,
                 child: Text(
                   'Analytics',
-                  style: TextStyle(
-                    color: black,
+                  style: GoogleFonts.poppins(
                     fontSize: 16,
+                    color: black,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -40,17 +41,18 @@ class NameQuestionScreen extends StatelessWidget {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
+                Text(
                   'What’s Your Name?',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontSize: 26,
-                    fontWeight: FontWeight.w600,
                     color: black,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
                 const Spacer(),
                 CustomTextFormField(
-                  controller: context.read<TextFormValidationCubit>().nameController,
+                  controller:
+                      context.read<TextFormValidationCubit>().nameController,
                   hintText: 'First name',
                 ),
                 const Spacer(),

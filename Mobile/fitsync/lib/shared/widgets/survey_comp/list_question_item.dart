@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
 import 'question_survey.dart';
 
@@ -53,10 +54,10 @@ class ListQuestionItem extends StatelessWidget {
           ),
           child: Text(
             question.choice[index],
-            style: const TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 20,
-              fontWeight: FontWeight.w600,
               color: black,
+              fontWeight: FontWeight.w600,
             ),
           ),
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 
 class ClassWaterMeasure extends StatelessWidget {
@@ -57,13 +58,13 @@ class ClassWaterMeasure extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 22),
-        const Text(
+        Text(
           // todo show the number of glasses that was selected
           '1x Glass 200ml',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 16,
-            fontWeight: FontWeight.w700,
             color: black,
+            fontWeight: FontWeight.w700,
           ),
         ),
       ],

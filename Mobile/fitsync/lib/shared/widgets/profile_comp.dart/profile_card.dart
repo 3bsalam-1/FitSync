@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../screens/profile/profile_informtion_screen.dart';
 import '../../colors/colors.dart';
@@ -50,24 +51,26 @@ class ProfileCard extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 18),
-            const Column(
+            Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
+                // todo show the user name here
                 Text(
                   'Alex Hormozi',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
+                  style: GoogleFonts.poppins(
                     fontSize: 20,
                     color: black,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
+                // todo show the email here
                 Text(
                   'alexhormozi@gmail.com',
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
+                  style: GoogleFonts.poppins(
                     fontSize: 14,
                     color: gray4,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ],

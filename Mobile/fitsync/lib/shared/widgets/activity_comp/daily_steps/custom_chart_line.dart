@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
@@ -27,15 +28,15 @@ class CustomChartLine extends StatelessWidget {
           enableAxisAnimation: true,
           backgroundColor: purple5,
           enableSideBySideSeriesPlacement: false,
-          primaryXAxis: const CategoryAxis(
-            axisLine: AxisLine(width: 1, color: white),
-            labelStyle: TextStyle(
-              color: white,
+          primaryXAxis: CategoryAxis(
+            axisLine: const AxisLine(width: 1, color: white),
+            labelStyle: GoogleFonts.poppins(
               fontSize: 12,
+              color: white,
               fontWeight: FontWeight.w500,
             ),
-            majorGridLines: MajorGridLines(width: 0),
-            majorTickLines: MajorTickLines(width: 0),
+            majorGridLines: const MajorGridLines(width: 0),
+            majorTickLines: const MajorTickLines(width: 0),
           ),
           primaryYAxis: const NumericAxis(
             minimum: 4000,
