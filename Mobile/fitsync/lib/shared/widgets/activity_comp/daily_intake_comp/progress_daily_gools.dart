@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
 
@@ -18,52 +19,48 @@ class ProgressDailyGools extends StatelessWidget {
         tween: Tween<double>(begin: 0, end: 1),
         duration: const Duration(seconds: 4),
         builder: (context, value, _) => Stack(
-          alignment: Alignment.center,
+          alignment: Alignment.topCenter,
           children: [
             SizedBox(
-              height: 135,
-              width: 135,
+              height: 145,
+              width: 145,
               child: CircularProgressIndicator(
                 value: (value <= progress / 100) ? value : progress / 100,
                 backgroundColor: gray3.withOpacity(0.1),
-                color: purple2,
-                strokeWidth: 16.0,
+                color: purple5,
+                strokeCap: StrokeCap.round,
+                strokeWidth: 11.0,
               ),
             ),
-            Container(
-              width: 100,
-              height: 100,
-              decoration: const BoxDecoration(
-                shape: BoxShape.circle,
-                gradient: LinearGradient(
-                  colors: [
-                    cyan,
-                    purple7,
-                  ],
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const SizedBox(height: 11),
+                const Icon(
+                  Icons.local_fire_department_sharp,
+                  color: purple5,
+                  size: 25,
                 ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    '$progress%',
-                    style: const TextStyle(
-                      color: white,
-                      fontSize: 25,
-                      fontWeight: FontWeight.w500,
-                    ),
+                const SizedBox(height: 7),
+                Text(
+                  '$progress%',
+                  style: const TextStyle(
+                    color: purple5,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500,
                   ),
-                  const Text(
-                    'of daily goals',
-                    style: TextStyle(
-                      color: white,
-                      fontSize: 10,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            )
+                ),
+                Text(
+                  'of daily goals',
+                  style: GoogleFonts.poppins(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w500,
+                    color: gray15,
+                  )
+                ),
+              ],
+            ),
           ],
         ),
       ),

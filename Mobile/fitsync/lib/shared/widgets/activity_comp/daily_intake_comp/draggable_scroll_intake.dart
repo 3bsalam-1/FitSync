@@ -1,9 +1,8 @@
 import '../../global/custom_animated_opacity.dart';
 import 'package:flutter/material.dart';
 import '../../../colors/colors.dart';
-import '../chart_data.dart';
 import '../custom_button_activity.dart';
-import '../custom_chart_column.dart';
+import 'daily_info_item.dart';
 import 'progress_daily_gools.dart';
 
 class DraggableScrollIntake extends StatelessWidget {
@@ -31,52 +30,60 @@ class DraggableScrollIntake extends StatelessWidget {
           ),
         ],
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const SizedBox(height: 10),
-            Container(
-              height: 7,
-              width: 70,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: gray7.withOpacity(0.7),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const SizedBox(height: 10),
+          Container(
+            height: 7,
+            width: 70,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: gray7.withOpacity(0.7),
+            ),
+          ),
+          // todo here add wedgits
+          const SizedBox(height: 30),
+          const CustomAnimatedOpacity(
+            child: ProgressDailyGools(progress: 40),
+          ),
+          const SizedBox(height: 50),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              CustomAnimatedOpacity(
+                child: DailyInfoItem(
+                  label: 'Consumed',
+                  value: '700',
+                ),
               ),
-            ),
-            // todo here add wedgits
-            const SizedBox(height: 30),
-            const CustomAnimatedOpacity(
-              child: ProgressDailyGools(progress: 40),
-            ),
-            const SizedBox(height: 50),
-            CustomAnimatedOpacity(
-              child: CustomChartColumn(
-                title: 'Calories',
-                subTitle: 'The number of calories you burned per day was balanced  over the last 4 weeks',
-                animationDuration: 2700,
-                delayAnimation: 800,
-                onPressed: () {
-                  // todo
-                },
-                maxYlabel: 0,
-                minYlabel: 1600,
-                increaseData: 70,
-                data: dataCalories,
+              CustomAnimatedOpacity(
+                child: DailyInfoItem(
+                  label: 'Intake',
+                  value: '1820',
+                ),
               ),
-            ),
-            CustomAnimatedOpacity(
-              child: CustomButtonActivity(
-                label: 'Add Meal',
-                onPressed: () {
-                  // todo here add meal
-                },
-                icon: Icons.apple_rounded,
+              CustomAnimatedOpacity(
+                child: DailyInfoItem(
+                  label: 'Active Hours',
+                  value: '5',
+                  icon: Icons.timeline_rounded,
+                ),
               ),
+            ],
+          ),
+          const Spacer(),
+          CustomAnimatedOpacity(
+            child: CustomButtonActivity(
+              label: 'Add Meal',
+              onPressed: () {
+                // todo here add meal
+              },
+              icon: Icons.apple_rounded,
             ),
-            const SizedBox(height: 40),
-          ],
-        ),
+          ),
+          const SizedBox(height: 40),
+        ],
       ),
     );
   }

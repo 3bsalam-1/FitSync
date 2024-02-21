@@ -12,10 +12,7 @@ class HomeMainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: BlocBuilder<NavigationPageCubit, Widget>(
-        builder: (context, page) => Padding(
-          padding: const EdgeInsets.only(bottom: 50),
-          child: page,
-        ),
+        builder: (context, page) => page,
       ),
       backgroundColor: white,
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

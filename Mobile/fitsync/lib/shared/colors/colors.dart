@@ -18,6 +18,7 @@ const Color gray11 = Color(0xff9D9890);
 const Color gray12 = Color(0xffD9D7D3);
 const Color gray13 = Color(0xffE8E8E8);
 const Color gray14 = Color(0xffB9B9B9);
+const Color gray15 = Color(0xff868179);
 const Color white = Color(0xffffffff);
 const Color purple = Color(0xff8D70F8);
 const Color cyan = Color(0xff9DCDFF);
