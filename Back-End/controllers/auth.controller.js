@@ -1,37 +1,34 @@
 const User = require("../models/user.model");
 const { promisify } = require("util");
 const jwt = require("jsonwebtoken");
-const firebase = require('firebase/app');
-const { getStorage, ref, uploadBytes } = require('firebase/storage');
-const firebaseConfig = require('../config/firebase');
 const asyncWrapper = require("../utils/asyncWrapper");
 const AppError = require("../utils/appError");
 const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
 const sendEmail = require("../utils/email");
-const userInfo = require('../models/userInfo.model')
+const userInfo = require("../models/userInfo.model");
 
-
-const signToken = async (user)=>{
-  if(user.firstTime){
-    return jwt.sign({ id:user._id,firstTime:user.firstTime}, process.env.JWT_SECRET, { expiresIn:"1h" });
-  }else{
-    let newUserInfo = await userInfo.findOne({userId: user._id}).select('-_id -userId -__v');
-    user.password = undefined;
-    user={user,userInfo:newUserInfo}
-    return jwt.sign({...user}, process.env.JWT_SECRET, { expiresIn: "30d" });
+const signToken = async (user) => {
+  if (user.firstTime) {
+    return jwt.sign(
+      { id: user._id, firstTime: user.firstTime },
+      process.env.JWT_SECRET,
+      { expiresIn: "1h" }
+    );
+  } else {
+    return jwt.sign({ id: user._id, user }, process.env.JWT_SECRET, {
+      expiresIn: "30d",
+    });
   }
-}
+};
 
-
-exports.loginWith = asyncWrapper(async(req,res,next)=>{
+exports.loginWith = asyncWrapper(async (req, res, next) => {
   const user = req.user;
-  let token = await signToken(user)
+  let token = await signToken(user);
   res.status(200).json({
     status: SUCCESS,
     token,
   });
-})
-
+});
 
 exports.Register = asyncWrapper(async (req, res, next) => {
   const newUser = new User(req.body);
@@ -134,13 +131,13 @@ exports.Login = asyncWrapper(async (req, res, next) => {
       )
     );
   }
-  if(!user.password){
-    return next(AppError.create("Try login by another way",ERROR,400))
+  if (!user.password) {
+    return next(AppError.create("Try login by another way", ERROR, 400));
   }
   if (!user || !(await user.correctPassword(password, user.password))) {
     return next(AppError.create("Incorrect email or password", ERROR, 401));
   }
-  let token = await signToken(user)
+  let token = await signToken(user);
   res.status(200).json({
     status: SUCCESS,
     token,
@@ -285,38 +282,4 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
     status: SUCCESS,
     token,
   });
-});
-
-exports.updatePassword = asyncWrapper(async (req, res, next) => {
-  const oldPassword = req.body.oldPassword;
-  const user = await User.findById(req.user._id).select("+password");
-  if (!(await user.correctPassword(oldPassword, user.password))) {
-    return next(
-      AppError.create("Your current password is wrong.", ERROR, 401)
-    );
-  }
-  user.password = req.body.password;
-  user.passwordConfirm = req.body.passwordConfirm;
-  await user.save();
-
-  const token = await signToken(user);
-  res.status(200).json({
-    status: SUCCESS,
-    token,
-    message:"Password updated"
-  });
-});
-
-firebase.initializeApp(firebaseConfig.firebaseConfig);
-const storage = getStorage();
-
-exports.changeAvatar = asyncWrapper(async (req, res, next) => {
-  const ext = req.file.mimetype.split("/")[1];
-  const fileName = `${req.file.originalname.split(".")[0]}-${Date.now()}.${ext}`;
-  const storageRef = ref(storage, `Avatar/${fileName}`);
-  const snapshot = await uploadBytes(storageRef, req.file.buffer);
-  const user = await User.findById(req.user._id);
-  user.avatar = `https://firebasestorage.googleapis.com/v0/b/${storageRef.bucket}/o/${encodeURIComponent(snapshot.metadata.fullPath)}?alt=media`; 
-  await user.save({ validateBeforeSave: false });
-  res.status(201).json({ status: 'SUCCESS', message: 'Avatar changed done' });
 });
