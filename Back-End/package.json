@@ -21,11 +21,12 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^7.6.4",
     "multer": "^1.4.5-lts.1",
-    "nodemailer": "^6.9.7",
+    "nodemailer": "^6.9.9",
     "npm": "^10.2.4",
     "passport": "^0.6.0",
     "passport-facebook": "^3.0.0",
     "passport-google-oauth20": "^2.0.0",
+    "undici": "^6.6.2",
     "validator": "^13.11.0"
   },
   "keywords": []
