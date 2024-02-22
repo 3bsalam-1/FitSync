@@ -15,6 +15,7 @@ const errorController = require("./controllers/error.controller");
 const AppError = require("./utils/appError");
 const { ERROR } = require("./utils/httpStatusText");
 const authRouter = require("./routes/auth.router");
+const userRouter = require("./routes/user.router");
 const authCW = require("./routes/authCW.router");
 const userInfoRouter = require("./routes/userInfo.route");
 const vitalsignalRouter = require("./routes/vitalSig.route");
@@ -41,7 +42,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(helmet());
 
-app.use("/api/user", authRouter);
+app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
 app.use("/auth", authCW);
 app.use("/api/userInfo", userInfoRouter);
 app.use("/api/vitalsignal", vitalsignalRouter);

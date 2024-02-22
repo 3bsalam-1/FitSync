@@ -1,22 +1,10 @@
 const router = require("express").Router();
-const multer = require('multer');
 
 const AppError = require("../utils/appError");
 const authController = require("../controllers/auth.controller");
-const {registerValidate}=require('../middlewares/userValidate')
+const { registerValidate } = require("../middlewares/userValidate");
 
-
-
-const fileFilter = (req, file, cb) => {
-  const imageType = file.mimetype.split("/")[0];
-  if (imageType === "image") {
-    return cb(null, true);
-  }
-  return cb(AppError.create("file must be an image",'Error', 400), false);
-};
-const upload = multer({ storage:multer.memoryStorage(), fileFilter });
-
-router.post("/register",registerValidate, authController.Register);
+router.post("/register", registerValidate, authController.Register);
 router.get(
   "/sendCodeVerfiy",
   authController.protectForVerfiy,
@@ -37,11 +25,5 @@ router.post(
   authController.protectForVerfiy,
   authController.resetPassword
 );
-
-router
-  .route("/updatePassword")
-  .patch(authController.protect, authController.updatePassword);
-
-router.patch("/changeAvatar",authController.protect,upload.single("avatar"),authController.changeAvatar)
 
 module.exports = router;
