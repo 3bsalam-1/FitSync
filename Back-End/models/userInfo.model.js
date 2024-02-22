@@ -16,7 +16,7 @@ const userInfoSchema = new mongoose.Schema({
     },
     birthdate: {
         type: Date,
-        required: [true, 'Age is required']
+        required: [true, 'Birthdate is required']
     },
     gender: {
         type: Number,
@@ -72,7 +72,10 @@ const userInfoSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-
+    isActive: {
+        type: Boolean,
+        default: false
+    },
 });
 
 module.exports = mongoose.model('user-info', userInfoSchema)
