@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
-import 'animated_navigator.dart';
 
-PreferredSizeWidget customAppBar(BuildContext context, String title) {
+PreferredSizeWidget customAppBar(BuildContext context, String title, void Function()? onPressed) {
   return AppBar(
     backgroundColor: white,
     scrolledUnderElevation: 0,
@@ -17,9 +16,7 @@ PreferredSizeWidget customAppBar(BuildContext context, String title) {
     ),
     centerTitle: true,
     leading: IconButton(
-      onPressed: () {
-        AnimatedNavigator().pop(context);
-      },
+      onPressed: onPressed,
       icon: const Icon(
         Icons.arrow_circle_left,
         color: purple2,

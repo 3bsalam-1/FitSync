@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
-import 'animated_navigator.dart';
 
 class CustomMenuButton extends StatelessWidget {
   final List<String> labels;
-  final List<Widget> screens;
   final Widget? child;
+  final void Function(int)? onSelected;
 
   const CustomMenuButton({
     super.key,
     required this.labels,
-    required this.screens,
+    required this.onSelected,
     this.child,
   });
 
@@ -23,12 +22,7 @@ class CustomMenuButton extends StatelessWidget {
         iconColor: purple2,
         color: white,
         surfaceTintColor: white,
-        onSelected: (value) {
-          AnimatedNavigator().push(
-            context,
-            screens[value],
-          );
-        },
+        onSelected: onSelected,
         itemBuilder: (context) => List.generate(
           labels.length,
           (index) => PopupMenuItem(

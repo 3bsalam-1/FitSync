@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../cubits_logic/navigation_page_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/chart_data.dart';
 import '../../shared/widgets/activity_comp/custom_chart_column.dart';
 import '../../shared/widgets/activity_comp/custom_progress_challenge.dart';
 import '../../shared/widgets/global/custom_menu_button.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
-import 'daily_intake_activity_screen.dart';
-import 'daily_steps_activity_screen.dart';
-import 'hydration_activity_screen.dart';
-import 'sleep_activity_screen.dart';
 
 class ActivityMainScreen extends StatelessWidget {
   const ActivityMainScreen({super.key});
@@ -29,16 +27,13 @@ class ActivityMainScreen extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
-        actions: const [
+        actions: [
           CustomMenuButton(
-            labels: ['Sleep', 'Daily Steps', 'Hydration', 'Daily Intake'],
-            screens: [
-              SleepActivityScreen(),
-              DailyStepsActivityScreen(),
-              HydrationActivityScreen(),
-              DailyIntakeActivityScreen(),
-            ],
-            child: Icon(
+            labels: const ['Sleep', 'Daily Steps', 'Hydration', 'Daily Intake'],
+            onSelected: (pageIndex) {
+              context.read<NavigationPageCubit>().changePage(pageIndex+5);
+            },
+            child: const Icon(
               Icons.menu_outlined,
               color: purple2,
             ),
@@ -56,6 +51,7 @@ class ActivityMainScreen extends StatelessWidget {
               const SizedBox(height: 22),
               CustomChartColumn(
                 title: 'Sleep',
+                value: '170 hours',
                 subTitle: 'you slept better the last 4 weeks',
                 onPressed: () {
                   // todo
@@ -68,6 +64,7 @@ class ActivityMainScreen extends StatelessWidget {
               ),
               CustomChartColumn(
                 title: 'Steps',
+                value: '3.2 km',
                 subTitle:
                     'The number of steps you took per day was higher over the last 4 weeks',
                 onPressed: () {
@@ -80,6 +77,7 @@ class ActivityMainScreen extends StatelessWidget {
               ),
               CustomChartColumn(
                 title: 'Water',
+                value: '0.5 L',
                 subTitle:
                     'The liter of water you took per day was higher over the last 4 weeks',
                 onPressed: () {
@@ -94,6 +92,7 @@ class ActivityMainScreen extends StatelessWidget {
               ),
               CustomChartColumn(
                 title: 'Calories',
+                value: '700 kcal',
                 subTitle:
                     'The number of calories you burned per day was balanced  over the last 4 weeks',
                 onPressed: () {

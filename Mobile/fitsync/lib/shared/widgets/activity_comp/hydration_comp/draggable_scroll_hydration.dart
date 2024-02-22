@@ -10,10 +10,8 @@ class DraggableScrollHydration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return Container(
       width: double.maxFinite,
-      height: height * 0.7,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       margin: const EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
@@ -64,6 +62,7 @@ class DraggableScrollHydration extends StatelessWidget {
                 icon: Icons.water_drop_rounded,
               ),
             ),
+            const SizedBox(height: 50),
           ],
         ),
       ),

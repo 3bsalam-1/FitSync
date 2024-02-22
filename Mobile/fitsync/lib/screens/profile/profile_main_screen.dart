@@ -1,12 +1,12 @@
-import 'package:fitsync/shared/widgets/profile_comp.dart/custom_card_icon.dart';
-import 'package:fitsync/shared/widgets/profile_comp.dart/custom_card_switch.dart';
+import '../../shared/widgets/profile_comp.dart/custom_card_icon.dart';
+import '../../shared/widgets/profile_comp.dart/custom_card_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
+import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_menu_button.dart';
 import '../../shared/widgets/profile_comp.dart/profile_card.dart';
 import 'reminder_main_screen.dart';
-import 'write_reminder_screen.dart';
 
 class ProfileMainScreen extends StatelessWidget {
   const ProfileMainScreen({super.key});
@@ -20,15 +20,20 @@ class ProfileMainScreen extends StatelessWidget {
         title: Text(
           'Profile',
           style: GoogleFonts.poppins(
-                  fontSize: 22,
-                  color: black,
-                  fontWeight: FontWeight.w600,
-                ),
+            fontSize: 22,
+            color: black,
+            fontWeight: FontWeight.w600,
+          ),
         ),
-        actions: const [
+        actions: [
           CustomMenuButton(
-            labels: ['Add reminder', 'My reminders'],
-            screens: [WriteReminderScreen(), ReminderMainScreen()],
+            labels: const ['My reminders'],
+            onSelected: (pageIndex) {
+              AnimatedNavigator().push(
+                context,
+                const ReminderMainScreen(),
+              );
+            },
           ),
         ],
       ),

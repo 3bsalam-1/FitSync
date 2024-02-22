@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/survey_logic/choice_gender.dart';
-import '../Login/SignUp_screen.dart';
 import '../Login/login_screen.dart';
 import 'writing_questions.dart/name_question_screen.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
@@ -88,22 +87,14 @@ class WelcomeSurveyScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 60),
-                    TextButton(
-                      onPressed: () {
-                        AnimatedNavigator().push(
-                          context,
-                          const signup(),
-                        );
-                      },
-                      child: Center(
-                        child: Text(
-                          'Already have an account?',
-                          style: GoogleFonts.poppins(
-                            fontSize: 18,
-                            color: gray2,
-                            fontWeight: FontWeight.w500,
-                            decoration: TextDecoration.none,
-                          ),
+                    Center(
+                      child: Text(
+                        'Already have an account?',
+                        style: GoogleFonts.poppins(
+                          fontSize: 18,
+                          color: gray2,
+                          fontWeight: FontWeight.w500,
+                          decoration: TextDecoration.none,
                         ),
                       ),
                     ),

@@ -9,6 +9,7 @@ class CustomChartColumn extends StatelessWidget {
   final String subTitle;
   final void Function()? onPressed;
   final String? labelFormat;
+  final String value;
   final double maxYlabel;
   final double minYlabel;
   final List<ChartData> data;
@@ -27,6 +28,7 @@ class CustomChartColumn extends StatelessWidget {
     required this.maxYlabel,
     required this.minYlabel,
     required this.increaseData,
+    required this.value,
     this.interval,
     this.delayAnimation = 0,
     this.animationDuration = 1500,
@@ -54,13 +56,13 @@ class CustomChartColumn extends StatelessWidget {
       ),
       child: Column(
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     title,
@@ -71,25 +73,25 @@ class CustomChartColumn extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 7),
-                  SizedBox(
-                    width: width * 0.7,
-                    child: Text(
-                      subTitle,
-                      style: GoogleFonts.poppins(
-                        fontSize: 13,
-                        color: gray6,
-                        fontWeight: FontWeight.w500,
-                      ),
+                  Text(
+                    value,
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
+                      color: purple5,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                 ],
               ),
-              IconButton(
-                onPressed: onPressed,
-                icon: const Icon(
-                  Icons.calendar_month_outlined,
-                  color: purple5,
-                  size: 25,
+              SizedBox(
+                width: width * 0.7,
+                child: Text(
+                  subTitle,
+                  style: GoogleFonts.poppins(
+                    fontSize: 13,
+                    color: gray6,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ],

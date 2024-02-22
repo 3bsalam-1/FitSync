@@ -14,10 +14,8 @@ class DraggableScrollSleep extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Container(
       width: double.maxFinite,
-      height: height * 0.71,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       margin: const EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
@@ -105,6 +103,7 @@ class DraggableScrollSleep extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 15),
               child: CustomChartColumn(
                 title: 'Sleep',
+                value: '',
                 subTitle: 'you slept better the last 4 weeks',
                 onPressed: () {
                   // todo

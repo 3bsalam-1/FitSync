@@ -10,10 +10,8 @@ class DraggableScrollIntake extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
     return Container(
       width: double.maxFinite,
-      height: height * 0.7,
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
       margin: const EdgeInsets.only(top: 20),
       decoration: BoxDecoration(
@@ -30,60 +28,62 @@ class DraggableScrollIntake extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          const SizedBox(height: 10),
-          Container(
-            height: 7,
-            width: 70,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
-              color: gray7.withOpacity(0.7),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const SizedBox(height: 10),
+            Container(
+              height: 7,
+              width: 70,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: gray7.withOpacity(0.7),
+              ),
             ),
-          ),
-          // todo here add wedgits
-          const SizedBox(height: 30),
-          const CustomAnimatedOpacity(
-            child: ProgressDailyGools(progress: 40),
-          ),
-          const SizedBox(height: 50),
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              CustomAnimatedOpacity(
-                child: DailyInfoItem(
-                  label: 'Consumed',
-                  value: '700',
-                ),
-              ),
-              CustomAnimatedOpacity(
-                child: DailyInfoItem(
-                  label: 'Intake',
-                  value: '1820',
-                ),
-              ),
-              CustomAnimatedOpacity(
-                child: DailyInfoItem(
-                  label: 'Active Hours',
-                  value: '5',
-                  icon: Icons.timeline_rounded,
-                ),
-              ),
-            ],
-          ),
-          const Spacer(),
-          CustomAnimatedOpacity(
-            child: CustomButtonActivity(
-              label: 'Add Meal',
-              onPressed: () {
-                // todo here add meal
-              },
-              icon: Icons.apple_rounded,
+            // todo here add wedgits
+            const SizedBox(height: 30),
+            const CustomAnimatedOpacity(
+              child: ProgressDailyGools(progress: 40),
             ),
-          ),
-          const SizedBox(height: 40),
-        ],
+            const SizedBox(height: 50),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                CustomAnimatedOpacity(
+                  child: DailyInfoItem(
+                    label: 'Consumed',
+                    value: '700',
+                  ),
+                ),
+                CustomAnimatedOpacity(
+                  child: DailyInfoItem(
+                    label: 'Intake',
+                    value: '1820',
+                  ),
+                ),
+                CustomAnimatedOpacity(
+                  child: DailyInfoItem(
+                    label: 'Active Hours',
+                    value: '5',
+                    icon: Icons.timeline_rounded,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 50),
+            CustomAnimatedOpacity(
+              child: CustomButtonActivity(
+                label: 'Add Meal',
+                onPressed: () {
+                  // todo here add meal
+                },
+                icon: Icons.apple_rounded,
+              ),
+            ),
+            const SizedBox(height: 50),
+          ],
+        ),
       ),
     );
   }
