@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/survey_logic/choice_gender.dart';
+import '../Login/login_screen.dart';
 import 'writing_questions.dart/name_question_screen.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_button.dart';
@@ -27,41 +28,41 @@ class WelcomeSurveyScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 26),
-                    const Text(
+                    Text(
                       'Welcome to FitSync',
-                      style: TextStyle(
-                          color: gray2,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.none),
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        color: gray2,
+                        fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.none,
+                      ),
                     ),
-                    const Text(
+                    Text(
                       'What’s Your Gender ?',
-                      style: TextStyle(
-                          color: black,
-                          fontSize: 26,
-                          fontWeight: FontWeight.w600,
-                          decoration: TextDecoration.none),
+                      style: GoogleFonts.poppins(
+                        fontSize: 26,
+                        color: black,
+                        fontWeight: FontWeight.w600,
+                        decoration: TextDecoration.none,
+                      ),
                     ),
                     const SizedBox(height: 55),
                     Expanded(
                       child: CustomCard(
                         imagePath: 'assets/images/female.png',
                         label: 'Female',
-                        labelColor: isSelected == 1 ? white : black,
-                        background: isSelected == 1 ? purple2 : white,
+                        labelColor: black,
+                        background: white,
+                        borderColor: isSelected == 1 ? purple2 : white,
                         onTap: () {
                           context.read<ChoiceGender>().isFemale();
                           // todo here remove this below line
-                          Future.delayed(
-                            const Duration(milliseconds: 700),
-                            () {
-                              AnimatedNavigator().push(
-                                context,
-                                const NameQuestionScreen(),
-                              );
-                            }
-                          );
+                          Future.delayed(const Duration(milliseconds: 700), () {
+                            AnimatedNavigator().push(
+                              context,
+                              const NameQuestionScreen(),
+                            );
+                          });
                         },
                       ),
                     ),
@@ -70,36 +71,30 @@ class WelcomeSurveyScreen extends StatelessWidget {
                       child: CustomCard(
                         imagePath: 'assets/images/male.png',
                         label: 'Male',
-                        labelColor: isSelected == 0 ? white : black,
-                        background: isSelected == 0 ? purple2 : white,
+                        labelColor: black,
+                        background: white,
+                        borderColor: isSelected == 0 ? purple2 : white,
                         onTap: () {
                           context.read<ChoiceGender>().isMale();
                           // todo here remove this below line
-                          Future.delayed(
-                            const Duration(milliseconds: 700),
-                            () {
-                              AnimatedNavigator().push(
-                                context,
-                                const NameQuestionScreen(),
-                              );
-                            }
-                          );
+                          Future.delayed(const Duration(milliseconds: 700), () {
+                            AnimatedNavigator().push(
+                              context,
+                              const NameQuestionScreen(),
+                            );
+                          });
                         },
                       ),
                     ),
                     const SizedBox(height: 60),
-                    TextButton(
-                      onPressed: () {
-                        //TODO Go to register page
-                      },
-                      child: const Center(
-                        child: Text(
-                          'Already have an account?',
-                          style: TextStyle(
-                              color: gray2,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              decoration: TextDecoration.none),
+                    Center(
+                      child: Text(
+                        'Already have an account?',
+                        style: GoogleFonts.poppins(
+                          fontSize: 18,
+                          color: gray2,
+                          fontWeight: FontWeight.w500,
+                          decoration: TextDecoration.none,
                         ),
                       ),
                     ),
@@ -107,7 +102,10 @@ class WelcomeSurveyScreen extends StatelessWidget {
                     CustomButton(
                       label: 'log in',
                       onPressed: () {
-                        // TODO Go to login page
+                        AnimatedNavigator().push(
+                          context,
+                          const loginPage(),
+                        );
                       },
                     ),
                     const SizedBox(height: 60),

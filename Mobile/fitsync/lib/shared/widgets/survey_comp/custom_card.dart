@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../colors/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -6,15 +8,17 @@ class CustomCard extends StatelessWidget {
   final String label;
   final Color labelColor;
   final Color background;
+  final Color borderColor;
   final void Function()? onTap;
 
   const CustomCard({
     super.key,
     required this.imagePath,
     required this.label,
-    required this.background,
+    this.background = white,
     required this.onTap,
     required this.labelColor,
+    required this.borderColor,
   });
 
   @override
@@ -26,6 +30,10 @@ class CustomCard extends StatelessWidget {
         decoration: BoxDecoration(
             color: background,
             borderRadius: BorderRadius.circular(19),
+            border: Border.all(
+              width: 2,
+              color: borderColor,
+            ),
             boxShadow: [
               BoxShadow(
                 spreadRadius: 1,
@@ -42,10 +50,10 @@ class CustomCard extends StatelessWidget {
             children: [
               Text(
                 label,
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 20,
-                  fontWeight: FontWeight.w600,
                   color: labelColor,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               Image.asset(

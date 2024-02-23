@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
@@ -20,12 +22,12 @@ class StartChallengeScreen extends StatelessWidget {
       body: Column(
         children: [
           const Spacer(flex: 2),
-          const Text(
+          Text(
             'Get Ready!',
-            style: TextStyle(
-              color: purple5,
+            style: GoogleFonts.poppins(
               fontSize: 40,
-              fontWeight: FontWeight.w900,
+              color: purple5,
+              fontWeight: FontWeight.w800,
             ),
           ),
           const Spacer(flex: 1),
@@ -33,8 +35,8 @@ class StartChallengeScreen extends StatelessWidget {
           const AnimatedCircleProgress(seconds: 15),
           const Spacer(flex: 2),
           CustomButton(
-            label: 'Start over', 
-            onPressed: (){
+            label: 'Start over',
+            onPressed: () {
               // todo start the challenge
             },
             horizontalPadding: 100,

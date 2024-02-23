@@ -1,6 +1,7 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
-
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/workouts_body.dart';
@@ -13,10 +14,15 @@ class WorkoutsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        scrolledUnderElevation: 0,
+        backgroundColor: white,
+        title: Text(
           'Workouts',
-          style: TextStyle(
-              fontSize: 22, fontWeight: FontWeight.w600, color: black),
+          style: GoogleFonts.poppins(
+            fontSize: 22,
+            color: black,
+            fontWeight: FontWeight.w600,
+          ),
         ),
         actions: [
           IconButton(
@@ -33,6 +39,7 @@ class WorkoutsScreen extends StatelessWidget {
           ),
         ],
       ),
+      backgroundColor: white,
       body: const SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 15),

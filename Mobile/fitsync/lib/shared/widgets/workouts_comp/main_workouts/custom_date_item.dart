@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/workouts/week_dates.dart';
 import '../../../../services/week_dates.dart';
 import '../../../colors/colors.dart';
@@ -10,24 +11,28 @@ class CustomDayItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    return Container(
-      height: 85,
+    return SizedBox(
+      height: 100,
       width: width,
-      margin: const EdgeInsets.symmetric(
-        vertical: 7,
-      ),
       child: BlocBuilder<WeekDatesCubit, List<Map<int, String>>>(
         builder: (context, state) {
           return Center(
             child: ListView.builder(
-                itemCount: state.length,
-                scrollDirection: Axis.horizontal,
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                itemBuilder: (context, index) {
-                  return Container(
+              itemCount: state.length,
+              scrollDirection: Axis.horizontal,
+              physics: const NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {
+                    context.read<WeekDatesCubit>().isSeleced(index);
+                  },
+                  child: Container(
                     width: width / getWeekDates().length - 14,
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 5,
+                      vertical: 12,
+                    ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(70),
                       boxShadow: [
@@ -37,18 +42,19 @@ class CustomDayItem extends StatelessWidget {
                         ),
                       ],
                       gradient: LinearGradient(
-                        colors: state[index][0]! == DateTime.now().day.toString()
-                        ? [
-                          purple2,
-                          cyan,
-                        ]: [
-                          white,
-                          white,
-                        ],
+                        colors:
+                            index == context.read<WeekDatesCubit>().isSelected
+                                ? [
+                                    purple2,
+                                    cyan,
+                                  ]
+                                : [
+                                    white,
+                                    white,
+                                  ],
                         begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter, 
+                        end: Alignment.bottomCenter,
                       ),
-                      
                     ),
                     child: Center(
                       child: Column(
@@ -56,31 +62,33 @@ class CustomDayItem extends StatelessWidget {
                         children: [
                           Text(
                             state[index][0]!,
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                               fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: getWeekDates()[index][0]! ==
-                                      DateTime.now().day.toString()
+                              color: index ==
+                                      context.read<WeekDatesCubit>().isSelected
                                   ? white
                                   : gray4,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           Text(
-                            getWeekDates()[index][1]!,
-                            style: TextStyle(
+                            state[index][1]!,
+                            style: GoogleFonts.poppins(
                               fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                              color: getWeekDates()[index][0]! ==
-                                      DateTime.now().day.toString()
+                              color: index ==
+                                      context.read<WeekDatesCubit>().isSelected
                                   ? white
                                   : gray4,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
                       ),
                     ),
-                  );
-                }),
+                  ),
+                );
+              },
+            ),
           );
         },
       ),

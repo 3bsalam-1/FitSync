@@ -2,15 +2,12 @@ import 'package:fitsync/screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'package:flutter/material.dart';
+import 'cubits_logic/navigation_page_cubit.dart';
 import 'cubits_logic/survey_logic/animated_list_view.dart';
 import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'cubits_logic/workouts/week_dates.dart';
-import 'screens/workouts/start_challenge/challenge_begin_screen.dart';
-import 'screens/workouts/start_challenge/rest_challenge_screen.dart';
-import 'screens/workouts/start_challenge/start_challenge_screen.dart';
-import 'screens/workouts/workouts_screen.dart';
-import 'screens/workouts/workouts_view_challenge.dart';
+import 'screens/home_main_screen.dart';
 import 'shared/pref.dart';
 
 Future<void> main() async {
@@ -21,7 +18,7 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -39,13 +36,16 @@ class MyApp extends StatelessWidget {
           create: (context) => AnimatedListView()..startAnimation(),
         ),
         BlocProvider(
-          create: (context) => WeekDatesCubit(),
+          create: (context) => WeekDatesCubit()..showWeekDays(),
+        ),
+        BlocProvider(
+          create: (context) => NavigationPageCubit(),
         ),
       ],
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: RestChallengeScreen(),//ChallengeBeginScreen(),//StartChallengeScreen(),//WorkoutsScreen(),//SplashScreen(), 
+        home: HomeMainScreen(), //SplashScreen(),
       ),
     );
   }

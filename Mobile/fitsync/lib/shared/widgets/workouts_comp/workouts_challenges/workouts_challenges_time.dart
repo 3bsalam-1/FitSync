@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 
 class WorkoutsChallengesTime extends StatelessWidget {
@@ -15,23 +16,23 @@ class WorkoutsChallengesTime extends StatelessWidget {
             borderRadius: BorderRadius.circular(5),
             color: gray12.withOpacity(0.5),
           ),
-          child: const Row(
+          child: Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.access_time_rounded,
                 size: 18,
                 color: purple5,
               ),
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
               Text(
                 '60:00',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 12,
                   color: purple5,
                   fontWeight: FontWeight.w600,
                 ),
               ),
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
             ],
           ),
         ),
@@ -42,17 +43,17 @@ class WorkoutsChallengesTime extends StatelessWidget {
             borderRadius: BorderRadius.circular(5),
             color: gray12.withOpacity(0.5),
           ),
-          child: const Row(
+          child: Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.directions_run_rounded,
                 size: 18,
                 color: purple5,
               ),
-              SizedBox(width: 5),
+              const SizedBox(width: 5),
               Text(
                 '20 Exercises',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 12,
                   color: purple5,
                   fontWeight: FontWeight.w600,

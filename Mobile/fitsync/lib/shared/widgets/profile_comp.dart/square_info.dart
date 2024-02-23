@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
 
 class SquareInfo extends StatelessWidget {
@@ -32,18 +33,18 @@ class SquareInfo extends StatelessWidget {
         children: [
           Text(
             value,
-            style: const TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 14,
-              fontWeight: FontWeight.w700,
               color: black,
+              fontWeight: FontWeight.w700,
             ),
           ),
           Text(
             title,
-            style: const TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 12,
-              fontWeight: FontWeight.w400,
               color: gray4,
+              fontWeight: FontWeight.w400,
             ),
           ),
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
 
 class CustomToggleSwitch extends StatelessWidget {
@@ -37,13 +38,13 @@ class CustomToggleSwitch extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: isSelected ?  purple2: white,
+                color: isSelected ? purple2 : white,
               ),
               child: Text(
                 text1,
-                style: TextStyle(
-                  color: isSelected ? white: gray4,
+                style: GoogleFonts.poppins(
                   fontSize: 20,
+                  color: isSelected ? white : gray4,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -58,13 +59,13 @@ class CustomToggleSwitch extends StatelessWidget {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
-                color: isSelected ? white: purple2,
+                color: isSelected ? white : purple2,
               ),
               child: Text(
                 text2,
-                style: TextStyle(
-                  color: isSelected ? gray4: white,
+                style: GoogleFonts.poppins(
                   fontSize: 20,
+                  color: isSelected ? gray4 : white,
                   fontWeight: FontWeight.w600,
                 ),
               ),
