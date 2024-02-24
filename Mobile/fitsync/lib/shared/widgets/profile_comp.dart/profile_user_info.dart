@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
+import 'profile_setting_info.dart';
 import 'square_info.dart';
 
 class ProfileUserInfo extends StatelessWidget {
@@ -113,50 +114,3 @@ class ProfileUserInfo extends StatelessWidget {
     );
   }
 }
-
-List<Map<int, String>> userInfo = [
-  {
-    0: 'Username',
-    1: 'Alex',
-  },
-  {
-    0: 'Gender',
-    1: 'Male',
-  },
-  {
-    0: 'Birth-Date',
-    1: '20/06/2001',
-  },
-  {
-    0: 'Height',
-    1: '170 cm',
-  },
-  {
-    0: 'Weight',
-    1: '65kg',
-  },
-  {
-    0: 'Blood-sugar',
-    1: '45 Mg/dL',
-  },
-  {
-    0: 'Systolic-blood-pressure',
-    1: '40 SYS',
-  },
-  {
-    0: 'Diastolic-blood-pressure',
-    1: '35 DIA',
-  },
-  {
-    0: 'Cholesterol-level',
-    1: '35 Mg/dL',
-  },
-  {
-    0: 'Knee-Pain',
-    1: 'Quite-Pain',
-  },
-  {
-    0: 'Back-Pain',
-    1: 'Mild-Pain',
-  },
-];

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../cubits_logic/survey_logic/animated_list_view.dart';
 import '../../colors/colors.dart';
 import 'package:flutter/material.dart';
+import '../../pref.dart';
 import '../global/animated_navigator.dart';
 import 'custom_icon_app_bar.dart';
 import 'list_question_item.dart';
@@ -82,32 +83,32 @@ class ChoiceBodyQuestion extends StatelessWidget {
                           indexAnswer: state,
                           onTap: () {
                             // todo save the answers of the questions here
-                            context
-                                .read<ChoiseQuestionsCubit>()
-                                .isSelected(index);
+                            context.read<ChoiseQuestionsCubit>().isSelected(index);
                             Future.delayed(
                               const Duration(milliseconds: 500),
                               () {
-                                context
-                                    .read<AnimatedListView>()
-                                    .stopAnimation();
+                                context.read<AnimatedListView>().stopAnimation();
                               },
                             );
                             Future.delayed(
                               const Duration(seconds: 2),
                               () {
-                                context
-                                    .read<AnimatedListView>()
-                                    .startAnimation();
-                                context
-                                    .read<ChoiseQuestionsCubit>()
-                                    .isSelected(-1);
+                                context.read<AnimatedListView>().startAnimation();
+                                context.read<ChoiseQuestionsCubit>().isSelected(-1);
                                 // if the checkQuestion true then go to another writing question
                                 bool checkQuestion = questionIndex == 2 ||
-                                    questionIndex == 4 ||
-                                    questionIndex == 6 ||
-                                    questionIndex == 7 ||
-                                    questionIndex == 8;
+                                questionIndex == 4 ||
+                                questionIndex == 6 ||
+                                questionIndex == 7 ||
+                                questionIndex == 8;
+                                // if the question is equal 3 means that the user has back pain
+                                if (questionIndex == 3) {
+                                  Prefs.setString('back', question.choice[index]);
+                                }  
+                                // if the question is equal 5 means that the user has knee pain
+                                if (questionIndex == 5) {
+                                  Prefs.setString('knee', question.choice[index]);
+                                }    
                                 if (index == 1 && checkQuestion) {
                                   AnimatedNavigator().push(
                                     context,

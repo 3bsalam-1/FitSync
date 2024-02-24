@@ -20,6 +20,11 @@ final class WeightValidation extends TextFormValidationState {
   WeightValidation(this.errorText);
 }
 
+final class WeightSwitchConverter extends TextFormValidationState {
+  final bool isKgSelected;
+  WeightSwitchConverter(this.isKgSelected);
+}
+
 final class BirthValidation extends TextFormValidationState {
   final String? errorText;
   BirthValidation(this.errorText);

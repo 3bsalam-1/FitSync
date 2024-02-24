@@ -56,7 +56,6 @@ class WelcomeSurveyScreen extends StatelessWidget {
                         borderColor: isSelected == 1 ? purple2 : white,
                         onTap: () {
                           context.read<ChoiceGender>().isFemale();
-                          // todo here remove this below line
                           Future.delayed(const Duration(milliseconds: 700), () {
                             AnimatedNavigator().push(
                               context,
@@ -76,7 +75,6 @@ class WelcomeSurveyScreen extends StatelessWidget {
                         borderColor: isSelected == 0 ? purple2 : white,
                         onTap: () {
                           context.read<ChoiceGender>().isMale();
-                          // todo here remove this below line
                           Future.delayed(const Duration(milliseconds: 700), () {
                             AnimatedNavigator().push(
                               context,
