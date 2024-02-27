@@ -79,9 +79,9 @@ class forgotPasswordPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 4),
-                child: custom_TextFormField(
-                  icon_var: IconlyLight.message,
-                  hint_text: "Email",
+                child: CustomizeTextFormField(
+                  icon: IconlyLight.message,
+                  hintText: "Email",
                 ),
               ),
               SizedBox(

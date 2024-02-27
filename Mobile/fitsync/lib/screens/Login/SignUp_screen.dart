@@ -1,38 +1,82 @@
 import 'package:fitsync/shared/colors/colors.dart';
-
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:fitsync/shared/widgets/login_comp/custom_icon_button.dart';
 import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
+import 'package:fitsync/shared/widgets/login_comp/loading_dialog.dart';
+import 'package:fitsync/shared/widgets/login_comp/status_dialog.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
+import '../../data/cubit/auth_cubit.dart';
+import '../../shared/widgets/global/animated_navigator.dart';
+import '../survey/welcome_survey_screen.dart';
+import 'login_screen.dart';
 
-class signup extends StatelessWidget {
-  const signup({super.key});
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.arrow_circle_left,
-              color: purple3,
-              size: 40,
-            )),
+          onPressed: () {},
+          icon: const Icon(
+            Icons.arrow_circle_left,
+            color: purple3,
+            size: 40,
+          ),
+        ),
         backgroundColor: white,
       ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 16),
-                child: Row(
-                  children: [
-                    Text(
+      body: BlocConsumer<AuthCubit, AuthCubitState>(
+        listener: (context, state) {
+          if (state is AuthLoading) {
+            showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder: (_) => const LoadingDialog(),
+            );
+          } else if (state is AuthFaliure) {
+            Navigator.pop(context);
+            showDialog(
+              context: context,
+              builder: (_) => StatusDialog(
+                color: red,
+                message: state.message,
+                icon: Icons.clear,
+              ),
+            );
+          } else if (state is AuthSuccess) {
+            Navigator.pop(context);
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (_) => StatusDialog(
+                color: green2,
+                message: state.message,
+                icon: Icons.check,
+              ),
+            );
+          } else if (state is AuthRegister) {
+            AnimatedNavigator().pushAndRemoveUntil(
+              context,
+              const WelcomeSurveyScreen(),
+            );
+          }
+        },
+        builder: (context, state) {
+          return Form(
+            key: context.read<AuthCubit>().keyValidate,
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 16),
+                    child: Text(
                       'Hi!',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
@@ -41,14 +85,10 @@ class signup extends StatelessWidget {
                         // fontFamily:
                       ),
                     ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 3, left: 19),
-                child: Row(
-                  children: [
-                    Text(
+                  ),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 3, left: 19),
+                    child: Text(
                       'Create a new account',
                       style: TextStyle(
                         fontWeight: FontWeight.w400,
@@ -57,101 +97,164 @@ class signup extends StatelessWidget {
                         // fontFamily:
                       ),
                     ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 4, top: 30),
-                child: custom_TextFormField(
-                  icon_var: IconlyLight.profile,
-                  hint_text: "First Name",
-                ),
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              custom_TextFormField(
-                icon_var: IconlyLight.profile,
-                hint_text: "Last Name",
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              custom_TextFormField(
-                icon_var: IconlyLight.message,
-                hint_text: "Email",
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              custom_TextFormField(
-                icon_var: IconlyLight.lock,
-                hint_text: "Password",
-                suffix_icon: IconlyLight.hide,
-              ),
-              SizedBox(
-                height: 35,
-              ),
-              CustomButton(label: "Sign in", onPressed: () {}),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon_Button(
-                    principle_widget: Image.asset(
-                      "assets/images/Icons/google_icon.png",
-                      width: 24,
-                      height: 24,
-                    ),
-                    websiteUri:
-                        Uri.parse('https://fitsync.onrender.com/auth/google'),
                   ),
-                  Icon_Button(
-                      principle_widget: Icon(
-                    Icons.apple,
-                    color: black,
-                    size: 30,
-                  )),
-                  Icon_Button(
-                      principle_widget: Image.asset(
-                        "assets/images/Icons/facebook_icon.png",
-                        width: 30,
-                        height: 30,
-                      ),
-                      websiteUri: Uri.parse(
-                          'https://fitsync.onrender.com/auth/facebook')),
-                ],
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Do you have an account? ",
-                    style: TextStyle(
-                        color: gray2,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      
+                  const SizedBox(height: 22),
+                  CustomizeTextFormField(
+                    icon: IconlyLight.profile,
+                    hintText: "First Name",
+                    horizontalPadding: 25,
+                    controller: context.read<AuthCubit>().firstName,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'can Not be empty';
+                      } else if (value.length < 4 || value.length > 6) {
+                        return 'Letters must be between 4-6';
+                      }
+                      return null;
                     },
-                    child: Text(
-                      "Sign in",
-                      style: TextStyle(
-                          color: purple5,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 14),
-                    ),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 27,
+                  ),
+                  CustomizeTextFormField(
+                    icon: IconlyLight.profile,
+                    hintText: "Last Name",
+                    horizontalPadding: 25,
+                    controller: context.read<AuthCubit>().lastName,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'can Not be empty';
+                      } else if (value.length < 4 || value.length > 6) {
+                        return 'Letters must be between 4-6';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 27,
+                  ),
+                  CustomizeTextFormField(
+                    icon: IconlyLight.message,
+                    hintText: "Email",
+                    horizontalPadding: 25,
+                    controller: context.read<AuthCubit>().email,
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'can Not be empty';
+                      }
+                      bool isValidFormat = RegExp(
+                        r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
+                      ).hasMatch(value);
+                      if (!isValidFormat) {
+                        return 'Invalid email address';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 27,
+                  ),
+                  CustomizeTextFormField(
+                    icon: IconlyLight.lock,
+                    hintText: "Password",
+                    horizontalPadding: 25,
+                    controller: context.read<AuthCubit>().password,
+                    obscureText: context.read<AuthCubit>().isObscure,
+                    suffixIcon: context.read<AuthCubit>().isObscure
+                    ? IconlyLight.hide 
+                    : IconlyLight.show,
+                    onPressed: () {
+                      context.read<AuthCubit>().obscureCheck();
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'can Not be empty';
+                      }
+                      if (value.length < 8 || value.length > 12) {
+                        return 'password length must be between 8-12';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
+                    height: 35,
+                  ),
+                  CustomButton(
+                    label: "Sign Up",
+                    onPressed: () {
+                      context.read<AuthCubit>().register();
+                    },
+                  ),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon_Button(
+                        principle_widget: Image.asset(
+                          "assets/images/Icons/google_icon.png",
+                          width: 24,
+                          height: 24,
+                        ),
+                        websiteUri: Uri.parse(
+                          'https://fitsync.onrender.com/auth/google',
+                        ),
+                      ),
+                      Icon_Button(
+                        principle_widget: const Icon(
+                          Icons.apple,
+                          color: black,
+                          size: 30,
+                        ),
+                      ),
+                      Icon_Button(
+                        principle_widget: Image.asset(
+                          "assets/images/Icons/facebook_icon.png",
+                          width: 30,
+                          height: 30,
+                        ),
+                        websiteUri: Uri.parse(
+                          'https://fitsync.onrender.com/auth/facebook',
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Do you have an account? ",
+                        style: TextStyle(
+                          color: gray2,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                        ),
+                      ),
+                      InkWell(
+                        onTap: () {
+                          AnimatedNavigator().push(
+                            context,
+                            const LoginPage(),
+                          );
+                        },
+                        child: const Text(
+                          "Sign in",
+                          style: TextStyle(
+                            color: purple5,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 14,
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
                 ],
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
     );
   }

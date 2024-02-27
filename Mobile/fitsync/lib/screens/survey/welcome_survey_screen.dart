@@ -1,10 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/survey_logic/choice_gender.dart';
-import '../Login/login_screen.dart';
 import 'writing_questions.dart/name_question_screen.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
-import '../../shared/widgets/global/custom_button.dart';
 import '../../shared/widgets/survey_comp/custom_card.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
@@ -47,66 +45,39 @@ class WelcomeSurveyScreen extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 55),
-                    Expanded(
-                      child: CustomCard(
-                        imagePath: 'assets/images/female.png',
-                        label: 'Female',
-                        labelColor: black,
-                        background: white,
-                        borderColor: isSelected == 1 ? purple2 : white,
-                        onTap: () {
-                          context.read<ChoiceGender>().isFemale();
-                          Future.delayed(const Duration(milliseconds: 700), () {
-                            AnimatedNavigator().push(
-                              context,
-                              const NameQuestionScreen(),
-                            );
-                          });
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 22),
-                    Expanded(
-                      child: CustomCard(
-                        imagePath: 'assets/images/male.png',
-                        label: 'Male',
-                        labelColor: black,
-                        background: white,
-                        borderColor: isSelected == 0 ? purple2 : white,
-                        onTap: () {
-                          context.read<ChoiceGender>().isMale();
-                          Future.delayed(const Duration(milliseconds: 700), () {
-                            AnimatedNavigator().push(
-                              context,
-                              const NameQuestionScreen(),
-                            );
-                          });
-                        },
-                      ),
-                    ),
-                    const SizedBox(height: 60),
-                    Center(
-                      child: Text(
-                        'Already have an account?',
-                        style: GoogleFonts.poppins(
-                          fontSize: 18,
-                          color: gray2,
-                          fontWeight: FontWeight.w500,
-                          decoration: TextDecoration.none,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    CustomButton(
-                      label: 'log in',
-                      onPressed: () {
-                        AnimatedNavigator().push(
-                          context,
-                          const loginPage(),
-                        );
+                    CustomCard(
+                      imagePath: 'assets/images/female.png',
+                      label: 'Female',
+                      labelColor: black,
+                      background: white,
+                      borderColor: isSelected == 1 ? purple2 : white,
+                      onTap: () {
+                        context.read<ChoiceGender>().isFemale();
+                        Future.delayed(const Duration(milliseconds: 700), () {
+                          AnimatedNavigator().push(
+                            context,
+                            const NameQuestionScreen(),
+                          );
+                        });
                       },
                     ),
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 22),
+                    CustomCard(
+                      imagePath: 'assets/images/male.png',
+                      label: 'Male',
+                      labelColor: black,
+                      background: white,
+                      borderColor: isSelected == 0 ? purple2 : white,
+                      onTap: () {
+                        context.read<ChoiceGender>().isMale();
+                        Future.delayed(const Duration(milliseconds: 700), () {
+                          AnimatedNavigator().push(
+                            context,
+                            const NameQuestionScreen(),
+                          );
+                        });
+                      },
+                    ),
                   ],
                 );
               },

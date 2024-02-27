@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 
 import 'package:iconly/iconly.dart';
 
-class loginPage extends StatelessWidget {
-  const loginPage({super.key});
+class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,18 +62,18 @@ class loginPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 4, top: 40),
-                child: custom_TextFormField(
-                  icon_var: IconlyLight.message,
-                  hint_text: "Email",
+                child: CustomizeTextFormField(
+                  icon: IconlyLight.message,
+                  hintText: "Email",
                 ),
               ),
               SizedBox(
                 height: 30,
               ),
-              custom_TextFormField(
-                icon_var: IconlyLight.lock,
-                hint_text: "Password",
-                suffix_icon: IconlyLight.hide,
+              CustomizeTextFormField(
+                icon: IconlyLight.lock,
+                hintText: "Password",
+                suffixIcon: IconlyLight.hide,
               ),
               SizedBox(
                 height: 20,
