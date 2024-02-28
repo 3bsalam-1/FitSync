@@ -1,10 +1,13 @@
 const passport = require("passport");
 const FacebookStrategy = require("passport-facebook").Strategy;
+const jwt = require("jsonwebtoken");
+
 
 const User = require("../models/user.model");
 
+
 passport.serializeUser((user, done) => {
-  done(null, user._id);
+  done(null, user);
 });
 passport.deserializeUser(async (id, done) => {
   const user = await User.findById(id);
@@ -41,7 +44,7 @@ passport.use(
       firstName = name[0];
       lastName = name[1];
       name=name.join("");
-      const newUser = new User({ username: name, email, isVerify: true,firstName,lastName,avatar });
+      const newUser = new User({ username: name, email, isVerify: true,firstName,lastName,avatar,firstTime:true });
 
       await newUser.save({ validateBeforeSave: false });
       return done(null, newUser);

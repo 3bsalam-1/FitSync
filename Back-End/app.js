@@ -48,6 +48,10 @@ app.use("/auth", authCW);
 app.use("/api/userInfo", userInfoRouter);
 app.use("/api/vitalsignal", vitalsignalRouter);
 
+app.use("/", (req, res, next) => {
+  res.send("<h1>home screen</h1>");
+});
+
 app.all("*", (req, res, next) => [
   next(AppError.create("Page not found", ERROR, 404)),
 ]);
