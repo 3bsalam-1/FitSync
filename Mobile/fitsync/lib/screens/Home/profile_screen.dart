@@ -1,6 +1,12 @@
+import 'package:fitsync/screens/Home/calories_parameters_screen.dart';
+import 'package:fitsync/screens/Home/sleep_parameters_screen.dart';
+import 'package:fitsync/screens/Home/steps_parameters_screen.dart';
+import 'package:fitsync/screens/Home/water_parameters_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:fitsync/shared/widgets/home_comp/profile_custom_widget.dart';
+import 'package:fitsync/shared/widgets/home_comp/profile_widget_1.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
 
@@ -26,13 +32,18 @@ class ProfilePage extends StatelessWidget {
             ),
           ])
         ]),
-        actions: [Padding(
-          padding: const EdgeInsets.only(right:10.0),
-          child: UserWidget(),
-        ),],
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 20.0),
+            child: UserWidget(),
+          ),
+        ],
       ),
       body: Column(
         children: [
+          SizedBox(
+            height: 35,
+          ),
           Divider(
             thickness: 1,
             color: gray6,
@@ -59,34 +70,11 @@ class ProfilePage extends StatelessWidget {
             endIndent: 20,
             indent: 20,
           ),
-          Row(
-            children: [
-              Padding(
-                  padding: const EdgeInsets.only(left: 22),
-                  child: Image.asset(
-                    "assets/images/Icons/watch.PNG",
-                    width: 26,
-                  )),
-              Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: Text(
-                  "Connect with smartwatch",
-                  style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16,
-                    color: black,
-                  ),
-                ),
-              ),
-              Spacer(),
-              IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    IconlyLight.arrow_right_2,
-                    color: purple5,
-                    weight: 25,
-                  ))
-            ],
+          ProfileWidget1(
+            imageUrl: "assets/images/Icons/watch.PNG",
+            label: "Connect with smartwatch",
+            scale: 24,
+            onTap: () {},
           ),
           Divider(
             thickness: 1,
@@ -94,9 +82,11 @@ class ProfilePage extends StatelessWidget {
             endIndent: 20,
             indent: 20,
           ),
-          ProfileWidget(
-            label: "Create a Remainder",
-            icon: Icons.notifications_active_outlined,
+          ProfileWidget1(
+            imageUrl: "assets/images/Icons/remianderIcon.png",
+            label: "Create a Remainder ",
+            scale: 24,
+            onTap: () {},
           ),
           Divider(
             thickness: 1,
@@ -104,11 +94,67 @@ class ProfilePage extends StatelessWidget {
             endIndent: 20,
             indent: 20,
           ),
-          
+          ProfileWidget1(
+            imageUrl: "assets/images/Icons/caloriesIcon.png",
+            label: " Calorie Parameters",
+            scale: 18,
+            w: 2,
+            onTap: () {
+              AnimatedNavigator().push(context, CalorieScreen());
+            },
+          ),
+          Divider(
+            thickness: 1,
+            color: gray6,
+            endIndent: 20,
+            indent: 20,
+          ),
+          ProfileWidget1(
+            imageUrl: "assets/images/Icons/waterIcon.png",
+            label: "Water Parameters",
+            scale: 24,
+            onTap: () {
+              AnimatedNavigator().push(context, WaterParametersScreen());
+            },
+          ),
+          Divider(
+            thickness: 1,
+            color: gray6,
+            endIndent: 20,
+            indent: 20,
+          ),
+          ProfileWidget1(
+            imageUrl: "assets/images/Icons/sleepIcon.png",
+            label: "Sleep Parameters",
+            scale: 22,
+            w: 3,
+            onTap: () {
+              AnimatedNavigator().push(context, SleepParametersScreen());
+            },
+          ),
+          Divider(
+            thickness: 1,
+            color: gray6,
+            endIndent: 20,
+            indent: 20,
+          ),
+          ProfileWidget1(
+            imageUrl: "assets/images/Icons/sportIcon.png",
+            label: "Steps Parameters",
+            scale: 20,
+            w: 3,
+            onTap: () {
+              AnimatedNavigator().push(context, StepsParametersScreen());
+            },
+          ),
+          Divider(
+            thickness: 1,
+            color: gray6,
+            endIndent: 20,
+            indent: 20,
+          ),
         ],
       ),
     );
   }
 }
-
-

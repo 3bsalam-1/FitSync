@@ -1,5 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
 class ProfileWidget extends StatelessWidget {
@@ -29,7 +30,7 @@ class ProfileWidget extends StatelessWidget {
           padding: const EdgeInsets.only(left: 14),
           child: Text(
             label,
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
               fontSize: 16,
               color: black,

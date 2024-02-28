@@ -1,5 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
 class custom_TextFormField extends StatelessWidget {
@@ -40,7 +41,7 @@ class custom_TextFormField extends StatelessWidget {
 
         hintText: hint_text,
         hintStyle:
-            TextStyle(color: gray3, fontWeight: FontWeight.w400, fontSize: 16),
+            GoogleFonts.poppins(color: gray3, fontWeight: FontWeight.w400, fontSize: 16),
 
         focusedBorder: OutlineInputBorder(
           borderSide: BorderSide(color: purple4, width: 1.5),

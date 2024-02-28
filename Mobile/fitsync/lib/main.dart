@@ -1,3 +1,21 @@
+import 'package:fitsync/cubits_logic/diet_logic/counter/counter_cubit.dart';
+import 'package:fitsync/cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.dart';
+import 'package:fitsync/cubits_logic/diet_logic/favoriteIcon/cubit/favourite_icon_cubit.dart';
+import 'package:fitsync/screens/Diet/diet_screen.dart';
+import 'package:fitsync/screens/Diet/empty_state_screen.dart';
+import 'package:fitsync/screens/Diet/meal_overview_screen.dart';
+import 'package:fitsync/screens/Home/article_screen.dart';
+import 'package:fitsync/screens/Home/calories_parameters_screen.dart';
+import 'package:fitsync/screens/Home/heart_beat_screen.dart';
+import 'package:fitsync/screens/Home/home_screen.dart';
+import 'package:fitsync/screens/Home/notifications_screen.dart';
+import 'package:fitsync/screens/Home/profile_screen.dart';
+import 'package:fitsync/screens/Home/sleep_parameters_screen.dart';
+import 'package:fitsync/screens/Home/steps_parameters_screen.dart';
+import 'package:fitsync/screens/Home/tips&tricks_screen.dart';
+import 'package:fitsync/screens/Home/water_parameters_screen.dart';
+import 'package:fitsync/screens/Login/SignUp_screen.dart';
+import 'package:fitsync/screens/Login/login_screen.dart';
 import 'package:fitsync/screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
@@ -41,8 +59,17 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => NavigationPageCubit(),
         ),
+        BlocProvider(
+          create: (context) => CounterCubit(),
+        ),
+        BlocProvider(
+          create: (context) => DropDownButtonCubit(),
+        ),
+        BlocProvider(
+          create: (context) => FavouriteIconCubit(),
+        ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
         home: HomeMainScreen(), //SplashScreen(),
