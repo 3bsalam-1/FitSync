@@ -4,12 +4,18 @@ import 'package:flutter/material.dart';
 
 class MealTrackerWidget extends StatelessWidget {
   final String imageUrl;
+  final double width;
+  final double height;
+  final double h;
   final String label1;
   final String label2;
   final String label3;
   final double size;
   MealTrackerWidget({
     required this.imageUrl,
+    required this.width,
+    required this.height,
+    required this.h,
     required this.label1,
     required this.label2,
     required this.label3,
@@ -26,8 +32,11 @@ class MealTrackerWidget extends StatelessWidget {
         children: [
           Image.asset(
             imageUrl,
-            width: 28,
-            height: 28,
+            width: width,
+            height: height,
+          ),
+          SizedBox(
+            height: h,
           ),
           Text(
             label1,

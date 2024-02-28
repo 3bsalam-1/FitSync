@@ -1,6 +1,10 @@
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
 import 'package:fitsync/shared/widgets/diet_comp/meal_overview_page.dart';
 import 'package:fitsync/shared/widgets/diet_comp/meal_tracker_widget.dart';
+import 'package:fitsync/shared/widgets/diet_comp/page1.dart';
+import 'package:fitsync/shared/widgets/diet_comp/page2.dart';
+import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:flutter/material.dart';
@@ -20,13 +24,18 @@ class MealOverviewScreen extends StatelessWidget {
         backgroundColor: white,
         appBar: AppBar(
           backgroundColor: white,
-          leading: IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.arrow_circle_left,
-                color: purple3,
-                size: 40,
-              )),
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 6),
+            child: IconButton(
+                onPressed: () {
+                  AnimatedNavigator().pop(context);
+                },
+                icon: Icon(
+                  Icons.arrow_circle_left,
+                  color: purple3,
+                  size: 40,
+                )),
+          ),
           title: Text(
             'Meal Tracker',
             style: TextStyle(
@@ -38,7 +47,7 @@ class MealOverviewScreen extends StatelessWidget {
           centerTitle: true,
           actions: [
             Padding(
-              padding: const EdgeInsets.only(right: 10.0),
+              padding: const EdgeInsets.only(right: 16),
               child: UserWidget(),
             ),
           ],
@@ -154,168 +163,7 @@ class MealOverviewScreen extends StatelessWidget {
             ),
             Container(
               height: 250,
-              child: TabBarView(children: [
-                Column(
-                  children: [
-                    Column(
-                      children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: MealTrackerWidget(
-                                imageUrl: "assets/images/Icons/Weight.png",
-                                label1: 'Weight',
-                                label2: '300 ',
-                                label3: 'g',
-                                size: 18,
-                              ),
-                            ),
-                            Container(
-                              height: 80,
-                              width: 10,
-                              child: VerticalDivider(
-                                thickness: 2,
-                                color: gray12,
-                                width: 80,
-                                indent: 5,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8, left: 2),
-                              child: MealTrackerWidget(
-                                imageUrl: "assets/images/Icons/Calories.png",
-                                label1: 'Calories',
-                                label2: '61 ',
-                                label3: 'g',
-                                size: 18,
-                              ),
-                            ),
-                            Container(
-                              height: 80,
-                              width: 10,
-                              child: VerticalDivider(
-                                thickness: 2,
-                                color: gray12,
-                                width: 80,
-                                indent: 5,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8.0, left: 2),
-                              child: MealTrackerWidget(
-                                imageUrl: "assets/images/Icons/Diet.png",
-                                label1: 'Diet',
-                                label2: 'Ketogenic ',
-                                label3: '',
-                                size: 12,
-                              ),
-                            ),
-                            Container(
-                              height: 80,
-                              width: 10,
-                              child: VerticalDivider(
-                                thickness: 2,
-                                color: gray12,
-                                width: 80,
-                                indent: 5,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 8.0, left: 2),
-                              child: MealTrackerWidget(
-                                imageUrl: "assets/images/Icons/Nutrient.png",
-                                label1: 'Nutrient',
-                                label2: 'Magnesium ',
-                                label3: '',
-                                size: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10,
-                        ),
-                        Container(
-                            width: MediaQuery.sizeOf(context).width * 0.3,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              color: purple5,
-                              borderRadius: BorderRadius.circular(60),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.remove,
-                                    color: white,
-                                    size: 15,
-                                  ),
-                                ),
-                                Text(
-                                  '1',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18,
-                                    color: white,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                ),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.add,
-                                    color: white,
-                                    size: 15,
-                                  ),
-                                ),
-                              ],
-                            )),
-                        SizedBox(
-                          height: MediaQuery.sizeOf(context).height * 0.05,
-                        ),
-                        CustomButton(label: 'Add Meal', onPressed: () {})
-                      ],
-                    ),
-                  ],
-                ),
-                Container(
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20, top: 10),
-                            child: Text(
-                              "Ingredients That You \nWill Need",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: black2,
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(right: 20, bottom: 12),
-                            child: Text(
-                              '6 items',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 12,
-                                color: gray4,
-                              ),
-                            ),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                )
-              ]),
+              child: TabBarView(children: [Page1(), Page2()]),
             )
           ],
         ),

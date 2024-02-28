@@ -88,6 +88,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
           ),
           Spacer(),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               IconButton(
                   onPressed: () {},
@@ -97,7 +98,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                     size: 20,
                   )),
               Padding(
-                padding: const EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.only(right: 13),
                 child: Text(
                   'More Info',
                   style: TextStyle(

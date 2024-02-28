@@ -1,5 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_saved_recipes.dart';
+import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:fitsync/shared/widgets/survey_comp/custom_card.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,9 @@ class SavedRecipesScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: white,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AnimatedNavigator().pop(context);
+            },
             icon: Icon(
               Icons.arrow_circle_left,
               color: purple3,

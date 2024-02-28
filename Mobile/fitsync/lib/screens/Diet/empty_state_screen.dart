@@ -1,4 +1,5 @@
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
@@ -14,7 +15,9 @@ class EmptyStateScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: white,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AnimatedNavigator().pop(context);
+            },
             icon: Icon(
               Icons.arrow_circle_left,
               color: purple3,
