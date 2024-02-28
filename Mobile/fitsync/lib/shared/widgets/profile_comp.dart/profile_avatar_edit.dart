@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../colors/colors.dart';
 
@@ -51,30 +52,30 @@ class ProfileAvatarEdit extends StatelessWidget {
         ),
         const SizedBox(height: 7),
         // todo add the username here
-        const Text(
+        Text(
           'Alex Hormozi',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 20,
-            fontWeight: FontWeight.w600,
             color: white,
+            fontWeight: FontWeight.w600,
           ),
         ),
-        const Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.max,
           children: [
-            Icon(
+            const Icon(
               Icons.location_on_outlined,
               color: white,
               size: 20,
             ),
-            // todo show the city name location of the user 
+            // todo show the city name location of the user
             Text(
               'New York',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 14,
-                fontWeight: FontWeight.w500,
                 color: white,
+                fontWeight: FontWeight.w500,
               ),
             )
           ],

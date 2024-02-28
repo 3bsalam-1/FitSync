@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -21,14 +23,14 @@ class ExerciseSurveyScreen extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           children: [
-            const SizedBox(
+            SizedBox(
               width: double.maxFinite,
               child: Text(
                 'We will recommend exercises and suitable healthy diet',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontSize: 26,
-                  fontWeight: FontWeight.w600,
                   color: black,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -53,23 +55,23 @@ class ExerciseSurveyScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            const Text(
+            Text(
               'You can always change this setting later',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 18,
                 color: black,
               ),
             ),
-            const Text(
+            Text(
               'please consult your physician or other',
-              style: TextStyle(
+               style: GoogleFonts.poppins(
                 fontSize: 18,
                 color: black,
               ),
             ),
-            const Text(
+            Text(
               'health care professional when in doubt',
-              style: TextStyle(
+               style: GoogleFonts.poppins(
                 fontSize: 18,
                 color: black,
               ),

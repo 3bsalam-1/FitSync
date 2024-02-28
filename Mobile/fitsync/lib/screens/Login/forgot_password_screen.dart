@@ -4,6 +4,7 @@ import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:iconly/iconly.dart';
 
@@ -38,7 +39,7 @@ class forgotPasswordPage extends StatelessWidget {
                     children: [
                       Text(
                         'Forgot your password?',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,
                           color: black,
@@ -54,7 +55,7 @@ class forgotPasswordPage extends StatelessWidget {
                     children: [
                       Text(
                         'Enter your information below or',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w400,
                           fontSize: 16,
                           color: gray2,
@@ -70,7 +71,7 @@ class forgotPasswordPage extends StatelessWidget {
                     children: [
                       Text(
                         'Login with another account',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w400,
                           fontSize: 16,
                           color: gray2,
@@ -102,7 +103,7 @@ class forgotPasswordPage extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 27),
                           child: Text(
                             'Send again?',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                                 color: gray4,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16),

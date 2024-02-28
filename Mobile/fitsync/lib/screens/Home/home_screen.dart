@@ -238,7 +238,7 @@ class HomePage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Image.asset(
-                              "assets/images/Icons/Sneakers.png",
+                              "assets/images/Icons/sneakers.png",
                               width: 20,
                               height: 14,
                               color: purple5,

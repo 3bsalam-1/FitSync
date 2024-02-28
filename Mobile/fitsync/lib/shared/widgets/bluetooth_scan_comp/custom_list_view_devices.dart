@@ -1,9 +1,11 @@
 // has import flutter_blue_plus package so we use 'as cubit' to avoid conflict
+import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // Can NOT delete this Becuase devices varaible which it's data type is ScanResult
 import 'package:flutter_blue_plus/flutter_blue_plus.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../cubits_logic/cubit/bluetooth_cubit.dart' as cubit;
 
 class CustomListViewDevices extends StatelessWidget {
@@ -39,16 +41,18 @@ class CustomListViewDevices extends StatelessWidget {
         itemBuilder: (_, index) => ListTile(
           title: Text(
             'Device Name: ${devices[index].device.platformName}',
-            style: const TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 20,
-              fontWeight: FontWeight.bold,
+              color: black,
+              fontWeight: FontWeight.w500,
             ),
           ),
           subtitle: Text(
             'ID: ${devices[index].device.remoteId}',
-            style: const TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 18,
-              color: Colors.grey,
+              color: gray4,
+              fontWeight: FontWeight.w500,
             ),
           ),
           trailing: ElevatedButton(

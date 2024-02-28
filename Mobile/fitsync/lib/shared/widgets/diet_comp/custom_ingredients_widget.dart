@@ -1,5 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomIngredientsWidget extends StatelessWidget {
   final String imageUrl;
@@ -23,7 +24,7 @@ class CustomIngredientsWidget extends StatelessWidget {
             width: MediaQuery.of(context).size.width * (80 / 428),
             height: MediaQuery.of(context).size.height * (80 / 926),
             decoration: BoxDecoration(
-              color: gray15,
+              color: gray19,
               borderRadius: BorderRadius.circular(12),
             ),
             child: Image.asset(imageUrl),
@@ -32,7 +33,7 @@ class CustomIngredientsWidget extends StatelessWidget {
             padding: const EdgeInsets.only(top: 4),
             child: Text(
               label1,
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w400,
                 fontSize: 12,
                 color: black2,
@@ -43,7 +44,7 @@ class CustomIngredientsWidget extends StatelessWidget {
             padding: const EdgeInsets.only(top: 2),
             child: Text(
               label2,
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w400,
                 fontSize: 10,
                 color: gray4,

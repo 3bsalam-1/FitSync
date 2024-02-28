@@ -4,6 +4,7 @@ import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:fitsync/shared/widgets/login_comp/custom_otp_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class VerificationPage extends StatelessWidget {
   const VerificationPage({super.key});
@@ -29,13 +30,13 @@ class VerificationPage extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              const Padding(
+               Padding(
                 padding: EdgeInsets.only(left: 16),
                 child: Row(
                   children: [
                     Text(
                       'Verification',
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
                         fontSize: 26,
                         color: black,
@@ -45,13 +46,13 @@ class VerificationPage extends StatelessWidget {
                   ],
                 ),
               ),
-              const Padding(
+               Padding(
                 padding: EdgeInsets.only(top: 4, left: 19),
                 child: Row(
                   children: [
                     Text(
                       'we have sent you an email',
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
                         fontSize: 16,
                         color: gray2,

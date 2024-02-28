@@ -43,7 +43,7 @@ class loginPage extends StatelessWidget {
                     children: [
                       Text(
                         'Welcome Back !',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,
                           color: black,
@@ -59,7 +59,7 @@ class loginPage extends StatelessWidget {
                     children: [
                       Text(
                         'Glad to see you again',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w400,
                           fontSize: 16,
                           color: gray2,
@@ -98,7 +98,7 @@ class loginPage extends StatelessWidget {
                           padding: const EdgeInsets.only(right: 27),
                           child: Text(
                             'Forgot Password',
-                            style: TextStyle(
+                            style: GoogleFonts.poppins(
                                 color: gray4,
                                 fontWeight: FontWeight.w500,
                                 fontSize: 16),
@@ -138,7 +138,7 @@ class loginPage extends StatelessWidget {
                                       style: GoogleFonts.poppins(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 22,
-                                        color: gray19,
+                                        color: gray15,
 
                                         // fontFamily:
                                       ),
@@ -153,7 +153,7 @@ class loginPage extends StatelessWidget {
                                       style: GoogleFonts.poppins(
                                         fontWeight: FontWeight.w500,
                                         fontSize: 22,
-                                        color: gray19,
+                                        color: gray15,
 
                                         // fontFamily:
                                       ),
@@ -206,7 +206,7 @@ class loginPage extends StatelessWidget {
                   children: [
                     Text(
                       "Don’t have an account? ",
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                           color: gray2,
                           fontWeight: FontWeight.w500,
                           fontSize: 14),
@@ -217,7 +217,7 @@ class loginPage extends StatelessWidget {
                       },
                       child: Text(
                         "Signup",
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                             color: purple5,
                             fontWeight: FontWeight.w600,
                             fontSize: 14),

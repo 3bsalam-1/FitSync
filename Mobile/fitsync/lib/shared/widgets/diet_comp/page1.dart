@@ -4,6 +4,7 @@ import 'package:fitsync/shared/widgets/diet_comp/meal_tracker_widget.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Page1 extends StatelessWidget {
   const Page1({
@@ -133,7 +134,7 @@ class Page1 extends StatelessWidget {
                         ),
                         Text(
                           (context.read<CounterCubit>().index).toString(),
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w500,
                             fontSize: 18,
                             color: white,

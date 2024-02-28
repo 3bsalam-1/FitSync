@@ -1,4 +1,6 @@
+import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomBluetoothError extends StatelessWidget {
   final String imagePath;
@@ -28,12 +30,13 @@ class CustomBluetoothError extends StatelessWidget {
           const Spacer(flex: 1),
           Text(
             errorText,
-            style: const TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 20,
-              fontWeight: FontWeight.bold,
+              color: black,
+              fontWeight: FontWeight.w500,
             ),
-          ), 
-          const Spacer(flex: 2),         
+          ),
+          const Spacer(flex: 2),
         ],
       ),
     );

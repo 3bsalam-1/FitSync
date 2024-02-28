@@ -1,5 +1,6 @@
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
@@ -22,13 +23,13 @@ class RestChallengeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 15),
-            const Text(
+            Text(
               'Take Rest!',
-              style: TextStyle(
-                color: purple5,
-                fontSize: 40,
-                fontWeight: FontWeight.w900,
-              ),
+              style: GoogleFonts.poppins(
+            fontSize: 40,
+            color: purple5,
+            fontWeight: FontWeight.w800,
+          ),
             ),
             TweenAnimationBuilder<double>(
               tween: Tween<double>(begin: 0.0, end: 1),
@@ -37,11 +38,11 @@ class RestChallengeScreen extends StatelessWidget {
                 int seconds = (value * 20).toInt();
                 return Text(
                   '00:${seconds <= 9 ? '0$seconds' : seconds}',
-                  style: const TextStyle(
-                    fontSize: 35,
-                    fontWeight: FontWeight.w600,
-                    color: black,
-                  ),
+                  style: GoogleFonts.poppins(
+            fontSize: 35,
+            color: black,
+            fontWeight: FontWeight.w600,
+          ),
                 );
               },
             ),
@@ -51,26 +52,26 @@ class RestChallengeScreen extends StatelessWidget {
                 color: gray7,
               ),
             ),
-            const Align(
+            Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Next Movement(2/7)',
-                style: TextStyle(
-                  color: gray7,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: GoogleFonts.poppins(
+            fontSize: 20,
+            color: gray7,
+            fontWeight: FontWeight.w600,
+          ),
               ),
             ),
-            const Align(
+            Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 'Cow Pose',
-                style: TextStyle(
-                  color: black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
+                style: GoogleFonts.poppins(
+            fontSize: 20,
+            color: black,
+            fontWeight: FontWeight.w600,
+          ),
               ),
             ),
             const Spacer(),

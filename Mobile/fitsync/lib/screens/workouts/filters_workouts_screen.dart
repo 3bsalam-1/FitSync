@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../shared/widgets/workouts_comp/workouts_list/custom_filter_item.dart';
 import 'package:flutter/material.dart';
 import '../../shared/colors/colors.dart';
@@ -22,12 +24,12 @@ class FiltersWorkoutsScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        title: const Text(
+        title: Text(
           'Filter',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 22,
-            fontWeight: FontWeight.w600,
             color: black,
+            fontWeight: FontWeight.w600,
           ),
         ),
       ),

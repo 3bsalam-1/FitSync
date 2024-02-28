@@ -73,7 +73,7 @@ class TipsAndTricksWidget extends StatelessWidget {
               RichText(
                 text: TextSpan(
                   text: label2,
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                     color: white,
@@ -81,13 +81,13 @@ class TipsAndTricksWidget extends StatelessWidget {
                   children: <TextSpan>[
                     TextSpan(
                         text: label3,
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w500,
                             fontSize: 18,
                             color: yellow)),
                     TextSpan(
                         text: label6,
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w500,
                             fontSize: 18,
                             color: white)),
@@ -100,7 +100,7 @@ class TipsAndTricksWidget extends StatelessWidget {
               RichText(
                 text: TextSpan(
                     text: label4,
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w500,
                       fontSize: 14,
                       color: white,
@@ -108,7 +108,7 @@ class TipsAndTricksWidget extends StatelessWidget {
                     children: <TextSpan>[
                       TextSpan(
                           text: label7,
-                          style: TextStyle(
+                          style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
                               color: yellow)),

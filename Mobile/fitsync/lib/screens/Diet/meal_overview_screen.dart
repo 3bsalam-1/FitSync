@@ -8,6 +8,7 @@ import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -38,7 +39,7 @@ class MealOverviewScreen extends StatelessWidget {
           ),
           title: Text(
             'Meal Tracker',
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
               fontSize: 24,
               color: black3,
@@ -88,7 +89,7 @@ class MealOverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, top: 15),
                   child: Text(
                     "Chocolate appo",
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 22,
                       color: black,
@@ -115,7 +116,7 @@ class MealOverviewScreen extends StatelessWidget {
                   ),
                   child: Text(
                     '99% Healthy',
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 12,
                       color: gray10,
@@ -132,7 +133,7 @@ class MealOverviewScreen extends StatelessWidget {
                   ),
                   child: Text(
                     'Fits in Budget',
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 12,
                       color: gray10,
@@ -147,12 +148,12 @@ class MealOverviewScreen extends StatelessWidget {
                   indicatorWeight: 0.01,
                   indicatorColor: purple5,
                   labelColor: purple5,
-                  labelStyle: TextStyle(
+                  labelStyle: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                   ),
                   unselectedLabelColor: black,
-                  unselectedLabelStyle: TextStyle(
+                  unselectedLabelStyle: GoogleFonts.poppins(
                     fontWeight: FontWeight.w400,
                     fontSize: 18,
                   ),

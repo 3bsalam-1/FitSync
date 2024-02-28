@@ -62,11 +62,11 @@ class SavedRecipesWidget extends StatelessWidget {
           child: Text(
             label1,
             style: GoogleFonts.poppins(
-              textStyle: TextStyle(
+              
                 fontWeight: FontWeight.w500,
                 fontSize: 12,
                 color: white,
-              ),
+              
             ),
           ),
         ),
@@ -76,11 +76,11 @@ class SavedRecipesWidget extends StatelessWidget {
           child: Text(
             label2,
             style: GoogleFonts.poppins(
-              textStyle: TextStyle(
+              
                 fontWeight: FontWeight.w500,
                 fontSize: 10,
                 color: white,
-              ),
+              
             ),
           ),
         ),
@@ -91,11 +91,11 @@ class SavedRecipesWidget extends StatelessWidget {
             child: Text(
               "More Info",
               style: GoogleFonts.poppins(
-                textStyle: TextStyle(
+               
                   fontWeight: FontWeight.w700,
                   fontSize: 7,
                   color: white,
-                ),
+                
               ),
             ),
             onPressed: () {},

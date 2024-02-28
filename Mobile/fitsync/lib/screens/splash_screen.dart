@@ -1,6 +1,8 @@
-import 'package:fitsync/screens/survey/welcome_survey_screen.dart';
-import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
+import 'package:google_fonts/google_fonts.dart';
 
+import '../shared/widgets/global/custom_animated_opacity.dart';
+import 'survey/welcome_survey_screen.dart';
+import '../shared/widgets/global/animated_navigator.dart';
 import '../shared/colors/colors.dart';
 import '../shared/widgets/global/custom_icon_button.dart';
 import 'package:flutter/material.dart';
@@ -17,48 +19,67 @@ class SplashScreen extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.max,
         children: [
-          Container(
-            width: double.maxFinite,
-            padding: EdgeInsets.only(top: height*0.1),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('assets/images/background_logo.png'),
+          CustomAnimatedOpacity(
+            child: SizedBox(
+              width: double.maxFinite,
+              height: height * 0.54,
+              child: Stack(
+                alignment: Alignment.topCenter,
+                children: [
+                  Image.asset(
+                    'assets/images/background_logo.png',
+                    width: double.maxFinite,
+                    height: height * 0.5,
+                    fit: BoxFit.fill,
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    child: Image.asset(
+                      'assets/images/logo.png',
+                      fit: BoxFit.contain,
+                      width: 200,
+                      height: height * 0.43,
+                    ),
+                  ),
+                ],
               ),
-            ),
-            child: Image.asset(
-              'assets/images/logo.png',
-              fit: BoxFit.contain,
-              width: 200,
-              height: height * 0.43,
             ),
           ),
           const SizedBox(height: 30),
-          Image.asset(
-            'assets/images/logo_name.png',
+          CustomAnimatedOpacity(
+            duration: const Duration(milliseconds: 700),
+            child: Image.asset(
+              'assets/images/logo_name.png',
+            ),
           ),
-          const SizedBox(
-            width: double.maxFinite,
-            child: Text(
-              'Fuel Your Fitness Journey with',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 22,
-                fontWeight: FontWeight.w600,
-                decoration: TextDecoration.none,
-                color: gray,
+          CustomAnimatedOpacity(
+            duration: const Duration(milliseconds: 700),
+            child: SizedBox(
+              width: double.maxFinite,
+              child: Text(
+                'Fuel Your Fitness Journey with',
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  fontSize: 22,
+                  color: gray,
+                  fontWeight: FontWeight.w600,
+                  decoration: TextDecoration.none,
+                ),
               ),
             ),
           ),
           const Spacer(),
-          CustomIconButton(
-            label: 'start now',
-            onPressed: () {
-              AnimatedNavigator().pushAndRemoveUntil(
-                context,
-                const WelcomeSurveyScreen(),
-              );
-            },
+          CustomAnimatedOpacity(
+            duration: const Duration(milliseconds: 700),
+            child: CustomIconButton(
+              label: 'start now',
+              onPressed: () {
+                AnimatedNavigator().pushAndRemoveUntil(
+                  context,
+                  const WelcomeSurveyScreen(),
+                );
+              },
+            ),
           ),
           const SizedBox(height: 30),
         ],

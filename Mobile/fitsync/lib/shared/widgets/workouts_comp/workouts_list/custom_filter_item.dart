@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 
 class CustomFilterItem extends StatefulWidget {
@@ -32,10 +33,10 @@ class _CustomFilterItemState extends State<CustomFilterItem> {
           ),
           child: Text(
             widget.label,
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontSize: 10,
-              fontWeight: FontWeight.w500,
               color: isSelected ? white : gray4,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ),

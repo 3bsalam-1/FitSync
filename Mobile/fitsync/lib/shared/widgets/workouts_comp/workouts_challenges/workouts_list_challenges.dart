@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -41,24 +43,24 @@ class WorkoutsListChallenges extends StatelessWidget {
                 height: 77,
               ),
               const SizedBox(width: 20),
-              const Column(
+              Column(
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Reclining to big toe',
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w600,
+                    style: GoogleFonts.poppins(
+                      fontSize: 16,
                       color: black,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   Text(
                     '00:30',
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 14,
-                      fontWeight: FontWeight.w500,
                       color: gray4,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ],

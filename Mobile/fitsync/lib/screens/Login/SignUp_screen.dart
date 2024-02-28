@@ -69,7 +69,7 @@ class _signupState extends State<signup> {
                     children: [
                       Text(
                         'Hi!',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
                           fontSize: 26,
                           color: black,
@@ -85,7 +85,7 @@ class _signupState extends State<signup> {
                     children: [
                       Text(
                         'Create a new account',
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w400,
                           fontSize: 16,
                           color: gray2,
@@ -257,7 +257,7 @@ class _signupState extends State<signup> {
                   children: [
                     Text(
                       "Do you have an account? ",
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                           color: gray2,
                           fontWeight: FontWeight.w500,
                           fontSize: 14),
@@ -268,7 +268,7 @@ class _signupState extends State<signup> {
                       },
                       child: Text(
                         "Sign in",
-                        style: TextStyle(
+                        style: GoogleFonts.poppins(
                             color: purple5,
                             fontWeight: FontWeight.w600,
                             fontSize: 14),

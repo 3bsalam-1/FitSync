@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../../shared/widgets/survey_comp/custom_snackbar.dart';
 import 'tall_question_screen.dart';
 import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
@@ -45,12 +47,12 @@ class WeightQuestionScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     'What’s Your Weight?',
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 26,
-                      fontWeight: FontWeight.w600,
                       color: black,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
                   const Spacer(),
@@ -109,9 +111,7 @@ class WeightQuestionScreen extends StatelessWidget {
                     label: 'Continue',
                     horizontalPadding: 0,
                     onPressed: () {
-                      context
-                          .read<TextFormValidationCubit>()
-                          .weightValidate();
+                      context.read<TextFormValidationCubit>().weightValidate();
                     },
                   ),
                   const SizedBox(height: 30),

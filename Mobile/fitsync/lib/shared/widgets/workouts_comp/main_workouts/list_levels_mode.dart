@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/workouts/selected_level_mode.dart';
 import '../../../colors/colors.dart';
 
@@ -37,7 +38,7 @@ class ListLevelsMode extends StatelessWidget {
                 child: Center(
                   child: Text(
                     context.read<SelectedLevelMode>().level[index],
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: state == index ? white : gray4,
                       fontWeight: FontWeight.w600,

@@ -1,3 +1,5 @@
+import 'package:google_fonts/google_fonts.dart';
+
 import '../../global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
@@ -39,9 +41,9 @@ class CardItems extends StatelessWidget {
               children: [
                 SizedBox(
                   width: width * 0.42,
-                  child: const Text(
+                  child: Text(
                     'Strong Glutes Lean Legs',
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontSize: 22,
                       color: white,
                       fontWeight: FontWeight.w500,
@@ -58,27 +60,27 @@ class CardItems extends StatelessWidget {
                     borderRadius: BorderRadius.circular(5),
                     color: purple5,
                   ),
-                  child: const Row(
+                  child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.access_time_sharp,
                         color: white,
                         size: 17,
                       ),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       Text(
                         '15 Minutes Workout',
-                        style: TextStyle(
-                          color: white,
+                        style: GoogleFonts.poppins(
                           fontSize: 12,
+                          color: white,
+                          fontWeight: FontWeight.w500,
                         ),
                       )
                     ],
                   ),
                 ),
-                CustomStartButton(
-                  onTap: () {
+                CustomStartButton(onTap: () {
                   // TODO start the workouts
                   AnimatedNavigator().push(
                     context,

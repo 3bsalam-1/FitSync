@@ -1,5 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AnimatedCircleProgress extends StatelessWidget {
   final int seconds;
@@ -24,11 +25,11 @@ class AnimatedCircleProgress extends StatelessWidget {
             ),
           ),
           Text(
-            (value*seconds).toInt().toString(),//.toInt().toString(),
-            style: const TextStyle(
-              color: black,
+            (value * seconds).toInt().toString(), //.toInt().toString(),
+            style: GoogleFonts.poppins(
               fontSize: 50,
-              fontWeight: FontWeight.w700,
+              color: black,
+              fontWeight: FontWeight.w600,
             ),
           )
         ],

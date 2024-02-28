@@ -1,3 +1,4 @@
+import 'package:fitsync/screens/home_main_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
