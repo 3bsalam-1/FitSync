@@ -6,12 +6,11 @@ import '../models/user_data_model.dart';
 import 'package:http/http.dart' as http;
 
 class UserAuthRepo {
-
   // Method to send user data to create new account
   Future<ResponseModel?> userRegister({required UserDataModel userData}) async {
     try {
       http.Response response = await http.post(
-        Uri.parse('$baseUrl/api/user/register'),
+        Uri.parse('$baseUrl/api/auth/register'),
         headers: {
           "Content-Type": "application/json",
         },
@@ -32,7 +31,7 @@ class UserAuthRepo {
       return null;
     }
   }
-  
+
   // Method to send email & password to login
   Future<ResponseModel?> userLogin({
     required String email,
