@@ -219,7 +219,7 @@ class SignUp extends StatelessWidget {
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'can Not be empty';
-                      } else if (value ==
+                      } else if (value !=
                           context.read<AuthCubit>().password.text) {
                         return 'Password do not match';
                       }
