@@ -8,17 +8,18 @@ class LoadingDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
+      backgroundColor: white,
       content: Padding(
         padding: const EdgeInsets.symmetric(vertical: 22),
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const SizedBox(
+            SizedBox(
               height: 120,
               width: 120,
               child: CircularProgressIndicator(
                 color: green2,
-                backgroundColor: gray5,
+                backgroundColor: gray4.withOpacity(0.2),
                 strokeWidth: 12,
                 strokeCap: StrokeCap.round,
               ),

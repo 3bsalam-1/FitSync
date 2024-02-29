@@ -5,24 +5,27 @@ import 'package:flutter/services.dart';
 class CustomOtpWidget extends StatelessWidget {
   final bool last;
   final bool first;
+  final TextEditingController? controller;
 
-  CustomOtpWidget({
+  const CustomOtpWidget({
     required this.first,
     required this.last,
+    this.controller,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 38,
       height: 92,
       child: TextFormField(
+        controller: controller,
         onChanged: (value) {
           if (value.length == 1 && last == false) {
             FocusScope.of(context).nextFocus();
           }
-          if (value.length == 0 && first == false) {
+          if (value.isEmpty && first == false) {
             FocusScope.of(context).previousFocus();
           }
         },
@@ -35,11 +38,11 @@ class CustomOtpWidget extends StatelessWidget {
         ],
         decoration: InputDecoration(
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: purple4, width: 1.5),
+            borderSide: const BorderSide(color: purple4, width: 1.5),
             borderRadius: BorderRadius.circular(25),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: gray3, width: 1.5),
+            borderSide: const BorderSide(color: gray3, width: 1.5),
             borderRadius: BorderRadius.circular(25),
           ),
         ),

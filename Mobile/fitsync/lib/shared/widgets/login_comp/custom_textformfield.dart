@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomizeTextFormField extends StatelessWidget {
   final String hintText;
-  final IconData icon;
+  final IconData? icon;
   final IconData? suffixIcon;
   final void Function()? onPressed;
   final double horizontalPadding;
@@ -13,7 +13,7 @@ class CustomizeTextFormField extends StatelessWidget {
 
   const CustomizeTextFormField({
     super.key,
-    required this.icon,
+    this.icon,
     required this.hintText,
     this.suffixIcon,
     this.onPressed,
@@ -32,14 +32,14 @@ class CustomizeTextFormField extends StatelessWidget {
         validator: validator,
         obscureText: obscureText,
         decoration: InputDecoration(
-          prefixIcon: Padding(
+          prefixIcon: icon != null? Padding(
             padding: const EdgeInsets.only(bottom: 5, left: 4),
             child: Icon(
               icon,
               color: gray4,
             ),
-          ),
-          suffixIcon: Padding(
+          ): null,
+          suffixIcon: icon != null? Padding(
             padding: const EdgeInsets.only(bottom: 5),
             child: IconButton(
               onPressed: onPressed,
@@ -48,7 +48,7 @@ class CustomizeTextFormField extends StatelessWidget {
                 color: gray3,
               ),
             ),
-          ),
+          ): null,
           hintText: hintText,
           hintStyle: const TextStyle(
             color: gray3,

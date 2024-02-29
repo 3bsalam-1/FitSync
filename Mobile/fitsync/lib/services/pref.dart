@@ -12,15 +12,23 @@ class Prefs {
     return  await _prefs.setStringList(key, value);
   }
 
-  static List<String> getStringList(String key) {
-    return _prefs.getStringList(key)!;
+  static List<String>? getStringList(String key) {
+    return _prefs.getStringList(key);
   }
 
   static Future<bool> setString(String key, String value) async {
     return  await _prefs.setString(key, value);
   }
 
-  static String getString(String key) {
-    return _prefs.getString(key)!;
+  static String? getString(String key) {
+    return _prefs.getString(key);
+  }
+
+  static Future<bool> setBool(String key, bool value) async {
+    return  await _prefs.setBool(key, value);
+  }
+
+  static bool? getBool(String key) {
+    return _prefs.getBool(key);
   }
 }

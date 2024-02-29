@@ -49,7 +49,7 @@ class PasswordRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The Error is: ${e.toString()}');
       return null;
     }
   }

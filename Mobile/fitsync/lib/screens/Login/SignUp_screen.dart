@@ -9,8 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import '../../data/cubit/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
-import '../survey/welcome_survey_screen.dart';
 import 'login_screen.dart';
+import 'verification_screen.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -22,7 +22,9 @@ class SignUp extends StatelessWidget {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            AnimatedNavigator().pop(context);
+          },
           icon: const Icon(
             Icons.arrow_circle_left,
             color: purple3,
@@ -63,7 +65,7 @@ class SignUp extends StatelessWidget {
           } else if (state is AuthRegister) {
             AnimatedNavigator().pushAndRemoveUntil(
               context,
-              const WelcomeSurveyScreen(),
+              const VerificationPage(),
             );
           }
         },
@@ -101,9 +103,9 @@ class SignUp extends StatelessWidget {
                   const SizedBox(height: 22),
                   CustomizeTextFormField(
                     icon: IconlyLight.profile,
-                    hintText: "First Name",
+                    hintText: " User Name",
                     horizontalPadding: 25,
-                    controller: context.read<AuthCubit>().firstName,
+                    controller: context.read<AuthCubit>().username,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'can Not be empty';
@@ -114,24 +116,47 @@ class SignUp extends StatelessWidget {
                     },
                   ),
                   const SizedBox(
-                    height: 27,
+                    height: 12,
                   ),
-                  CustomizeTextFormField(
-                    icon: IconlyLight.profile,
-                    hintText: "Last Name",
-                    horizontalPadding: 25,
-                    controller: context.read<AuthCubit>().lastName,
-                    validator: (value) {
-                      if (value!.isEmpty) {
-                        return 'can Not be empty';
-                      } else if (value.length < 4 || value.length > 6) {
-                        return 'Letters must be between 4-6';
-                      }
-                      return null;
-                    },
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 21),
+                    child: Row(
+                      children: [
+                        Flexible(
+                          child: CustomizeTextFormField(
+                            hintText: "First Name",
+                            horizontalPadding: 4,
+                            controller: context.read<AuthCubit>().firstName,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'can Not be empty';
+                              } else if (value.length < 4 || value.length > 6) {
+                                return 'Letters must be between 4-6';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                        Flexible(
+                          child: CustomizeTextFormField(
+                            hintText: "Last Name",
+                            horizontalPadding: 4,
+                            controller: context.read<AuthCubit>().lastName,
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'can Not be empty';
+                              } else if (value.length < 4 || value.length > 6) {
+                                return 'Letters must be between 4-6';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                   const SizedBox(
-                    height: 27,
+                    height: 12,
                   ),
                   CustomizeTextFormField(
                     icon: IconlyLight.message,
@@ -152,7 +177,7 @@ class SignUp extends StatelessWidget {
                     },
                   ),
                   const SizedBox(
-                    height: 27,
+                    height: 12,
                   ),
                   CustomizeTextFormField(
                     icon: IconlyLight.lock,
@@ -161,8 +186,8 @@ class SignUp extends StatelessWidget {
                     controller: context.read<AuthCubit>().password,
                     obscureText: context.read<AuthCubit>().isObscure,
                     suffixIcon: context.read<AuthCubit>().isObscure
-                    ? IconlyLight.hide 
-                    : IconlyLight.show,
+                        ? IconlyLight.hide
+                        : IconlyLight.show,
                     onPressed: () {
                       context.read<AuthCubit>().obscureCheck();
                     },
@@ -177,6 +202,31 @@ class SignUp extends StatelessWidget {
                     },
                   ),
                   const SizedBox(
+                    height: 12,
+                  ),
+                  CustomizeTextFormField(
+                    icon: Icons.security_sharp,
+                    hintText: "Confirm Password",
+                    horizontalPadding: 25,
+                    controller: context.read<AuthCubit>().confirmPassword,
+                    obscureText: context.read<AuthCubit>().isObscureConfirm,
+                    suffixIcon: context.read<AuthCubit>().isObscureConfirm
+                        ? IconlyLight.hide
+                        : IconlyLight.show,
+                    onPressed: () {
+                      context.read<AuthCubit>().obscureCheckConfirm();
+                    },
+                    validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'can Not be empty';
+                      } else if (value ==
+                          context.read<AuthCubit>().password.text) {
+                        return 'Password do not match';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(
                     height: 35,
                   ),
                   CustomButton(
@@ -185,7 +235,7 @@ class SignUp extends StatelessWidget {
                       context.read<AuthCubit>().register();
                     },
                   ),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                  const SizedBox(height: 25),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -219,7 +269,7 @@ class SignUp extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 16,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -232,8 +282,8 @@ class SignUp extends StatelessWidget {
                           fontSize: 14,
                         ),
                       ),
-                      InkWell(
-                        onTap: () {
+                      TextButton(
+                        onPressed: () {
                           AnimatedNavigator().push(
                             context,
                             const LoginPage(),

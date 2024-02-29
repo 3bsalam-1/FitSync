@@ -20,6 +20,11 @@ final class AuthSuccess extends AuthCubitState {
 
   AuthSuccess(this.message);
 }
+final class AuthWentWrong extends AuthCubitState {
+  final String message;
+
+  AuthWentWrong(this.message);
+}
 
 final class AuthLoading extends AuthCubitState {}
 

@@ -2,13 +2,12 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
-import '../../shared/pref.dart';
+import '../../services/pref.dart';
 part 'text_form_validation_state.dart';
 
 class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   TextFormValidationCubit() : super(TextFormValidationInitial());
 
-  final nameController = TextEditingController();
   final ageController = TextEditingController();
   final birthDayController = TextEditingController();
   final birthMonthController = TextEditingController();
@@ -21,19 +20,6 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   final cholesterolController = TextEditingController();
   bool isCmSelected = true;
   bool isKgSelected = true;
-
-  void nameValidate() {
-    if (nameController.text.isNotEmpty) {
-      if (nameController.text.length >= 4) {
-        Prefs.setString('name', nameController.text);
-        emit(NameValidation(null));
-      } else {
-        emit(NameValidation('The name should be more than 3 letters'));
-      }
-    } else {
-      emit(NameValidation('Can not be empty'));
-    }
-  }
 
   void ageValidate() {
     if (ageController.text.isNotEmpty) {

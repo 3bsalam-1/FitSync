@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../shared/pref.dart';
+import '../../services/pref.dart';
 
 class ChoiceGender extends Cubit<int> {
   ChoiceGender() : super(-1);

@@ -1,13 +1,13 @@
-import '../../pref.dart';
+import '../../../services/pref.dart';
 
 List<Map<int, String>> userInfo = [
   {
     0: 'Username',
-    1: Prefs.getString('name'),
+    1: Prefs.getString('name')?? '',
   },
   {
     0: 'Gender',
-    1: Prefs.getString('gender'),
+    1: Prefs.getString('gender')?? '',
   },
   {
     0: 'Birth-Date',
@@ -19,30 +19,30 @@ List<Map<int, String>> userInfo = [
   },
   {
     0: 'Weight',
-    1: Prefs.getString('weight'),
+    1: Prefs.getString('weight')?? '',
   },
   {
     0: 'Blood-sugar',
-    1: Prefs.getString('bloodSugar'),
+    1: Prefs.getString('bloodSugar')?? '',
   },
   {
     0: 'Systolic-blood-pressure',
-    1: Prefs.getString('systolic'),
+    1: Prefs.getString('systolic')?? '',
   },
   {
     0: 'Diastolic-blood-pressure',
-    1:  Prefs.getString('diastolic'),
+    1:  Prefs.getString('diastolic')?? '',
   },
   {
     0: 'Cholesterol-level',
-    1: Prefs.getString('chole'),
+    1: Prefs.getString('chole')?? '',
   },
   {
     0: 'Knee-Pain',
-    1: Prefs.getString('knee'),
+    1: Prefs.getString('knee')?? '',
   },
   {
     0: 'Back-Pain',
-    1: Prefs.getString('back'),
+    1: Prefs.getString('back')?? '',
   },
 ];

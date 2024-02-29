@@ -1,11 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/survey_logic/choice_gender.dart';
-import 'writing_questions.dart/name_question_screen.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/survey_comp/custom_card.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+
+import 'writing_questions.dart/date_birth_screen.dart';
 
 class WelcomeSurveyScreen extends StatelessWidget {
   const WelcomeSurveyScreen({super.key});
@@ -56,7 +57,7 @@ class WelcomeSurveyScreen extends StatelessWidget {
                         Future.delayed(const Duration(milliseconds: 700), () {
                           AnimatedNavigator().push(
                             context,
-                            const NameQuestionScreen(),
+                            const DateBirthScreen(),
                           );
                         });
                       },
@@ -73,7 +74,7 @@ class WelcomeSurveyScreen extends StatelessWidget {
                         Future.delayed(const Duration(milliseconds: 700), () {
                           AnimatedNavigator().push(
                             context,
-                            const NameQuestionScreen(),
+                            const DateBirthScreen(),
                           );
                         });
                       },

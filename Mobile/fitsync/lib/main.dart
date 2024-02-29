@@ -1,4 +1,5 @@
-import 'package:fitsync/shared/colors/colors.dart';
+import 'cubits_logic/splash_screen_next_cubit.dart';
+import 'screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +9,7 @@ import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'cubits_logic/workouts/week_dates.dart';
 import 'data/cubit/auth_cubit.dart';
-import 'screens/Login/SignUp_screen.dart';
-import 'shared/pref.dart';
+import 'services/pref.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,11 +45,14 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => AuthCubit(),
         ),
+        BlocProvider(
+          create: (context) => SplashScreenNextCubit(),
+        ),
       ],
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: SignUp(),
+        home: SplashScreen(),
       ),
     );
   }
