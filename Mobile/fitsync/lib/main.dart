@@ -11,7 +11,7 @@ import 'cubits_logic/workouts/week_dates.dart';
 import 'data/cubit/auth_cubit.dart';
 import 'services/pref.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Prefs.init();
   runApp(const MyApp());

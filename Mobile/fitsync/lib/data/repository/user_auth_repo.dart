@@ -39,7 +39,7 @@ class UserAuthRepo {
   }) async {
     try {
       http.Response response = await http.post(
-        Uri.parse('$baseUrl/api/user/login'),
+        Uri.parse('$baseUrl/api/auth/login'),
         headers: {
           'Content-Type': 'application/json',
         },
