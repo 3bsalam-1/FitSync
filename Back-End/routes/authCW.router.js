@@ -8,7 +8,7 @@ router.route("/google").get(
   })
 );
 router
-  .route("/google/callback")
+  .route("/google/redirect")
   .get(
     passport.authenticate("google", {
       successRedirect: "https://fitsync.onrender.com",
