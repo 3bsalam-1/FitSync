@@ -50,6 +50,7 @@ class WritingBodyQuestion extends StatelessWidget {
             CustomTextFormField(
               hintText: labelField,
               controller: controller,
+              keyboardType: TextInputType.number,
             ),
             Center(
               child: Text(
