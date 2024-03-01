@@ -49,6 +49,14 @@ class LoginPage extends StatelessWidget {
                 icon: Icons.check,
               ),
             );
+          } else if (state is AuthWentWrong) {
+            Navigator.pop(context);
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: red,
+                content: Text(state.message),
+              ),
+            );
           } else if (state is AuthLogin) {
             AnimatedNavigator().pushAndRemoveUntil(
               context,

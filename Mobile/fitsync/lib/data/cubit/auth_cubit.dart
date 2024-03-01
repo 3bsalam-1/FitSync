@@ -10,7 +10,6 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthCubitState> {
   AuthCubit() : super(AuthCubitInitial());
-  late BuildContext buildContext;
   var email = TextEditingController();
   var password = TextEditingController();
   var confirmPassword = TextEditingController();
@@ -41,21 +40,25 @@ class AuthCubit extends Cubit<AuthCubitState> {
         email: email.text,
         password: password.text,
       ).then((response) {
-        if (response!.token == '') {
-          // will show error massege which there something went wrong
-          emit(AuthFaliure(response.message));
+        if (response != null) {
+          if (response.token == '') {
+            // will show error massege which there something went wrong
+            emit(AuthFaliure(response.message!));
+          } else {
+            // There is no error then go to the home page & save token
+            Prefs.setString('token', response.token!);
+            // The user is created account so they will save as login to the app
+            Prefs.setBool('isLogin', true);
+            emit(AuthSuccess('Creating your plan'));
+            Future.delayed(
+              const Duration(seconds: 2),
+              () {
+                emit(AuthLogin());
+              },
+            );
+          }
         } else {
-          // There is no error then go to the home page & save token
-          Prefs.setString('token', response.token!);
-          // The user is created account so they will save as login to the app
-          Prefs.setBool('isLogin', true);
-          emit(AuthSuccess('Creating your plan'));
-          Future.delayed(
-            const Duration(seconds: 2),
-            () {
-              emit(AuthLogin());
-            },
-          );
+          emit(AuthWentWrong('Something went wrong in server'));
         }
       });
       // show dailog for waiting the process to finish
@@ -77,9 +80,10 @@ class AuthCubit extends Cubit<AuthCubitState> {
           passwordConfirm: confirmPassword.text,
         ),
       ).then((response) {
-        if (response!.token == '') {
+        if (response != null) {
+          if (response.token == '') {
           // will show error massege which there something went wrong
-          emit(AuthFaliure(response.message));
+          emit(AuthFaliure(response.message!));
         } else {
           // There is no error then go to the home page & save token
           Prefs.setString('token', response.token!);
@@ -91,6 +95,10 @@ class AuthCubit extends Cubit<AuthCubitState> {
             },
           );
         }
+        } else {
+          emit(AuthWentWrong('Something went wrong in server'));
+        }
+        
       });
       // show dailog for waiting the process to finish
       emit(AuthLoading());
@@ -119,7 +127,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
       ).then((response) {
         if (response!.token == '') {
           // will show error massege which there something went wrong
-          emit(AuthFaliure(response.message));
+          emit(AuthFaliure(response.message!));
         } else {
           // There is no error then go to the home page & save token
           Prefs.setString('token', response.token!);
@@ -148,13 +156,17 @@ class AuthCubit extends Cubit<AuthCubitState> {
       pass.forgetPassword(
         email: email.text,
       ).then((response) {
-        emit(AuthSuccess(response!.message));
-        Future.delayed(
-          const Duration(seconds: 3),
-          () {
-            emit(AuthLogin());
-          },
-        );
+        if (response != null) {
+          emit(AuthSuccess(response.message!));
+          Future.delayed(
+            const Duration(seconds: 3),
+            () {
+              emit(AuthLogin());
+            },
+          );
+        } else {
+          emit(AuthWentWrong('Something went wrong in server'));
+        }
       });
       // show dailog for waiting the process to finish
       emit(AuthLoading());
