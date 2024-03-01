@@ -5,7 +5,7 @@ class ResponseModel {
   ResponseModel({required this.token, required this.message});
 
   factory ResponseModel.fromJson(Map<String, dynamic> json) => ResponseModel(
-    token: json['token'],
+    token: json['token'] ?? '',
     message: json['message'],
   );
 }

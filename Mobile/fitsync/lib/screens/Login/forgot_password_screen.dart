@@ -1,3 +1,5 @@
+import 'package:fitsync/screens/Login/verification_screen.dart';
+
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import '../../shared/widgets/login_comp/custom_textformfield.dart';
@@ -8,7 +10,6 @@ import '../../data/cubit/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/login_comp/loading_dialog.dart';
 import '../../shared/widgets/login_comp/status_dialog.dart';
-import '../home_main_screen.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
@@ -38,16 +39,6 @@ class ForgotPasswordPage extends StatelessWidget {
               context: context,
               builder: (_) => const LoadingDialog(),
             );
-          } else if (state is AuthFaliure) {
-            Navigator.pop(context);
-            showDialog(
-              context: context,
-              builder: (_) => StatusDialog(
-                color: red,
-                message: state.message,
-                icon: Icons.clear,
-              ),
-            );
           } else if (state is AuthSuccess) {
             Navigator.pop(context);
             showDialog(
@@ -62,7 +53,7 @@ class ForgotPasswordPage extends StatelessWidget {
           } else if (state is AuthLogin) {
             AnimatedNavigator().pushAndRemoveUntil(
               context,
-              const HomeMainScreen(),
+              const VerificationPage(),
             );
           }
         },

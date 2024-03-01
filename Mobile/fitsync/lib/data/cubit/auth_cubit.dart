@@ -41,7 +41,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
         email: email.text,
         password: password.text,
       ).then((response) {
-        if (response!.token == null) {
+        if (response!.token == '') {
           // will show error massege which there something went wrong
           emit(AuthFaliure(response.message));
         } else {
@@ -67,8 +67,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
     if (keyValidate.currentState!.validate()) {
-      auth
-          .userRegister(
+      auth.userRegister(
         userData: UserDataModel(
           firstName: firstName.text,
           lastName: lastName.text,
@@ -77,9 +76,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
           password: password.text,
           passwordConfirm: confirmPassword.text,
         ),
-      )
-          .then((response) {
-        if (response!.token == null) {
+      ).then((response) {
+        if (response!.token == '') {
           // will show error massege which there something went wrong
           emit(AuthFaliure(response.message));
         } else {
@@ -119,7 +117,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
         token: Prefs.getString('token')!,
         code: otpCode,
       ).then((response) {
-        if (response!.token == null) {
+        if (response!.token == '') {
           // will show error massege which there something went wrong
           emit(AuthFaliure(response.message));
         } else {
@@ -131,7 +129,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
           Prefs.setBool('takeSurvey', false);
           emit(AuthSuccess('The Verification Success'));
           Future.delayed(
-            const Duration(seconds: 2),
+            const Duration(seconds: 3),
             () {
               emit(AuthLogin());
             },
@@ -150,20 +148,13 @@ class AuthCubit extends Cubit<AuthCubitState> {
       pass.forgetPassword(
         email: email.text,
       ).then((response) {
-        if (response!.token == null) {
-          // will show error massege which there something went wrong
-          emit(AuthFaliure(response.message));
-        } else {
-          // There is no error then go to the home page & save token
-          Prefs.setString('token', response.token!);
-          //emit(AuthSuccess(''));
-          Future.delayed(
-            const Duration(seconds: 1),
-            () {
-              emit(AuthLogin());
-            },
-          );
-        }
+        emit(AuthSuccess(response!.message));
+        Future.delayed(
+          const Duration(seconds: 3),
+          () {
+            emit(AuthLogin());
+          },
+        );
       });
       // show dailog for waiting the process to finish
       emit(AuthLoading());

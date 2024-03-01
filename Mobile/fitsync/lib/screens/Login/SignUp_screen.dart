@@ -30,6 +30,7 @@ class SignUp extends StatelessWidget {
             context.read<AuthCubit>().password.clear();
             context.read<AuthCubit>().confirmPassword.clear();
             context.read<AuthCubit>().isObscure = true;
+            context.read<AuthCubit>().autovalidateMode = AutovalidateMode.disabled;
             AnimatedNavigator().pop(context);
           },
           icon: const Icon(
@@ -80,6 +81,7 @@ class SignUp extends StatelessWidget {
         builder: (context, state) {
           return Form(
             key: context.read<AuthCubit>().keyValidate,
+            autovalidateMode: context.read<AuthCubit>().autovalidateMode,
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
