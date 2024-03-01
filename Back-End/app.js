@@ -42,7 +42,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(helmet());
 
-app.use("/", (req, res, next) => {
+app.use("/home", (req, res, next) => {
   res.send("<h1>home screen</h1>");
 });
 
