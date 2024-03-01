@@ -109,8 +109,8 @@ class SignUp extends StatelessWidget {
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'can Not be empty';
-                      } else if (value.length < 4 || value.length > 6) {
-                        return 'Letters must be between 4-6';
+                      } else if (value.length < 4 || value.length > 15) {
+                        return 'Letters must be between 4-15';
                       }
                       return null;
                     },
@@ -130,8 +130,8 @@ class SignUp extends StatelessWidget {
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'can Not be empty';
-                              } else if (value.length < 4 || value.length > 6) {
-                                return 'Letters must be between 4-6';
+                              } else if (value.length < 4 || value.length > 12) {
+                                return 'Letters must be between 4-12';
                               }
                               return null;
                             },
@@ -145,8 +145,8 @@ class SignUp extends StatelessWidget {
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'can Not be empty';
-                              } else if (value.length < 4 || value.length > 6) {
-                                return 'Letters must be between 4-6';
+                              } else if (value.length < 4 || value.length > 12) {
+                                return 'Letters must be between 4-12';
                               }
                               return null;
                             },
