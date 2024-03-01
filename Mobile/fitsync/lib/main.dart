@@ -1,7 +1,7 @@
+import 'cubits_logic/bluetooth/bluetooth_cubit.dart';
 import 'cubits_logic/splash_screen_next_cubit.dart';
 import 'screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'cubits_logic/navigation_page_cubit.dart';
 import 'cubits_logic/survey_logic/animated_list_view.dart';

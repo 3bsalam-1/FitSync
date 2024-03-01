@@ -6,8 +6,6 @@ import 'package:flutter/material.dart';
 class CustomCard extends StatelessWidget {
   final String imagePath;
   final String label;
-  final Color labelColor;
-  final Color background;
   final Color borderColor;
   final void Function()? onTap;
 
@@ -15,9 +13,7 @@ class CustomCard extends StatelessWidget {
     super.key,
     required this.imagePath,
     required this.label,
-    this.background = white,
     required this.onTap,
-    required this.labelColor,
     required this.borderColor,
   });
 
@@ -28,7 +24,7 @@ class CustomCard extends StatelessWidget {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         decoration: BoxDecoration(
-            color: background,
+            color: white,
             borderRadius: BorderRadius.circular(19),
             border: Border.all(
               width: 2,
@@ -43,7 +39,10 @@ class CustomCard extends StatelessWidget {
               ),
             ]),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 20, 
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -52,7 +51,7 @@ class CustomCard extends StatelessWidget {
                 label,
                 style: GoogleFonts.poppins(
                   fontSize: 20,
-                  color: labelColor,
+                  color: black,
                   fontWeight: FontWeight.w600,
                 ),
               ),

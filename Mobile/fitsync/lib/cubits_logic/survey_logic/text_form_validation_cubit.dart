@@ -9,9 +9,7 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   TextFormValidationCubit() : super(TextFormValidationInitial());
 
   final ageController = TextEditingController();
-  final birthDayController = TextEditingController();
-  final birthMonthController = TextEditingController();
-  final birthYearController = TextEditingController();
+  String birthDateController = '';
   final weightController = TextEditingController();
   final tallController = TextEditingController();
   final bloodSugarController = TextEditingController();
@@ -47,7 +45,7 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
           Prefs.setString('weight', weightController.text);
           emit(WeightValidation(null));
         } else if (weight >= 66 && weight <= 880 && !isKgSelected) {
-          Prefs.setString('weight', (weight*2.2).toString());
+          Prefs.setString('weight', (weight * 2.2).toString());
           emit(WeightValidation(null));
         } else {
           emit(WeightValidation('The weight must be between 30-400'));
@@ -99,29 +97,16 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   }
 
   void birthDateValidate() {
-    if (birthDayController.text.isNotEmpty &&
-        birthMonthController.text.isNotEmpty &&
-        birthYearController.text.isNotEmpty) {
-      try {
-        int day = int.parse(birthDayController.text);
-        int month = int.parse(birthMonthController.text);
-        int year = int.parse(birthYearController.text);
-        if (day <= 31 &&
-            day >= 1 &&
-            month >= 1 &&
-            month <= 12 &&
-            year >= 1930 &&
-            year <= 2016) {
-          emit(BirthValidation(null));
-        } else {
-          emit(BirthValidation('Invalid birth date'));
-        }
-      } on FormatException {
-        emit(BirthValidation('The birth date must be a number'));
-      }
+    if (birthDateController.isNotEmpty) {
+      emit(BirthValidation(null));
     } else {
-      emit(BirthValidation('Can not be empty please fill the others'));
+      emit(BirthValidation('Can not be empty please select birth date'));
     }
+  }
+  
+  void updateBirthDateValue(String value) {
+    birthDateController = value;
+    emit(TextFormValidationInitial());
   }
 
   void tallDateValidate() {

@@ -5,11 +5,6 @@ sealed class TextFormValidationState {}
 
 final class TextFormValidationInitial extends TextFormValidationState {}
 
-final class NameValidation extends TextFormValidationState {
-  final String? errorText;
-  NameValidation(this.errorText);
-}
-
 final class AgeValidation extends TextFormValidationState {
   final String? errorText;
   AgeValidation(this.errorText);

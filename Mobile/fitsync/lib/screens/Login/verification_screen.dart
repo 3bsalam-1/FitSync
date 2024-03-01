@@ -134,6 +134,16 @@ class VerificationPage extends StatelessWidget {
                     last: true,
                     controller: context.read<AuthCubit>().opt[3],
                   ),
+                  CustomOtpWidget(
+                    first: false,
+                    last: false,
+                    controller: context.read<AuthCubit>().opt[4],
+                  ),
+                  CustomOtpWidget(
+                    first: false,
+                    last: true,
+                    controller: context.read<AuthCubit>().opt[5],
+                  ),
                 ],
               ),
               const Spacer(),

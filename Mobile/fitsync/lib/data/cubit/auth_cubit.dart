@@ -25,6 +25,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
     TextEditingController(),
     TextEditingController(),
     TextEditingController(),
+    TextEditingController(),
+    TextEditingController(),
   ];
   var autovalidateMode = AutovalidateMode.disabled;
   bool isObscure = true;
@@ -103,10 +105,10 @@ class AuthCubit extends Cubit<AuthCubitState> {
   }
 
   void verifyCode() {
-    String otpCode = opt.elementAt(0).text +
-        opt.elementAt(1).text +
-        opt.elementAt(2).text +
-        opt.elementAt(3).text;
+    String otpCode = '';
+    for (var element in opt) {
+      otpCode += element.text;
+    }
     if (otpCode.length == 4) {
       verfiy.confirmCodeVerfiy(
         token: Prefs.getString('token')!,
@@ -140,9 +142,11 @@ class AuthCubit extends Cubit<AuthCubitState> {
 
   void forgetPassword() {
     if (email.text.isNotEmpty) {
-      pass.forgetPassword(
+      pass
+          .forgetPassword(
         email: email.text,
-      ).then((response) {
+      )
+          .then((response) {
         if (response!.token == null) {
           // will show error massege which there something went wrong
           emit(AuthFaliure(response.message));
@@ -165,7 +169,5 @@ class AuthCubit extends Cubit<AuthCubitState> {
     }
   }
 
-  void sendPassword() {
-    
-  }
+  void sendPassword() {}
 }
