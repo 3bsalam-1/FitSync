@@ -131,7 +131,7 @@ class VerificationPage extends StatelessWidget {
                   ),
                   CustomOtpWidget(
                     first: false,
-                    last: true,
+                    last: false,
                     controller: context.read<AuthCubit>().opt[3],
                   ),
                   CustomOtpWidget(

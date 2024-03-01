@@ -23,6 +23,13 @@ class SignUp extends StatelessWidget {
         scrolledUnderElevation: 0,
         leading: IconButton(
           onPressed: () {
+            context.read<AuthCubit>().username.clear();
+            context.read<AuthCubit>().firstName.clear();
+            context.read<AuthCubit>().lastName.clear();
+            context.read<AuthCubit>().email.clear();
+            context.read<AuthCubit>().password.clear();
+            context.read<AuthCubit>().confirmPassword.clear();
+            context.read<AuthCubit>().isObscure = true;
             AnimatedNavigator().pop(context);
           },
           icon: const Icon(
@@ -63,7 +70,7 @@ class SignUp extends StatelessWidget {
               ),
             );
           } else if (state is AuthRegister) {
-            AnimatedNavigator().pushAndRemoveUntil(
+            AnimatedNavigator().push(
               context,
               const VerificationPage(),
             );
@@ -130,7 +137,8 @@ class SignUp extends StatelessWidget {
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'can Not be empty';
-                              } else if (value.length < 4 || value.length > 12) {
+                              } else if (value.length < 4 ||
+                                  value.length > 12) {
                                 return 'Letters must be between 4-12';
                               }
                               return null;
@@ -145,7 +153,8 @@ class SignUp extends StatelessWidget {
                             validator: (value) {
                               if (value!.isEmpty) {
                                 return 'can Not be empty';
-                              } else if (value.length < 4 || value.length > 12) {
+                              } else if (value.length < 4 ||
+                                  value.length > 12) {
                                 return 'Letters must be between 4-12';
                               }
                               return null;

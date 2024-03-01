@@ -137,6 +137,7 @@ class LoginPage extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 27),
                     child: TextButton(
                       onPressed: () {
+                        context.read<AuthCubit>().password.clear();
                         AnimatedNavigator().push(
                           context,
                           const ForgotPasswordPage(),

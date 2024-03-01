@@ -1,5 +1,5 @@
+import '../../home_main_screen.dart';
 import 'exercise_survey_restrict_screen.dart';
-import '../welcome_survey_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/widgets/survey_comp/choices_body_question.dart';
 import '../../../shared/widgets/survey_comp/question_survey.dart';
@@ -154,7 +154,7 @@ class ChoiceDailyWaterQuestion extends StatelessWidget {
     return ChoiceBodyQuestion(
       question: questionSurvey[10],
       questionIndex: 10,
-      nextScreen: const WelcomeSurveyScreen(),
+      nextScreen: const HomeMainScreen(),
     );
   }
 }

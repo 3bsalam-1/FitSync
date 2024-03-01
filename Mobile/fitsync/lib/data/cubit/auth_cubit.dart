@@ -109,7 +109,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
     for (var element in opt) {
       otpCode += element.text;
     }
-    if (otpCode.length == 4) {
+    if (otpCode.length == 6) {
       verfiy.confirmCodeVerfiy(
         token: Prefs.getString('token')!,
         code: otpCode,
@@ -142,11 +142,9 @@ class AuthCubit extends Cubit<AuthCubitState> {
 
   void forgetPassword() {
     if (email.text.isNotEmpty) {
-      pass
-          .forgetPassword(
+      pass.forgetPassword(
         email: email.text,
-      )
-          .then((response) {
+      ).then((response) {
         if (response!.token == null) {
           // will show error massege which there something went wrong
           emit(AuthFaliure(response.message));
