@@ -11,7 +11,7 @@ router
   .route("/google/redirect")
   .get(
     passport.authenticate("google", {
-      successRedirect: "https://fitsync.onrender.com",
+      successRedirect: "https://fitsync.onrender.com/home",
       failureRedirect: "https://fitsync.onrender.com/api/auth"
     })
   );
