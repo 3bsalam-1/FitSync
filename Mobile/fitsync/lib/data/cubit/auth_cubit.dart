@@ -37,18 +37,18 @@ class AuthCubit extends Cubit<AuthCubitState> {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
     if (keyValidate.currentState!.validate()) {
-      auth
-          .userLogin(
+      auth.userLogin(
         email: email.text,
         password: password.text,
-      )
-          .then((response) {
+      ).then((response) {
         if (response!.token == null) {
           // will show error massege which there something went wrong
           emit(AuthFaliure(response.message));
         } else {
           // There is no error then go to the home page & save token
           Prefs.setString('token', response.token!);
+          // The user is created account so they will save as login to the app
+          Prefs.setBool('isLogin', true);
           emit(AuthSuccess('Creating your plan'));
           Future.delayed(
             const Duration(seconds: 2),
