@@ -33,12 +33,16 @@ class StatusDialog extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 22),
-            Text(
-              message,
-              style: GoogleFonts.poppins(
-                color: color,
-                fontWeight: FontWeight.w600,
-                fontSize: 22,
+            SizedBox(
+              width: 220,
+              child: Text(
+                message,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.poppins(
+                  color: color,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 22,
+                ),
               ),
             ),
           ],

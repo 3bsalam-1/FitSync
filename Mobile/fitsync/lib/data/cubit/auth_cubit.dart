@@ -10,6 +10,7 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthCubitState> {
   AuthCubit() : super(AuthCubitInitial());
+  late BuildContext buildContext;
   var email = TextEditingController();
   var password = TextEditingController();
   var confirmPassword = TextEditingController();
@@ -36,10 +37,12 @@ class AuthCubit extends Cubit<AuthCubitState> {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
     if (keyValidate.currentState!.validate()) {
-      auth.userLogin(
+      auth
+          .userLogin(
         email: email.text,
         password: password.text,
-      ).then((response) {
+      )
+          .then((response) {
         if (response!.token == null) {
           // will show error massege which there something went wrong
           emit(AuthFaliure(response.message));
@@ -64,7 +67,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
     if (keyValidate.currentState!.validate()) {
-      auth.userRegister(
+      auth
+          .userRegister(
         userData: UserDataModel(
           firstName: firstName.text,
           lastName: lastName.text,
@@ -73,7 +77,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
           password: password.text,
           passwordConfirm: confirmPassword.text,
         ),
-      ).then((response) {
+      )
+          .then((response) {
         if (response!.token == null) {
           // will show error massege which there something went wrong
           emit(AuthFaliure(response.message));

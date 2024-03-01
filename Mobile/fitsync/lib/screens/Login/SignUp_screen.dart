@@ -45,13 +45,13 @@ class SignUp extends StatelessWidget {
           if (state is AuthLoading) {
             showDialog(
               barrierDismissible: false,
-              context: context,
+              context: context.read<AuthCubit>().buildContext,
               builder: (_) => const LoadingDialog(),
             );
           } else if (state is AuthFaliure) {
-            Navigator.pop(context);
+            Navigator.pop(context.read<AuthCubit>().buildContext);
             showDialog(
-              context: context,
+              context: context.read<AuthCubit>().buildContext,
               builder: (_) => StatusDialog(
                 color: red,
                 message: state.message,
@@ -59,9 +59,9 @@ class SignUp extends StatelessWidget {
               ),
             );
           } else if (state is AuthSuccess) {
-            Navigator.pop(context);
+            Navigator.pop(context.read<AuthCubit>().buildContext);
             showDialog(
-              context: context,
+              context: context.read<AuthCubit>().buildContext,
               barrierDismissible: false,
               builder: (_) => StatusDialog(
                 color: green2,
@@ -70,6 +70,7 @@ class SignUp extends StatelessWidget {
               ),
             );
           } else if (state is AuthRegister) {
+            Navigator.pop(context.read<AuthCubit>().buildContext);
             AnimatedNavigator().push(
               context,
               const VerificationPage(),

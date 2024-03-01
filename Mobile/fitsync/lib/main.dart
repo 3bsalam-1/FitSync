@@ -9,7 +9,6 @@ import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'cubits_logic/workouts/week_dates.dart';
 import 'data/cubit/auth_cubit.dart';
-import 'screens/survey/choice_questions.dart/choice_questions_screen.dart';
 import 'services/pref.dart';
 
 void main() async {
@@ -53,7 +52,7 @@ class MyApp extends StatelessWidget {
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: ChoiceExperienceQuestion(),
+        home: SplashScreen(),
       ),
     );
   }
