@@ -21,7 +21,7 @@ passport.use(
       // clientID:
       //   "453948709566-nf03q81n5fd7rg9431ni97j70rdt6fca.apps.googleusercontent.com",
       // clientSecret: "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",
-      // callbackURL: "http://localhost:8000/auth/google/callback",
+      // callbackURL: "http://localhost:8000/auth/google/redirect",
     },
     async (accessToken, refreshToken, profile, done) => {
       let { name, email, picture } = profile._json;

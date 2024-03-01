@@ -42,15 +42,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(helmet());
 
+app.use("/", (req, res, next) => {
+  res.send("<h1>home screen</h1>");
+});
+
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/auth", authCW);
 app.use("/api/userInfo", userInfoRouter);
 app.use("/api/vitalsignal", vitalsignalRouter);
 
-app.use("/", (req, res, next) => {
-  res.send("<h1>home screen</h1>");
-});
+
 
 app.all("*", (req, res, next) => [
   next(AppError.create("Page not found", ERROR, 404)),
