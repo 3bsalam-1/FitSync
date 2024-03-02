@@ -67,7 +67,7 @@ class LoginPage extends StatelessWidget {
         builder: (context, state) {
           return SingleChildScrollView(
             child: Form(
-              key: context.read<AuthCubit>().keyValidate,
+              key: context.read<AuthCubit>().keyValidateSignin,
               autovalidateMode: context.read<AuthCubit>().autovalidateMode,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

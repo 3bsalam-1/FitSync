@@ -16,7 +16,9 @@ class AuthCubit extends Cubit<AuthCubitState> {
   var username = TextEditingController();
   var firstName = TextEditingController();
   var lastName = TextEditingController();
-  final keyValidate = GlobalKey<FormState>();
+  final keyValidateSignin = GlobalKey<FormState>();
+  final keyValidateSignup = GlobalKey<FormState>();
+  final keyValidatePass = GlobalKey<FormState>();
   UserAuthRepo auth = UserAuthRepo();
   CodeConfirmRepo verfiy = CodeConfirmRepo();
   PasswordRepo pass = PasswordRepo();
@@ -35,7 +37,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
   void signin() {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
-    if (keyValidate.currentState!.validate()) {
+    if (keyValidateSignin.currentState!.validate()) {
       auth.userLogin(
         email: email.text,
         password: password.text,
@@ -69,7 +71,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
   void register() {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
-    if (keyValidate.currentState!.validate()) {
+    if (keyValidateSignup.currentState!.validate()) {
       auth.userRegister(
         userData: UserDataModel(
           firstName: firstName.text,
@@ -222,11 +224,13 @@ class AuthCubit extends Cubit<AuthCubitState> {
         }
       });
       emit(AuthLoading());
+    } else {
+      emit(AuthWentWrong('Please write all the code'));
     }
   }
 
   void resetPassword() {
-    if (keyValidate.currentState!.validate()) {
+    if (keyValidatePass.currentState!.validate()) {
       pass.resetPassword(
         password: password.text, 
         passwordConfirm: confirmPassword.text, 

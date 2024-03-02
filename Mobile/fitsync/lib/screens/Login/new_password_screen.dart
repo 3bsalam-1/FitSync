@@ -77,7 +77,7 @@ class NewPasswordScreen extends StatelessWidget {
           }
         },
         builder: (context, state) => Form(
-          key: context.read<AuthCubit>().keyValidate,
+          key: context.read<AuthCubit>().keyValidatePass,
           autovalidateMode: context.read<AuthCubit>().autovalidateMode,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),

@@ -87,7 +87,7 @@ class SignUp extends StatelessWidget {
         },
         builder: (context, state) {
           return Form(
-            key: context.read<AuthCubit>().keyValidate,
+            key: context.read<AuthCubit>().keyValidateSignup,
             autovalidateMode: context.read<AuthCubit>().autovalidateMode,
             child: SingleChildScrollView(
               child: Column(
