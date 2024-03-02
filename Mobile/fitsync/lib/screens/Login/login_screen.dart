@@ -80,7 +80,6 @@ class LoginPage extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         fontSize: 26,
                         color: black,
-                        // fontFamily:
                       ),
                     ),
                   ),
@@ -92,7 +91,6 @@ class LoginPage extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         fontSize: 16,
                         color: gray2,
-                        // fontFamily:
                       ),
                     ),
                   ),

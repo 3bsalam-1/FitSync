@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import '../../data/cubit/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
+import '../survey/welcome_survey_screen.dart';
 import 'login_screen.dart';
 import 'verification_screen.dart';
 
@@ -74,7 +75,13 @@ class SignUp extends StatelessWidget {
             Navigator.pop(context);
             AnimatedNavigator().push(
               context,
-              const VerificationPage(),
+              VerificationPage(
+                nextScreen: const WelcomeSurveyScreen(),
+                onPressed: () {
+                  context.read<AuthCubit>().verifyCode();
+                },
+                email: context.read<AuthCubit>().email.text,
+              ),
             );
           }
         },
@@ -94,7 +101,6 @@ class SignUp extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                         fontSize: 26,
                         color: black,
-                        // fontFamily:
                       ),
                     ),
                   ),
@@ -106,7 +112,6 @@ class SignUp extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         fontSize: 16,
                         color: gray2,
-                        // fontFamily:
                       ),
                     ),
                   ),
@@ -136,6 +141,7 @@ class SignUp extends StatelessWidget {
                           child: CustomizeTextFormField(
                             hintText: "First Name",
                             horizontalPadding: 4,
+                            icon: IconlyLight.profile,
                             controller: context.read<AuthCubit>().firstName,
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -152,6 +158,7 @@ class SignUp extends StatelessWidget {
                           child: CustomizeTextFormField(
                             hintText: "Last Name",
                             horizontalPadding: 4,
+                            icon: IconlyLight.profile,
                             controller: context.read<AuthCubit>().lastName,
                             validator: (value) {
                               if (value!.isEmpty) {
@@ -217,7 +224,7 @@ class SignUp extends StatelessWidget {
                     height: 12,
                   ),
                   CustomizeTextFormField(
-                    icon: Icons.security_sharp,
+                    icon: IconlyLight.lock,
                     hintText: "Confirm Password",
                     horizontalPadding: 25,
                     controller: context.read<AuthCubit>().confirmPassword,

@@ -1,4 +1,4 @@
-import '../survey/welcome_survey_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +10,16 @@ import '../../shared/widgets/login_comp/loading_dialog.dart';
 import '../../shared/widgets/login_comp/status_dialog.dart';
 
 class VerificationPage extends StatelessWidget {
-  const VerificationPage({super.key});
+  final void Function()? onPressed;
+  final String email;
+  final Widget nextScreen;
+
+  const VerificationPage({
+    super.key,
+    required this.onPressed,
+    required this.email,
+    required this.nextScreen,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +61,6 @@ class VerificationPage extends StatelessWidget {
             Navigator.pop(context);
             showDialog(
               context: context,
-              barrierDismissible: false,
               builder: (_) => StatusDialog(
                 color: green2,
                 message: state.message,
@@ -69,92 +77,125 @@ class VerificationPage extends StatelessWidget {
           } else if (state is AuthLogin) {
             AnimatedNavigator().pushAndRemoveUntil(
               context,
-              const WelcomeSurveyScreen(),
+              nextScreen,
             );
           }
         },
         builder: (context, state) {
-          return Column(
-            children: [
-              const Padding(
-                padding: EdgeInsets.only(left: 16),
-                child: Row(
-                  children: [
-                    Text(
-                      'Verification',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 26,
-                        color: black,
-                        // fontFamily:
-                      ),
-                    ),
-                  ],
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Verification',
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 26,
+                    color: black,
+                  ),
                 ),
-              ),
-              const Padding(
-                padding: EdgeInsets.only(top: 4, left: 19),
-                child: Row(
+                const SizedBox(height: 10),
+                Row(
                   children: [
                     Text(
-                      'we have sent you an email',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
+                      'We sent a reset link to ',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
                         fontSize: 16,
                         color: gray2,
-                        // fontFamily:
+                      ),
+                    ),
+                    Text(
+                      email,
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color: black,
                       ),
                     ),
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CustomOtpWidget(
-                    first: true,
-                    last: false,
-                    controller: context.read<AuthCubit>().opt[0],
+                Text(
+                  'enter 6 digit code that mentioned in the email',
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16,
+                    color: gray2,
                   ),
-                  CustomOtpWidget(
-                    first: false,
-                    last: false,
-                    controller: context.read<AuthCubit>().opt[1],
-                  ),
-                  CustomOtpWidget(
-                    first: false,
-                    last: false,
-                    controller: context.read<AuthCubit>().opt[2],
-                  ),
-                  CustomOtpWidget(
-                    first: false,
-                    last: false,
-                    controller: context.read<AuthCubit>().opt[3],
-                  ),
-                  CustomOtpWidget(
-                    first: false,
-                    last: false,
-                    controller: context.read<AuthCubit>().opt[4],
-                  ),
-                  CustomOtpWidget(
-                    first: false,
-                    last: true,
-                    controller: context.read<AuthCubit>().opt[5],
-                  ),
-                ],
-              ),
-              const Spacer(),
-              CustomButton(
-                label: "Verify",
-                onPressed: () {
-                  context.read<AuthCubit>().verifyCode();
-                },
-              ),
-              const SizedBox(height: 30),
-            ],
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomOtpWidget(
+                      first: true,
+                      last: false,
+                      controller: context.read<AuthCubit>().opt[0],
+                    ),
+                    CustomOtpWidget(
+                      first: false,
+                      last: false,
+                      controller: context.read<AuthCubit>().opt[1],
+                    ),
+                    CustomOtpWidget(
+                      first: false,
+                      last: false,
+                      controller: context.read<AuthCubit>().opt[2],
+                    ),
+                    CustomOtpWidget(
+                      first: false,
+                      last: false,
+                      controller: context.read<AuthCubit>().opt[3],
+                    ),
+                    CustomOtpWidget(
+                      first: false,
+                      last: false,
+                      controller: context.read<AuthCubit>().opt[4],
+                    ),
+                    CustomOtpWidget(
+                      first: false,
+                      last: true,
+                      controller: context.read<AuthCubit>().opt[5],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 40),
+                CustomButton(
+                  label: "Verify Code",
+                  onPressed: onPressed,
+                ),
+                const SizedBox(height: 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Haven’t got the email yet?',
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                        color: gray2,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        context.read<AuthCubit>().sendCodeAgain();
+                      },
+                      child: Text(
+                        'Resend email',
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                          color: purple4,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           );
         },
       ),

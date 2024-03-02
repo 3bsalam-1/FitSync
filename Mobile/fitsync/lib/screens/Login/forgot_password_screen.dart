@@ -10,6 +10,7 @@ import '../../data/cubit/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/login_comp/loading_dialog.dart';
 import '../../shared/widgets/login_comp/status_dialog.dart';
+import 'password_changed_screen.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
@@ -53,7 +54,13 @@ class ForgotPasswordPage extends StatelessWidget {
           } else if (state is AuthLogin) {
             AnimatedNavigator().pushAndRemoveUntil(
               context,
-              const VerificationPage(),
+              VerificationPage(
+                nextScreen: const PasswordChangedScreen(),
+                onPressed: () {
+                  context.read<AuthCubit>().resetCode();
+                },
+                email: context.read<AuthCubit>().email.text,
+              ),
             );
           }
         },

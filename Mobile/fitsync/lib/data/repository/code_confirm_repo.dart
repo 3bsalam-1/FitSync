@@ -48,7 +48,7 @@ class CodeConfirmRepo {
     }
   }
 
-  // Method send only the code for resetting the code
+  // Method send only the code for forget password
   Future<ResponseModel?> codeReset({required String code}) async {
     try {
       http.Response response = await http.post(
