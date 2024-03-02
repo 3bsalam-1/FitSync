@@ -102,7 +102,7 @@ class VerificationPage extends StatelessWidget {
                       'We sent a reset link to ',
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w500,
-                        fontSize: 16,
+                        fontSize: 11,
                         color: gray2,
                       ),
                     ),
@@ -110,7 +110,7 @@ class VerificationPage extends StatelessWidget {
                       email,
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w500,
-                        fontSize: 16,
+                        fontSize: 11,
                         color: black,
                       ),
                     ),
@@ -120,7 +120,7 @@ class VerificationPage extends StatelessWidget {
                   'enter 6 digit code that mentioned in the email',
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w500,
-                    fontSize: 16,
+                    fontSize: 11,
                     color: gray2,
                   ),
                 ),
@@ -174,7 +174,7 @@ class VerificationPage extends StatelessWidget {
                     Text(
                       'Haven’t got the email yet?',
                       style: GoogleFonts.poppins(
-                        fontSize: 16,
+                        fontSize: 11,
                         fontWeight: FontWeight.w500,
                         color: gray2,
                       ),
@@ -186,7 +186,7 @@ class VerificationPage extends StatelessWidget {
                       child: Text(
                         'Resend email',
                         style: GoogleFonts.poppins(
-                          fontSize: 16,
+                          fontSize: 11,
                           fontWeight: FontWeight.w500,
                           color: purple4,
                         ),
