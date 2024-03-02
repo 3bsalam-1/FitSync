@@ -51,6 +51,7 @@ class ForgotPasswordPage extends StatelessWidget {
             );
           } else if (state is AuthForgetPassword) {
             Navigator.pop(context);
+            Navigator.pop(context);
             AnimatedNavigator().push(
               context,
               VerificationPage(

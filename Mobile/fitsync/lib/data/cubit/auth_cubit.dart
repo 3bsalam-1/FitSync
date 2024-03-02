@@ -216,7 +216,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setString('token', response.token!);
             emit(AuthSuccess('The Verification Success'));
             Future.delayed(
-              const Duration(seconds: 3),
+              const Duration(seconds: 2),
               () {
                 emit(AuthResetCode());
               },
@@ -250,7 +250,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setBool('isLogin', true);
             emit(AuthSuccess('The updating password Success'));
             Future.delayed(
-              const Duration(seconds: 3),
+              const Duration(seconds: 2),
               () {
                 emit(AuthLogin());
               },

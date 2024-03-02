@@ -42,6 +42,7 @@ class NewPasswordScreen extends StatelessWidget {
             );
           } else if (state is AuthFaliure) {
             Navigator.pop(context);
+            Navigator.pop(context);
             showDialog(
               context: context,
               builder: (_) => StatusDialog(

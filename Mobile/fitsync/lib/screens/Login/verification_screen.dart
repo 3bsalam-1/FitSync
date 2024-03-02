@@ -49,6 +49,7 @@ class VerificationPage extends StatelessWidget {
             );
           } else if (state is AuthFaliure) {
             Navigator.pop(context);
+            Navigator.pop(context);
             showDialog(
               context: context,
               builder: (_) => StatusDialog(
@@ -80,6 +81,7 @@ class VerificationPage extends StatelessWidget {
               const WelcomeSurveyScreen(),
             );
           } else if (state is AuthResetCode) {
+            Navigator.pop(context);
             Navigator.pop(context);
             AnimatedNavigator().push(
               context,
