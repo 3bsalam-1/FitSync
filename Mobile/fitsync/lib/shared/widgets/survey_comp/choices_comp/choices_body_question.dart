@@ -1,11 +1,11 @@
 import 'package:google_fonts/google_fonts.dart';
-import '../../../cubits_logic/survey_logic/choise_questions_cubit.dart';
+import '../../../../cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../cubits_logic/survey_logic/animated_list_view.dart';
-import '../../colors/colors.dart';
+import '../../../../cubits_logic/survey_logic/animated_list_view.dart';
+import '../../../colors/colors.dart';
 import 'package:flutter/material.dart';
-import '../global/animated_navigator.dart';
-import 'custom_icon_app_bar.dart';
+import '../../global/animated_navigator.dart';
+import '../custom_icon_app_bar.dart';
 import 'list_question_item.dart';
 import 'question_survey.dart';
 

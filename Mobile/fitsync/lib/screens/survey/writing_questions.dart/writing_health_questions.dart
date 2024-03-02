@@ -4,7 +4,7 @@ import '../../../shared/widgets/survey_comp/custom_snackbar.dart';
 import '../choice_questions.dart/exercise_survey_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
-import '../../../shared/widgets/survey_comp/writing_body_question.dart';
+import '../../../shared/widgets/survey_comp/writing_comp/writing_body_question.dart';
 import '../choice_questions.dart/choice_questions_screen.dart';
 
 class BloodSugarQuestion extends StatelessWidget {

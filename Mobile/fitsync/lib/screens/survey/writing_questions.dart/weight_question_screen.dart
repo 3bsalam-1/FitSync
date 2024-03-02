@@ -1,4 +1,4 @@
-import '../../../shared/widgets/survey_comp/body_weight_question.dart';
+import '../../../shared/widgets/survey_comp/writing_comp/body_weight_question.dart';
 import '../../../shared/widgets/survey_comp/custom_snackbar.dart';
 import 'tall_question_screen.dart';
 import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';

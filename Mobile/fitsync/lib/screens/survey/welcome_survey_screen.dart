@@ -2,7 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/survey_logic/choice_gender.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
-import '../../shared/widgets/survey_comp/custom_card.dart';
+import '../../shared/widgets/global/custom_button.dart';
+import '../../shared/widgets/survey_comp/choices_comp/custom_card.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -45,36 +46,46 @@ class WelcomeSurveyScreen extends StatelessWidget {
                         decoration: TextDecoration.none,
                       ),
                     ),
-                    const SizedBox(height: 55),
-                    CustomCard(
-                      imagePath: 'assets/images/female.png',
-                      label: 'Female',
-                      borderColor: isSelected == 1 ? purple2 : white,
-                      onTap: () {
-                        context.read<ChoiceGender>().isFemale();
-                        Future.delayed(const Duration(milliseconds: 700), () {
+                    const Spacer(),
+                    Center(
+                      child: CustomCard(
+                        icon: Icons.male,
+                        label: 'Male',
+                        bgColor: isSelected == 0
+                            ? purple5
+                            : purple5.withOpacity(0.3),
+                        onTap: () {
+                          context.read<ChoiceGender>().isMale();
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 40),
+                    Center(
+                      child: CustomCard(
+                        icon: Icons.female,
+                        label: 'Female',
+                        bgColor: isSelected == 1
+                            ? purple5
+                            : purple5.withOpacity(0.3),
+                        onTap: () {
+                          context.read<ChoiceGender>().isFemale();
+                        },
+                      ),
+                    ),
+                    const Spacer(),
+                    CustomButton(
+                      horizontalPadding: 20,
+                      label: 'Continue',
+                      onPressed: () {
+                        if (isSelected != -1) {
                           AnimatedNavigator().push(
                             context,
                             const DateBirthScreen(),
                           );
-                        });
+                        }
                       },
                     ),
-                    const SizedBox(height: 22),
-                    CustomCard(
-                      imagePath: 'assets/images/male.png',
-                      label: 'Male',
-                      borderColor: isSelected == 0 ? purple2 : white,
-                      onTap: () {
-                        context.read<ChoiceGender>().isMale();
-                        Future.delayed(const Duration(milliseconds: 700), () {
-                          AnimatedNavigator().push(
-                            context,
-                            const DateBirthScreen(),
-                          );
-                        });
-                      },
-                    ),
+                    const SizedBox(height: 30),
                   ],
                 );
               },

@@ -1,11 +1,11 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../cubits_logic/survey_logic/choise_questions_cubit.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
-import '../../home_main_screen.dart';
+import 'create_plan_screen.dart';
 import 'exercise_survey_restrict_screen.dart';
 import 'package:flutter/material.dart';
-import '../../../shared/widgets/survey_comp/choices_body_question.dart';
-import '../../../shared/widgets/survey_comp/question_survey.dart';
+import '../../../shared/widgets/survey_comp/choices_comp/choices_body_question.dart';
+import '../../../shared/widgets/survey_comp/choices_comp/question_survey.dart';
 import '../writing_questions.dart/writing_health_questions.dart';
 
 class ChoiceExperienceQuestion extends StatelessWidget {
@@ -62,30 +62,12 @@ class ChoiceBackPainQuestion extends StatelessWidget {
         } else {
           AnimatedNavigator().push(
             context,
-            const ChoiceBackSeriousQuestion(),
+            const ExerciseSurveyRestrictScreen(
+              labelProblem: 'back',
+              screen: ChoiceKneePainQuestion(),
+            ),
           );
         }
-      },
-    );
-  }
-}
-
-class ChoiceBackSeriousQuestion extends StatelessWidget {
-  const ChoiceBackSeriousQuestion({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ChoiceBodyQuestion(
-      question: questionSurvey[3],
-      questionIndex: 3,
-      onPress: () {
-        AnimatedNavigator().push(
-          context,
-          const ExerciseSurveyRestrictScreen(
-            labelProblem: 'back',
-            screen: ChoiceKneePainQuestion(),
-          ),
-        );
       },
     );
   }
@@ -109,30 +91,12 @@ class ChoiceKneePainQuestion extends StatelessWidget {
         } else {
           AnimatedNavigator().push(
             context,
-            const ChoiceKneeSeriousQuestion(),
+            const ExerciseSurveyRestrictScreen(
+              labelProblem: 'knee',
+              screen: ChoiceDiabetesQuestion(),
+            ),
           );
         }
-      },
-    );
-  }
-}
-
-class ChoiceKneeSeriousQuestion extends StatelessWidget {
-  const ChoiceKneeSeriousQuestion({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ChoiceBodyQuestion(
-      question: questionSurvey[5],
-      questionIndex: 5,
-      onPress: () {
-        AnimatedNavigator().push(
-          context,
-          const ExerciseSurveyRestrictScreen(
-            labelProblem: 'knee',
-            screen: ChoiceDiabetesQuestion(),
-          ),
-        );
       },
     );
   }
@@ -243,9 +207,9 @@ class ChoiceDailyWaterQuestion extends StatelessWidget {
       question: questionSurvey[10],
       questionIndex: 10,
       onPress: () {
-        AnimatedNavigator().pushAndRemoveUntil(
+        AnimatedNavigator().push(
           context,
-          const HomeMainScreen(),
+          const CreatePlanScreen(),
         );
       },
     );

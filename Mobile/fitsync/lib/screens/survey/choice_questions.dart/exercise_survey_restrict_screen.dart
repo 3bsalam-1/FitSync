@@ -54,12 +54,12 @@ class ExerciseSurveyRestrictScreen extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.contain,
                     image: AssetImage(
-                      'assets/images/exercise_female.png',
+                      'assets/images/survey/exercise_background.png',
                     ),
                   ),
                 ),
                 child: Image.asset(
-                  'assets/images/lady.png',
+                  'assets/images/survey/exercise_lady.png',
                   height: 270,
                   width: double.maxFinite,
                 ),

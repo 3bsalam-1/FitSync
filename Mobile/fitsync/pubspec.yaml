@@ -76,7 +76,8 @@ flutter:
     - assets/images/
     - assets/images/Icons/
     - assets/images/wourkouts_list/
-
+    - assets/images/survey/
+    
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
-import '../../colors/colors.dart';
-import '../global/custom_button.dart';
-import '../global/custom_text_form_field.dart';
+import '../../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
+import '../../../colors/colors.dart';
+import '../../global/custom_button.dart';
+import '../../global/custom_text_form_field.dart';
 import 'custom_toggle_switch.dart';
 
-class BodyTallQuestion extends StatelessWidget {
+class BodyWeightQuestion extends StatelessWidget {
   final bool isSelected;
   final String label;
 
-  const BodyTallQuestion({
+  const BodyWeightQuestion({
     super.key,
     required this.label,
     required this.isSelected,
@@ -26,7 +26,7 @@ class BodyTallQuestion extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'How tall are you?',
+            'What’s Your Weight?',
             style: GoogleFonts.poppins(
               fontSize: 26,
               color: black,
@@ -45,7 +45,7 @@ class BodyTallQuestion extends StatelessWidget {
                   textAlign: TextAlign.right,
                   keyboardType: TextInputType.number,
                   controller:
-                      context.read<TextFormValidationCubit>().tallController,
+                      context.read<TextFormValidationCubit>().weightController,
                 ),
               ),
               const SizedBox(width: 5),
@@ -62,14 +62,12 @@ class BodyTallQuestion extends StatelessWidget {
           const SizedBox(height: 25),
           Center(
             child: CustomToggleSwitch(
-              text1: 'cm',
               onTap1: () {
-                context.read<TextFormValidationCubit>().convertToCm();
+                context.read<TextFormValidationCubit>().convertToKg();
               },
               isSelected: isSelected,
-              text2: 'ft',
               onTap2: () {
-                context.read<TextFormValidationCubit>().convertToFt();
+                context.read<TextFormValidationCubit>().convertToBs();
               },
             ),
           ),
@@ -78,7 +76,7 @@ class BodyTallQuestion extends StatelessWidget {
             label: 'Continue',
             horizontalPadding: 0,
             onPressed: () {
-              context.read<TextFormValidationCubit>().tallDateValidate();
+              context.read<TextFormValidationCubit>().weightValidate();
             },
           ),
           const SizedBox(height: 30),
