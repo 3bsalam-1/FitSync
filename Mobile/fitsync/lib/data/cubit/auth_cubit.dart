@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:fitsync/data/models/user_data_model.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
 import '../../services/pref.dart';
 import '../repository/code_confirm_repo.dart';
 import '../repository/password_repo.dart';
@@ -127,12 +126,10 @@ class AuthCubit extends Cubit<AuthCubitState> {
       otpCode += element.text;
     }
     if (otpCode.length == 6) {
-      verfiy
-          .confirmCodeVerfiy(
+      verfiy.confirmCodeVerfiy(
         token: Prefs.getString('token')!,
         code: otpCode,
-      )
-          .then((response) {
+      ).then((response) {
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -173,7 +170,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
           Future.delayed(
             const Duration(seconds: 3),
             () {
-              emit(AuthLogin());
+              emit(AuthForgetPassword());
             },
           );
         } else {
@@ -207,11 +204,9 @@ class AuthCubit extends Cubit<AuthCubitState> {
       otpCode += element.text;
     }
     if (otpCode.length == 6) {
-      verfiy
-          .codeReset(
+      verfiy.codeReset(
         code: otpCode,
-      )
-          .then((response) {
+      ).then((response) {
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -223,7 +218,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Future.delayed(
               const Duration(seconds: 3),
               () {
-                emit(AuthLogin());
+                emit(AuthResetCode());
               },
             );
           }

@@ -1,3 +1,4 @@
+import 'package:fitsync/screens/survey/welcome_survey_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_button.dart';
@@ -8,17 +9,16 @@ import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/login_comp/custom_otp_widget.dart';
 import '../../shared/widgets/login_comp/loading_dialog.dart';
 import '../../shared/widgets/login_comp/status_dialog.dart';
+import 'new_password_screen.dart';
 
 class VerificationPage extends StatelessWidget {
   final void Function()? onPressed;
   final String email;
-  final Widget nextScreen;
 
   const VerificationPage({
     super.key,
     required this.onPressed,
     required this.email,
-    required this.nextScreen,
   });
 
   @override
@@ -77,7 +77,13 @@ class VerificationPage extends StatelessWidget {
           } else if (state is AuthLogin) {
             AnimatedNavigator().pushAndRemoveUntil(
               context,
-              nextScreen,
+              const WelcomeSurveyScreen(),
+            );
+          } else if (state is AuthResetCode) {
+            Navigator.pop(context);
+            AnimatedNavigator().push(
+              context,
+              const NewPasswordScreen(),
             );
           }
         },

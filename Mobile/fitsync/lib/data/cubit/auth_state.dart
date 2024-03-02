@@ -29,3 +29,7 @@ final class AuthWentWrong extends AuthCubitState {
 final class AuthLoading extends AuthCubitState {}
 
 final class AuthIsObscure extends AuthCubitState {}
+
+final class AuthForgetPassword extends AuthCubitState {}
+
+final class AuthResetCode extends AuthCubitState {}

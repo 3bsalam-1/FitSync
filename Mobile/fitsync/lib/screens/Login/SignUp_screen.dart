@@ -1,16 +1,15 @@
-import 'package:fitsync/shared/colors/colors.dart';
-import 'package:fitsync/shared/widgets/global/custom_button.dart';
-import 'package:fitsync/shared/widgets/login_comp/custom_icon_button.dart';
-import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
-import 'package:fitsync/shared/widgets/login_comp/loading_dialog.dart';
-import 'package:fitsync/shared/widgets/login_comp/status_dialog.dart';
+import '../../shared/colors/colors.dart';
+import '../../shared/widgets/global/custom_button.dart';
+import '../../shared/widgets/login_comp/custom_icon_button.dart';
+import '../../shared/widgets/login_comp/custom_textformfield.dart';
+import '../../shared/widgets/login_comp/loading_dialog.dart';
+import '../../shared/widgets/login_comp/status_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import '../../data/cubit/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
-import '../survey/welcome_survey_screen.dart';
 import 'login_screen.dart';
 import 'verification_screen.dart';
 
@@ -78,7 +77,6 @@ class SignUp extends StatelessWidget {
             AnimatedNavigator().push(
               context,
               VerificationPage(
-                nextScreen: const WelcomeSurveyScreen(),
                 onPressed: () {
                   context.read<AuthCubit>().verifyCode();
                 },

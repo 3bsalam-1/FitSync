@@ -142,7 +142,7 @@ class NewPasswordScreen extends StatelessWidget {
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'can Not be empty';
-                    } else if (value.length < 8 || value.length > 12) {
+                    } else if (value != context.read<AuthCubit>().password.text) {
                       return 'password length must be between 8-12';
                     }
                     return null;

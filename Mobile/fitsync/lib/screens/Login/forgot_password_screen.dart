@@ -1,5 +1,3 @@
-import 'package:fitsync/screens/Login/verification_screen.dart';
-
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import '../../shared/widgets/login_comp/custom_textformfield.dart';
@@ -10,7 +8,7 @@ import '../../data/cubit/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/login_comp/loading_dialog.dart';
 import '../../shared/widgets/login_comp/status_dialog.dart';
-import 'password_changed_screen.dart';
+import 'verification_screen.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
   const ForgotPasswordPage({super.key});
@@ -51,11 +49,11 @@ class ForgotPasswordPage extends StatelessWidget {
                 icon: Icons.check,
               ),
             );
-          } else if (state is AuthLogin) {
-            AnimatedNavigator().pushAndRemoveUntil(
+          } else if (state is AuthForgetPassword) {
+            Navigator.pop(context);
+            AnimatedNavigator().push(
               context,
               VerificationPage(
-                nextScreen: const PasswordChangedScreen(),
                 onPressed: () {
                   context.read<AuthCubit>().resetCode();
                 },
@@ -76,12 +74,11 @@ class ForgotPasswordPage extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                     fontSize: 26,
                     color: black,
-                    // fontFamily:
                   ),
                 ),
               ),
               Container(
-                width: 200,
+                width: 270,
                 padding: const EdgeInsets.only(top: 4, left: 19),
                 child: const Text(
                   'Enter your information below or Login with another account',
@@ -89,7 +86,6 @@ class ForgotPasswordPage extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                     fontSize: 16,
                     color: gray2,
-                    // fontFamily:
                   ),
                 ),
               ),
@@ -117,30 +113,11 @@ class ForgotPasswordPage extends StatelessWidget {
               const SizedBox(
                 height: 8,
               ),
-              Align(
-                alignment: Alignment.topRight,
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 27),
-                  child: TextButton(
-                    onPressed: () {
-                      // todo here
-                    },
-                    child: const Text(
-                      'Send again?',
-                      style: TextStyle(
-                        color: gray4,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
               const SizedBox(
                 height: 27,
               ),
               CustomButton(
-                label: "Send",
+                label: "Reset Password",
                 onPressed: () {
                   context.read<AuthCubit>().forgetPassword();
                 },
