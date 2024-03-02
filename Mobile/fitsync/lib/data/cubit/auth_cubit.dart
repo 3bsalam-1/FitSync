@@ -19,6 +19,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
   final keyValidateSignin = GlobalKey<FormState>();
   final keyValidateSignup = GlobalKey<FormState>();
   final keyValidatePass = GlobalKey<FormState>();
+  bool agreePolicy = false;
   UserAuthRepo auth = UserAuthRepo();
   CodeConfirmRepo verfiy = CodeConfirmRepo();
   PasswordRepo pass = PasswordRepo();
@@ -33,6 +34,10 @@ class AuthCubit extends Cubit<AuthCubitState> {
   var autovalidateMode = AutovalidateMode.disabled;
   bool isObscure = true;
   bool isObscureConfirm = true;
+  void checkAgreePolicy() {
+    agreePolicy = !agreePolicy;
+    emit(AuthCubitInitial());
+  }
 
   void signin() {
     autovalidateMode = AutovalidateMode.always;
@@ -71,7 +76,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
   void register() {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
-    if (keyValidateSignup.currentState!.validate()) {
+    if (keyValidateSignup.currentState!.validate() && agreePolicy) {
       auth.userRegister(
         userData: UserDataModel(
           firstName: firstName.text,
@@ -84,23 +89,22 @@ class AuthCubit extends Cubit<AuthCubitState> {
       ).then((response) {
         if (response != null) {
           if (response.token == '') {
-          // will show error massege which there something went wrong
-          emit(AuthFaliure(response.message!));
-        } else {
-          // There is no error then go to the home page & save token
-          Prefs.setString('token', response.token!);
-          emit(AuthSuccess('Creating your plan'));
-          Future.delayed(
-            const Duration(seconds: 2),
-            () {
-              emit(AuthRegister());
-            },
-          );
-        }
+            // will show error massege which there something went wrong
+            emit(AuthFaliure(response.message!));
+          } else {
+            // There is no error then go to the home page & save token
+            Prefs.setString('token', response.token!);
+            emit(AuthSuccess('Creating your plan'));
+            Future.delayed(
+              const Duration(seconds: 2),
+              () {
+                emit(AuthRegister());
+              },
+            );
+          }
         } else {
           emit(AuthWentWrong('Something went wrong in server'));
         }
-        
       });
       // show dailog for waiting the process to finish
       emit(AuthLoading());
@@ -123,10 +127,12 @@ class AuthCubit extends Cubit<AuthCubitState> {
       otpCode += element.text;
     }
     if (otpCode.length == 6) {
-      verfiy.confirmCodeVerfiy(
+      verfiy
+          .confirmCodeVerfiy(
         token: Prefs.getString('token')!,
         code: otpCode,
-      ).then((response) {
+      )
+          .then((response) {
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -180,7 +186,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
       emit(AuthWentWrong('Please Enter Your Email'));
     }
   }
-  
+
   void sendCodeAgain() {
     verfiy.sendCodeToVerfiy(
       token: Prefs.getString('token')!,
@@ -194,16 +200,18 @@ class AuthCubit extends Cubit<AuthCubitState> {
     // show dailog for waiting the process to finish
     emit(AuthLoading());
   }
-  
+
   void resetCode() {
     String otpCode = '';
     for (var element in opt) {
       otpCode += element.text;
     }
     if (otpCode.length == 6) {
-      verfiy.codeReset(
+      verfiy
+          .codeReset(
         code: otpCode,
-      ).then((response){
+      )
+          .then((response) {
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -232,10 +240,10 @@ class AuthCubit extends Cubit<AuthCubitState> {
   void resetPassword() {
     if (keyValidatePass.currentState!.validate()) {
       pass.resetPassword(
-        password: password.text, 
-        passwordConfirm: confirmPassword.text, 
+        password: password.text,
+        passwordConfirm: confirmPassword.text,
         token: Prefs.getString('token')!,
-      ).then((response){
+      ).then((response) {
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong

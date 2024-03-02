@@ -6,6 +6,7 @@ import 'package:fitsync/shared/widgets/login_comp/loading_dialog.dart';
 import 'package:fitsync/shared/widgets/login_comp/status_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import '../../data/cubit/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
@@ -31,7 +32,8 @@ class SignUp extends StatelessWidget {
             context.read<AuthCubit>().password.clear();
             context.read<AuthCubit>().confirmPassword.clear();
             context.read<AuthCubit>().isObscure = true;
-            context.read<AuthCubit>().autovalidateMode = AutovalidateMode.disabled;
+            context.read<AuthCubit>().autovalidateMode =
+                AutovalidateMode.disabled;
             AnimatedNavigator().pop(context);
           },
           icon: const Icon(
@@ -245,8 +247,77 @@ class SignUp extends StatelessWidget {
                       return null;
                     },
                   ),
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 4),
+                          child: Checkbox(
+                            activeColor: purple5,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            side: const BorderSide(
+                              color: gray2,
+                              width: 2,
+                            ),
+                            value: context.read<AuthCubit>().agreePolicy,
+                            onChanged: (value) {
+                              context.read<AuthCubit>().checkAgreePolicy();
+                            },
+                          ),
+                        ),
+                        Column(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  'I‘ve read and agree with ',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w500,
+                                    color: gray2,
+                                  ),
+                                ),
+                                Text(
+                                  'terms pf service ',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w500,
+                                    color: purple5,
+                                  ),
+                                ),
+                                Text(
+                                  'and our',
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w500,
+                                    color: gray2,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Text(
+                              'privacy policy ',
+                              style: GoogleFonts.poppins(
+                                fontSize: 11,
+                                fontWeight: FontWeight.w500,
+                                color: purple5,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                   const SizedBox(
-                    height: 35,
+                    height: 20,
                   ),
                   CustomButton(
                     label: "Sign Up",
@@ -288,7 +359,7 @@ class SignUp extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 7,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
