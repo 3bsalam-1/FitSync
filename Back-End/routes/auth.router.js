@@ -26,4 +26,7 @@ router.post(
   authController.resetPassword
 );
 
+router.post("/isExist", authController.IsExist);
+
+
 module.exports = router;
