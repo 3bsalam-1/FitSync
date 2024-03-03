@@ -20,29 +20,6 @@ class SignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: AppBar(
-        scrolledUnderElevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            context.read<AuthCubit>().username.clear();
-            context.read<AuthCubit>().firstName.clear();
-            context.read<AuthCubit>().lastName.clear();
-            context.read<AuthCubit>().email.clear();
-            context.read<AuthCubit>().password.clear();
-            context.read<AuthCubit>().confirmPassword.clear();
-            context.read<AuthCubit>().isObscure = true;
-            context.read<AuthCubit>().autovalidateMode =
-                AutovalidateMode.disabled;
-            AnimatedNavigator().pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_circle_left,
-            color: purple3,
-            size: 40,
-          ),
-        ),
-        backgroundColor: white,
-      ),
       body: BlocConsumer<AuthCubit, AuthCubitState>(
         listener: (context, state) {
           if (state is AuthLoading) {
@@ -95,7 +72,7 @@ class SignUp extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Padding(
-                    padding: EdgeInsets.only(left: 16),
+                    padding: EdgeInsets.only(left: 16, top: 60),
                     child: Text(
                       'Hi!',
                       style: TextStyle(
@@ -248,7 +225,7 @@ class SignUp extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: const EdgeInsets.only(left: 17),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -373,7 +350,16 @@ class SignUp extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
-                          AnimatedNavigator().push(
+                          context.read<AuthCubit>().username.clear();
+                          context.read<AuthCubit>().firstName.clear();
+                          context.read<AuthCubit>().lastName.clear();
+                          context.read<AuthCubit>().email.clear();
+                          context.read<AuthCubit>().password.clear();
+                          context.read<AuthCubit>().confirmPassword.clear();
+                          context.read<AuthCubit>().isObscure = true;
+                          context.read<AuthCubit>().autovalidateMode =
+                              AutovalidateMode.disabled;
+                          AnimatedNavigator().pushAndRemoveUntil(
                             context,
                             const LoginPage(),
                           );

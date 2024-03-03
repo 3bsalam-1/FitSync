@@ -225,9 +225,8 @@ class LoginPage extends StatelessWidget {
                           context.read<AuthCubit>().email.clear();
                           context.read<AuthCubit>().password.clear();
                           context.read<AuthCubit>().isObscure = true;
-                          context.read<AuthCubit>().autovalidateMode =
-                              AutovalidateMode.disabled;
-                          AnimatedNavigator().push(
+                          context.read<AuthCubit>().autovalidateMode = AutovalidateMode.disabled;
+                          AnimatedNavigator().pushAndRemoveUntil(
                             context,
                             const SignUp(),
                           );

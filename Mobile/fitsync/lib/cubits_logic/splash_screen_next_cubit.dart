@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../screens/Login/login_screen.dart';
 import '../screens/home_main_screen.dart';
+import '../screens/splash/start_screen.dart';
 import '../screens/survey/welcome_survey_screen.dart';
 import '../services/pref.dart';
 
@@ -14,7 +15,7 @@ class SplashScreenNextCubit extends Cubit<Widget> {
   final List<Widget> _pages = const [
     HomeMainScreen(),
     WelcomeSurveyScreen(),
-    LoginPage(),
+    StartScreen(),
   ];
 
   void chechNextPage() {

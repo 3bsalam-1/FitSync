@@ -8,7 +8,8 @@ class CustomButton extends StatelessWidget {
   final double horizontalPadding;
   final double width;
   final List<Color> colors;
-  final Color shadowColor;
+  final Color textColor;
+  final Color borderColor;
 
   const CustomButton({
     super.key,
@@ -17,7 +18,8 @@ class CustomButton extends StatelessWidget {
     this.horizontalPadding = 50,
     this.width = double.infinity,
     this.colors = const [cyan, purple, purple],
-    this.shadowColor = purple2,
+    this.textColor = white,
+    this.borderColor = Colors.transparent,
   });
 
   @override
@@ -28,16 +30,14 @@ class CustomButton extends StatelessWidget {
       margin: EdgeInsets.symmetric(horizontal: horizontalPadding),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(99),
+        color: colors[0],
         gradient: LinearGradient(
           colors: colors,
         ),
-        boxShadow: [
-          BoxShadow(
-            blurRadius: 2,
-            offset: const Offset(0, 2),
-            color: shadowColor,
-          ),
-        ],
+        border: Border.all(
+          width: 3,
+          color: borderColor,
+        ),
       ),
       child: ElevatedButton(
         onPressed: onPressed,
@@ -53,7 +53,7 @@ class CustomButton extends StatelessWidget {
             label,
             style: GoogleFonts.poppins(
               fontSize: 18,
-              color: white,
+              color: textColor,
               fontWeight: FontWeight.w600,
             ),
           ),
