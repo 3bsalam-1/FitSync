@@ -13,32 +13,20 @@ import 'new_password_screen.dart';
 
 class VerificationPage extends StatelessWidget {
   final void Function()? onPressed;
+  final void Function()? sendCodeAgain;
   final String email;
 
   const VerificationPage({
     super.key,
     required this.onPressed,
     required this.email,
+    required this.sendCodeAgain,
   });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
-      appBar: AppBar(
-        scrolledUnderElevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            AnimatedNavigator().pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_circle_left,
-            color: purple3,
-            size: 40,
-          ),
-        ),
-        backgroundColor: white,
-      ),
       body: BlocConsumer<AuthCubit, AuthCubitState>(
         listener: (context, state) {
           if (state is AuthLoading) {
@@ -91,7 +79,11 @@ class VerificationPage extends StatelessWidget {
         },
         builder: (context, state) {
           return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.only(
+              left: 20,
+              right: 20,
+              top: 60,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -188,9 +180,7 @@ class VerificationPage extends StatelessWidget {
                       ),
                     ),
                     TextButton(
-                      onPressed: () {
-                        context.read<AuthCubit>().sendCodeAgain();
-                      },
+                      onPressed: sendCodeAgain,
                       child: Text(
                         'Resend email',
                         style: GoogleFonts.poppins(

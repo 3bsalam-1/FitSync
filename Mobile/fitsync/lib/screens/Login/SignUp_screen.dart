@@ -58,6 +58,9 @@ class SignUp extends StatelessWidget {
                 onPressed: () {
                   context.read<AuthCubit>().verifyCode();
                 },
+                sendCodeAgain: () {
+                  context.read<AuthCubit>().sendCodeAgain();
+                },
                 email: context.read<AuthCubit>().email.text,
               ),
             );

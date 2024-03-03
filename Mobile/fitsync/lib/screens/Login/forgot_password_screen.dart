@@ -58,6 +58,9 @@ class ForgotPasswordPage extends StatelessWidget {
                 onPressed: () {
                   context.read<AuthCubit>().resetCode();
                 },
+                sendCodeAgain: () {
+                  context.read<AuthCubit>().forgetPassword();
+                },
                 email: context.read<AuthCubit>().email.text,
               ),
             );
