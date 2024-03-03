@@ -114,7 +114,7 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_blue_plus
-      sha256: "3a1299f3a5b97047fb66e48fc9f371ea2aca0d3fb40b380c440aa8392066ac98"
+      sha256: "5cac245fa54701a1d1f7fab18982bc1effef949ef565c352c3c9176013f3221b"
       url: "https://pub.dev"
     source: hosted
     version: "1.30.3"
@@ -497,10 +497,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_ios
-      sha256: "9149d493b075ed740901f3ee844a38a00b33116c7c5c10d7fb27df8987fb51d5"
+      sha256: "75bb6fe3f60070407704282a2d295630cab232991eb52542b18347a8a941df03"
       url: "https://pub.dev"
     source: hosted
-    version: "6.2.5"
+    version: "6.2.4"
   url_launcher_linux:
     dependency: transitive
     description:
@@ -574,5 +574,5 @@ packages:
     source: hosted
     version: "1.0.4"
 sdks:
-  dart: ">=3.2.3 <4.0.0"
-  flutter: ">=3.16.6"
+  dart: ">=3.2.0 <4.0.0"
+  flutter: ">=3.16.0"
