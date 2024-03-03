@@ -1,11 +1,11 @@
 import 'package:google_fonts/google_fonts.dart';
 
-import '../global/custom_button.dart';
-import '../global/custom_text_form_field.dart';
-import '../../colors/colors.dart';
-import 'custom_icon_app_bar.dart';
+import '../../global/custom_button.dart';
+import '../../global/custom_text_form_field.dart';
+import '../../../colors/colors.dart';
+import '../custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
-import '../global/animated_navigator.dart';
+import '../../global/animated_navigator.dart';
 
 class WritingBodyQuestion extends StatelessWidget {
   final void Function()? onPressed;
@@ -50,6 +50,7 @@ class WritingBodyQuestion extends StatelessWidget {
             CustomTextFormField(
               hintText: labelField,
               controller: controller,
+              keyboardType: TextInputType.number,
             ),
             Center(
               child: Text(

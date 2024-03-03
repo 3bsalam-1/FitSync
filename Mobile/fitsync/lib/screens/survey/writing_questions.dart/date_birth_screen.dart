@@ -1,12 +1,13 @@
 import 'package:fitsync/screens/survey/writing_questions.dart/weight_question_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_holo_date_picker/flutter_holo_date_picker.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';
-import '../../../shared/widgets/global/custom_text_form_field.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import '../../../shared/widgets/survey_comp/custom_snackbar.dart';
 
@@ -49,36 +50,49 @@ class DateBirthScreen extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              Row(
-                children: [
-                  Flexible(
-                    child: CustomTextFormField(
-                      hintText: 'DD',
-                      keyboardType: TextInputType.number,
-                      controller: context
-                          .read<TextFormValidationCubit>()
-                          .birthDayController,
+              Center(
+                child: TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => GestureDetector(
+                        onTap: () {
+                          AnimatedNavigator().pop(context);
+                        },
+                        child: DatePickerWidget(
+                          looping: true,
+                          firstDate: DateTime(DateTime.now().year - 90, 01, 01),
+                          lastDate: DateTime(DateTime.now().year - 8, 1, 1),
+                          initialDate: DateTime(1991, 10, 12),
+                          dateFormat: "dd-MMM-yyyy",
+                          locale: DatePicker.localeFromString('en'),
+                          onChange: (DateTime newDate, _) {
+                            context.read<TextFormValidationCubit>().updateBirthDateValue(
+                              DateFormat('dd/MM/yyy').format(newDate).toString(),
+                            );
+                          },
+                          pickerTheme: const DateTimePickerTheme(
+                            itemTextStyle: TextStyle(
+                              color: black,
+                              fontSize: 19,
+                            ),
+                            dividerColor: purple5,
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  child: Text(
+                    context.read<TextFormValidationCubit>().birthDateController.isEmpty 
+                    ? 'DD/MM/YYYY'
+                    : context.read<TextFormValidationCubit>().birthDateController,
+                    style: GoogleFonts.poppins(
+                      fontSize: 26,
+                      color: gray3,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                  Flexible(
-                    child: CustomTextFormField(
-                      hintText: 'MM',
-                      keyboardType: TextInputType.number,
-                      controller: context
-                          .read<TextFormValidationCubit>()
-                          .birthMonthController,
-                    ),
-                  ),
-                  Flexible(
-                    child: CustomTextFormField(
-                      hintText: 'YYY',
-                      keyboardType: TextInputType.number,
-                      controller: context
-                          .read<TextFormValidationCubit>()
-                          .birthYearController,
-                    ),
-                  ),
-                ],
+                ),
               ),
               const Spacer(),
               CustomButton(
