@@ -7,6 +7,7 @@ import 'package:fitsync/shared/widgets/login_comp/custom_icon_button.dart';
 import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import '../../data/cubit/auth_cubit.dart';
 import '../../shared/widgets/login_comp/loading_dialog.dart';

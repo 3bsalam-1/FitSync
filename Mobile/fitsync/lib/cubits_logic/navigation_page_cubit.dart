@@ -13,11 +13,11 @@ import '../screens/workouts/workouts_screen.dart';
 class NavigationPageCubit extends Cubit<Widget> {
   NavigationPageCubit() : super(const HomePage());
   int isSelected = 0;
-  
+
   final List<Widget> _pages = [
     const HomePage(),
     const WorkoutsScreen(),
-    const DietScreen(),
+    DietScreen(),
     const ActivityMainScreen(),
     const ProfileMainScreen(),
     const SleepActivityScreen(),

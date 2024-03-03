@@ -1,15 +1,22 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MealTrackerWidget extends StatelessWidget {
   final String imageUrl;
+  final double width;
+  final double height;
+  final double h;
   final String label1;
   final String label2;
   final String label3;
   final double size;
   MealTrackerWidget({
     required this.imageUrl,
+    required this.width,
+    required this.height,
+    required this.h,
     required this.label1,
     required this.label2,
     required this.label3,
@@ -26,12 +33,15 @@ class MealTrackerWidget extends StatelessWidget {
         children: [
           Image.asset(
             imageUrl,
-            width: 28,
-            height: 28,
+            width: width,
+            height: height,
+          ),
+          SizedBox(
+            height: h,
           ),
           Text(
             label1,
-            style: TextStyle(
+            style: GoogleFonts.poppins(
               fontWeight: FontWeight.w500,
               fontSize: 16,
               color: black,
@@ -43,7 +53,7 @@ class MealTrackerWidget extends StatelessWidget {
           RichText(
             text: TextSpan(
               text: label2,
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w500,
                 fontSize: size,
                 color: black,
@@ -51,7 +61,7 @@ class MealTrackerWidget extends StatelessWidget {
               children: <TextSpan>[
                 TextSpan(
                     text: label3,
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
                         fontSize: 18,
                         color: gray11)),

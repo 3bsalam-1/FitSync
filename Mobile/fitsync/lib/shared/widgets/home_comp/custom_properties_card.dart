@@ -1,11 +1,12 @@
 
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomPropertiesCard extends StatelessWidget {
   final String label1;
   final String label2;
-   CustomPropertiesCard({
+   const CustomPropertiesCard({
     required this.label1,
     required this.label2,
     super.key,
@@ -32,7 +33,7 @@ class CustomPropertiesCard extends StatelessWidget {
         children: [
           Text(
             label1,
-            style: const TextStyle(
+            style:  GoogleFonts.poppins(
               fontSize: 14,
               fontWeight: FontWeight.w500,
               color: black4,
@@ -43,7 +44,7 @@ class CustomPropertiesCard extends StatelessWidget {
           ),
           Text(
             label2,
-            style: const TextStyle(
+            style:  GoogleFonts.poppins(
               fontSize: 12,
               fontWeight: FontWeight.w400,
               color: gray4,

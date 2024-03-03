@@ -380,7 +380,7 @@ class SignUp extends StatelessWidget {
             ),
           );
         },
-      ),
-    );
+        ),
+      );
   }
 }

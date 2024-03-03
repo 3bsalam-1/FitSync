@@ -1,5 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
 class CustomSavedRecipesWidget extends StatelessWidget {
@@ -61,7 +62,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                   width: 100,
                   child: Text(
                     label1,
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
                       color: black,
@@ -76,7 +77,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                   width: 100,
                   child: Text(
                     label2,
-                    style: TextStyle(
+                    style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w500,
                         fontSize: 10,
                         color: gray10),
@@ -88,6 +89,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
           ),
           Spacer(),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               IconButton(
                   onPressed: () {},
@@ -97,10 +99,10 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                     size: 20,
                   )),
               Padding(
-                padding: const EdgeInsets.only(right: 20),
+                padding: const EdgeInsets.only(right: 13),
                 child: Text(
                   'More Info',
-                  style: TextStyle(
+                  style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 10,
                       color: purple5),
