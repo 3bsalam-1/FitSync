@@ -26,7 +26,7 @@ router.post(
   authController.resetPassword
 );
 
-router.post("/isExist", authController.IsExist);
+router.post("/ContinueWithGoogle", authController.ContinueWithGoogle);
 
 
 module.exports = router;

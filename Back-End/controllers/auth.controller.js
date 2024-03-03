@@ -284,7 +284,7 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
   });
 });
 
-exports.IsExist = asyncWrapper(async (req, res, next) => {
+exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
   let { name, email, avatar } = req.body;
   
   // Retrieve user data based on email
