@@ -72,7 +72,7 @@ class StartScreen extends StatelessWidget {
           CustomButton(
             label: 'Sign In',
             onPressed: () {
-              AnimatedNavigator().pushAndRemoveUntil(
+              AnimatedNavigator().pushReplacementScale(
                 context,
                 const LoginPage(),
               );
@@ -87,7 +87,7 @@ class StartScreen extends StatelessWidget {
             borderColor: purple2,
             colors: const [white, white],
             onPressed: () {
-              AnimatedNavigator().pushAndRemoveUntil(
+              AnimatedNavigator().pushReplacementScale(
                 context,
                 const SignUp(),
               );

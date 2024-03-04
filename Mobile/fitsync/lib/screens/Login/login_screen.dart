@@ -9,8 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import '../../data/cubit/auth_cubit.dart';
-import '../../shared/widgets/login_comp/loading_dialog.dart';
-import '../../shared/widgets/login_comp/status_dialog.dart';
 import 'forgot_password_screen.dart';
 
 class LoginPage extends StatelessWidget {
@@ -23,43 +21,24 @@ class LoginPage extends StatelessWidget {
       body: BlocConsumer<AuthCubit, AuthCubitState>(
         listener: (context, state) {
           if (state is AuthLoading) {
-            showDialog(
-              barrierDismissible: false,
-              context: context,
-              builder: (_) => const LoadingDialog(),
-            );
+            state.showLoadingDialog(context);
+          
           } else if (state is AuthFaliure) {
+            state.showFaliure(context);
             Navigator.pop(context);
-            Navigator.pop(context);
-            showDialog(
-              context: context,
-              builder: (_) => StatusDialog(
-                color: red,
-                message: state.message,
-                icon: Icons.clear,
-              ),
-            );
           } else if (state is AuthSuccess) {
+            state.showSucceussdialog(context);
             Navigator.pop(context);
-            showDialog(
-              context: context,
-              barrierDismissible: false,
-              builder: (_) => StatusDialog(
-                color: green2,
-                message: state.message,
-                icon: Icons.check,
-              ),
-            );
           } else if (state is AuthWentWrong) {
-            Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 backgroundColor: red,
                 content: Text(state.message),
               ),
             );
+            Navigator.pop(context);
           } else if (state is AuthLogin) {
-            AnimatedNavigator().pushAndRemoveUntil(
+            AnimatedNavigator().pushReplacementScale(
               context,
               const HomeMainScreen(),
             );
@@ -225,8 +204,9 @@ class LoginPage extends StatelessWidget {
                           context.read<AuthCubit>().email.clear();
                           context.read<AuthCubit>().password.clear();
                           context.read<AuthCubit>().isObscure = true;
-                          context.read<AuthCubit>().autovalidateMode = AutovalidateMode.disabled;
-                          AnimatedNavigator().pushAndRemoveUntil(
+                          context.read<AuthCubit>().autovalidateMode =
+                              AutovalidateMode.disabled;
+                          AnimatedNavigator().pushReplacementScale(
                             context,
                             const SignUp(),
                           );

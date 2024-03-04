@@ -7,8 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/cubit/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/login_comp/custom_otp_widget.dart';
-import '../../shared/widgets/login_comp/loading_dialog.dart';
-import '../../shared/widgets/login_comp/status_dialog.dart';
 import 'new_password_screen.dart';
 
 class VerificationPage extends StatelessWidget {
@@ -30,32 +28,13 @@ class VerificationPage extends StatelessWidget {
       body: BlocConsumer<AuthCubit, AuthCubitState>(
         listener: (context, state) {
           if (state is AuthLoading) {
-            showDialog(
-              barrierDismissible: false,
-              context: context,
-              builder: (_) => const LoadingDialog(),
-            );
+            state.showLoadingDialog(context);
           } else if (state is AuthFaliure) {
+            state.showFaliure(context);
             Navigator.pop(context);
-            Navigator.pop(context);
-            showDialog(
-              context: context,
-              builder: (_) => StatusDialog(
-                color: red,
-                message: state.message,
-                icon: Icons.clear,
-              ),
-            );
           } else if (state is AuthSuccess) {
+            state.showSucceussdialog(context);
             Navigator.pop(context);
-            showDialog(
-              context: context,
-              builder: (_) => StatusDialog(
-                color: green2,
-                message: state.message,
-                icon: Icons.check,
-              ),
-            );
           } else if (state is AuthWentWrong) {
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
@@ -63,18 +42,18 @@ class VerificationPage extends StatelessWidget {
                 content: Text(state.message),
               ),
             );
+            Navigator.pop(context);
           } else if (state is AuthLogin) {
-            AnimatedNavigator().pushAndRemoveUntil(
+            AnimatedNavigator().pushAndRemoveUntilScale(
               context,
               const WelcomeSurveyScreen(),
             );
           } else if (state is AuthResetCode) {
-            Navigator.pop(context);
-            Navigator.pop(context);
-            AnimatedNavigator().push(
+            AnimatedNavigator().pushScale(
               context,
               const NewPasswordScreen(),
             );
+            Navigator.pop(context);
           }
         },
         builder: (context, state) {

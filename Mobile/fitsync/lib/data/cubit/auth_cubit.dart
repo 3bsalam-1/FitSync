@@ -2,6 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:fitsync/data/models/user_data_model.dart';
 import 'package:flutter/material.dart';
 import '../../services/pref.dart';
+import '../../shared/colors/colors.dart';
+import '../../shared/widgets/login_comp/loading_dialog.dart';
+import '../../shared/widgets/login_comp/status_dialog.dart';
 import '../repository/code_confirm_repo.dart';
 import '../repository/password_repo.dart';
 import '../repository/user_auth_repo.dart';
@@ -15,10 +18,11 @@ class AuthCubit extends Cubit<AuthCubitState> {
   var username = TextEditingController();
   var firstName = TextEditingController();
   var lastName = TextEditingController();
-  final keyValidateSignin = GlobalKey<FormState>();
-  final keyValidateSignup = GlobalKey<FormState>();
-  final keyValidatePass = GlobalKey<FormState>();
+  var keyValidateSignin = GlobalKey<FormState>();
+  var keyValidateSignup = GlobalKey<FormState>();
+  var keyValidatePass = GlobalKey<FormState>();
   bool agreePolicy = false;
+  int agreeCheck = -1;
   UserAuthRepo auth = UserAuthRepo();
   CodeConfirmRepo verfiy = CodeConfirmRepo();
   PasswordRepo pass = PasswordRepo();
@@ -33,8 +37,12 @@ class AuthCubit extends Cubit<AuthCubitState> {
   var autovalidateMode = AutovalidateMode.disabled;
   bool isObscure = true;
   bool isObscureConfirm = true;
+
   void checkAgreePolicy() {
     agreePolicy = !agreePolicy;
+    if (agreeCheck != -1) {
+      agreeCheck = agreePolicy? 1: 0;
+    }
     emit(AuthCubitInitial());
   }
 
@@ -69,7 +77,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
       });
       // show dailog for waiting the process to finish
       emit(AuthLoading());
-    }
+    } 
   }
 
   void register() {
@@ -107,6 +115,9 @@ class AuthCubit extends Cubit<AuthCubitState> {
       });
       // show dailog for waiting the process to finish
       emit(AuthLoading());
+    } else {
+      agreeCheck = 0;
+      emit(AuthCubitInitial());
     }
   }
 
@@ -126,10 +137,12 @@ class AuthCubit extends Cubit<AuthCubitState> {
       otpCode += element.text;
     }
     if (otpCode.length == 6) {
-      verfiy.confirmCodeVerfiy(
+      verfiy
+          .confirmCodeVerfiy(
         token: Prefs.getString('token')!,
         code: otpCode,
-      ).then((response) {
+      )
+          .then((response) {
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -145,6 +158,9 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Future.delayed(
               const Duration(seconds: 3),
               () {
+                for (var item in opt) {
+                  item.clear();
+                }
                 emit(AuthLogin());
               },
             );
@@ -162,9 +178,11 @@ class AuthCubit extends Cubit<AuthCubitState> {
 
   void forgetPassword() {
     if (email.text.isNotEmpty) {
-      pass.forgetPassword(
+      pass
+          .forgetPassword(
         email: email.text,
-      ).then((response) {
+      )
+          .then((response) {
         if (response != null) {
           emit(AuthSuccess(response.message!));
           Future.delayed(
@@ -185,9 +203,11 @@ class AuthCubit extends Cubit<AuthCubitState> {
   }
 
   void sendCodeAgain() {
-    verfiy.sendCodeToVerfiy(
+    verfiy
+        .sendCodeToVerfiy(
       token: Prefs.getString('token')!,
-    ).then((response) {
+    )
+        .then((response) {
       if (response != null) {
         emit(AuthSuccess(response.message!));
       } else {
@@ -204,9 +224,11 @@ class AuthCubit extends Cubit<AuthCubitState> {
       otpCode += element.text;
     }
     if (otpCode.length == 6) {
-      verfiy.codeReset(
+      verfiy
+          .codeReset(
         code: otpCode,
-      ).then((response) {
+      )
+          .then((response) {
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -218,6 +240,9 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Future.delayed(
               const Duration(seconds: 2),
               () {
+                for (var item in opt) {
+                  item.clear();
+                }
                 emit(AuthResetCode());
               },
             );
@@ -234,11 +259,13 @@ class AuthCubit extends Cubit<AuthCubitState> {
 
   void resetPassword() {
     if (keyValidatePass.currentState!.validate()) {
-      pass.resetPassword(
+      pass
+          .resetPassword(
         password: password.text,
         passwordConfirm: confirmPassword.text,
         token: Prefs.getString('token')!,
-      ).then((response) {
+      )
+          .then((response) {
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong

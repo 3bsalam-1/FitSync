@@ -2,8 +2,6 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import '../../shared/widgets/login_comp/custom_icon_button.dart';
 import '../../shared/widgets/login_comp/custom_textformfield.dart';
-import '../../shared/widgets/login_comp/loading_dialog.dart';
-import '../../shared/widgets/login_comp/status_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -23,36 +21,15 @@ class SignUp extends StatelessWidget {
       body: BlocConsumer<AuthCubit, AuthCubitState>(
         listener: (context, state) {
           if (state is AuthLoading) {
-            showDialog(
-              barrierDismissible: false,
-              context: context,
-              builder: (_) => const LoadingDialog(),
-            );
+            state.showLoadingDialog(context);
           } else if (state is AuthFaliure) {
+            state.showFaliure(context);
             Navigator.pop(context);
-            Navigator.pop(context);
-            showDialog(
-              context: context,
-              builder: (_) => StatusDialog(
-                color: red,
-                message: state.message,
-                icon: Icons.clear,
-              ),
-            );
           } else if (state is AuthSuccess) {
+            state.showSucceussdialog(context);
             Navigator.pop(context);
-            showDialog(
-              context: context,
-              barrierDismissible: false,
-              builder: (_) => StatusDialog(
-                color: green2,
-                message: state.message,
-                icon: Icons.check,
-              ),
-            );
           } else if (state is AuthRegister) {
-            Navigator.pop(context);
-            AnimatedNavigator().push(
+            AnimatedNavigator().pushReplacementScale(
               context,
               VerificationPage(
                 onPressed: () {
@@ -239,9 +216,12 @@ class SignUp extends StatelessWidget {
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5),
                             ),
-                            side: const BorderSide(
-                              color: gray2,
-                              width: 2,
+                            side: BorderSide(
+                              color: context.read<AuthCubit>().agreeCheck == 1 ||
+                                  context.read<AuthCubit>().agreeCheck == -1
+                                  ? gray2
+                                  : red,
+                              width: 1.6,
                             ),
                             value: context.read<AuthCubit>().agreePolicy,
                             onChanged: (value) {
@@ -362,7 +342,7 @@ class SignUp extends StatelessWidget {
                           context.read<AuthCubit>().isObscure = true;
                           context.read<AuthCubit>().autovalidateMode =
                               AutovalidateMode.disabled;
-                          AnimatedNavigator().pushAndRemoveUntil(
+                          AnimatedNavigator().pushReplacementScale(
                             context,
                             const LoginPage(),
                           );
@@ -383,7 +363,7 @@ class SignUp extends StatelessWidget {
             ),
           );
         },
-        ),
-      );
+      ),
+    );
   }
 }

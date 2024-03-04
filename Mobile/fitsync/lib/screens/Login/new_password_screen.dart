@@ -8,8 +8,6 @@ import '../../data/cubit/auth_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/login_comp/custom_textformfield.dart';
-import '../../shared/widgets/login_comp/loading_dialog.dart';
-import '../../shared/widgets/login_comp/status_dialog.dart';
 
 class NewPasswordScreen extends StatelessWidget {
   const NewPasswordScreen({super.key});
@@ -35,33 +33,13 @@ class NewPasswordScreen extends StatelessWidget {
       body: BlocConsumer<AuthCubit, AuthCubitState>(
         listener: (context, state) {
           if (state is AuthLoading) {
-            showDialog(
-              barrierDismissible: false,
-              context: context,
-              builder: (_) => const LoadingDialog(),
-            );
+            state.showLoadingDialog(context);
           } else if (state is AuthFaliure) {
+            state.showFaliure(context);
             Navigator.pop(context);
-            Navigator.pop(context);
-            showDialog(
-              context: context,
-              builder: (_) => StatusDialog(
-                color: red,
-                message: state.message,
-                icon: Icons.clear,
-              ),
-            );
           } else if (state is AuthSuccess) {
+            state.showSucceussdialog(context);
             Navigator.pop(context);
-            showDialog(
-              context: context,
-              barrierDismissible: false,
-              builder: (_) => StatusDialog(
-                color: green2,
-                message: state.message,
-                icon: Icons.check,
-              ),
-            );
           } else if (state is AuthWentWrong) {
             Navigator.pop(context);
             ScaffoldMessenger.of(context).showSnackBar(
@@ -70,8 +48,9 @@ class NewPasswordScreen extends StatelessWidget {
                 content: Text(state.message),
               ),
             );
+            Navigator.pop(context);
           } else if (state is AuthLogin) {
-            AnimatedNavigator().pushAndRemoveUntil(
+            AnimatedNavigator().pushReplacementScale(
               context,
               const PasswordChangedScreen(),
             );
@@ -143,8 +122,9 @@ class NewPasswordScreen extends StatelessWidget {
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'can Not be empty';
-                    } else if (value != context.read<AuthCubit>().password.text) {
-                      return 'password length must be between 8-12';
+                    } else if (value !=
+                        context.read<AuthCubit>().password.text) {
+                      return 'Password do not match';
                     }
                     return null;
                   },
