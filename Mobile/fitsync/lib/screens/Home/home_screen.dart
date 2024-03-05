@@ -5,6 +5,7 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:fitsync/shared/widgets/home_comp/custom_properties_card.dart';
+import 'package:fitsync/shared/widgets/home_comp/heart_graph.dart';
 import 'package:fitsync/shared/widgets/home_comp/percent_indicator_widget.dart';
 import 'package:fitsync/shared/widgets/home_comp/tips_tricks_widget.dart';
 import 'package:flutter/material.dart';
@@ -403,6 +404,11 @@ class HomePage extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            HeartGraph(),
+
+
+
+                            
                           ],
                         ),
                       ],

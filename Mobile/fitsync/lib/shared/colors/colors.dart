@@ -74,4 +74,6 @@ const Color gray24 = Color(0xffB8B8B8);
 const Color gold2 = Color(0xffF8B704);
 const Color gold3 = Color(0xffF8FD08);
 const Color green = Color(0xff00C566);
+const Color blue4 = Color.fromARGB(255, 186, 208, 230);
+
 

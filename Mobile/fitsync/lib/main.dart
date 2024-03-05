@@ -4,8 +4,8 @@ import 'package:fitsync/cubits_logic/diet_logic/favoriteIcon/cubit/favourite_ico
 import 'package:fitsync/screens/Diet/diet_screen.dart';
 import 'package:fitsync/screens/Diet/empty_state_screen.dart';
 import 'package:fitsync/screens/Diet/meal_overview_screen.dart';
+import 'package:fitsync/screens/Diet/saved_recipes_screen.dart';
 import 'package:fitsync/screens/Home/article_screen.dart';
-import 'package:fitsync/screens/Home/calories_parameters_screen.dart';
 import 'package:fitsync/screens/Home/heart_beat_screen.dart';
 import 'package:fitsync/screens/Home/home_screen.dart';
 import 'package:fitsync/screens/Home/notifications_screen.dart';

@@ -1,4 +1,6 @@
+import 'package:fitsync/screens/Home/home_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -23,7 +25,16 @@ class Icon_Button extends StatelessWidget {
         ),
         child: principle_widget,
         onPressed: () async {
-          await launchUrl(websiteUri, mode: LaunchMode.inAppBrowserView);
+          await launchUrl(websiteUri, mode: LaunchMode.inAppBrowserView)
+              .then((value) {
+            
+
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return const HomePage();}));
+          });
+          
         },
       ),
     );

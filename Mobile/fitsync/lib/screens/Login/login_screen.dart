@@ -187,6 +187,7 @@ class loginPage extends StatelessWidget {
                       ),
                       websiteUri:
                           Uri.parse('https://fitsync.onrender.com/auth/google'),
+                          
                     ),
                     Icon_Button(
                         principle_widget: Image.asset(
