@@ -11,7 +11,9 @@ import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'cubits_logic/workouts/week_dates.dart';
 import 'data/cubit/auth/auth_cubit.dart';
+import 'data/cubit/user_data/user_data_info_cubit.dart';
 import 'screens/splash/splash_screen.dart';
+import 'screens/survey/choice_questions.dart/create_plan_screen.dart';
 import 'services/pref.dart';
 
 void main() async {
@@ -60,11 +62,14 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FavouriteIconCubit(),
         ),
+        BlocProvider(
+          create: (context) => UserDataInfoCubit(),
+        ),
       ],
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+        home: CreatePlanScreen(),
       ),
     );
   }

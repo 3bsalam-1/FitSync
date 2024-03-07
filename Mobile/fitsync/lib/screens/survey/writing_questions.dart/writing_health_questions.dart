@@ -120,7 +120,7 @@ class CholesterolLevelQuestion extends StatelessWidget {
             AnimatedNavigator().push(
               context,
               const ExerciseSurveyScreen(
-                screen: ChoiceSleepQuestion(),
+                screen: BmrQuestion(),
               ),
             );
           } else {
@@ -137,6 +137,40 @@ class CholesterolLevelQuestion extends StatelessWidget {
         labelQuestion: 'Please Enter cholesterol level?',
         labelField: '0',
         labelMeagure: 'Mg/dL',
+      ),
+    );
+  }
+}
+
+
+class BmrQuestion extends StatelessWidget {
+  const BmrQuestion({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
+      listener: (context, state) {
+        if (state is CholesterolValidation) {
+          if (state.errorText == null) {
+            FocusScope.of(context).unfocus();
+            AnimatedNavigator().push(
+              context,
+              const ChoiceSleepQuestion(),
+            );
+          } else {
+            customSnackBar(context, state.errorText!);
+          }
+        }
+      },
+      builder: (context, state) => WritingBodyQuestion(
+        onPressed: () {
+          context.read<TextFormValidationCubit>().bmrValidate();
+        },
+        controller:
+            context.read<TextFormValidationCubit>().bmrController,
+        labelQuestion: 'Please Enter Your BMR?',
+        labelField: '0',
+        labelMeagure: 'kcal/day',
       ),
     );
   }

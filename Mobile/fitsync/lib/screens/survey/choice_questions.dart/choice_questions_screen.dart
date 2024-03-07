@@ -1,5 +1,8 @@
+import 'package:fitsync/data/cubit/user_data/user_data_info_cubit.dart';
+import 'package:fitsync/data/models/user_personal_info_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../cubits_logic/survey_logic/choise_questions_cubit.dart';
+import '../../../services/pref.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import 'create_plan_screen.dart';
 import 'exercise_survey_restrict_screen.dart';
@@ -167,7 +170,7 @@ class ChoiceHypertensionQuestion extends StatelessWidget {
         if (selectedAnswer == 0) {
           AnimatedNavigator().push(
             context,
-            const ChoiceSleepQuestion(),
+            const BmrQuestion(),
           );
         } else {
           AnimatedNavigator().push(
@@ -203,15 +206,55 @@ class ChoiceDailyWaterQuestion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChoiceBodyQuestion(
-      question: questionSurvey[10],
-      questionIndex: 10,
-      onPress: () {
-        AnimatedNavigator().push(
-          context,
-          const CreatePlanScreen(),
-        );
+    return BlocListener<UserDataInfoCubit, UserDataInfoState>(
+      listener: (context, state) {
+        if (state is UserDataFailure) {
+          state.showFaliure(context);
+        } else if (state is UserDataLoading) {
+          state.showLoadingDialog(context);
+        } else if (state is UserDataLoaded) {
+          AnimatedNavigator().push(
+            context,
+            const CreatePlanScreen(),
+          );
+        }
       },
+      child: ChoiceBodyQuestion(
+        question: questionSurvey[10],
+        questionIndex: 10,
+        onPress: () {
+          bool backPain = context.read<ChoiseQuestionsCubit>().answers[2] == 0? false: true;
+          bool kneePain = context.read<ChoiseQuestionsCubit>().answers[3] == 0? false: true;
+          bool diabetes = context.read<ChoiseQuestionsCubit>().answers[4] == 0? false: true;
+          bool heartCondition = context.read<ChoiseQuestionsCubit>().answers[5] == 0? false: true;
+          bool hypertension = context.read<ChoiseQuestionsCubit>().answers[6] == 0? false: true;
+          bool vegetarian = context.read<ChoiseQuestionsCubit>().answers[9] == 0? false: true;
+          String activeLevel = questionSurvey[1].choice[context.read<ChoiseQuestionsCubit>().answers[1]];
+          
+          context.read<UserDataInfoCubit>().saveUserData(
+            info: UserPersonalInfoModel(
+              weight: Prefs.getDouble('weight')!, 
+              height: Prefs.getDouble('height')!,
+              age: Prefs.getInt('age')!, 
+              gender: Prefs.getString('gender')!, 
+              activityLevel: activeLevel, 
+              systolicBP: Prefs.getDouble('sys')?? 10, 
+              diastolicBP: Prefs.getDouble('dias') ?? 10, 
+              cholesterolLevel: Prefs.getDouble('chol') ?? 10, 
+              bloodSugar: Prefs.getDouble('bloodSugare') ?? 10, 
+              hypertension: hypertension, 
+              diabetes: diabetes, 
+              heartCondition: heartCondition, 
+              lowPressure: 10, 
+              bmr: Prefs.getDouble('bmr')!, 
+              kneePain: kneePain, 
+              backPain: backPain, 
+              vegetarian: vegetarian,
+            ), 
+            token: Prefs.getString('token')!,
+          );
+        },
+      ),
     );
   }
 }
