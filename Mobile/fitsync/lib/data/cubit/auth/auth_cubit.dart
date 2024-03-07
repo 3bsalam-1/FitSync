@@ -185,14 +185,17 @@ class AuthCubit extends Cubit<AuthCubitState> {
       ).then((response) {
         ScaffoldMessenger.of(context).clearSnackBars();
         if (response != null) {
-          // todo here chech if the message is fialure
-          emit(AuthSuccess(response.message!));
-          Future.delayed(
-            const Duration(seconds: 1),
-            () {
-              emit(AuthForgetPassword());
-            },
-          );
+          if (response.status! == 'Error') {
+            emit(AuthFaliure(response.message!));
+          } else {
+            emit(AuthSuccess(response.message!));
+            Future.delayed(
+              const Duration(seconds: 1),
+              () {
+                emit(AuthForgetPassword());
+              },
+            ); 
+          }
         } else {
           emit(AuthFaliure('Something went wrong in server'));
         }
