@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../../data/cubit/auth_cubit.dart';
+import '../../data/cubit/auth/auth_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/login_comp/custom_textformfield.dart';
@@ -36,19 +36,8 @@ class NewPasswordScreen extends StatelessWidget {
             state.showLoadingDialog(context);
           } else if (state is AuthFaliure) {
             state.showFaliure(context);
-            Navigator.pop(context);
           } else if (state is AuthSuccess) {
             state.showSucceussdialog(context);
-            Navigator.pop(context);
-          } else if (state is AuthWentWrong) {
-            Navigator.pop(context);
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: red,
-                content: Text(state.message),
-              ),
-            );
-            Navigator.pop(context);
           } else if (state is AuthLogin) {
             AnimatedNavigator().pushReplacementScale(
               context,
@@ -133,7 +122,7 @@ class NewPasswordScreen extends StatelessWidget {
                 CustomButton(
                   label: 'Update Password',
                   onPressed: () {
-                    context.read<AuthCubit>().resetPassword();
+                    context.read<AuthCubit>().resetPassword(context);
                   },
                 ),
               ],

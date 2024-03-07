@@ -1,13 +1,14 @@
 import 'package:bloc/bloc.dart';
 import 'package:fitsync/data/models/user_data_model.dart';
 import 'package:flutter/material.dart';
-import '../../services/pref.dart';
-import '../../shared/colors/colors.dart';
-import '../../shared/widgets/login_comp/loading_dialog.dart';
-import '../../shared/widgets/login_comp/status_dialog.dart';
-import '../repository/code_confirm_repo.dart';
-import '../repository/password_repo.dart';
-import '../repository/user_auth_repo.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../../services/pref.dart';
+import '../../../shared/colors/colors.dart';
+import '../../../shared/widgets/global/custom_snackbar_message.dart';
+import '../../../shared/widgets/login_comp/loading_dialog.dart';
+import '../../repository/login_res/code_confirm_repo.dart';
+import '../../repository/login_res/password_repo.dart';
+import '../../repository/login_res/user_auth_repo.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthCubitState> {
@@ -46,7 +47,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
     emit(AuthCubitInitial());
   }
 
-  void signin() {
+  void signin(BuildContext context) {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
     if (keyValidateSignin.currentState!.validate()) {
@@ -54,6 +55,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
         email: email.text,
         password: password.text,
       ).then((response) {
+        ScaffoldMessenger.of(context).clearSnackBars();
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -65,14 +67,14 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setBool('isLogin', true);
             emit(AuthSuccess('Creating your plan'));
             Future.delayed(
-              const Duration(seconds: 2),
+              const Duration(seconds: 1),
               () {
                 emit(AuthLogin());
               },
             );
           }
         } else {
-          emit(AuthWentWrong('Something went wrong in server'));
+          emit(AuthFaliure('Something went wrong in server'));
         }
       });
       // show dailog for waiting the process to finish
@@ -80,7 +82,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
     } 
   }
 
-  void register() {
+  void register(BuildContext context) {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
     if (keyValidateSignup.currentState!.validate() && agreePolicy) {
@@ -94,6 +96,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
           passwordConfirm: confirmPassword.text,
         ),
       ).then((response) {
+        ScaffoldMessenger.of(context).clearSnackBars();
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -103,14 +106,14 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setString('token', response.token!);
             emit(AuthSuccess('Creating your plan'));
             Future.delayed(
-              const Duration(seconds: 2),
+              const Duration(seconds: 1),
               () {
                 emit(AuthRegister());
               },
             );
           }
         } else {
-          emit(AuthWentWrong('Something went wrong in server'));
+          emit(AuthFaliure('Something went wrong in server'));
         }
       });
       // show dailog for waiting the process to finish
@@ -131,18 +134,17 @@ class AuthCubit extends Cubit<AuthCubitState> {
     emit(AuthIsObscure());
   }
 
-  void verifyCode() {
+  void verifyCode(BuildContext context) {
     String otpCode = '';
     for (var element in opt) {
       otpCode += element.text;
     }
     if (otpCode.length == 6) {
-      verfiy
-          .confirmCodeVerfiy(
+      verfiy.confirmCodeVerfiy(
         token: Prefs.getString('token')!,
         code: otpCode,
-      )
-          .then((response) {
+      ).then((response) {
+        ScaffoldMessenger.of(context).clearSnackBars();
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -156,7 +158,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setBool('takeSurvey', false);
             emit(AuthSuccess('The Verification Success'));
             Future.delayed(
-              const Duration(seconds: 3),
+              const Duration(seconds: 1),
               () {
                 for (var item in opt) {
                   item.clear();
@@ -166,69 +168,67 @@ class AuthCubit extends Cubit<AuthCubitState> {
             );
           }
         } else {
-          emit(AuthWentWrong('Something went wrong in server'));
+          emit(AuthFaliure('Something went wrong in server'));
         }
       });
       // show dailog for waiting the process to finish
       emit(AuthLoading());
     } else {
-      emit(AuthWentWrong('Please write all the code'));
+      emit(AuthFaliure('Please write all the code'));
     }
   }
 
-  void forgetPassword() {
+  void forgetPassword(BuildContext context) {
     if (email.text.isNotEmpty) {
-      pass
-          .forgetPassword(
+      pass.forgetPassword(
         email: email.text,
-      )
-          .then((response) {
+      ).then((response) {
+        ScaffoldMessenger.of(context).clearSnackBars();
         if (response != null) {
+          // todo here chech if the message is fialure
           emit(AuthSuccess(response.message!));
           Future.delayed(
-            const Duration(seconds: 3),
+            const Duration(seconds: 1),
             () {
               emit(AuthForgetPassword());
             },
           );
         } else {
-          emit(AuthWentWrong('Something went wrong in server'));
+          emit(AuthFaliure('Something went wrong in server'));
         }
       });
       // show dailog for waiting the process to finish
       emit(AuthLoading());
     } else {
-      emit(AuthWentWrong('Please Enter Your Email'));
+      emit(AuthFaliure('Please Enter Your Email'));
     }
   }
 
-  void sendCodeAgain() {
-    verfiy
-        .sendCodeToVerfiy(
+  void sendCodeAgain(BuildContext context) {
+    verfiy.sendCodeToVerfiy(
       token: Prefs.getString('token')!,
-    )
-        .then((response) {
+    ).then((response) {
+      ScaffoldMessenger.of(context).clearSnackBars();
       if (response != null) {
         emit(AuthSuccess(response.message!));
       } else {
-        emit(AuthWentWrong('Something went wrong in server'));
+        emit(AuthFaliure('Something went wrong in server'));
       }
     });
     // show dailog for waiting the process to finish
     emit(AuthLoading());
   }
 
-  void resetCode() {
+  void resetCode(BuildContext context) {
     String otpCode = '';
     for (var element in opt) {
       otpCode += element.text;
     }
     if (otpCode.length == 6) {
-      verfiy
-          .codeReset(
+      verfiy.codeReset(
         code: otpCode,
-      )
-          .then((response) {
+      ).then((response) {
+        ScaffoldMessenger.of(context).clearSnackBars();
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -238,7 +238,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setString('token', response.token!);
             emit(AuthSuccess('The Verification Success'));
             Future.delayed(
-              const Duration(seconds: 2),
+              const Duration(seconds: 1),
               () {
                 for (var item in opt) {
                   item.clear();
@@ -248,24 +248,23 @@ class AuthCubit extends Cubit<AuthCubitState> {
             );
           }
         } else {
-          emit(AuthWentWrong('Something went wrong in server'));
+          emit(AuthFaliure('Something went wrong in server'));
         }
       });
       emit(AuthLoading());
     } else {
-      emit(AuthWentWrong('Please write all the code'));
+      emit(AuthFaliure('Please write all the code'));
     }
   }
 
-  void resetPassword() {
+  void resetPassword(BuildContext context) {
     if (keyValidatePass.currentState!.validate()) {
-      pass
-          .resetPassword(
+      pass.resetPassword(
         password: password.text,
         passwordConfirm: confirmPassword.text,
         token: Prefs.getString('token')!,
-      )
-          .then((response) {
+      ).then((response) {
+        ScaffoldMessenger.of(context).clearSnackBars();
         if (response != null) {
           if (response.token == '') {
             // will show error massege which there something went wrong
@@ -277,14 +276,14 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setBool('isLogin', true);
             emit(AuthSuccess('The updating password Success'));
             Future.delayed(
-              const Duration(seconds: 2),
+              const Duration(seconds: 1),
               () {
                 emit(AuthLogin());
               },
             );
           }
         } else {
-          emit(AuthWentWrong('Something went wrong in server'));
+          emit(AuthFaliure('Something went wrong in server'));
         }
       });
       emit(AuthLoading());

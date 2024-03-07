@@ -1,7 +1,7 @@
 import 'dart:convert';
-import '../models/response_model.dart';
+import '../../models/response_model.dart';
 import 'package:flutter/material.dart';
-import '../../shared/const/base_url.dart';
+import '../../../shared/const/base_url.dart';
 import 'package:http/http.dart' as http;
 
 class CodeConfirmRepo {

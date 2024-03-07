@@ -8,7 +8,7 @@ import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
-import '../../data/cubit/auth_cubit.dart';
+import '../../data/cubit/auth/auth_cubit.dart';
 import 'forgot_password_screen.dart';
 
 class LoginPage extends StatelessWidget {
@@ -22,21 +22,10 @@ class LoginPage extends StatelessWidget {
         listener: (context, state) {
           if (state is AuthLoading) {
             state.showLoadingDialog(context);
-          
           } else if (state is AuthFaliure) {
             state.showFaliure(context);
-            Navigator.pop(context);
           } else if (state is AuthSuccess) {
             state.showSucceussdialog(context);
-            Navigator.pop(context);
-          } else if (state is AuthWentWrong) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: red,
-                content: Text(state.message),
-              ),
-            );
-            Navigator.pop(context);
           } else if (state is AuthLogin) {
             AnimatedNavigator().pushReplacementScale(
               context,
@@ -148,15 +137,15 @@ class LoginPage extends StatelessWidget {
                   CustomButton(
                     label: "Log in",
                     onPressed: () {
-                      context.read<AuthCubit>().signin();
+                      context.read<AuthCubit>().signin(context);
                     },
                   ),
                   const SizedBox(height: 22),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 55),
-                        child: Icon_Button(
+                  Center(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon_Button(
                           principle_widget: Image.asset(
                             "assets/images/Icons/google_icon.png",
                             width: 24,
@@ -166,24 +155,27 @@ class LoginPage extends StatelessWidget {
                             'https://fitsync.onrender.com/auth/google',
                           ),
                         ),
-                      ),
-                      Icon_Button(
+                        const SizedBox(width: 12),
+                        Icon_Button(
                           principle_widget: const Icon(
-                        Icons.apple,
-                        color: black,
-                        size: 30,
-                      )),
-                      Icon_Button(
-                        principle_widget: Image.asset(
-                          "assets/images/Icons/facebook_icon.png",
-                          width: 30,
-                          height: 30,
+                            Icons.apple,
+                            color: black,
+                            size: 30,
+                          ),
                         ),
-                        websiteUri: Uri.parse(
-                          'https://fitsync.onrender.com/auth/facebook',
+                        const SizedBox(width: 12),
+                        Icon_Button(
+                          principle_widget: Image.asset(
+                            "assets/images/Icons/facebook_icon.png",
+                            width: 30,
+                            height: 30,
+                          ),
+                          websiteUri: Uri.parse(
+                            'https://fitsync.onrender.com/auth/facebook',
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   const SizedBox(
                     height: 40,

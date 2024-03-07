@@ -4,7 +4,7 @@ import '../../shared/widgets/login_comp/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
-import '../../data/cubit/auth_cubit.dart';
+import '../../data/cubit/auth/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import 'verification_screen.dart';
 
@@ -34,21 +34,21 @@ class ForgotPasswordPage extends StatelessWidget {
             state.showLoadingDialog(context);
           } else if (state is AuthSuccess) {
             state.showSucceussdialog(context);
-            Navigator.pop(context);
+          } else if (state is AuthFaliure) {
+            state.showFaliure(context);
           } else if (state is AuthForgetPassword) {
             AnimatedNavigator().pushScale(
               context,
               VerificationPage(
                 onPressed: () {
-                  context.read<AuthCubit>().resetCode();
+                  context.read<AuthCubit>().resetCode(context);
                 },
                 sendCodeAgain: () {
-                  context.read<AuthCubit>().forgetPassword();
+                  context.read<AuthCubit>().forgetPassword(context);
                 },
                 email: context.read<AuthCubit>().email.text,
               ),
             );
-            Navigator.pop(context);
           }
         },
         builder: (context, state) {
@@ -108,7 +108,7 @@ class ForgotPasswordPage extends StatelessWidget {
               CustomButton(
                 label: "Reset Password",
                 onPressed: () {
-                  context.read<AuthCubit>().forgetPassword();
+                  context.read<AuthCubit>().forgetPassword(context);
                 },
               ),
             ],

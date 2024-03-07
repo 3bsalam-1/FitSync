@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-
 import '../../services/pref.dart';
 part 'text_form_validation_state.dart';
 
@@ -24,7 +23,6 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
       try {
         int age = int.parse(ageController.text);
         if (age >= 7 && age <= 100) {
-          Prefs.setString('age', ageController.text);
           emit(AgeValidation(null));
         } else {
           emit(AgeValidation('The age must be between 7-100'));
@@ -42,10 +40,8 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
       try {
         double weight = double.parse(weightController.text);
         if (weight >= 30 && weight <= 400 && isKgSelected) {
-          Prefs.setString('weight', weightController.text);
           emit(WeightValidation(null));
         } else if (weight >= 66 && weight <= 880 && !isKgSelected) {
-          Prefs.setString('weight', (weight * 2.2).toString());
           emit(WeightValidation(null));
         } else {
           emit(WeightValidation('The weight must be between 30-400'));
@@ -117,10 +113,6 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
           Prefs.setString('tall', tallController.text);
           emit(TallValidation(null));
         } else if (tall >= 1.64 && tall <= 7.22 && !isCmSelected) {
-          Prefs.setString(
-              'tall',
-              (double.parse(tallController.text) / 0.032808399)
-                  .toStringAsFixed(2));
           emit(TallValidation(null));
         } else {
           emit(TallValidation('The value must be between 50-220'));
@@ -179,7 +171,6 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
     if (bloodSugarController.text.isNotEmpty) {
       try {
         double.parse(bloodSugarController.text);
-        Prefs.setString('bloodSugar', bloodSugarController.text);
         emit(BloodSugarValidation(null));
       } on FormatException {
         emit(BloodSugarValidation('The value must be a number'));
@@ -193,7 +184,6 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
     if (systolicController.text.isNotEmpty) {
       try {
         double.parse(systolicController.text);
-        Prefs.setString('systolic', systolicController.text);
         emit(SystolicBloodValidation(null));
       } on FormatException {
         emit(SystolicBloodValidation('The value must be a number'));
@@ -207,7 +197,6 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
     if (diastolicController.text.isNotEmpty) {
       try {
         double.parse(diastolicController.text);
-        Prefs.setString('diastolic', diastolicController.text);
         emit(DiastolicBloodValidation(null));
       } on FormatException {
         emit(DiastolicBloodValidation('The value must be a number'));
@@ -221,7 +210,6 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
     if (cholesterolController.text.isNotEmpty) {
       try {
         double.parse(cholesterolController.text);
-        Prefs.setString('chole', cholesterolController.text);
         emit(CholesterolValidation(null));
       } on FormatException {
         emit(CholesterolValidation('The value must be a number'));

@@ -1,8 +1,8 @@
 import 'dart:convert';
-import '../models/user_personal_info_model.dart';
+import '../../models/user_personal_info_model.dart';
 import 'package:flutter/material.dart';
-import '../../shared/const/base_url.dart';
-import '../models/response_model.dart';
+import '../../../shared/const/base_url.dart';
+import '../../models/response_model.dart';
 import 'package:http/http.dart' as http;
 
 class UserInfoRepo {

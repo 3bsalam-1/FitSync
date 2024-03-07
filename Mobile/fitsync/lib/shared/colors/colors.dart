@@ -40,6 +40,7 @@ const Color red5 = Color(0xFFFF0000);
 const Color red6 = Color(0xFFFF1F1F);
 const Color red7 = Color(0xFFFF5B5B);
 const Color red3 = Color(0xFFEF2020);
+const Color red9 = Color(0xFF9F001D);
 
 const Color purple4 = Color(0xff8F7DF9);
 const Color purple5 = Color(0xff8D6FF8);

@@ -4,7 +4,7 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/cubit/auth_cubit.dart';
+import '../../data/cubit/auth/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/login_comp/custom_otp_widget.dart';
 import 'new_password_screen.dart';
@@ -31,18 +31,8 @@ class VerificationPage extends StatelessWidget {
             state.showLoadingDialog(context);
           } else if (state is AuthFaliure) {
             state.showFaliure(context);
-            Navigator.pop(context);
           } else if (state is AuthSuccess) {
             state.showSucceussdialog(context);
-            Navigator.pop(context);
-          } else if (state is AuthWentWrong) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                backgroundColor: red,
-                content: Text(state.message),
-              ),
-            );
-            Navigator.pop(context);
           } else if (state is AuthLogin) {
             AnimatedNavigator().pushAndRemoveUntilScale(
               context,
@@ -53,7 +43,6 @@ class VerificationPage extends StatelessWidget {
               context,
               const NewPasswordScreen(),
             );
-            Navigator.pop(context);
           }
         },
         builder: (context, state) {

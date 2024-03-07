@@ -89,10 +89,6 @@ class ChoiceBodyQuestion extends StatelessWidget {
                               const Duration(seconds: 2),
                               () {
                                 context.read<AnimatedListView>().startAnimation();
-                                context.read<ChoiseQuestionsCubit>().questionSaveData(
-                                  questionIndex,
-                                  question.choice[index],
-                                );
                                 onPress();
                               },
                             );

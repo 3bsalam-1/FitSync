@@ -1,3 +1,4 @@
+import '../../data/cubit/auth/auth_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import '../../shared/widgets/login_comp/custom_icon_button.dart';
@@ -6,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../../data/cubit/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import 'login_screen.dart';
 import 'verification_screen.dart';
@@ -24,19 +24,17 @@ class SignUp extends StatelessWidget {
             state.showLoadingDialog(context);
           } else if (state is AuthFaliure) {
             state.showFaliure(context);
-            Navigator.pop(context);
           } else if (state is AuthSuccess) {
             state.showSucceussdialog(context);
-            Navigator.pop(context);
           } else if (state is AuthRegister) {
             AnimatedNavigator().pushReplacementScale(
               context,
               VerificationPage(
                 onPressed: () {
-                  context.read<AuthCubit>().verifyCode();
+                  context.read<AuthCubit>().verifyCode(context);
                 },
                 sendCodeAgain: () {
-                  context.read<AuthCubit>().sendCodeAgain();
+                  context.read<AuthCubit>().sendCodeAgain(context);
                 },
                 email: context.read<AuthCubit>().email.text,
               ),
@@ -281,7 +279,7 @@ class SignUp extends StatelessWidget {
                   CustomButton(
                     label: "Sign Up",
                     onPressed: () {
-                      context.read<AuthCubit>().register();
+                      context.read<AuthCubit>().register(context);
                     },
                   ),
                   const SizedBox(height: 25),
