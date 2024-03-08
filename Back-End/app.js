@@ -42,9 +42,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(helmet());
 
-app.use("/home", (req, res, next) => {
-  res.send("<h1>home screen</h1>");
-});
 
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
