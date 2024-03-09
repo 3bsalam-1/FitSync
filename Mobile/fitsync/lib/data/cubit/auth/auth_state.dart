@@ -17,13 +17,10 @@ final class AuthFaliure extends AuthCubitState {
   void showFaliure(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        padding: EdgeInsets.zero,
         elevation: 0,
-        behavior: SnackBarBehavior.floating,
-        backgroundColor: Colors.transparent,
-        margin: const EdgeInsets.only(
-          bottom: 20,
-        ),
-        duration: const Duration(minutes: 2),
+        duration: const Duration(minutes: 1),
+        backgroundColor: black.withOpacity(0.3),
         content: CustomSnackbarMessage(
           title: 'Faliure message',
           subTitle: message,
@@ -43,13 +40,10 @@ final class AuthSuccess extends AuthCubitState {
   void showSucceussdialog(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        padding: EdgeInsets.zero,
         elevation: 0,
-        behavior: SnackBarBehavior.floating,
-        backgroundColor: Colors.transparent,
-        margin: const EdgeInsets.only(
-          bottom: 20,
-        ),
-        duration: const Duration(minutes: 2),
+        duration: const Duration(minutes: 1),
+        backgroundColor: black.withOpacity(0.3),
         content: CustomSnackbarMessage(
           title: 'Success message',
           subTitle: message,
@@ -65,16 +59,10 @@ final class AuthLoading extends AuthCubitState {
   void showLoadingDialog(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
+        padding: EdgeInsets.zero,
         elevation: 0,
-        backgroundColor: Colors.transparent,
-        dismissDirection: DismissDirection.down,
-        behavior: SnackBarBehavior.floating,
         duration: const Duration(days: 1),
-        margin: EdgeInsets.only(
-          bottom: MediaQuery.of(context).size.height * 0.4,
-          left: 60,
-          right: 60,
-        ),
+        backgroundColor: black.withOpacity(0.3),
         content: const LoadingDialog(),
       ),
     );

@@ -213,6 +213,7 @@ class ChoiceDailyWaterQuestion extends StatelessWidget {
         } else if (state is UserDataLoading) {
           state.showLoadingDialog(context);
         } else if (state is UserDataLoaded) {
+          //context.read<UserDataInfoCubit>().removeData();
           AnimatedNavigator().push(
             context,
             const CreatePlanScreen(),

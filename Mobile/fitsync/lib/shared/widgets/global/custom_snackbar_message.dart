@@ -21,68 +21,79 @@ class CustomSnackbarMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.maxFinite,
-      padding: const EdgeInsets.symmetric(
-        horizontal: 8,
-        vertical: 12,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: backColor,
-        boxShadow: [
-          BoxShadow(
-            color: gray2.withOpacity(0.6),
-            blurRadius: 6,
-            spreadRadius: 2,
-          ),
-        ],
-      ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            size: 25,
-            color: white,
-          ),
-          const SizedBox(width: 10),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: GoogleFonts.poppins(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w600,
-                    color: contentColor,
-                  ),
-                ),
-                Text(
-                  subTitle,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: GoogleFonts.poppins(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w400,
-                    color: contentColor,
-                  ),
+      color: Colors.transparent,
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: UnconstrainedBox(
+          child: Container(
+            width: MediaQuery.of(context).size.width - 20,
+            padding: const EdgeInsets.symmetric(
+              horizontal: 8,
+              vertical: 12,
+            ),
+            margin: const EdgeInsets.only(bottom: 30),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: backColor,
+              boxShadow: [
+                BoxShadow(
+                  color: gray2.withOpacity(0.6),
+                  blurRadius: 6,
+                  spreadRadius: 2,
                 ),
               ],
             ),
-          ),
-          const SizedBox(width: 22),
-          IconButton(
-            onPressed: () {
-              ScaffoldMessenger.of(context).clearSnackBars();
-            },
-            icon: Icon(
-              Icons.clear,
-              color: contentColor,
-              size: 20,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Icon(
+                  icon,
+                  size: 25,
+                  color: white,
+                ),
+                const SizedBox(width: 10),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        title,
+                        style: GoogleFonts.poppins(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: contentColor,
+                        ),
+                      ),
+                      Text(
+                        subTitle,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.poppins(
+                          fontSize: 13,
+                          fontWeight: FontWeight.w400,
+                          color: contentColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(width: 22),
+                IconButton(
+                  onPressed: () {
+                    ScaffoldMessenger.of(context).clearSnackBars();
+                  },
+                  icon: Icon(
+                    Icons.clear,
+                    color: contentColor,
+                    size: 20,
+                  ),
+                )
+              ],
             ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }

@@ -69,6 +69,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Future.delayed(
               const Duration(seconds: 1),
               () {
+                ScaffoldMessenger.of(context).clearSnackBars();
                 emit(AuthLogin());
               },
             );
@@ -108,6 +109,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Future.delayed(
               const Duration(seconds: 1),
               () {
+                ScaffoldMessenger.of(context).clearSnackBars();
                 emit(AuthRegister());
               },
             );
@@ -160,6 +162,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Future.delayed(
               const Duration(seconds: 1),
               () {
+                ScaffoldMessenger.of(context).clearSnackBars();
                 for (var item in opt) {
                   item.clear();
                 }
@@ -192,6 +195,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Future.delayed(
               const Duration(seconds: 1),
               () {
+                ScaffoldMessenger.of(context).clearSnackBars();
                 emit(AuthForgetPassword());
               },
             ); 
@@ -243,6 +247,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Future.delayed(
               const Duration(seconds: 1),
               () {
+                ScaffoldMessenger.of(context).clearSnackBars();
                 for (var item in opt) {
                   item.clear();
                 }
@@ -281,6 +286,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Future.delayed(
               const Duration(seconds: 1),
               () {
+                ScaffoldMessenger.of(context).clearSnackBars();
                 emit(AuthLogin());
               },
             );

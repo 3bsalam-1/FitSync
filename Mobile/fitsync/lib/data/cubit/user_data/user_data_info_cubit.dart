@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:meta/meta.dart';
+import '../../../services/pref.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_snackbar_message.dart';
 import '../../../shared/widgets/login_comp/loading_dialog.dart';
@@ -29,5 +30,17 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
       }
     });
     emit(UserDataLoading());
+  }
+
+  void removeData() {
+    Prefs.remove('weight');
+    Prefs.remove('height');
+    Prefs.remove('age');
+    Prefs.remove('gender');
+    Prefs.remove('sys');
+    Prefs.remove('dias');
+    Prefs.remove('chol');
+    Prefs.remove('bloodSugare');
+    Prefs.remove('bmr');
   }
 }
