@@ -61,13 +61,14 @@ class AuthCubit extends Cubit<AuthCubitState> {
             // will show error massege which there something went wrong
             emit(AuthFaliure(response.message!));
           } else {
+            print('the token is: ${response.token!}');
             // There is no error then go to the home page & save token
             Prefs.setString('token', response.token!);
             // The user is created account so they will save as login to the app
             Prefs.setBool('isLogin', true);
             emit(AuthSuccess('Creating your plan'));
             Future.delayed(
-              const Duration(seconds: 1),
+              const Duration(seconds: 3),
               () {
                 ScaffoldMessenger.of(context).clearSnackBars();
                 emit(AuthLogin());
@@ -107,7 +108,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setString('token', response.token!);
             emit(AuthSuccess('Creating your plan'));
             Future.delayed(
-              const Duration(seconds: 1),
+              const Duration(seconds: 3),
               () {
                 ScaffoldMessenger.of(context).clearSnackBars();
                 emit(AuthRegister());
@@ -160,7 +161,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setBool('takeSurvey', false);
             emit(AuthSuccess('The Verification Success'));
             Future.delayed(
-              const Duration(seconds: 1),
+              const Duration(seconds: 3),
               () {
                 ScaffoldMessenger.of(context).clearSnackBars();
                 for (var item in opt) {
@@ -193,7 +194,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
           } else {
             emit(AuthSuccess(response.message!));
             Future.delayed(
-              const Duration(seconds: 1),
+              const Duration(seconds: 3),
               () {
                 ScaffoldMessenger.of(context).clearSnackBars();
                 emit(AuthForgetPassword());
@@ -245,7 +246,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setString('token', response.token!);
             emit(AuthSuccess('The Verification Success'));
             Future.delayed(
-              const Duration(seconds: 1),
+              const Duration(seconds: 3),
               () {
                 ScaffoldMessenger.of(context).clearSnackBars();
                 for (var item in opt) {
@@ -284,7 +285,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setBool('isLogin', true);
             emit(AuthSuccess('The updating password Success'));
             Future.delayed(
-              const Duration(seconds: 1),
+              const Duration(seconds: 3),
               () {
                 ScaffoldMessenger.of(context).clearSnackBars();
                 emit(AuthLogin());

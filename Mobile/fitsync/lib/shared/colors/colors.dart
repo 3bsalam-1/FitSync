@@ -76,4 +76,4 @@ const Color gold2 = Color(0xffF8B704);
 const Color gold3 = Color(0xffF8FD08);
 const Color green = Color(0xff00C566);
 const Color green3 = Color(0xff81D890);
-
+const Color green4 = Color(0xFF016712);
