@@ -1,3 +1,5 @@
+import 'package:fitsync/screens/survey/welcome_survey_screen.dart';
+
 import 'cubits_logic/bluetooth/bluetooth_cubit.dart';
 import 'cubits_logic/splash_screen_next_cubit.dart';
 import 'package:fitsync/cubits_logic/diet_logic/counter/counter_cubit.dart';
@@ -68,7 +70,7 @@ class MyApp extends StatelessWidget {
       child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+        home: WelcomeSurveyScreen(),
       ),
     );
   }

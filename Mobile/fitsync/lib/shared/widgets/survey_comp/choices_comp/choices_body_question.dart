@@ -79,19 +79,23 @@ class ChoiceBodyQuestion extends StatelessWidget {
                           indexAnswer: context.read<ChoiseQuestionsCubit>().answers[questionIndex],
                           onTap: () {
                             context.read<ChoiseQuestionsCubit>().isSelected(questionIndex, index);
-                            Future.delayed(
-                              const Duration(milliseconds: 900),
-                              () {
-                                context.read<AnimatedListView>().stopAnimation();
-                              },
-                            );
-                            Future.delayed(
-                              const Duration(seconds: 2),
-                              () {
-                                context.read<AnimatedListView>().startAnimation();
-                                onPress();
-                              },
-                            );
+                            if (context.read<ChoiseQuestionsCubit>().answers[9] != -1) {
+                              onPress();
+                            } else {
+                              Future.delayed(
+                                const Duration(milliseconds: 1000),
+                                () {
+                                  context.read<AnimatedListView>().stopAnimation();
+                                },
+                              );
+                              Future.delayed(
+                                const Duration(seconds: 2),
+                                () {
+                                  context.read<AnimatedListView>().startAnimation();
+                                  onPress();
+                                },
+                              );
+                            }
                           },
                         ),
                         separatorBuilder: (_, __) => const SizedBox(height: 20),

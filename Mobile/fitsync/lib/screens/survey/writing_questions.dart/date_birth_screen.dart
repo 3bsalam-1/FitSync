@@ -68,7 +68,7 @@ class DateBirthScreen extends StatelessWidget {
                           locale: DatePicker.localeFromString('en'),
                           onChange: (DateTime newDate, _) {
                             context.read<TextFormValidationCubit>().updateBirthDateValue(
-                              DateFormat('dd/MM/yyy').format(newDate).toString(),
+                              DateFormat('yyy-MM-dd').format(newDate),
                             );
                           },
                           pickerTheme: const DateTimePickerTheme(
@@ -83,7 +83,7 @@ class DateBirthScreen extends StatelessWidget {
                     );
                   },
                   child: Text(
-                    context.read<TextFormValidationCubit>().birthDateController.isEmpty 
+                    context.read<TextFormValidationCubit>().birthDateController.isEmpty
                     ? 'DD/MM/YYYY'
                     : context.read<TextFormValidationCubit>().birthDateController,
                     style: GoogleFonts.poppins(

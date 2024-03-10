@@ -1,9 +1,9 @@
 class UserPersonalInfoModel {
   final num weight;
   final num height;
-  final int age;
-  final String gender;
-  final String activityLevel;
+  final String birthdate;
+  final int gender;
+  final int activityLevel;
   final num systolicBP;
   final num diastolicBP;
   final num cholesterolLevel;
@@ -20,7 +20,7 @@ class UserPersonalInfoModel {
   UserPersonalInfoModel({
     required this.weight, 
     required this.height, 
-    required this.age, 
+    required this.birthdate, 
     required this.gender, 
     required this.activityLevel, 
     required this.systolicBP, 
@@ -40,18 +40,18 @@ class UserPersonalInfoModel {
   factory UserPersonalInfoModel.fromJson(Map<String, dynamic> json) => UserPersonalInfoModel(
     weight: json['weight'], 
     height: json['height'], 
-    age: json['age'], 
+    birthdate: json['birthdate'], 
     gender: json['gender'], 
     activityLevel: json['activityLevel'], 
     systolicBP: json['systolicBP'], 
     diastolicBP: json['diastolicBP'], 
     cholesterolLevel: json['cholesterolLevel'], 
-    bloodSugar: json['bloodSugar'], 
+    bloodSugar: json['bloodsugar'], 
     hypertension: json['hypertension'], 
     diabetes: json['diabetes'], 
     heartCondition: json['heartCondition'], 
     lowPressure: json['LowPressure'], 
-    bmr: json['bmr'], 
+    bmr: json['BMR'], 
     kneePain: json['kneePain'], 
     backPain: json['backPain'], 
     vegetarian: json['vegetarian'],

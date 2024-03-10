@@ -22,7 +22,7 @@ class UserInfoRepo {
         body: jsonEncode({
           "weight": info.weight,
           "height": info.height,
-          "age": info.age,
+          "age": info.birthdate,
           "gender": info.gender,
           "activityLevel": info.activityLevel,
           "systolicBP": info.systolicBP,

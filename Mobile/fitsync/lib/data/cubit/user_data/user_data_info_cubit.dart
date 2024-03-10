@@ -17,14 +17,19 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
   void saveUserData({
     required UserPersonalInfoModel info,
     required String token,
+    required BuildContext context,
   }) {
     userRepo.sendUserInfo(
       info: info, 
       token: token,
     ).then((response) {
+      ScaffoldMessenger.of(context).clearSnackBars();
       if (response != null) {
-        print('the response is: $response');
-        // todo here 
+        if (response.status == 'Success') {
+          emit(UserDataSuccess());
+        } else {
+          emit(UserDataFailure(response.message!));
+        }
       } else {
         emit(UserDataFailure('Something went wrong in the server'));
       }
@@ -35,7 +40,6 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
   void removeData() {
     Prefs.remove('weight');
     Prefs.remove('height');
-    Prefs.remove('age');
     Prefs.remove('gender');
     Prefs.remove('sys');
     Prefs.remove('dias');

@@ -32,7 +32,8 @@ class BloodSugarQuestion extends StatelessWidget {
         onPressed: () {
           context.read<TextFormValidationCubit>().bloodSugarValidate();
         },
-        controller: context.read<TextFormValidationCubit>().bloodSugarController,
+        controller:
+            context.read<TextFormValidationCubit>().bloodSugarController,
         labelQuestion: 'Please Enter Blood Sugar Level?',
         labelField: '0',
         labelMeagure: 'Mg/dL',
@@ -142,7 +143,6 @@ class CholesterolLevelQuestion extends StatelessWidget {
   }
 }
 
-
 class BmrQuestion extends StatelessWidget {
   const BmrQuestion({super.key});
 
@@ -150,7 +150,7 @@ class BmrQuestion extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
       listener: (context, state) {
-        if (state is CholesterolValidation) {
+        if (state is BmrValidation) {
           if (state.errorText == null) {
             FocusScope.of(context).unfocus();
             AnimatedNavigator().push(
@@ -166,8 +166,7 @@ class BmrQuestion extends StatelessWidget {
         onPressed: () {
           context.read<TextFormValidationCubit>().bmrValidate();
         },
-        controller:
-            context.read<TextFormValidationCubit>().bmrController,
+        controller: context.read<TextFormValidationCubit>().bmrController,
         labelQuestion: 'Please Enter Your BMR?',
         labelField: '0',
         labelMeagure: 'kcal/day',

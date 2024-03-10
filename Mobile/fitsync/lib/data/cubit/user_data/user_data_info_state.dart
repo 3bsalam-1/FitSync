@@ -19,28 +19,7 @@ final class UserDataLoading extends UserDataInfoState {
   }
 }
 
-final class UserDataLoaded extends UserDataInfoState {
-  final String message;
-  UserDataLoaded(this.message);
-
-  void showSucceussdialog(BuildContext context) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        padding: EdgeInsets.zero,
-        elevation: 0,
-        duration: const Duration(minutes: 1),
-        backgroundColor: black.withOpacity(0.3),
-        content: CustomSnackbarMessage(
-          title: 'Success message',
-          subTitle: message,
-          backColor: green4,
-          icon: Icons.check,
-        ),
-      ),
-    );
-  }
-}
-
+final class UserDataSuccess extends UserDataInfoState {}
 final class UserDataFailure extends UserDataInfoState {
   final String message;
   UserDataFailure(this.message);
