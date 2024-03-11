@@ -75,6 +75,7 @@ class _ListQuestionItemState extends State<ListQuestionItem> with SingleTickerPr
           width: double.infinity,
           padding: const EdgeInsets.only(
             left: 19,
+            right: 19,
             top: 33,
             bottom: 33,
           ),

@@ -61,7 +61,6 @@ class AuthCubit extends Cubit<AuthCubitState> {
             // will show error massege which there something went wrong
             emit(AuthFaliure(response.message!));
           } else {
-            print('the token is: ${response.token!}');
             // There is no error then go to the home page & save token
             Prefs.setString('token', response.token!);
             // The user is created account so they will save as login to the app
@@ -106,6 +105,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
           } else {
             // There is no error then go to the home page & save token
             Prefs.setString('token', response.token!);
+            // The user is created account so they will save as login to the app
+            Prefs.setBool('isLogin', true);
             emit(AuthSuccess('Creating your plan'));
             Future.delayed(
               const Duration(seconds: 3),
