@@ -14,7 +14,7 @@ void decodeJWT() {
       throw Exception('invalid payload');
     }
     if (payloadMap['user']['firstTime'] != null) {
-      Prefs.setBool('survey', payloadMap['user']['firstTime']);
+      Prefs.setBool('survey', !payloadMap['user']['firstTime']);
     } else {
       Prefs.setBool('survey', false);
     }
