@@ -33,7 +33,7 @@ class WritingBodyQuestion extends StatelessWidget {
       ),
       backgroundColor: white,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -41,7 +41,7 @@ class WritingBodyQuestion extends StatelessWidget {
             Text(
               labelQuestion,
               style: GoogleFonts.poppins(
-                fontSize: 24,
+                fontSize: 26,
                 color: black,
                 fontWeight: FontWeight.w600,
               ),
