@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:meta/meta.dart';
 import '../../../services/pref.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_snackbar_message.dart';
@@ -13,15 +12,18 @@ part 'user_data_info_state.dart';
 class UserDataInfoCubit extends Cubit<UserDataInfoState> {
   UserDataInfoCubit() : super(UserDataInfoInitial());
   final userRepo = UserInfoRepo();
-  
+  UserPersonalInfoGetModel? userData;
+
   void saveUserData({
     required UserPersonalInfoModel info,
     required BuildContext context,
   }) {
-    userRepo.sendUserInfo(
-      info: info, 
+    userRepo
+        .sendUserInfo(
+      info: info,
       token: Prefs.getString('token')!,
-    ).then((response) {
+    )
+        .then((response) {
       ScaffoldMessenger.of(context).clearSnackBars();
       if (response != null) {
         if (response.status == 'Success') {
@@ -47,5 +49,17 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
     Prefs.remove('chol');
     Prefs.remove('bloodSugare');
     Prefs.remove('bmr');
+    Prefs.remove('bp');
+  }
+
+  void getUserDataInfo() {
+    userRepo.getUserInfo(
+      token: Prefs.getString('token')!,
+    ).then((response) {
+      if (response != null) {
+        userData = response;
+        emit(UserDataSuccess());
+      }
+    });
   }
 }

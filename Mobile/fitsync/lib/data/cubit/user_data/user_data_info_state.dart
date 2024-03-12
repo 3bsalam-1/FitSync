@@ -20,6 +20,7 @@ final class UserDataLoading extends UserDataInfoState {
 }
 
 final class UserDataSuccess extends UserDataInfoState {}
+
 final class UserDataFailure extends UserDataInfoState {
   final String message;
   UserDataFailure(this.message);

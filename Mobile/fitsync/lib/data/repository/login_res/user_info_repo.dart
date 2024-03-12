@@ -49,7 +49,7 @@ class UserInfoRepo {
   }
   
   // Method to get the user personal information
-  Future<UserPersonalInfoModel?> getUserInfo({required String token}) async {
+  Future<UserPersonalInfoGetModel?> getUserInfo({required String token}) async {
     try {
       http.Response response = await http.get(
         Uri.parse('$baseUrl/api/userInfo'),
@@ -59,7 +59,7 @@ class UserInfoRepo {
         },
       );
       var data = jsonDecode(response.body);
-      UserPersonalInfoModel responseData = UserPersonalInfoModel.fromJson(data);
+      UserPersonalInfoGetModel responseData = UserPersonalInfoGetModel.fromJson(data);
       return responseData;
     } catch (e) {
       debugPrint('The Errror is: ${e.toString()}');
