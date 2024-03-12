@@ -87,7 +87,7 @@ class DiastolicBloodQuestion extends StatelessWidget {
             AnimatedNavigator().push(
               context,
               const ExerciseSurveyScreen(
-                screen: ChoiceHypertensionQuestion(),
+                screen: BloodPressureQuestion(),
               ),
             );
           } else {
@@ -138,6 +138,40 @@ class CholesterolLevelQuestion extends StatelessWidget {
         labelQuestion: 'Please Enter cholesterol level?',
         labelField: '0',
         labelMeagure: 'Mg/dL',
+      ),
+    );
+  }
+}
+
+
+class BloodPressureQuestion extends StatelessWidget {
+  const BloodPressureQuestion({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
+      listener: (context, state) {
+        if (state is BloodPressureValidation) {
+          if (state.errorText == null) {
+            FocusScope.of(context).unfocus();
+            AnimatedNavigator().push(
+              context,
+              const ChoiceHypertensionQuestion(),
+            );
+          } else {
+            customSnackBar(context, state.errorText!);
+          }
+        }
+      },
+      builder: (context, state) => WritingBodyQuestion(
+        onPressed: () {
+          context.read<TextFormValidationCubit>().bloodPressureValidate();
+        },
+        controller:
+            context.read<TextFormValidationCubit>().bloodPressureController,
+        labelQuestion: 'Please Enter Blood Pressure Level?',
+        labelField: '0',
+        labelMeagure: 'mmHg',
       ),
     );
   }

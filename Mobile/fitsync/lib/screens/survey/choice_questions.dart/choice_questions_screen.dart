@@ -145,7 +145,7 @@ class ChoiceHeartDiseaseQuestion extends StatelessWidget {
         if (selectedAnswer == 0) {
           AnimatedNavigator().push(
             context,
-            const ChoiceHypertensionQuestion(),
+            const BloodPressureQuestion(),
           );
         } else {
           AnimatedNavigator().push(
@@ -266,7 +266,7 @@ class VegetarianChoiceQuestion extends StatelessWidget {
               hypertension: hypertension, 
               diabetes: diabetes, 
               heartCondition: heartCondition, 
-              lowPressure: 10, 
+              lowPressure: Prefs.getDouble('bP')!, 
               bmr: Prefs.getDouble('bmr')!, 
               kneePain: kneePain, 
               backPain: backPain, 

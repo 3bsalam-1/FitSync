@@ -60,3 +60,8 @@ final class BmrValidation extends TextFormValidationState {
   BmrValidation(this.errorText);
 }
 
+final class BloodPressureValidation extends TextFormValidationState {
+  final String? errorText;
+
+  BloodPressureValidation(this.errorText);
+}

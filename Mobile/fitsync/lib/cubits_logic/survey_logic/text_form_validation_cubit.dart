@@ -16,6 +16,7 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   final diastolicController = TextEditingController();
   final cholesterolController = TextEditingController();
   final bmrController = TextEditingController();
+  final bloodPressureController = TextEditingController();
   bool isCmSelected = true;
   bool isKgSelected = true;
 
@@ -239,6 +240,20 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
       }
     } else {
       emit(BmrValidation('Can not be empty'));
+    }
+  }
+
+  void bloodPressureValidate() {
+    if (bloodPressureController.text.isNotEmpty) {
+      try {
+        var bp = double.parse(bloodPressureController.text);
+        Prefs.setDouble('bP', bp);
+        emit(BloodPressureValidation(null));
+      } on FormatException {
+        emit(BloodPressureValidation('The value must be a number'));
+      }
+    } else {
+      emit(BloodPressureValidation('Can not be empty'));
     }
   }
 }
