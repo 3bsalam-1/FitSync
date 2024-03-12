@@ -16,24 +16,24 @@ class UserInfoRepo {
       http.Response response = await http.post(
         Uri.parse('$baseUrl/api/userInfo'),
         headers: {
-          "Authorization'": "Bearer $token",
+          'Authorization': 'Bearer $token',
           "Content-Type": "application/json",
         },
         body: jsonEncode({
           "weight": info.weight,
           "height": info.height,
-          "age": info.birthdate,
+          "birthdate": info.birthdate,
           "gender": info.gender,
           "activityLevel": info.activityLevel,
           "systolicBP": info.systolicBP,
           "diastolicBP": info.diastolicBP,
           "cholesterolLevel": info.cholesterolLevel,
-          "bloodSugar": info.bloodSugar,
+          "bloodsugar": info.bloodSugar,
           "hypertension": info.hypertension,
           "diabetes": info.diabetes,
           "heartCondition": info.heartCondition,
           "LowPressure": info.lowPressure,
-          "bmr": info.bmr,
+          "BMR": info.bmr,
           "kneePain": info.kneePain,
           "backPain": info.backPain,
           "vegetarian": info.vegetarian,
@@ -54,8 +54,8 @@ class UserInfoRepo {
       http.Response response = await http.get(
         Uri.parse('$baseUrl/api/userInfo'),
         headers: {
-          "Authorization": "Bearer $token",
-          "Content-Type": "application/json",
+          'Authorization': 'Bearer $token',
+          'Content-Type': 'application/json',
         },
       );
       var data = jsonDecode(response.body);

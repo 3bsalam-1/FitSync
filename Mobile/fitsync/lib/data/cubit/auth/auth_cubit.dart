@@ -63,8 +63,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
           } else {
             // There is no error then go to the home page & save token
             Prefs.setString('token', response.token!);
-            // The user is created account so they will save as login to the app
-            Prefs.setBool('isLogin', true);
+            Prefs.setString('email', email.text);
+            Prefs.setString('password', password.text);
             emit(AuthSuccess('Creating your plan'));
             Future.delayed(
               const Duration(seconds: 3),
@@ -105,8 +105,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
           } else {
             // There is no error then go to the home page & save token
             Prefs.setString('token', response.token!);
-            // The user is created account so they will save as login to the app
-            Prefs.setBool('isLogin', true);
+            Prefs.setString('email', email.text);
+            Prefs.setString('password', password.text);
             emit(AuthSuccess('Creating your plan'));
             Future.delayed(
               const Duration(seconds: 3),
@@ -282,8 +282,6 @@ class AuthCubit extends Cubit<AuthCubitState> {
           } else {
             // There is no error then go to the home page & save token
             Prefs.setString('token', response.token!);
-            // The user is created account so they will save as login to the app
-            Prefs.setBool('isLogin', true);
             emit(AuthSuccess('The updating password Success'));
             Future.delayed(
               const Duration(seconds: 3),

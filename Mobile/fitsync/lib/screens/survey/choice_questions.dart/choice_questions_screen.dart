@@ -272,7 +272,6 @@ class VegetarianChoiceQuestion extends StatelessWidget {
               backPain: backPain, 
               vegetarian: vegetarian,
             ), 
-            token: Prefs.getString('token')!,
           );
         },
       ),

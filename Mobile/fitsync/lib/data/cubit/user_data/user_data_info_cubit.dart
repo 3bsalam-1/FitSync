@@ -16,16 +16,17 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
   
   void saveUserData({
     required UserPersonalInfoModel info,
-    required String token,
     required BuildContext context,
   }) {
     userRepo.sendUserInfo(
       info: info, 
-      token: token,
+      token: Prefs.getString('token')!,
     ).then((response) {
       ScaffoldMessenger.of(context).clearSnackBars();
       if (response != null) {
         if (response.status == 'Success') {
+          // The user is take the survey so they will save as login to the app
+          Prefs.setBool('isLogin', true);
           emit(UserDataSuccess());
         } else {
           emit(UserDataFailure(response.message!));

@@ -36,8 +36,9 @@ class SplashScreenNextCubit extends Cubit<Widget> {
   Widget loginNextScreen() {
     decodeJWT();
     bool takeSurvey = Prefs.getBool('survey')!;
-    print('the data survey is ${Prefs.getString('token')}');
     if (takeSurvey) {
+      // The user was taken survey so they will save as login to the app
+      Prefs.setBool('isLogin', true);
       // if the user take the survey then go to home page
       return _pages[0];
     } else {
