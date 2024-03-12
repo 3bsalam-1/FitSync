@@ -1,8 +1,6 @@
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
-
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import '../Login/login_screen.dart';
@@ -83,9 +81,6 @@ class StartScreen extends StatelessWidget {
           ),
           CustomButton(
             label: 'Sign Up',
-            textColor: purple2,
-            borderColor: purple2,
-            colors: const [white, white],
             onPressed: () {
               AnimatedNavigator().pushReplacementScale(
                 context,

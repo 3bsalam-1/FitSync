@@ -16,18 +16,13 @@ class SplashScreenNextCubit extends Cubit<Widget> {
     StartScreen(),
   ];
 
-  void chechNextPage() {
-    decodeJWT();
+  void splashNextPage() {
     bool? isLogin = Prefs.getBool('isLogin');
-    bool takeSurvey = Prefs.getBool('survey')!;
-    
+
     if (isLogin != null) {
-      // if the user take the survey & is login then go to home screen
-      if (isLogin && takeSurvey) {
+      // if the user login then go to home screen
+      if (isLogin) {
         emit(_pages[0]);
-      } else if (isLogin && !takeSurvey) {
-        // if the user login but do not take survey then go to survey screen
-        emit(_pages[1]);
       } else {
         // if the user log out go to sigin screen
         emit(_pages[2]);
@@ -35,6 +30,19 @@ class SplashScreenNextCubit extends Cubit<Widget> {
     } else {
       // if the user do not has an account go to sigin screen
       emit(_pages[2]);
+    }
+  }
+
+  Widget loginNextScreen() {
+    decodeJWT();
+    bool takeSurvey = Prefs.getBool('survey')!;
+    print('the data survey is ${Prefs.getString('token')}');
+    if (takeSurvey) {
+      // if the user take the survey then go to home page
+      return _pages[0];
+    } else {
+      // if the the user do not take the survey then go to the survey page
+      return _pages[1];
     }
   }
 }

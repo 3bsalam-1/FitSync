@@ -82,7 +82,7 @@ class WelcomeScreen extends StatelessWidget {
                 child: CustomButton(
                   label: 'Get Started',
                   onPressed: () {
-                    context.read<SplashScreenNextCubit>().chechNextPage();
+                    context.read<SplashScreenNextCubit>().splashNextPage();
                   },
                 ),
               ),

@@ -10,10 +10,10 @@ void decodeJWT() {
     }
     final payload = _decodeBase64(parts[1]);
     final payloadMap = json.decode(payload);
-    if (payloadMap is! Map<String, dynamic>) {
-      throw Exception('invalid payload');
-    }
-    if (payloadMap['user']['firstTime'] != null) {
+    // if (payloadMap is! Map<String, dynamic>) {
+    //   throw Exception('invalid payload');
+    // }
+    if (payloadMap['user'] != null) {
       Prefs.setBool('survey', !payloadMap['user']['firstTime']);
     } else {
       Prefs.setBool('survey', false);

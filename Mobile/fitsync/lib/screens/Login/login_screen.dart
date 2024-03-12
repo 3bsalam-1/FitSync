@@ -1,5 +1,4 @@
 import 'package:fitsync/screens/Login/signup_screen.dart';
-import 'package:fitsync/screens/home_main_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
@@ -8,6 +7,7 @@ import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
+import '../../cubits_logic/splash_screen_next_cubit.dart';
 import '../../data/cubit/auth/auth_cubit.dart';
 import 'forgot_password_screen.dart';
 
@@ -31,7 +31,7 @@ class LoginPage extends StatelessWidget {
             } else if (state is AuthLogin) {
               AnimatedNavigator().pushReplacementScale(
                 context,
-                const HomeMainScreen(),
+                context.read<SplashScreenNextCubit>().loginNextScreen(),
               );
             }
           },
