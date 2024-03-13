@@ -13,15 +13,25 @@ class HomeMainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<NewTokenCubit, bool>(
-      listener: (context, state) {
-        if (state) {
-          BlocProvider.of<UserDataInfoCubit>(context).getUserDataInfo(context);
-          BlocProvider.of<WorkoutsCubit>(context).getWorkoutsData(
-            context.read<UserDataInfoCubit>().userData!,
-          );
-        }
-      },
+    return MultiBlocListener(
+      listeners: [
+        BlocListener<NewTokenCubit, bool>(
+          listener: (context, state) {
+            if (state) {
+              BlocProvider.of<UserDataInfoCubit>(context).getUserDataInfo(context);
+            }
+          },
+        ),
+        BlocListener<UserDataInfoCubit, UserDataInfoState>(
+          listener: (context, state) {
+            if (state is UserDataSuccess) {
+              BlocProvider.of<WorkoutsCubit>(context).getWorkoutsData(
+                context.read<UserDataInfoCubit>().userData!,
+              );
+            }
+          },
+        ),
+      ],
       child: Scaffold(
         body:
             BlocBuilder<NavigationPageCubit, Widget>(builder: (context, page) {

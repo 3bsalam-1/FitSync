@@ -18,7 +18,7 @@ class CardItems extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: black,
       ),
-      width: width,
+      width: width-30,
       height: 200,
       child: Row(
         children: [

@@ -16,7 +16,7 @@ class WorkoutsModel {
     required this.targetMuscle,
   });
 
-  factory WorkoutsModel.fromJSON(Map<String, String> json) {
+  factory WorkoutsModel.fromJSON(Map<String, dynamic> json) {
     return WorkoutsModel(
       exercisePlan: convertStringToList(json['Exercise Plan']!),
       category: json['Category']!,

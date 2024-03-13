@@ -13,17 +13,9 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
 
   void getWorkoutsData(UserPersonalInfoGetModel userData) {
     if (data == null) {
-      workRepo.getWorkoutsData(
-        id: int.parse(userData.userId),
-        gender: userData.gender,
-        kneeP: userData.kneePain,
-        backP: userData.backPain,
-        diabeties: userData.diabetes,
-        heart: userData.heartCondition,
-        hyper: userData.hypertension,
-      ).then((response) {
+      workRepo.getWorkoutsData(userData).then((response) {
         if (response != null) {
-          data = response;
+          data = dataLevel = response;
           emit(WorkoutsLoaded());
         } else {
           emit(WorkoutsFialure());
@@ -46,7 +38,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
         });
         dataLevel = store;
       }
-      emit(WorkoutsInitial());
+      emit(WorkoutsLoaded());
     }
   }
 }

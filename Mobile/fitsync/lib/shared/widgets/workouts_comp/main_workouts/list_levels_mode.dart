@@ -23,18 +23,18 @@ class ListLevelsMode extends StatelessWidget {
               onTap: () {
                 context.read<SelectedLevelMode>().selectedLevel(index);
                 context.read<WorkoutsCubit>().selectDataBasedLevel(
-                  context.read<SelectedLevelMode>().level[index],
-                );
+                      context.read<SelectedLevelMode>().level[index],
+                    );
               },
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 400),
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 margin: const EdgeInsets.symmetric(horizontal: 2),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: state == index ? purple5 : white,
                   border: Border.all(
-                    width: 1.4,
+                    width: 1.2,
                     color: state == index ? purple5 : gray4,
                   ),
                 ),
@@ -42,7 +42,7 @@ class ListLevelsMode extends StatelessWidget {
                   child: Text(
                     context.read<SelectedLevelMode>().level[index],
                     style: GoogleFonts.poppins(
-                      fontSize: 14,
+                      fontSize: 13,
                       color: state == index ? white : gray4,
                       fontWeight: FontWeight.w600,
                     ),
