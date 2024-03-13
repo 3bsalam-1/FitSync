@@ -65,25 +65,6 @@ class FiltersWorkoutsScreen extends StatelessWidget {
               SizedBox(height: 12),
               CustomFilterItem(label: 'Bodyweight'),
               SizedBox(height: 12),
-              Text('Stance'),
-              SizedBox(height: 12),
-              Row(
-                children: [
-                  CustomFilterItem(label: 'Standing'),
-                  CustomFilterItem(label: 'On the floor'),
-                ],
-              ),
-              SizedBox(height: 12),
-              Text('Difficulty'),
-              SizedBox(height: 12),
-              Row(
-                children: [
-                  CustomFilterItem(label: 'Easy'),
-                  CustomFilterItem(label: 'Medium'),
-                  CustomFilterItem(label: 'Hard'),
-                ],
-              ),
-              SizedBox(height: 12),
               Text('Impact Level'),
               SizedBox(height: 12),
               Row(
