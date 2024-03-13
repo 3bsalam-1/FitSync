@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../cubits_logic/navigation_page_cubit.dart';
 import '../cubits_logic/new_token_cubit.dart';
+import '../data/cubit/workouts/workouts_cubit.dart';
 import '../shared/colors/colors.dart';
 import '../shared/widgets/item_bottom_app_bar.dart';
 
@@ -16,10 +17,14 @@ class HomeMainScreen extends StatelessWidget {
       listener: (context, state) {
         if (state) {
           BlocProvider.of<UserDataInfoCubit>(context).getUserDataInfo(context);
+          BlocProvider.of<WorkoutsCubit>(context).getWorkoutsData(
+            context.read<UserDataInfoCubit>().userData!,
+          );
         }
       },
       child: Scaffold(
-        body: BlocBuilder<NavigationPageCubit, Widget>(builder: (context, page) {
+        body:
+            BlocBuilder<NavigationPageCubit, Widget>(builder: (context, page) {
           return page;
         }),
         backgroundColor: white,

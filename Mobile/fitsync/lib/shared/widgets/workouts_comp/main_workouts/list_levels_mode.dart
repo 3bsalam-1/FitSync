@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/workouts/selected_level_mode.dart';
+import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../colors/colors.dart';
 
 class ListLevelsMode extends StatelessWidget {
@@ -20,8 +21,10 @@ class ListLevelsMode extends StatelessWidget {
           builder: (context, state) {
             return InkWell(
               onTap: () {
-                // TODO here change cart when pressing the level mode
                 context.read<SelectedLevelMode>().selectedLevel(index);
+                context.read<WorkoutsCubit>().selectDataBasedLevel(
+                  context.read<SelectedLevelMode>().level[index],
+                );
               },
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 500),

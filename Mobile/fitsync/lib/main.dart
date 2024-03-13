@@ -12,6 +12,7 @@ import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'cubits_logic/workouts/week_dates.dart';
 import 'data/cubit/auth/auth_cubit.dart';
 import 'data/cubit/user_data/user_data_info_cubit.dart';
+import 'data/cubit/workouts/workouts_cubit.dart';
 import 'screens/splash/splash_screen.dart';
 import 'services/pref.dart';
 
@@ -63,6 +64,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => NewTokenCubit()..getNewToken(),
+        ),
+        BlocProvider(
+          create: (context) => WorkoutsCubit(),
         ),
       ],
       child: const MaterialApp(

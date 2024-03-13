@@ -1,5 +1,5 @@
 import 'package:google_fonts/google_fonts.dart';
-
+import '../../../../data/models/workouts_model.dart';
 import '../../global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
@@ -7,7 +7,8 @@ import '../../../colors/colors.dart';
 import 'custom_start_button.dart';
 
 class CardItems extends StatelessWidget {
-  const CardItems({super.key});
+  final WorkoutsModel workouts;
+  const CardItems({super.key, required this.workouts});
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +43,7 @@ class CardItems extends StatelessWidget {
                 SizedBox(
                   width: width * 0.42,
                   child: Text(
-                    'Strong Glutes Lean Legs',
+                    workouts.category,
                     style: GoogleFonts.poppins(
                       fontSize: 22,
                       color: white,
@@ -70,7 +71,7 @@ class CardItems extends StatelessWidget {
                       ),
                       const SizedBox(width: 5),
                       Text(
-                        '15 Minutes Workout',
+                        '${workouts.planDurationMn} Minutes Workout',
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           color: white,
@@ -81,7 +82,6 @@ class CardItems extends StatelessWidget {
                   ),
                 ),
                 CustomStartButton(onTap: () {
-                  // TODO start the workouts
                   AnimatedNavigator().push(
                     context,
                     const WorkoutsViewChallenge(),

@@ -1,6 +1,8 @@
+import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../cubits_logic/workouts/selected_level_mode.dart';
+import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import 'card_items.dart';
 import 'list_levels_mode.dart';
 import 'saved_workouts.dart';
@@ -13,17 +15,32 @@ class WorkOustBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SelectedLevelMode(),
-      child: const Column(
+      child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          SizedBox(height: 12),
-          ListLevelsMode(),
-          SizedBox(height: 22),
-          CardItems(),
-          SizedBox(height: 30),
-          WorkOutsChallengCard(),
-          SizedBox(height: 30),
-          SavedWorkOuts(),
+          const SizedBox(height: 12),
+          const ListLevelsMode(),
+          const SizedBox(height: 22),
+          context.read<WorkoutsCubit>().dataLevel.isEmpty? 
+          const SizedBox(
+            height: 60,
+            width: 60,
+            child: CircularProgressIndicator(
+              color: purple2,
+            ),
+          )
+          : ListView.builder(
+            shrinkWrap: true,
+            scrollDirection: Axis.horizontal,
+            itemCount: context.read<WorkoutsCubit>().dataLevel.length,
+            itemBuilder: (context, index) => CardItems(
+              workouts: context.read<WorkoutsCubit>().dataLevel[index],
+            ),
+          ),
+          const SizedBox(height: 30),
+          const WorkOutsChallengCard(),
+          const SizedBox(height: 30),
+          const SavedWorkOuts(),
         ],
       ),
     );
