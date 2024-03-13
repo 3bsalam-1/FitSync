@@ -1,4 +1,5 @@
 import 'cubits_logic/bluetooth/bluetooth_cubit.dart';
+import 'cubits_logic/new_token_cubit.dart';
 import 'cubits_logic/splash_screen_next_cubit.dart';
 import 'package:fitsync/cubits_logic/diet_logic/counter/counter_cubit.dart';
 import 'package:fitsync/cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.dart';
@@ -59,6 +60,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => UserDataInfoCubit(),
+        ),
+        BlocProvider(
+          create: (context) => NewTokenCubit()..getNewToken(),
         ),
       ],
       child: const MaterialApp(

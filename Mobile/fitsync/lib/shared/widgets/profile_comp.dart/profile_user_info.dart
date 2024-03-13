@@ -21,8 +21,12 @@ class ProfileUserInfo extends StatelessWidget {
           ),
         ),
         child: BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
-          bloc: BlocProvider.of<UserDataInfoCubit>(context)..getUserDataInfo(),
           builder: (context, state) {
+            var data = context.read<UserDataInfoCubit>().userData;
+            var userData = userInfoData(
+              context,
+              data,
+            );
             if (state is UserDataSuccess) {
               return Column(
                 children: [
@@ -41,20 +45,17 @@ class ProfileUserInfo extends StatelessWidget {
                     children: [
                       SquareInfo(
                         title: 'Height',
-                        value:
-                            '${context.read<UserDataInfoCubit>().userData!.height}cm',
+                        value: '${data?.height?? '_'}cm',
                       ),
                       const SizedBox(width: 10),
                       SquareInfo(
                         title: 'Weight',
-                        value:
-                            '${context.read<UserDataInfoCubit>().userData!.weight}kg',
+                        value: '${data?.weight?? '_'}kg',
                       ),
                       const SizedBox(width: 10),
                       SquareInfo(
                         title: 'Age',
-                        value:
-                            '${DateTime.now().year - context.read<UserDataInfoCubit>().userData!.birthdate.year}yo',
+                        value: '${data == null? '_': DateTime.now().year - data.birthdate.year}yo',
                       ),
                     ],
                   ),
@@ -64,12 +65,12 @@ class ProfileUserInfo extends StatelessWidget {
                     width: double.maxFinite,
                     child: ListView.separated(
                       shrinkWrap: true,
-                      itemCount: userInfoData(context).length,
+                      itemCount: userData.length,
                       itemBuilder: (context, index) => Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            userInfoData(context)[index][0]!,
+                            userData[index][0]?? '_',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               color: gray4,
@@ -78,7 +79,7 @@ class ProfileUserInfo extends StatelessWidget {
                           ),
                           const Spacer(),
                           Text(
-                            userInfoData(context)[index][1]!,
+                            userData[index][1]!,
                             style: GoogleFonts.poppins(
                               fontSize: 14,
                               color: gray4,

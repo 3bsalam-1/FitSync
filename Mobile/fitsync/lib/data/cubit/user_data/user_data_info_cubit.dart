@@ -18,12 +18,10 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
     required UserPersonalInfoModel info,
     required BuildContext context,
   }) {
-    userRepo
-        .sendUserInfo(
+    userRepo.sendUserInfo(
       info: info,
       token: Prefs.getString('token')!,
-    )
-        .then((response) {
+    ).then((response) {
       ScaffoldMessenger.of(context).clearSnackBars();
       if (response != null) {
         if (response.status == 'Success') {
@@ -52,14 +50,14 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
     Prefs.remove('bp');
   }
 
-  void getUserDataInfo() {
-    userRepo.getUserInfo(
-      token: Prefs.getString('token')!,
-    ).then((response) {
-      if (response != null) {
+  void getUserDataInfo(BuildContext context) {
+    if (userData == null) {
+        UserInfoRepo().getUserInfo(
+        token: Prefs.getString('token')!,
+      ).then((response){
         userData = response;
         emit(UserDataSuccess());
-      }
-    });
+      });
+    }
   }
 }
