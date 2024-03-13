@@ -31,11 +31,11 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
       if ('Recent' == level) {
         dataLevel = data!;
       } else {
-        data!.map((item) {
+        for (var item in data!) {
           if (item.level.toLowerCase() == level.toLowerCase()) {
             store.add(item);
           }
-        });
+        }
         dataLevel = store;
       }
       emit(WorkoutsLoaded());
