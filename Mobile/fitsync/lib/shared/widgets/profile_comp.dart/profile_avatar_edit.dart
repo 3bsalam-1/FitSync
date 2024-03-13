@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import '../../../services/pref.dart';
 import '../../colors/colors.dart';
 
 class ProfileAvatarEdit extends StatelessWidget {
@@ -18,8 +18,8 @@ class ProfileAvatarEdit extends StatelessWidget {
               radius: 55,
               backgroundColor: white,
               child: Center(
-                child: Image.asset(
-                  'assets/images/profile.png',
+                child: Image.network(
+                  Prefs.getStringList('user')![3],
                   width: 100,
                   height: 100,
                   fit: BoxFit.fill,
@@ -51,9 +51,8 @@ class ProfileAvatarEdit extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 7),
-        // todo add the username here
         Text(
-          'Alex Hormozi',
+          '${Prefs.getStringList('user')![1]} ${Prefs.getStringList('user')![2]}',
           style: GoogleFonts.poppins(
             fontSize: 20,
             color: white,

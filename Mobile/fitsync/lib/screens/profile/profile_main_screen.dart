@@ -129,6 +129,7 @@ class ProfileMainScreen extends StatelessWidget {
                                 TextButton(
                                   onPressed: () {
                                     Prefs.setBool('isLogin', false);
+                                    Prefs.remove('user');
                                     AnimatedNavigator().pushAndRemoveUntil(
                                       context,
                                       const StartScreen(),

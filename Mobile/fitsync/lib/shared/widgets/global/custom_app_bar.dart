@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../services/pref.dart';
 import '../../colors/colors.dart';
 
-PreferredSizeWidget customAppBar(BuildContext context, String title, void Function()? onPressed) {
+PreferredSizeWidget customAppBar(
+  BuildContext context, 
+  String title, 
+  void Function()? onPressed,
+) {
   return AppBar(
     backgroundColor: white,
     scrolledUnderElevation: 0,
@@ -29,8 +34,8 @@ PreferredSizeWidget customAppBar(BuildContext context, String title, void Functi
         padding: const EdgeInsets.only(right: 14.0),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(100),
-          child: Image.asset(
-            'assets/images/profile.png',
+          child: Image.network(
+            Prefs.getStringList('user')![3],
             height: 48,
             width: 48,
             fit: BoxFit.fill,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../screens/profile/profile_informtion_screen.dart';
+import '../../../services/pref.dart';
 import '../../colors/colors.dart';
 import '../global/animated_navigator.dart';
 
@@ -43,8 +43,8 @@ class ProfileCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
-                child: Image.asset(
-                  'assets/images/profile.png',
+                child: Image.network(
+                  Prefs.getStringList('user')![3],
                   height: 60,
                   width: 60,
                 ),
@@ -55,18 +55,16 @@ class ProfileCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                // todo show the user name here
                 Text(
-                  'Alex Hormozi',
+                  '${Prefs.getStringList('user')![1]} ${Prefs.getStringList('user')![2]}',
                   style: GoogleFonts.poppins(
                     fontSize: 20,
                     color: black,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                // todo show the email here
                 Text(
-                  'alexhormozi@gmail.com',
+                  Prefs.getString('email')!,
                   style: GoogleFonts.poppins(
                     fontSize: 14,
                     color: gray4,

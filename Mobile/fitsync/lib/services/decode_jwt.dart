@@ -1,4 +1,5 @@
 import 'dart:convert';
+import '../data/models/user_data_model.dart';
 import 'pref.dart';
 
 void decodeJWT() {
@@ -14,6 +15,8 @@ void decodeJWT() {
     //   throw Exception('invalid payload');
     // }
     if (payloadMap['user'] != null) {
+      var data = UserDataGetModel.fromJson(payloadMap['user']);
+      Prefs.setStringList('user', [data.username, data.firstName, data.lastName, data.avatar]);
       Prefs.setBool('survey', !payloadMap['user']['firstTime']);
     } else {
       Prefs.setBool('survey', false);
