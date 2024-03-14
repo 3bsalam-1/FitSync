@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 class WorkoutsModel {
   List<String> exercisePlan;
   String category;
@@ -29,16 +28,10 @@ class WorkoutsModel {
 }
 
 List<String> convertStringToList(String text) {
-  RegExp regExp = RegExp(r'(\w+)(?:,|\s+)?(?=\()');
-  Iterable<RegExpMatch> matches = regExp.allMatches(text);
   List<String> result = [];
+  RegExp regex = RegExp(r',\s*(?![^(]*\))');
 
-  for (RegExpMatch match in matches) {
-    String? group = match.group(1);
-    if (group != null) {
-      result.add(group);
-    }
-  }
+  result = text.split(regex);
 
   return result;
 }

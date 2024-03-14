@@ -84,7 +84,7 @@ class CardItems extends StatelessWidget {
                 CustomStartButton(onTap: () {
                   AnimatedNavigator().push(
                     context,
-                    const WorkoutsViewChallenge(),
+                    WorkoutsViewChallenge(workouts: workouts),
                   );
                 }),
               ],

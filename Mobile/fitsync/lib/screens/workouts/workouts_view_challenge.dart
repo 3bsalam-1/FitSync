@@ -1,13 +1,15 @@
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../data/models/workouts_model.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_challenges_time.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_list_challenges.dart';
 
 class WorkoutsViewChallenge extends StatelessWidget {
-  const WorkoutsViewChallenge({super.key});
+  final WorkoutsModel workouts;
+  const WorkoutsViewChallenge({super.key, required this.workouts});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   opacity: 0.6,
+                  // todo change image here
                   image: AssetImage('assets/images/fullBody.png'),
                 ),
               ),
@@ -79,7 +82,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Full Body',
+                          workouts.category,
                           style: GoogleFonts.poppins(
                             fontSize: 24,
                             color: black,
@@ -99,9 +102,9 @@ class WorkoutsViewChallenge extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 9),
-                    const WorkoutsChallengesTime(),
+                    WorkoutsChallengesTime(workouts: workouts),
                     const SizedBox(height: 9),
-                    const WorkoutsListChallenges(),
+                    WorkoutsListChallenges(workouts: workouts),
                     const Spacer(),
                     CustomButton(
                       label: 'Start',

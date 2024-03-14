@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
-import '../../global/animated_navigator.dart';
 import 'custom_start_button.dart';
 
 class WorkOutsChallengCard extends StatelessWidget {
@@ -93,10 +91,10 @@ class WorkOutsChallengCard extends StatelessWidget {
                   CustomStartButton(
                     onTap: () {
                       // TODO start the challenge workouts
-                      AnimatedNavigator().push(
-                        context,
-                        const WorkoutsViewChallenge(),
-                      );
+                      // AnimatedNavigator().push(
+                      //   context,
+                      //   const WorkoutsViewChallenge(workouts: workouts),
+                      // );
                     },
                   ),
                 ],

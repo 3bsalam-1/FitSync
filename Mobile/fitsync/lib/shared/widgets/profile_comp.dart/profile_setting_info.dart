@@ -10,7 +10,7 @@ List<Map<int, String>> userInfoData(
   return [
   {
     0: 'Username',
-    1: Prefs.getString('name')?? '',
+    1: Prefs.getStringList('user')?[0]?? '',
   },
   {
     0: 'Gender',
