@@ -1,6 +1,21 @@
 import 'package:flutter/material.dart';
 
 class AnimatedNavigator {
+  
+  void pushAndRemoveUntilRoute(BuildContext context, Widget screen, String routeName) {
+    Navigator.pushAndRemoveUntil(
+      context, 
+      PageRouteBuilder(
+        transitionDuration: const Duration(milliseconds: 500),
+        pageBuilder: (context, animation, secondaryAnimation) => screen,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) => FadeTransition(
+          opacity: animation,
+          child: child,
+        ),
+      ),
+      ModalRoute.withName(routeName),
+    );
+  }
 
   void pushAndRemoveUntil(BuildContext context, Widget screen) {
     Navigator.pushAndRemoveUntil(

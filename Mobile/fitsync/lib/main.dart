@@ -9,11 +9,13 @@ import 'package:flutter/material.dart';
 import 'cubits_logic/navigation_page_cubit.dart';
 import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
+import 'cubits_logic/workouts/counter_time_challenges.dart';
 import 'cubits_logic/workouts/week_dates.dart';
 import 'data/cubit/auth/auth_cubit.dart';
 import 'data/cubit/user_data/user_data_info_cubit.dart';
 import 'data/cubit/workouts/workouts_cubit.dart';
 import 'screens/splash/splash_screen.dart';
+import 'screens/workouts/start_challenge/start_challenge_screen.dart';
 import 'services/pref.dart';
 
 void main() async {
@@ -68,11 +70,17 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => WorkoutsCubit(),
         ),
+        BlocProvider(
+          create: (context) => CounterTimeChallenges(),
+        ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+        routes: {
+          StartChallengeScreen.routeName:(context) => const StartChallengeScreen(),
+        },
+        home: const SplashScreen(),
       ),
     );
   }

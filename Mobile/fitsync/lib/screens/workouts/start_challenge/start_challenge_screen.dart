@@ -1,14 +1,58 @@
+import 'dart:async';
+import '../../../cubits_logic/workouts/counter_time_challenges.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
-import '../../../shared/widgets/workouts_comp/workouts_challenges/animated_circle_progress.dart';
+import 'challenge_begin_screen.dart';
 
-class StartChallengeScreen extends StatelessWidget {
+class StartChallengeScreen extends StatefulWidget {
+  static String routeName = 'start challenge';
+
   const StartChallengeScreen({super.key});
+
+  @override
+  State<StartChallengeScreen> createState() => _StartChallengeScreenState();
+}
+
+class _StartChallengeScreenState extends State<StartChallengeScreen> {
+  int counter = 0;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  @override
+  void dispose() {
+    _cancelTimer();
+    super.dispose();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (counter == 20) {
+        timer.cancel();
+        context.read<CounterTimeChallenges>().intializeExercisesTime();
+        AnimatedNavigator().push(
+          context,
+          const ChallengeBeginScreen(indexExercise: 0),
+        );
+      }
+      setState(() {
+        ++counter;
+      });
+    });
+  }
+
+  void _cancelTimer() {
+    _timer.cancel();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,13 +75,36 @@ class StartChallengeScreen extends StatelessWidget {
             ),
           ),
           const Spacer(flex: 1),
-          // todo show the numder of seconds
-          const AnimatedCircleProgress(seconds: 15),
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              SizedBox(
+                height: 170,
+                width: 170,
+                child: CircularProgressIndicator(
+                  value: (counter / 20).toDouble(),
+                  backgroundColor: gray3.withOpacity(0.1),
+                  color: purple5,
+                  strokeWidth: 16.0,
+                ),
+              ),
+              Text(
+                '$counter',
+                style: GoogleFonts.poppins(
+                  fontSize: 50,
+                  color: black,
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
+          ),
           const Spacer(flex: 2),
           CustomButton(
             label: 'Start over',
             onPressed: () {
-              // todo start the challenge
+              setState(() {
+                counter = 0;
+              });
             },
             horizontalPadding: 100,
           ),

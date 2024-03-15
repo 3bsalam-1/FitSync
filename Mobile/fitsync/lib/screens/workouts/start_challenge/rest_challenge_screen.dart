@@ -1,4 +1,5 @@
-import 'package:fitsync/shared/widgets/global/custom_button.dart';
+import 'challenge_begin_screen.dart';
+import '../../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../shared/colors/colors.dart';
@@ -6,7 +7,14 @@ import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 
 class RestChallengeScreen extends StatelessWidget {
-  const RestChallengeScreen({super.key});
+  final int challengeNumber;
+  final List<String> exercisePlan;
+
+  const RestChallengeScreen({
+    super.key,
+    required this.challengeNumber,
+    required this.exercisePlan,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +34,10 @@ class RestChallengeScreen extends StatelessWidget {
             Text(
               'Take Rest!',
               style: GoogleFonts.poppins(
-            fontSize: 40,
-            color: purple5,
-            fontWeight: FontWeight.w800,
-          ),
+                fontSize: 40,
+                color: purple5,
+                fontWeight: FontWeight.w800,
+              ),
             ),
             TweenAnimationBuilder<double>(
               tween: Tween<double>(begin: 0.0, end: 1),
@@ -39,10 +47,10 @@ class RestChallengeScreen extends StatelessWidget {
                 return Text(
                   '00:${seconds <= 9 ? '0$seconds' : seconds}',
                   style: GoogleFonts.poppins(
-            fontSize: 35,
-            color: black,
-            fontWeight: FontWeight.w600,
-          ),
+                    fontSize: 35,
+                    color: black,
+                    fontWeight: FontWeight.w600,
+                  ),
                 );
               },
             ),
@@ -55,27 +63,28 @@ class RestChallengeScreen extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Next Movement(2/7)',
+                'Next Movement($challengeNumber/${exercisePlan.length})',
                 style: GoogleFonts.poppins(
-            fontSize: 20,
-            color: gray7,
-            fontWeight: FontWeight.w600,
-          ),
+                  fontSize: 20,
+                  color: gray7,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Cow Pose',
+                exercisePlan[challengeNumber],
                 style: GoogleFonts.poppins(
-            fontSize: 20,
-            color: black,
-            fontWeight: FontWeight.w600,
-          ),
+                  fontSize: 20,
+                  color: black,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ),
             const Spacer(),
             Image.asset(
+              // todo next Challenge image
               'assets/images/start_challenge.png',
               width: 200,
               height: 200,
@@ -85,7 +94,12 @@ class RestChallengeScreen extends StatelessWidget {
             CustomButton(
               label: 'Skip Rest',
               onPressed: () {
-                // todo Skip Rest
+                AnimatedNavigator().push(
+                  context,
+                  ChallengeBeginScreen(
+                    indexExercise: challengeNumber+1,
+                  ),
+                );
               },
             ),
             const SizedBox(height: 30),

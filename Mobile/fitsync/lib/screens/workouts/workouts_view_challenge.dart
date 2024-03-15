@@ -1,6 +1,9 @@
+import 'package:fitsync/screens/workouts/start_challenge/start_challenge_screen.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../data/models/workouts_model.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
@@ -110,7 +113,11 @@ class WorkoutsViewChallenge extends StatelessWidget {
                       label: 'Start',
                       horizontalPadding: width * 0.14,
                       onPressed: () {
-                        // todo go to the start challenge screen
+                        context.read<CounterTimeChallenges>().intializeWorkout(workouts);
+                        AnimatedNavigator().push(
+                          context,
+                          const StartChallengeScreen(),
+                        );
                       },
                     ),
                     const SizedBox(height: 10),
