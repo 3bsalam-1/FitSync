@@ -64,7 +64,7 @@ class RestChallengeScreen extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Next Movement($nextExercise/${workouts.exercisePlan.length})',
+                'Next Movement(${nextExercise+1}/${workouts.exercisePlan.length})',
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   color: gray7,

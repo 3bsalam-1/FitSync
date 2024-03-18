@@ -107,12 +107,6 @@ class ChallengeBeginScreen extends StatelessWidget {
                             nextExercise: indexExercise+1,
                           ),
                         );
-                        AnimatedNavigator().push(
-                          context,
-                          ChallengeBeginScreen(
-                            indexExercise: indexExercise + 1,
-                          ),
-                        );
                       } else {
                         var allWorkouts = context.read<WorkoutsCubit>().data;
                         var lastWorkout = allWorkouts![allWorkouts.length - 1];
