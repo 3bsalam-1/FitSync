@@ -5,7 +5,7 @@ import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import 'card_items.dart';
 import 'list_levels_mode.dart';
 import 'saved_workouts.dart';
-import 'skeleton_container_loading.dart';
+import '../../global/skeleton_container_loading.dart';
 import 'workouts_challenge_card.dart';
 
 class WorkOustBody extends StatelessWidget {
@@ -36,7 +36,10 @@ class WorkOustBody extends StatelessWidget {
                   ),
                 );
               } else {
-                return const SkeletonContainerLoading();
+                return SkeletonContainerLoading(
+                  width: MediaQuery.of(context).size.width - 30,
+                  height: 200,
+                );
               }
             },
           ),

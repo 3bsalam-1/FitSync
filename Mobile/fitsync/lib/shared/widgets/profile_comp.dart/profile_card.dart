@@ -4,6 +4,7 @@ import '../../../screens/profile/profile_informtion_screen.dart';
 import '../../../services/pref.dart';
 import '../../colors/colors.dart';
 import '../global/animated_navigator.dart';
+import '../global/skeleton_container_loading.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({super.key});
@@ -39,7 +40,12 @@ class ProfileCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            ClipRRect(
+            Prefs.getStringList('user') == null
+            ? const SkeletonContainerLoading(
+              width: 60,
+              height: 60,
+              shape: BoxShape.circle,
+            ) : ClipRRect(
               borderRadius: BorderRadius.circular(15),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(100),
@@ -55,7 +61,11 @@ class ProfileCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                Prefs.getStringList('user') == null
+                ? const SkeletonContainerLoading(
+                  height: 10, 
+                  width: double.minPositive,
+                ): Text(
                   '${Prefs.getStringList('user')![1]} ${Prefs.getStringList('user')![2]}',
                   style: GoogleFonts.poppins(
                     fontSize: 20,
@@ -63,7 +73,11 @@ class ProfileCard extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                Text(
+                Prefs.getStringList('user') == null
+                ? const SkeletonContainerLoading(
+                  height: 10, 
+                  width: double.minPositive,
+                ): Text(
                   Prefs.getString('email')!,
                   style: GoogleFonts.poppins(
                     fontSize: 14,

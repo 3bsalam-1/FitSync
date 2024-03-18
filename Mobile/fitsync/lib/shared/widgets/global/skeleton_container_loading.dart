@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
-import '../../../colors/colors.dart';
+import '../../colors/colors.dart';
 
 class SkeletonContainerLoading extends StatefulWidget {
-  const SkeletonContainerLoading({super.key});
+  final BoxShape shape;
+  final double height;
+  final double width;
+
+  const SkeletonContainerLoading({
+    super.key,
+    this.shape = BoxShape.rectangle,
+    required this.height,
+    required this.width,
+  });
 
   @override
   State<SkeletonContainerLoading> createState() =>
@@ -51,9 +60,10 @@ class _SkeletonContainerLoadingState extends State<SkeletonContainerLoading>
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: MediaQuery.of(context).size.width - 30,
-      height: 200,
+      width: widget.width,
+      height: widget.height,
       decoration: BoxDecoration(
+        shape: widget.shape,
         borderRadius: BorderRadius.circular(10),
         gradient: LinearGradient(
           colors: [
