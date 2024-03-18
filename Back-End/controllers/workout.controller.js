@@ -16,15 +16,19 @@ exports.getWorkout = asyncWrapper(async (req, res, next) => {
 exports.postWorkout = asyncWrapper(async (req, res, next) => {
   const userId = req.user._id;
   let curWorkout = await WORkOUT.findOne({ userId });
-  const {workout} = req.body;
+  let { workout } = req.body;
 
   if (!curWorkout) {
     curWorkout = new WORkOUT({
       userId,
-      workouts: workout
+      workouts: Array.from(new Set(workout))
     });
   } else {
-    curWorkout.workouts.push(workout);
+    for (let el of workout) {
+      if (!curWorkout.workouts.includes(el)) {
+        curWorkout.workouts.push(el);
+      }
+    }
   }
 
   await curWorkout.save();
