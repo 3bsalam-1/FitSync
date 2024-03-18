@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../../data/models/workouts_model.dart';
+import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
@@ -70,48 +71,54 @@ class _StartChallengeScreenState extends State<StartChallengeScreen> {
       body: Column(
         children: [
           const Spacer(flex: 2),
-          Text(
-            'Get Ready!',
-            style: GoogleFonts.poppins(
-              fontSize: 40,
-              color: purple5,
-              fontWeight: FontWeight.w800,
+          CustomAnimatedOpacity(
+            child: Text(
+              'Get Ready!',
+              style: GoogleFonts.poppins(
+                fontSize: 40,
+                color: purple5,
+                fontWeight: FontWeight.w800,
+              ),
             ),
           ),
           const Spacer(flex: 1),
-          Stack(
-            alignment: Alignment.center,
-            children: [
-              SizedBox(
-                height: 170,
-                width: 170,
-                child: CircularProgressIndicator(
-                  value: (counter / 20).toDouble(),
-                  backgroundColor: gray3.withOpacity(0.1),
-                  color: purple5,
-                  strokeWidth: 16.0,
+          CustomAnimatedOpacity(
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  height: 170,
+                  width: 170,
+                  child: CircularProgressIndicator(
+                    value: (counter / 20).toDouble(),
+                    backgroundColor: gray3.withOpacity(0.1),
+                    color: purple5,
+                    strokeWidth: 16.0,
+                  ),
                 ),
-              ),
-              Text(
-                '$counter',
-                style: GoogleFonts.poppins(
-                  fontSize: 50,
-                  color: black,
-                  fontWeight: FontWeight.w600,
-                ),
-              )
-            ],
+                Text(
+                  '$counter',
+                  style: GoogleFonts.poppins(
+                    fontSize: 50,
+                    color: black,
+                    fontWeight: FontWeight.w600,
+                  ),
+                )
+              ],
+            ),
           ),
           const Spacer(flex: 2),
-          CustomButton(
-            label: 'Start over',
-            onPressed: () {
-              setState(() {
-                counter = 0;
-              });
-              _startTimer();
-            },
-            horizontalPadding: 100,
+          CustomAnimatedOpacity(
+            child: CustomButton(
+              label: 'Start over',
+              onPressed: () {
+                setState(() {
+                  counter = 0;
+                });
+                _startTimer();
+              },
+              horizontalPadding: 100,
+            ),
           ),
           const SizedBox(height: 30),
         ],

@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../data/models/workouts_model.dart';
 import '../../../services/convert_ms.dart';
+import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../workouts/workouts_screen.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -30,78 +31,90 @@ class CongratulationsScreen extends StatelessWidget {
       backgroundColor: white,
       body: Column(
         children: [
-          Image.asset(
-            'assets/images/prize.png',
-            width: 230,
-            height: 280,
-            fit: BoxFit.fill,
-          ),
-          Text(
-            'Congratulations!',
-            style: GoogleFonts.poppins(
-              fontSize: 35,
-              color: gold2,
-              fontWeight: FontWeight.w800,
+          CustomAnimatedOpacity(
+            child: Image.asset(
+              'assets/images/prize.png',
+              width: 230,
+              height: 280,
+              fit: BoxFit.fill,
             ),
           ),
-          Text(
-            'You have completed the workout',
-            style: GoogleFonts.poppins(
-              fontSize: 20,
-              color: black,
-              fontWeight: FontWeight.w400,
+          CustomAnimatedOpacity(
+            child: Text(
+              'Congratulations!',
+              style: GoogleFonts.poppins(
+                fontSize: 35,
+                color: gold2,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+          ),
+          CustomAnimatedOpacity(
+            child: Text(
+              'You have completed the workout',
+              style: GoogleFonts.poppins(
+                fontSize: 20,
+                color: black,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
           const Spacer(),
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              congratulateData(
-                title: 'workout',
-                value: '${currentWorkouts.exercisePlan.length}',
-              ),
-              congratulateData(
-                title: 'Cal',
-                value: currentWorkouts.calBurned,
-              ),
-              congratulateData(
-                title: 'Minutes',
-                value: convertToMS(currentWorkouts.planDurationMn),
-              ),
-            ],
+          CustomAnimatedOpacity(
+            child: Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                congratulateData(
+                  title: 'workout',
+                  value: '${currentWorkouts.exercisePlan.length}',
+                ),
+                congratulateData(
+                  title: 'Cal',
+                  value: currentWorkouts.calBurned,
+                ),
+                congratulateData(
+                  title: 'Minutes',
+                  value: convertToMS(currentWorkouts.planDurationMn),
+                ),
+              ],
+            ),
           ),
           const Spacer(),
-          CustomButton(
-              label: 'Next workout',
-              horizontalPadding: 30,
-              colors: isNextWorkout ? [cyan, purple, purple] : [gray14, gray14],
-              onPressed: () {
-                var allWorkouts = context.read<WorkoutsCubit>().data;
-                if (isNextWorkout) {
-                  for (int i = 0; i < allWorkouts!.length - 1; i++) {
-                    if (allWorkouts[i].category == currentWorkouts.category) {
-                      AnimatedNavigator().push(
-                        context,
-                        StartChallengeScreen(
-                          workouts: allWorkouts[i + 1],
-                        ),
-                      );
-                      break;
+          CustomAnimatedOpacity(
+            child: CustomButton(
+                label: 'Next workout',
+                horizontalPadding: 30,
+                colors: isNextWorkout ? [cyan, purple, purple] : [gray14, gray14],
+                onPressed: () {
+                  var allWorkouts = context.read<WorkoutsCubit>().data;
+                  if (isNextWorkout) {
+                    for (int i = 0; i < allWorkouts!.length - 1; i++) {
+                      if (allWorkouts[i].category == currentWorkouts.category) {
+                        AnimatedNavigator().push(
+                          context,
+                          StartChallengeScreen(
+                            workouts: allWorkouts[i + 1],
+                          ),
+                        );
+                        break;
+                      }
                     }
                   }
-                }
-              }),
+                }),
+          ),
           const SizedBox(height: 20),
-          CustomButton(
-              label: 'Workout',
-              horizontalPadding: 30,
-              onPressed: () {
-                AnimatedNavigator().pushAndRemoveUntil(
-                  context,
-                  const WorkoutsScreen(),
-                );
-              }),
+          CustomAnimatedOpacity(
+            child: CustomButton(
+                label: 'Workout',
+                horizontalPadding: 30,
+                onPressed: () {
+                  AnimatedNavigator().pushAndRemoveUntil(
+                    context,
+                    const WorkoutsScreen(),
+                  );
+                }),
+          ),
           const SizedBox(height: 37),
         ],
       ),
