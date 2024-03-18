@@ -1,9 +1,7 @@
 import 'package:fitsync/screens/workouts/start_challenge/start_challenge_screen.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../data/models/workouts_model.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
@@ -77,8 +75,9 @@ class WorkoutsViewChallenge extends StatelessWidget {
                 ),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40)),
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
+                  ),
                   color: white,
                 ),
                 child: Column(
@@ -117,8 +116,6 @@ class WorkoutsViewChallenge extends StatelessWidget {
                       label: 'Start',
                       horizontalPadding: width * 0.14,
                       onPressed: () {
-                        context.read<CounterTimeChallenges>().intializeWorkout(workouts);
-                        context.read<CounterTimeChallenges>().intializeExercisesTime();
                         AnimatedNavigator().push(
                           context,
                           StartChallengeScreen(

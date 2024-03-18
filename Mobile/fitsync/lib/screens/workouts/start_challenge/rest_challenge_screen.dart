@@ -8,15 +8,13 @@ import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 
 class RestChallengeScreen extends StatelessWidget {
-  final int challengeNumber;
+  final int nextExercise;
   final WorkoutsModel workouts;
-  final List<String> exercisePlan;
 
   const RestChallengeScreen({
     super.key,
     required this.workouts,
-    required this.challengeNumber,
-    required this.exercisePlan,
+    required this.nextExercise,
   });
 
   @override
@@ -66,7 +64,7 @@ class RestChallengeScreen extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                'Next Movement($challengeNumber/${exercisePlan.length})',
+                'Next Movement($nextExercise/${workouts.exercisePlan.length})',
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   color: gray7,
@@ -77,7 +75,7 @@ class RestChallengeScreen extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                exercisePlan[challengeNumber],
+                workouts.exercisePlan[nextExercise],
                 style: GoogleFonts.poppins(
                   fontSize: 20,
                   color: black,
@@ -100,8 +98,7 @@ class RestChallengeScreen extends StatelessWidget {
                 AnimatedNavigator().push(
                   context,
                   ChallengeBeginScreen(
-                    indexExercise: challengeNumber + 1,
-                    workouts: workouts,
+                    indexExercise: nextExercise,
                   ),
                 );
               },

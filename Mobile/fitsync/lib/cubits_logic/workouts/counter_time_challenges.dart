@@ -29,6 +29,7 @@ class CounterTimeChallenges extends Cubit<int> {
     int seconds = (double.parse(currentWorkouts.planDurationMn) * 60).toInt();
     int length = currentWorkouts.exercisePlan.length;
     int singleTime = (seconds / length).floor();
+    exerciseTimeSec = [];
     List.generate(
       length,
       (index) {

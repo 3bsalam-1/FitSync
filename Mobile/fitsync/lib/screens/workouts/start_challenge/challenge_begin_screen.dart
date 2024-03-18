@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
-import '../../../data/models/workouts_model.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/colors/colors.dart';
@@ -11,15 +10,14 @@ import '../../../shared/widgets/workouts_comp/workouts_challenges/animated_circl
 import '../../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../workouts_view_challenge.dart';
 import 'congratulations_screen.dart';
+import 'rest_challenge_screen.dart';
 
 class ChallengeBeginScreen extends StatelessWidget {
   final int indexExercise;
-  final WorkoutsModel workouts;
 
   const ChallengeBeginScreen({
     super.key,
     required this.indexExercise,
-    required this.workouts,
   });
 
   @override
@@ -104,8 +102,14 @@ class ChallengeBeginScreen extends StatelessWidget {
                             );
                         AnimatedNavigator().push(
                           context,
+                          RestChallengeScreen(
+                            workouts: provider.currentWorkouts, 
+                            nextExercise: indexExercise+1,
+                          ),
+                        );
+                        AnimatedNavigator().push(
+                          context,
                           ChallengeBeginScreen(
-                            workouts: workouts,
                             indexExercise: indexExercise + 1,
                           ),
                         );
@@ -115,7 +119,8 @@ class ChallengeBeginScreen extends StatelessWidget {
                         AnimatedNavigator().push(
                           context,
                           CongratulationsScreen(
-                            isNextWorkout: workouts.category != lastWorkout.category,
+                            isNextWorkout: provider.currentWorkouts.category !=
+                                lastWorkout.category,
                             currentWorkouts: provider.currentWorkouts,
                           ),
                         );

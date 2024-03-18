@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../../data/models/workouts_model.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/colors/colors.dart';
@@ -34,13 +36,14 @@ class _StartChallengeScreenState extends State<StartChallengeScreen> {
   }
 
   void _startTimer() {
+    context.read<CounterTimeChallenges>().intializeWorkout(widget.workouts);
+    context.read<CounterTimeChallenges>().intializeExercisesTime();
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (counter == 20) {
         _timer.cancel();
         AnimatedNavigator().push(
           context,
-          ChallengeBeginScreen(
-            workouts: widget.workouts,
+          const ChallengeBeginScreen(
             indexExercise: 0,
           ),
         );
