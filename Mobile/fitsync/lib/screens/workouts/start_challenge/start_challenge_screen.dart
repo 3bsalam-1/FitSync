@@ -1,7 +1,6 @@
 import 'dart:async';
-import '../../../cubits_logic/workouts/counter_time_challenges.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../data/models/workouts_model.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
@@ -10,9 +9,9 @@ import 'package:flutter/material.dart';
 import 'challenge_begin_screen.dart';
 
 class StartChallengeScreen extends StatefulWidget {
-  static String routeName = 'start challenge';
+  final WorkoutsModel workouts;
 
-  const StartChallengeScreen({super.key});
+  const StartChallengeScreen({super.key, required this.workouts});
 
   @override
   State<StartChallengeScreen> createState() => _StartChallengeScreenState();
@@ -37,11 +36,13 @@ class _StartChallengeScreenState extends State<StartChallengeScreen> {
   void _startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       if (counter == 20) {
-        timer.cancel();
-        context.read<CounterTimeChallenges>().intializeExercisesTime();
+        _timer.cancel();
         AnimatedNavigator().push(
           context,
-          const ChallengeBeginScreen(indexExercise: 0),
+          ChallengeBeginScreen(
+            workouts: widget.workouts,
+            indexExercise: 0,
+          ),
         );
       }
       setState(() {
@@ -105,6 +106,7 @@ class _StartChallengeScreenState extends State<StartChallengeScreen> {
               setState(() {
                 counter = 0;
               });
+              _startTimer();
             },
             horizontalPadding: 100,
           ),

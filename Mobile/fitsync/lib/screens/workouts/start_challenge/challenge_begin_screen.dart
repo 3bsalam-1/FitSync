@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../data/cubit/workouts/workouts_cubit.dart';
+import '../../../data/models/workouts_model.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/colors/colors.dart';
@@ -9,14 +11,15 @@ import '../../../shared/widgets/workouts_comp/workouts_challenges/animated_circl
 import '../../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../workouts_view_challenge.dart';
 import 'congratulations_screen.dart';
-import 'start_challenge_screen.dart';
 
 class ChallengeBeginScreen extends StatelessWidget {
   final int indexExercise;
+  final WorkoutsModel workouts;
 
   const ChallengeBeginScreen({
     super.key,
     required this.indexExercise,
+    required this.workouts,
   });
 
   @override
@@ -25,12 +28,18 @@ class ChallengeBeginScreen extends StatelessWidget {
     return Scaffold(
       appBar: customIconAppBar(
         onPressed: () {
-          AnimatedNavigator().pop(context);
+          AnimatedNavigator().pushAndRemoveUntil(
+            context,
+            WorkoutsViewChallenge(
+              workouts: context.read<CounterTimeChallenges>().currentWorkouts,
+            ),
+          );
         },
       ),
       backgroundColor: white,
       body: BlocBuilder<CounterTimeChallenges, int>(
         builder: (context, state) {
+          var provider = context.read<CounterTimeChallenges>();
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -42,7 +51,7 @@ class ChallengeBeginScreen extends StatelessWidget {
                 fit: BoxFit.contain,
               ),
               Text(
-                context.read<CounterTimeChallenges>().currentExercise,
+                context.read<CounterTimeChallenges>().exercise[indexExercise],
                 style: GoogleFonts.poppins(
                   fontSize: 26,
                   color: black,
@@ -50,7 +59,10 @@ class ChallengeBeginScreen extends StatelessWidget {
                 ),
               ),
               const Spacer(flex: 1),
-              AnimatedCircleProgress(seconds: state),
+              AnimatedCircleProgress(
+                seconds: provider.exerciseTimeSec[indexExercise],
+                current: indexExercise,
+              ),
               const Spacer(flex: 2),
               Row(
                 mainAxisSize: MainAxisSize.max,
@@ -58,22 +70,26 @@ class ChallengeBeginScreen extends StatelessWidget {
                 children: [
                   CustomButton(
                     label: 'Previous',
-                    colors: state != 0? [gray14, gray14]: [cyan, purple, purple],
+                    colors: !provider.isPrevouis[indexExercise]
+                        ? [gray14, gray14]
+                        : [cyan, purple, purple],
                     onPressed: () {
-                      if (indexExercise != 0) {
-                        int time = context.read<CounterTimeChallenges>().exerciseTimeSec[indexExercise-1];
-                        context.read<CounterTimeChallenges>().changeExercises(
-                          indexExercise - 1,
-                          time,
-                        );
-                      } else {
-                        AnimatedNavigator().pushAndRemoveUntilRoute(
-                          context,
-                          WorkoutsViewChallenge(
-                            workouts: context.read<CounterTimeChallenges>().currentWorkouts,
-                          ),
-                          StartChallengeScreen.routeName,
-                        );
+                      if (provider.isPrevouis[indexExercise]) {
+                        if (indexExercise != 0) {
+                          context.read<CounterTimeChallenges>().setCounter(
+                                provider.exerciseTimeSec[indexExercise - 1],
+                              );
+                          AnimatedNavigator().pop(context);
+                        } else {
+                          AnimatedNavigator().pushAndRemoveUntil(
+                            context,
+                            WorkoutsViewChallenge(
+                              workouts: context
+                                  .read<CounterTimeChallenges>()
+                                  .currentWorkouts,
+                            ),
+                          );
+                        }
                       }
                     },
                     horizontalPadding: 15,
@@ -82,24 +98,27 @@ class ChallengeBeginScreen extends StatelessWidget {
                   CustomButton(
                     label: 'Skip',
                     onPressed: () {
-                      if (state == 0) {
-                        int length = context
-                            .read<CounterTimeChallenges>()
-                            .currentWorkouts
-                            .exercisePlan
-                            .length;
-                        if (indexExercise < length - 1) {
-                          int time = context.read<CounterTimeChallenges>().exerciseTimeSec[indexExercise+1];
-                          context.read<CounterTimeChallenges>().changeExercises(
-                                indexExercise + 1,
-                                time,
-                              );
-                        } else {
-                          AnimatedNavigator().push(
-                            context,
-                            const CongratulationsScreen(),
-                          );
-                        }
+                      if (indexExercise < provider.exerciseTimeSec.length - 1) {
+                        context.read<CounterTimeChallenges>().setCounter(
+                              provider.exerciseTimeSec[indexExercise + 1],
+                            );
+                        AnimatedNavigator().push(
+                          context,
+                          ChallengeBeginScreen(
+                            workouts: workouts,
+                            indexExercise: indexExercise + 1,
+                          ),
+                        );
+                      } else {
+                        var allWorkouts = context.read<WorkoutsCubit>().data;
+                        var lastWorkout = allWorkouts![allWorkouts.length - 1];
+                        AnimatedNavigator().push(
+                          context,
+                          CongratulationsScreen(
+                            isNextWorkout: workouts.category != lastWorkout.category,
+                            currentWorkouts: provider.currentWorkouts,
+                          ),
+                        );
                       }
                     },
                     horizontalPadding: 15,

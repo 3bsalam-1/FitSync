@@ -15,7 +15,6 @@ import 'data/cubit/auth/auth_cubit.dart';
 import 'data/cubit/user_data/user_data_info_cubit.dart';
 import 'data/cubit/workouts/workouts_cubit.dart';
 import 'screens/splash/splash_screen.dart';
-import 'screens/workouts/start_challenge/start_challenge_screen.dart';
 import 'services/pref.dart';
 
 void main() async {
@@ -74,13 +73,10 @@ class MyApp extends StatelessWidget {
           create: (context) => CounterTimeChallenges(),
         ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        routes: {
-          StartChallengeScreen.routeName:(context) => const StartChallengeScreen(),
-        },
-        home: const SplashScreen(),
+        home: SplashScreen(),
       ),
     );
   }

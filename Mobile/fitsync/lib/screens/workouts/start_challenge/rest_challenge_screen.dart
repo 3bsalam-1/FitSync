@@ -1,3 +1,4 @@
+import '../../../data/models/workouts_model.dart';
 import 'challenge_begin_screen.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +9,12 @@ import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 
 class RestChallengeScreen extends StatelessWidget {
   final int challengeNumber;
+  final WorkoutsModel workouts;
   final List<String> exercisePlan;
 
   const RestChallengeScreen({
     super.key,
+    required this.workouts,
     required this.challengeNumber,
     required this.exercisePlan,
   });
@@ -97,7 +100,8 @@ class RestChallengeScreen extends StatelessWidget {
                 AnimatedNavigator().push(
                   context,
                   ChallengeBeginScreen(
-                    indexExercise: challengeNumber+1,
+                    indexExercise: challengeNumber + 1,
+                    workouts: workouts,
                   ),
                 );
               },

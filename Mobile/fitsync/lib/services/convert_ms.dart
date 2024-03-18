@@ -4,7 +4,7 @@ String convertToMS(String data) {
   int min = (seconds / 60).floor();
   String minute = min.toString().length <= 1 ? "0$min" : "$min";
   String second = sec.toString().length <= 1 ? "0$sec" : "$sec";
-  return "$minute : $second";
+  return "$minute:$second";
 }
 
 String convertSecondsToMS(int seconds) {
@@ -12,5 +12,5 @@ String convertSecondsToMS(int seconds) {
   int min = (seconds / 60).floor();
   String minute = min.toString().length <= 1 ? "0$min" : "$min";
   String second = sec.toString().length <= 1 ? "0$sec" : "$sec";
-  return "$minute : $second";
+  return "$minute:$second";
 }

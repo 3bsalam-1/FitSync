@@ -1,15 +1,25 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import '../../../data/cubit/workouts/workouts_cubit.dart';
+import '../../../data/models/workouts_model.dart';
+import '../../../services/convert_ms.dart';
 import '../../workouts/workouts_screen.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
-
 import '../../../shared/colors/colors.dart';
+import 'start_challenge_screen.dart';
 
 class CongratulationsScreen extends StatelessWidget {
-  const CongratulationsScreen({super.key});
+  final WorkoutsModel currentWorkouts;
+  final bool isNextWorkout;
+
+  const CongratulationsScreen({
+    super.key,
+    required this.currentWorkouts,
+    required this.isNextWorkout,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -47,17 +57,40 @@ class CongratulationsScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              congratulateData(title: 'workout', value: '10'),
-              congratulateData(title: 'Cal', value: '340'),
-              congratulateData(title: 'Minutes', value: '10:00'),
+              congratulateData(
+                title: 'workout',
+                value: '${currentWorkouts.exercisePlan.length}',
+              ),
+              congratulateData(
+                title: 'Cal',
+                value: currentWorkouts.calBurned,
+              ),
+              congratulateData(
+                title: 'Minutes',
+                value: convertToMS(currentWorkouts.planDurationMn),
+              ),
             ],
           ),
           const Spacer(),
           CustomButton(
               label: 'Next workout',
               horizontalPadding: 30,
+              colors: isNextWorkout ? [cyan, purple, purple] : [gray14, gray14],
               onPressed: () {
-                // todo go to the next workouts
+                var allWorkouts = context.read<WorkoutsCubit>().data;
+                if (isNextWorkout) {
+                  for (int i = 0; i < allWorkouts!.length - 1; i++) {
+                    if (allWorkouts[i].category == currentWorkouts.category) {
+                      AnimatedNavigator().push(
+                        context,
+                        StartChallengeScreen(
+                          workouts: allWorkouts[i + 1],
+                        ),
+                      );
+                      break;
+                    }
+                  }
+                }
               }),
           const SizedBox(height: 20),
           CustomButton(

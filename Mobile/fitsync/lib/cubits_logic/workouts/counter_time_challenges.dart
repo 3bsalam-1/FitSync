@@ -3,18 +3,25 @@ import '../../data/models/workouts_model.dart';
 
 class CounterTimeChallenges extends Cubit<int> {
   CounterTimeChallenges() : super(15);
-  late String currentExercise;
+  late List<String> exercise;
   late WorkoutsModel currentWorkouts;
-  late List<int> exerciseTimeSec;
+  List<int> exerciseTimeSec = [];
+  late List<bool> isPrevouis;
 
-  changeExercises(int exerciseIndex, int secondes) {
-    currentExercise = currentWorkouts.exercisePlan[exerciseIndex];
-    emit(secondes);
+  countDownFinish(int index) {
+    isPrevouis[index] = true;
+    emit(0);
   }
+
+  setCounter(int seconds) => emit(seconds);
 
   intializeWorkout(WorkoutsModel workouts) {
     currentWorkouts = workouts;
-    currentExercise = workouts.exercisePlan[0];
+    exercise = workouts.exercisePlan;
+    isPrevouis = List.generate(
+      workouts.exercisePlan.length,
+      (index) => false,
+    );
     emit(15);
   }
 

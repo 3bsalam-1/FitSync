@@ -9,6 +9,7 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_challenges_time.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_list_challenges.dart';
+import 'workouts_screen.dart';
 
 class WorkoutsViewChallenge extends StatelessWidget {
   final WorkoutsModel workouts;
@@ -43,7 +44,10 @@ class WorkoutsViewChallenge extends StatelessWidget {
               left: 15,
               child: IconButton(
                 onPressed: () {
-                  AnimatedNavigator().pop(context);
+                  AnimatedNavigator().pushAndRemoveUntil(
+                    context,
+                    const WorkoutsScreen(),
+                  );
                 },
                 icon: Container(
                   width: 37,
@@ -114,9 +118,12 @@ class WorkoutsViewChallenge extends StatelessWidget {
                       horizontalPadding: width * 0.14,
                       onPressed: () {
                         context.read<CounterTimeChallenges>().intializeWorkout(workouts);
+                        context.read<CounterTimeChallenges>().intializeExercisesTime();
                         AnimatedNavigator().push(
                           context,
-                          const StartChallengeScreen(),
+                          StartChallengeScreen(
+                            workouts: workouts,
+                          ),
                         );
                       },
                     ),
