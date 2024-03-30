@@ -1,4 +1,3 @@
-import 'cubits_logic/bluetooth/bluetooth_cubit.dart';
 import 'cubits_logic/new_token_cubit.dart';
 import 'cubits_logic/splash_screen_next_cubit.dart';
 import 'package:fitsync/cubits_logic/diet_logic/counter/counter_cubit.dart';
@@ -16,10 +15,15 @@ import 'data/cubit/user_data/user_data_info_cubit.dart';
 import 'data/cubit/workouts/workouts_cubit.dart';
 import 'screens/splash/splash_screen.dart';
 import 'services/pref.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Prefs.init();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -32,9 +36,6 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => TextFormValidationCubit(),
-        ),
-        BlocProvider(
-          create: (context) => BluetoothCubit()..checkBluetoothConnectivity(),
         ),
         BlocProvider(
           create: (context) => ChoiseQuestionsCubit(),
