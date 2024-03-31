@@ -1,4 +1,5 @@
-import '../../../data/models/workouts_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import 'challenge_begin_screen.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -10,16 +11,17 @@ import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 
 class RestChallengeScreen extends StatelessWidget {
   final int nextExercise;
-  final WorkoutsModel workouts;
+  final int workoutIndex;
 
   const RestChallengeScreen({
     super.key,
-    required this.workouts,
+    required this.workoutIndex,
     required this.nextExercise,
   });
 
   @override
   Widget build(BuildContext context) {
+    final workouts = context.read<WorkoutsCubit>().dataLevel[workoutIndex];
     return Scaffold(
       appBar: customIconAppBar(
         onPressed: () {

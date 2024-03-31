@@ -30,7 +30,7 @@ class ChallengeBeginScreen extends StatelessWidget {
           AnimatedNavigator().pushAndRemoveUntil(
             context,
             WorkoutsViewChallenge(
-              workouts: context.read<CounterTimeChallenges>().currentWorkouts,
+              workoutsIndex: context.read<CounterTimeChallenges>().currentWorkoutIndex,
             ),
           );
         },
@@ -39,6 +39,7 @@ class ChallengeBeginScreen extends StatelessWidget {
       body: BlocBuilder<CounterTimeChallenges, int>(
         builder: (context, state) {
           var provider = context.read<CounterTimeChallenges>();
+          final workout = context.read<WorkoutsCubit>().dataLevel[provider.currentWorkoutIndex];
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -53,7 +54,7 @@ class ChallengeBeginScreen extends StatelessWidget {
               ),
               CustomAnimatedOpacity(
                 child: Text(
-                  context.read<CounterTimeChallenges>().exercise[indexExercise],
+                  workout.exercisePlan[indexExercise],
                   style: GoogleFonts.poppins(
                     fontSize: 26,
                     color: black,
@@ -83,16 +84,14 @@ class ChallengeBeginScreen extends StatelessWidget {
                         if (provider.isPrevouis[indexExercise]) {
                           if (indexExercise != 0) {
                             context.read<CounterTimeChallenges>().setCounter(
-                                  provider.exerciseTimeSec[indexExercise - 1],
-                                );
+                              provider.exerciseTimeSec[indexExercise - 1],
+                            );
                             AnimatedNavigator().pop(context);
                           } else {
                             AnimatedNavigator().pushAndRemoveUntil(
                               context,
                               WorkoutsViewChallenge(
-                                workouts: context
-                                    .read<CounterTimeChallenges>()
-                                    .currentWorkouts,
+                                workoutsIndex: provider.currentWorkoutIndex,
                               ),
                             );
                           }
@@ -106,24 +105,22 @@ class ChallengeBeginScreen extends StatelessWidget {
                       onPressed: () {
                         if (indexExercise < provider.exerciseTimeSec.length - 1) {
                           context.read<CounterTimeChallenges>().setCounter(
-                                provider.exerciseTimeSec[indexExercise + 1],
-                              );
+                            provider.exerciseTimeSec[indexExercise + 1],
+                          );
                           AnimatedNavigator().push(
                             context,
                             RestChallengeScreen(
-                              workouts: provider.currentWorkouts, 
+                              workoutIndex: provider.currentWorkoutIndex, 
                               nextExercise: indexExercise+1,
                             ),
                           );
                         } else {
-                          var allWorkouts = context.read<WorkoutsCubit>().data;
-                          var lastWorkout = allWorkouts![allWorkouts.length - 1];
+                          // todo here
+                          provider.getExerciseResult(workout);
                           AnimatedNavigator().push(
                             context,
                             CongratulationsScreen(
-                              isNextWorkout: provider.currentWorkouts.category !=
-                                  lastWorkout.category,
-                              currentWorkouts: provider.currentWorkouts,
+                              currentWorkoutIndex: provider.currentWorkoutIndex,
                             ),
                           );
                         }

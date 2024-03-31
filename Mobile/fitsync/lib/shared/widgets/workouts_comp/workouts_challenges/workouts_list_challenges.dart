@@ -1,4 +1,6 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../../../data/models/workouts_model.dart';
 import '../../../../services/convert_ms.dart';
 import '../../../../shared/colors/colors.dart';
@@ -64,7 +66,7 @@ class WorkoutsListChallenges extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    getTimeEachExercise(workouts.planDurationMn)[index],
+                    getTimeEachExercise(workouts.planDurationMn, context)[index],
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: gray4,
@@ -80,7 +82,7 @@ class WorkoutsListChallenges extends StatelessWidget {
     );
   }
 
-  List<String> getTimeEachExercise(String totalTime) {
+  List<String> getTimeEachExercise(String totalTime, BuildContext context) {
     int seconds = (double.parse(totalTime) * 60).toInt();
     int length = workouts.exercisePlan.length;
     int singleTime = (seconds / length).floor();
@@ -93,6 +95,11 @@ class WorkoutsListChallenges extends StatelessWidget {
           return convertSecondsToMS(singleTime);
         }
       },
+    );
+    context.read<CounterTimeChallenges>().initalizeExerciseTimeSec(
+      seconds, 
+      singleTime, 
+      length,
     );
     return times;
   }

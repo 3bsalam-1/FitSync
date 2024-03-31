@@ -1,22 +1,24 @@
-import 'package:fitsync/screens/workouts/start_challenge/start_challenge_screen.dart';
-import 'package:fitsync/shared/widgets/global/custom_button.dart';
+import '../home_main_screen.dart';
+import 'start_challenge/start_challenge_screen.dart';
+import '../../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../data/models/workouts_model.dart';
+import '../../data/cubit/workouts/workouts_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_challenges_time.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_list_challenges.dart';
-import 'workouts_screen.dart';
 
 class WorkoutsViewChallenge extends StatelessWidget {
-  final WorkoutsModel workouts;
-  const WorkoutsViewChallenge({super.key, required this.workouts});
+  final int workoutsIndex;
+  const WorkoutsViewChallenge({super.key, required this.workoutsIndex});
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
+    final workouts = context.read<WorkoutsCubit>().dataLevel[workoutsIndex];
     return Scaffold(
       body: SizedBox(
         height: height,
@@ -44,7 +46,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
                 onPressed: () {
                   AnimatedNavigator().pushAndRemoveUntil(
                     context,
-                    const WorkoutsScreen(),
+                    const HomeMainScreen(),
                   );
                 },
                 icon: Container(
@@ -119,7 +121,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
                         AnimatedNavigator().push(
                           context,
                           StartChallengeScreen(
-                            workouts: workouts,
+                            workoutsIndex: workoutsIndex,
                           ),
                         );
                       },

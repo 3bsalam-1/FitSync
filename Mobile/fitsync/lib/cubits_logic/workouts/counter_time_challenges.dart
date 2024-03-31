@@ -3,10 +3,12 @@ import '../../data/models/workouts_model.dart';
 
 class CounterTimeChallenges extends Cubit<int> {
   CounterTimeChallenges() : super(15);
-  late List<String> exercise;
-  late WorkoutsModel currentWorkouts;
+  late int currentWorkoutIndex;
   List<int> exerciseTimeSec = [];
   late List<bool> isPrevouis;
+  late String calBurned;
+  late int finishedExercises;
+  late int totalExerciseTime = 0;
 
   countDownFinish(int index) {
     isPrevouis[index] = true;
@@ -15,31 +17,35 @@ class CounterTimeChallenges extends Cubit<int> {
 
   setCounter(int seconds) => emit(seconds);
 
-  intializeWorkout(WorkoutsModel workouts) {
-    currentWorkouts = workouts;
-    exercise = workouts.exercisePlan;
-    isPrevouis = List.generate(
-      workouts.exercisePlan.length,
-      (index) => false,
-    );
-    emit(15);
-  }
-
-  intializeExercisesTime() {
-    int seconds = (double.parse(currentWorkouts.planDurationMn) * 60).toInt();
-    int length = currentWorkouts.exercisePlan.length;
-    int singleTime = (seconds / length).floor();
-    exerciseTimeSec = [];
-    List.generate(
+  initalizeExerciseTimeSec(int totalTime, int singleTime, int length) {
+    exerciseTimeSec = List.generate(
       length,
       (index) {
         if (index == 0) {
-          exerciseTimeSec.add(seconds - (length - 1) * singleTime);
+          return (totalTime - (length - 1) * singleTime);
         } else {
-          return exerciseTimeSec.add(singleTime);
+          return singleTime;
         }
       },
     );
-    emit(exerciseTimeSec[0]);
+    isPrevouis = List.generate(
+      length,
+      (index) => false,
+    );
+    emit(20);
+  }
+
+  void getExerciseResult(WorkoutsModel workouts) {
+    finishedExercises = isPrevouis.where((e) => true).length;
+    calBurned = (double.parse(workouts.calBurned) *(finishedExercises / workouts.exercisePlan.length)).toStringAsFixed(2);
+
+    for (int i = 0; i < isPrevouis.length; i++) {
+      if (isPrevouis[i] == true) {
+        print('the date is ${isPrevouis[i]}');
+        totalExerciseTime += exerciseTimeSec[i];
+      }
+    }
+    totalExerciseTime = (totalExerciseTime ~/ 60);
+    emit(20);
   }
 }

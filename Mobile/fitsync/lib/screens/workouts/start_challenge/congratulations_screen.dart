@@ -1,29 +1,28 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
-import '../../../data/models/workouts_model.dart';
-import '../../../services/convert_ms.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
-import '../../workouts/workouts_screen.dart';
+import '../../home_main_screen.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/colors/colors.dart';
-import 'start_challenge_screen.dart';
+import '../workouts_view_challenge.dart';
 
 class CongratulationsScreen extends StatelessWidget {
-  final WorkoutsModel currentWorkouts;
-  final bool isNextWorkout;
+  final int currentWorkoutIndex;
 
   const CongratulationsScreen({
     super.key,
-    required this.currentWorkouts,
-    required this.isNextWorkout,
+    required this.currentWorkoutIndex,
   });
 
   @override
   Widget build(BuildContext context) {
+    final workouts = context.read<WorkoutsCubit>().dataLevel;
+    final provider = context.read<CounterTimeChallenges>();
     return Scaffold(
       appBar: customIconAppBar(onPressed: () {
         AnimatedNavigator().pop(context);
@@ -32,16 +31,30 @@ class CongratulationsScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomAnimatedOpacity(
-            child: Image.asset(
-              'assets/images/prize.png',
-              width: 230,
-              height: 280,
-              fit: BoxFit.fill,
+            child: ColorFiltered(
+              colorFilter: ColorFilter.mode(
+                provider.finishedExercises < provider.exerciseTimeSec.length~/2
+                ? gray
+                : provider.finishedExercises < provider.exerciseTimeSec.length
+                ? gray.withOpacity(0.2)
+                : Colors.transparent, 
+                BlendMode.color,
+              ),
+              child: Image.asset(
+                'assets/images/prize.png',
+                width: 230,
+                height: 280,
+                fit: BoxFit.fill,
+              ),
             ),
           ),
           CustomAnimatedOpacity(
             child: Text(
-              'Congratulations!',
+              provider.finishedExercises < provider.exerciseTimeSec.length~/2
+              ?'Keep going' 
+              : provider.finishedExercises < provider.exerciseTimeSec.length
+              ? 'Keep up'
+              :'Congratulations!',
               style: GoogleFonts.poppins(
                 fontSize: 35,
                 color: gold2,
@@ -51,7 +64,11 @@ class CongratulationsScreen extends StatelessWidget {
           ),
           CustomAnimatedOpacity(
             child: Text(
-              'You have completed the workout',
+              provider.finishedExercises < provider.exerciseTimeSec.length~/2
+              ?'You can finish the challenge' 
+              : provider.finishedExercises < provider.exerciseTimeSec.length
+              ? 'You Almost to finish the challenge'
+              :'You have completed the workout',
               style: GoogleFonts.poppins(
                 fontSize: 20,
                 color: black,
@@ -67,15 +84,15 @@ class CongratulationsScreen extends StatelessWidget {
               children: [
                 congratulateData(
                   title: 'workout',
-                  value: '${currentWorkouts.exercisePlan.length}',
+                  value: '${provider.finishedExercises}',
                 ),
                 congratulateData(
                   title: 'Cal',
-                  value: currentWorkouts.calBurned,
+                  value: provider.calBurned,
                 ),
                 congratulateData(
                   title: 'Minutes',
-                  value: convertToMS(currentWorkouts.planDurationMn),
+                  value: '${provider.totalExerciseTime}',
                 ),
               ],
             ),
@@ -83,25 +100,22 @@ class CongratulationsScreen extends StatelessWidget {
           const Spacer(),
           CustomAnimatedOpacity(
             child: CustomButton(
-                label: 'Next workout',
-                horizontalPadding: 30,
-                colors: isNextWorkout ? [cyan, purple, purple] : [gray14, gray14],
-                onPressed: () {
-                  var allWorkouts = context.read<WorkoutsCubit>().data;
-                  if (isNextWorkout) {
-                    for (int i = 0; i < allWorkouts!.length - 1; i++) {
-                      if (allWorkouts[i].category == currentWorkouts.category) {
-                        AnimatedNavigator().push(
-                          context,
-                          StartChallengeScreen(
-                            workouts: allWorkouts[i + 1],
-                          ),
-                        );
-                        break;
-                      }
-                    }
-                  }
-                }),
+              label: 'Next workout',
+              horizontalPadding: 30,
+              colors: currentWorkoutIndex != workouts.length - 1
+                  ? [cyan, purple, purple]
+                  : [gray14, gray14],
+              onPressed: () {
+                if (currentWorkoutIndex != workouts.length - 1) {
+                  AnimatedNavigator().push(
+                    context,
+                    WorkoutsViewChallenge(
+                      workoutsIndex: currentWorkoutIndex + 1,
+                    ),
+                  );
+                }
+              },
+            ),
           ),
           const SizedBox(height: 20),
           CustomAnimatedOpacity(
@@ -111,7 +125,7 @@ class CongratulationsScreen extends StatelessWidget {
                 onPressed: () {
                   AnimatedNavigator().pushAndRemoveUntil(
                     context,
-                    const WorkoutsScreen(),
+                    const HomeMainScreen(),
                   );
                 }),
           ),

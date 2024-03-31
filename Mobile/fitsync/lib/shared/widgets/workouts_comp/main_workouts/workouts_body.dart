@@ -30,9 +30,9 @@ class WorkOustBody extends StatelessWidget {
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
                   itemCount: context.read<WorkoutsCubit>().dataLevel.length,
-                  separatorBuilder: (context, index) =>
-                      const SizedBox(width: 20),
+                  separatorBuilder: (context, index) => const SizedBox(width: 20),
                   itemBuilder: (context, index) => CardItems(
+                    workoutIndex: index,
                     workouts: context.read<WorkoutsCubit>().dataLevel[index],
                   ),
                 ),

@@ -8,7 +8,13 @@ import 'custom_start_button.dart';
 
 class CardItems extends StatelessWidget {
   final WorkoutsModel workouts;
-  const CardItems({super.key, required this.workouts});
+  final int workoutIndex;
+
+  const CardItems({
+    super.key, 
+    required this.workouts, 
+    required this.workoutIndex,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +24,7 @@ class CardItems extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: black,
       ),
-      width: width-30,
+      width: width - 30,
       height: 200,
       child: Row(
         children: [
@@ -84,7 +90,7 @@ class CardItems extends StatelessWidget {
                 CustomStartButton(onTap: () {
                   AnimatedNavigator().push(
                     context,
-                    WorkoutsViewChallenge(workouts: workouts),
+                    WorkoutsViewChallenge(workoutsIndex: workoutIndex),
                   );
                 }),
               ],
