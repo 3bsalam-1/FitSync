@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
-import '../../shared/widgets/profile_comp.dart/profile_avatar_edit.dart';
-import '../../shared/widgets/profile_comp.dart/profile_user_info.dart';
+import '../../shared/widgets/profile_comp.dart/profile_setting/profile_avatar_edit.dart';
+import '../../shared/widgets/profile_comp.dart/profile_setting/profile_user_info.dart';
 
 class ProfileInformationScreen extends StatelessWidget {
   const ProfileInformationScreen({super.key});

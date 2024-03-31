@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../colors/colors.dart';
+import '../../../colors/colors.dart';
 
 class CustomCardSwitch extends StatefulWidget {
   final IconData icon;

@@ -9,6 +9,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   WorkoutsCubit() : super(WorkoutsInitial());
   final workRepo = WorkoutsRepo();
   List<WorkoutsModel>? data;
+  List<WorkoutsModel>? allworkouts;
   List<WorkoutsModel> dataLevel = [];
 
   void getWorkoutsData(UserPersonalInfoGetModel userData) {
@@ -25,20 +26,32 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
     }
   }
 
+  void getAllWorkouts() {
+    if (allworkouts == null) {
+      workRepo.getAllWorkoutsData().then((response) {
+        if (response != null) {
+          allworkouts = response;
+          emit(WorkoutsLoaded());
+        } else {
+          emit(WorkoutsFialure());
+        }
+      });
+      emit(WorkoutsLoading());
+    }
+  }
+
   void selectDataBasedLevel(String level) {
-    List<WorkoutsModel> store = [];
-    if (data != null) {
+    if (data != null && allworkouts != null) {
       if ('Recent' == level) {
         dataLevel = data!;
+        emit(WorkoutsLoaded());
       } else {
-        for (var item in data!) {
-          if (item.level.toLowerCase() == level.toLowerCase()) {
-            store.add(item);
-          }
-        }
-        dataLevel = store;
+        var result = allworkouts!.where(
+          (item) => item.level.toLowerCase() == level.toLowerCase(),
+        );
+        dataLevel = List.from(result);
+        emit(WorkoutsLoaded());
       }
-      emit(WorkoutsLoaded());
     }
   }
 }

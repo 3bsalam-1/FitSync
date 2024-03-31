@@ -31,4 +31,28 @@ class WorkoutsRepo {
       return null;
     }
   }
+
+  Future<List<WorkoutsModel>?> getAllWorkoutsData() async {
+    try {
+      http.Response response = await http.get(
+        Uri.https(baseUrlAi, '/all_workout', {
+          'Gender': '0',
+          'Knee_pain': '0',
+          'Back_pain': '0',
+          'Diabeties': '0',
+          'Heart_Disease': '0',
+          'Hypertension': '0',
+        }),
+        headers: {
+          "Authorization": "Bearer ${Prefs.getString('token')!}",
+        },
+      );
+      List<dynamic> body = jsonDecode(response.body);
+      List<WorkoutsModel> data = body.map((json) => WorkoutsModel.fromJSON(json)).toList();
+      return data;
+    } catch (e) {
+      debugPrint('The Error is: ${e.toString()}');
+      return null;
+    }
+  }
 }

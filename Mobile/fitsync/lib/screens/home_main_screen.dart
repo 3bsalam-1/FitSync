@@ -18,7 +18,8 @@ class HomeMainScreen extends StatelessWidget {
         BlocListener<NewTokenCubit, bool>(
           listener: (context, state) {
             if (state) {
-              BlocProvider.of<UserDataInfoCubit>(context).getUserDataInfo(context);
+              BlocProvider.of<UserDataInfoCubit>(context)
+                  .getUserDataInfo(context);
             }
           },
         ),
@@ -28,6 +29,7 @@ class HomeMainScreen extends StatelessWidget {
               BlocProvider.of<WorkoutsCubit>(context).getWorkoutsData(
                 context.read<UserDataInfoCubit>().userData!,
               );
+              BlocProvider.of<WorkoutsCubit>(context).getAllWorkouts();
             }
           },
         ),

@@ -23,24 +23,23 @@ class WorkOustBody extends StatelessWidget {
           const SizedBox(height: 22),
           BlocBuilder<WorkoutsCubit, WorkoutsState>(
             builder: (context, state) {
-              if (state is WorkoutsLoaded) {
-                return SizedBox(
-                  height: 200,
-                  child: ListView.builder(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: context.read<WorkoutsCubit>().dataLevel.length,
-                    itemBuilder: (context, index) => CardItems(
-                      workouts: context.read<WorkoutsCubit>().dataLevel[index],
-                    ),
+              return context.read<WorkoutsCubit>().data != null?
+              SizedBox(
+                height: 200,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: context.read<WorkoutsCubit>().dataLevel.length,
+                  separatorBuilder: (context, index) =>
+                      const SizedBox(width: 20),
+                  itemBuilder: (context, index) => CardItems(
+                    workouts: context.read<WorkoutsCubit>().dataLevel[index],
                   ),
-                );
-              } else {
-                return SkeletonContainerLoading(
-                  width: MediaQuery.of(context).size.width - 30,
-                  height: 200,
-                );
-              }
+                ),
+              ): SkeletonContainerLoading(
+                width: MediaQuery.of(context).size.width - 30,
+                height: 200,
+              );
             },
           ),
           const SizedBox(height: 30),

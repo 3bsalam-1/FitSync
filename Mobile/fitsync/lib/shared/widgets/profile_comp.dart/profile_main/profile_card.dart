@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../screens/profile/profile_informtion_screen.dart';
-import '../../../services/pref.dart';
-import '../../colors/colors.dart';
-import '../global/animated_navigator.dart';
-import '../global/skeleton_container_loading.dart';
+import '../../../../data/cubit/user_data/user_data_info_cubit.dart';
+import '../../../../screens/profile/profile_informtion_screen.dart';
+import '../../../../services/pref.dart';
+import '../../../colors/colors.dart';
+import '../../global/animated_navigator.dart';
+import '../../global/skeleton_container_loading.dart';
 
 class ProfileCard extends StatelessWidget {
   const ProfileCard({super.key});
@@ -40,7 +42,7 @@ class ProfileCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Prefs.getStringList('user') == null
+            context.read<UserDataInfoCubit>().userData == null
             ? const SkeletonContainerLoading(
               width: 60,
               height: 60,
@@ -61,7 +63,7 @@ class ProfileCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Prefs.getStringList('user') == null
+                context.read<UserDataInfoCubit>().userData == null
                 ? const SkeletonContainerLoading(
                   height: 10, 
                   width: double.minPositive,
@@ -73,7 +75,7 @@ class ProfileCard extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                Prefs.getStringList('user') == null
+                context.read<UserDataInfoCubit>().userData == null
                 ? const SkeletonContainerLoading(
                   height: 10, 
                   width: double.minPositive,

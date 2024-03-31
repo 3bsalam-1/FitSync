@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../data/cubit/user_data/user_data_info_cubit.dart';
-import '../../colors/colors.dart';
+import '../../../../data/cubit/user_data/user_data_info_cubit.dart';
+import '../../../colors/colors.dart';
 import 'profile_setting_info.dart';
-import 'square_info.dart';
+import '../square_info.dart';
 
 class ProfileUserInfo extends StatelessWidget {
   const ProfileUserInfo({super.key});
