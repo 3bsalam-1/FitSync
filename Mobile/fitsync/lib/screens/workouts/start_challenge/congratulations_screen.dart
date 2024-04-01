@@ -34,9 +34,9 @@ class CongratulationsScreen extends StatelessWidget {
             child: ColorFiltered(
               colorFilter: ColorFilter.mode(
                 provider.finishedExercises < provider.exerciseTimeSec.length~/2
-                ? gray
+                ? gray14
                 : provider.finishedExercises < provider.exerciseTimeSec.length
-                ? gray.withOpacity(0.2)
+                ? gray14.withOpacity(0.2)
                 : Colors.transparent, 
                 BlendMode.color,
               ),
@@ -57,7 +57,9 @@ class CongratulationsScreen extends StatelessWidget {
               :'Congratulations!',
               style: GoogleFonts.poppins(
                 fontSize: 35,
-                color: gold2,
+                color: provider.finishedExercises < provider.exerciseTimeSec.length
+                ? gray14
+                : gold2,
                 fontWeight: FontWeight.w800,
               ),
             ),

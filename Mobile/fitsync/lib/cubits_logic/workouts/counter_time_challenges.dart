@@ -7,7 +7,7 @@ class CounterTimeChallenges extends Cubit<int> {
   List<int> exerciseTimeSec = [];
   late List<bool> isPrevouis;
   late String calBurned;
-  late int finishedExercises;
+  late int finishedExercises = 0;
   late int totalExerciseTime = 0;
 
   countDownFinish(int index) {
@@ -36,15 +36,14 @@ class CounterTimeChallenges extends Cubit<int> {
   }
 
   void getExerciseResult(WorkoutsModel workouts) {
-    finishedExercises = isPrevouis.where((e) => true).length;
-    calBurned = (double.parse(workouts.calBurned) *(finishedExercises / workouts.exercisePlan.length)).toStringAsFixed(2);
-
     for (int i = 0; i < isPrevouis.length; i++) {
       if (isPrevouis[i] == true) {
-        print('the date is ${isPrevouis[i]}');
         totalExerciseTime += exerciseTimeSec[i];
+        ++finishedExercises;
       }
     }
+    calBurned = (double.parse(workouts.calBurned) *(finishedExercises / workouts.exercisePlan.length)).toStringAsFixed(2);
+    
     totalExerciseTime = (totalExerciseTime ~/ 60);
     emit(20);
   }
