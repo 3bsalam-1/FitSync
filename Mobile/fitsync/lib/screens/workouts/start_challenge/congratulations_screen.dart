@@ -31,46 +31,38 @@ class CongratulationsScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomAnimatedOpacity(
-            child: ColorFiltered(
-              colorFilter: ColorFilter.mode(
-                provider.finishedExercises < provider.exerciseTimeSec.length~/2
-                ? gray14
-                : provider.finishedExercises < provider.exerciseTimeSec.length
-                ? gray14.withOpacity(0.2)
-                : Colors.transparent, 
-                BlendMode.color,
-              ),
-              child: Image.asset(
-                'assets/images/prize.png',
-                width: 230,
-                height: 280,
-                fit: BoxFit.fill,
-              ),
+            child: Image.network(
+              provider.finishedExercises < provider.exerciseTimeSec.length - 2
+              ? 'https://drive.google.com/uc?export=view&id=1JpjfUzUxBext6RM7BMrH5pxtqeoAwdzD'
+              : 'https://drive.google.com/uc?export=view&id=1gU581cW1gc2R8I2xw_3qO3ZwNjgBR-KS',
+              width: 230,
+              height: 280,
+              fit: BoxFit.fill,
             ),
           ),
           CustomAnimatedOpacity(
             child: Text(
-              provider.finishedExercises < provider.exerciseTimeSec.length~/2
-              ?'Keep going' 
-              : provider.finishedExercises < provider.exerciseTimeSec.length
-              ? 'Keep up'
-              :'Congratulations!',
+              provider.finishedExercises < provider.exerciseTimeSec.length ~/ 2
+                  ? 'Keep going'
+                  : provider.finishedExercises < provider.exerciseTimeSec.length - 2
+                    ? 'Keep up'
+                    : 'Congratulations!',
               style: GoogleFonts.poppins(
                 fontSize: 35,
-                color: provider.finishedExercises < provider.exerciseTimeSec.length
-                ? gray14
-                : gold2,
+                color: provider.finishedExercises < provider.exerciseTimeSec.length - 2
+                  ? gray14
+                  : gold2,
                 fontWeight: FontWeight.w800,
               ),
             ),
           ),
           CustomAnimatedOpacity(
             child: Text(
-              provider.finishedExercises < provider.exerciseTimeSec.length~/2
-              ?'You can finish the challenge' 
-              : provider.finishedExercises < provider.exerciseTimeSec.length
-              ? 'You Almost to finish the challenge'
-              :'You have completed the workout',
+              provider.finishedExercises < provider.exerciseTimeSec.length ~/ 2
+                  ? 'You can finish the challenge'
+                  : provider.finishedExercises < provider.exerciseTimeSec.length - 2
+                    ? 'You Almost to finish the challenge'
+                    : 'You have completed the workout',
               style: GoogleFonts.poppins(
                 fontSize: 20,
                 color: black,
