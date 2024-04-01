@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/navigation_page_cubit.dart';
+import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/chart_data.dart';
 import '../../shared/widgets/activity_comp/custom_chart_column.dart';
@@ -31,7 +32,7 @@ class ActivityMainScreen extends StatelessWidget {
           CustomMenuButton(
             labels: const ['Sleep', 'Daily Steps', 'Hydration', 'Daily Intake'],
             onSelected: (pageIndex) {
-              context.read<NavigationPageCubit>().changePage(pageIndex+5);
+              context.read<NavigationPageCubit>().changePage(pageIndex + 5);
             },
             child: const Icon(
               Icons.menu_outlined,
@@ -44,108 +45,116 @@ class ActivityMainScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 17),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const CustomDayItem(),
-              const SizedBox(height: 22),
-              CustomChartColumn(
-                title: 'Sleep',
-                value: '170 hours',
-                subTitle: 'you slept better the last 4 weeks',
-                onPressed: () {
-                  // todo
-                },
-                labelFormat: '{value}:00',
-                increaseData: 0.24,
-                maxYlabel: 10,
-                minYlabel: 5,
-                data: dataSleep,
-              ),
-              CustomChartColumn(
-                title: 'Steps',
-                value: '3.2 km',
-                subTitle:
-                    'The number of steps you took per day was higher over the last 4 weeks',
-                onPressed: () {
-                  // todo
-                },
-                maxYlabel: 9000,
-                minYlabel: 4000,
-                increaseData: 200,
-                data: dataSteps,
-              ),
-              CustomChartColumn(
-                title: 'Water',
-                value: '0.5 L',
-                subTitle:
-                    'The liter of water you took per day was higher over the last 4 weeks',
-                onPressed: () {
-                  // todo
-                },
-                labelFormat: '{value}L',
-                maxYlabel: 5,
-                minYlabel: 0,
-                interval: 1,
-                increaseData: 0.2,
-                data: dataWater,
-              ),
-              CustomChartColumn(
-                title: 'Calories',
-                value: '700 kcal',
-                subTitle:
-                    'The number of calories you burned per day was balanced  over the last 4 weeks',
-                onPressed: () {
-                  // todo
-                },
-                maxYlabel: 0,
-                minYlabel: 1600,
-                increaseData: 70,
-                data: dataCalories,
-              ),
-              const SizedBox(height: 30),
-              Text(
-                'Challenges Progress',
-                style: GoogleFonts.poppins(
-                  fontSize: 18,
-                  color: black,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(height: 22),
-              const CustomProgressChallenge(
-                title: '12 Days',
-                subTitle: '15 Days Jump Rope Challenge',
-                progress: 'In Progress',
-                progressColor: gold3,
-                icon: Icons.check,
-                progressPrecent: 40,
-              ),
-              const CustomProgressChallenge(
-                title: '30 Days',
-                subTitle: '30 Days No Soda Challenge',
-                progress: 'Completed',
-                progressColor: green,
-                icon: Icons.check,
-                progressPrecent: 100,
-              ),
-              const CustomProgressChallenge(
-                title: '20 Days',
-                subTitle: '30 Days Push Up Challenge',
-                progress: 'Halted',
-                progressColor: red3,
-                icon: Icons.clear_sharp,
-                progressPrecent: 65,
-              ),
-              const CustomProgressChallenge(
-                title: '30 Days',
-                subTitle: '7 Days Fruit Fast Challenge',
-                progress: 'Completed',
-                progressColor: green,
-                icon: Icons.check,
-                progressPrecent: 100,
-              ),
-            ],
+          child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
+            builder: (context, state) {
+              final provider = context.read<SmartWatchCubit>();
+              if (state is SmartWatchConnection) {
+                provider.getSmartWatchData();
+              }
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CustomDayItem(),
+                  const SizedBox(height: 22),
+                  CustomChartColumn(
+                    title: 'Sleep',
+                    value: '${provider.sleep} hours',
+                    subTitle: 'you slept better the last 4 weeks',
+                    onPressed: () {
+                      // todo
+                    },
+                    labelFormat: '{value}:00',
+                    increaseData: 0.24,
+                    maxYlabel: 10,
+                    minYlabel: 5,
+                    data: dataSleep,
+                  ),
+                  CustomChartColumn(
+                    title: 'Steps',
+                    value: '3.2 km',
+                    subTitle:
+                        'The number of steps you took per day was higher over the last 4 weeks',
+                    onPressed: () {
+                      // todo
+                    },
+                    maxYlabel: 9000,
+                    minYlabel: 4000,
+                    increaseData: 200,
+                    data: dataSteps,
+                  ),
+                  CustomChartColumn(
+                    title: 'Water',
+                    value: '0.5 L',
+                    subTitle:
+                        'The liter of water you took per day was higher over the last 4 weeks',
+                    onPressed: () {
+                      // todo
+                    },
+                    labelFormat: '{value}L',
+                    maxYlabel: 5,
+                    minYlabel: 0,
+                    interval: 1,
+                    increaseData: 0.2,
+                    data: dataWater,
+                  ),
+                  CustomChartColumn(
+                    title: 'Calories',
+                    value: '700 kcal',
+                    subTitle:
+                        'The number of calories you burned per day was balanced  over the last 4 weeks',
+                    onPressed: () {
+                      // todo
+                    },
+                    maxYlabel: 0,
+                    minYlabel: 1600,
+                    increaseData: 70,
+                    data: dataCalories,
+                  ),
+                  const SizedBox(height: 30),
+                  Text(
+                    'Challenges Progress',
+                    style: GoogleFonts.poppins(
+                      fontSize: 18,
+                      color: black,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 22),
+                  const CustomProgressChallenge(
+                    title: '12 Days',
+                    subTitle: '15 Days Jump Rope Challenge',
+                    progress: 'In Progress',
+                    progressColor: gold3,
+                    icon: Icons.check,
+                    progressPrecent: 40,
+                  ),
+                  const CustomProgressChallenge(
+                    title: '30 Days',
+                    subTitle: '30 Days No Soda Challenge',
+                    progress: 'Completed',
+                    progressColor: green,
+                    icon: Icons.check,
+                    progressPrecent: 100,
+                  ),
+                  const CustomProgressChallenge(
+                    title: '20 Days',
+                    subTitle: '30 Days Push Up Challenge',
+                    progress: 'Halted',
+                    progressColor: red3,
+                    icon: Icons.clear_sharp,
+                    progressPrecent: 65,
+                  ),
+                  const CustomProgressChallenge(
+                    title: '30 Days',
+                    subTitle: '7 Days Fruit Fast Challenge',
+                    progress: 'Completed',
+                    progressColor: green,
+                    icon: Icons.check,
+                    progressPrecent: 100,
+                  ),
+                ],
+              );
+            },
           ),
         ),
       ),

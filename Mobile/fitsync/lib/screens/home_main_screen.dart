@@ -18,25 +18,23 @@ class HomeMainScreen extends StatelessWidget {
         BlocListener<NewTokenCubit, bool>(
           listener: (context, state) {
             if (state) {
-              BlocProvider.of<UserDataInfoCubit>(context)
-                  .getUserDataInfo(context);
+              context.read<UserDataInfoCubit>().getUserDataInfo(context);
             }
           },
         ),
         BlocListener<UserDataInfoCubit, UserDataInfoState>(
           listener: (context, state) {
             if (state is UserDataSuccess) {
-              BlocProvider.of<WorkoutsCubit>(context).getWorkoutsData(
+              context.read<WorkoutsCubit>().getWorkoutsData(
                 context.read<UserDataInfoCubit>().userData!,
               );
-              BlocProvider.of<WorkoutsCubit>(context).getAllWorkouts();
+              context.read<WorkoutsCubit>().getAllWorkouts();
             }
           },
         ),
       ],
       child: Scaffold(
-        body:
-            BlocBuilder<NavigationPageCubit, Widget>(builder: (context, page) {
+        body: BlocBuilder<NavigationPageCubit, Widget>(builder: (context, page) {
           return page;
         }),
         backgroundColor: white,
