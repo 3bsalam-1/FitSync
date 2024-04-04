@@ -10,20 +10,18 @@ class SmartWatchServices {
   }
 
   Future<List<double>> getHeartRateData() async {
-    bool requested =
-        await Health().requestAuthorization([HealthDataType.HEART_RATE]);
+    bool requested = await Health().requestAuthorization([HealthDataType.HEART_RATE]);
     if (requested) {
       try {
         List<double> heartRate = [];
-        List<HealthDataPoint> healthData =
-            await Health().getHealthDataFromTypes(
+        List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
           DateTime.now().subtract(const Duration(days: 7)),
           DateTime.now(),
           [HealthDataType.HEART_RATE],
         );
-        for (HealthDataPoint element in healthData) {
-          heartRate.add(element.value.toJson()['numeric_value']);
-        }
+        heartRate = healthData.map((item) {
+          return item.value.toJson()['numeric_value'] as double;
+        }).toList();
         debugPrint('the heart rate is: $heartRate');
         return heartRate;
       } catch (error) {
@@ -35,20 +33,18 @@ class SmartWatchServices {
   }
 
   Future<List<double>> getBloodGlucoseData() async {
-    bool requested =
-        await Health().requestAuthorization([HealthDataType.BLOOD_GLUCOSE]);
+    bool requested = await Health().requestAuthorization([HealthDataType.BLOOD_GLUCOSE]);
     if (requested) {
       try {
         List<double> bloodGlucose = [];
-        List<HealthDataPoint> healthData =
-            await Health().getHealthDataFromTypes(
+        List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
           DateTime.now().subtract(const Duration(days: 7)),
           DateTime.now(),
           [HealthDataType.BLOOD_GLUCOSE],
         );
-        for (HealthDataPoint element in healthData) {
-          bloodGlucose.add(element.value.toJson()['numeric_value']);
-        }
+        bloodGlucose = healthData.map((item) {
+          return item.value.toJson()['numeric_value'] as double;
+        }).toList();
         debugPrint('the Blood Glucose is: $bloodGlucose');
         return bloodGlucose;
       } catch (error) {
@@ -60,20 +56,18 @@ class SmartWatchServices {
   }
 
   Future<List<double>> getBloodOxygenData() async {
-    bool requested =
-        await Health().requestAuthorization([HealthDataType.BLOOD_OXYGEN]);
+    bool requested = await Health().requestAuthorization([HealthDataType.BLOOD_OXYGEN]);
     if (requested) {
       try {
         List<double> bloodOxygen = [];
-        List<HealthDataPoint> healthData =
-            await Health().getHealthDataFromTypes(
+        List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
           DateTime.now().subtract(const Duration(days: 7)),
           DateTime.now(),
           [HealthDataType.BLOOD_OXYGEN],
         );
-        for (HealthDataPoint element in healthData) {
-          bloodOxygen.add(element.value.toJson()['numeric_value']);
-        }
+        bloodOxygen = healthData.map((item) {
+          return item.value.toJson()['numeric_value'] as double;
+        }).toList();
         debugPrint('the Blood Oxygen is: $bloodOxygen');
         return bloodOxygen;
       } catch (error) {
@@ -87,22 +81,20 @@ class SmartWatchServices {
   Future<List<double>> getStepsData() async {
     PermissionStatus statusPermission = await Permission.activityRecognition.request();
     bool requested = false;
-    
     if (statusPermission == PermissionStatus.granted) {
       requested = await Health().requestAuthorization([HealthDataType.STEPS]);
     }
     if (requested) {
       try {
         List<double> steps = [];
-        List<HealthDataPoint> healthData =
-            await Health().getHealthDataFromTypes(
+        List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
           DateTime.now().subtract(const Duration(days: 7)),
           DateTime.now(),
           [HealthDataType.STEPS],
         );
-        for (HealthDataPoint element in healthData) {
-          steps.add(element.value.toJson()['numeric_value']);
-        }
+        steps = healthData.map((item) {
+          return item.value.toJson()['numeric_value'] as double;
+        }).toList();
         debugPrint('the steps is: $steps');
         return steps;
       } catch (error) {
@@ -114,20 +106,18 @@ class SmartWatchServices {
   }
 
   Future<List<double>> getCaloriesData() async {
-    bool requested = await Health()
-        .requestAuthorization([HealthDataType.ACTIVE_ENERGY_BURNED]);
+    bool requested = await Health().requestAuthorization([HealthDataType.ACTIVE_ENERGY_BURNED]);
     if (requested) {
       try {
         List<double> calories = [];
-        List<HealthDataPoint> healthData =
-            await Health().getHealthDataFromTypes(
+        List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
           DateTime.now().subtract(const Duration(days: 7)),
           DateTime.now(),
           [HealthDataType.ACTIVE_ENERGY_BURNED],
         );
-        for (HealthDataPoint element in healthData) {
-          calories.add(element.value.toJson()['numeric_value']);
-        }
+        calories = healthData.map((item) {
+          return item.value.toJson()['numeric_value'] as double;
+        }).toList();
         debugPrint('the Calories Burned is: $calories');
         return calories;
       } catch (error) {
@@ -139,20 +129,18 @@ class SmartWatchServices {
   }
 
   Future<List<double>> getSleepData() async {
-    bool requested =
-        await Health().requestAuthorization([HealthDataType.SLEEP_ASLEEP]);
+    bool requested = await Health().requestAuthorization([HealthDataType.SLEEP_ASLEEP]);
     if (requested) {
       try {
         List<double> sleep = [];
-        List<HealthDataPoint> healthData =
-            await Health().getHealthDataFromTypes(
+        List<HealthDataPoint> healthData = await Health().getHealthDataFromTypes(
           DateTime.now().subtract(const Duration(days: 7)),
           DateTime.now(),
           [HealthDataType.SLEEP_ASLEEP],
         );
-        for (HealthDataPoint element in healthData) {
-          sleep.add(element.value.toJson()['numeric_value']);
-        }
+        sleep = healthData.map((item) {
+          return item.value.toJson()['numeric_value'] as double;
+        }).toList();
         debugPrint('the Sleep is: $sleep');
         return sleep;
       } catch (error) {

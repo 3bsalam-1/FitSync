@@ -49,7 +49,7 @@ class ActivityMainScreen extends StatelessWidget {
             builder: (context, state) {
               final provider = context.read<SmartWatchCubit>();
               if (state is SmartWatchConnection) {
-                provider.getSmartWatchData();
+                context.read<SmartWatchCubit>().getSmartWatchData();
               }
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,8 +57,8 @@ class ActivityMainScreen extends StatelessWidget {
                   const CustomDayItem(),
                   const SizedBox(height: 22),
                   CustomChartColumn(
-                    title: 'Sleep',
-                    value: '${provider.sleep} hours',
+                    title: '${provider.sleep} Sleep',
+                    value: ' hours',
                     subTitle: 'you slept better the last 4 weeks',
                     onPressed: () {
                       // todo
