@@ -16,15 +16,10 @@ import 'data/cubit/user_data/user_data_info_cubit.dart';
 import 'data/cubit/workouts/workouts_cubit.dart';
 import 'screens/splash/splash_screen.dart';
 import 'services/pref.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Prefs.init();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   runApp(const MyApp());
 }
 
