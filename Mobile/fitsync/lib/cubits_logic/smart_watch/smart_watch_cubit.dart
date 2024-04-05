@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import '../../data/models/smart_watch_model.dart';
 import '../../services/isolate_service.dart';
 import '../../services/smart_watch_services.dart';
 part 'smart_watch_state.dart';
@@ -9,12 +10,7 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
 
   final watchService = SmartWatchServices();
   final isolate = IsolateService();
-  List<double>? heartRates;
-  List<double>? caloriesBurned;
-  List<double>? bloodOxygen;
-  List<double>? steps;
-  List<double>? bloodGlucos;
-  List<double>? sleep;
+  SmartWatchModel? smartWatchData;
 
   void intializeSmartWatchConnection() {
     watchService.initSmartWatch();
@@ -22,14 +18,9 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
   }
 
   void getSmartWatchData() async {
-    heartRates = await isolate.getHeartRateDataService();
-    caloriesBurned = await isolate.getCaloriesDataService();
-    bloodOxygen = await isolate.getBloodOxygenDataService();
-    bloodGlucos = await isolate.getBloodGlucoseDataService(); // empty data
-    sleep = await isolate.getSleepDataService();
-    if (heartRates != null) {
+    smartWatchData = await isolate.getSmartWatchDataService();
+    if (smartWatchData != null) {
       emit(SmartWatchData());
     }
-    //steps = await watchService.getStepsData(); // todo need permision
   }
 }

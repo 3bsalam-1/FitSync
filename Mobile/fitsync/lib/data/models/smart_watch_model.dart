@@ -1,13 +1,14 @@
-import 'package:health/health.dart';
-
 class SmartWatchModel {
-  final num value;
-  final HealthDataType type;
-  final DateTime date;
+  final List<double> heartRate;
+  final List<double> bloodOxygen;
+  final List<double> bloodGlucose;
+  final List<double> calories;
+  final List<double> sleep;
 
   SmartWatchModel({
-    required this.value, 
-    required this.type, 
-    required this.date,
+    required this.heartRate, 
+    required this.bloodOxygen, 
+    required this.bloodGlucose, 
+    required this.calories, required this.sleep,
   });
 }

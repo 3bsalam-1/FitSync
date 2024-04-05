@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../cubits_logic/navigation_page_cubit.dart';
 import '../cubits_logic/new_token_cubit.dart';
+import '../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../data/cubit/workouts/workouts_cubit.dart';
 import '../shared/colors/colors.dart';
 import '../shared/widgets/item_bottom_app_bar.dart';
@@ -25,6 +26,9 @@ class HomeMainScreen extends StatelessWidget {
         BlocListener<UserDataInfoCubit, UserDataInfoState>(
           listener: (context, state) {
             if (state is UserDataSuccess) {
+              context.read<SmartWatchCubit>().intializeSmartWatchConnection();
+              context.read<SmartWatchCubit>().getSmartWatchData();
+              
               context.read<WorkoutsCubit>().getWorkoutsData(
                 context.read<UserDataInfoCubit>().userData!,
               );
@@ -34,7 +38,8 @@ class HomeMainScreen extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        body: BlocBuilder<NavigationPageCubit, Widget>(builder: (context, page) {
+        body:
+            BlocBuilder<NavigationPageCubit, Widget>(builder: (context, page) {
           return page;
         }),
         backgroundColor: white,

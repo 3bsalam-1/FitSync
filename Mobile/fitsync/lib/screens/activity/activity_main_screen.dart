@@ -48,16 +48,13 @@ class ActivityMainScreen extends StatelessWidget {
           child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
             builder: (context, state) {
               final provider = context.read<SmartWatchCubit>();
-              if (state is SmartWatchConnection) {
-                context.read<SmartWatchCubit>().getSmartWatchData();
-              }
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const CustomDayItem(),
                   const SizedBox(height: 22),
                   CustomChartColumn(
-                    title: '${provider.sleep} Sleep',
+                    title: '${provider.smartWatchData?.sleep} Sleep',
                     value: ' hours',
                     subTitle: 'you slept better the last 4 weeks',
                     onPressed: () {
