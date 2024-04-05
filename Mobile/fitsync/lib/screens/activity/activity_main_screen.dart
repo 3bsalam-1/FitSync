@@ -47,24 +47,28 @@ class ActivityMainScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 17),
           child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
             builder: (context, state) {
-              final provider = context.read<SmartWatchCubit>();
+              final data = context.read<SmartWatchCubit>().smartWatchData;
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const CustomDayItem(),
                   const SizedBox(height: 22),
                   CustomChartColumn(
-                    title: '${provider.smartWatchData?.sleep} Sleep',
-                    value: ' hours',
+                    title: 'Sleep',
+                    value:
+                        '${data == null ? '0' : data.sleep.isNotEmpty ? data.sleep.last : '0'} hours',
                     subTitle: 'you slept better the last 4 weeks',
                     onPressed: () {
                       // todo
                     },
                     labelFormat: '{value}:00',
-                    increaseData: 0.24,
+                    increaseData: 0.25,
                     maxYlabel: 10,
-                    minYlabel: 5,
-                    data: dataSleep,
+                    minYlabel: 2,
+                    data: showSmartWatchDataWeekly(
+                      data?.sleep,
+                      data?.sleepDay,
+                    ),
                   ),
                   CustomChartColumn(
                     title: 'Steps',
@@ -81,7 +85,8 @@ class ActivityMainScreen extends StatelessWidget {
                   ),
                   CustomChartColumn(
                     title: 'Water',
-                    value: '0.5 L',
+                    value:
+                        '${data == null ? '0' : data.water.isNotEmpty ? data.water.last : '0'} L',
                     subTitle:
                         'The liter of water you took per day was higher over the last 4 weeks',
                     onPressed: () {
@@ -92,20 +97,28 @@ class ActivityMainScreen extends StatelessWidget {
                     minYlabel: 0,
                     interval: 1,
                     increaseData: 0.2,
-                    data: dataWater,
+                    data: showSmartWatchDataWeekly(
+                      data?.water,
+                      data?.waterDay,
+                    ),
                   ),
                   CustomChartColumn(
                     title: 'Calories',
-                    value: '700 kcal',
+                    value:
+                        '${data == null ? '0' : data.calories.last.toStringAsFixed(2)} cal',
                     subTitle:
                         'The number of calories you burned per day was balanced  over the last 4 weeks',
                     onPressed: () {
                       // todo
                     },
-                    maxYlabel: 0,
-                    minYlabel: 1600,
-                    increaseData: 70,
-                    data: dataCalories,
+                    interval: 20,
+                    maxYlabel: 100,
+                    minYlabel: 0,
+                    increaseData: 2,
+                    data: showSmartWatchDataWeekly(
+                      data?.calories,
+                      data?.caloriesDay,
+                    ),
                   ),
                   const SizedBox(height: 30),
                   Text(

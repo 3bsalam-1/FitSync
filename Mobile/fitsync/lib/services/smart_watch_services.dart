@@ -11,6 +11,7 @@ class SmartWatchServices {
     HealthDataType.BLOOD_OXYGEN,
     HealthDataType.STEPS,
     HealthDataType.ACTIVE_ENERGY_BURNED,
+    HealthDataType.WATER,
   ];
 
   void initSmartWatch() async {
@@ -22,84 +23,112 @@ class SmartWatchServices {
   Future<SmartWatchModel?> getSmartWatchData() async {
     bool requested = await Health().requestAuthorization(types);
     if (requested) {
-      List<double> heartRate = await getHeartRateData();
-      List<double> bloodOxygen = await getBloodGlucoseData();
-      List<double> cloodGlucose = await getBloodOxygenData();
-      List<double> calories = await getCaloriesData();
-      List<double> sleep = await getSleepData();
-      
+      Map<String, dynamic> heartRate = await getHeartRateData();
+      Map<String, dynamic> bloodOxygen = await getBloodGlucoseData();
+      Map<String, dynamic> bloodGlucose = await getBloodOxygenData();
+      Map<String, dynamic> calories = await getCaloriesData();
+      Map<String, dynamic> sleep = await getSleepData();
+      Map<String, dynamic> water = await getWaterData();
+      //Map<String, dynamic> steps = await getSleepData();
       return SmartWatchModel(
-        heartRate: heartRate, 
-        bloodOxygen: bloodOxygen, 
-        bloodGlucose: cloodGlucose, 
-        calories: calories, 
-        sleep: sleep,
+        heartRate: heartRate['value'],
+        heartRateDay: heartRate['day'],
+        bloodOxygen: bloodOxygen['value'],
+        bloodOxygenDay: bloodOxygen['day'],
+        bloodGlucose: bloodGlucose['value'],
+        bloodGlucoseDay: bloodGlucose['day'],
+        calories: calories['value'],
+        caloriesDay: calories['day'],
+        sleep: sleep['value'],
+        sleepDay: sleep['day'],
+        water: water['value'],
+        waterDay: water['day'],
+        steps: [],
+        stepsDay: [],
       );
     }
     return null;
   }
 
-  Future<List<double>> getHeartRateData() async {
+  Future<Map<String, dynamic>> getHeartRateData() async {
     try {
-      final List<double> heartRate;
-      final List<HealthDataPoint> healthData =
-          await Health().getHealthDataFromTypes(
+      List<double> heartRate = [];
+      List<int> heartRateDays = [];
+
+      final healthData = await Health().getHealthDataFromTypes(
         DateTime.now().subtract(const Duration(days: 7)),
         DateTime.now(),
         [HealthDataType.HEART_RATE],
       );
-      heartRate = healthData.map((item) {
-        return item.value.toJson()['numeric_value'] as double;
-      }).toList();
-      debugPrint('the heart rate is: $heartRate');
-      return heartRate;
+      heartRate = healthData
+          .map(
+            (item) => item.value.toJson()['numeric_value'] as double,
+          )
+          .toList();
+      heartRateDays = healthData.map((item) => item.dateTo.weekday).toList();
+      return {
+        'value': heartRate,
+        'day': heartRateDays,
+      };
     } catch (error) {
       debugPrint('There is an error $error');
-      return [];
+      return {};
     }
   }
 
-  Future<List<double>> getBloodGlucoseData() async {
+  Future<Map<String, dynamic>> getBloodGlucoseData() async {
     try {
-      final List<double> bloodGlucose;
-      final List<HealthDataPoint> healthData =
-          await Health().getHealthDataFromTypes(
+      List<double> bloodGlucose = [];
+      List<int> bloodGlucoseDays = [];
+
+      final healthData = await Health().getHealthDataFromTypes(
         DateTime.now().subtract(const Duration(days: 7)),
         DateTime.now(),
         [HealthDataType.BLOOD_GLUCOSE],
       );
-      bloodGlucose = healthData.map((item) {
-        return item.value.toJson()['numeric_value'] as double;
-      }).toList();
-      debugPrint('the Blood Glucose is: $bloodGlucose');
-      return bloodGlucose;
+      bloodGlucose = healthData
+          .map(
+            (item) => item.value.toJson()['numeric_value'] as double,
+          )
+          .toList();
+      bloodGlucoseDays = healthData.map((item) => item.dateTo.weekday).toList();
+      return {
+        'value': bloodGlucose,
+        'day': bloodGlucoseDays,
+      };
     } catch (error) {
       debugPrint('There is an error $error');
-      return [];
+      return {};
     }
   }
 
-  Future<List<double>> getBloodOxygenData() async {
+  Future<Map<String, dynamic>> getBloodOxygenData() async {
     try {
-      final List<double> bloodOxygen;
-      final List<HealthDataPoint> healthData =
-          await Health().getHealthDataFromTypes(
+      List<double> bloodOxygen = [];
+      List<int> bloodOxygenDays = [];
+
+      final healthData = await Health().getHealthDataFromTypes(
         DateTime.now().subtract(const Duration(days: 7)),
         DateTime.now(),
         [HealthDataType.BLOOD_OXYGEN],
       );
-      bloodOxygen = healthData.map((item) {
-        return item.value.toJson()['numeric_value'] as double;
-      }).toList();
-      debugPrint('the Blood Oxygen is: $bloodOxygen');
-      return bloodOxygen;
+      bloodOxygen = healthData
+          .map(
+            (item) => item.value.toJson()['numeric_value'] as double,
+          )
+          .toList();
+      bloodOxygenDays = healthData.map((item) => item.dateTo.weekday).toList();
+      return {
+        'value': bloodOxygen,
+        'day': bloodOxygenDays,
+      };
     } catch (error) {
       debugPrint('There is an error $error');
-      return [];
+      return {};
     }
   }
 
-  Future<List<double>> getStepsData() async {
+  Future<Map<String, dynamic>> getStepsData() async {
     PermissionStatus statusPermission =
         await Permission.activityRecognition.request();
     bool requested = false;
@@ -108,63 +137,109 @@ class SmartWatchServices {
     }
     if (requested) {
       try {
-        final List<double> steps;
-        final List<HealthDataPoint> healthData =
-            await Health().getHealthDataFromTypes(
+        List<double> steps = [];
+        List<int> stepsDays = [];
+
+        final healthData = await Health().getHealthDataFromTypes(
           DateTime.now().subtract(const Duration(days: 7)),
           DateTime.now(),
           [HealthDataType.STEPS],
         );
-        steps = healthData.map((item) {
-          return item.value.toJson()['numeric_value'] as double;
-        }).toList();
+        steps = healthData
+            .map(
+              (item) => item.value.toJson()['numeric_value'] as double,
+            )
+            .toList();
+        stepsDays = healthData.map((item) => item.dateTo.weekday).toList();
         debugPrint('the steps is: $steps');
-        return steps;
+        return {
+          'value': steps,
+          'day': stepsDays,
+        };
       } catch (error) {
         debugPrint('There is an error $error');
-        return [];
+        return {};
       }
     }
-    return [];
+    return {};
   }
 
-  Future<List<double>> getCaloriesData() async {
+  Future<Map<String, dynamic>> getCaloriesData() async {
     try {
-      final List<double> calories;
-      final List<HealthDataPoint> healthData =
-          await Health().getHealthDataFromTypes(
+      List<double> calories = [];
+      List<int> caloriesdays = [];
+
+      final healthData = await Health().getHealthDataFromTypes(
         DateTime.now().subtract(const Duration(days: 7)),
         DateTime.now(),
         [HealthDataType.ACTIVE_ENERGY_BURNED],
       );
-      calories = healthData.map((item) {
-        return item.value.toJson()['numeric_value'] as double;
-      }).toList();
-      debugPrint('the Calories Burned is: $calories');
-      return calories;
+      calories = healthData
+          .map(
+            (item) => item.value.toJson()['numeric_value'] as double,
+          )
+          .toList();
+          
+      caloriesdays = healthData.map((item) => item.dateTo.weekday).toList();
+      return {
+        'value': calories,
+        'day': caloriesdays,
+      };
     } catch (error) {
       debugPrint('There is an error $error');
-      return [];
+      return {};
     }
   }
 
-  Future<List<double>> getSleepData() async {
+  Future<Map<String, dynamic>> getSleepData() async {
     try {
-      final List<double> sleep;
-      final List<HealthDataPoint> healthData =
-          await Health().getHealthDataFromTypes(
+      List<double> sleep = [];
+      List<int> sleepDays = [];
+
+      final healthData = await Health().getHealthDataFromTypes(
         DateTime.now().subtract(const Duration(days: 7)),
         DateTime.now(),
         [HealthDataType.SLEEP_ASLEEP],
       );
-      sleep = healthData.map((item) {
-        return item.value.toJson()['numeric_value'] as double;
-      }).toList();
-      debugPrint('the Sleep is: $sleep');
-      return sleep;
+      sleep = healthData
+          .map(
+            (item) => item.value.toJson()['numeric_value'] as double,
+          )
+          .toList();
+      sleepDays = healthData.map((item) => item.dateTo.weekday).toList();
+      return {
+        'value': sleep,
+        'day': sleepDays,
+      };
     } catch (error) {
       debugPrint('There is an error $error');
-      return [];
+      return {};
+    }
+  }
+
+  Future<Map<String, dynamic>> getWaterData() async {
+    try {
+      List<double> water = [];
+      List<int> waterDays = [];
+
+      final healthData = await Health().getHealthDataFromTypes(
+        DateTime.now().subtract(const Duration(days: 7)),
+        DateTime.now(),
+        [HealthDataType.WATER],
+      );
+      water = healthData
+          .map(
+            (item) => item.value.toJson()['numeric_value'] as double,
+          )
+          .toList();
+      waterDays = healthData.map((item) => item.dateTo.weekday).toList();
+      return {
+        'value': water,
+        'day': waterDays,
+      };
+    } catch (error) {
+      debugPrint('There is an error $error');
+      return {};
     }
   }
 }
