@@ -40,62 +40,73 @@ class ProfileCard extends StatelessWidget {
           ],
           color: white,
         ),
-        child: Row(
-          children: [
-            context.read<UserDataInfoCubit>().userData == null
-            ? const SkeletonContainerLoading(
-              width: 60,
-              height: 60,
-              shape: BoxShape.circle,
-            ) : ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: Image.network(
-                  Prefs.getStringList('user')![3],
-                  height: 60,
-                  width: 60,
-                ),
-              ),
-            ),
-            const SizedBox(width: 18),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
+        child: BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
+          builder: (context, state) {
+            return Row(
               children: [
                 context.read<UserDataInfoCubit>().userData == null
-                ? const SkeletonContainerLoading(
-                  height: 10, 
-                  width: double.minPositive,
-                ): Text(
-                  '${Prefs.getStringList('user')![1]} ${Prefs.getStringList('user')![2]}',
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    color: black,
-                    fontWeight: FontWeight.w600,
-                  ),
+                    ? const SkeletonContainerLoading(
+                        width: 60,
+                        height: 60,
+                        borderRaduis: 99,
+                      )
+                    : ClipRRect(
+                        borderRadius: BorderRadius.circular(15),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(100),
+                          child: Image.network(
+                            Prefs.getStringList('user')![3],
+                            height: 60,
+                            width: 60,
+                          ),
+                        ),
+                      ),
+                const SizedBox(width: 18),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    context.read<UserDataInfoCubit>().userData == null
+                        ? const SkeletonContainerLoading(
+                            height: 20,
+                            width: 100,
+                          )
+                        : Text(
+                            '${Prefs.getStringList('user')![1]} ${Prefs.getStringList('user')![2]}',
+                            style: GoogleFonts.poppins(
+                              fontSize: 20,
+                              color: black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                    context.read<UserDataInfoCubit>().userData == null
+                        ? const Padding(
+                            padding: EdgeInsets.only(top: 7),
+                            child: SkeletonContainerLoading(
+                              height: 20,
+                              width: 150,
+                            ),
+                          )
+                        : Text(
+                            Prefs.getString('email')!,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.poppins(
+                              fontSize: 14,
+                              color: gray4,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                  ],
                 ),
-                context.read<UserDataInfoCubit>().userData == null
-                ? const SkeletonContainerLoading(
-                  height: 10, 
-                  width: double.minPositive,
-                ): Text(
-                  Prefs.getString('email')!,
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    color: gray4,
-                    fontWeight: FontWeight.w600,
-                  ),
+                const Spacer(),
+                const Icon(
+                  Icons.arrow_forward_ios,
+                  size: 25,
+                  color: purple2,
                 ),
               ],
-            ),
-            const Spacer(),
-            const Icon(
-              Icons.arrow_forward_ios,
-              size: 25,
-              color: purple2,
-            ),
-          ],
+            );
+          },
         ),
       ),
     );

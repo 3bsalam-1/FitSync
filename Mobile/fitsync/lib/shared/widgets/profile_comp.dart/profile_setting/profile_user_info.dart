@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../../colors/colors.dart';
-import 'profile_setting_info.dart';
 import '../square_info.dart';
+import 'user_info.dart';
 
 class ProfileUserInfo extends StatelessWidget {
   const ProfileUserInfo({super.key});
@@ -23,10 +23,6 @@ class ProfileUserInfo extends StatelessWidget {
         child: BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
           builder: (context, state) {
             var data = context.read<UserDataInfoCubit>().userData;
-            var userData = userInfoData(
-              context,
-              data,
-            );
             return Column(
               children: [
                 const SizedBox(height: 10),
@@ -63,42 +59,7 @@ class ProfileUserInfo extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 15),
                   width: double.maxFinite,
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    itemCount: userData.length,
-                    itemBuilder: (context, index) => Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          userData[index][0] ?? '_',
-                          style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            color: gray4,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        const Spacer(),
-                        Text(
-                          userData[index][1]!,
-                          style: GoogleFonts.poppins(
-                            fontSize: 14,
-                            color: gray4,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        const SizedBox(width: 5),
-                        const Icon(
-                          Icons.arrow_forward_ios,
-                          size: 15,
-                          color: purple2,
-                        ),
-                      ],
-                    ),
-                    separatorBuilder: (context, index) => const Divider(
-                      color: gray7,
-                      thickness: 1,
-                    ),
-                  ),
+                  child: const UserInfo(),
                 ),
                 const Spacer(flex: 2),
                 TextButton(

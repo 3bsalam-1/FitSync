@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../cubits_logic/splash_screen_next_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
@@ -82,6 +83,8 @@ class WelcomeScreen extends StatelessWidget {
                 child: CustomButton(
                   label: 'Get Started',
                   onPressed: () {
+                    context.read<SmartWatchCubit>().intializeSmartWatchConnection();
+                    context.read<SmartWatchCubit>().getSmartWatchData();
                     context.read<SplashScreenNextCubit>().splashNextPage();
                   },
                 ),

@@ -34,7 +34,7 @@ class ProfileAvatarEdit extends StatelessWidget {
                 ) : const SkeletonContainerLoading(
                   height: 100,
                   width: 100,
-                  shape: BoxShape.circle,
+                  borderRaduis: 99,
                 ),
                 Positioned(
                   bottom: 0,
@@ -72,7 +72,6 @@ class ProfileAvatarEdit extends StatelessWidget {
             ): const SkeletonContainerLoading(
               height: 30,
               width: 70,
-              shape: BoxShape.rectangle,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -95,7 +94,6 @@ class ProfileAvatarEdit extends StatelessWidget {
                 ): const SkeletonContainerLoading(
                   height: 30,
                   width: 70,
-                  shape: BoxShape.rectangle,
                 ),
               ],
             ),

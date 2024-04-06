@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import '../../colors/colors.dart';
 
 class SkeletonContainerLoading extends StatefulWidget {
-  final BoxShape shape;
   final double height;
   final double width;
+  final double borderRaduis;
 
   const SkeletonContainerLoading({
     super.key,
-    this.shape = BoxShape.rectangle,
     required this.height,
     required this.width,
+    this.borderRaduis = 10,
   });
 
   @override
@@ -63,8 +63,7 @@ class _SkeletonContainerLoadingState extends State<SkeletonContainerLoading>
       width: widget.width,
       height: widget.height,
       decoration: BoxDecoration(
-        shape: widget.shape,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(widget.borderRaduis),
         gradient: LinearGradient(
           colors: [
             animation.value ?? Colors.transparent,
