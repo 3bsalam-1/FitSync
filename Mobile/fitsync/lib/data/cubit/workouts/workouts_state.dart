@@ -9,4 +9,8 @@ final class WorkoutsLoading extends WorkoutsState {}
 
 final class WorkoutsLoaded extends WorkoutsState {}
 
+final class WorkoutsAddFavorite extends WorkoutsState {}
+
+final class WorkoutsGetFavorite extends WorkoutsState {}
+
 final class WorkoutsFialure extends WorkoutsState {}

@@ -1,3 +1,4 @@
+import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../home_main_screen.dart';
 import 'start_challenge/start_challenge_screen.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -97,15 +98,27 @@ class WorkoutsViewChallenge extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        IconButton(
-                          onPressed: () {
-                            // todo add to the saved workouts
+                        BlocBuilder<WorkoutsCubit, WorkoutsState>(
+                          builder: (context, state) {
+                            bool isFavorite = false;
+                            if (state is WorkoutsAddFavorite) {
+                              isFavorite = true;
+                            }
+                            return IconButton(
+                              onPressed: () {
+                                context.read<WorkoutsCubit>().addWorkoutsToFavorites(
+                                  userId: context.read<UserDataInfoCubit>().userData!.userId,
+                                  workouts: workouts,
+                                );
+                                context.read<WorkoutsCubit>().getFavoriteWorkouts();
+                              },
+                              icon: Icon(
+                                Icons.favorite,
+                                color: isFavorite? purple5: gray14,
+                                size: 25,
+                              ),
+                            );
                           },
-                          icon: const Icon(
-                            Icons.favorite,
-                            color: purple5,
-                            size: 25,
-                          ),
                         ),
                       ],
                     ),

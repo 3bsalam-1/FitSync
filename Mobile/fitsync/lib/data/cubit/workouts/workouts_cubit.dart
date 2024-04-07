@@ -26,9 +26,9 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
     }
   }
 
-  void getAllWorkouts() {
+  void getAllWorkouts(UserPersonalInfoGetModel userData) {
     if (allworkouts == null) {
-      workRepo.getAllWorkoutsData().then((response) {
+      workRepo.getAllWorkoutsData(userData).then((response) {
         if (response != null) {
           allworkouts = response;
           emit(WorkoutsLoaded());
@@ -53,5 +53,31 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
         emit(WorkoutsLoaded());
       }
     }
+  }
+
+  void addWorkoutsToFavorites({
+    required WorkoutsModel workouts,
+    required String userId,
+  }) {
+    if (data != null && allworkouts != null) {
+      workRepo.addWorkoutsToFavorites(
+        workouts: workouts,
+        userId: userId,
+      ).then((response) {
+        if (response != null) {
+          if (response.status == 'Success') {
+            emit(WorkoutsAddFavorite());
+          }
+        } else {
+          emit(WorkoutsFialure());
+        }
+      });
+    }
+  }
+
+  void getFavoriteWorkouts() {
+    workRepo.getWorkoutsFavorites().then((response) {
+      
+    });
   }
 }

@@ -26,9 +26,12 @@ class HomeMainScreen extends StatelessWidget {
           listener: (context, state) {
             if (state is UserDataSuccess) {
               context.read<WorkoutsCubit>().getWorkoutsData(
-                    context.read<UserDataInfoCubit>().userData!,
-                  );
-              context.read<WorkoutsCubit>().getAllWorkouts();
+                context.read<UserDataInfoCubit>().userData!,
+              );
+              context.read<WorkoutsCubit>().getAllWorkouts(
+                context.read<UserDataInfoCubit>().userData!
+              );
+              context.read<WorkoutsCubit>().getFavoriteWorkouts();
             }
           },
         ),

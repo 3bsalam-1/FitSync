@@ -25,6 +25,17 @@ class WorkoutsModel {
       targetMuscle: convertStringToList(json['Target Muscle Group']!),
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      "Exercise Plan": exercisePlan,
+      "Category": category,
+      "Impact Level": level,
+      "Total Plan Duration (minutes)": planDurationMn,
+      "Calories Burned (Plan)": calBurned,
+      "Target Muscle Group": targetMuscle,
+    };
+  }
 }
 
 List<String> convertStringToList(String text) {
