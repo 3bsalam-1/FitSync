@@ -5,7 +5,6 @@ import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import 'card_items.dart';
 import 'list_levels_mode.dart';
 import 'saved_workouts.dart';
-import '../../global/skeleton_container_loading.dart';
 import 'workouts_challenge_card.dart';
 
 class WorkOustBody extends StatelessWidget {
@@ -21,26 +20,18 @@ class WorkOustBody extends StatelessWidget {
           const SizedBox(height: 12),
           const ListLevelsMode(),
           const SizedBox(height: 22),
-          BlocBuilder<WorkoutsCubit, WorkoutsState>(
-            builder: (context, state) {
-              return context.read<WorkoutsCubit>().data != null?
-              SizedBox(
-                height: 200,
-                child: ListView.separated(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: context.read<WorkoutsCubit>().dataLevel.length,
-                  separatorBuilder: (context, index) => const SizedBox(width: 20),
-                  itemBuilder: (context, index) => CardItems(
-                    workoutIndex: index,
-                    workouts: context.read<WorkoutsCubit>().dataLevel[index],
-                  ),
-                ),
-              ): SkeletonContainerLoading(
-                width: MediaQuery.of(context).size.width - 30,
-                height: 200,
-              );
-            },
+          SizedBox(
+            height: 200,
+            child: ListView.separated(
+              shrinkWrap: true,
+              scrollDirection: Axis.horizontal,
+              itemCount: context.read<WorkoutsCubit>().dataLevel.length,
+              separatorBuilder: (context, index) => const SizedBox(width: 20),
+              itemBuilder: (context, index) => CardItems(
+                workoutIndex: index,
+                workouts: context.read<WorkoutsCubit>().dataLevel[index],
+              ),
+            ),
           ),
           const SizedBox(height: 30),
           const WorkOutsChallengCard(),
