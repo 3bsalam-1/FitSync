@@ -36,24 +36,15 @@ class WorkoutsRepo {
     }
   }
 
-  Future<List<WorkoutsModel>?> getAllWorkoutsData(
-    UserPersonalInfoGetModel userData,
-  ) async {
+  Future<List<WorkoutsModel>?> getAllWorkoutsData() async {
     try {
       http.Response response = await http.get(
-        Uri.https(baseUrlAi, '/all_workout', {
-          'ID': '0',
-          'Gender': userData.gender.toString(),
-          'Knee_pain': userData.kneePain.toString(),
-          'Back_pain': userData.backPain.toString(),
-          'Diabeties': userData.diabetes.toString(),
-          'Heart_Disease': userData.heartCondition.toString(),
-          'Hypertension': userData.hypertension.toString(),
-        }),
+        Uri.https(baseUrlAi, '/all_workouts'),
         headers: {
           "Authorization": "Bearer ${Prefs.getString('token')!}",
         },
       );
+      print('tha dadadadada ${jsonDecode(response.body)}');
       List<dynamic> body = jsonDecode(response.body);
       List<WorkoutsModel> data =
           body.map((json) => WorkoutsModel.fromJSON(json)).toList();

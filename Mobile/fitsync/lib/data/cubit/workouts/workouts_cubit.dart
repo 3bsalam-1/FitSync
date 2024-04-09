@@ -26,9 +26,9 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
     }
   }
 
-  void getAllWorkouts(UserPersonalInfoGetModel userData) {
+  void getAllWorkouts() {
     if (allworkouts == null) {
-      workRepo.getAllWorkoutsData(userData).then((response) {
+      workRepo.getAllWorkoutsData().then((response) {
         if (response != null) {
           allworkouts = response;
           emit(WorkoutsLoaded());
@@ -60,10 +60,12 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
     required String userId,
   }) {
     if (data != null && allworkouts != null) {
-      workRepo.addWorkoutsToFavorites(
+      workRepo
+          .addWorkoutsToFavorites(
         workouts: workouts,
         userId: userId,
-      ).then((response) {
+      )
+          .then((response) {
         if (response != null) {
           if (response.status == 'Success') {
             emit(WorkoutsAddFavorite());
@@ -76,8 +78,6 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   }
 
   void getFavoriteWorkouts() {
-    workRepo.getWorkoutsFavorites().then((response) {
-      
-    });
+    workRepo.getWorkoutsFavorites().then((response) {});
   }
 }

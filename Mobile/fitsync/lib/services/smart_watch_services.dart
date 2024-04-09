@@ -29,7 +29,7 @@ class SmartWatchServices {
       Map<String, dynamic> calories = await getCaloriesData();
       Map<String, dynamic> sleep = await getSleepData();
       Map<String, dynamic> water = await getWaterData();
-      //Map<String, dynamic> steps = await getSleepData();
+      Map<String, dynamic> steps = await getStepsData();
       return SmartWatchModel(
         heartRate: heartRate['value'],
         heartRateDay: heartRate['day'],
@@ -43,8 +43,8 @@ class SmartWatchServices {
         sleepDay: sleep['day'],
         water: water['value'],
         waterDay: water['day'],
-        steps: [],
-        stepsDay: [],
+        steps: steps['value'],
+        stepsDay: steps['day'],
       );
     }
     return null;
@@ -129,15 +129,8 @@ class SmartWatchServices {
   }
 
   Future<Map<String, dynamic>> getStepsData() async {
-    PermissionStatus statusPermission =
-        await Permission.activityRecognition.request();
-    bool requested = false;
-    if (statusPermission == PermissionStatus.granted) {
-      requested = await Health().requestAuthorization([HealthDataType.STEPS]);
-    }
-    if (requested) {
       try {
-        List<double> steps = [];
+        List<int> steps = [];
         List<int> stepsDays = [];
 
         final healthData = await Health().getHealthDataFromTypes(
@@ -147,21 +140,18 @@ class SmartWatchServices {
         );
         steps = healthData
             .map(
-              (item) => item.value.toJson()['numeric_value'] as double,
+              (item) => item.value.toJson()['numeric_value'] as int,
             )
             .toList();
         stepsDays = healthData.map((item) => item.dateTo.weekday).toList();
-        debugPrint('the steps is: $steps');
         return {
-          'value': steps,
+          'value': steps.map((e) => e.toDouble()).toList(),
           'day': stepsDays,
         };
       } catch (error) {
         debugPrint('There is an error $error');
         return {};
       }
-    }
-    return {};
   }
 
   Future<Map<String, dynamic>> getCaloriesData() async {

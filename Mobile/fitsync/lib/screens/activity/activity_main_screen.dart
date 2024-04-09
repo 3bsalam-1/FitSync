@@ -62,7 +62,7 @@ class ActivityMainScreen extends StatelessWidget {
                       // todo
                     },
                     labelFormat: '{value}:00',
-                    increaseData: 0.25,
+                    increaseData: 0.45,
                     maxYlabel: 10,
                     minYlabel: 2,
                     data: showSmartWatchDataWeekly(
@@ -72,16 +72,20 @@ class ActivityMainScreen extends StatelessWidget {
                   ),
                   CustomChartColumn(
                     title: 'Steps',
-                    value: '3.2 km',
+                    value:
+                        '${data == null ? '0' : data.steps.isNotEmpty ? data.steps.last : '0'} km',
                     subTitle:
                         'The number of steps you took per day was higher over the last 4 weeks',
                     onPressed: () {
                       // todo
                     },
-                    maxYlabel: 9000,
-                    minYlabel: 4000,
-                    increaseData: 200,
-                    data: dataSteps,
+                    maxYlabel: 100,
+                    minYlabel: 20,
+                    increaseData: 2,
+                    data: showSmartWatchDataWeekly(
+                      data?.steps,
+                      data?.stepsDay,
+                    ),
                   ),
                   CustomChartColumn(
                     title: 'Water',
@@ -105,7 +109,7 @@ class ActivityMainScreen extends StatelessWidget {
                   CustomChartColumn(
                     title: 'Calories',
                     value:
-                        '${data == null ? '0' : data.calories.last.toStringAsFixed(2)} cal',
+                        '${data == null ? '0' : data.calories.last.toStringAsFixed(2)} kcal',
                     subTitle:
                         'The number of calories you burned per day was balanced  over the last 4 weeks',
                     onPressed: () {

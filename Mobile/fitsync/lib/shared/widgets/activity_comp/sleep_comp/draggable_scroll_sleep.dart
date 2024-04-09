@@ -59,10 +59,17 @@ class DraggableScrollSleep extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SleepInformation(
-                            title: 'Deep sleep 43%', value: '3.18'),
+                          title: 'Deep sleep 43%',
+                          value: '3.18',
+                        ),
                         SleepInformation(
-                            title: 'Light sleep 56%', value: '4.15'),
-                        SleepInformation(title: 'Wake-up time', value: '0.07'),
+                          title: 'Light sleep 56%',
+                          value: '4.15',
+                        ),
+                        SleepInformation(
+                          title: 'Wake-up time',
+                          value: '0.07',
+                        ),
                       ],
                     ),
                   ),

@@ -1,9 +1,9 @@
 import 'cubits_logic/new_token_cubit.dart';
 import 'cubits_logic/smart_watch/smart_watch_cubit.dart';
 import 'cubits_logic/splash_screen_next_cubit.dart';
-import 'package:fitsync/cubits_logic/diet_logic/counter/counter_cubit.dart';
-import 'package:fitsync/cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.dart';
-import 'package:fitsync/cubits_logic/diet_logic/favoriteIcon/cubit/favourite_icon_cubit.dart';
+import 'cubits_logic/diet_logic/counter/counter_cubit.dart';
+import 'cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.dart';
+import 'cubits_logic/diet_logic/favoriteIcon/cubit/favourite_icon_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'cubits_logic/navigation_page_cubit.dart';

@@ -28,10 +28,8 @@ class HomeMainScreen extends StatelessWidget {
               context.read<WorkoutsCubit>().getWorkoutsData(
                 context.read<UserDataInfoCubit>().userData!,
               );
-              context.read<WorkoutsCubit>().getAllWorkouts(
-                context.read<UserDataInfoCubit>().userData!
-              );
-              context.read<WorkoutsCubit>().getFavoriteWorkouts();
+              context.read<WorkoutsCubit>().getAllWorkouts();
+              //context.read<WorkoutsCubit>().getFavoriteWorkouts();
             }
           },
         ),
