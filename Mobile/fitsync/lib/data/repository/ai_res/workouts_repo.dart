@@ -44,7 +44,6 @@ class WorkoutsRepo {
           "Authorization": "Bearer ${Prefs.getString('token')!}",
         },
       );
-      print('tha dadadadada ${jsonDecode(response.body)}');
       List<dynamic> body = jsonDecode(response.body);
       List<WorkoutsModel> data =
           body.map((json) => WorkoutsModel.fromJSON(json)).toList();
@@ -68,9 +67,10 @@ class WorkoutsRepo {
         },
         body: jsonEncode({
           "userId": userId,
-          "workouts": jsonEncode(workouts.toMap()),
+          "workouts": [(jsonEncode(workouts.toMap()))],
         }),
       );
+      print('the data ${jsonEncode(workouts.toMap())}');
       var json = jsonDecode(response.body);
       ResponseModel data = ResponseModel.fromJson(json);
       return data;

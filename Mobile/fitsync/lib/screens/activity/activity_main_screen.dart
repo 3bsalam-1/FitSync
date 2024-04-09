@@ -56,7 +56,7 @@ class ActivityMainScreen extends StatelessWidget {
                   CustomChartColumn(
                     title: 'Sleep',
                     value:
-                        '${data == null ? '0' : data.sleep.isNotEmpty ? data.sleep.last : '0'} hours',
+                        '${data == null ? '0' : data.sleep.isNotEmpty ? data.sleep.last.ceil() : '0'} hours',
                     subTitle: 'you slept better the last 4 weeks',
                     onPressed: () {
                       // todo
@@ -73,14 +73,15 @@ class ActivityMainScreen extends StatelessWidget {
                   CustomChartColumn(
                     title: 'Steps',
                     value:
-                        '${data == null ? '0' : data.steps.isNotEmpty ? data.steps.last : '0'} km',
+                        '${data == null ? '0' : data.steps.isNotEmpty ? data.steps.last : '0'} m',
                     subTitle:
                         'The number of steps you took per day was higher over the last 4 weeks',
                     onPressed: () {
                       // todo
                     },
-                    maxYlabel: 100,
-                    minYlabel: 20,
+                    maxYlabel: 50,
+                    minYlabel: 0,
+                    interval: 10,
                     increaseData: 2,
                     data: showSmartWatchDataWeekly(
                       data?.steps,
@@ -115,10 +116,10 @@ class ActivityMainScreen extends StatelessWidget {
                     onPressed: () {
                       // todo
                     },
-                    interval: 20,
-                    maxYlabel: 100,
+                    interval: 200,
+                    maxYlabel: 1200,
                     minYlabel: 0,
-                    increaseData: 2,
+                    increaseData: 25,
                     data: showSmartWatchDataWeekly(
                       data?.calories,
                       data?.caloriesDay,

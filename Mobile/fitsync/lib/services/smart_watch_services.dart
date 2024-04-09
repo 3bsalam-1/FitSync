@@ -129,29 +129,29 @@ class SmartWatchServices {
   }
 
   Future<Map<String, dynamic>> getStepsData() async {
-      try {
-        List<int> steps = [];
-        List<int> stepsDays = [];
+    try {
+      List<int> steps = [];
+      List<int> stepsDays = [];
+      int numsteps = 0;
 
-        final healthData = await Health().getHealthDataFromTypes(
-          DateTime.now().subtract(const Duration(days: 7)),
-          DateTime.now(),
-          [HealthDataType.STEPS],
-        );
-        steps = healthData
-            .map(
-              (item) => item.value.toJson()['numeric_value'] as int,
-            )
-            .toList();
-        stepsDays = healthData.map((item) => item.dateTo.weekday).toList();
-        return {
-          'value': steps.map((e) => e.toDouble()).toList(),
-          'day': stepsDays,
-        };
-      } catch (error) {
-        debugPrint('There is an error $error');
-        return {};
-      }
+      final healthData = await Health().getHealthDataFromTypes(
+        DateTime.now().subtract(const Duration(days: 7)),
+        DateTime.now(),
+        [HealthDataType.STEPS],
+      );
+      steps = healthData.map((item) {
+        numsteps = item.value.toJson()['numeric_value'] as int;
+        return (numsteps / 2).ceil();
+      }).toList();
+      stepsDays = healthData.map((item) => item.dateTo.weekday).toList();
+      return {
+        'value': steps.map((e) => e.toDouble()).toList(),
+        'day': stepsDays,
+      };
+    } catch (error) {
+      debugPrint('There is an error $error');
+      return {};
+    }
   }
 
   Future<Map<String, dynamic>> getCaloriesData() async {
@@ -169,7 +169,7 @@ class SmartWatchServices {
             (item) => item.value.toJson()['numeric_value'] as double,
           )
           .toList();
-          
+
       caloriesdays = healthData.map((item) => item.dateTo.weekday).toList();
       return {
         'value': calories,
@@ -185,17 +185,16 @@ class SmartWatchServices {
     try {
       List<double> sleep = [];
       List<int> sleepDays = [];
-
+      double minute = 0;
       final healthData = await Health().getHealthDataFromTypes(
         DateTime.now().subtract(const Duration(days: 7)),
         DateTime.now(),
         [HealthDataType.SLEEP_ASLEEP],
       );
-      sleep = healthData
-          .map(
-            (item) => item.value.toJson()['numeric_value'] as double,
-          )
-          .toList();
+      sleep = healthData.map((item) {
+        minute = item.value.toJson()['numeric_value'] as double;
+        return (minute / 60);
+      }).toList();
       sleepDays = healthData.map((item) => item.dateTo.weekday).toList();
       return {
         'value': sleep,
