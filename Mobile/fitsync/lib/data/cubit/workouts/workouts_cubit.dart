@@ -12,8 +12,11 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   final favoriteRepo = FavoriteWorkoutsRepo();
   List<WorkoutsModel>? data;
   List<WorkoutsModel>? allworkouts;
+  List<WorkoutsModel> favoriteWorkouts = [];
   List<WorkoutsModel> dataLevel = [];
   bool isFavorite = false;
+  bool viewAllFavorites = false;
+  bool viewAllChallenge = false;
 
   void getWorkoutsData(UserPersonalInfoGetModel userData) {
     if (data == null) {
@@ -81,17 +84,27 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
     }
   }
 
-  void isFavoriteWorkouts(WorkoutsModel workouts) {
+  void getFavoriteWorkouts() {
     favoriteRepo.getWorkoutsFavorites().then((response) {
-      for (var element in response) {
-        if (element.category == workouts.category &&
-            element.calBurned == workouts.calBurned &&
-            element.planDurationMn == workouts.planDurationMn) {
-          isFavorite = true;
-          break;
-        }
-      }
+      favoriteWorkouts = response;
       emit(WorkoutsGetFavorite());
     });
+  }
+
+  void isFavoriteWorkouts(WorkoutsModel workouts) {
+    for (var element in favoriteWorkouts) {
+      if (element.category.trim() == workouts.category.trim() &&
+          element.calBurned.trim() == workouts.calBurned.trim() &&
+          element.planDurationMn.trim() == workouts.planDurationMn.trim()) {
+        isFavorite = true;
+        emit(WorkoutsGetFavorite());
+        break;
+      }
+    }
+  }
+
+  void showAllSavedWorkouts() {
+    viewAllFavorites = !viewAllFavorites;
+    emit(WorkoutsGetFavorite());
   }
 }

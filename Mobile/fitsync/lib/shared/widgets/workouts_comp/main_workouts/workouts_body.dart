@@ -36,7 +36,14 @@ class WorkOustBody extends StatelessWidget {
           const SizedBox(height: 30),
           const WorkOutsChallengCard(),
           const SizedBox(height: 30),
-          const SavedWorkOuts(),
+          BlocBuilder<WorkoutsCubit, WorkoutsState>(
+            builder: (context, state) {
+              final provider = context.read<WorkoutsCubit>();
+              return provider.favoriteWorkouts.isNotEmpty
+                  ? const SavedWorkOuts()
+                  : const SizedBox();
+            },
+          ),
         ],
       ),
     );
