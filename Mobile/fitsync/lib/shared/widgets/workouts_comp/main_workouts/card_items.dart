@@ -1,4 +1,6 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../../data/models/workouts_model.dart';
 import '../../global/animated_navigator.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +13,8 @@ class CardItems extends StatelessWidget {
   final int workoutIndex;
 
   const CardItems({
-    super.key, 
-    required this.workouts, 
+    super.key,
+    required this.workouts,
     required this.workoutIndex,
   });
 
@@ -88,6 +90,7 @@ class CardItems extends StatelessWidget {
                   ),
                 ),
                 CustomStartButton(onTap: () {
+                  context.read<WorkoutsCubit>().isFavoriteWorkouts(workouts);
                   AnimatedNavigator().push(
                     context,
                     WorkoutsViewChallenge(workoutsIndex: workoutIndex),

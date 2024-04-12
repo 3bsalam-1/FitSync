@@ -2,15 +2,18 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import '../../models/user_personal_info_model.dart';
 import '../../models/workouts_model.dart';
+import '../../repository/ai_res/favorite_workouts_repo.dart';
 import '../../repository/ai_res/workouts_repo.dart';
 part 'workouts_state.dart';
 
 class WorkoutsCubit extends Cubit<WorkoutsState> {
   WorkoutsCubit() : super(WorkoutsInitial());
   final workRepo = WorkoutsRepo();
+  final favoriteRepo = FavoriteWorkoutsRepo();
   List<WorkoutsModel>? data;
   List<WorkoutsModel>? allworkouts;
   List<WorkoutsModel> dataLevel = [];
+  bool isFavorite = false;
 
   void getWorkoutsData(UserPersonalInfoGetModel userData) {
     if (data == null) {
@@ -60,7 +63,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
     required String userId,
   }) {
     if (data != null && allworkouts != null) {
-      workRepo
+      favoriteRepo
           .addWorkoutsToFavorites(
         workouts: workouts,
         userId: userId,
@@ -68,6 +71,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
           .then((response) {
         if (response != null) {
           if (response.status == 'Success') {
+            isFavoriteWorkouts(workouts);
             emit(WorkoutsAddFavorite());
           }
         } else {
@@ -77,7 +81,17 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
     }
   }
 
-  void getFavoriteWorkouts() {
-    workRepo.getWorkoutsFavorites().then((response) {});
+  void isFavoriteWorkouts(WorkoutsModel workouts) {
+    favoriteRepo.getWorkoutsFavorites().then((response) {
+      for (var element in response) {
+        if (element.category == workouts.category &&
+            element.calBurned == workouts.calBurned &&
+            element.planDurationMn == workouts.planDurationMn) {
+          isFavorite = true;
+          break;
+        }
+      }
+      emit(WorkoutsGetFavorite());
+    });
   }
 }

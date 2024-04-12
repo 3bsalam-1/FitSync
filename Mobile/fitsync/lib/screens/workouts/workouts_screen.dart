@@ -44,7 +44,9 @@ class WorkoutsScreen extends StatelessWidget {
       backgroundColor: white,
       body: BlocBuilder<WorkoutsCubit, WorkoutsState>(
         builder: (context, state) {
-          if (state is WorkoutsLoaded) {
+          if (state is WorkoutsLoaded ||
+              state is WorkoutsGetFavorite ||
+              state is WorkoutsAddFavorite) {
             return const SingleChildScrollView(
               child: Padding(
                 padding: EdgeInsets.symmetric(horizontal: 15),

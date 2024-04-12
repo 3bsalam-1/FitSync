@@ -100,21 +100,17 @@ class WorkoutsViewChallenge extends StatelessWidget {
                         ),
                         BlocBuilder<WorkoutsCubit, WorkoutsState>(
                           builder: (context, state) {
-                            bool isFavorite = false;
-                            if (state is WorkoutsAddFavorite) {
-                              isFavorite = true;
-                            }
+                            final provider = context.read<WorkoutsCubit>();
                             return IconButton(
                               onPressed: () {
                                 context.read<WorkoutsCubit>().addWorkoutsToFavorites(
                                   userId: context.read<UserDataInfoCubit>().userData!.userId,
                                   workouts: workouts,
-                                );
-                                context.read<WorkoutsCubit>().getFavoriteWorkouts();
+                                );                             
                               },
                               icon: Icon(
                                 Icons.favorite,
-                                color: isFavorite? purple5: gray14,
+                                color: provider.isFavorite? purple5: gray14,
                                 size: 25,
                               ),
                             );

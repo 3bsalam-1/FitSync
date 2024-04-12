@@ -1,5 +1,4 @@
 import 'dart:convert';
-import '../../models/response_model.dart';
 import '../../models/user_personal_info_model.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -50,52 +49,6 @@ class WorkoutsRepo {
       return data;
     } catch (e) {
       debugPrint('The Error is: ${e.toString()}');
-      return null;
-    }
-  }
-
-  Future<ResponseModel?> addWorkoutsToFavorites({
-    required WorkoutsModel workouts,
-    required String userId,
-  }) async {
-    try {
-      http.Response response = await http.post(
-        Uri.parse('$baseUrl/api/workout'),
-        headers: {
-          'Authorization': 'Bearer ${Prefs.getString('token')!}',
-          "Content-Type": "application/json",
-        },
-        body: jsonEncode({
-          "userId": userId,
-          "workouts": [(jsonEncode(workouts.toMap()))],
-        }),
-      );
-      print('the data ${jsonEncode(workouts.toMap())}');
-      var json = jsonDecode(response.body);
-      ResponseModel data = ResponseModel.fromJson(json);
-      return data;
-    } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
-      return null;
-    }
-  }
-
-  // todo handle the data that come from the api
-  Future<dynamic> getWorkoutsFavorites() async {
-    try {
-      http.Response response = await http.get(
-        Uri.parse('$baseUrl/api/workout'),
-        headers: {
-          'Authorization': 'Bearer ${Prefs.getString('token')!}',
-          "Content-Type": "application/json",
-        },
-      );
-      var json = jsonDecode(response.body);
-      //List<WorkoutsModel> data = WorkoutsModel.fromJSON(json);
-      print('the favorites workouts is: $json');
-      //return data;
-    } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
       return null;
     }
   }

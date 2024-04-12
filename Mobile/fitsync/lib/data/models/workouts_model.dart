@@ -36,6 +36,11 @@ class WorkoutsModel {
       "Target Muscle Group": targetMuscle,
     };
   }
+
+  @override
+  String toString() {
+    return '$exercisePlan*$category*$level*$planDurationMn*$calBurned*$targetMuscle';
+  }
 }
 
 List<String> convertStringToList(String text) {
