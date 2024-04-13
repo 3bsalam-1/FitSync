@@ -93,7 +93,10 @@ class CardItems extends StatelessWidget {
                   context.read<WorkoutsCubit>().isFavoriteWorkouts(workouts);
                   AnimatedNavigator().push(
                     context,
-                    WorkoutsViewChallenge(workoutsIndex: workoutIndex),
+                    WorkoutsViewChallenge(
+                      workoutsIndex: workoutIndex,
+                      workouts: context.read<WorkoutsCubit>().dataLevel,
+                    ),
                   );
                 }),
               ],

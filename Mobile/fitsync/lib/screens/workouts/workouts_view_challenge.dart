@@ -1,4 +1,6 @@
+import '../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../data/cubit/user_data/user_data_info_cubit.dart';
+import '../../data/models/workouts_model.dart';
 import '../home_main_screen.dart';
 import 'start_challenge/start_challenge_screen.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -13,13 +15,18 @@ import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_list_cha
 
 class WorkoutsViewChallenge extends StatelessWidget {
   final int workoutsIndex;
-  const WorkoutsViewChallenge({super.key, required this.workoutsIndex});
+  final List<WorkoutsModel> workouts;
+  
+  const WorkoutsViewChallenge({
+    super.key, 
+    required this.workoutsIndex,
+    required this.workouts,
+  });
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    final workouts = context.read<WorkoutsCubit>().dataLevel[workoutsIndex];
     return Scaffold(
       body: SizedBox(
         height: height,
@@ -91,7 +98,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          workouts.category,
+                          workouts[workoutsIndex].category,
                           style: GoogleFonts.poppins(
                             fontSize: 24,
                             color: black,
@@ -104,13 +111,15 @@ class WorkoutsViewChallenge extends StatelessWidget {
                             return IconButton(
                               onPressed: () {
                                 context.read<WorkoutsCubit>().addWorkoutsToFavorites(
-                                  userId: context.read<UserDataInfoCubit>().userData!.userId,
-                                  workouts: workouts,
-                                );                             
+                                  userId: context.read<UserDataInfoCubit>()
+                                          .userData!
+                                          .userId,
+                                  workouts: workouts[workoutsIndex],
+                                );
                               },
                               icon: Icon(
                                 Icons.favorite,
-                                color: provider.isFavorite? purple5: gray14,
+                                color: provider.isFavorite ? purple5 : gray14,
                                 size: 25,
                               ),
                             );
@@ -119,14 +128,15 @@ class WorkoutsViewChallenge extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 9),
-                    WorkoutsChallengesTime(workouts: workouts),
+                    WorkoutsChallengesTime(workouts: workouts[workoutsIndex]),
                     const SizedBox(height: 9),
-                    WorkoutsListChallenges(workouts: workouts),
+                    WorkoutsListChallenges(workouts: workouts[workoutsIndex]),
                     const Spacer(),
                     CustomButton(
                       label: 'Start',
                       horizontalPadding: width * 0.14,
                       onPressed: () {
+                        context.read<CounterTimeChallenges>().initalizeAllWorkouts(workouts);
                         AnimatedNavigator().push(
                           context,
                           StartChallengeScreen(

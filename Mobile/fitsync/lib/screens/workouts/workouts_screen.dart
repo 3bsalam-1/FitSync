@@ -45,7 +45,7 @@ class WorkoutsScreen extends StatelessWidget {
         body: BlocBuilder<WorkoutsCubit, WorkoutsState>(
           builder: (context, state) {
             final provider = context.read<WorkoutsCubit>();
-            if (provider.allworkouts != null && provider.data != null) {
+            if (provider.allworkouts != null && provider.data != null && provider.challenges != null) {
               return const SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15),

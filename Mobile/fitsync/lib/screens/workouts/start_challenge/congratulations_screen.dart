@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../cubits_logic/workouts/counter_time_challenges.dart';
-import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../home_main_screen.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
@@ -21,7 +20,6 @@ class CongratulationsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final workouts = context.read<WorkoutsCubit>().dataLevel;
     final provider = context.read<CounterTimeChallenges>();
     return Scaffold(
       appBar: customIconAppBar(onPressed: () {
@@ -96,15 +94,16 @@ class CongratulationsScreen extends StatelessWidget {
             child: CustomButton(
               label: 'Next workout',
               horizontalPadding: 30,
-              colors: currentWorkoutIndex != workouts.length - 1
+              colors: currentWorkoutIndex != provider.allWorkouts.length - 1
                   ? [cyan, purple, purple]
                   : [gray14, gray14],
               onPressed: () {
-                if (currentWorkoutIndex != workouts.length - 1) {
+                if (currentWorkoutIndex != provider.allWorkouts.length - 1) {
                   AnimatedNavigator().push(
                     context,
                     WorkoutsViewChallenge(
                       workoutsIndex: currentWorkoutIndex + 1,
+                      workouts: provider.allWorkouts,
                     ),
                   );
                 }

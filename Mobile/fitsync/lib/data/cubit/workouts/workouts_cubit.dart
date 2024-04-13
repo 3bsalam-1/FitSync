@@ -13,6 +13,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   final favoriteRepo = FavoriteWorkoutsRepo();
   final isolate = IsolateService();
   List<WorkoutsModel>? data;
+  List<WorkoutsModel>? challenges;
   Map<String, List<WorkoutsModel>>? allworkouts;
   List<WorkoutsModel>? favoriteWorkouts;
   List<WorkoutsModel> dataLevel = [];
@@ -40,6 +41,20 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
         allworkouts = data;
         emit(WorkoutsLoaded());
       });
+    }
+  }
+  
+  void getWorkoutsChallenges(UserPersonalInfoGetModel userData) {
+    if (challenges == null) {
+      workRepo.getWorkoutsChallenges(userData).then((response) {
+        if (response != null) {
+          challenges = response;
+          emit(WorkoutsLoaded());
+        } else {
+          emit(WorkoutsFialure());
+        }
+      });
+      emit(WorkoutsLoading());
     }
   }
 
@@ -99,6 +114,11 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
 
   void showAllSavedWorkouts() {
     viewAllFavorites = !viewAllFavorites;
+    emit(WorkoutsGetFavorite());
+  }
+
+  void showAllChallenges() {
+    viewAllChallenge = !viewAllChallenge;
     emit(WorkoutsGetFavorite());
   }
 }

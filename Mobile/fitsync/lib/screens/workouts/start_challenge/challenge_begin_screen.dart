@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/colors/colors.dart';
@@ -30,6 +29,7 @@ class ChallengeBeginScreen extends StatelessWidget {
           AnimatedNavigator().pushAndRemoveUntil(
             context,
             WorkoutsViewChallenge(
+              workouts: context.read<CounterTimeChallenges>().allWorkouts,
               workoutsIndex: context.read<CounterTimeChallenges>().currentWorkoutIndex,
             ),
           );
@@ -39,7 +39,7 @@ class ChallengeBeginScreen extends StatelessWidget {
       body: BlocBuilder<CounterTimeChallenges, int>(
         builder: (context, state) {
           var provider = context.read<CounterTimeChallenges>();
-          final workout = context.read<WorkoutsCubit>().dataLevel[provider.currentWorkoutIndex];
+          var workouts = provider.allWorkouts[provider.currentWorkoutIndex];
           return Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -54,7 +54,7 @@ class ChallengeBeginScreen extends StatelessWidget {
               ),
               CustomAnimatedOpacity(
                 child: Text(
-                  workout.exercisePlan[indexExercise],
+                  workouts.exercisePlan[indexExercise],
                   style: GoogleFonts.poppins(
                     fontSize: 26,
                     color: black,
@@ -92,6 +92,7 @@ class ChallengeBeginScreen extends StatelessWidget {
                               context,
                               WorkoutsViewChallenge(
                                 workoutsIndex: provider.currentWorkoutIndex,
+                                workouts: provider.allWorkouts,
                               ),
                             );
                           }
@@ -115,8 +116,8 @@ class ChallengeBeginScreen extends StatelessWidget {
                             ),
                           );
                         } else {
-                          // todo here
-                          provider.getExerciseResult(workout);
+                          // todo here save done exercises 
+                          provider.getExerciseResult(workouts);
                           AnimatedNavigator().push(
                             context,
                             CongratulationsScreen(
