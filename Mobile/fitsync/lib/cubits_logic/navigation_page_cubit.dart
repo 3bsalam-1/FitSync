@@ -8,6 +8,8 @@ import '../screens/activity/daily_steps_activity_screen.dart';
 import '../screens/activity/hydration_activity_screen.dart';
 import '../screens/activity/sleep_activity_screen.dart';
 import '../screens/profile/profile_main_screen.dart';
+import '../screens/workouts/saved_workout/saved_workouts_main.dart';
+import '../screens/workouts/workouts_list_search_screen.dart';
 import '../screens/workouts/workouts_screen.dart';
 
 class NavigationPageCubit extends Cubit<Widget> {
@@ -24,6 +26,8 @@ class NavigationPageCubit extends Cubit<Widget> {
     const DailyStepsActivityScreen(),
     const HydrationActivityScreen(),
     const DailyIntakeActivityScreen(),
+    const WorkoutsListSearchScreen(),
+    const SavedWorkoutsMain(),
   ];
 
   void changePage(int index) {

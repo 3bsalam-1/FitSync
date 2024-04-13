@@ -1,13 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../cubits_logic/navigation_page_cubit.dart';
 import '../../data/cubit/workouts/workouts_cubit.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
-import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/global/custom_menu_button.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/skeleton_workouts.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/workouts_body.dart';
-import 'workouts_list_search_screen.dart';
 
 class WorkoutsScreen extends StatelessWidget {
   const WorkoutsScreen({super.key});
@@ -27,14 +27,12 @@ class WorkoutsScreen extends StatelessWidget {
           ),
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              AnimatedNavigator().push(
-                context,
-                const WorkoutsListSearchScreen(),
-              );
+           CustomMenuButton(
+            labels: const ['Search workouts', 'Saved workouts'],
+            onSelected: (pageIndex) {
+              context.read<NavigationPageCubit>().changePage(pageIndex + 9);
             },
-            icon: const Icon(
+            child: const Icon(
               Icons.menu_outlined,
               color: purple2,
             ),
