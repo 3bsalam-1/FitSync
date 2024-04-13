@@ -22,9 +22,9 @@ class ListLevelsMode extends StatelessWidget {
             return InkWell(
               onTap: () {
                 context.read<SelectedLevelMode>().selectedLevel(index);
-                context.read<WorkoutsCubit>().selectDataBasedLevel(
-                      context.read<SelectedLevelMode>().level[index],
-                    );
+                context.read<WorkoutsCubit>().selectWorkoutsByLevel(
+                  context.read<SelectedLevelMode>().level[index],
+                );
               },
               child: AnimatedContainer(
                 duration: const Duration(milliseconds: 400),

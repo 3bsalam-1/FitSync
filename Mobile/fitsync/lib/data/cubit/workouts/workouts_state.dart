@@ -13,4 +13,6 @@ final class WorkoutsAddFavorite extends WorkoutsState {}
 
 final class WorkoutsGetFavorite extends WorkoutsState {}
 
+final class WorkoutsSelectLevel extends WorkoutsState {}
+
 final class WorkoutsFialure extends WorkoutsState {}

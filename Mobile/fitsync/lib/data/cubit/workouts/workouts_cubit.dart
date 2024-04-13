@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import '../../../services/isolate_service.dart';
 import '../../models/user_personal_info_model.dart';
 import '../../models/workouts_model.dart';
 import '../../repository/ai_res/favorite_workouts_repo.dart';
@@ -10,8 +11,9 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   WorkoutsCubit() : super(WorkoutsInitial());
   final workRepo = WorkoutsRepo();
   final favoriteRepo = FavoriteWorkoutsRepo();
+  final isolate = IsolateService();
   List<WorkoutsModel>? data;
-  List<WorkoutsModel>? allworkouts;
+  Map<String, List<WorkoutsModel>>? allworkouts;
   List<WorkoutsModel>? favoriteWorkouts;
   List<WorkoutsModel> dataLevel = [];
   bool isFavorite = false;
@@ -34,29 +36,21 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
 
   void getAllWorkouts() {
     if (allworkouts == null) {
-      workRepo.getAllWorkoutsData().then((response) {
-        if (response != null) {
-          allworkouts = response;
-          emit(WorkoutsLoaded());
-        } else {
-          emit(WorkoutsFialure());
-        }
+      isolate.getAllWorkouts().then((data) {
+        allworkouts = data;
+        emit(WorkoutsLoaded());
       });
-      emit(WorkoutsLoading());
     }
   }
 
-  void selectDataBasedLevel(String level) {
+  void selectWorkoutsByLevel(String level) {
     if (data != null && allworkouts != null) {
       if ('Recent' == level) {
         dataLevel = data!;
-        emit(WorkoutsLoaded());
+        emit(WorkoutsSelectLevel());
       } else {
-        var result = allworkouts!.where(
-          (item) => item.level.toLowerCase() == level.toLowerCase(),
-        );
-        dataLevel = List.from(result);
-        emit(WorkoutsLoaded());
+        dataLevel = allworkouts![level]!;
+        emit(WorkoutsSelectLevel());
       }
     }
   }

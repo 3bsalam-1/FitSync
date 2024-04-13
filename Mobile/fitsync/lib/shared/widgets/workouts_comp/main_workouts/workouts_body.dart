@@ -20,19 +20,21 @@ class WorkOustBody extends StatelessWidget {
           const SizedBox(height: 12),
           const ListLevelsMode(),
           const SizedBox(height: 22),
-          SizedBox(
-            height: 200,
-            child: ListView.separated(
-              shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
-              itemCount: context.read<WorkoutsCubit>().dataLevel.length,
-              separatorBuilder: (context, index) => const SizedBox(width: 20),
-              itemBuilder: (context, index) => CardItems(
-                workoutIndex: index,
-                workouts: context.read<WorkoutsCubit>().dataLevel[index],
+          BlocBuilder<WorkoutsCubit, WorkoutsState>(builder: (context, state) {
+            return SizedBox(
+              height: 200,
+              child: ListView.separated(
+                shrinkWrap: true,
+                scrollDirection: Axis.horizontal,
+                itemCount: context.read<WorkoutsCubit>().dataLevel.length,
+                separatorBuilder: (context, index) => const SizedBox(width: 20),
+                itemBuilder: (context, index) => CardItems(
+                  workoutIndex: index,
+                  workouts: context.read<WorkoutsCubit>().dataLevel[index],
+                ),
               ),
-            ),
-          ),
+            );
+          }),
           const SizedBox(height: 30),
           const WorkOutsChallengCard(),
           const SizedBox(height: 30),

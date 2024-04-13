@@ -39,13 +39,9 @@ class WorkoutsRepo {
     try {
       http.Response response = await http.get(
         Uri.https(baseUrlAi, '/all_workouts'),
-        headers: {
-          "Authorization": "Bearer ${Prefs.getString('token')!}",
-        },
       );
       List<dynamic> body = jsonDecode(response.body);
-      List<WorkoutsModel> data =
-          body.map((json) => WorkoutsModel.fromJSON(json)).toList();
+      List<WorkoutsModel> data = body.map((json) => WorkoutsModel.fromJSON(json)).toList();
       return data;
     } catch (e) {
       debugPrint('The Error is: ${e.toString()}');
