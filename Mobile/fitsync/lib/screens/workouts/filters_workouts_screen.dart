@@ -1,5 +1,4 @@
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../shared/widgets/workouts_comp/workouts_list/custom_filter_item.dart';
 import 'package:flutter/material.dart';
 import '../../shared/colors/colors.dart';

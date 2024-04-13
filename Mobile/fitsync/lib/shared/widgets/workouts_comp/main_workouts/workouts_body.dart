@@ -39,7 +39,7 @@ class WorkOustBody extends StatelessWidget {
           BlocBuilder<WorkoutsCubit, WorkoutsState>(
             builder: (context, state) {
               final provider = context.read<WorkoutsCubit>();
-              return provider.favoriteWorkouts.isNotEmpty
+              return provider.favoriteWorkouts!.isNotEmpty
                   ? const SavedWorkOuts()
                   : const SizedBox();
             },

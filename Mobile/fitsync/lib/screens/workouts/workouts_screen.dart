@@ -14,50 +14,53 @@ class WorkoutsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        scrolledUnderElevation: 0,
-        backgroundColor: white,
-        title: Text(
-          'Workouts',
-          style: GoogleFonts.poppins(
-            fontSize: 22,
-            color: black,
-            fontWeight: FontWeight.w600,
-          ),
-        ),
-        actions: [
-           CustomMenuButton(
-            labels: const ['Search workouts', 'Saved workouts'],
-            onSelected: (pageIndex) {
-              context.read<NavigationPageCubit>().changePage(pageIndex + 9);
-            },
-            child: const Icon(
-              Icons.menu_outlined,
-              color: purple2,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(
+          scrolledUnderElevation: 0,
+          backgroundColor: white,
+          title: Text(
+            'Workouts',
+            style: GoogleFonts.poppins(
+              fontSize: 22,
+              color: black,
+              fontWeight: FontWeight.w600,
             ),
           ),
-        ],
-      ),
-      backgroundColor: white,
-      body: BlocBuilder<WorkoutsCubit, WorkoutsState>(
-        builder: (context, state) {
-          final provider  = context.read<WorkoutsCubit>();
-          if (provider.allworkouts != null && provider.data != null) {
-            return const SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15),
-                child: Column(
-                  children: [
-                    CustomDayItem(),
-                    WorkOustBody(),
-                  ],
-                ),
+          actions: [
+            CustomMenuButton(
+              labels: const ['Search workouts', 'Saved workouts'],
+              onSelected: (pageIndex) {
+                context.read<NavigationPageCubit>().changePage(pageIndex + 9);
+              },
+              child: const Icon(
+                Icons.menu_outlined,
+                color: purple2,
               ),
-            );
-          }
-          return const SkeletonWorkouts();
-        },
+            ),
+          ],
+        ),
+        backgroundColor: white,
+        body: BlocBuilder<WorkoutsCubit, WorkoutsState>(
+          builder: (context, state) {
+            final provider = context.read<WorkoutsCubit>();
+            if (provider.allworkouts != null && provider.data != null) {
+              return const SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: Column(
+                    children: [
+                      CustomDayItem(),
+                      WorkOustBody(),
+                    ],
+                  ),
+                ),
+              );
+            }
+            return const SkeletonWorkouts();
+          },
+        ),
       ),
     );
   }

@@ -12,7 +12,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   final favoriteRepo = FavoriteWorkoutsRepo();
   List<WorkoutsModel>? data;
   List<WorkoutsModel>? allworkouts;
-  List<WorkoutsModel> favoriteWorkouts = [];
+  List<WorkoutsModel>? favoriteWorkouts;
   List<WorkoutsModel> dataLevel = [];
   bool isFavorite = false;
   bool viewAllFavorites = false;
@@ -92,7 +92,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   }
 
   void isFavoriteWorkouts(WorkoutsModel workouts) {
-    for (var element in favoriteWorkouts) {
+    for (var element in favoriteWorkouts!) {
       if (element.category.trim() == workouts.category.trim() &&
           element.calBurned.trim() == workouts.calBurned.trim() &&
           element.planDurationMn.trim() == workouts.planDurationMn.trim()) {

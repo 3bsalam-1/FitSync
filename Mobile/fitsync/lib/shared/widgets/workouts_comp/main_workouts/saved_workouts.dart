@@ -45,7 +45,7 @@ class SavedWorkOuts extends StatelessWidget {
               height: 180,
               child: ListView.separated(
                 itemCount: provider.viewAllFavorites
-                    ? provider.favoriteWorkouts.length
+                    ? provider.favoriteWorkouts!.length
                     : 1,
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
@@ -80,7 +80,7 @@ class SavedWorkOuts extends StatelessWidget {
                               SizedBox(
                                 width: 180,
                                 child: Text(
-                                  provider.favoriteWorkouts[index].category,
+                                  provider.favoriteWorkouts![index].category,
                                   style: GoogleFonts.poppins(
                                     fontSize: 18,
                                     color: white,
@@ -92,7 +92,7 @@ class SavedWorkOuts extends StatelessWidget {
                               SizedBox(
                                 width: provider.viewAllFavorites ? 130 : 210,
                                 child: Text(
-                                  'Finish this exercise in ${provider.favoriteWorkouts[index].planDurationMn} minutes',
+                                  'Finish this exercise in ${provider.favoriteWorkouts![index].planDurationMn} minutes',
                                   style: GoogleFonts.poppins(
                                     fontSize: 12,
                                     color: white,
