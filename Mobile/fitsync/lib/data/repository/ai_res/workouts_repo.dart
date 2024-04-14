@@ -69,7 +69,7 @@ class WorkoutsRepo {
   }
 
   Future<Map?> getWorkoutsImages() async {
-    const String url = 'https://drive.google.com/uc?export=view&id=1pMnf0aDOy8Br9nomVvqWdj4rZdkEwBQ-';
+    const String url = 'https://drive.google.com/uc?export=view&id=16UZNRseZpdsXKKdlOEovajnXX7UWZTvR';
     try {
       http.Response response = await http.get(Uri.parse(url));
       var data = jsonDecode(response.body);
