@@ -40,7 +40,7 @@ List<ChartData> showSmartWatchDataWeekly(
   int indexDay = 0;
   bool isFound = false;
   for (int i = 0; i < weeks.length; i++) {
-    isFound = days.contains(i+1);
+    isFound = days.contains(i + 1);
     if (isFound) {
       weekData.add(ChartData(
         weeks[i],
@@ -55,4 +55,12 @@ List<ChartData> showSmartWatchDataWeekly(
     }
   }
   return weekData;
+}
+
+double getTotalData(List<ChartData> data) {
+  double sum = 0;
+  for (var element in data) {
+    sum += element.y as num;
+  }
+  return sum.roundToDouble();
 }

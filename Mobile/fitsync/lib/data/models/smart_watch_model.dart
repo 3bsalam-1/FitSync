@@ -13,6 +13,8 @@ class SmartWatchModel {
   final List<int> stepsDay;
   final List<double> water;
   final List<int> waterDay;
+  final List<double> walking;
+  final List<int> walkingDay;
 
   SmartWatchModel({
     required this.heartRate,
@@ -29,5 +31,7 @@ class SmartWatchModel {
     required this.stepsDay,
     required this.water,
     required this.waterDay,
+    required this.walking,
+    required this.walkingDay,
   });
 }

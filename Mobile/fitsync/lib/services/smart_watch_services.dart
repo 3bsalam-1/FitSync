@@ -12,6 +12,7 @@ class SmartWatchServices {
     HealthDataType.STEPS,
     HealthDataType.ACTIVE_ENERGY_BURNED,
     HealthDataType.WATER,
+    HealthDataType.DISTANCE_DELTA,
   ];
 
   void initSmartWatch() async {
@@ -30,6 +31,8 @@ class SmartWatchServices {
       Map<String, dynamic> sleep = await getSleepData();
       Map<String, dynamic> water = await getWaterData();
       Map<String, dynamic> steps = await getStepsData();
+      Map<String, dynamic> walking = await getWalkingData();
+
       return SmartWatchModel(
         heartRate: heartRate['value'],
         heartRateDay: heartRate['day'],
@@ -45,6 +48,8 @@ class SmartWatchServices {
         waterDay: water['day'],
         steps: steps['value'],
         stepsDay: steps['day'],
+        walking: walking['value'],
+        walkingDay: walking['day'],
       );
     }
     return null;
@@ -132,24 +137,23 @@ class SmartWatchServices {
     try {
       List<int> steps = [];
       List<int> stepsDays = [];
-      int numsteps = 0;
 
       final healthData = await Health().getHealthDataFromTypes(
         DateTime.now().subtract(const Duration(days: 7)),
         DateTime.now(),
         [HealthDataType.STEPS],
       );
-      steps = healthData.map((item) {
-        numsteps = item.value.toJson()['numeric_value'] as int;
-        return (numsteps / 2).ceil();
-      }).toList();
+      steps = healthData
+          .map((item) => item.value.toJson()['numeric_value'] as int)
+          .toList();
       stepsDays = healthData.map((item) => item.dateTo.weekday).toList();
+
       return {
         'value': steps.map((e) => e.toDouble()).toList(),
         'day': stepsDays,
       };
     } catch (error) {
-      debugPrint('There is an error $error');
+      debugPrint('There is an error yyy $error');
       return {};
     }
   }
@@ -225,6 +229,32 @@ class SmartWatchServices {
       return {
         'value': water,
         'day': waterDays,
+      };
+    } catch (error) {
+      debugPrint('There is an error $error');
+      return {};
+    }
+  }
+
+  Future<Map<String, dynamic>> getWalkingData() async {
+    try {
+      List<double> walking = [];
+      List<int> walkingDays = [];
+
+      final healthData = await Health().getHealthDataFromTypes(
+        DateTime.now().subtract(const Duration(days: 7)),
+        DateTime.now(),
+        [HealthDataType.DISTANCE_DELTA],
+      );
+      walking = healthData
+          .map(
+            (item) => item.value.toJson()['numeric_value'] as double,
+          )
+          .toList();
+      walkingDays = healthData.map((item) => item.dateTo.weekday).toList();
+      return {
+        'value': walking,
+        'day': walkingDays,
       };
     } catch (error) {
       debugPrint('There is an error $error');

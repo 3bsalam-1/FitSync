@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -57,14 +58,19 @@ class ActivityMainScreen extends StatelessWidget {
                     title: 'Sleep',
                     value:
                         '${data == null ? '0' : data.sleep.isNotEmpty ? data.sleep.last.ceil() : '0'} hours',
-                    subTitle: 'you slept better the last 4 weeks',
+                    subTitle:
+                        'The total sleep hours in one week is ${getTotalData(showSmartWatchDataWeekly(
+                      data?.sleep,
+                      data?.sleepDay,
+                    ))} hours',
                     onPressed: () {
                       // todo
                     },
                     labelFormat: '{value}:00',
                     increaseData: 0.45,
-                    maxYlabel: 10,
-                    minYlabel: 2,
+                    interval: 2,
+                    maxYlabel: 20,
+                    minYlabel: 0,
                     data: showSmartWatchDataWeekly(
                       data?.sleep,
                       data?.sleepDay,
@@ -73,19 +79,26 @@ class ActivityMainScreen extends StatelessWidget {
                   CustomChartColumn(
                     title: 'Steps',
                     value:
-                        '${data == null ? '0' : data.steps.isNotEmpty ? data.steps.last : '0'} m',
+                        '${data == null ? '0' : data.walking.isNotEmpty ? data.walking.last.toInt() : '0'} m',
                     subTitle:
-                        'The number of steps you took per day was higher over the last 4 weeks',
+                        'The total steps in one week is ${getTotalData(showSmartWatchDataWeekly(
+                      data?.steps,
+                      data?.stepsDay,
+                    ))} steps',
                     onPressed: () {
                       // todo
                     },
-                    maxYlabel: 50,
+                    maxYlabel: data == null
+                        ? 100
+                        : data.walking.isNotEmpty
+                            ? data.walking.reduce(max) + 100
+                            : 100,
                     minYlabel: 0,
-                    interval: 10,
+                    interval: 20,
                     increaseData: 2,
                     data: showSmartWatchDataWeekly(
-                      data?.steps,
-                      data?.stepsDay,
+                      data?.walking,
+                      data?.walkingDay,
                     ),
                   ),
                   CustomChartColumn(
@@ -93,15 +106,22 @@ class ActivityMainScreen extends StatelessWidget {
                     value:
                         '${data == null ? '0' : data.water.isNotEmpty ? data.water.last : '0'} L',
                     subTitle:
-                        'The liter of water you took per day was higher over the last 4 weeks',
+                        'The water intake in one week is ${getTotalData(showSmartWatchDataWeekly(
+                      data?.water,
+                      data?.waterDay,
+                    ))} L',
                     onPressed: () {
                       // todo
                     },
                     labelFormat: '{value}L',
-                    maxYlabel: 5,
+                    maxYlabel: data == null
+                        ? 10
+                        : data.water.isNotEmpty
+                            ? data.water.reduce(max) + 2
+                            : 10,
                     minYlabel: 0,
-                    interval: 1,
-                    increaseData: 0.2,
+                    interval: 2,
+                    increaseData: 0.5,
                     data: showSmartWatchDataWeekly(
                       data?.water,
                       data?.waterDay,
@@ -112,12 +132,16 @@ class ActivityMainScreen extends StatelessWidget {
                     value:
                         '${data == null ? '0' : data.calories.last.toStringAsFixed(2)} kcal',
                     subTitle:
-                        'The number of calories you burned per day was balanced  over the last 4 weeks',
+                        'The total calories in one week is ${getTotalData(showSmartWatchDataWeekly(
+                      data?.calories,
+                      data?.caloriesDay,
+                    ))} kcal',
                     onPressed: () {
                       // todo
                     },
                     interval: 200,
-                    maxYlabel: 1200,
+                    maxYlabel:
+                        data == null ? 1000 : data.calories.reduce(max) + 200,
                     minYlabel: 0,
                     increaseData: 25,
                     data: showSmartWatchDataWeekly(

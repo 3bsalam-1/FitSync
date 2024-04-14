@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../cubits_logic/navigation_page_cubit.dart';
 import '../cubits_logic/new_token_cubit.dart';
+import '../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../data/cubit/workouts/workouts_cubit.dart';
 import '../shared/colors/colors.dart';
 import '../shared/widgets/item_bottom_app_bar.dart';
@@ -13,6 +14,8 @@ class HomeMainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    context.read<SmartWatchCubit>().intializeSmartWatchConnection();
+    context.read<SmartWatchCubit>().getSmartWatchData();
     return MultiBlocListener(
       listeners: [
         BlocListener<NewTokenCubit, bool>(
