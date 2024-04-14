@@ -19,6 +19,7 @@ const userRouter = require("./routes/user.router");
 const authCW = require("./routes/authCW.router");
 const userInfoRouter = require("./routes/userInfo.route");
 const vitalsignalRouter = require("./routes/vitalSig.route");
+const workoutRouter = require("./routes/workout.router");
 
 const app = express();
 
@@ -42,11 +43,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(helmet());
 
+
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/auth", authCW);
 app.use("/api/userInfo", userInfoRouter);
 app.use("/api/vitalsignal", vitalsignalRouter);
+app.use("/api/workout", workoutRouter);
+
+
 
 app.all("*", (req, res, next) => [
   next(AppError.create("Page not found", ERROR, 404)),

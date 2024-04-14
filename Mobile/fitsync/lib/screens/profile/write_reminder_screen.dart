@@ -12,6 +12,8 @@ class WriteReminderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
+        backgroundColor: white,
         leading: IconButton(
           onPressed: () {
             AnimatedNavigator().pop(context);
@@ -23,6 +25,7 @@ class WriteReminderScreen extends StatelessWidget {
           ),
         ),
       ),
+      backgroundColor: white,
       body: Column(
         children: [
           const SizedBox(height: 15),

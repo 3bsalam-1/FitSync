@@ -12,7 +12,7 @@ class PasswordRepo {
   Future<ResponseModel?> forgetPassword({required String email}) async {
     try {
       http.Response response = await http.post(
-        Uri.parse('$baseUrl/api/user/forgetPassword'),
+        Uri.parse('$baseUrl/api/auth/forgetPassword'),
         headers: {
           "Content-Type": "application/json",
         },
@@ -35,7 +35,7 @@ class PasswordRepo {
   }) async {
     try {
       http.Response response = await http.post(
-        Uri.parse('$baseUrl/api/user/resetPassword'),
+        Uri.parse('$baseUrl/api/auth/resetPassword'),
         headers: {
           "Content-Type": "application/json",
           "Authorization": "Bearer $token",
@@ -49,7 +49,7 @@ class PasswordRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The Error is: ${e.toString()}');
       return null;
     }
   }

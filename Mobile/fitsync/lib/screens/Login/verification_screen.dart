@@ -1,98 +1,211 @@
-import 'package:fitsync/shared/colors/colors.dart';
-import 'package:fitsync/shared/widgets/global/custom_button.dart';
-
-import 'package:fitsync/shared/widgets/login_comp/custom_icon_button.dart';
-import 'package:fitsync/shared/widgets/login_comp/custom_otp_widget.dart';
-import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
+import 'package:fitsync/screens/survey/welcome_survey_screen.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../shared/colors/colors.dart';
+import '../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import 'package:iconly/iconly.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../data/cubit/auth_cubit.dart';
+import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/login_comp/custom_otp_widget.dart';
+import '../../shared/widgets/login_comp/loading_dialog.dart';
+import '../../shared/widgets/login_comp/status_dialog.dart';
+import 'new_password_screen.dart';
 
 class VerificationPage extends StatelessWidget {
-  const VerificationPage({super.key});
+  final void Function()? onPressed;
+  final String email;
+
+  const VerificationPage({
+    super.key,
+    required this.onPressed,
+    required this.email,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         leading: IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.arrow_circle_left,
-              color: purple3,
-              size: 40,
-            )),
-        backgroundColor: white,
-      ),
-      body: Container(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 16),
-                child: Row(
-                  children: [
-                    Text(
-                      'Verification',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 26,
-                        color: black,
-                        // fontFamily:
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 4, left: 19),
-                child: Row(
-                  children: [
-                    Text(
-                      'we have sent you an email',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 16,
-                        color: gray2,
-                        // fontFamily:
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  CustomOtpWidget(
-                    first: true,
-                    last: false,
-                  ),
-                  CustomOtpWidget(
-                    first: false,
-                    last: false,
-                  ),
-                  CustomOtpWidget(
-                    first: false,
-                    last: false,
-                  ),
-                  CustomOtpWidget(
-                    first: false,
-                    last: true,
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.07,
-              ),
-              CustomButton(label: "Verify", onPressed: () {}),
-            ],
+          onPressed: () {
+            AnimatedNavigator().pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_circle_left,
+            color: purple3,
+            size: 40,
           ),
         ),
+        backgroundColor: white,
+      ),
+      body: BlocConsumer<AuthCubit, AuthCubitState>(
+        listener: (context, state) {
+          if (state is AuthLoading) {
+            showDialog(
+              barrierDismissible: false,
+              context: context,
+              builder: (_) => const LoadingDialog(),
+            );
+          } else if (state is AuthFaliure) {
+            Navigator.pop(context);
+            Navigator.pop(context);
+            showDialog(
+              context: context,
+              builder: (_) => StatusDialog(
+                color: red,
+                message: state.message,
+                icon: Icons.clear,
+              ),
+            );
+          } else if (state is AuthSuccess) {
+            Navigator.pop(context);
+            showDialog(
+              context: context,
+              builder: (_) => StatusDialog(
+                color: green2,
+                message: state.message,
+                icon: Icons.check,
+              ),
+            );
+          } else if (state is AuthWentWrong) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                backgroundColor: red,
+                content: Text(state.message),
+              ),
+            );
+          } else if (state is AuthLogin) {
+            AnimatedNavigator().pushAndRemoveUntil(
+              context,
+              const WelcomeSurveyScreen(),
+            );
+          } else if (state is AuthResetCode) {
+            Navigator.pop(context);
+            Navigator.pop(context);
+            AnimatedNavigator().push(
+              context,
+              const NewPasswordScreen(),
+            );
+          }
+        },
+        builder: (context, state) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Verification',
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 26,
+                    color: black,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                Row(
+                  children: [
+                    Text(
+                      'We sent a reset link to ',
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 11,
+                        color: gray2,
+                      ),
+                    ),
+                    Text(
+                      email,
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 11,
+                        color: black,
+                      ),
+                    ),
+                  ],
+                ),
+                Text(
+                  'enter 6 digit code that mentioned in the email',
+                  style: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 11,
+                    color: gray2,
+                  ),
+                ),
+                const SizedBox(
+                  height: 40,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomOtpWidget(
+                      first: true,
+                      last: false,
+                      controller: context.read<AuthCubit>().opt[0],
+                    ),
+                    CustomOtpWidget(
+                      first: false,
+                      last: false,
+                      controller: context.read<AuthCubit>().opt[1],
+                    ),
+                    CustomOtpWidget(
+                      first: false,
+                      last: false,
+                      controller: context.read<AuthCubit>().opt[2],
+                    ),
+                    CustomOtpWidget(
+                      first: false,
+                      last: false,
+                      controller: context.read<AuthCubit>().opt[3],
+                    ),
+                    CustomOtpWidget(
+                      first: false,
+                      last: false,
+                      controller: context.read<AuthCubit>().opt[4],
+                    ),
+                    CustomOtpWidget(
+                      first: false,
+                      last: true,
+                      controller: context.read<AuthCubit>().opt[5],
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 40),
+                CustomButton(
+                  label: "Verify Code",
+                  onPressed: onPressed,
+                ),
+                const SizedBox(height: 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Haven’t got the email yet?',
+                      style: GoogleFonts.poppins(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w500,
+                        color: gray2,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        context.read<AuthCubit>().sendCodeAgain();
+                      },
+                      child: Text(
+                        'Resend email',
+                        style: GoogleFonts.poppins(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w500,
+                          color: purple4,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

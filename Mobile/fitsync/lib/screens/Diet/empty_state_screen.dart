@@ -1,8 +1,10 @@
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class EmptyStateScreen extends StatelessWidget {
   EmptyStateScreen({super.key});
@@ -14,7 +16,9 @@ class EmptyStateScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: white,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AnimatedNavigator().pop(context);
+            },
             icon: Icon(
               Icons.arrow_circle_left,
               color: purple3,
@@ -22,7 +26,7 @@ class EmptyStateScreen extends StatelessWidget {
             )),
         title: Text(
           'Saved Recipes',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
             fontSize: 22,
             color: black3,
@@ -51,7 +55,7 @@ class EmptyStateScreen extends StatelessWidget {
               ),
               Text(
                 ' Your Saved Recipes is\nempty you can discover\n   latest Recipes now',
-                style: TextStyle(
+                style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
                   fontSize: 20,
                   color: gray6,

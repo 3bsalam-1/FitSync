@@ -1,12 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/survey_logic/choice_gender.dart';
-import 'writing_questions.dart/name_question_screen.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_button.dart';
-import '../../shared/widgets/survey_comp/custom_card.dart';
+import '../../shared/widgets/survey_comp/choices_comp/custom_card.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+
+import 'writing_questions.dart/date_birth_screen.dart';
 
 class WelcomeSurveyScreen extends StatelessWidget {
   const WelcomeSurveyScreen({super.key});
@@ -27,90 +28,64 @@ class WelcomeSurveyScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 26),
-                    const Text(
+                    Text(
                       'Welcome to FitSync',
-                      style: TextStyle(
-                          color: gray2,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w400,
-                          decoration: TextDecoration.none),
-                    ),
-                    const Text(
-                      'What’s Your Gender ?',
-                      style: TextStyle(
-                          color: black,
-                          fontSize: 26,
-                          fontWeight: FontWeight.w600,
-                          decoration: TextDecoration.none),
-                    ),
-                    const SizedBox(height: 55),
-                    Expanded(
-                      child: CustomCard(
-                        imagePath: 'assets/images/female.png',
-                        label: 'Female',
-                        labelColor: isSelected == 1 ? white : black,
-                        background: isSelected == 1 ? purple2 : white,
-                        onTap: () {
-                          context.read<ChoiceGender>().isFemale();
-                          // todo here remove this below line
-                          Future.delayed(
-                            const Duration(milliseconds: 700),
-                            () {
-                              AnimatedNavigator().push(
-                                context,
-                                const NameQuestionScreen(),
-                              );
-                            }
-                          );
-                        },
+                      style: GoogleFonts.poppins(
+                        fontSize: 16,
+                        color: gray2,
+                        fontWeight: FontWeight.w400,
+                        decoration: TextDecoration.none,
                       ),
                     ),
-                    const SizedBox(height: 22),
-                    Expanded(
+                    Text(
+                      'What’s Your Gender ?',
+                      style: GoogleFonts.poppins(
+                        fontSize: 26,
+                        color: black,
+                        fontWeight: FontWeight.w600,
+                        decoration: TextDecoration.none,
+                      ),
+                    ),
+                    const Spacer(),
+                    Center(
                       child: CustomCard(
-                        imagePath: 'assets/images/male.png',
+                        icon: Icons.male,
                         label: 'Male',
-                        labelColor: isSelected == 0 ? white : black,
-                        background: isSelected == 0 ? purple2 : white,
+                        bgColor: isSelected == 0
+                            ? purple5
+                            : purple5.withOpacity(0.3),
                         onTap: () {
                           context.read<ChoiceGender>().isMale();
-                          // todo here remove this below line
-                          Future.delayed(
-                            const Duration(milliseconds: 700),
-                            () {
-                              AnimatedNavigator().push(
-                                context,
-                                const NameQuestionScreen(),
-                              );
-                            }
-                          );
                         },
                       ),
                     ),
-                    const SizedBox(height: 60),
-                    TextButton(
-                      onPressed: () {
-                        //TODO Go to register page
-                      },
-                      child: const Center(
-                        child: Text(
-                          'Already have an account?',
-                          style: TextStyle(
-                              color: gray2,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w500,
-                              decoration: TextDecoration.none),
-                        ),
+                    const SizedBox(height: 40),
+                    Center(
+                      child: CustomCard(
+                        icon: Icons.female,
+                        label: 'Female',
+                        bgColor: isSelected == 1
+                            ? purple5
+                            : purple5.withOpacity(0.3),
+                        onTap: () {
+                          context.read<ChoiceGender>().isFemale();
+                        },
                       ),
                     ),
-                    const SizedBox(height: 12),
+                    const Spacer(),
                     CustomButton(
-                      label: 'log in',
+                      horizontalPadding: 20,
+                      label: 'Continue',
                       onPressed: () {
-                        // TODO Go to login page
+                        if (isSelected != -1) {
+                          AnimatedNavigator().push(
+                            context,
+                            const DateBirthScreen(),
+                          );
+                        }
                       },
                     ),
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 30),
                   ],
                 );
               },

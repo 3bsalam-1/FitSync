@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/profile_comp.dart/profile_avatar_edit.dart';
@@ -12,12 +12,12 @@ class ProfileInformationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title: Text(
           'Profile',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 22,
+            color: black,
             fontWeight: FontWeight.w600,
-            color: white,
           ),
         ),
         centerTitle: true,

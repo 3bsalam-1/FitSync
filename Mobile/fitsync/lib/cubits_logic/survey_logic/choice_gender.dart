@@ -1,9 +1,19 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../services/pref.dart';
+
 class ChoiceGender extends Cubit<int> {
   ChoiceGender() : super(-1);
 
-  void isMale() => emit(0);
+  void isMale() {
+    // todo check if the user take the survey
+    Prefs.setString('gender', 'male');
+    emit(0);
+  }
 
-  void isFemale() => emit(1);
+  void isFemale() {
+    // todo first check if the user take the survey
+    Prefs.setString('gender', 'female');
+    emit(1);
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_list/custom_workouts_list.dart';
@@ -12,16 +13,19 @@ class WorkoutsListSearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        scrolledUnderElevation: 0,
+        backgroundColor: white,
+        title: Text(
           'Workout List',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontSize: 22,
-            fontWeight: FontWeight.w600,
             color: black,
+            fontWeight: FontWeight.w600,
           ),
         ),
         leading: IconButton(
           onPressed: () {
+            FocusManager.instance.primaryFocus?.unfocus();
             AnimatedNavigator().pop(context);
           },
           icon: const Icon(
@@ -36,6 +40,7 @@ class WorkoutsListSearchScreen extends StatelessWidget {
             padding: const EdgeInsets.only(right: 15),
             child: InkWell(
               onTap: () {
+                FocusManager.instance.primaryFocus?.unfocus();
                 AnimatedNavigator().push(
                   context,
                   const FiltersWorkoutsScreen(),
@@ -64,6 +69,7 @@ class WorkoutsListSearchScreen extends StatelessWidget {
           ),
         ],
       ),
+      backgroundColor: white,
       body: const SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(

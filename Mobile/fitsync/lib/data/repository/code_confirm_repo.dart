@@ -12,7 +12,7 @@ class CodeConfirmRepo {
   }) async {
     try {
       http.Response response = await http.post(
-        Uri.parse('$baseUrl/api/user/verfiy'),
+        Uri.parse('$baseUrl/api/auth/verfiy'),
         headers: {
           'Authorization': 'Bearer $token',
           "Content-Type": "application/json",
@@ -34,7 +34,7 @@ class CodeConfirmRepo {
   Future<ResponseModel?> sendCodeToVerfiy({required String token}) async {
     try {
       http.Response response = await http.get(
-        Uri.parse('$baseUrl/api/user/sendCodeVerfiy'),
+        Uri.parse('$baseUrl/api/auth/sendCodeVerfiy'),
         headers: {
           'Authorization': 'Bearer $token',
         },
@@ -48,11 +48,11 @@ class CodeConfirmRepo {
     }
   }
 
-  // Method send only the code for resetting the code
+  // Method send only the code for forget password
   Future<ResponseModel?> codeReset({required String code}) async {
     try {
       http.Response response = await http.post(
-        Uri.parse('$baseUrl/api/user/codeReset'),
+        Uri.parse('$baseUrl/api/auth/codeReset'),
         body: jsonEncode({
           "code": code,
         }),

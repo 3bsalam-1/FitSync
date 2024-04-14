@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
 import '../../global/animated_navigator.dart';
@@ -15,23 +16,23 @@ class WorkOutsChallengCard extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
+            Text(
               'Challenges',
-              style: TextStyle(
+              style: GoogleFonts.poppins(
                 fontSize: 22,
-                fontWeight: FontWeight.w600,
                 color: black,
+                fontWeight: FontWeight.w600,
               ),
             ),
             TextButton(
               onPressed: () {
                 // ToDo show all the challenges
               },
-              child: const Text(
+              child: Text(
                 'View all',
-                style: TextStyle(
-                  color: purple2,
+                style: GoogleFonts.poppins(
                   fontSize: 16,
+                  color: purple2,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -66,25 +67,25 @@ class WorkOutsChallengCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 30),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 30),
                     child: Text(
                       '7 x 4 CHALLENGE',
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         fontSize: 14,
-                        fontWeight: FontWeight.w600,
                         color: white,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
                   SizedBox(
                     width: width * 0.42,
-                    child: const Text(
+                    child: Text(
                       'FULL BODY Stretching',
-                      style: TextStyle(
+                      style: GoogleFonts.poppins(
                         fontSize: 22,
-                        fontWeight: FontWeight.w600,
                         color: white,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),

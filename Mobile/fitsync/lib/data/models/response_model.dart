@@ -1,6 +1,6 @@
 class ResponseModel {
-  final String token;
-  final String message;
+  final String? token;
+  final String? message;
 
   ResponseModel({required this.token, required this.message});
 

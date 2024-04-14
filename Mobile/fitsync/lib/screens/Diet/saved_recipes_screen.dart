@@ -1,8 +1,10 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_saved_recipes.dart';
+import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
-import 'package:fitsync/shared/widgets/survey_comp/custom_card.dart';
+import 'package:fitsync/shared/widgets/survey_comp/choices_comp/custom_card.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
 class SavedRecipesScreen extends StatelessWidget {
@@ -15,7 +17,9 @@ class SavedRecipesScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: white,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              AnimatedNavigator().pop(context);
+            },
             icon: Icon(
               Icons.arrow_circle_left,
               color: purple3,
@@ -23,7 +27,7 @@ class SavedRecipesScreen extends StatelessWidget {
             )),
         title: Text(
           'Saved Recipes',
-          style: TextStyle(
+          style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
             fontSize: 22,
             color: black3,

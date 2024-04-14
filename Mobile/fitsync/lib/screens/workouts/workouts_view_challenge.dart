@@ -1,5 +1,6 @@
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_challenges_time.dart';
@@ -66,9 +67,8 @@ class WorkoutsViewChallenge extends StatelessWidget {
                 ),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40)
-                  ),
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40)),
                   color: white,
                 ),
                 child: Column(
@@ -78,18 +78,19 @@ class WorkoutsViewChallenge extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
+                        Text(
                           'Full Body',
-                          style: TextStyle(
-                            color: black,
+                          style: GoogleFonts.poppins(
                             fontSize: 24,
+                            color: black,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
                         IconButton(
-                          onPressed: (){
+                          onPressed: () {
                             // todo add to the saved workouts
-                          }, icon: const Icon(
+                          },
+                          icon: const Icon(
                             Icons.favorite,
                             color: purple5,
                             size: 25,
@@ -104,8 +105,8 @@ class WorkoutsViewChallenge extends StatelessWidget {
                     const Spacer(),
                     CustomButton(
                       label: 'Start',
-                      horizontalPadding: width*0.14,
-                      onPressed: (){
+                      horizontalPadding: width * 0.14,
+                      onPressed: () {
                         // todo go to the start challenge screen
                       },
                     ),
