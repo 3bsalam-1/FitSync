@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
-import '../../shared/widgets/profile_comp.dart/profile_avatar_edit.dart';
-import '../../shared/widgets/profile_comp.dart/profile_user_info.dart';
+import '../../shared/widgets/profile_comp.dart/profile_setting/profile_avatar_edit.dart';
+import '../../shared/widgets/profile_comp.dart/profile_setting/profile_user_info.dart';
+import '../../shared/widgets/profile_comp.dart/profile_setting/skeleton_profile_info.dart';
 
 class ProfileInformationScreen extends StatelessWidget {
   const ProfileInformationScreen({super.key});
@@ -16,7 +19,7 @@ class ProfileInformationScreen extends StatelessWidget {
           'Profile',
           style: GoogleFonts.poppins(
             fontSize: 22,
-            color: black,
+            color: white,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -58,13 +61,20 @@ class ProfileInformationScreen extends StatelessWidget {
             end: Alignment.centerLeft,
           ),
         ),
-        child: const Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.max,
-          children: [
-            ProfileAvatarEdit(),
-            ProfileUserInfo(),
-          ],
+        child: BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
+          builder: (context, state) {
+            if (state is UserDataSuccess) {
+              return const Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  ProfileAvatarEdit(),
+                  ProfileUserInfo(),
+                ],
+              );
+            }
+            return const SkeletonProfileInfo();
+          },
         ),
       ),
     );

@@ -1,5 +1,7 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import '../../../../data/cubit/workouts/workouts_cubit.dart';
+import '../../../../data/models/workouts_model.dart';
 import '../../global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
@@ -7,7 +9,14 @@ import '../../../colors/colors.dart';
 import 'custom_start_button.dart';
 
 class CardItems extends StatelessWidget {
-  const CardItems({super.key});
+  final WorkoutsModel workouts;
+  final int workoutIndex;
+
+  const CardItems({
+    super.key,
+    required this.workouts,
+    required this.workoutIndex,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +26,7 @@ class CardItems extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: black,
       ),
-      width: width,
+      width: width - 30,
       height: 200,
       child: Row(
         children: [
@@ -42,7 +51,7 @@ class CardItems extends StatelessWidget {
                 SizedBox(
                   width: width * 0.42,
                   child: Text(
-                    'Strong Glutes Lean Legs',
+                    workouts.category,
                     style: GoogleFonts.poppins(
                       fontSize: 22,
                       color: white,
@@ -70,7 +79,7 @@ class CardItems extends StatelessWidget {
                       ),
                       const SizedBox(width: 5),
                       Text(
-                        '15 Minutes Workout',
+                        '${workouts.planDurationMn} Minutes Workout',
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           color: white,
@@ -81,10 +90,13 @@ class CardItems extends StatelessWidget {
                   ),
                 ),
                 CustomStartButton(onTap: () {
-                  // TODO start the workouts
+                  context.read<WorkoutsCubit>().isFavoriteWorkouts(workouts);
                   AnimatedNavigator().push(
                     context,
-                    const WorkoutsViewChallenge(),
+                    WorkoutsViewChallenge(
+                      workoutsIndex: workoutIndex,
+                      workouts: context.read<WorkoutsCubit>().dataLevel,
+                    ),
                   );
                 }),
               ],

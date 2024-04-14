@@ -40,6 +40,7 @@ const Color red5 = Color(0xFFFF0000);
 const Color red6 = Color(0xFFFF1F1F);
 const Color red7 = Color(0xFFFF5B5B);
 const Color red3 = Color(0xFFEF2020);
+const Color red9 = Color(0xFF9F001D);
 
 const Color purple4 = Color(0xff8F7DF9);
 const Color purple5 = Color(0xff8D6FF8);
@@ -69,10 +70,10 @@ const Color yellow1 = Color(0xffFFDF6F);
 const Color orange = Color(0xffFF8C4C);
 const Color blue2 = Color(0xff0065D0);
 const Color dark = Color(0xff494949);
-const Color purple8 = Color(0xffE4DDFD);
+const Color purple9 = Color(0xffE4DDFD);
 const Color gray24 = Color(0xffB8B8B8);
 const Color gold2 = Color(0xffF8B704);
 const Color gold3 = Color(0xffF8FD08);
 const Color green = Color(0xff00C566);
-const Color green2 = Color(0xff81D890);
-
+const Color green3 = Color(0xff81D890);
+const Color green4 = Color(0xFF016712);

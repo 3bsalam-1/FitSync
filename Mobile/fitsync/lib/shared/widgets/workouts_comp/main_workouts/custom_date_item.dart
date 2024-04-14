@@ -37,8 +37,9 @@ class CustomDayItem extends StatelessWidget {
                       borderRadius: BorderRadius.circular(70),
                       boxShadow: [
                         BoxShadow(
-                          blurRadius: 12,
-                          color: black2.withOpacity(0.08),
+                          blurRadius: 5,
+                          spreadRadius: 2,
+                          color: gray2.withOpacity(0.1),
                         ),
                       ],
                       gradient: LinearGradient(
@@ -63,7 +64,7 @@ class CustomDayItem extends StatelessWidget {
                           Text(
                             state[index][0]!,
                             style: GoogleFonts.poppins(
-                              fontSize: 16,
+                              fontSize: 14,
                               color: index ==
                                       context.read<WeekDatesCubit>().isSelected
                                   ? white
@@ -74,7 +75,7 @@ class CustomDayItem extends StatelessWidget {
                           Text(
                             state[index][1]!,
                             style: GoogleFonts.poppins(
-                              fontSize: 16,
+                              fontSize: 14,
                               color: index ==
                                       context.read<WeekDatesCubit>().isSelected
                                   ? white
