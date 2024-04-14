@@ -1,6 +1,5 @@
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
-
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_text_form_field.dart';

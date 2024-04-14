@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "288739641258",
+    "project_id": "fitsync-app-50831",
+    "storage_bucket": "fitsync-app-50831.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:288739641258:android:23756547e9e3060385cdd3",
+        "android_client_info": {
+          "package_name": "com.example.fitsync"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "288739641258-gpk80hd163srt3ef0q33097d78k776de.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fitsync",
+            "certificate_hash": "4c018f928557f263b63257c68daff42cfb370feb"
+          }
+        },
+        {
+          "client_id": "288739641258-tac1pn8l8dlhd3gisiea91rto1tv9b81.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCAxaL9XIp2Y7Gwyd1uwqUEhUO8E1nX1-Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "288739641258-tac1pn8l8dlhd3gisiea91rto1tv9b81.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "288739641258-gif5sagfm596d5a636m78nnddivk0o2l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fitsync.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
