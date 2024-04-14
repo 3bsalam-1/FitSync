@@ -14,8 +14,6 @@ class HomeMainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.read<SmartWatchCubit>().intializeSmartWatchConnection();
-    context.read<SmartWatchCubit>().getSmartWatchData();
     return MultiBlocListener(
       listeners: [
         BlocListener<NewTokenCubit, bool>(
@@ -25,15 +23,22 @@ class HomeMainScreen extends StatelessWidget {
             }
           },
         ),
+        BlocListener<SmartWatchCubit, SmartWatchState>(
+          listener: (context, state) {
+            if (state is SmartWatchConnection) {
+              context.read<SmartWatchCubit>().getSmartWatchData();
+            }
+          },
+        ),
         BlocListener<UserDataInfoCubit, UserDataInfoState>(
           listener: (context, state) {
             if (state is UserDataSuccess) {
               context.read<WorkoutsCubit>().getWorkoutsData(
-                context.read<UserDataInfoCubit>().userData!,
-              );
+                    context.read<UserDataInfoCubit>().userData!,
+                  );
               context.read<WorkoutsCubit>().getWorkoutsChallenges(
-                context.read<UserDataInfoCubit>().userData!,
-              );
+                    context.read<UserDataInfoCubit>().userData!,
+                  );
               context.read<WorkoutsCubit>().getAllWorkouts();
               context.read<WorkoutsCubit>().getFavoriteWorkouts();
             }

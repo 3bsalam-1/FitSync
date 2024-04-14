@@ -15,10 +15,11 @@ class SmartWatchServices {
     HealthDataType.DISTANCE_DELTA,
   ];
 
-  void initSmartWatch() async {
-    await Permission.activityRecognition.request();
+  Future<PermissionStatus> initSmartWatch() async {
+    var isAccept = await Permission.activityRecognition.request();
     await Permission.location.request();
     await Health().configure(useHealthConnectIfAvailable: true);
+    return isAccept;
   }
 
   Future<SmartWatchModel?> getSmartWatchData() async {

@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
           create: (context) => CounterTimeChallenges(),
         ),
         BlocProvider(
-          create: (context) => SmartWatchCubit(),
+          create: (context) => SmartWatchCubit()..intializeSmartWatchConnection(),
         ),
       ],
       child: const MaterialApp(
