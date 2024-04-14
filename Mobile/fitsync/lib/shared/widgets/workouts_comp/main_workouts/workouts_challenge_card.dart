@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -65,11 +66,11 @@ class WorkOutsChallengCard extends StatelessWidget {
                         topLeft: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
                       ),
-                      child: Image.asset(
-                        'assets/images/workouts.png',
+                      child: CachedNetworkImage(
                         height: 200,
                         width: provider.viewAllChallenge ? 135 : width * 0.42,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fill,
+                        imageUrl: context.read<WorkoutsCubit>().workoutsImages!['${index%10}'],
                       ),
                     ),
                     const SizedBox(width: 20),
@@ -92,7 +93,8 @@ class WorkOutsChallengCard extends StatelessWidget {
                         Text(
                           provider.viewAllChallenge
                               ? provider.challenges![index].category
-                              : provider.challenges![DateTime.now().weekday-1].category,
+                              : provider.challenges![DateTime.now().weekday - 1]
+                                  .category,
                           style: GoogleFonts.poppins(
                             fontSize: 22,
                             color: white,
@@ -106,9 +108,10 @@ class WorkOutsChallengCard extends StatelessWidget {
                               context,
                               WorkoutsViewChallenge(
                                 workouts: provider.challenges!,
+                                imagePath: context.read<WorkoutsCubit>().workoutsImages!['${index%10}'],
                                 workoutsIndex: provider.viewAllChallenge
                                     ? index
-                                    : DateTime.now().weekday-1,
+                                    : DateTime.now().weekday - 1,
                               ),
                             );
                           },

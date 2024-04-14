@@ -30,6 +30,7 @@ class WorkOustBody extends StatelessWidget {
                 separatorBuilder: (context, index) => const SizedBox(width: 20),
                 itemBuilder: (context, index) => CardItems(
                   workoutIndex: index,
+                  imagePath: context.read<WorkoutsCubit>().workoutsImages!['${index%10}'],
                   workouts: context.read<WorkoutsCubit>().dataLevel[index],
                 ),
               ),

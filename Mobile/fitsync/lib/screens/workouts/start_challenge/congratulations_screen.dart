@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../cubits_logic/workouts/counter_time_challenges.dart';
+import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../home_main_screen.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
@@ -104,6 +105,7 @@ class CongratulationsScreen extends StatelessWidget {
                     WorkoutsViewChallenge(
                       workoutsIndex: currentWorkoutIndex + 1,
                       workouts: provider.allWorkouts,
+                      imagePath: context.read<WorkoutsCubit>().workoutsImages!['${(currentWorkoutIndex + 1)%10}'],
                     ),
                   );
                 }

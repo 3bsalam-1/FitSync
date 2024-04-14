@@ -67,4 +67,16 @@ class WorkoutsRepo {
       return null;
     }
   }
+
+  Future<Map?> getWorkoutsImages() async {
+    const String url = 'https://drive.google.com/uc?export=view&id=1pMnf0aDOy8Br9nomVvqWdj4rZdkEwBQ-';
+    try {
+      http.Response response = await http.get(Uri.parse(url));
+      var data = jsonDecode(response.body);
+      return data;
+    } catch (e) {
+      debugPrint('The Error is: ${e.toString()}');
+      return null;
+    }
+  }
 }

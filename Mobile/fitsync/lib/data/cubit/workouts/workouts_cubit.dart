@@ -12,6 +12,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   final workRepo = WorkoutsRepo();
   final favoriteRepo = FavoriteWorkoutsRepo();
   final isolate = IsolateService();
+  Map? workoutsImages;
   List<WorkoutsModel>? data;
   List<WorkoutsModel>? challenges;
   Map<String, List<WorkoutsModel>>? allworkouts;
@@ -21,7 +22,8 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
   bool viewAllFavorites = false;
   bool viewAllChallenge = false;
 
-  void getWorkoutsData(UserPersonalInfoGetModel userData) {
+  void getWorkoutsData(UserPersonalInfoGetModel userData) async {
+    workoutsImages = await workRepo.getWorkoutsImages();
     if (data == null) {
       workRepo.getWorkoutsData(userData).then((response) {
         if (response != null) {
@@ -43,7 +45,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
       });
     }
   }
-  
+
   void getWorkoutsChallenges(UserPersonalInfoGetModel userData) {
     if (challenges == null) {
       workRepo.getWorkoutsChallenges(userData).then((response) {

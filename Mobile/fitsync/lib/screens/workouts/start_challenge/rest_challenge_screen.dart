@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
@@ -108,12 +109,13 @@ class RestChallengeScreen extends StatelessWidget {
             ),
             const Spacer(),
             CustomAnimatedOpacity(
-              child: Image.asset(
-                // todo next Challenge image
-                'assets/images/start_challenge.png',
+              child: CachedNetworkImage(
                 width: 200,
                 height: 200,
-                fit: BoxFit.contain,
+                fit: BoxFit.fill,
+                // todo here add placeholder
+                imageUrl: context.read<WorkoutsCubit>().workoutsImages![
+                    workouts.exercisePlan[nextExercise].trim()],
               ),
             ),
             const Spacer(),

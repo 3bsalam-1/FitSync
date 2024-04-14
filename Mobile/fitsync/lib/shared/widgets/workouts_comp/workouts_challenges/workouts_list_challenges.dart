@@ -1,6 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/workouts/counter_time_challenges.dart';
+import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../../data/models/workouts_model.dart';
 import '../../../../services/convert_ms.dart';
 import '../../../../shared/colors/colors.dart';
@@ -43,12 +45,11 @@ class WorkoutsListChallenges extends StatelessWidget {
           ),
           child: Row(
             children: [
-              Image.asset(
-                // todo show image here
-                'assets/images/pullup.png',
-                fit: BoxFit.fill,
-                width: 79,
+              CachedNetworkImage(
                 height: 77,
+                width: 79,
+                fit: BoxFit.fill,
+                imageUrl: context.read<WorkoutsCubit>().workoutsImages![workouts.exercisePlan[index].trim()],
               ),
               const SizedBox(width: 20),
               Column(
@@ -66,7 +67,8 @@ class WorkoutsListChallenges extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    getTimeEachExercise(workouts.planDurationMn, context)[index],
+                    getTimeEachExercise(
+                        workouts.planDurationMn, context)[index],
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: gray4,
@@ -90,15 +92,15 @@ class WorkoutsListChallenges extends StatelessWidget {
       length,
       (index) {
         if (index == 0) {
-          return convertSecondsToMS(seconds - (length-1)*singleTime);
+          return convertSecondsToMS(seconds - (length - 1) * singleTime);
         } else {
           return convertSecondsToMS(singleTime);
         }
       },
     );
     context.read<CounterTimeChallenges>().initalizeExerciseTimeSec(
-      seconds, 
-      singleTime, 
+      seconds,
+      singleTime,
       length,
     );
     return times;

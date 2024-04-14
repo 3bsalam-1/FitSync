@@ -59,11 +59,11 @@ class SavedWorkOuts extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                       color: black,
-                      image: const DecorationImage(
+                      image: DecorationImage(
                         opacity: 0.38,
-                        fit: BoxFit.cover,
-                        image: AssetImage(
-                          'assets/images/pullup.png',
+                        fit: BoxFit.fill,
+                        image: NetworkImage(
+                          context.read<WorkoutsCubit>().workoutsImages!['${index%10}'],
                         ),
                       ),
                     ),

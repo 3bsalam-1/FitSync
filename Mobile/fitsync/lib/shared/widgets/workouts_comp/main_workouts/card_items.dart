@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
@@ -11,11 +12,13 @@ import 'custom_start_button.dart';
 class CardItems extends StatelessWidget {
   final WorkoutsModel workouts;
   final int workoutIndex;
+  final String imagePath;
 
   const CardItems({
     super.key,
     required this.workouts,
     required this.workoutIndex,
+    required this.imagePath
   });
 
   @override
@@ -35,11 +38,12 @@ class CardItems extends StatelessWidget {
               topLeft: Radius.circular(10),
               bottomLeft: Radius.circular(10),
             ),
-            child: Image.asset(
-              'assets/images/workouts.png',
+            child:
+            CachedNetworkImage(
               height: 200,
               width: width * 0.42,
-              fit: BoxFit.cover,
+              fit: BoxFit.fill,
+              imageUrl: imagePath,
             ),
           ),
           Padding(
@@ -96,6 +100,7 @@ class CardItems extends StatelessWidget {
                     WorkoutsViewChallenge(
                       workoutsIndex: workoutIndex,
                       workouts: context.read<WorkoutsCubit>().dataLevel,
+                      imagePath: imagePath,
                     ),
                   );
                 }),

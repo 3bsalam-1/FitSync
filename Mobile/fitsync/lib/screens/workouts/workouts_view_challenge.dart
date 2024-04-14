@@ -15,12 +15,14 @@ import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_list_cha
 
 class WorkoutsViewChallenge extends StatelessWidget {
   final int workoutsIndex;
+  final String imagePath;
   final List<WorkoutsModel> workouts;
-  
+
   const WorkoutsViewChallenge({
-    super.key, 
+    super.key,
     required this.workoutsIndex,
     required this.workouts,
+    required this.imagePath,
   });
 
   @override
@@ -37,13 +39,13 @@ class WorkoutsViewChallenge extends StatelessWidget {
             Container(
               width: width,
               height: height * 0.4,
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 color: black,
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   opacity: 0.6,
                   // todo change image here
-                  image: AssetImage('assets/images/fullBody.png'),
+                  image: NetworkImage(imagePath),
                 ),
               ),
             ),
@@ -110,12 +112,15 @@ class WorkoutsViewChallenge extends StatelessWidget {
                             final provider = context.read<WorkoutsCubit>();
                             return IconButton(
                               onPressed: () {
-                                context.read<WorkoutsCubit>().addWorkoutsToFavorites(
-                                  userId: context.read<UserDataInfoCubit>()
+                                context
+                                    .read<WorkoutsCubit>()
+                                    .addWorkoutsToFavorites(
+                                      userId: context
+                                          .read<UserDataInfoCubit>()
                                           .userData!
                                           .userId,
-                                  workouts: workouts[workoutsIndex],
-                                );
+                                      workouts: workouts[workoutsIndex],
+                                    );
                               },
                               icon: Icon(
                                 Icons.favorite,
@@ -136,7 +141,9 @@ class WorkoutsViewChallenge extends StatelessWidget {
                       label: 'Start',
                       horizontalPadding: width * 0.14,
                       onPressed: () {
-                        context.read<CounterTimeChallenges>().initalizeAllWorkouts(workouts);
+                        context
+                            .read<CounterTimeChallenges>()
+                            .initalizeAllWorkouts(workouts);
                         AnimatedNavigator().push(
                           context,
                           StartChallengeScreen(

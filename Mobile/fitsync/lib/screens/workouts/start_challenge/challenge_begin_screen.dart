@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/colors/colors.dart';
@@ -31,6 +33,7 @@ class ChallengeBeginScreen extends StatelessWidget {
             WorkoutsViewChallenge(
               workouts: context.read<CounterTimeChallenges>().allWorkouts,
               workoutsIndex: context.read<CounterTimeChallenges>().currentWorkoutIndex,
+              imagePath: context.read<WorkoutsCubit>().workoutsImages!['${context.read<CounterTimeChallenges>().currentWorkoutIndex}'],
             ),
           );
         },
@@ -44,9 +47,8 @@ class ChallengeBeginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomAnimatedOpacity(
-                child: Image.asset(
-                  // todo show the image workout
-                  'assets/images/start_challenge.png',
+                child: CachedNetworkImage(
+                  imageUrl: context.read<WorkoutsCubit>().workoutsImages![workouts.exercisePlan[indexExercise].trim()],
                   width: 200,
                   height: 200,
                   fit: BoxFit.contain,
@@ -93,6 +95,7 @@ class ChallengeBeginScreen extends StatelessWidget {
                               WorkoutsViewChallenge(
                                 workoutsIndex: provider.currentWorkoutIndex,
                                 workouts: provider.allWorkouts,
+                                imagePath: context.read<WorkoutsCubit>().workoutsImages!['${provider.currentWorkoutIndex}'],
                               ),
                             );
                           }
