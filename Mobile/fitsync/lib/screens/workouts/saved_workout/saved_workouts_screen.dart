@@ -1,14 +1,13 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../data/models/workouts_model.dart';
 import '../../../shared/colors/colors.dart';
+import '../../../shared/widgets/global/custom_image.dart';
 
 class SavedWorkOutsScreen extends StatelessWidget {
   final List<WorkoutsModel> workoutsFav;
-
   const SavedWorkOutsScreen({super.key, required this.workoutsFav});
 
   @override
@@ -80,15 +79,13 @@ class SavedWorkOutsScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    CachedNetworkImage(
+                    CustomImage(
                       width: 130,
                       height: 108,
                       fit: BoxFit.fill,
-                      // todo here add placeholder
-                      useOldImageOnUrlChange: true,
-                      imageUrl: context
-                          .read<WorkoutsCubit>()
-                          .workoutsImages!['${index % 10}'],
+                      imageUrl: context.read<WorkoutsCubit>().workoutsImages!['${index % 10}'],
+                      errorColor: red,
+                      iconSize: 45,
                     ),
                   ],
                 ),

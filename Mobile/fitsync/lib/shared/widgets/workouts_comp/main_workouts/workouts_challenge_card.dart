@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,6 +5,7 @@ import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
 import '../../global/animated_navigator.dart';
+import '../../global/custom_image.dart';
 import 'custom_start_button.dart';
 
 class WorkOutsChallengCard extends StatelessWidget {
@@ -48,7 +48,8 @@ class WorkOutsChallengCard extends StatelessWidget {
           SizedBox(
             height: 205,
             child: ListView.separated(
-              itemCount: provider.viewAllChallenge ? provider.challenges!.length : 1,
+              itemCount:
+                  provider.viewAllChallenge ? provider.challenges!.length : 1,
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               separatorBuilder: (context, index) => const SizedBox(width: 30),
@@ -66,11 +67,13 @@ class WorkOutsChallengCard extends StatelessWidget {
                         topLeft: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
                       ),
-                      child: CachedNetworkImage(
-                        height: 200,
+                      child: CustomImage(
+                        imageUrl: provider.workoutsImages!['${index % 10}'],
+                        height: 205,
                         width: provider.viewAllChallenge ? 135 : width * 0.42,
-                        fit: BoxFit.fill,
-                        imageUrl: context.read<WorkoutsCubit>().workoutsImages!['${index%10}'],
+                        fit: BoxFit.cover,
+                        errorColor: red,
+                        iconSize: 55,
                       ),
                     ),
                     const SizedBox(width: 20),
@@ -108,7 +111,8 @@ class WorkOutsChallengCard extends StatelessWidget {
                               context,
                               WorkoutsViewChallenge(
                                 workouts: provider.challenges!,
-                                imagePath: context.read<WorkoutsCubit>().workoutsImages!['${index%10}'],
+                                imagePath:
+                                    provider.workoutsImages!['${index % 10}'],
                                 workoutsIndex: provider.viewAllChallenge
                                     ? index
                                     : DateTime.now().weekday - 1,

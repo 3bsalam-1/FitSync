@@ -61,9 +61,9 @@ class SavedWorkOuts extends StatelessWidget {
                       color: black,
                       image: DecorationImage(
                         opacity: 0.38,
-                        fit: BoxFit.fill,
+                        fit: BoxFit.cover,
                         image: NetworkImage(
-                          context.read<WorkoutsCubit>().workoutsImages!['${index%10}'],
+                          provider.workoutsImages!['${index % 10}'],
                         ),
                       ),
                     ),

@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/workouts/counter_time_challenges.dart';
@@ -7,6 +6,8 @@ import '../../../../data/models/workouts_model.dart';
 import '../../../../services/convert_ms.dart';
 import '../../../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+
+import '../../global/custom_image.dart';
 
 class WorkoutsListChallenges extends StatelessWidget {
   final WorkoutsModel workouts;
@@ -45,11 +46,13 @@ class WorkoutsListChallenges extends StatelessWidget {
           ),
           child: Row(
             children: [
-              CachedNetworkImage(
+              CustomImage(
+                imageUrl: context.read<WorkoutsCubit>().workoutsImages![workouts.exercisePlan[index].trim()],
                 height: 77,
                 width: 79,
                 fit: BoxFit.fill,
-                imageUrl: context.read<WorkoutsCubit>().workoutsImages![workouts.exercisePlan[index].trim()],
+                errorColor: red,
+                iconSize: 45,
               ),
               const SizedBox(width: 20),
               Column(

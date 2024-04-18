@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
@@ -7,6 +6,7 @@ import '../../global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
+import '../../global/custom_image.dart';
 import 'custom_start_button.dart';
 
 class CardItems extends StatelessWidget {
@@ -14,12 +14,11 @@ class CardItems extends StatelessWidget {
   final int workoutIndex;
   final String imagePath;
 
-  const CardItems({
-    super.key,
-    required this.workouts,
-    required this.workoutIndex,
-    required this.imagePath
-  });
+  const CardItems(
+      {super.key,
+      required this.workouts,
+      required this.workoutIndex,
+      required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +37,13 @@ class CardItems extends StatelessWidget {
               topLeft: Radius.circular(10),
               bottomLeft: Radius.circular(10),
             ),
-            child:
-            CachedNetworkImage(
+            child: CustomImage(
               height: 200,
               width: width * 0.42,
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
               imageUrl: imagePath,
+              errorColor: red,
+              iconSize: 55,
             ),
           ),
           Padding(
