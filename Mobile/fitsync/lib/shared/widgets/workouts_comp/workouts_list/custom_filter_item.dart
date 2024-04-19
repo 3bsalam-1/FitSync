@@ -34,7 +34,7 @@ class _CustomFilterItemState extends State<CustomFilterItem> {
           child: Text(
             widget.label,
             style: GoogleFonts.poppins(
-              fontSize: 10,
+              fontSize: 13.5,
               color: isSelected ? white : gray4,
               fontWeight: FontWeight.w500,
             ),

@@ -1,6 +1,7 @@
 import '../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../data/models/workouts_model.dart';
+import '../../shared/widgets/global/custom_image.dart';
 import '../home_main_screen.dart';
 import 'start_challenge/start_challenge_screen.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -36,17 +37,16 @@ class WorkoutsViewChallenge extends StatelessWidget {
         child: Stack(
           alignment: Alignment.topCenter,
           children: [
-            Container(
+            SizedBox(
               width: width,
               height: height * 0.4,
-              decoration: BoxDecoration(
-                color: black,
-                image: DecorationImage(
-                  fit: BoxFit.fill,
-                  opacity: 0.6,
-                  // todo change image here
-                  image: NetworkImage(imagePath),
-                ),
+              child: CustomImage(
+                height: height * 0.4,
+                width: width,
+                imageUrl: imagePath,
+                iconSize: 55,
+                fit: BoxFit.fill,
+                errorColor: red,
               ),
             ),
             Positioned(

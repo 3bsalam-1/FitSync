@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../cubits_logic/navigation_page_cubit.dart';
 import '../../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
+import '../../../services/pref.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/skeleton_container_loading.dart';
 import 'empty_saved_workouts_screen.dart';
@@ -52,8 +53,8 @@ class SavedWorkoutsMain extends StatelessWidget {
                   ),
                   child: CircleAvatar(
                     radius: 20,
-                    child: Image.asset(
-                      'assets/images/profile.png',
+                    child: Image.network(
+                      Prefs.getStringList('user')![3],
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -77,7 +78,7 @@ class SavedWorkoutsMain extends StatelessWidget {
         body: BlocBuilder<WorkoutsCubit, WorkoutsState>(
           builder: (context, state) {
             final provider = context.read<WorkoutsCubit>();
-            if (provider.favoriteWorkouts != null) {
+            if (provider.favoriteWorkouts != null && provider.data != null) {
               return provider.favoriteWorkouts!.isNotEmpty
                   ? SavedWorkOutsScreen(workoutsFav: provider.favoriteWorkouts!)
                   : const EmptySavedWorkoutsScreen();
