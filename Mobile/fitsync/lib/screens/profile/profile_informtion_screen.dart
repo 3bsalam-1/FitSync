@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../data/cubit/user_data/avatar_profile_cubit.dart';
 import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
@@ -13,28 +14,45 @@ class ProfileInformationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Profile',
-          style: GoogleFonts.poppins(
-            fontSize: 22,
-            color: white,
-            fontWeight: FontWeight.w600,
+    return BlocProvider(
+      create: (context) => AvatarProfileCubit(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(
+            'Profile',
+            style: GoogleFonts.poppins(
+              fontSize: 22,
+              color: white,
+              fontWeight: FontWeight.w600,
+            ),
           ),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            AnimatedNavigator().pop(context);
-          },
-          icon: const Icon(
-            Icons.arrow_circle_left,
-            color: white,
-            size: 37,
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: () {
+              AnimatedNavigator().pop(context);
+            },
+            icon: const Icon(
+              Icons.arrow_circle_left,
+              color: white,
+              size: 37,
+            ),
           ),
+          flexibleSpace: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  purple,
+                  purple2,
+                  cyan,
+                ],
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
+              ),
+            ),
+          ),
+          elevation: 0,
         ),
-        flexibleSpace: Container(
+        body: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -46,35 +64,21 @@ class ProfileInformationScreen extends StatelessWidget {
               end: Alignment.centerLeft,
             ),
           ),
-        ),
-        elevation: 0,
-      ),
-      body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              purple,
-              purple2,
-              cyan,
-            ],
-            begin: Alignment.centerRight,
-            end: Alignment.centerLeft,
+          child: BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
+            builder: (context, state) {
+              if (state is UserDataSuccess) {
+                return const Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    ProfileAvatarEdit(),
+                    ProfileUserInfo(),
+                  ],
+                );
+              }
+              return const SkeletonProfileInfo();
+            },
           ),
-        ),
-        child: BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
-          builder: (context, state) {
-            if (state is UserDataSuccess) {
-              return const Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  ProfileAvatarEdit(),
-                  ProfileUserInfo(),
-                ],
-              );
-            }
-            return const SkeletonProfileInfo();
-          },
         ),
       ),
     );
