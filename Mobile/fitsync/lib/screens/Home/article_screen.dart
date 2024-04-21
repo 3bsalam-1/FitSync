@@ -103,7 +103,7 @@ class ArticleScreen extends StatelessWidget {
 
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(50),
-                                color: purple8),
+                                color: purple9),
                             child: Center(
                               child: Text(
                                 "healthy Food",

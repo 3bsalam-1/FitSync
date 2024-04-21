@@ -2,7 +2,7 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_saved_recipes.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
-import 'package:fitsync/shared/widgets/survey_comp/custom_card.dart';
+import 'package:fitsync/shared/widgets/survey_comp/choices_comp/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';

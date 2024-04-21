@@ -1,16 +1,21 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitsync/data/repository/google_login.dart';
 import 'package:fitsync/screens/Home/home_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Icon_Button extends StatelessWidget {
   Widget principle_widget;
-  final websiteUri;
+  //final websiteUri;
+  final void Function()? onPressed;
   Icon_Button({
     super.key,
     required this.principle_widget,
-    this.websiteUri,
+    //this.websiteUri,
+    required this.onPressed,
   });
 
   @override
@@ -24,19 +29,9 @@ class Icon_Button extends StatelessWidget {
           backgroundColor: gray5,
         ),
         child: principle_widget,
-        onPressed: () async {
-          await launchUrl(websiteUri, mode: LaunchMode.inAppBrowserView)
-              .then((value) {
-            
-
-            Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) {
-                  return const HomePage();}));
-          });
-          
-        },
+        onPressed: onPressed,
       ),
     );
   }
 }
+

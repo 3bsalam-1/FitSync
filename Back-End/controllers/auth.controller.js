@@ -283,3 +283,56 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
     token,
   });
 });
+
+exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
+  let { name, email, avatar } = req.body;
+  
+  // Retrieve user data based on email
+  let user = await User.findOne({ email });
+
+  // If user exists, return token
+  if (user) {
+    const token = await signToken(user);
+    return res.status(200).json({
+      status: SUCCESS,
+      token,
+    });
+  }
+
+  // User doesn't exist, proceed to create new account
+  name = name.split(" ");
+  let firstName = name[0];
+  let lastName = name[1];
+  
+  const generateUsername = (firstName, lastName) => {
+    let username = `${firstName.charAt(0)}${lastName.charAt(0)}${Math.floor(Math.random() * 10000)}`;
+    return username;
+  };
+  let username = generateUsername(firstName, lastName);
+
+  // Ensure username uniqueness
+  let existingUser = await User.findOne({ username });
+  while (existingUser) {
+    username = generateUsername(firstName, lastName);
+    existingUser = await User.findOne({ username });
+  }
+
+  // Create new user
+  user = new User({
+    firstName,
+    lastName,
+    username,
+    email,
+    avatar,
+    isVerify: true, 
+  });
+
+  await user.save({ validateBeforeSave: false });
+
+  // Return token
+  const token = await signToken(user);
+  res.status(200).json({
+    status: SUCCESS,
+    token,
+  });
+});

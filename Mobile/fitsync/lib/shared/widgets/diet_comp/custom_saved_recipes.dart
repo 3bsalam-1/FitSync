@@ -60,14 +60,16 @@ class CustomSavedRecipesWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 10, top: 15),
                 child: Container(
-                  //width: 110,
+                 // width: 180,
                   child: Text(
                     label1,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
                       color: black,
+                      
                     ),
+                    
                     textAlign: TextAlign.justify,
                   ),
                 ),

@@ -24,7 +24,6 @@ const Color gray19 = Color(0xffF7F8F8);
 const Color gray16 = Color(0xffB0ACA6);
 const Color gray17 = Color(0xffDDDADA);
 const Color gray18 = Color(0xffC4C0BB);
-
 const Color gray15 = Color(0xff868179);
 
 const Color white = Color(0xffffffff);
@@ -40,13 +39,13 @@ const Color red4 = Color(0xFFFF3535);
 const Color red5 = Color(0xFFFF0000);
 const Color red6 = Color(0xFFFF1F1F);
 const Color red7 = Color(0xFFFF5B5B);
-
 const Color red3 = Color(0xFFEF2020);
 
 const Color purple4 = Color(0xff8F7DF9);
 const Color purple5 = Color(0xff8D6FF8);
 const Color purple6 = Color(0xff6A70E9);
 const Color purple7 = Color(0xff92A3FD);
+const Color purple8 = Color(0xFFB09CF8);
 const Color cyan2 = Color(0xff64BEFF);
 const Color cyan3 = Color(0xff42C9F4);
 const Color cyan4 = Color(0xff4285F4);
@@ -56,6 +55,7 @@ const Color gold = Color(0xffFECE24);
 
 const Color blue = Color(0xff92A3FD);
 const Color blue1 = Color(0xff9DCEFF);
+
 const Color pink = Color(0xffC58BF2);
 const Color pink1 = Color(0xffEEA4CE);
 const Color yellow = Color(0xffFFD842);
@@ -69,11 +69,13 @@ const Color yellow1 = Color(0xffFFDF6F);
 const Color orange = Color(0xffFF8C4C);
 const Color blue2 = Color(0xff0065D0);
 const Color dark = Color(0xff494949);
-const Color purple8 = Color(0xffE4DDFD);
+const Color purple9 = Color(0xffE4DDFD);
 const Color gray24 = Color(0xffB8B8B8);
 const Color gold2 = Color(0xffF8B704);
 const Color gold3 = Color(0xffF8FD08);
 const Color green = Color(0xff00C566);
-const Color blue4 = Color.fromARGB(255, 186, 208, 230);
+
+
+
 
 

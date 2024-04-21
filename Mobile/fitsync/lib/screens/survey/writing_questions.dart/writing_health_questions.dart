@@ -4,7 +4,7 @@ import '../../../shared/widgets/survey_comp/custom_snackbar.dart';
 import '../choice_questions.dart/exercise_survey_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
-import '../../../shared/widgets/survey_comp/writing_body_question.dart';
+import '../../../shared/widgets/survey_comp/writing_comp/writing_body_question.dart';
 import '../choice_questions.dart/choice_questions_screen.dart';
 
 class BloodSugarQuestion extends StatelessWidget {
@@ -16,6 +16,7 @@ class BloodSugarQuestion extends StatelessWidget {
       listener: (context, state) {
         if (state is BloodSugarValidation) {
           if (state.errorText == null) {
+            FocusScope.of(context).unfocus();
             AnimatedNavigator().push(
               context,
               const ExerciseSurveyScreen(
@@ -49,6 +50,7 @@ class SystolicBloodQuestion extends StatelessWidget {
       listener: (context, state) {
         if (state is SystolicBloodValidation) {
           if (state.errorText == null) {
+            FocusScope.of(context).unfocus();
             AnimatedNavigator().push(
               context,
               const DiastolicBloodQuestion(),
@@ -80,6 +82,7 @@ class DiastolicBloodQuestion extends StatelessWidget {
       listener: (context, state) {
         if (state is DiastolicBloodValidation) {
           if (state.errorText == null) {
+            FocusScope.of(context).unfocus();
             AnimatedNavigator().push(
               context,
               const ExerciseSurveyScreen(
@@ -113,6 +116,7 @@ class CholesterolLevelQuestion extends StatelessWidget {
       listener: (context, state) {
         if (state is CholesterolValidation) {
           if (state.errorText == null) {
+            FocusScope.of(context).unfocus();
             AnimatedNavigator().push(
               context,
               const ExerciseSurveyScreen(

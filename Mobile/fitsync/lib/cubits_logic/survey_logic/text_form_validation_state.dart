@@ -5,11 +5,6 @@ sealed class TextFormValidationState {}
 
 final class TextFormValidationInitial extends TextFormValidationState {}
 
-final class NameValidation extends TextFormValidationState {
-  final String? errorText;
-  NameValidation(this.errorText);
-}
-
 final class AgeValidation extends TextFormValidationState {
   final String? errorText;
   AgeValidation(this.errorText);
@@ -18,6 +13,11 @@ final class AgeValidation extends TextFormValidationState {
 final class WeightValidation extends TextFormValidationState {
   final String? errorText;
   WeightValidation(this.errorText);
+}
+
+final class WeightSwitchConverter extends TextFormValidationState {
+  final bool isKgSelected;
+  WeightSwitchConverter(this.isKgSelected);
 }
 
 final class BirthValidation extends TextFormValidationState {

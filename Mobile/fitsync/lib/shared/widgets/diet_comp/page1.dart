@@ -1,4 +1,5 @@
 import 'package:fitsync/cubits_logic/diet_logic/counter/counter_cubit.dart';
+import 'package:fitsync/data/models/food_model.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/meal_tracker_widget.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
@@ -7,10 +8,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Page1 extends StatelessWidget {
-  const Page1({
+  Page1({
+    required this.diet,
     super.key,
   });
-
+  FoodModel diet;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,7 +25,7 @@ class Page1 extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: MealTrackerWidget(
-                    imageUrl: "assets/images/Icons/Weight.png",
+                    imageUrl: "assets/images/Icons/weight.png",
                     width: 30,
                     height: 30,
                     h: 0,
@@ -35,8 +37,8 @@ class Page1 extends StatelessWidget {
                 ),
                 Container(
                   height: 80,
-                  width: 10,
-                  child: VerticalDivider(
+                  width: 0,
+                  child: const VerticalDivider(
                     thickness: 2,
                     color: gray12,
                     width: 80,
@@ -58,8 +60,8 @@ class Page1 extends StatelessWidget {
                 ),
                 Container(
                   height: 80,
-                  width: 10,
-                  child: VerticalDivider(
+                  width: 0,
+                  child: const VerticalDivider(
                     thickness: 2,
                     color: gray12,
                     width: 80,
@@ -74,15 +76,15 @@ class Page1 extends StatelessWidget {
                     height: 24,
                     h: 2,
                     label1: 'Diet',
-                    label2: 'Ketogenic ',
+                    label2:  diet.Diet.substring(0, 10),
                     label3: '',
                     size: 12,
                   ),
                 ),
                 Container(
                   height: 80,
-                  width: 10,
-                  child: VerticalDivider(
+                  width: 0,
+                  child: const VerticalDivider(
                     thickness: 2,
                     color: gray12,
                     width: 80,
@@ -97,14 +99,14 @@ class Page1 extends StatelessWidget {
                     height: 24,
                     h: 0,
                     label1: 'Nutrient',
-                    label2: 'Magnesium ',
+                    label2: diet.Nutrient,
                     label3: '',
                     size: 12,
                   ),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
@@ -126,7 +128,7 @@ class Page1 extends StatelessWidget {
                               context.read<CounterCubit>().ontap();
                             }
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.remove,
                             color: white,
                             size: 15,
@@ -146,7 +148,7 @@ class Page1 extends StatelessWidget {
                             context.read<CounterCubit>().index++;
                             context.read<CounterCubit>().ontap();
                           },
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.add,
                             color: white,
                             size: 15,

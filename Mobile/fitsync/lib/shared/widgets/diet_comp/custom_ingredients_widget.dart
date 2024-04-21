@@ -16,7 +16,7 @@ class CustomIngredientsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, top: 20),
+      padding: const EdgeInsets.only(left: 15, top: 20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,13 +31,21 @@ class CustomIngredientsWidget extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 4),
-            child: Text(
-              label1,
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
-                color: black2,
-              ),
+            child: Column(
+              children: [
+                SizedBox(
+                  width: 69,
+                  child: Text(
+                    label1,
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 12,
+                      color: black2,
+                    ),
+                   maxLines: 1,
+                  ),
+                ),
+              ],
             ),
           ),
           Padding(

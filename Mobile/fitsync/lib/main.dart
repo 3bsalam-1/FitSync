@@ -1,3 +1,10 @@
+import 'package:fitsync/cubits_logic/diet_logic/filter_logic/cubit/filter_cubit.dart';
+import 'package:fitsync/screens/workouts/filters_workouts_screen.dart';
+import 'package:fitsync/screens/workouts/workouts_list_search_screen.dart';
+import 'package:fitsync/screens/workouts/workouts_screen.dart';
+
+import 'cubits_logic/bluetooth/bluetooth_cubit.dart';
+import 'cubits_logic/splash_screen_next_cubit.dart';
 import 'package:fitsync/cubits_logic/diet_logic/counter/counter_cubit.dart';
 import 'package:fitsync/cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.dart';
 import 'package:fitsync/cubits_logic/diet_logic/favoriteIcon/cubit/favourite_icon_cubit.dart';
@@ -16,20 +23,25 @@ import 'package:fitsync/screens/Home/tips&tricks_screen.dart';
 import 'package:fitsync/screens/Home/water_parameters_screen.dart';
 import 'package:fitsync/screens/Login/SignUp_screen.dart';
 import 'package:fitsync/screens/Login/login_screen.dart';
-import 'package:fitsync/screens/splash_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'cubits_logic/cubit/bluetooth_cubit.dart';
 import 'package:flutter/material.dart';
 import 'cubits_logic/navigation_page_cubit.dart';
 import 'cubits_logic/survey_logic/animated_list_view.dart';
 import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'cubits_logic/workouts/week_dates.dart';
-import 'screens/home_main_screen.dart';
-import 'shared/pref.dart';
+import 'data/cubit/auth_cubit.dart';
+import 'screens/splash/splash_screen.dart';
+import 'screens/splash/start_screen.dart';
+import 'services/pref.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   await Prefs.init();
   runApp(const MyApp());
 }
@@ -60,6 +72,12 @@ class MyApp extends StatelessWidget {
           create: (context) => NavigationPageCubit(),
         ),
         BlocProvider(
+          create: (context) => AuthCubit(),
+        ),
+        BlocProvider(
+          create: (context) => SplashScreenNextCubit(),
+        ),
+        BlocProvider(
           create: (context) => CounterCubit(),
         ),
         BlocProvider(
@@ -68,11 +86,14 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FavouriteIconCubit(),
         ),
+        BlocProvider(
+          create: (context) => FilterCubit(),
+        ),
       ],
       child: MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: HomeMainScreen(), //SplashScreen(),
+        home: DietScreen(),
       ),
     );
   }

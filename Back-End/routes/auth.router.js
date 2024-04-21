@@ -26,4 +26,7 @@ router.post(
   authController.resetPassword
 );
 
+router.post("/ContinueWithGoogle", authController.ContinueWithGoogle);
+
+
 module.exports = router;

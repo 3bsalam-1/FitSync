@@ -1,5 +1,4 @@
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/colors/colors.dart';
@@ -46,7 +45,6 @@ class ChallengeBeginScreen extends StatelessWidget {
             children: [
               CustomButton(
                 label: 'Previous',
-                shadowColor: Colors.transparent,
                 colors: const [gray14, gray14],
                 onPressed: () {
                   // todo start the challenge

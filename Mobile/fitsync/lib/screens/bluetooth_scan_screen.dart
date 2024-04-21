@@ -1,8 +1,8 @@
+import '../cubits_logic/bluetooth/bluetooth_cubit.dart';
 import '../shared/widgets/bluetooth_scan_comp/custom_bluetooth_error.dart';
 import 'package:fitsync/shared/widgets/bluetooth_scan_comp/custom_list_view_devices.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../cubits_logic/cubit/bluetooth_cubit.dart';
 
 class BluetoothScanScreen extends StatelessWidget {
   const BluetoothScanScreen({super.key});
