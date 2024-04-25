@@ -16,15 +16,18 @@ class SavedRecipesScreen extends StatelessWidget {
       backgroundColor: white,
       appBar: AppBar(
         backgroundColor: white,
-        leading: IconButton(
-            onPressed: () {
-              AnimatedNavigator().pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_circle_left,
-              color: purple3,
-              size: 40,
-            )),
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 6),
+          child: IconButton(
+              onPressed: () {
+                AnimatedNavigator().pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_circle_left,
+                color: purple3,
+                size: 40,
+              )),
+        ),
         title: Text(
           'Saved Recipes',
           style: GoogleFonts.poppins(
@@ -36,7 +39,7 @@ class SavedRecipesScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10.0),
+            padding: const EdgeInsets.only(right: 20.0),
             child: UserWidget(),
           ),
         ],
@@ -49,7 +52,7 @@ class SavedRecipesScreen extends StatelessWidget {
           CustomSavedRecipesWidget(
             imageUrl: "assets/images/Green Salad.jfif",
             label1: 'Green Salad',
-            label2: "100% Healthy\n Fits in Budget",
+            label2: "100% Healthy\nFits in Budget",
           ),
           SizedBox(
             height: 10,

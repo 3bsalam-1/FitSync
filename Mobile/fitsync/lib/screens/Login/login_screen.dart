@@ -1,3 +1,4 @@
+import 'package:fitsync/cubits_logic/google_login/login_with_google.dart';
 import 'package:fitsync/screens/Login/signup_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';

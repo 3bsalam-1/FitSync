@@ -1,4 +1,5 @@
-
+import 'package:fitsync/screens/Home/article_screen.dart';
+import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/home_comp/tips_tricks_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,9 @@ class Page1 extends StatelessWidget {
             height: 30,
           ),
           InkWell(
-              onTap: () {},
+              onTap: () {
+                AnimatedNavigator().push(context, ArticleScreen());
+              },
               child: TipsAndTricksWidget(
                 imageUrl: "assets/images/tipsImages/food.jfif",
                 label1: "healthy food",

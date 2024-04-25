@@ -1,10 +1,14 @@
 import 'package:fitsync/cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.dart';
+import 'package:fitsync/data/models/food_model.dart';
+import 'package:fitsync/data/repository/food/food_repo.dart';
+import 'package:fitsync/screens/Diet/diet_list.dart';
 import 'package:fitsync/screens/Diet/saved_recipes_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/diet_plan_widget.dart';
 import 'package:fitsync/shared/widgets/diet_comp/saved_recipes_widget.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
@@ -19,21 +23,37 @@ class DietScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 18, top: 10),
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Diet Plan",
-                  style: GoogleFonts.poppins(
-                    textStyle: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 22,
-                      color: black3,
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 18, top: 10),
+                  child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "Diet Plan",
+                      style: GoogleFonts.poppins(
+                        textStyle:const TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 22,
+                          color: black3,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
+
+                Padding(
+                 padding: const EdgeInsets.only(left: 18, top: 10),
+                  child: IconButton(icon:  const Icon(Icons.format_align_left_sharp,
+                  color: purple2,
+                  ),
+                  
+                  onPressed: () {
+                    AnimatedNavigator().push(context, DietListScreen());
+                  },
+                  ),
+                ),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.only(left: 18, top: 10),
@@ -53,37 +73,82 @@ class DietScreen extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 18,
-                  ),
-                  DietPlanWidget(
-                    imageUrl: "assets/images/chicken.jfif",
-                    text: "Chicken",
-                  ),
-                  SizedBox(
-                    width: 18,
-                  ),
-                  DietPlanWidget(
-                    imageUrl: "assets/images/steak.jfif",
-                    text: "Steak",
-                  ),
-                  SizedBox(
-                    width: 18,
-                  ),
-                  DietPlanWidget(
-                    imageUrl: "assets/images/meat.jfif",
-                    text: "Meat",
-                  ),
-                  SizedBox(
-                    width: 18,
-                  ),
-                ],
-              ),
-            ),
+            FutureBuilder(
+                future: FoodPlan().getFoodPlan(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    List<FoodModel> food = snapshot.data!;
+
+                    return SizedBox(
+                      height: 140,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: food.length,
+                        physics: const BouncingScrollPhysics(),
+                        // separatorBuilder: (context, index) => const SizedBox(height: 25),
+                        itemBuilder: (context, index) => DietPlanWidget(
+                          diet: food[index],
+                          imageUrl: "assets/images/chicken.jfif",
+                          text: food[index].Catagory,
+                        ),
+                      ),
+                    );
+                  } else {
+                    return const Column(
+                      children: [
+                        SizedBox(
+                          height: 45,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "your plan is loading ...  ",
+                              style: TextStyle(fontSize: 18),
+                            ),
+                            CircularProgressIndicator(),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 45,
+                        ),
+                      ],
+                    );
+                  }
+                }),
+
+            // SingleChildScrollView(
+            //   scrollDirection: Axis.horizontal,
+            //   child: Row(
+            //     children: [
+            //       SizedBox(
+            //         width: 18,
+            //       ),
+            //       DietPlanWidget(
+            //         imageUrl: "assets/images/chicken.jfif",
+            //         text: "Chicken",
+            //       ),
+            //       SizedBox(
+            //         width: 18,
+            //       ),
+            //       DietPlanWidget(
+            //         imageUrl: "assets/images/steak.jfif",
+            //         text: "Steak",
+            //       ),
+            //       SizedBox(
+            //         width: 18,
+            //       ),
+            //       DietPlanWidget(
+            //         imageUrl: "assets/images/meat.jfif",
+            //         text: "Meat",
+            //       ),
+            //       SizedBox(
+            //         width: 18,
+            //       ),
+            //     ],
+            //   ),
+            // ),
+
             BlocBuilder<DropDownButtonCubit, DropDownButtonState>(
               builder: (context, state) {
                 return Column(
@@ -167,37 +232,79 @@ class DietScreen extends StatelessWidget {
                     ),
                     if (context.read<DropDownButtonCubit>().selectedItem ==
                         "Vegetables")
-                      SingleChildScrollView(
-                        scrollDirection: Axis.horizontal,
-                        child: Row(
-                          children: [
-                            SizedBox(
-                              width: 18,
-                            ),
-                            DietPlanWidget(
-                              imageUrl: "assets/images/Caesar Salad.jfif",
-                              text: "Caesar Salad",
-                            ),
-                            SizedBox(
-                              width: 18,
-                            ),
-                            DietPlanWidget(
-                              imageUrl: "assets/images/Garden Salad.jfif",
-                              text: "Garden Salad",
-                            ),
-                            SizedBox(
-                              width: 18,
-                            ),
-                            DietPlanWidget(
-                              imageUrl: "assets/images/Green Salad.jfif",
-                              text: "Green Salad",
-                            ),
-                            SizedBox(
-                              width: 18,
-                            ),
-                          ],
-                        ),
-                      ),
+                      // SingleChildScrollView(
+                      //   scrollDirection: Axis.horizontal,
+                      //   child: Row(
+                      //     children: [
+                      //       SizedBox(
+                      //         width: 18,
+                      //       ),
+                      //       // DietPlanWidget(
+                      //       //   imageUrl: "assets/images/Caesar Salad.jfif",
+                      //       //   text: "Caesar Salad",
+                      //       // ),
+                      //       SizedBox(
+                      //         width: 18,
+                      //       ),
+                      //       // DietPlanWidget(
+                      //       //   imageUrl: "assets/images/Garden Salad.jfif",
+                      //       //   text: "Garden Salad",
+                      //       // ),
+                      //       SizedBox(
+                      //         width: 18,
+                      //       ),
+                      //       // DietPlanWidget(
+                      //       //   imageUrl: "assets/images/Green Salad.jfif",
+                      //       //   text: "Green Salad",
+                      //       // ),
+                      //       SizedBox(
+                      //         width: 18,
+                      //       ),
+                      //     ],
+                      //   ),
+                      // ),
+
+                      FutureBuilder(
+                          future: FoodPlan().getFoodPlan(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              List<FoodModel> food = snapshot.data!;
+
+                              return SizedBox(
+                                height: 140,
+                                child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: food.length,
+                                  physics: const BouncingScrollPhysics(),
+                                  // separatorBuilder: (context, index) => const SizedBox(height: 25),
+                                  itemBuilder: (context, index) =>
+                                      DietPlanWidget(
+                                    diet: food[index],
+                                    imageUrl: "assets/images/chicken.jfif",
+                                    text: food[index].Catagory,
+                                  ),
+                                ),
+                              );
+                            } else {
+                              return const Column(
+                                children: [
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                     
+                                      CircularProgressIndicator(),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                ],
+                              );
+                            }
+                          }),
                   ],
                 );
               },

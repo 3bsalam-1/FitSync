@@ -1,4 +1,3 @@
-import 'package:fitsync/screens/Home/calories_parameters_screen.dart';
 import 'package:fitsync/screens/Home/sleep_parameters_screen.dart';
 import 'package:fitsync/screens/Home/steps_parameters_screen.dart';
 import 'package:fitsync/screens/Home/water_parameters_screen.dart';
@@ -19,7 +18,7 @@ class ProfilePage extends StatelessWidget {
       backgroundColor: white,
       appBar: AppBar(
         backgroundColor: white,
-        title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+        title: const Row(mainAxisAlignment: MainAxisAlignment.start, children: [
           Column(children: [
             Text(
               "Hello Alex",
@@ -32,19 +31,19 @@ class ProfilePage extends StatelessWidget {
             ),
           ])
         ]),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 20.0),
+            padding: EdgeInsets.only(right: 20.0),
             child: UserWidget(),
           ),
         ],
       ),
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 35,
           ),
-          Divider(
+          const Divider(
             thickness: 1,
             color: gray6,
             endIndent: 20,
@@ -54,7 +53,7 @@ class ProfilePage extends StatelessWidget {
             label: "Edit Profile",
             icon: IconlyLight.edit_square,
           ),
-          Divider(
+          const Divider(
             thickness: 1,
             color: gray6,
             endIndent: 20,
@@ -64,7 +63,7 @@ class ProfilePage extends StatelessWidget {
             label: "Add Emergency Contact",
             icon: IconlyLight.calling,
           ),
-          Divider(
+          const Divider(
             thickness: 1,
             color: gray6,
             endIndent: 20,
@@ -76,7 +75,7 @@ class ProfilePage extends StatelessWidget {
             scale: 24,
             onTap: () {},
           ),
-          Divider(
+          const Divider(
             thickness: 1,
             color: gray6,
             endIndent: 20,
@@ -88,22 +87,7 @@ class ProfilePage extends StatelessWidget {
             scale: 24,
             onTap: () {},
           ),
-          Divider(
-            thickness: 1,
-            color: gray6,
-            endIndent: 20,
-            indent: 20,
-          ),
-          ProfileWidget1(
-            imageUrl: "assets/images/Icons/caloriesIcon.png",
-            label: " Calorie Parameters",
-            scale: 18,
-            w: 2,
-            onTap: () {
-              AnimatedNavigator().push(context, CalorieScreen());
-            },
-          ),
-          Divider(
+          const Divider(
             thickness: 1,
             color: gray6,
             endIndent: 20,
@@ -114,10 +98,10 @@ class ProfilePage extends StatelessWidget {
             label: "Water Parameters",
             scale: 24,
             onTap: () {
-              AnimatedNavigator().push(context, WaterParametersScreen());
+              AnimatedNavigator().push(context, const WaterParametersScreen());
             },
           ),
-          Divider(
+          const Divider(
             thickness: 1,
             color: gray6,
             endIndent: 20,
@@ -129,10 +113,10 @@ class ProfilePage extends StatelessWidget {
             scale: 22,
             w: 3,
             onTap: () {
-              AnimatedNavigator().push(context, SleepParametersScreen());
+              AnimatedNavigator().push(context, const SleepParametersScreen());
             },
           ),
-          Divider(
+          const Divider(
             thickness: 1,
             color: gray6,
             endIndent: 20,
@@ -144,10 +128,10 @@ class ProfilePage extends StatelessWidget {
             scale: 20,
             w: 3,
             onTap: () {
-              AnimatedNavigator().push(context, StepsParametersScreen());
+              AnimatedNavigator().push(context, const StepsParametersScreen());
             },
           ),
-          Divider(
+          const Divider(
             thickness: 1,
             color: gray6,
             endIndent: 20,
