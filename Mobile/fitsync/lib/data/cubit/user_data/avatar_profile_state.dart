@@ -10,4 +10,6 @@ final class AvatarProfileSelected extends AvatarProfileState {
   AvatarProfileSelected(this.selectedImage);
 }
 
+final class AvatarProfileLoading extends AvatarProfileState {}
+
 final class AvatarProfileFailure extends AvatarProfileState {}
