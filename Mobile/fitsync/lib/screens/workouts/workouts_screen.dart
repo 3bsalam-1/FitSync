@@ -1,13 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../cubits_logic/navigation_page_cubit.dart';
+import '../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../data/cubit/workouts/workouts_cubit.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
-import '../../shared/widgets/global/custom_menu_button.dart';
+import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/skeleton_workouts.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/workouts_body.dart';
+import 'workouts_list_search_screen.dart';
 
 class WorkoutsScreen extends StatelessWidget {
   const WorkoutsScreen({super.key});
@@ -20,6 +21,7 @@ class WorkoutsScreen extends StatelessWidget {
         appBar: AppBar(
           scrolledUnderElevation: 0,
           backgroundColor: white,
+          leading: null,
           title: Text(
             'Workouts',
             style: GoogleFonts.poppins(
@@ -29,12 +31,14 @@ class WorkoutsScreen extends StatelessWidget {
             ),
           ),
           actions: [
-            CustomMenuButton(
-              labels: const ['Search workouts', 'Saved workouts'],
-              onSelected: (pageIndex) {
-                context.read<NavigationPageCubit>().changePage(pageIndex + 9);
+            IconButton(
+              onPressed: () {
+                AnimatedNavigator().push(
+                  context,
+                  const WorkoutsListSearchScreen(),
+                );
               },
-              child: const Icon(
+              icon: const Icon(
                 Icons.menu_outlined,
                 color: purple2,
               ),
@@ -44,8 +48,11 @@ class WorkoutsScreen extends StatelessWidget {
         backgroundColor: white,
         body: BlocBuilder<WorkoutsCubit, WorkoutsState>(
           builder: (context, state) {
+            context.read<FavoriteWorkoutsCubit>().setFavoriteToInitial();
             final provider = context.read<WorkoutsCubit>();
-            if (provider.allworkouts != null && provider.data != null && provider.challenges != null) {
+            if (provider.allworkouts != null &&
+                provider.data != null &&
+                provider.challenges != null) {
               return const SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 15),

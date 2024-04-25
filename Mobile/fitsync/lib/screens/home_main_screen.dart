@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../cubits_logic/navigation_page_cubit.dart';
 import '../cubits_logic/new_token_cubit.dart';
 import '../cubits_logic/smart_watch/smart_watch_cubit.dart';
+import '../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../data/cubit/workouts/workouts_cubit.dart';
 import '../shared/colors/colors.dart';
 import '../shared/widgets/item_bottom_app_bar.dart';
@@ -40,16 +41,17 @@ class HomeMainScreen extends StatelessWidget {
                     context.read<UserDataInfoCubit>().userData!,
                   );
               context.read<WorkoutsCubit>().getAllWorkouts();
-              context.read<WorkoutsCubit>().getFavoriteWorkouts();
+              context.read<FavoriteWorkoutsCubit>().getAllFavoriteWorkouts();
             }
           },
         ),
       ],
       child: Scaffold(
-        body:
-            BlocBuilder<NavigationPageCubit, Widget>(builder: (context, page) {
-          return page;
-        }),
+        body: BlocBuilder<NavigationPageCubit, Widget>(
+          builder: (context, page) {
+            return page;
+          },
+        ),
         backgroundColor: white,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Padding(

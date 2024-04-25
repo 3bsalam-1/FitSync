@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../cubits_logic/navigation_page_cubit.dart';
 import '../../../data/cubit/user_data/user_data_info_cubit.dart';
+import '../../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../services/pref.dart';
 import '../../../shared/colors/colors.dart';
@@ -18,6 +19,7 @@ class SavedWorkoutsMain extends StatelessWidget {
     return PopScope(
       canPop: false,
       onPopInvoked: (didPop) {
+        context.read<FavoriteWorkoutsCubit>().showAllSavedWorkouts();
         context.read<NavigationPageCubit>().changePage(1);
       },
       child: Scaffold(
@@ -34,6 +36,7 @@ class SavedWorkoutsMain extends StatelessWidget {
           centerTitle: true,
           leading: IconButton(
             onPressed: () {
+              context.read<FavoriteWorkoutsCubit>().showAllSavedWorkouts();
               context.read<NavigationPageCubit>().changePage(1);
             },
             icon: const Icon(
@@ -77,8 +80,8 @@ class SavedWorkoutsMain extends StatelessWidget {
         backgroundColor: white,
         body: BlocBuilder<WorkoutsCubit, WorkoutsState>(
           builder: (context, state) {
-            final provider = context.read<WorkoutsCubit>();
-            if (provider.favoriteWorkouts != null && provider.data != null) {
+            final provider = context.read<FavoriteWorkoutsCubit>();
+            if (provider.favoriteWorkouts != null) {
               return provider.favoriteWorkouts!.isNotEmpty
                   ? SavedWorkOutsScreen(workoutsFav: provider.favoriteWorkouts!)
                   : const EmptySavedWorkoutsScreen();

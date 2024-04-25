@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../cubits_logic/navigation_page_cubit.dart';
 import '../colors/colors.dart';
 
@@ -25,6 +24,7 @@ class ItemBottomAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<NavigationPageCubit, Widget>(
       builder: (context, state) {
+        final isSelected = context.read<NavigationPageCubit>().isSelected;
         return InkWell(
           onTap: onTap,
           child: Column(
@@ -34,8 +34,7 @@ class ItemBottomAppBar extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color:
-                  context.read<NavigationPageCubit>().isSelected == indexPage
+                color: isSelected == indexPage || (isSelected == 9 && indexPage == 1)
                     ? purple5
                     : gray7,
               ),
@@ -46,9 +45,9 @@ class ItemBottomAppBar extends StatelessWidget {
                   label,
                   style: GoogleFonts.poppins(
                     fontSize: 12,
-                    color: context.read<NavigationPageCubit>().isSelected == indexPage
-                      ? purple5
-                      : gray7,
+                    color: isSelected == indexPage || (isSelected == 9 && indexPage == 1)
+                        ? purple5
+                        : gray7,
                     fontWeight: FontWeight.w500,
                   ),
                 ),

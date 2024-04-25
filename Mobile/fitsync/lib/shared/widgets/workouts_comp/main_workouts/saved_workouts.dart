@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../cubits_logic/navigation_page_cubit.dart';
+import '../../../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../colors/colors.dart';
+import '../../global/custom_image.dart';
 
 class SavedWorkOuts extends StatelessWidget {
   const SavedWorkOuts({super.key});
@@ -11,6 +15,7 @@ class SavedWorkOuts extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<WorkoutsCubit, WorkoutsState>(
       builder: (context, state) {
+        final providerFav = context.read<FavoriteWorkoutsCubit>();
         final provider = context.read<WorkoutsCubit>();
         return Column(
           children: [
@@ -27,13 +32,16 @@ class SavedWorkOuts extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    provider.showAllSavedWorkouts();
+                    providerFav.showAllSavedWorkouts();
+                    Future.delayed(const Duration(milliseconds: 500), () {
+                      context.read<NavigationPageCubit>().changePage(9);
+                    });
                   },
                   child: Text(
                     'View all',
                     style: GoogleFonts.poppins(
                       fontSize: 16,
-                      color: provider.viewAllFavorites ? purple2 : gray14,
+                      color: providerFav.viewAllFavorites ? purple2 : gray14,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -44,72 +52,79 @@ class SavedWorkOuts extends StatelessWidget {
             SizedBox(
               height: 180,
               child: ListView.separated(
-                itemCount: provider.viewAllFavorites
-                    ? provider.favoriteWorkouts!.length
-                    : 1,
+                itemCount: providerFav.favoriteWorkouts!.length,
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 separatorBuilder: (context, index) => const SizedBox(width: 30),
                 itemBuilder: (context, index) {
                   return Container(
-                    width: provider.viewAllFavorites
-                        ? 250
-                        : MediaQuery.of(context).size.width - 30,
+                    width: 250,
                     height: 180,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(12),
                       color: black,
-                      image: DecorationImage(
-                        opacity: 0.38,
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          provider.workoutsImages!['${index % 10}'],
-                        ),
-                      ),
                     ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: Stack(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 15),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: 180,
-                                child: Text(
-                                  provider.favoriteWorkouts![index].category,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 18,
-                                    color: white,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              SizedBox(
-                                width: provider.viewAllFavorites ? 130 : 210,
-                                child: Text(
-                                  'Finish this exercise in ${provider.favoriteWorkouts![index].planDurationMn} minutes',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12,
-                                    color: white,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                            ],
+                        Opacity(
+                          opacity: 0.5,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(12),
+                            child: CustomImage(
+                              imageUrl: provider.workoutsImages!['${index % 10}'],
+                              width: 250,
+                              height: 180,
+                              fit: BoxFit.cover,
+                              iconSize: 60,
+                              errorColor: red,
+                            ),
                           ),
                         ),
-                        const Padding(
-                          padding: EdgeInsets.only(top: 10, right: 10),
-                          child: Icon(
-                            Icons.favorite,
-                            color: white,
-                            size: 30,
-                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    width: 120,
+                                    child: Text(
+                                      providerFav.favoriteWorkouts![index].category,
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 18,
+                                        color: white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  SizedBox(
+                                    width: 130,
+                                    child: Text(
+                                      'Finish this exercise in ${providerFav.favoriteWorkouts![index].planDurationMn} minutes',
+                                      style: GoogleFonts.poppins(
+                                        fontSize: 12,
+                                        color: white,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.only(top: 10, right: 10),
+                              child: Icon(
+                                Icons.favorite,
+                                color: white,
+                                size: 30,
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),

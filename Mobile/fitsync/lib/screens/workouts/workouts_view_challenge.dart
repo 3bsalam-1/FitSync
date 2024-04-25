@@ -1,5 +1,6 @@
 import '../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../data/cubit/user_data/user_data_info_cubit.dart';
+import '../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../data/models/workouts_model.dart';
 import '../../shared/widgets/global/custom_image.dart';
 import '../home_main_screen.dart';
@@ -8,7 +9,6 @@ import '../../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../data/cubit/workouts/workouts_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_challenges_time.dart';
@@ -107,20 +107,18 @@ class WorkoutsViewChallenge extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        BlocBuilder<WorkoutsCubit, WorkoutsState>(
+                        BlocBuilder<FavoriteWorkoutsCubit, FavoriteWorkoutsState>(
                           builder: (context, state) {
-                            final provider = context.read<WorkoutsCubit>();
+                            final provider =
+                                context.read<FavoriteWorkoutsCubit>();
+                            final userData =
+                                context.read<UserDataInfoCubit>().userData!;
                             return IconButton(
                               onPressed: () {
-                                context
-                                    .read<WorkoutsCubit>()
-                                    .addWorkoutsToFavorites(
-                                      userId: context
-                                          .read<UserDataInfoCubit>()
-                                          .userData!
-                                          .userId,
-                                      workouts: workouts[workoutsIndex],
-                                    );
+                                provider.addWorkoutsToFavorites(
+                                  userId: userData.userId,
+                                  workouts: workouts[workoutsIndex],
+                                );
                               },
                               icon: Icon(
                                 Icons.favorite,
