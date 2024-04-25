@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../../../../cubits_logic/navigation_page_cubit.dart';
 import '../../../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
+import '../../../colors/colors.dart';
 import 'card_items.dart';
 import 'list_levels_mode.dart';
 import 'saved_workouts.dart';
@@ -28,7 +31,9 @@ class WorkOustBody extends StatelessWidget {
               separatorBuilder: (context, index) => const SizedBox(width: 20),
               itemBuilder: (context, index) => CardItems(
                 workoutIndex: index,
-                imagePath: context.read<WorkoutsCubit>().workoutsImages!['${index%10}'],
+                imagePath: context
+                    .read<WorkoutsCubit>()
+                    .workoutsImages!['${index % 10}'],
                 workouts: context.read<WorkoutsCubit>().dataLevel[index],
               ),
             ),
@@ -42,7 +47,54 @@ class WorkOustBody extends StatelessWidget {
             final provider = context.read<FavoriteWorkoutsCubit>();
             return provider.favoriteWorkouts!.isNotEmpty
                 ? const SavedWorkOuts()
-                : const SizedBox();
+                : Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'Saved Workouts',
+                            style: GoogleFonts.poppins(
+                              fontSize: 22,
+                              color: black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              provider.showAllSavedWorkouts();
+                              Future.delayed(const Duration(milliseconds: 500),
+                                  () {
+                                context
+                                    .read<NavigationPageCubit>()
+                                    .changePage(9);
+                              });
+                            },
+                            child: Text(
+                              'View all',
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                color: provider.viewAllFavorites
+                                    ? purple2
+                                    : gray14,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 50),
+                      Text(
+                        "There is NO saved workouts",
+                        style: GoogleFonts.poppins(
+                          fontSize: 17,
+                          color: gray14,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 80),
+                    ],
+                  );
           },
         ),
       ],

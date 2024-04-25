@@ -13,7 +13,7 @@ class SavedWorkOuts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<WorkoutsCubit, WorkoutsState>(
+    return BlocBuilder<FavoriteWorkoutsCubit, FavoriteWorkoutsState>(
       builder: (context, state) {
         final providerFav = context.read<FavoriteWorkoutsCubit>();
         final provider = context.read<WorkoutsCubit>();
