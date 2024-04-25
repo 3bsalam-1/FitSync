@@ -1,3 +1,4 @@
+import 'cubits_logic/diet_logic/filter_logic/cubit/filter_cubit.dart';
 import 'cubits_logic/new_token_cubit.dart';
 import 'cubits_logic/smart_watch/smart_watch_cubit.dart';
 import 'cubits_logic/splash_screen_next_cubit.dart';
@@ -52,8 +53,6 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SplashScreenNextCubit(),
-        ),
-        BlocProvider(
         ),
         BlocProvider(
           create: (context) => CounterCubit(),

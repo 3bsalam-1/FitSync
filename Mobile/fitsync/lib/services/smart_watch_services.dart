@@ -62,9 +62,9 @@ class SmartWatchServices {
       List<int> heartRateDays = [];
 
       final healthData = await Health().getHealthDataFromTypes(
-        DateTime.now().subtract(const Duration(days: 7)),
-        DateTime.now(),
-        [HealthDataType.HEART_RATE],
+        startTime: DateTime.now().subtract(const Duration(days: 7)),
+        endTime: DateTime.now(),
+        types: [HealthDataType.HEART_RATE],
       );
       heartRate = healthData
           .map(
@@ -88,9 +88,9 @@ class SmartWatchServices {
       List<int> bloodGlucoseDays = [];
 
       final healthData = await Health().getHealthDataFromTypes(
-        DateTime.now().subtract(const Duration(days: 7)),
-        DateTime.now(),
-        [HealthDataType.BLOOD_GLUCOSE],
+        startTime: DateTime.now().subtract(const Duration(days: 7)),
+        endTime: DateTime.now(),
+        types: [HealthDataType.BLOOD_GLUCOSE],
       );
       bloodGlucose = healthData
           .map(
@@ -114,9 +114,9 @@ class SmartWatchServices {
       List<int> bloodOxygenDays = [];
 
       final healthData = await Health().getHealthDataFromTypes(
-        DateTime.now().subtract(const Duration(days: 7)),
-        DateTime.now(),
-        [HealthDataType.BLOOD_OXYGEN],
+        types: [HealthDataType.BLOOD_OXYGEN],
+        startTime: DateTime.now().subtract(const Duration(days: 7)),
+        endTime: DateTime.now(),
       );
       bloodOxygen = healthData
           .map(
@@ -140,9 +140,9 @@ class SmartWatchServices {
       List<int> stepsDays = [];
 
       final healthData = await Health().getHealthDataFromTypes(
-        DateTime.now().subtract(const Duration(days: 7)),
-        DateTime.now(),
-        [HealthDataType.STEPS],
+        startTime: DateTime.now().subtract(const Duration(days: 7)),
+        endTime: DateTime.now(),
+        types: [HealthDataType.STEPS],
       );
       steps = healthData
           .map((item) => item.value.toJson()['numeric_value'] as int)
@@ -165,9 +165,9 @@ class SmartWatchServices {
       List<int> caloriesdays = [];
 
       final healthData = await Health().getHealthDataFromTypes(
-        DateTime.now().subtract(const Duration(days: 7)),
-        DateTime.now(),
-        [HealthDataType.ACTIVE_ENERGY_BURNED],
+        startTime: DateTime.now().subtract(const Duration(days: 7)),
+        endTime: DateTime.now(),
+        types: [HealthDataType.ACTIVE_ENERGY_BURNED],
       );
       calories = healthData
           .map(
@@ -192,9 +192,9 @@ class SmartWatchServices {
       List<int> sleepDays = [];
       double minute = 0;
       final healthData = await Health().getHealthDataFromTypes(
-        DateTime.now().subtract(const Duration(days: 7)),
-        DateTime.now(),
-        [HealthDataType.SLEEP_ASLEEP],
+        startTime: DateTime.now().subtract(const Duration(days: 7)),
+        endTime: DateTime.now(),
+        types: [HealthDataType.SLEEP_ASLEEP],
       );
       sleep = healthData.map((item) {
         minute = item.value.toJson()['numeric_value'] as double;
@@ -217,9 +217,9 @@ class SmartWatchServices {
       List<int> waterDays = [];
 
       final healthData = await Health().getHealthDataFromTypes(
-        DateTime.now().subtract(const Duration(days: 7)),
-        DateTime.now(),
-        [HealthDataType.WATER],
+        startTime: DateTime.now().subtract(const Duration(days: 7)),
+        endTime: DateTime.now(),
+        types: [HealthDataType.WATER],
       );
       water = healthData
           .map(
@@ -243,9 +243,9 @@ class SmartWatchServices {
       List<int> walkingDays = [];
 
       final healthData = await Health().getHealthDataFromTypes(
-        DateTime.now().subtract(const Duration(days: 7)),
-        DateTime.now(),
-        [HealthDataType.DISTANCE_DELTA],
+        startTime: DateTime.now().subtract(const Duration(days: 7)),
+        endTime: DateTime.now(),
+        types: [HealthDataType.DISTANCE_DELTA],
       );
       walking = healthData
           .map(

@@ -21,9 +21,10 @@ Future signInWithGoogle(context) async {
   );
   //print("name is ${googleUser!.displayName}");
   //print("email is ${googleUser.email}");
-  ContinueWithGoogle().continueWithGoogle(name: "${googleUser.displayName}", email: "${googleUser.email}", avatar: "${googleUser.photoUrl}");
+  ContinueWithGoogle().continueWithGoogle(name: "${googleUser.displayName}", email: googleUser.email, avatar: "${googleUser.photoUrl}");
   
   // Once signed in, return the UserCredential
   await FirebaseAuth.instance.signInWithCredential(credential);
-  AnimatedNavigator().pushAndRemoveUntil(context , HomePage());
+  // todo here add HomeMainScreen
+  AnimatedNavigator().pushAndRemoveUntil(context , const HomePage());
 }

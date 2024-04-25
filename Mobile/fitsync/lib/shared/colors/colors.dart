@@ -71,7 +71,6 @@ const Color orange = Color(0xffFF8C4C);
 const Color blue2 = Color(0xff0065D0);
 const Color dark = Color(0xff494949);
 const Color purple9 = Color(0xffE4DDFD);
-const Color purple9 = Color(0xffE4DDFD);
 const Color gray24 = Color(0xffB8B8B8);
 const Color gold2 = Color(0xffF8B704);
 const Color gold3 = Color(0xffF8FD08);
