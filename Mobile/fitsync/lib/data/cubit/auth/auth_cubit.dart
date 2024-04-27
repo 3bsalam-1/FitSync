@@ -65,7 +65,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setString('token', response.token!);
             Prefs.setString('email', email.text);
             Prefs.setString('password', password.text);
-            emit(AuthSuccess('Creating your plan'));
+            emit(AuthSuccess('Login Successfully'));
             Future.delayed(
               const Duration(seconds: 3),
               () {
@@ -107,7 +107,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
             Prefs.setString('token', response.token!);
             Prefs.setString('email', email.text);
             Prefs.setString('password', password.text);
-            emit(AuthSuccess('Creating your plan'));
+            emit(AuthSuccess('The code has sent to your email'));
             Future.delayed(
               const Duration(seconds: 3),
               () {

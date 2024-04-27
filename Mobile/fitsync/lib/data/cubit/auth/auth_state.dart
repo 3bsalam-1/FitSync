@@ -48,7 +48,7 @@ final class AuthSuccess extends AuthCubitState {
           title: 'Success message',
           subTitle: message,
           backColor: green4,
-          icon: Icons.check,
+          icon: FontAwesomeIcons.circleCheck,
         ),
       ),
     );
