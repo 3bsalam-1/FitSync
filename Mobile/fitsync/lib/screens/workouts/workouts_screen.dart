@@ -1,10 +1,12 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../cubits_logic/global/internet_connectivity_cubit.dart';
 import '../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../data/cubit/workouts/workouts_cubit.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/global/error_internet_connection.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/skeleton_workouts.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/workouts_body.dart';
@@ -47,26 +49,33 @@ class WorkoutsScreen extends StatelessWidget {
           ],
         ),
         backgroundColor: white,
-        body: BlocBuilder<WorkoutsCubit, WorkoutsState>(
+        body: BlocBuilder<InternetConnectivityCubit, InternetConnectivityState>(
           builder: (context, state) {
-            context.read<FavoriteWorkoutsCubit>().setFavoriteToInitial();
-            final provider = context.read<WorkoutsCubit>();
-            if (provider.allworkouts != null &&
-                provider.data != null &&
-                provider.challenges != null) {
-              return const SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
-                  child: Column(
-                    children: [
-                      CustomDayItem(),
-                      WorkOustBody(),
-                    ],
-                  ),
-                ),
+            if (state is InternetConnectivityON) {
+              return BlocBuilder<WorkoutsCubit, WorkoutsState>(
+                builder: (context, state) {
+                  context.read<FavoriteWorkoutsCubit>().setFavoriteToInitial();
+                  final provider = context.read<WorkoutsCubit>();
+                  if (provider.allworkouts != null &&
+                      provider.data != null &&
+                      provider.challenges != null) {
+                    return const SingleChildScrollView(
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        child: Column(
+                          children: [
+                            CustomDayItem(),
+                            WorkOustBody(),
+                          ],
+                        ),
+                      ),
+                    );
+                  }
+                  return const SkeletonWorkouts();
+                },
               );
             }
-            return const SkeletonWorkouts();
+            return const ErrorInternetConnection();
           },
         ),
       ),

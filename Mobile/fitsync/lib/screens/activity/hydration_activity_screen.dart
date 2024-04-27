@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../cubits_logic/navigation_page_cubit.dart';
+import '../../cubits_logic/global/navigation_page_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/hydration_comp/draggable_scroll_hydration.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';

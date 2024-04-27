@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../cubits_logic/global/internet_connectivity_cubit.dart';
 import '../../data/cubit/user_data/avatar_profile_cubit.dart';
 import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/global/error_internet_connection.dart';
 import '../../shared/widgets/profile_comp.dart/profile_setting/profile_avatar_edit.dart';
 import '../../shared/widgets/profile_comp.dart/profile_setting/profile_user_info.dart';
 import '../../shared/widgets/profile_comp.dart/profile_setting/skeleton_profile_info.dart';
@@ -52,33 +55,41 @@ class ProfileInformationScreen extends StatelessWidget {
           ),
           elevation: 0,
         ),
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                purple,
-                purple2,
-                cyan,
-              ],
-              begin: Alignment.centerRight,
-              end: Alignment.centerLeft,
-            ),
-          ),
-          child: BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
-            builder: (context, state) {
-              if (state is UserDataSuccess) {
-                return const Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    ProfileAvatarEdit(),
-                    ProfileUserInfo(),
-                  ],
-                );
-              }
-              return const SkeletonProfileInfo();
-            },
-          ),
+        backgroundColor: white,
+        body: BlocBuilder<InternetConnectivityCubit, InternetConnectivityState>(
+          builder: (context, state) {
+            if (state is InternetConnectivityON) {
+              return Container(
+                decoration: const BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      purple,
+                      purple2,
+                      cyan,
+                    ],
+                    begin: Alignment.centerRight,
+                    end: Alignment.centerLeft,
+                  ),
+                ),
+                child: BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
+                  builder: (context, state) {
+                    if (state is UserDataSuccess) {
+                      return const Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          ProfileAvatarEdit(),
+                          ProfileUserInfo(),
+                        ],
+                      );
+                    }
+                    return const SkeletonProfileInfo();
+                  },
+                ),
+              );
+            }
+            return const Center(child: ErrorInternetConnection());
+          },
         ),
       ),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../cubits_logic/navigation_page_cubit.dart';
+import '../../../cubits_logic/global/navigation_page_cubit.dart';
 import '../../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';

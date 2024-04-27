@@ -1,5 +1,6 @@
 import 'cubits_logic/diet_logic/filter_logic/cubit/filter_cubit.dart';
-import 'cubits_logic/new_token_cubit.dart';
+import 'cubits_logic/global/internet_connectivity_cubit.dart';
+import 'cubits_logic/global/new_token_cubit.dart';
 import 'cubits_logic/smart_watch/smart_watch_cubit.dart';
 import 'cubits_logic/splash_screen_next_cubit.dart';
 import 'cubits_logic/diet_logic/counter/counter_cubit.dart';
@@ -7,7 +8,7 @@ import 'cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.da
 import 'cubits_logic/diet_logic/favoriteIcon/cubit/favourite_icon_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'cubits_logic/navigation_page_cubit.dart';
+import 'cubits_logic/global/navigation_page_cubit.dart';
 import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import 'cubits_logic/workouts/counter_time_challenges.dart';
@@ -93,6 +94,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => FiltersWorkoutsCubit(),
+        ),
+        BlocProvider(
+          create: (context) => InternetConnectivityCubit(),
         ),
       ],
       child: const MaterialApp(

@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../cubits_logic/navigation_page_cubit.dart';
+import '../../cubits_logic/global/navigation_page_cubit.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import '../../shared/widgets/activity_comp/sleep_comp/draggable_scroll_sleep.dart';

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../cubits_logic/navigation_page_cubit.dart';
+import '../../../cubits_logic/global/navigation_page_cubit.dart';
 import '../../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
