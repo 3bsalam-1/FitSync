@@ -36,7 +36,7 @@ class ActivityMainScreen extends StatelessWidget {
               context.read<NavigationPageCubit>().changePage(pageIndex + 5);
             },
             child: const Icon(
-              Icons.menu_outlined,
+              Icons.format_align_left_sharp,
               color: purple2,
             ),
           ),

@@ -18,12 +18,14 @@ class WorkoutsViewChallenge extends StatelessWidget {
   final int workoutsIndex;
   final String imagePath;
   final List<WorkoutsModel> workouts;
-
+  final Widget popScreen;
+  
   const WorkoutsViewChallenge({
     super.key,
     required this.workoutsIndex,
     required this.workouts,
     required this.imagePath,
+    this.popScreen = const HomeMainScreen(),
   });
 
   @override
@@ -56,7 +58,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
                 onPressed: () {
                   AnimatedNavigator().pushAndRemoveUntil(
                     context,
-                    const HomeMainScreen(),
+                    popScreen,
                   );
                 },
                 icon: Container(
@@ -107,7 +109,8 @@ class WorkoutsViewChallenge extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        BlocBuilder<FavoriteWorkoutsCubit, FavoriteWorkoutsState>(
+                        BlocBuilder<FavoriteWorkoutsCubit,
+                            FavoriteWorkoutsState>(
                           builder: (context, state) {
                             final provider =
                                 context.read<FavoriteWorkoutsCubit>();

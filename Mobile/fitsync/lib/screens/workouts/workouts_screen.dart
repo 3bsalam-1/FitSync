@@ -19,6 +19,7 @@ class WorkoutsScreen extends StatelessWidget {
       canPop: false,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           scrolledUnderElevation: 0,
           backgroundColor: white,
           leading: null,
@@ -39,7 +40,7 @@ class WorkoutsScreen extends StatelessWidget {
                 );
               },
               icon: const Icon(
-                Icons.menu_outlined,
+                Icons.format_align_left_sharp,
                 color: purple2,
               ),
             ),

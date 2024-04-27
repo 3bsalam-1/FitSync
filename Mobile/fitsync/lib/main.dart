@@ -16,6 +16,7 @@ import 'cubits_logic/workouts/week_dates.dart';
 import 'data/cubit/auth/auth_cubit.dart';
 import 'data/cubit/user_data/user_data_info_cubit.dart';
 import 'data/cubit/workouts/favorite_workouts_cubit.dart';
+import 'data/cubit/workouts/filters_workouts_cubit.dart';
 import 'data/cubit/workouts/workouts_cubit.dart';
 import 'screens/splash/splash_screen.dart';
 import 'services/pref.dart';
@@ -78,7 +79,8 @@ class MyApp extends StatelessWidget {
           create: (context) => CounterTimeChallenges(),
         ),
         BlocProvider(
-          create: (context) => SmartWatchCubit()..intializeSmartWatchConnection(),
+          create: (context) =>
+              SmartWatchCubit()..intializeSmartWatchConnection(),
         ),
         BlocProvider(
           create: (context) => FilterCubit(),
@@ -88,6 +90,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => FavoriteWorkoutsCubit(),
+        ),
+        BlocProvider(
+          create: (context) => FiltersWorkoutsCubit(),
         ),
       ],
       child: const MaterialApp(
