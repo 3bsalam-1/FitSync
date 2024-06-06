@@ -96,20 +96,21 @@ class HomePage extends StatelessWidget {
               BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
                 builder: (context, state) {
                   final userData = context.read<UserDataInfoCubit>().userData;
+                  var date = userData?.birthdate.year;
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       CustomPropertiesCard(
-                        label1: "${userData?.height ?? "0"}cm",
+                        label1: "${userData?.height ?? "_"}cm",
                         label2: "Height",
                       ),
                       CustomPropertiesCard(
-                        label1: "${userData?.weight ?? "0"}kg",
+                        label1: "${userData?.weight ?? "_"}kg",
                         label2: "Weight",
                       ),
                       CustomPropertiesCard(
                         label1:
-                            "${DateTime.now().year - userData!.birthdate.year}yo",
+                            "${date != null ? DateTime.now().year - date : "_"}yo",
                         label2: "Age",
                       ),
                     ],
