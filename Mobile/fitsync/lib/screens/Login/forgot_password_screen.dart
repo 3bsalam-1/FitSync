@@ -32,7 +32,9 @@ class ForgotPasswordPage extends StatelessWidget {
         ),
         body: BlocConsumer<AuthCubit, AuthCubitState>(
           listener: (context, state) {
-            if (state is AuthLoading) {
+            if (state is InternetConnectivityOFF) {
+              state.showConnectionError(context);
+            } else if (state is AuthLoading) {
               state.showLoadingDialog(context);
             } else if (state is AuthSuccess) {
               state.showSucceussdialog(context);

@@ -33,7 +33,9 @@ class NewPasswordScreen extends StatelessWidget {
         ),
         body: BlocConsumer<AuthCubit, AuthCubitState>(
           listener: (context, state) {
-            if (state is AuthLoading) {
+            if (state is InternetConnectivityOFF) {
+              state.showConnectionError(context);
+            } else if (state is AuthLoading) {
               state.showLoadingDialog(context);
             } else if (state is AuthFaliure) {
               state.showFaliure(context);
