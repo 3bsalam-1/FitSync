@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ParametersTextFormField extends StatelessWidget {
-  String label;
-  ParametersTextFormField({
+  final String label;
+  
+  const ParametersTextFormField({
     required this.label,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width * (386 / 428),
       height: MediaQuery.of(context).size.height * (55 / 926),
       child: TextFormField(
@@ -21,7 +22,7 @@ class ParametersTextFormField extends StatelessWidget {
             color: black,
           ),
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.only(left: 15),
+            contentPadding: const EdgeInsets.only(left: 15),
             suffix: Padding(
               padding: const EdgeInsets.only(right: 15),
               child: Text(
@@ -35,12 +36,12 @@ class ParametersTextFormField extends StatelessWidget {
             ),
 
             focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: purple4, width: 1.5),
+              borderSide: const BorderSide(color: purple4, width: 1.5),
               borderRadius: BorderRadius.circular(10),
             ),
 
             enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: gray9, width: 1.5),
+              borderSide: const BorderSide(color: gray9, width: 1.5),
               borderRadius: BorderRadius.circular(10),
             ),
             // border:

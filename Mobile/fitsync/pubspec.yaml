@@ -58,7 +58,6 @@ dependencies:
   google_sign_in: ^6.2.1
   connectivity_plus: ^6.0.3
   
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -69,9 +68,14 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^3.0.1
+  flutter_launcher_icons: ^0.13.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/Icons/app_icon.png"
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -84,7 +88,6 @@ flutter:
   assets:
     - assets/images/
     - assets/images/Icons/
-    - assets/images/wourkouts_list/
     - assets/images/survey/
     - assets/images/splash/
     - assets/images/Notifications_Images/

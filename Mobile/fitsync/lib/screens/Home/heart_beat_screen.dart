@@ -1,4 +1,3 @@
-import 'package:fitsync/screens/home_main_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
@@ -9,7 +8,7 @@ import 'package:iconly/iconly.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class HeartBeatScreen extends StatelessWidget {
-  HeartBeatScreen({super.key});
+  const HeartBeatScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,8 +19,8 @@ class HeartBeatScreen extends StatelessWidget {
             onPressed: () {
               AnimatedNavigator().pop(context);
             },
-            icon: Padding(
-              padding: const EdgeInsets.only(left: 8),
+            icon: const Padding(
+              padding: EdgeInsets.only(left: 8),
               child: Icon(
                 Icons.arrow_circle_left,
                 color: purple3,
@@ -38,9 +37,9 @@ class HeartBeatScreen extends StatelessWidget {
             ),
           ),
         ),
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 20),
+            padding: EdgeInsets.only(right: 20),
             child: UserWidget(),
           )
         ],
@@ -48,7 +47,7 @@ class HeartBeatScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 40,
           ),
           CircularPercentIndicator(
@@ -61,15 +60,15 @@ class HeartBeatScreen extends StatelessWidget {
             // progressColor: red3,
             center: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                Icon(
+                const Icon(
                   IconlyBold.heart,
                   size: 30,
                   color: red6,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Text(
@@ -115,7 +114,7 @@ class HeartBeatScreen extends StatelessWidget {
                             color: black,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         Text(
@@ -128,7 +127,7 @@ class HeartBeatScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     Text(
@@ -143,10 +142,10 @@ class HeartBeatScreen extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(left: 10, right: 10),
+                margin: const EdgeInsets.only(left: 10, right: 10),
                 height: 60,
                 width: 45,
-                child: VerticalDivider(
+                child: const VerticalDivider(
                   thickness: 1,
                   color: gray18,
                   indent: 5,
@@ -166,7 +165,7 @@ class HeartBeatScreen extends StatelessWidget {
                           color: black,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
@@ -179,7 +178,7 @@ class HeartBeatScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 5,
                   ),
                   Text(

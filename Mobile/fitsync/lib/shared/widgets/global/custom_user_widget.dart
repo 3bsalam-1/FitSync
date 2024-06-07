@@ -23,7 +23,7 @@ class UserWidget extends StatelessWidget {
           width: 50,
           height: 50,
           fit: BoxFit.fill,
-          iconSize: 30,
+          iconSize: 20,
           errorColor: red,
         ),
       ),

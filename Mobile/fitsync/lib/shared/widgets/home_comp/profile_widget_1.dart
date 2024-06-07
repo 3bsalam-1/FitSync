@@ -4,12 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
 class ProfileWidget1 extends StatelessWidget {
-  String imageUrl;
-  String label;
+  final String imageUrl;
+  final String label;
   final double scale;
-  double? w;
+  final double? w;
   final void Function()? onTap;
-  ProfileWidget1({
+  
+  const ProfileWidget1({
     required this.imageUrl,
     required this.label,
     required this.scale,
@@ -43,10 +44,10 @@ class ProfileWidget1 extends StatelessWidget {
             textAlign: TextAlign.justify,
           ),
         ),
-        Spacer(),
+        const Spacer(),
         IconButton(
             onPressed: onTap,
-            icon: Icon(
+            icon: const Icon(
               IconlyLight.arrow_right_2,
               color: purple5,
               weight: 25,
