@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/global/internet_connectivity_cubit.dart';
@@ -7,6 +6,7 @@ import '../../data/cubit/user_data/avatar_profile_cubit.dart';
 import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/error_internet_connection.dart';
 import '../../shared/widgets/profile_comp.dart/profile_setting/profile_avatar_edit.dart';
 import '../../shared/widgets/profile_comp.dart/profile_setting/profile_user_info.dart';
@@ -21,23 +21,27 @@ class ProfileInformationScreen extends StatelessWidget {
       create: (context) => AvatarProfileCubit(),
       child: Scaffold(
         appBar: AppBar(
-          title: Text(
-            'Profile',
-            style: GoogleFonts.poppins(
-              fontSize: 22,
-              color: white,
-              fontWeight: FontWeight.w600,
+          title: CustomAnimatedOpacity(
+            child: Text(
+              'Profile',
+              style: GoogleFonts.poppins(
+                fontSize: 22,
+                color: white,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
           centerTitle: true,
-          leading: IconButton(
-            onPressed: () {
-              AnimatedNavigator().pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_circle_left,
-              color: white,
-              size: 37,
+          leading: CustomAnimatedOpacity(
+            child: IconButton(
+              onPressed: () {
+                AnimatedNavigator().pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_circle_left,
+                color: white,
+                size: 37,
+              ),
             ),
           ),
           flexibleSpace: Container(

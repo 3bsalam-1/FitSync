@@ -47,7 +47,7 @@ final class AuthSuccess extends AuthCubitState {
         content: CustomSnackbarMessage(
           title: 'Success message',
           subTitle: message,
-          backColor: green4,
+          backColor: green2,
           icon: FontAwesomeIcons.circleCheck,
         ),
       ),

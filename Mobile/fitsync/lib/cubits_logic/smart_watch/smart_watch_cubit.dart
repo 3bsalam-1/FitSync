@@ -17,10 +17,12 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
   SmartWatchModel? smartWatchData;
   late PermissionStatus isAccept;
 
-  void intializeSmartWatchConnection() async {
-    isAccept = await watchService.initSmartWatch();
-    Prefs.setBool("watch-permission", true);
-    emit(SmartWatchConnection());
+  void intializeSmartWatchConnection() {
+    watchService.initSmartWatch().then((value) {
+      isAccept = value;
+      Prefs.setBool("watch-permission", true);
+      emit(SmartWatchConnection());
+    });
   }
 
   void isSmartWatchConnected() {
