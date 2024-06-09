@@ -18,6 +18,9 @@ class SmartWatchServices {
   Future<PermissionStatus> initSmartWatch() async {
     var isAccept = await Permission.activityRecognition.request();
     await Permission.location.request();
+    if (isAccept == PermissionStatus.denied) {
+      await Permission.location.request();
+    } 
     await Health().configure(useHealthConnectIfAvailable: true);
     return isAccept;
   }
@@ -33,7 +36,6 @@ class SmartWatchServices {
       Map<String, dynamic> water = await getWaterData();
       Map<String, dynamic> steps = await getStepsData();
       Map<String, dynamic> walking = await getWalkingData();
-
       return SmartWatchModel(
         heartRate: heartRate['value'],
         heartRateDay: heartRate['day'],

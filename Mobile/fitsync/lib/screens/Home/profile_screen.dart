@@ -49,6 +49,10 @@ class ProfilePage extends StatelessWidget {
         listener: (context, state) {
           if (state is SmartWatchConnection) {
             context.read<SmartWatchCubit>().getSmartWatchData();
+            state.showSucceussdialog(context);
+          }
+          if (state is SmartWatchHaveData) {
+            state.showSucceussdialog(context);
           }
         },
         child: CustomAnimatedOpacity(
@@ -67,7 +71,8 @@ class ProfilePage extends StatelessWidget {
                 label: "Edit Profile",
                 icon: IconlyLight.edit_square,
                 onPressed: () {
-                  AnimatedNavigator().push(context, const ProfileInformationScreen());
+                  AnimatedNavigator()
+                      .push(context, const ProfileInformationScreen());
                 },
               ),
               const Divider(
@@ -91,7 +96,14 @@ class ProfilePage extends StatelessWidget {
                 label: "Connect with smartwatch",
                 scale: 24,
                 onTap: () {
-                  context.read<SmartWatchCubit>().intializeSmartWatchConnection();
+                  var data = context.read<SmartWatchCubit>().smartWatchData;
+                  if (data == null) {
+                    context
+                        .read<SmartWatchCubit>()
+                        .intializeSmartWatchConnection();
+                  } else {
+                    context.read<SmartWatchCubit>().isThereData();
+                  }
                 },
               ),
               const Divider(
