@@ -85,10 +85,10 @@ packages:
     dependency: transitive
     description:
       name: carp_serializable
-      sha256: "9d3faf463e27831a36f01265ea937b75194690494954b6c0926a55c89a6a2f7a"
+      sha256: bd72f3e7521cfac78c2b34762d9240bded1bebe0c6e615703a516705a3a983a0
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.1"
+    version: "1.2.0"
   characters:
     dependency: transitive
     description:

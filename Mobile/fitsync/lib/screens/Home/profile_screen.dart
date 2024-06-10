@@ -49,7 +49,6 @@ class ProfilePage extends StatelessWidget {
         listener: (context, state) {
           if (state is SmartWatchConnection) {
             context.read<SmartWatchCubit>().getSmartWatchData();
-            state.showSucceussdialog(context);
           }
           if (state is SmartWatchHaveData) {
             state.showSucceussdialog(context);

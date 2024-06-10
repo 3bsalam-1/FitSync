@@ -14,19 +14,20 @@ class SmartWatchServices {
     HealthDataType.WATER,
     HealthDataType.DISTANCE_DELTA,
   ];
+  bool requested = false;
 
   Future<PermissionStatus> initSmartWatch() async {
     var isAccept = await Permission.activityRecognition.request();
     await Permission.location.request();
     if (isAccept == PermissionStatus.denied) {
       await Permission.location.request();
-    } 
+    }
     await Health().configure(useHealthConnectIfAvailable: true);
+    requested = await Health().requestAuthorization(types);
     return isAccept;
   }
 
   Future<SmartWatchModel?> getSmartWatchData() async {
-    bool requested = await Health().requestAuthorization(types);
     if (requested) {
       Map<String, dynamic> heartRate = await getHeartRateData();
       Map<String, dynamic> bloodOxygen = await getBloodGlucoseData();
