@@ -96,8 +96,7 @@ class ProfilePage extends StatelessWidget {
                 label: "Connect with smartwatch",
                 scale: 24,
                 onTap: () {
-                  context.read<SmartWatchCubit>().isSmartWatchConnected();
-                  
+                  context.read<SmartWatchCubit>().intializeSmartWatchConnection();
                 },
               ),
               const Divider(

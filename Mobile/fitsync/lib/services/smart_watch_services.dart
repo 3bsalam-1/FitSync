@@ -21,35 +21,38 @@ class SmartWatchServices {
   Future<bool> initSmartWatch() async {
     permission = await HealthConnectFactory.hasPermissions(types);
     if (!permission) {
-      permission = await HealthConnectFactory.requestPermissions(types);
-    }
+      await HealthConnectFactory.requestPermissions(types);
+      permission = await HealthConnectFactory.hasPermissions(types); 
+    } 
     return permission;
   }
 
-  Future<SmartWatchModel?> getSmartWatchData([int startDay = 1, int endDay = 0]) async {
+  Future<SmartWatchModel?> getSmartWatchData(
+      [int startDay = 1, int endDay = 0]) async {
     var bloodGlucose = await getBloodGlucoseData(startDay, endDay);
     var heartRate = await getHeartRateData(startDay, endDay);
-    Map<String, num>? bloodPressure = await getBloodPressureData(startDay, endDay);
+    Map<String, num>? bloodPressure =
+        await getBloodPressureData(startDay, endDay);
     Map<String, num>? distance = await getDistanceData(startDay, endDay);
     var steps = await getStepsData(startDay, endDay);
     var calories = await getCaloriesData(startDay, endDay);
     var sleep = await getSleepData(startDay, endDay);
     Map<String, num>? water = await getWaterData(startDay, endDay);
     var bloodOxygen = await getBloodOxygenData(startDay, endDay);
-    
+
     return SmartWatchModel(
-      heartRate: heartRate?? 0,
-      bloodOxygen: bloodOxygen?? 0,
-      bloodGlucose: bloodGlucose?? 0,
-      systolic: bloodPressure?["systolic"]?? 0,
-      diastolic: bloodPressure?["diastolic"]?? 0,
-      calories: calories?? 0,
-      sleep: sleep?? 0,
-      waterML: water?["waterML"]?? 0,
-      waterL: water?["waterL"]?? 0,
-      steps: steps?? 0,
-      distanceM: distance?["meters"]?? 0,
-      distanceKM: distance?["kilometers"]?? 0,
+      heartRate: heartRate ?? 0,
+      bloodOxygen: bloodOxygen ?? 0,
+      bloodGlucose: bloodGlucose ?? 0,
+      systolic: bloodPressure?["systolic"] ?? 0,
+      diastolic: bloodPressure?["diastolic"] ?? 0,
+      calories: calories ?? 0,
+      sleep: sleep ?? 0,
+      waterML: water?["waterML"] ?? 0,
+      waterL: water?["waterL"] ?? 0,
+      steps: steps ?? 0,
+      distanceM: distance?["meters"] ?? 0,
+      distanceKM: distance?["kilometers"] ?? 0,
     );
   }
 

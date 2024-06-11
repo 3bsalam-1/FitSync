@@ -64,13 +64,14 @@ class ActivityMainScreen extends StatelessWidget {
                     CustomChartColumn(
                       title: 'Sleep',
                       value: '${data == null ? '0' : data.sleep} hours',
-                      subTitle: 'The total sleep hours in one week is ${weekData?.totalSleep?? "_"} hours',
+                      subTitle:
+                          'The total sleep hours in one week is ${weekData?.totalSleep ?? "_"} hours',
                       onPressed: () {
                         // todo
                       },
                       labelFormat: '{value}:00',
                       increaseData: 0.45,
-                      interval: 2,
+                      interval: 4,
                       maxYlabel: 20,
                       minYlabel: 0,
                       data: weekData?.weekDataSleep,
@@ -79,42 +80,41 @@ class ActivityMainScreen extends StatelessWidget {
                       title: 'Steps',
                       value: '${data == null ? '0' : data.distanceM} m',
                       subTitle:
-                          'The total steps in one week is ${weekData?.totalSteps?? "_"} steps',
+                          'The total steps in one week is ${weekData?.totalSteps ?? "_"} steps',
                       onPressed: () {
                         // todo
                       },
-                      maxYlabel: 100,
+                      maxYlabel: 2500,
                       minYlabel: 0,
-                      interval: 20,
+                      interval: 400,
                       increaseData: 2,
                       data: weekData?.weekDataSteps,
                     ),
                     CustomChartColumn(
-                      title: 'Water',
-                      value: '${data == null ? '0' : data.waterL} L',
-                      subTitle:
-                          'The water intake in one week is ${weekData?.totalWater?? "_"} L',
-                      onPressed: () {
-                        // todo
-                      },
-                      labelFormat: '{value}L',
-                      maxYlabel: 10,
-                      minYlabel: 0,
-                      interval: 2,
-                      increaseData: 0.5,
-                      data: weekData?.weekDataWater
-                    ),
+                        title: 'Water',
+                        value: '${data == null ? '0' : data.waterL} L',
+                        subTitle:
+                            'The water intake in one week is ${weekData?.totalWater ?? "_"} L',
+                        onPressed: () {
+                          // todo
+                        },
+                        labelFormat: '{value}L',
+                        maxYlabel: 10,
+                        minYlabel: 0,
+                        interval: 2,
+                        increaseData: 0.5,
+                        data: weekData?.weekDataWater),
                     CustomChartColumn(
                       title: 'Calories',
                       value:
                           '${data == null ? '0' : data.calories.toStringAsFixed(2)} kcal',
                       subTitle:
-                          'The total calories in one week is ${weekData?.totalCalories} kcal',
+                          'The total calories in one week is ${weekData?.totalCalories ?? "_"} kcal',
                       onPressed: () {
                         // todo
                       },
-                      interval: 200,
-                      maxYlabel: 600,
+                      interval: 150,
+                      maxYlabel: 800,
                       minYlabel: 0,
                       increaseData: 25,
                       data: weekData?.weekDataCalories,

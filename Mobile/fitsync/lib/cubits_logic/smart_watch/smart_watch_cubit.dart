@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_health_connect/flutter_health_connect.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../../data/models/smart_watch_model.dart';
 import '../../services/isolate_service.dart';
@@ -20,11 +21,14 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
   late PermissionStatus isAccept;
 
   void intializeSmartWatchConnection() {
-    watchService.initSmartWatch().then((value) {
-      if (value) {
-        Prefs.setBool("watch-permission", true);
-        emit(SmartWatchConnection());
+    watchService.initSmartWatch().then((value) async {
+      if (!value) {
+        await HealthConnectFactory.openHealthConnectSettings();
+        value = await watchService.initSmartWatch();
       }
+      Prefs.setBool("watch-permission", value);
+      emit(SmartWatchConnection());
+      isSmartWatchConnected();
     });
   }
 
@@ -32,11 +36,7 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
     if (Prefs.getBool("watch-permission") != null) {
       if (Prefs.getBool("watch-permission")!) {
         emit(SmartWatchAlreadyConnected());
-      } else {
-        intializeSmartWatchConnection();
       }
-    } else {
-      intializeSmartWatchConnection();
     }
   }
 
@@ -45,11 +45,15 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
     if (Prefs.getBool("watch-permission") != null) {
       if (Prefs.getBool("watch-permission")!) {
         smartWatchData = await watchService.getSmartWatchData();
-        smartWatchWeek = await showSmartWatchDataWeekly();
         if (smartWatchData != null) {
           emit(SmartWatchData());
         }
       }
     }
+  }
+
+  void getSmartWatchDataWeekly() async {
+    smartWatchWeek = await showSmartWatchDataWeekly();
+    emit(SmartWatchData());
   }
 }

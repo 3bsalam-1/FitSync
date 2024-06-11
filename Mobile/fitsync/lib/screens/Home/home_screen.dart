@@ -92,7 +92,8 @@ class HomePage extends StatelessWidget {
           child: CustomAnimatedOpacity(
             child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
               builder: (context, state) {
-                final smartData = context.read<SmartWatchCubit>().smartWatchData;
+                final smartData =
+                    context.read<SmartWatchCubit>().smartWatchData;
                 return Column(children: [
                   const SizedBox(
                     height: 15,
@@ -185,9 +186,12 @@ class HomePage extends StatelessWidget {
                                         height: 120,
                                         width: 120,
                                         child: CircularProgressIndicator(
-                                          value: (value <= (smartData?.calories?? 0) / 100)
+                                          value: (value <=
+                                                  (smartData?.calories ?? 0) /
+                                                      100)
                                               ? value
-                                              : (smartData?.calories?? 0) / 100,
+                                              : (smartData?.calories ?? 0) /
+                                                  100,
                                           backgroundColor: gray21,
                                           color: white,
                                           strokeWidth: 12.0,
@@ -299,7 +303,8 @@ class HomePage extends StatelessWidget {
                                 radius: MediaQuery.of(context).size.width *
                                     (57 / 428),
                                 lineWidth: 6.0,
-                                percent: (smartData?.steps.toDouble() ?? 0 / 30000),
+                                percent: ((smartData?.steps.toDouble() ?? 0) /
+                                    30000),
                                 progressColor: purple5,
                                 circularStrokeCap: CircularStrokeCap.round,
                                 center: Column(
@@ -380,8 +385,7 @@ class HomePage extends StatelessWidget {
                                             left: 24.53, top: 4),
                                         child: RichText(
                                           text: TextSpan(
-                                            text:
-                                                "${smartData?.sleep ?? "0"}",
+                                            text: "${smartData?.sleep ?? "0"}",
                                             style: GoogleFonts.poppins(
                                               fontWeight: FontWeight.w600,
                                               fontSize: 14,
@@ -553,7 +557,7 @@ class HomePage extends StatelessWidget {
                                         padding: const EdgeInsets.only(
                                             left: 24.53, top: 4),
                                         child: Text(
-                                          "${smartData?.waterL ?? "_"} L",
+                                          "${smartData?.waterL.floorToDouble() ?? "_"} L",
                                           style: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w600,
                                             fontSize: 12,
