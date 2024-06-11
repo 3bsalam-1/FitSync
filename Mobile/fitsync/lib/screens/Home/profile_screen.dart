@@ -50,7 +50,8 @@ class ProfilePage extends StatelessWidget {
           if (state is SmartWatchConnection) {
             context.read<SmartWatchCubit>().getSmartWatchData();
           }
-          if (state is SmartWatchHaveData) {
+          if (state is SmartWatchAlreadyConnected) {
+            context.read<SmartWatchCubit>().getSmartWatchData();
             state.showSucceussdialog(context);
           }
         },
@@ -95,14 +96,8 @@ class ProfilePage extends StatelessWidget {
                 label: "Connect with smartwatch",
                 scale: 24,
                 onTap: () {
-                  var data = context.read<SmartWatchCubit>().smartWatchData;
-                  if (data == null) {
-                    context
-                        .read<SmartWatchCubit>()
-                        .intializeSmartWatchConnection();
-                  } else {
-                    context.read<SmartWatchCubit>().isThereData();
-                  }
+                  context.read<SmartWatchCubit>().isSmartWatchConnected();
+                  
                 },
               ),
               const Divider(

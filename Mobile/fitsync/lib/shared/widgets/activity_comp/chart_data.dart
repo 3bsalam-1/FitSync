@@ -1,3 +1,7 @@
+import '../../../services/smart_watch_services.dart';
+
+final smartWatch = SmartWatchServices();
+
 class ChartData {
   ChartData(this.x, this.y);
 
@@ -5,62 +9,77 @@ class ChartData {
   final dynamic y;
 }
 
-List<ChartData> dataSteps = [
-  ChartData('Sun', 6000),
-  ChartData('Mon', 7000),
-  ChartData('Tues', 8000),
-  ChartData('Wed', 6000),
-  ChartData('Thurs', 8000),
-  ChartData('Fri', 4800),
-  ChartData('Sat', 8500),
-];
+class SmartWatchWeekData {
+  final List<ChartData> weekDataSleep;
+  final List<ChartData> weekDataSteps;
+  final List<ChartData> weekDataWater;
+  final List<ChartData> weekDataCalories;
+  final double totalSleep;
+  final double totalSteps;
+  final double totalWater;
+  final double totalCalories;
 
-List<ChartData> showSmartWatchDataWeekly(
-  List<double>? dataValues,
-  List<int>? dataDays,
-) {
-  List<double> heartRateAve = [];
-  List<int> days = [];
-  List<String> weeks = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-  List<ChartData> weekData = [];
-  late int index;
-
-  if (dataDays != null && dataValues != null) {
-    if (dataDays.isNotEmpty) {
-      days = dataDays.toSet().toList();
-      for (int day in days) {
-        index = dataDays.indexOf(day);
-        if (index != -1) {
-          heartRateAve.add(dataValues[index]);
-        }
-      }
-    }
-  }
-
-  int indexDay = 0;
-  bool isFound = false;
-  for (int i = 0; i < weeks.length; i++) {
-    isFound = days.contains(i + 1);
-    if (isFound) {
-      weekData.add(ChartData(
-        weeks[i],
-        heartRateAve[indexDay],
-      ));
-      ++indexDay;
-    } else {
-      weekData.add(ChartData(
-        weeks[i],
-        0,
-      ));
-    }
-  }
-  return weekData;
+  SmartWatchWeekData({
+    required this.weekDataSleep,
+    required this.weekDataSteps,
+    required this.weekDataWater,
+    required this.weekDataCalories,
+    required this.totalSleep,
+    required this.totalSteps,
+    required this.totalWater,
+    required this.totalCalories,
+  });
 }
 
-double getTotalData(List<ChartData> data) {
-  double sum = 0;
-  for (var element in data) {
-    sum += element.y as num;
+Future<SmartWatchWeekData> showSmartWatchDataWeekly() async {
+  List<String> weeks = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
+  List<ChartData> weekDataSleep = [];
+  List<ChartData> weekDataSteps = [];
+  List<ChartData> weekDataWater = [];
+  List<ChartData> weekDataCalories = [];
+  double totalSleep = 0;
+  double totalSteps = 0;
+  double totalWater = 0;
+  double totalCalories = 0;
+  int dayNow = DateTime.now().weekday;
+  int j = 0;
+
+  for (int i = 0; i < 7; i++) {
+    var sleep = await smartWatch.getSleepData(i + 1, dayNow - i) ?? 0;
+    weekDataSleep.add(ChartData(
+      weeks[j],
+      sleep,
+    ));
+    var steps = await smartWatch.getStepsData(i + 1, dayNow - i) ?? 0;
+    weekDataSteps.add(ChartData(
+      weeks[j],
+      steps,
+    ));
+    var water = await smartWatch.getWaterData(i + 1, dayNow - i);
+    weekDataWater.add(ChartData(
+      weeks[j],
+      water?["waterL"] ?? 0,
+    ));
+    var calories = await smartWatch.getCaloriesData(i + 1, dayNow - i);
+    weekDataCalories.add(ChartData(
+      weeks[j],
+      calories ?? 0,
+    ));
+    totalSleep += sleep.toDouble();
+    totalSteps += steps.toDouble();
+    totalWater += water?["waterL"]?.toDouble() ?? 0;
+    totalCalories += calories?.toDouble() ?? 0;
+    ++j;
   }
-  return sum.roundToDouble();
+
+  return SmartWatchWeekData(
+    weekDataSleep: weekDataSleep,
+    weekDataSteps: weekDataSteps,
+    weekDataWater: weekDataWater,
+    weekDataCalories: weekDataCalories,
+    totalSleep: totalSleep,
+    totalSteps: totalSteps,
+    totalWater: totalWater,
+    totalCalories: totalCalories,
+  );
 }

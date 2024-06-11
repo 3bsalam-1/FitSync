@@ -12,7 +12,7 @@ class CustomChartColumn extends StatelessWidget {
   final String value;
   final double maxYlabel;
   final double minYlabel;
-  final List<ChartData> data;
+  final List<ChartData>? data;
   final double increaseData;
   final double? interval;
   final double delayAnimation;

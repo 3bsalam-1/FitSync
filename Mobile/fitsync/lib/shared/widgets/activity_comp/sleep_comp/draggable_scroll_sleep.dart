@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
-import '../chart_data.dart';
 import '../custom_chart_column.dart';
 import 'progress_bar_sleep_hours.dart';
 import 'sleep_hours.dart';
@@ -36,7 +35,7 @@ class DraggableScrollSleep extends StatelessWidget {
       ),
       child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
         builder: (context, state) {
-          final data = context.read<SmartWatchCubit>().smartWatchData;
+          final weekData = context.read<SmartWatchCubit>().smartWatchWeek;
           return SingleChildScrollView(
             child: Column(
               children: [
@@ -126,10 +125,7 @@ class DraggableScrollSleep extends StatelessWidget {
                     increaseData: 0.24,
                     maxYlabel: 10,
                     minYlabel: 5,
-                    data: showSmartWatchDataWeekly(
-                      data?.sleep,
-                      data?.sleepDay,
-                    ),
+                    data: weekData?.weekDataSleep,
                   ),
                 ),
               ],

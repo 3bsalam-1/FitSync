@@ -69,6 +69,6 @@ flutter {
 dependencies {
     implementation platform('com.google.firebase:firebase-bom:33.1.0')
     implementation 'com.google.firebase:firebase-analytics'
-    implementation "androidx.activity:activity:1.6.0-alpha05"
+    implementation "androidx.health.connect:connect-client:1.1.0-alpha06"
 }
 

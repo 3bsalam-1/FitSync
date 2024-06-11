@@ -1,7 +1,8 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../global/custom_animated_opacity.dart';
 import 'package:flutter/material.dart';
 import '../../../colors/colors.dart';
-import '../chart_data.dart';
 import 'circle_progress.dart';
 import 'circle_progress_info.dart';
 import 'custom_chart_line.dart';
@@ -75,7 +76,12 @@ class DraggableScrollDailySteps extends StatelessWidget {
                 ],
               ),
             ),
-            CustomChartLine(data: dataSteps),
+            BlocBuilder<SmartWatchCubit, SmartWatchState>(
+              builder: (context, state) {
+                final weekData = context.read<SmartWatchCubit>().smartWatchWeek;
+                return CustomChartLine(data: weekData?.weekDataSteps);
+              },
+            ),
             const SizedBox(height: 20),
           ],
         ),

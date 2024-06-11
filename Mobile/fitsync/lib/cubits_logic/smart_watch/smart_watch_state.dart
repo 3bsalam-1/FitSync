@@ -6,7 +6,8 @@ sealed class SmartWatchState {}
 final class SmartWatchInitial extends SmartWatchState {}
 
 final class SmartWatchConnection extends SmartWatchState {}
-final class SmartWatchHaveData extends SmartWatchState {
+
+final class SmartWatchAlreadyConnected extends SmartWatchState {
   void showSucceussdialog(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

@@ -92,8 +92,7 @@ class HomePage extends StatelessWidget {
           child: CustomAnimatedOpacity(
             child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
               builder: (context, state) {
-                final smartData =
-                    context.read<SmartWatchCubit>().smartWatchData;
+                final smartData = context.read<SmartWatchCubit>().smartWatchData;
                 return Column(children: [
                   const SizedBox(
                     height: 15,
@@ -186,9 +185,9 @@ class HomePage extends StatelessWidget {
                                         height: 120,
                                         width: 120,
                                         child: CircularProgressIndicator(
-                                          value: (value <= (smartData?.calories.last?? 0) / 100)
+                                          value: (value <= (smartData?.calories?? 0) / 100)
                                               ? value
-                                              : (smartData?.calories.last?? 0) / 100,
+                                              : (smartData?.calories?? 0) / 100,
                                           backgroundColor: gray21,
                                           color: white,
                                           strokeWidth: 12.0,
@@ -198,7 +197,7 @@ class HomePage extends StatelessWidget {
                                       Positioned(
                                         top: 33,
                                         child: Text(
-                                          "${smartData?.calories.last ?? "0"}",
+                                          "${smartData?.calories ?? "0"}",
                                           style: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 26,
@@ -300,7 +299,7 @@ class HomePage extends StatelessWidget {
                                 radius: MediaQuery.of(context).size.width *
                                     (57 / 428),
                                 lineWidth: 6.0,
-                                percent: (smartData?.steps.last ?? 0 / 30000),
+                                percent: (smartData?.steps.toDouble() ?? 0 / 30000),
                                 progressColor: purple5,
                                 circularStrokeCap: CircularStrokeCap.round,
                                 center: Column(
@@ -316,7 +315,7 @@ class HomePage extends StatelessWidget {
                                       height: 5,
                                     ),
                                     Text(
-                                      "${smartData?.steps.last ?? 0}",
+                                      "${smartData?.steps ?? 0}",
                                       style: GoogleFonts.poppins(
                                         fontWeight: FontWeight.w600,
                                         fontSize: 16,
@@ -382,7 +381,7 @@ class HomePage extends StatelessWidget {
                                         child: RichText(
                                           text: TextSpan(
                                             text:
-                                                "${smartData?.sleep.last ?? "0"}",
+                                                "${smartData?.sleep ?? "0"}",
                                             style: GoogleFonts.poppins(
                                               fontWeight: FontWeight.w600,
                                               fontSize: 14,
@@ -485,7 +484,7 @@ class HomePage extends StatelessWidget {
                                         top: 4,
                                       ),
                                       child: Text(
-                                        "${smartData?.heartRate.last ?? "_"} BPM",
+                                        "${smartData?.heartRate ?? "_"} BPM",
                                         style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 14,
@@ -554,7 +553,7 @@ class HomePage extends StatelessWidget {
                                         padding: const EdgeInsets.only(
                                             left: 24.53, top: 4),
                                         child: Text(
-                                          "${smartData?.water.last ?? "_"} L",
+                                          "${smartData?.waterL ?? "_"} L",
                                           style: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w600,
                                             fontSize: 12,
