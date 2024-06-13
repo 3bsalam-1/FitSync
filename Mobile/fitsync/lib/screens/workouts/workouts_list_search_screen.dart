@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../cubits_logic/global/internet_connectivity_cubit.dart';
 import '../../data/cubit/workouts/filters_workouts_cubit.dart';
 import '../../data/models/workouts_model.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../shared/widgets/global/error_internet_connection.dart';
 import '../../shared/widgets/workouts_comp/workouts_list/custom_workouts_list.dart';
 import '../../shared/widgets/workouts_comp/workouts_list/text_form_search.dart';
 import '../home_main_screen.dart';
@@ -98,31 +100,41 @@ class WorkoutsListSearchScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   const TextFormSearch(),
                   const SizedBox(height: 40),
-                  BlocBuilder<FiltersWorkoutsCubit, List<WorkoutsModel>>(
+                  BlocBuilder<InternetConnectivityCubit,
+                      InternetConnectivityState>(
                     builder: (context, state) {
-                      final provider = context.read<FiltersWorkoutsCubit>();
-                      if (provider.input.text.isNotEmpty && provider.isSearched) {
-                        if (state.isNotEmpty) {
-                          return const CustomWorkoutsList();
-                        }
-                        return Text(
-                          "No Result",
-                          style: GoogleFonts.poppins(
-                            color: gray3,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        );
-                      } else if (provider.input.text.isNotEmpty && !provider.isSearched) {
-                        return const SizedBox(
-                          height: 40,
-                          width: 40,
-                          child: CircularProgressIndicator(
-                            color: purple5,
-                          ),
-                        );
+                      if (state is InternetConnectivityOFF) {
+                        return const ErrorInternetConnection();
                       }
-                      return const SizedBox();
+                      return BlocBuilder<FiltersWorkoutsCubit, List<WorkoutsModel>>(
+                        builder: (context, state) {
+                          final provider = context.read<FiltersWorkoutsCubit>();
+                          if (provider.input.text.isNotEmpty &&
+                              provider.isSearched) {
+                            if (state.isNotEmpty) {
+                              return const CustomWorkoutsList();
+                            }
+                            return Text(
+                              "No Result",
+                              style: GoogleFonts.poppins(
+                                color: gray3,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                            );
+                          } else if (provider.input.text.isNotEmpty &&
+                              !provider.isSearched) {
+                            return const SizedBox(
+                              height: 40,
+                              width: 40,
+                              child: CircularProgressIndicator(
+                                color: purple5,
+                              ),
+                            );
+                          }
+                          return const SizedBox();
+                        },
+                      );
                     },
                   ),
                   const SizedBox(height: 40),

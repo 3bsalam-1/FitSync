@@ -2,6 +2,7 @@ import 'package:fitsync/data/cubit/user_data/user_data_info_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../cubits_logic/global/internet_connectivity_cubit.dart';
 import '../cubits_logic/global/navigation_page_cubit.dart';
 import '../cubits_logic/global/new_token_cubit.dart';
 import '../cubits_logic/smart_watch/smart_watch_cubit.dart';
@@ -47,10 +48,22 @@ class HomeMainScreen extends StatelessWidget {
         ),
       ],
       child: Scaffold(
-        body: BlocBuilder<NavigationPageCubit, Widget>(
-          builder: (context, page) {
-            return page;
+        body:
+            BlocListener<InternetConnectivityCubit, InternetConnectivityState>(
+          listener: (context, state) {
+            if (state is InternetConnectivityOFFWithData) {
+              state.showDialog(context);
+            }
+            if (state is InternetConnectivityON) {
+              ScaffoldMessenger.of(context).clearSnackBars();
+              context.read<NewTokenCubit>().getNewToken();
+            }
           },
+          child: BlocBuilder<NavigationPageCubit, Widget>(
+            builder: (context, page) {
+              return page;
+            },
+          ),
         ),
         backgroundColor: white,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

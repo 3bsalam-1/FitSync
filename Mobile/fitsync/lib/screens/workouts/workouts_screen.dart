@@ -51,31 +51,38 @@ class WorkoutsScreen extends StatelessWidget {
         backgroundColor: white,
         body: BlocBuilder<InternetConnectivityCubit, InternetConnectivityState>(
           builder: (context, state) {
-            if (state is InternetConnectivityON) {
-              return BlocBuilder<WorkoutsCubit, WorkoutsState>(
-                builder: (context, state) {
-                  context.read<FavoriteWorkoutsCubit>().setFavoriteToInitial();
-                  final provider = context.read<WorkoutsCubit>();
-                  if (provider.allworkouts != null &&
-                      provider.data != null &&
-                      provider.challenges != null) {
-                    return const SingleChildScrollView(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15),
-                        child: Column(
-                          children: [
-                            CustomDayItem(),
-                            WorkOustBody(),
-                          ],
-                        ),
-                      ),
-                    );
-                  }
-                  return const SkeletonWorkouts();
-                },
-              );
+            if (state is InternetConnectivityOFF) {
+              return const ErrorInternetConnection();
             }
-            return const ErrorInternetConnection();
+            return BlocConsumer<WorkoutsCubit, WorkoutsState>(
+              listener: (context, state) {
+                if (state is WorkoutsLoaded) {
+                  context.read<FavoriteWorkoutsCubit>().setFavoriteToInitial();
+                  context.read<InternetConnectivityCubit>().checkIfHasData(
+                        context.read<WorkoutsCubit>().allworkouts,
+                      );
+                }
+              },
+              builder: (context, state) {
+                final provider = context.read<WorkoutsCubit>();
+                if (provider.allworkouts != null &&
+                    provider.data != null &&
+                    provider.challenges != null) {
+                  return const SingleChildScrollView(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15),
+                      child: Column(
+                        children: [
+                          CustomDayItem(),
+                          WorkOustBody(),
+                        ],
+                      ),
+                    ),
+                  );
+                }
+                return const SkeletonWorkouts();
+              },
+            );
           },
         ),
       ),

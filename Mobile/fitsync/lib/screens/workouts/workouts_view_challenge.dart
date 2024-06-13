@@ -1,3 +1,4 @@
+import '../../cubits_logic/global/internet_connectivity_cubit.dart';
 import '../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../data/cubit/workouts/favorite_workouts_cubit.dart';
@@ -19,7 +20,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
   final String imagePath;
   final List<WorkoutsModel> workouts;
   final Widget popScreen;
-  
+
   const WorkoutsViewChallenge({
     super.key,
     required this.workoutsIndex,
@@ -33,132 +34,146 @@ class WorkoutsViewChallenge extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: SizedBox(
-        height: height,
-        width: width,
-        child: Stack(
-          alignment: Alignment.topCenter,
-          children: [
-            SizedBox(
-              width: width,
-              height: height * 0.4,
-              child: CustomImage(
+      body: BlocListener<InternetConnectivityCubit, InternetConnectivityState>(
+        listener: (context, state) {
+          // todo here check if it true
+          // if (state is InternetConnectivityOFFWithData) {
+          //   ScaffoldMessenger.of(context).clearSnackBars();
+          //   print(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
+          //   state.showDialog2(context);
+          // }
+          // if (state is InternetConnectivityOFF) {
+          //   print("llllllllllllllllllllllllllllllll");
+          // }
+        },
+        child: SizedBox(
+          height: height,
+          width: width,
+          child: Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              SizedBox(
+                width: width,
                 height: height * 0.4,
-                width: width,
-                imageUrl: imagePath,
-                iconSize: 55,
-                fit: BoxFit.fill,
-                errorColor: red,
+                child: CustomImage(
+                  height: height * 0.4,
+                  width: width,
+                  imageUrl: imagePath,
+                  iconSize: 55,
+                  fit: BoxFit.fill,
+                  errorColor: red,
+                ),
               ),
-            ),
-            Positioned(
-              top: 20,
-              left: 15,
-              child: IconButton(
-                onPressed: () {
-                  AnimatedNavigator().pushAndRemoveUntil(
-                    context,
-                    popScreen,
-                  );
-                },
-                icon: Container(
-                  width: 37,
-                  height: 37,
+              Positioned(
+                top: 20,
+                left: 15,
+                child: IconButton(
+                  onPressed: () {
+                    AnimatedNavigator().pushAndRemoveUntil(
+                      context,
+                      popScreen,
+                    );
+                  },
+                  icon: Container(
+                    width: 37,
+                    height: 37,
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: purple2,
+                    ),
+                    child: const Center(
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: white,
+                        size: 20,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                child: Container(
+                  width: width,
+                  height: height * 0.65,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 20,
+                  ),
                   decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: purple2,
-                  ),
-                  child: const Center(
-                    child: Icon(
-                      Icons.arrow_back,
-                      color: white,
-                      size: 20,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(40),
+                      topRight: Radius.circular(40),
                     ),
+                    color: white,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            workouts[workoutsIndex].category,
+                            style: GoogleFonts.poppins(
+                              fontSize: 24,
+                              color: black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          BlocBuilder<FavoriteWorkoutsCubit,
+                              FavoriteWorkoutsState>(
+                            builder: (context, state) {
+                              final provider =
+                                  context.read<FavoriteWorkoutsCubit>();
+                              final userData =
+                                  context.read<UserDataInfoCubit>().userData!;
+                              return IconButton(
+                                onPressed: () {
+                                  provider.addWorkoutsToFavorites(
+                                    userId: userData.userId,
+                                    workouts: workouts[workoutsIndex],
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.favorite,
+                                  color: provider.isFavorite ? purple5 : gray14,
+                                  size: 25,
+                                ),
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 9),
+                      WorkoutsChallengesTime(workouts: workouts[workoutsIndex]),
+                      const SizedBox(height: 9),
+                      WorkoutsListChallenges(workouts: workouts[workoutsIndex]),
+                      const Spacer(),
+                      CustomButton(
+                        label: 'Start',
+                        horizontalPadding: width * 0.14,
+                        onPressed: () {
+                          ScaffoldMessenger.of(context).clearSnackBars();
+                          context
+                              .read<CounterTimeChallenges>()
+                              .initalizeAllWorkouts(workouts);
+                          AnimatedNavigator().push(
+                            context,
+                            StartChallengeScreen(
+                              workoutsIndex: workoutsIndex,
+                            ),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 10),
+                    ],
                   ),
                 ),
               ),
-            ),
-            Positioned(
-              bottom: 0,
-              child: Container(
-                width: width,
-                height: height * 0.65,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 20,
-                ),
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(40),
-                    topRight: Radius.circular(40),
-                  ),
-                  color: white,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          workouts[workoutsIndex].category,
-                          style: GoogleFonts.poppins(
-                            fontSize: 24,
-                            color: black,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        BlocBuilder<FavoriteWorkoutsCubit,
-                            FavoriteWorkoutsState>(
-                          builder: (context, state) {
-                            final provider =
-                                context.read<FavoriteWorkoutsCubit>();
-                            final userData =
-                                context.read<UserDataInfoCubit>().userData!;
-                            return IconButton(
-                              onPressed: () {
-                                provider.addWorkoutsToFavorites(
-                                  userId: userData.userId,
-                                  workouts: workouts[workoutsIndex],
-                                );
-                              },
-                              icon: Icon(
-                                Icons.favorite,
-                                color: provider.isFavorite ? purple5 : gray14,
-                                size: 25,
-                              ),
-                            );
-                          },
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 9),
-                    WorkoutsChallengesTime(workouts: workouts[workoutsIndex]),
-                    const SizedBox(height: 9),
-                    WorkoutsListChallenges(workouts: workouts[workoutsIndex]),
-                    const Spacer(),
-                    CustomButton(
-                      label: 'Start',
-                      horizontalPadding: width * 0.14,
-                      onPressed: () {
-                        context
-                            .read<CounterTimeChallenges>()
-                            .initalizeAllWorkouts(workouts);
-                        AnimatedNavigator().push(
-                          context,
-                          StartChallengeScreen(
-                            workoutsIndex: workoutsIndex,
-                          ),
-                        );
-                      },
-                    ),
-                    const SizedBox(height: 10),
-                  ],
-                ),
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
