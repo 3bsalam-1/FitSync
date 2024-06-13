@@ -6,6 +6,7 @@ class SmartWatchModel {
   final num systolic;
   final num bloodGlucose;
   final num calories;
+  final num activeCalories;
   final num sleep;
   final num steps;
   final num waterL;
@@ -20,6 +21,7 @@ class SmartWatchModel {
     required this.systolic,
     required this.bloodGlucose,
     required this.calories,
+    required this.activeCalories,
     required this.sleep,
     required this.steps,
     required this.waterL,

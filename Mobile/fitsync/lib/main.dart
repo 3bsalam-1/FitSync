@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
           create: (context) => CounterTimeChallenges(),
         ),
         BlocProvider(
-          create: (context) => SmartWatchCubit()..isSmartWatchConnected(),
+          create: (context) => SmartWatchCubit()..isSmartWatchConnected()..getSmartWatchDataWeekly(),
         ),
         BlocProvider(
           create: (context) => FilterCubit(),

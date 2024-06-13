@@ -92,9 +92,10 @@ class ActivityMainScreen extends StatelessWidget {
                     ),
                     CustomChartColumn(
                         title: 'Water',
-                        value: '${data == null ? '0' : data.waterL} L',
+                        value:
+                            '${data == null ? '0' : data.waterL.toStringAsFixed(2)} L',
                         subTitle:
-                            'The water intake in one week is ${weekData?.totalWater ?? "_"} L',
+                            'The water intake in one week is ${weekData?.totalWater.toStringAsFixed(2) ?? "_"} L',
                         onPressed: () {
                           // todo
                         },

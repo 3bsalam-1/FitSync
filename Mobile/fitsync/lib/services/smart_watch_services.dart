@@ -15,6 +15,7 @@ class SmartWatchServices {
     HealthConnectDataType.SleepSession,
     HealthConnectDataType.Hydration,
     HealthConnectDataType.OxygenSaturation,
+    HealthConnectDataType.ActiveCaloriesBurned,
   ];
   bool permission = false;
 
@@ -22,8 +23,8 @@ class SmartWatchServices {
     permission = await HealthConnectFactory.hasPermissions(types);
     if (!permission) {
       await HealthConnectFactory.requestPermissions(types);
-      permission = await HealthConnectFactory.hasPermissions(types); 
-    } 
+      permission = await HealthConnectFactory.hasPermissions(types);
+    }
     return permission;
   }
 
@@ -39,6 +40,7 @@ class SmartWatchServices {
     var sleep = await getSleepData(startDay, endDay);
     Map<String, num>? water = await getWaterData(startDay, endDay);
     var bloodOxygen = await getBloodOxygenData(startDay, endDay);
+    var activeCalories = await getActiveCaloriesData(startDay, endDay);
 
     return SmartWatchModel(
       heartRate: heartRate ?? 0,
@@ -47,6 +49,7 @@ class SmartWatchServices {
       systolic: bloodPressure?["systolic"] ?? 0,
       diastolic: bloodPressure?["diastolic"] ?? 0,
       calories: calories ?? 0,
+      activeCalories: activeCalories ?? 0,
       sleep: sleep ?? 0,
       waterML: water?["waterML"] ?? 0,
       waterL: water?["waterL"] ?? 0,
@@ -262,6 +265,27 @@ class SmartWatchServices {
       }
       debugPrint("the blood oxygen is: $bloodOxygen");
       return bloodOxygen;
+    } catch (error) {
+      debugPrint('There is an error $error');
+      return null;
+    }
+  }
+
+  Future<num?> getActiveCaloriesData([int startDay = 1, int endDay = 0]) async {
+    try {
+      num? activeCalories;
+
+      final healthData = await HealthConnectFactory.getRecord(
+        startTime: DateTime.now().subtract(Duration(days: startDay)),
+        endTime: DateTime.now().subtract(Duration(days: endDay)),
+        type: types[9],
+      );
+      List<dynamic> allData = healthData["records"];
+      if (allData.isNotEmpty) {
+        activeCalories = allData.last["energy"]["kilocalories"];
+      }
+      debugPrint("the active calories is $activeCalories");
+      return activeCalories ?? 0;
     } catch (error) {
       debugPrint('There is an error $error');
       return null;

@@ -31,59 +31,64 @@ class DraggableScrollDailySteps extends StatelessWidget {
         ],
       ),
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            const SizedBox(height: 10),
-            Container(
-              height: 7,
-              width: 70,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: gray7.withOpacity(0.7),
-              ),
-            ),
-            const CustomAnimatedOpacity(
-              child: CircleProgress(
-                steps: '18,249',
-                progress: 50,
-              ),
-            ),
-            const CustomAnimatedOpacity(
-              child: Row(
-                children: [
-                  Spacer(flex: 2),
-                  CircleProgressInfo(
-                    title: '31 kcal',
-                    color: cyan3,
-                    icon: Icons.local_fire_department_rounded,
-                    progress: 30,
+        child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
+          builder: (context, state) {
+            final data = context.read<SmartWatchCubit>().smartWatchData;
+            final weekData = context.read<SmartWatchCubit>().smartWatchWeek;
+            return Column(
+              children: [
+                const SizedBox(height: 10),
+                Container(
+                  height: 7,
+                  width: 70,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(12),
+                    color: gray7.withOpacity(0.7),
                   ),
-                  Spacer(),
-                  CircleProgressInfo(
-                    title: '2 km',
-                    color: purple5,
-                    icon: Icons.location_on_rounded,
-                    progress: 45,
+                ),
+                CustomAnimatedOpacity(
+                  child: CircleProgress(
+                    steps: '${data?.steps?? '_'}',
+                    // todo add progress data
+                    progress: 50,
                   ),
-                  Spacer(),
-                  CircleProgressInfo(
-                    title: '50 min',
-                    color: cyan4,
-                    icon: Icons.access_time_filled_outlined,
-                    progress: 65,
+                ),
+                CustomAnimatedOpacity(
+                  child: Row(
+                    children: [
+                      const Spacer(flex: 2),
+                      CircleProgressInfo(
+                        title: '${data?.activeCalories?? '_'} kcal',
+                        color: cyan3,
+                        icon: Icons.local_fire_department_rounded,
+                        // todo add progress data
+                        progress: 30,
+                      ),
+                      const Spacer(),
+                      CircleProgressInfo(
+                        title: '${data?.distanceKM.toStringAsFixed(2)?? '_'} km',
+                        color: purple5,
+                        icon: Icons.location_on_rounded,
+                        // todo add progress data
+                        progress: 45,
+                      ),
+                      const Spacer(),
+                      CircleProgressInfo(
+                        title: '${data?.distanceM == null? '_': data!.distanceM*60.ceilToDouble()} min',
+                        color: cyan4,
+                        icon: Icons.access_time_filled_outlined,
+                        // todo add progress data
+                        progress: 65,
+                      ),
+                      const Spacer(flex: 2),
+                    ],
                   ),
-                  Spacer(flex: 2),
-                ],
-              ),
-            ),
-            BlocBuilder<SmartWatchCubit, SmartWatchState>(
-              builder: (context, state) {
-                final weekData = context.read<SmartWatchCubit>().smartWatchWeek;
-                return CustomChartLine(data: weekData?.weekDataSteps);
-              },
-            ),
-            const SizedBox(height: 20),
-          ],
+                ),
+                CustomChartLine(data: weekData?.weekDataSteps),
+                const SizedBox(height: 20),
+              ],
+            );
+          },
         ),
       ),
     );
