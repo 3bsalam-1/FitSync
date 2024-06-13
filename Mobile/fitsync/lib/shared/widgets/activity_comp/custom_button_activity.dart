@@ -30,8 +30,8 @@ class CustomButtonActivity extends StatelessWidget {
         ),
         boxShadow: const [
           BoxShadow(
-            blurRadius: 12,
-            offset: Offset(0, 2),
+            blurRadius: 5,
+            offset: Offset(0, 1),
             color: purple,
           ),
         ],
