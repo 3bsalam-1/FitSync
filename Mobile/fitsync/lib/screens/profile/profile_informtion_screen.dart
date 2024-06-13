@@ -2,15 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/global/internet_connectivity_cubit.dart';
+import '../../cubits_logic/global/new_token_cubit.dart';
 import '../../data/cubit/user_data/avatar_profile_cubit.dart';
 import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
-import '../../shared/widgets/global/error_internet_connection.dart';
 import '../../shared/widgets/profile_comp.dart/profile_setting/profile_avatar_edit.dart';
 import '../../shared/widgets/profile_comp.dart/profile_setting/profile_user_info.dart';
-import '../../shared/widgets/profile_comp.dart/profile_setting/skeleton_profile_info.dart';
 
 class ProfileInformationScreen extends StatelessWidget {
   const ProfileInformationScreen({super.key});
@@ -35,7 +34,10 @@ class ProfileInformationScreen extends StatelessWidget {
           leading: CustomAnimatedOpacity(
             child: IconButton(
               onPressed: () {
-                AnimatedNavigator().pop(context);
+                ScaffoldMessenger.of(context).clearSnackBars();
+                Future.delayed(const Duration(seconds: 1), () {
+                  AnimatedNavigator().pop(context);
+                });
               },
               icon: const Icon(
                 Icons.arrow_circle_left,
@@ -60,40 +62,61 @@ class ProfileInformationScreen extends StatelessWidget {
           elevation: 0,
         ),
         backgroundColor: white,
-        body: BlocBuilder<InternetConnectivityCubit, InternetConnectivityState>(
-          builder: (context, state) {
-            if (state is InternetConnectivityON) {
-              return Container(
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      purple,
-                      purple2,
-                      cyan,
-                    ],
-                    begin: Alignment.centerRight,
-                    end: Alignment.centerLeft,
-                  ),
-                ),
-                child: BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
-                  builder: (context, state) {
-                    if (state is UserDataSuccess) {
-                      return const Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          ProfileAvatarEdit(),
-                          ProfileUserInfo(),
-                        ],
-                      );
-                    }
-                    return const SkeletonProfileInfo();
-                  },
-                ),
-              );
-            }
-            return const Center(child: ErrorInternetConnection());
-          },
+        body: MultiBlocListener(
+          listeners: [
+            BlocListener<InternetConnectivityCubit, InternetConnectivityState>(
+              listener: (context, state) {
+                if (state is InternetConnectivityOFFWithData ||
+                    state is InternetConnectivityOFF) {
+                  ScaffoldMessenger.of(context).clearSnackBars();
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      duration: Duration(days: 1),
+                      backgroundColor: gray10,
+                      content: Text(
+                        "There is no internet connection",
+                      ),
+                    ),
+                  );
+                }
+                if (state is InternetConnectivityON) {
+                  context.read<NewTokenCubit>().getNewToken();
+                }
+              },
+            ),
+            BlocListener<NewTokenCubit, bool>(
+              listener: (context, state) {
+                if (state) {
+                  context.read<UserDataInfoCubit>().getUserDataInfo(context);
+                }
+              },
+            ),
+          ],
+          child: Container(
+            decoration: const BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  purple,
+                  purple2,
+                  cyan,
+                ],
+                begin: Alignment.centerRight,
+                end: Alignment.centerLeft,
+              ),
+            ),
+            child: BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
+              builder: (context, state) {
+                return const Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    ProfileAvatarEdit(),
+                    ProfileUserInfo(),
+                  ],
+                );
+              },
+            ),
+          ),
         ),
       ),
     );

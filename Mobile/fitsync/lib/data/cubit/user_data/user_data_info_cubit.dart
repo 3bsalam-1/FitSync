@@ -18,10 +18,12 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
     required UserPersonalInfoModel info,
     required BuildContext context,
   }) {
-    userRepo.sendUserInfo(
+    userRepo
+        .sendUserInfo(
       info: info,
       token: Prefs.getString('token')!,
-    ).then((response) {
+    )
+        .then((response) {
       ScaffoldMessenger.of(context).clearSnackBars();
       if (response != null) {
         if (response.status == 'Success') {
@@ -52,12 +54,17 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
 
   void getUserDataInfo(BuildContext context) {
     if (userData == null) {
-        UserInfoRepo().getUserInfo(
+      UserInfoRepo().getUserInfo(
         token: Prefs.getString('token')!,
-      ).then((response){
-        userData = response;
-        emit(UserDataSuccess());
+      ).then((response) {
+        if (response == null) {
+          emit(UserDataFailure("No internet connection"));
+        } else {
+          userData = response;
+          emit(UserDataSuccess());
+        }
       });
+      emit(UserDataLoading());
     }
   }
 }

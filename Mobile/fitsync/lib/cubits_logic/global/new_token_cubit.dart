@@ -11,8 +11,10 @@ class NewTokenCubit extends Cubit<bool> {
         email: Prefs.getString('email')!,
         password: Prefs.getString('password')!,
       ).then((response) {
-        Prefs.setString('token', response!.token!);
-        emit(true);
+        if (response != null) {
+          Prefs.setString('token', response.token!);
+          emit(true);
+        }
       });
     }
   }

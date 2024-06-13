@@ -12,7 +12,6 @@ class ProfileUserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = context.read<UserDataInfoCubit>().userData;
     return Expanded(
       child: Container(
         decoration: const BoxDecoration(
@@ -34,7 +33,12 @@ class ProfileUserInfo extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            CustomAnimatedOpacity(child: UserSquareInfo(data: data!)),
+            BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
+              builder: (context, state) {
+                final data = context.read<UserDataInfoCubit>().userData;
+                return CustomAnimatedOpacity(child: UserSquareInfo(data: data));
+              },
+            ),
             const SizedBox(height: 25),
             CustomAnimatedOpacity(
               child: Container(

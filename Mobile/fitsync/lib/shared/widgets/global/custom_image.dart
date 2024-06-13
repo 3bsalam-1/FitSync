@@ -35,6 +35,15 @@ class CustomImage extends StatelessWidget {
           ),
         ),
       ),
+      errorWidget: (context, url, error) => SkeletonContainerLoading(
+        height: height,
+        width: width,
+        child: Icon(
+          Icons.error,
+          size: iconSize,
+          color: red,
+        ),
+      ),
       placeholder: (context, url) => SkeletonContainerLoading(
         height: height,
         width: width,

@@ -3,7 +3,7 @@ import '../../../../data/models/user_personal_info_model.dart';
 import '../square_info.dart';
 
 class UserSquareInfo extends StatelessWidget {
-  final UserPersonalInfoGetModel data;
+  final UserPersonalInfoGetModel? data;
   const UserSquareInfo({super.key, required this.data});
 
   @override
@@ -13,17 +13,18 @@ class UserSquareInfo extends StatelessWidget {
       children: [
         SquareInfo(
           title: 'Height',
-          value: '${data.height}cm',
+          value: '${data?.height ?? "_"}cm',
         ),
         const SizedBox(width: 10),
         SquareInfo(
           title: 'Weight',
-          value: '${data.weight}kg',
+          value: '${data?.weight ?? "_"}kg',
         ),
         const SizedBox(width: 10),
         SquareInfo(
           title: 'Age',
-          value: '${DateTime.now().year - data.birthdate.year}yo',
+          value:
+              '${data != null ? DateTime.now().year - data!.birthdate.year : "_"}yo',
         ),
       ],
     );
