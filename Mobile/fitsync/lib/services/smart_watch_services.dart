@@ -76,7 +76,7 @@ class SmartWatchServices {
       debugPrint("the heart rate is $heartRate");
       return heartRate ?? 0;
     } catch (error) {
-      debugPrint('There is an error $error');
+      debugPrint('There is an error in heart rate: $error');
       return null;
     }
   }
@@ -98,7 +98,7 @@ class SmartWatchServices {
       debugPrint("the blood glucose is $bloodGlucose");
       return bloodGlucose ?? 0;
     } catch (error) {
-      debugPrint('There is an error $error');
+      debugPrint('There is an error in blood glucose:  $error');
       return null;
     }
   }
@@ -128,7 +128,7 @@ class SmartWatchServices {
         "systolic": systolic ?? 0,
       };
     } catch (error) {
-      debugPrint('There is an error $error');
+      debugPrint('There is an error in blood Pressure: $error');
       return null;
     }
   }
@@ -156,7 +156,7 @@ class SmartWatchServices {
         "distanceKM": distanceKM ?? 0,
       };
     } catch (error) {
-      debugPrint('There is an error $error');
+      debugPrint('There is an error in distance: $error');
       return null;
     }
   }
@@ -177,7 +177,7 @@ class SmartWatchServices {
       debugPrint("the steps is $steps");
       return steps ?? 0;
     } catch (error) {
-      debugPrint('There is an error: $error');
+      debugPrint('There is an error in steps:  $error');
       return null;
     }
   }
@@ -198,7 +198,7 @@ class SmartWatchServices {
       debugPrint("the calories is $calories");
       return calories ?? 0;
     } catch (error) {
-      debugPrint('There is an error $error');
+      debugPrint('There is an error in calories:  $error');
       return null;
     }
   }
@@ -218,7 +218,7 @@ class SmartWatchServices {
       debugPrint("the sleep is $sleep");
       return sleep ?? 0;
     } catch (error) {
-      debugPrint('There is an error $error');
+      debugPrint('There is an error in sleep:  $error');
       return null;
     }
   }
@@ -245,7 +245,7 @@ class SmartWatchServices {
         "waterML": waterML ?? 0,
       };
     } catch (error) {
-      debugPrint('There is an error $error');
+      debugPrint('There is an error in water: $error');
       return null;
     }
   }
@@ -266,7 +266,7 @@ class SmartWatchServices {
       debugPrint("the blood oxygen is: $bloodOxygen");
       return bloodOxygen;
     } catch (error) {
-      debugPrint('There is an error $error');
+      debugPrint('There is an error in blood oxygen:  $error');
       return null;
     }
   }
@@ -287,7 +287,7 @@ class SmartWatchServices {
       debugPrint("the active calories is $activeCalories");
       return activeCalories ?? 0;
     } catch (error) {
-      debugPrint('There is an error $error');
+      debugPrint('There is an error in active calories: $error');
       return null;
     }
   }

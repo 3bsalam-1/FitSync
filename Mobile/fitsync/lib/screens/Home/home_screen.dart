@@ -496,7 +496,8 @@ class HomePage extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    smartData?.heartRate == null
+                                    smartData?.heartRate == null ||
+                                            smartData?.heartRate == 0
                                         ? Container(
                                             color: purple5,
                                             margin:

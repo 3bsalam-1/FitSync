@@ -26,9 +26,11 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
         await HealthConnectFactory.openHealthConnectSettings();
         value = await watchService.initSmartWatch();
       }
-      Prefs.setBool("watch-permission", value);
-      emit(SmartWatchConnection());
-      isSmartWatchConnected();
+      if (value) {
+        Prefs.setBool("watch-permission", value);
+        emit(SmartWatchConnection());
+        isSmartWatchConnected();
+      }
     });
   }
 
@@ -41,7 +43,6 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
   }
 
   void getSmartWatchData() async {
-    //smartWatchData = await isolate.getSmartWatchDataService();
     if (Prefs.getBool("watch-permission") != null) {
       if (Prefs.getBool("watch-permission")!) {
         smartWatchData = await watchService.getSmartWatchData();
@@ -50,9 +51,6 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
         }
       }
     }
-  }
-
-  void getSmartWatchDataWeekly() async {
     smartWatchWeek = await showSmartWatchDataWeekly();
     emit(SmartWatchData());
   }

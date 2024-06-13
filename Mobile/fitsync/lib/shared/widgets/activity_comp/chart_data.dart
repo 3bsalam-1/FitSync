@@ -35,7 +35,7 @@ class SmartWatchWeekData {
 Future<SmartWatchWeekData> showSmartWatchDataWeekly() async {
   List<String> weeks = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
   List<ChartData> defualtData = [
-    ChartData('Mon', 0,),
+    ChartData('Mon', 0),
     ChartData('Tues', 0),
     ChartData('Wed', 0),
     ChartData('Thurs', 0),
@@ -43,47 +43,56 @@ Future<SmartWatchWeekData> showSmartWatchDataWeekly() async {
     ChartData('Sat', 0),
     ChartData('Sun', 0),
   ];
-  List<ChartData> weekDataSleep = defualtData;
-  List<ChartData> weekDataSteps = defualtData;
-  List<ChartData> weekDataWater = defualtData;
-  List<ChartData> weekDataCalories = defualtData;
+  List<ChartData> weekDataSleep = [];
+  List<ChartData> weekDataSteps = [];
+  List<ChartData> weekDataWater = [];
+  List<ChartData> weekDataCalories = [];
   double totalSleep = 0;
   double totalSteps = 0;
   double totalWater = 0;
   double totalCalories = 0;
-  int dayNow = DateTime.now().weekday;
   int j = 0;
-  
+
   if (Prefs.getBool("watch-permission") != null) {
     if (Prefs.getBool("watch-permission")!) {
       for (int i = 0; i < 7; i++) {
-        var sleep = await smartWatch.getSleepData(i + 1, dayNow - i) ?? 0;
+        var sleep = await smartWatch.getSleepData(i + 1, i);
         weekDataSleep.add(ChartData(
           weeks[j],
-          sleep,
+          sleep!,
         ));
-        var steps = await smartWatch.getStepsData(i + 1, dayNow - i) ?? 0;
+        var steps = await smartWatch.getStepsData(i + 1, i);
         weekDataSteps.add(ChartData(
           weeks[j],
-          steps,
+          steps!,
         ));
-        var water = await smartWatch.getWaterData(i + 1, dayNow - i);
+        var water = await smartWatch.getWaterData(i + 1, i);
         weekDataWater.add(ChartData(
           weeks[j],
-          water?["waterL"] ?? 0,
+          water!["waterL"]!,
         ));
-        var calories = await smartWatch.getCaloriesData(i + 1, dayNow - i);
+        var calories = await smartWatch.getCaloriesData(i + 1, i);
         weekDataCalories.add(ChartData(
           weeks[j],
-          calories ?? 0,
+          calories!,
         ));
         totalSleep += sleep.toDouble();
         totalSteps += steps.toDouble();
-        totalWater += water?["waterL"]?.toDouble() ?? 0;
-        totalCalories += calories?.toDouble() ?? 0;
+        totalWater += water["waterL"]!.toDouble();
+        totalCalories += calories.toDouble();
         ++j;
       }
+    } else {
+      weekDataSleep = defualtData;
+      weekDataSteps = defualtData;
+      weekDataWater = defualtData;
+      weekDataCalories = defualtData;
     }
+  } else {
+    weekDataSleep = defualtData;
+    weekDataSteps = defualtData;
+    weekDataWater = defualtData;
+    weekDataCalories = defualtData;
   }
 
   return SmartWatchWeekData(
