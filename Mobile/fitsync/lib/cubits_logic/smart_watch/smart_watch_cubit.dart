@@ -19,6 +19,10 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
   SmartWatchModel? smartWatchData;
   SmartWatchWeekData? smartWatchWeek;
   late PermissionStatus isAccept;
+  var glassesGoal = TextEditingController();
+  var quantityGoal = TextEditingController();
+  var distanceGoal = TextEditingController();
+  var sleepGoal = TextEditingController();
 
   void intializeSmartWatchConnection() {
     watchService.initSmartWatch().then((value) async {
@@ -29,7 +33,6 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
       if (value) {
         Prefs.setBool("watch-permission", value);
         emit(SmartWatchConnection());
-        isSmartWatchConnected();
       }
     });
   }
@@ -53,5 +56,43 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
     }
     smartWatchWeek = await showSmartWatchDataWeekly();
     emit(SmartWatchData());
+  }
+
+  void saveWaterParameters() {
+    if (glassesGoal.text.isNotEmpty) {
+      Prefs.setDouble(
+        "water-glass",
+        double.parse(glassesGoal.text),
+      );
+    }
+    if (quantityGoal.text.isNotEmpty) {
+      Prefs.setDouble(
+        "water-quantity",
+        double.parse(quantityGoal.text),
+      );
+    }
+    if (quantityGoal.text.isNotEmpty || glassesGoal.text.isNotEmpty) {
+      emit(SmartWatchSaveWaterData());
+    }
+  }
+
+  void saveDistanceParameters() {
+    if (distanceGoal.text.isNotEmpty) {
+      Prefs.setDouble(
+        "distance-goal",
+        double.parse(distanceGoal.text),
+      );
+      emit(SmartWatchSaveDistanceData());
+    }
+  }
+
+  void saveSleepParameters() {
+    if (sleepGoal.text.isNotEmpty) {
+      Prefs.setDouble(
+        "sleep-goal",
+        double.parse(sleepGoal.text),
+      );
+      emit(SmartWatchSaveSleepData());
+    }
   }
 }

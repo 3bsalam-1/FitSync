@@ -1,5 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
+import '../../../../services/pref.dart';
 import '../../global/custom_animated_opacity.dart';
 import 'package:flutter/material.dart';
 import '../../../colors/colors.dart';
@@ -35,6 +36,7 @@ class DraggableScrollDailySteps extends StatelessWidget {
           builder: (context, state) {
             final data = context.read<SmartWatchCubit>().smartWatchData;
             final weekData = context.read<SmartWatchCubit>().smartWatchWeek;
+            final goalSteps = Prefs.getDouble("distance-goal") ?? 1;
             return Column(
               children: [
                 const SizedBox(height: 10),
@@ -48,9 +50,8 @@ class DraggableScrollDailySteps extends StatelessWidget {
                 ),
                 CustomAnimatedOpacity(
                   child: CircleProgress(
-                    steps: '${data?.steps?? '_'}',
-                    // todo add progress data
-                    progress: 50,
+                    steps: '${data?.steps ?? '_'}',
+                    progress: (((data?.steps ?? 0) / (goalSteps * 1300)) * 100).ceilToDouble(),
                   ),
                 ),
                 CustomAnimatedOpacity(
@@ -58,27 +59,28 @@ class DraggableScrollDailySteps extends StatelessWidget {
                     children: [
                       const Spacer(flex: 2),
                       CircleProgressInfo(
-                        title: '${data?.activeCalories?? '_'} kcal',
+                        title: '${data?.steps != null ? (data!.steps*0.04).toStringAsPrecision(2): '_'} kcal',
                         color: cyan3,
                         icon: Icons.local_fire_department_rounded,
-                        // todo add progress data
-                        progress: 30,
+                        // one step is burned 0.04 of calories
+                        progress: data?.steps != null? (((data!.steps*0.04) / (goalSteps*1300*0.04))* 100).ceilToDouble(): 0,
                       ),
                       const Spacer(),
                       CircleProgressInfo(
-                        title: '${data?.distanceKM.toStringAsFixed(2)?? '_'} km',
+                        title: '${data?.steps != null? (data!.steps/1300).toStringAsFixed(2): '_'} km',
                         color: purple5,
                         icon: Icons.location_on_rounded,
-                        // todo add progress data
-                        progress: 45,
+                        progress: data?.steps != null? (((data!.steps/1300) / (goalSteps*1300)) * 100).ceilToDouble(): 0,
                       ),
                       const Spacer(),
                       CircleProgressInfo(
-                        title: '${data?.distanceM == null? '_': data!.distanceM*60.ceilToDouble()} min',
+                        // todo here show time correctly
+                        title: '${data?.distanceKM == null ? '_' : (data!.distanceKM * 8).ceilToDouble()} min',
                         color: cyan4,
                         icon: Icons.access_time_filled_outlined,
-                        // todo add progress data
-                        progress: 65,
+                        progress: data?.steps == null
+                          ? 0
+                          : (((data!.steps * 8).ceilToDouble() / (goalSteps * 8))*100).ceilToDouble(),
                       ),
                       const Spacer(flex: 2),
                     ],
