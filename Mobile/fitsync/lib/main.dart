@@ -2,6 +2,7 @@ import 'cubits_logic/diet_logic/filter_logic/cubit/filter_cubit.dart';
 import 'cubits_logic/global/dark_mode_cubit.dart';
 import 'cubits_logic/global/internet_connectivity_cubit.dart';
 import 'cubits_logic/global/new_token_cubit.dart';
+import 'cubits_logic/smart_watch/hydration_activity_cubit.dart';
 import 'cubits_logic/smart_watch/smart_watch_cubit.dart';
 import 'cubits_logic/splash_screen_next_cubit.dart';
 import 'cubits_logic/diet_logic/counter/counter_cubit.dart';
@@ -100,6 +101,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => DarkModeCubit(),
+        ),
+        BlocProvider(
+          create: (context) => HydrationActivityCubit(),
         ),
       ],
       child: const MaterialApp(

@@ -51,6 +51,7 @@ class DraggableScrollDailySteps extends StatelessWidget {
                 CustomAnimatedOpacity(
                   child: CircleProgress(
                     steps: '${data?.steps ?? '_'}',
+                    // one km is equal to 1300 steps
                     progress: (((data?.steps ?? 0) / (goalSteps * 1300)) * 100).ceilToDouble(),
                   ),
                 ),
@@ -75,12 +76,13 @@ class DraggableScrollDailySteps extends StatelessWidget {
                       const Spacer(),
                       CircleProgressInfo(
                         // todo here show time correctly
-                        title: '${data?.distanceKM == null ? '_' : (data!.distanceKM * 8).ceilToDouble()} min',
+                        // one step means one second to convert it to mintues /60
+                        title: '${data?.steps == null ? '_' : (data!.steps /60).toStringAsFixed(2)} min',
                         color: cyan4,
                         icon: Icons.access_time_filled_outlined,
                         progress: data?.steps == null
                           ? 0
-                          : (((data!.steps * 8).ceilToDouble() / (goalSteps * 8))*100).ceilToDouble(),
+                          : (((data!.steps/60) / (goalSteps * 1300/60))*100).ceilToDouble(),
                       ),
                       const Spacer(flex: 2),
                     ],

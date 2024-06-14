@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/global/navigation_page_cubit.dart';
-import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
+import '../../cubits_logic/smart_watch/hydration_activity_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/hydration_comp/draggable_scroll_hydration.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
@@ -21,9 +21,9 @@ class HydrationActivityScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomAnimatedOpacity(
-            child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
+            child: BlocBuilder<HydrationActivityCubit, HydrationActivityState>(
               builder: (context, state) {
-                final data = context.read<SmartWatchCubit>().smartWatchData;
+                final provider = context.read<HydrationActivityCubit>();
                 return Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -40,7 +40,7 @@ class HydrationActivityScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          '${data?.waterML.toStringAsFixed(2) ?? "_"} ml',
+                          '${provider.waterTaked / 1000} L',
                           style: GoogleFonts.poppins(
                             fontSize: 24,
                             color: purple5,
@@ -63,11 +63,9 @@ class HydrationActivityScreen extends StatelessWidget {
                       ],
                     ),
                     Text(
-                      data?.waterML == null
-                          ? 'Please connect to smart watch to show data'
-                          : data!.waterML == 0
-                              ? 'Bad Hydrated  take more water'
-                              : 'Almost there!  Keep Hydrated',
+                      provider.waterTaked == 0
+                          ? 'Bad Hydrated  take more water'
+                          : 'Almost there!  Keep Hydrated',
                       style: GoogleFonts.poppins(
                         fontSize: 12,
                         color: gray4,
