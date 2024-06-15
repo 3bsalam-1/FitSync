@@ -50,7 +50,7 @@ class DailyIntakeActivityScreen extends StatelessWidget {
                         ),
                         // todo here add value of the
                         Text(
-                          '${data?.activeCalories?? "_"} cal',
+                          '${data == null ? "_" : (data.activeCalories * 1000).toStringAsFixed(2)} cal',
                           style: GoogleFonts.poppins(
                             fontSize: 24,
                             color: purple5,

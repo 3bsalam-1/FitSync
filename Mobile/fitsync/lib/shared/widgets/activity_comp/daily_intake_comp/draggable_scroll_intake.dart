@@ -59,7 +59,7 @@ class DraggableScrollIntake extends StatelessWidget {
                     CustomAnimatedOpacity(
                       child: DailyInfoItem(
                         label: 'Consumed',
-                        value: "${data?.calories?? '0'}",
+                        value: "${data?.activeCalories.ceilToDouble() ?? '0'}",
                       ),
                     ),
                     const CustomAnimatedOpacity(
