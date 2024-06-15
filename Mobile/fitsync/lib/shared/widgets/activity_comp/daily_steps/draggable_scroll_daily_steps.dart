@@ -36,7 +36,8 @@ class DraggableScrollDailySteps extends StatelessWidget {
           builder: (context, state) {
             final data = context.read<SmartWatchCubit>().smartWatchData;
             final weekData = context.read<SmartWatchCubit>().smartWatchWeek;
-            final goalSteps = Prefs.getDouble("distance-goal") ?? 1;
+            final goalSteps = Prefs.getDouble("distance-goal") ?? 0;
+            final steps = data?.steps.toDouble() ?? 0;
             return Column(
               children: [
                 const SizedBox(height: 10),
@@ -52,7 +53,10 @@ class DraggableScrollDailySteps extends StatelessWidget {
                   child: CircleProgress(
                     steps: '${data?.steps ?? '_'}',
                     // one km is equal to 1300 steps
-                    progress: (((data?.steps ?? 0) / (goalSteps * 1300)) * 100).ceilToDouble(),
+                    progress: getProgressPrecent(
+                      actualData: steps,
+                      goal: goalSteps * 1300,
+                    ),
                   ),
                 ),
                 CustomAnimatedOpacity(
@@ -60,29 +64,39 @@ class DraggableScrollDailySteps extends StatelessWidget {
                     children: [
                       const Spacer(flex: 2),
                       CircleProgressInfo(
-                        title: '${data?.steps != null ? (data!.steps*0.04).toStringAsPrecision(2): '_'} kcal',
+                        title:
+                            '${data != null ? (steps * 0.04).toStringAsPrecision(2) : '_'} kcal',
                         color: cyan3,
                         icon: Icons.local_fire_department_rounded,
                         // one step is burned 0.04 of calories
-                        progress: data?.steps != null? (((data!.steps*0.04) / (goalSteps*1300*0.04))* 100).ceilToDouble(): 0,
+                        progress: getProgressPrecent(
+                          actualData: steps * 0.04,
+                          goal: goalSteps * 1300 * 0.04,
+                        ),
                       ),
                       const Spacer(),
                       CircleProgressInfo(
-                        title: '${data?.steps != null? (data!.steps/1300).toStringAsFixed(2): '_'} km',
+                        title:
+                            '${data != null ? (steps / 1300).toStringAsFixed(2) : '_'} km',
                         color: purple5,
                         icon: Icons.location_on_rounded,
-                        progress: data?.steps != null? (((data!.steps/1300) / (goalSteps*1300)) * 100).ceilToDouble(): 0,
+                        // to convert steps to Km /1300
+                        progress: getProgressPrecent(
+                          actualData: steps / 1300,
+                          goal: goalSteps,
+                        ),
                       ),
                       const Spacer(),
                       CircleProgressInfo(
-                        // todo here show time correctly
                         // one step means one second to convert it to mintues /60
-                        title: '${data?.steps == null ? '_' : (data!.steps /60).toStringAsFixed(2)} min',
+                        title:
+                            '${data == null ? '_' : (steps / 60).toStringAsFixed(2)} min',
                         color: cyan4,
                         icon: Icons.access_time_filled_outlined,
-                        progress: data?.steps == null
-                          ? 0
-                          : (((data!.steps/60) / (goalSteps * 1300/60))*100).ceilToDouble(),
+                        progress: getProgressPrecent(
+                          actualData: steps / 60,
+                          goal: ((goalSteps * 1300) / 60),
+                        ),
                       ),
                       const Spacer(flex: 2),
                     ],
@@ -96,5 +110,20 @@ class DraggableScrollDailySteps extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+double getProgressPrecent({
+  required double actualData,
+  required double goal,
+}) {
+  if (goal == 0) {
+    return 100;
+  } else {
+    double progress = ((actualData / goal) * 100).truncateToDouble();
+    if (progress > 100) {
+      progress = 100;
+    }
+    return progress;
   }
 }

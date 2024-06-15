@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
+import '../../../services/pref.dart';
 
 class LinkSmartWatchButton extends StatelessWidget {
   const LinkSmartWatchButton({
@@ -14,7 +15,12 @@ class LinkSmartWatchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        context.read<SmartWatchCubit>().isSmartWatchConnected();
+        if (Prefs.getBool("watch-permission") != null) {
+          if (Prefs.getBool("watch-permission")!) {
+            context.read<SmartWatchCubit>().isSmartWatchConnected();
+          }
+        }
+        context.read<SmartWatchCubit>().intializeSmartWatchConnection();
       },
       child: Container(
         width: MediaQuery.of(context).size.width * (386 / 428),

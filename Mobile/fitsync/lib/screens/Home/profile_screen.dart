@@ -96,6 +96,11 @@ class ProfilePage extends StatelessWidget {
                 label: "Connect with smartwatch",
                 scale: 24,
                 onTap: () {
+                  if (Prefs.getBool("watch-permission") != null) {
+                    if (Prefs.getBool("watch-permission")!) {
+                      context.read<SmartWatchCubit>().isSmartWatchConnected();
+                    }
+                  } 
                   context.read<SmartWatchCubit>().intializeSmartWatchConnection();
                 },
               ),

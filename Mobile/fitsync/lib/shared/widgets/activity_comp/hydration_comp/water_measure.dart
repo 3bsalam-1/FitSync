@@ -25,7 +25,7 @@ class WaterMeasure extends StatelessWidget {
             children: [
               AnimatedContainer(
                 duration: const Duration(milliseconds: 900),
-                width: progress >= 94 ? 308 : 360 * (progress / 100) - 30,
+                width: progress >= 94 ? 308 : progress > 9? 360 * (progress / 100) - 30: 10,
               ),
               Stack(
                 alignment: Alignment.center,
@@ -81,7 +81,7 @@ class WaterMeasure extends StatelessWidget {
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 900),
                     height: 53,
-                    width: progress == 0 ? 50 : 360 * (progress / 100) - 6,
+                    width: progress <= 2 ? 50 : 360 * (progress / 100) - 6,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(60),
                       color: cyan6,

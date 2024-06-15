@@ -21,8 +21,8 @@ class DailyStepsActivityScreen extends StatelessWidget {
       backgroundColor: white,
       body: BlocBuilder<SmartWatchCubit, SmartWatchState>(
         builder: (context, state) {
-          final smartData = context.read<SmartWatchCubit>().smartWatchData;
-          final goalSteps = Prefs.getDouble("distance-goal") ?? 1;
+          final steps = context.read<SmartWatchCubit>().smartWatchData?.steps.toDouble()?? 0;
+          final goalSteps = Prefs.getDouble("distance-goal") ?? 0;
           return Column(
             children: [
               CustomAnimatedOpacity(
@@ -42,7 +42,7 @@ class DailyStepsActivityScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          '${((smartData?.distanceKM ?? 0) / goalSteps).round() * 100}%',
+                          '${getProgressPrecent(actualData: steps, goal: (goalSteps*1300))}%',
                           style: GoogleFonts.poppins(
                             fontSize: 24,
                             color: purple5,
@@ -70,5 +70,20 @@ class DailyStepsActivityScreen extends StatelessWidget {
         },
       ),
     );
+  }
+}
+
+double getProgressPrecent({
+  required double actualData,
+  required double goal,
+}) {
+  if (goal == 0) {
+    return 100;
+  } else {
+    double progress = ((actualData / goal) * 100).ceilToDouble();
+    if (progress > 100) {
+      progress = 100;
+    }
+    return progress;
   }
 }
