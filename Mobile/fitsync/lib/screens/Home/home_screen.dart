@@ -187,10 +187,12 @@ class HomePage extends StatelessWidget {
                                         width: 120,
                                         child: CircularProgressIndicator(
                                           value: (value <=
-                                                  (smartData?.calories ?? 0) /
+                                                  (smartData?.activeCalories ??
+                                                          0) /
                                                       100)
                                               ? value
-                                              : (smartData?.calories ?? 0) /
+                                              : (smartData?.activeCalories ??
+                                                      0) /
                                                   100,
                                           backgroundColor: gray21,
                                           color: white,
@@ -201,7 +203,7 @@ class HomePage extends StatelessWidget {
                                       Positioned(
                                         top: 33,
                                         child: Text(
-                                          "${smartData?.calories ?? "0"}",
+                                          smartData?.activeCalories.toStringAsFixed(2) ?? "0",
                                           style: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 26,

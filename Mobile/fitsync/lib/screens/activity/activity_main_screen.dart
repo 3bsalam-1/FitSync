@@ -111,7 +111,7 @@ class ActivityMainScreen extends StatelessWidget {
                       value:
                           '${data == null ? '0' : data.calories.toStringAsFixed(2)} kcal',
                       subTitle:
-                          'The total calories in one week is ${weekData?.totalCalories ?? "_"} kcal',
+                          'The total calories in one week is ${weekData?.totalCalories.toStringAsFixed(2) ?? "_"} kcal',
                       onPressed: () {
                         // todo
                       },

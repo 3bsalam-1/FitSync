@@ -146,9 +146,14 @@ class SmartWatchServices {
       );
       List<dynamic> allData = healthData["records"];
       if (allData.isNotEmpty) {
-        Map<dynamic, dynamic> data = allData.last["distance"];
-        distanceM = data["meters"];
-        distanceKM = data["kilometers"];
+        distanceM = 0;
+        distanceKM = 0;
+        for (var data in allData) {
+          num? meters = data["distance"]["meters"] ?? 0;
+          num? kilometers = data["distance"]["kilometers"] ?? 0;
+          distanceM = distanceM! + meters!;
+          distanceKM = distanceKM! + kilometers!;
+        }
       }
       debugPrint("the walking distance is $distanceM m, $distanceKM km");
       return {
@@ -172,7 +177,11 @@ class SmartWatchServices {
       );
       List<dynamic> allData = healthData["records"];
       if (allData.isNotEmpty) {
-        steps = allData.last["count"];
+        steps = 0;
+        for (var data in allData) {
+          num? s = data["count"] ?? 0;
+          steps = steps! + s!;
+        }
       }
       debugPrint("the steps is $steps");
       return steps ?? 0;
@@ -193,7 +202,11 @@ class SmartWatchServices {
       );
       List<dynamic> allData = healthData["records"];
       if (allData.isNotEmpty) {
-        calories = allData.last["kilocalories"];
+        calories = 0;
+        for (var data in allData) {
+          num? c = data["kilocalories"] ?? 0;
+          calories = calories! + c!;
+        }
       }
       debugPrint("the calories is $calories");
       return calories ?? 0;
@@ -213,7 +226,11 @@ class SmartWatchServices {
       );
       List<dynamic> allData = healthData["records"];
       if (allData.isNotEmpty) {
-        sleep = allData.last["metadata"]["recordingMethod"];
+        sleep = 0;
+        for (var data in allData) {
+          num? s = data["metadata"]["recordingMethod"] ?? 0;
+          sleep = sleep! + s!;
+        }
       }
       debugPrint("the sleep is $sleep");
       return sleep ?? 0;
@@ -236,8 +253,14 @@ class SmartWatchServices {
       );
       List<dynamic> allData = healthData["records"];
       if (allData.isNotEmpty) {
-        waterL = allData.last["volume"]["liters"];
-        waterML = allData.last["volume"]["milliliters"];
+        waterL = 0;
+        waterML = 0;
+        for (var data in allData) {
+          num? wl = data["volume"]["liters"] ?? 0;
+          num? wm = data["volume"]["milliliters"] ?? 0;
+          waterL = waterL! + wl!;
+          waterML = waterML! + wm!;
+        }
       }
       debugPrint("the water is: $waterML ml, $waterL l");
       return {
@@ -282,7 +305,11 @@ class SmartWatchServices {
       );
       List<dynamic> allData = healthData["records"];
       if (allData.isNotEmpty) {
-        activeCalories = allData.last["energy"]["kilocalories"];
+        activeCalories = 0;
+        for (var data in allData) {
+          num? a = data["energy"]["kilocalories"] ?? 0;
+          activeCalories = activeCalories! + a!;
+        }
       }
       debugPrint("the active calories is $activeCalories");
       return activeCalories ?? 0;

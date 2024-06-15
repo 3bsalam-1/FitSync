@@ -40,7 +40,7 @@ final class AuthSuccess extends AuthCubitState {
         context, 
         backColor: green, 
         icon: FontAwesomeIcons.circleCheck, 
-        title: 'Faliure message',
+        title: 'Success message',
         subTitle: message,
         contentColor: white, 
         duration: const Duration(minutes: 1),
