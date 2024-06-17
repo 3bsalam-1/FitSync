@@ -29,7 +29,6 @@ class WorkManagersServices {
 void actionTask() {
   Workmanager().executeTask((taskName, inputData) async {
     var heartRate = await SmartWatchServices().getHeartRateData() ?? 75;
-    // to test it make it heartRate = 50
     if (heartRate <= 50 || heartRate >= 85) {
       await LocalNotificationServices.showAlarmNotification(heartRate);
     }

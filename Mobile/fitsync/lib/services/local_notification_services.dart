@@ -1,15 +1,24 @@
+import 'dart:async';
+
 import 'package:fitsync/services/pref.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
+import 'package:url_launcher/url_launcher_string.dart';
 import 'smart_watch_services.dart';
+
+late Timer t;
 
 class LocalNotificationServices {
   static var notificationPlugin = FlutterLocalNotificationsPlugin();
 
-  static onTap(NotificationResponse details) {}
+  static onTap(NotificationResponse details) {
+    if (details.payload == 'Heart-Attack') {
+      t.cancel();
+    }
+  }
 
   static Future<void> init() async {
     bool? acceptNotifications = await notificationPlugin
@@ -37,6 +46,7 @@ class LocalNotificationServices {
         importance: Importance.max,
         priority: Priority.max,
         color: red2,
+        ongoing: true,
         showProgress: true,
         sound:
             RawResourceAndroidNotificationSound('alarm.mp3'.split('.').first),
@@ -50,11 +60,16 @@ class LocalNotificationServices {
       payload: "Heart-Attack",
     );
     // todo here make it leas if need to test it
-    Future.delayed(
-      const Duration(minutes: 4),
+    t = Timer(
+      const Duration(minutes: 1),
       () {
-        // todo here add url lancher to make phone call
-        print('ffffffffffffffffffdsfdsfsdfdsfdsfffffffffffffffff');
+        // To open phone call
+        String? number = Prefs.getString('phone-emergency');
+        if (number != null) {
+          launchUrlString("tel://$number");
+        } else {
+          launchUrlString("tel://01093384013");
+        }
       },
     );
   }

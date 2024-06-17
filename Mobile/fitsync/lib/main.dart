@@ -26,11 +26,13 @@ import 'screens/splash/splash_screen.dart';
 import 'services/pref.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'services/work_manager_services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Future.wait([
     Prefs.init(),
+    WorkManagersServices().init(),
     Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     ),

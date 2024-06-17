@@ -1,6 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits_logic/global/dark_mode_cubit.dart';
 import '../../cubits_logic/global/navigation_page_cubit.dart';
+import '../../cubits_logic/global/notification_cubit.dart';
+import '../../services/local_notification_services.dart';
 import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/custom_card_icon.dart';
@@ -86,8 +88,9 @@ class ProfileMainScreen extends StatelessWidget {
                       CustomCardSwitch(
                         title: 'Dark Mode',
                         icon: Icons.dark_mode_outlined,
-                        process: () {
-                          context.read<DarkModeCubit>().cahngeMode(!state);
+                        value: state,
+                        onChanged: (value) {
+                          context.read<DarkModeCubit>().cahngeMode(value);
                         },
                       ),
                       const CustomCardIcon(
@@ -102,9 +105,24 @@ class ProfileMainScreen extends StatelessWidget {
                         title: 'Language',
                         icon: Icons.language,
                       ),
-                      const CustomCardSwitch(
-                        title: 'Notifications',
-                        icon: Icons.notifications_none,
+                      BlocBuilder<NotificationCubit, bool>(
+                        builder: (context, isAccepted) {
+                          return CustomCardSwitch(
+                            title: 'Notifications',
+                            icon: Icons.notifications_none,
+                            value: isAccepted,
+                            onChanged: (value) {
+                              // todo here testing heart attack 
+                              LocalNotificationServices.showAlarmNotification(40);
+                              if (!isAccepted) { 
+                                context.read<NotificationCubit>().initNotifications();
+                              } else {
+                                context.read<NotificationCubit>().cancelNotifications();
+                              }
+                              context.read<NotificationCubit>().setNotifications(value);
+                            },
+                          );
+                        },
                       ),
                       const SizedBox(height: 15),
                       Text(

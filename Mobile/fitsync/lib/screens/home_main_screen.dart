@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../cubits_logic/global/internet_connectivity_cubit.dart';
 import '../cubits_logic/global/navigation_page_cubit.dart';
 import '../cubits_logic/global/new_token_cubit.dart';
+import '../cubits_logic/global/notification_cubit.dart';
 import '../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../data/cubit/workouts/workouts_cubit.dart';
@@ -21,7 +22,10 @@ class HomeMainScreen extends StatelessWidget {
         BlocListener<NewTokenCubit, bool>(
           listener: (context, state) {
             if (state) {
+              context.read<NotificationCubit>().initNotifications();
               context.read<UserDataInfoCubit>().getUserDataInfo(context);
+            } else {
+              context.read<NotificationCubit>().initNotifications();
             }
           },
         ),
