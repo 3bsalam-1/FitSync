@@ -57,6 +57,10 @@ dependencies:
   firebase_auth: ^4.17.7
   google_sign_in: ^6.2.1
   connectivity_plus: ^6.0.3
+  flutter_local_notifications: ^17.1.2
+  flutter_timezone: ^1.0.8
+  workmanager: ^0.5.2
+  timezone: ^0.9.3
   
 dev_dependencies:
   flutter_test:
@@ -92,7 +96,7 @@ flutter:
     - assets/images/splash/
     - assets/images/Notifications_Images/
     - assets/images/tipsImages/
-
+    - assets/sounds/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
