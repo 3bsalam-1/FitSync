@@ -1,22 +1,24 @@
 import 'dart:async';
-
+import 'dart:io';
+import 'package:android_intent_plus/android_intent.dart';
 import 'package:fitsync/services/pref.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
-import 'package:url_launcher/url_launcher_string.dart';
 import 'smart_watch_services.dart';
 
 late Timer t;
 
 class LocalNotificationServices {
   static var notificationPlugin = FlutterLocalNotificationsPlugin();
+  //static final DirectCaller directCaller = DirectCaller();
 
   static onTap(NotificationResponse details) {
     if (details.payload == 'Heart-Attack') {
       t.cancel();
+      
     }
   }
 
@@ -62,13 +64,24 @@ class LocalNotificationServices {
     // todo here make it leas if need to test it
     t = Timer(
       const Duration(minutes: 1),
-      () {
+      () async {
         // To open phone call
         String? number = Prefs.getString('phone-emergency');
-        if (number != null) {
-          launchUrlString("tel://$number");
-        } else {
-          launchUrlString("tel://01093384013");
+        if (Platform.isAndroid) {
+          if (number != null) {
+            final AndroidIntent intent = AndroidIntent(
+              action: 'android.intent.action.CALL',
+              data: 'tel:$number',
+            );
+            await intent.launch();
+          } else {
+            // todo here add the emergency phone
+            const AndroidIntent intent = AndroidIntent(
+              action: 'android.intent.action.CALL',
+              data: 'tel:01093384013',
+            );
+            await intent.launch();
+          }
         }
       },
     );

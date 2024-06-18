@@ -8,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
+import '../../shared/widgets/global/custom_animated_opacity.dart';
 
 class StepsParametersScreen extends StatelessWidget {
   const StepsParametersScreen({super.key});
@@ -19,26 +20,30 @@ class StepsParametersScreen extends StatelessWidget {
       child: Scaffold(
         backgroundColor: white,
         appBar: AppBar(
-          leading: IconButton(
-            onPressed: () {
-              AnimatedNavigator().pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_circle_left,
-              color: purple3,
-              size: 40,
+          leading: CustomAnimatedOpacity(
+            child: IconButton(
+              onPressed: () {
+                AnimatedNavigator().pop(context);
+              },
+              icon: const Icon(
+                Icons.arrow_circle_left,
+                color: purple3,
+                size: 40,
+              ),
             ),
           ),
           title: Padding(
             padding: const EdgeInsets.only(left: 15),
-            child: Text(
-              "Steps Parameters",
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-                fontSize: 22,
-                color: black,
-
-                // fontFamily:
+            child: CustomAnimatedOpacity(
+              child: Text(
+                "Steps Parameters",
+                style: GoogleFonts.poppins(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 22,
+                  color: black,
+              
+                  // fontFamily:
+                ),
               ),
             ),
           ),
@@ -52,55 +57,57 @@ class StepsParametersScreen extends StatelessWidget {
           },
           builder: (context, state) {
             final provider = context.read<SmartWatchCubit>();
-            return Stack(
-              children: [
-                Column(
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 25, left: 18, bottom: 12),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Quantity per day',
-                            style: GoogleFonts.poppins(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 20,
-                              color: black,
+            return CustomAnimatedOpacity(
+              child: Stack(
+                children: [
+                  Column(
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 25, left: 18, bottom: 12),
+                        child: Row(
+                          children: [
+                            Text(
+                              'Quantity per day',
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 20,
+                                color: black,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    ParametersTextFormField(
-                      label: "Km",
-                      controller: provider.distanceGoal,
-                      keyboardType: TextInputType.number,
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const LinkSmartWatchButton(),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * (150 / 926),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 180),
-                      child: CustomButton(
-                        label: "Save",
-                        onPressed: () {
-                          provider.saveDistanceParameters();
-                        },
+                      ParametersTextFormField(
+                        label: "Km",
+                        controller: provider.distanceGoal,
+                        keyboardType: TextInputType.number,
                       ),
-                    ),
-                  ],
-                )
-              ],
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const LinkSmartWatchButton(),
+                    ],
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * (150 / 926),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 180),
+                        child: CustomButton(
+                          label: "Save",
+                          onPressed: () {
+                            provider.saveDistanceParameters();
+                          },
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             );
           },
         ),

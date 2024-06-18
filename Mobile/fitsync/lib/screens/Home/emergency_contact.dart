@@ -1,15 +1,15 @@
-import 'package:fitsync/shared/colors/colors.dart';
-import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
-import 'package:fitsync/shared/widgets/global/custom_button.dart';
-import 'package:fitsync/shared/widgets/home_comp/parameters_textfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
+import '../../cubits_logic/global/emergency_contact_cubit.dart';
+import '../../shared/colors/colors.dart';
+import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../shared/widgets/global/custom_button.dart';
+import '../../shared/widgets/home_comp/parameters_textfield.dart';
 
-class WaterParametersScreen extends StatelessWidget {
-  const WaterParametersScreen({super.key});
+class EmergencyContact extends StatelessWidget {
+  const EmergencyContact({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,27 +34,31 @@ class WaterParametersScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 15),
             child: CustomAnimatedOpacity(
               child: Text(
-                "Water Parameters",
+                "Emergency Contact",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 22,
                   color: black,
-              
-                  // fontFamily:
                 ),
               ),
             ),
           ),
           backgroundColor: white,
         ),
-        body: BlocConsumer<SmartWatchCubit, SmartWatchState>(
+        body: BlocConsumer<EmergencyContactCubit, EmergencyContactState>(
           listener: (context, state) {
-            if (state is SmartWatchSaveWaterData) {
+            if (state is EmptyEmergencyContact) {
+              state.showDialog(context);
+            }
+            if (state is PermissionDeniedEmergencyContact) {
+              state.showDialog(context);
+            }
+            if (state is SaveEmergencyContact) {
               state.showDialog(context);
             }
           },
           builder: (context, state) {
-            final provider = context.read<SmartWatchCubit>();
+            final provider = context.read<EmergencyContactCubit>();
             return CustomAnimatedOpacity(
               child: Stack(
                 children: [
@@ -69,7 +73,7 @@ class WaterParametersScreen extends StatelessWidget {
                         child: Row(
                           children: [
                             Text(
-                              'Quantity per day',
+                              'Phone Number',
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 20,
@@ -80,29 +84,8 @@ class WaterParametersScreen extends StatelessWidget {
                         ),
                       ),
                       ParametersTextFormField(
-                        label: "Liters",
-                        controller: provider.quantityGoal,
-                        keyboardType: TextInputType.number,
-                      ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 12, left: 18, bottom: 12),
-                        child: Row(
-                          children: [
-                            Text(
-                              'Number of glasses per day',
-                              style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 18,
-                                color: black,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      ParametersTextFormField(
-                        label: "Glasses",
-                        controller: provider.glassesGoal,
+                        label: "phone",
+                        controller: provider.phone,
                         keyboardType: TextInputType.number,
                       ),
                     ],
@@ -118,7 +101,7 @@ class WaterParametersScreen extends StatelessWidget {
                         child: CustomButton(
                           label: "Save",
                           onPressed: () {
-                            provider.saveWaterParameters();
+                            provider.savePhoneNumber();
                           },
                         ),
                       ),

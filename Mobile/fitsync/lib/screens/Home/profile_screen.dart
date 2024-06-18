@@ -14,6 +14,7 @@ import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../profile/profile_informtion_screen.dart';
 import '../profile/write_reminder_screen.dart';
+import 'emergency_contact.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -81,9 +82,15 @@ class ProfilePage extends StatelessWidget {
                 endIndent: 20,
                 indent: 20,
               ),
-              const ProfileWidget(
+              ProfileWidget(
                 label: "Add Emergency Contact",
                 icon: IconlyLight.calling,
+                onPressed: () {
+                  AnimatedNavigator().push(
+                    context,
+                    const EmergencyContact(),
+                  );
+                },
               ),
               const Divider(
                 thickness: 1,
@@ -100,7 +107,7 @@ class ProfilePage extends StatelessWidget {
                     if (Prefs.getBool("watch-permission")!) {
                       context.read<SmartWatchCubit>().isSmartWatchConnected();
                     }
-                  } 
+                  }
                   context.read<SmartWatchCubit>().intializeSmartWatchConnection();
                 },
               ),
@@ -115,8 +122,10 @@ class ProfilePage extends StatelessWidget {
                 label: "Create a Remainder ",
                 scale: 24,
                 onTap: () {
-                  AnimatedNavigator()
-                      .push(context, const WriteReminderScreen());
+                  AnimatedNavigator().push(
+                    context, 
+                    const WriteReminderScreen(),
+                  );
                 },
               ),
               const Divider(
@@ -130,8 +139,10 @@ class ProfilePage extends StatelessWidget {
                 label: "Water Parameters",
                 scale: 24,
                 onTap: () {
-                  AnimatedNavigator()
-                      .push(context, const WaterParametersScreen());
+                  AnimatedNavigator().push(
+                    context, 
+                    const WaterParametersScreen(),
+                  );
                 },
               ),
               const Divider(
@@ -146,8 +157,10 @@ class ProfilePage extends StatelessWidget {
                 scale: 22,
                 w: 3,
                 onTap: () {
-                  AnimatedNavigator()
-                      .push(context, const SleepParametersScreen());
+                  AnimatedNavigator().push(
+                    context, 
+                    const SleepParametersScreen(),
+                  );
                 },
               ),
               const Divider(
@@ -162,8 +175,10 @@ class ProfilePage extends StatelessWidget {
                 scale: 20,
                 w: 3,
                 onTap: () {
-                  AnimatedNavigator()
-                      .push(context, const StepsParametersScreen());
+                  AnimatedNavigator().push(
+                    context, 
+                    const StepsParametersScreen(),
+                  );
                 },
               ),
               const Divider(
