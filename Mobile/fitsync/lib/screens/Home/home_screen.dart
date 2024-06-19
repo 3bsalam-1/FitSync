@@ -17,6 +17,7 @@ import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/home_comp/custom_circle_info.dart';
+import 'heart_beat_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -446,84 +447,20 @@ class HomePage extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(left: 15, top: 20),
-                    child: Row(
-                      children: [
-                        Container(
-                          width:
-                              MediaQuery.of(context).size.width * (184 / 428),
-                          height:
-                              MediaQuery.of(context).size.height * (170 / 926),
-                          decoration: BoxDecoration(
-                              color: white,
-                              borderRadius: BorderRadius.circular(19),
-                              boxShadow: [
-                                BoxShadow(
-                                  spreadRadius: 1,
-                                  blurRadius: 5,
-                                  offset: const Offset(0, 3),
-                                  color: black2.withOpacity(0.15),
-                                ),
-                              ]),
-                          child: Stack(children: [
-                            Row(
-                              children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 24.53,
-                                        top: 12,
-                                      ),
-                                      child: Text(
-                                        "Heart",
-                                        style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w500,
-                                          fontSize: 12,
-                                          color: black2,
-                                        ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: const EdgeInsets.only(
-                                        left: 24.53,
-                                        top: 4,
-                                      ),
-                                      child: Text(
-                                        "${smartData?.heartRate ?? "_"} BPM",
-                                        style: GoogleFonts.poppins(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14,
-                                          color: gray3,
-                                        ),
-                                      ),
-                                    ),
-                                    smartData?.heartRate == null ||
-                                            smartData?.heartRate == 0
-                                        ? Container(
-                                            color: purple5,
-                                            margin:
-                                                const EdgeInsets.only(top: 30),
-                                            width: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                (184 / 428),
-                                            height: 2,
-                                          )
-                                        : const HeartGraph(),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ]),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20),
-                          child: Container(
+                    child: InkWell(
+                      onTap: () {
+                        AnimatedNavigator().push(
+                          context, 
+                          const HeartBeatScreen(),
+                        );
+                      },
+                      child: Row(
+                        children: [
+                          Container(
                             width:
                                 MediaQuery.of(context).size.width * (184 / 428),
-                            height: MediaQuery.of(context).size.height *
-                                (170 / 926),
+                            height:
+                                MediaQuery.of(context).size.height * (170 / 926),
                             decoration: BoxDecoration(
                                 color: white,
                                 borderRadius: BorderRadius.circular(19),
@@ -539,8 +476,7 @@ class HomePage extends StatelessWidget {
                               Row(
                                 children: [
                                   Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -548,7 +484,7 @@ class HomePage extends StatelessWidget {
                                           top: 12,
                                         ),
                                         child: Text(
-                                          "Water",
+                                          "Heart",
                                           style: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 12,
@@ -558,75 +494,148 @@ class HomePage extends StatelessWidget {
                                       ),
                                       Padding(
                                         padding: const EdgeInsets.only(
-                                            left: 24.53, top: 4),
+                                          left: 24.53,
+                                          top: 4,
+                                        ),
                                         child: Text(
-                                          "${smartData?.waterL.floorToDouble() ?? "_"} L",
+                                          "${smartData?.heartRate ?? "_"} BPM",
                                           style: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w600,
-                                            fontSize: 12,
+                                            fontSize: 14,
                                             color: gray3,
                                           ),
                                         ),
                                       ),
+                                      smartData?.heartRate == null ||
+                                              smartData?.heartRate == 0
+                                          ? Container(
+                                              color: purple5,
+                                              margin:
+                                                  const EdgeInsets.only(top: 30),
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  (184 / 428),
+                                              height: 2,
+                                            )
+                                          : const HeartGraph(),
                                     ],
                                   ),
                                 ],
                               ),
-                              Positioned(
-                                bottom: 30,
-                                left: 24.5,
-                                child: Row(
+                            ]),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Container(
+                              width:
+                                  MediaQuery.of(context).size.width * (184 / 428),
+                              height: MediaQuery.of(context).size.height *
+                                  (170 / 926),
+                              decoration: BoxDecoration(
+                                  color: white,
+                                  borderRadius: BorderRadius.circular(19),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      spreadRadius: 1,
+                                      blurRadius: 5,
+                                      offset: const Offset(0, 3),
+                                      color: black2.withOpacity(0.15),
+                                    ),
+                                  ]),
+                              child: Stack(children: [
+                                Row(
                                   children: [
-                                    Stack(
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
-                                        Image.asset(
-                                          "assets/images/glass.png",
-                                          height: 34,
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              (33 / 428),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            left: 24.53,
+                                            top: 12,
+                                          ),
+                                          child: Text(
+                                            "Water",
+                                            style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 12,
+                                              color: black2,
+                                            ),
+                                          ),
                                         ),
-                                        Positioned(
-                                          top: 3,
-                                          child: Icon(
-                                            Icons.add,
-                                            color: blue2,
-                                            size: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                (33 / 428),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 24.53, top: 4),
+                                          child: Text(
+                                            "${smartData?.waterL.floorToDouble() ?? "_"} L",
+                                            style: GoogleFonts.poppins(
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 12,
+                                              color: gray3,
+                                            ),
                                           ),
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          (15 / 428),
-                                    ),
-                                    Image.asset(
-                                      "assets/images/glass.png",
-                                      height: 34,
-                                      width: MediaQuery.of(context).size.width *
-                                          (33 / 428),
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          (15 / 428),
-                                    ),
-                                    Image.asset(
-                                      "assets/images/glass.png",
-                                      height: 34,
-                                      width: MediaQuery.of(context).size.width *
-                                          (33 / 428),
-                                    ),
                                   ],
                                 ),
-                              ),
-                            ]),
+                                Positioned(
+                                  bottom: 30,
+                                  left: 24.5,
+                                  child: Row(
+                                    children: [
+                                      Stack(
+                                        children: [
+                                          Image.asset(
+                                            "assets/images/glass.png",
+                                            height: 34,
+                                            width: MediaQuery.of(context)
+                                                    .size
+                                                    .width *
+                                                (33 / 428),
+                                          ),
+                                          Positioned(
+                                            top: 3,
+                                            child: Icon(
+                                              Icons.add,
+                                              color: blue2,
+                                              size: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  (33 / 428),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        width: MediaQuery.of(context).size.width *
+                                            (15 / 428),
+                                      ),
+                                      Image.asset(
+                                        "assets/images/glass.png",
+                                        height: 34,
+                                        width: MediaQuery.of(context).size.width *
+                                            (33 / 428),
+                                      ),
+                                      SizedBox(
+                                        width: MediaQuery.of(context).size.width *
+                                            (15 / 428),
+                                      ),
+                                      Image.asset(
+                                        "assets/images/glass.png",
+                                        height: 34,
+                                        width: MediaQuery.of(context).size.width *
+                                            (33 / 428),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ]),
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(
