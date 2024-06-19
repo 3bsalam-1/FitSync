@@ -6,7 +6,7 @@ class WorkManagersServices {
   void showHeartRate() async {
     await Workmanager().registerPeriodicTask(
       'HR1',
-      'heart rate attack',
+      'heart rate',
       frequency: const Duration(minutes: 2),
     );
   }
@@ -29,9 +29,11 @@ class WorkManagersServices {
 void actionTask() {
   Workmanager().executeTask((taskName, inputData) async {
     var heartRate = await SmartWatchServices().getHeartRateData() ?? 75;
+    var steps = await SmartWatchServices().getStepsData() ?? 0;
     if (heartRate <= 50 || heartRate >= 85) {
       await LocalNotificationServices.showAlarmNotification(heartRate);
     }
+    await LocalNotificationServices.showNotificationsSchedule(heartRate, steps);
     return Future.value(true);
   });
 }

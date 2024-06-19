@@ -10,6 +10,7 @@ class CustomImage extends StatelessWidget {
   final BoxFit fit;
   final double iconSize;
   final Color errorColor;
+  final double border;
 
   const CustomImage({
     super.key,
@@ -19,6 +20,7 @@ class CustomImage extends StatelessWidget {
     required this.fit,
     required this.iconSize,
     required this.errorColor,
+    this.border = 10,
   });
 
   @override
@@ -38,15 +40,17 @@ class CustomImage extends StatelessWidget {
       errorWidget: (context, url, error) => SkeletonContainerLoading(
         height: height,
         width: width,
+        borderRaduis: border,
         child: Icon(
-          Icons.error,
+          Icons.photo,
           size: iconSize,
-          color: red,
+          color: gray10,
         ),
       ),
       placeholder: (context, url) => SkeletonContainerLoading(
         height: height,
         width: width,
+        borderRaduis: border,
         child: Icon(
           Icons.photo,
           size: iconSize,

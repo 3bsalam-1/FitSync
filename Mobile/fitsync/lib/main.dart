@@ -31,8 +31,8 @@ import 'services/work_manager_services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Prefs.init();
   await Future.wait([
-    Prefs.init(),
     WorkManagersServices().init(),
     Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
@@ -118,10 +118,15 @@ class MyApp extends StatelessWidget {
           create: (context) => EmergencyContactCubit(),
         ),
       ],
-      child: const MaterialApp(
-        title: 'FitSync',
-        debugShowCheckedModeBanner: false,
-        home: SplashScreen(),
+      child: BlocBuilder<DarkModeCubit, ThemeData>(
+        builder: (context, state) {
+          return MaterialApp(
+            title: 'FitSync',
+            theme: state,
+            debugShowCheckedModeBanner: false,
+            home: const SplashScreen(),
+          );
+        },
       ),
     );
   }

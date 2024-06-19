@@ -23,7 +23,7 @@ class ProfileMainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PopScope(
       canPop: false,
-      child: BlocBuilder<DarkModeCubit, bool>(
+      child: BlocBuilder<DarkModeCubit, ThemeData>(
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
@@ -88,9 +88,9 @@ class ProfileMainScreen extends StatelessWidget {
                       CustomCardSwitch(
                         title: 'Dark Mode',
                         icon: Icons.dark_mode_outlined,
-                        value: state,
+                        value: state.brightness == Brightness.light? false: true,
                         onChanged: (value) {
-                          context.read<DarkModeCubit>().cahngeMode(value);
+                          context.read<DarkModeCubit>().toggleTheme();
                         },
                       ),
                       const CustomCardIcon(

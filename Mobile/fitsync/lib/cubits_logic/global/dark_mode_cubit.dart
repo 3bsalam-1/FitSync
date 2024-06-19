@@ -2,28 +2,27 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import '../../services/pref.dart';
 
-class DarkModeCubit extends Cubit<bool> {
-  DarkModeCubit() : super(false);
-
-  void isDarkMode() {
-    if (Prefs.getBool("dark-mode") != null) {
-      if (Prefs.getBool("dark-mode")!) {
-        emit(true);
-      } else {
-        emit(false);
-      }
-    }
+class DarkModeCubit extends Cubit<ThemeData> {
+  DarkModeCubit() : super(ThemeData.light()) {
+    getThemeFromPrefs();
   }
 
-  void cahngeMode(bool value) {
-    if (value) {
-      Prefs.setBool("dark-mode", true);
-      ThemeMode.dark;
-      emit(true);
-    } else {
-      Prefs.setBool("dark-mode", false);
-      ThemeMode.light;
-      emit(false);
-    }
+  Future<void> saveThemeToPrefs({required Brightness brightness}) async {
+    final themeIndex = brightness == Brightness.light ? 0 : 1;
+    await Prefs.setInt('theme', themeIndex);
+  }
+
+  Future<void> getThemeFromPrefs() async {
+    final savedThemeIndex = Prefs.getInt('theme') ?? 0;
+    final savedTheme =
+        savedThemeIndex == 0 ? ThemeData.light() : ThemeData.dark();
+    emit(savedTheme);
+  }
+
+  void toggleTheme() {
+    emit(state.brightness == Brightness.light
+        ? ThemeData.dark()
+        : ThemeData.light());
+    saveThemeToPrefs(brightness: state.brightness);
   }
 }

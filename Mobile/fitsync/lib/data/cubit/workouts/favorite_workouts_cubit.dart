@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import '../../../services/pref.dart';
 import '../../models/workouts_model.dart';
-import '../../repository/ai_res/favorite_workouts_repo.dart';
+import '../../repository/workouts/favorite_workouts_repo.dart';
 import '../../repository/login_res/user_auth_repo.dart';
 part 'favorite_workouts_state.dart';
 

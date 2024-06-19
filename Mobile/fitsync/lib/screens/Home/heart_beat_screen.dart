@@ -235,7 +235,8 @@ class _HeartBeatScreenState extends State<HeartBeatScreen> {
                     );
                     Future.delayed(const Duration(seconds: 5), () {
                       t.cancel();
-                      smartData = context.read<SmartWatchCubit>().smartWatchData;
+                      smartData =
+                          context.read<SmartWatchCubit>().smartWatchData;
                       if (Prefs.getBool("watch-permission") != null) {
                         if (Prefs.getBool("watch-permission")!) {
                           context.read<SmartWatchCubit>().getSmartWatchData();

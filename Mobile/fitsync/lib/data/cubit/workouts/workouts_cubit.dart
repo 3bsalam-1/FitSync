@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 import '../../../services/isolate_service.dart';
 import '../../models/user_personal_info_model.dart';
 import '../../models/workouts_model.dart';
-import '../../repository/ai_res/workouts_repo.dart';
+import '../../repository/workouts/workouts_repo.dart';
 part 'workouts_state.dart';
 
 class WorkoutsCubit extends Cubit<WorkoutsState> {

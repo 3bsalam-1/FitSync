@@ -7,18 +7,17 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
-import 'smart_watch_services.dart';
+
+import '../data/repository/vital_info.dart';
 
 late Timer t;
 
 class LocalNotificationServices {
   static var notificationPlugin = FlutterLocalNotificationsPlugin();
-  //static final DirectCaller directCaller = DirectCaller();
 
   static onTap(NotificationResponse details) {
     if (details.payload == 'Heart-Attack') {
       t.cancel();
-      
     }
   }
 
@@ -50,8 +49,9 @@ class LocalNotificationServices {
         color: red2,
         ongoing: true,
         showProgress: true,
-        sound:
-            RawResourceAndroidNotificationSound('alarm.mp3'.split('.').first),
+        sound: RawResourceAndroidNotificationSound(
+          'alarm.mp3'.split('.').first,
+        ),
       ),
     );
     await notificationPlugin.show(
@@ -87,36 +87,44 @@ class LocalNotificationServices {
     );
   }
 
-  static Future<void> showNotificationsSchedule() async {
+  static Future<void> showNotificationsSchedule(
+    num heartRate,
+    num steps,
+  ) async {
     var details = NotificationDetails(
       android: AndroidNotificationDetails(
         "n.1",
         "Heart Rate",
-        sound:
-            RawResourceAndroidNotificationSound('notify.mp3'.split('.').first),
+        sound: RawResourceAndroidNotificationSound(
+          'notify.mp3'.split('.').first,
+        ),
       ),
     );
-    var heartRate = await SmartWatchServices().getHeartRateData() ?? 75;
     tz.initializeTimeZones();
     final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
     tz.setLocalLocation(tz.getLocation(currentTimeZone));
-    DateTime timeNow = DateTime.now();
+    var currentTime = tz.TZDateTime.now(tz.local);
+    var scheduleTime = tz.TZDateTime(
+      tz.local,
+      currentTime.year, // year
+      currentTime.month, // month
+      currentTime.day, // day
+      23, // hour
+      30, // minute
+    );
+    if (scheduleTime.isBefore(currentTime)) {
+      scheduleTime = scheduleTime.add(const Duration(days: 1));
+    }
     notificationPlugin.zonedSchedule(
       1,
       "Heart Rate",
       "The current Heart Rate is $heartRate",
-      tz.TZDateTime(
-        tz.local,
-        timeNow.year, // year
-        timeNow.month, // month
-        timeNow.day, // day
-        3, // hour
-        0, // minute
-      ),
+      scheduleTime,
       details,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,
     );
+    saveVitalInfo(steps: steps, heartRate: heartRate);
   }
 
   static cancelNotifications() {

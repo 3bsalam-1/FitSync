@@ -11,21 +11,19 @@ class UserWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.all(2),
       decoration: const BoxDecoration(
         color: gray8,
         shape: BoxShape.circle,
       ),
-      child: CircleAvatar(
-        backgroundColor: gray8,
-        radius: 27.3,
-        child: CustomImage(
-          imageUrl: Prefs.getStringList("user")![3],
-          width: 50,
-          height: 50,
-          fit: BoxFit.fill,
-          iconSize: 20,
-          errorColor: red,
-        ),
+      child: CustomImage(
+        imageUrl: Prefs.getStringList("user")![3],
+        width: 50,
+        height: 50,
+        fit: BoxFit.fill,
+        iconSize: 20,
+        border: 99,
+        errorColor: red,
       ),
     );
   }

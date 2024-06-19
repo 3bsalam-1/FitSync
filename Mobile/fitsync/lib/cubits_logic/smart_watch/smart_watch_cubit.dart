@@ -12,7 +12,9 @@ import '../../shared/widgets/global/custom_snackbar_message.dart';
 part 'smart_watch_state.dart';
 
 class SmartWatchCubit extends Cubit<SmartWatchState> {
-  SmartWatchCubit() : super(SmartWatchInitial());
+  SmartWatchCubit() : super(SmartWatchInitial()) {
+    getSmartWatchData();
+  }
 
   final watchService = SmartWatchServices();
   final isolate = IsolateService();

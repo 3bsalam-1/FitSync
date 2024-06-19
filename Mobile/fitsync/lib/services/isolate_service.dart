@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 //import '../data/models/smart_watch_model.dart';
 import '../data/models/workouts_model.dart';
-import '../data/repository/ai_res/workouts_repo.dart';
+import '../data/repository/workouts/workouts_repo.dart';
 import 'smart_watch_services.dart';
 
 class IsolateService {
