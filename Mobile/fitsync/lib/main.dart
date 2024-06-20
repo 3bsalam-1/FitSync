@@ -31,9 +31,9 @@ import 'services/work_manager_services.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Prefs.init();
   await Future.wait([
     WorkManagersServices().init(),
+    Prefs.init(),
     Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     ),

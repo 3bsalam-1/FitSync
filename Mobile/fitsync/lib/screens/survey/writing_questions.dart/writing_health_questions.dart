@@ -143,7 +143,6 @@ class CholesterolLevelQuestion extends StatelessWidget {
   }
 }
 
-
 class BloodPressureQuestion extends StatelessWidget {
   const BloodPressureQuestion({super.key});
 

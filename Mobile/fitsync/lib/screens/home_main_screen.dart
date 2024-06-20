@@ -24,6 +24,7 @@ class HomeMainScreen extends StatelessWidget {
             if (state) {
               context.read<NotificationCubit>().initNotifications();
               context.read<UserDataInfoCubit>().getUserDataInfo(context);
+              print("fgfdgfdgfdgfdfdhfdh");
             } else {
               context.read<NotificationCubit>().initNotifications();
             }

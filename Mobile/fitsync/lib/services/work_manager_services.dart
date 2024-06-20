@@ -28,6 +28,7 @@ class WorkManagersServices {
 @pragma('vm:entry-point')
 void actionTask() {
   Workmanager().executeTask((taskName, inputData) async {
+    await SmartWatchServices().initSmartWatch();
     var heartRate = await SmartWatchServices().getHeartRateData() ?? 75;
     var steps = await SmartWatchServices().getStepsData() ?? 0;
     if (heartRate <= 50 || heartRate >= 85) {
