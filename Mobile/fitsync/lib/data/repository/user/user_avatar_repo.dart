@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:http_parser/http_parser.dart';
+import '../../../services/pref.dart';
 import '../../../shared/const/base_url.dart';
 import '../../models/response_model.dart';
 
@@ -12,23 +14,33 @@ class UserAvatarRepo {
     required File image,
   }) async {
     try {
-      final request = http.MultipartRequest(
-        'PATCH',
+      var request = http.MultipartRequest(
+        "PATCH",
         Uri.parse('$baseUrl/api/user/changeAvatar'),
       );
-      request.files.add(
-        http.MultipartFile.fromBytes(
-          'avatar',
-          image.readAsBytesSync(),
-          filename: image.path,
+      request.headers.addAll({
+        'Authorization': 'Bearer ${Prefs.getString('token')!}',
+      });
+      http.MultipartFile multipartFile = await http.MultipartFile.fromPath(
+        'avatar',
+        image.path,
+        filename: 'profile-avatar',
+        contentType: MediaType(
+          'file',
+          image.path.split('.').last,
         ),
       );
-      request.headers['Authorization'] = 'Bearer $token';
-      request.headers['Content-Type'] = 'multipart/form-data';
-      final response = await request.send();
-      final body = await response.stream.bytesToString();
-      final data = jsonDecode(body);
-      return ResponseModel.fromJson(data);
+      request.files.add(multipartFile);
+      http.StreamedResponse response = await request.send();
+
+      response.stream.transform(utf8.decoder).listen((value) {
+        print('dffjghfdjghfd $value');
+        print("the image type is ${image.path.split('.').last}");
+      });
+      //var data = jsonDecode(response);
+      //return ResponseModel.fromJson(data);
+      print("dffdgdfg ${response.stream.transform(utf8.decoder).last}");
+      return null;
     } catch (e) {
       debugPrint('The changeUserAvatar Errror is: ${e.toString()}');
       return null;

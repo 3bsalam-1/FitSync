@@ -15,7 +15,16 @@ class ProfileAvatarEdit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final provider = context.read<AvatarProfileCubit>();
-    return BlocBuilder<AvatarProfileCubit, AvatarProfileState>(
+    return BlocConsumer<AvatarProfileCubit, AvatarProfileState>(
+      listener: (context, state) {
+        if (state is AvatarProfileFailure) {
+          state.showFailure(context);
+          provider.imageSelected = null;
+        }
+        if (state is AvatarUpdateSuccess) {
+          state.showSucceussdialog(context);
+        }
+      },
       builder: (context, state) {
         return Column(
           mainAxisSize: MainAxisSize.min,
@@ -49,17 +58,28 @@ class ProfileAvatarEdit extends StatelessWidget {
                                     color: gray10,
                                   ),
                                 )
-                              : ClipRRect(
-                                  borderRadius: BorderRadius.circular(99),
-                                  child: CustomImage(
-                                    imageUrl: Prefs.getStringList('user')![3],
-                                    width: 100,
-                                    height: 100,
-                                    fit: BoxFit.cover,
-                                    errorColor: red,
-                                    iconSize: 40,
-                                  ),
-                                ),
+                              : provider.imageSelected == null
+                                  ? ClipRRect(
+                                      borderRadius: BorderRadius.circular(99),
+                                      child: CustomImage(
+                                        imageUrl:
+                                            Prefs.getStringList('user')![3],
+                                        width: 100,
+                                        height: 100,
+                                        fit: BoxFit.cover,
+                                        errorColor: red,
+                                        iconSize: 40,
+                                      ),
+                                    )
+                                  : ClipRRect(
+                                      borderRadius: BorderRadius.circular(99),
+                                      child: Image.file(
+                                        provider.imageSelected!,
+                                        width: 100,
+                                        height: 100,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                     ),
                   ),
                 ),

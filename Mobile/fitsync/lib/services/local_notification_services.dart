@@ -7,9 +7,6 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
-
-import '../data/repository/vital_info.dart';
-
 late Timer t;
 
 class LocalNotificationServices {
@@ -43,7 +40,7 @@ class LocalNotificationServices {
     var details = NotificationDetails(
       android: AndroidNotificationDetails(
         "n.1",
-        "Heart Rate",
+        "Heart Rate Attack",
         importance: Importance.max,
         priority: Priority.max,
         color: red2,
@@ -87,10 +84,7 @@ class LocalNotificationServices {
     );
   }
 
-  static Future<void> showNotificationsSchedule(
-    num heartRate,
-    num steps,
-  ) async {
+  static Future<void> showNotificationsSchedule() async {
     var details = NotificationDetails(
       android: AndroidNotificationDetails(
         "n.1",
@@ -118,13 +112,12 @@ class LocalNotificationServices {
     notificationPlugin.zonedSchedule(
       1,
       "Heart Rate",
-      "The current Heart Rate is $heartRate",
+      "The current Heart Rate is data",
       scheduleTime,
       details,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,
     );
-    saveVitalInfo(steps: steps, heartRate: heartRate);
   }
 
   static cancelNotifications() {

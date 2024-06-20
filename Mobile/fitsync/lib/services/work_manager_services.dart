@@ -1,4 +1,6 @@
+
 import 'package:workmanager/workmanager.dart';
+import '../data/repository/vital_info.dart';
 import 'local_notification_services.dart';
 import 'smart_watch_services.dart';
 
@@ -34,7 +36,9 @@ void actionTask() {
     if (heartRate <= 50 || heartRate >= 85) {
       await LocalNotificationServices.showAlarmNotification(heartRate);
     }
-    await LocalNotificationServices.showNotificationsSchedule(heartRate, steps);
+    if (DateTime.now().hour == 23) {
+      await saveVitalInfo(steps: steps, heartRate: heartRate);
+    }
     return Future.value(true);
   });
 }
