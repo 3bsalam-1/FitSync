@@ -29,7 +29,7 @@ class FavoriteWorkoutsRepo {
       ResponseModel data = ResponseModel.fromJson(json);
       return data;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The addWorkoutsToFavorites Errror is: ${e.toString()}');
       return null;
     }
   }
@@ -63,7 +63,7 @@ class FavoriteWorkoutsRepo {
       }
       return favoriteWorkouts;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The getWorkoutsFavorites Errror is: ${e.toString()}');
       return [];
     }
   }
@@ -80,7 +80,7 @@ class FavoriteWorkoutsRepo {
       Map<String, dynamic> body = jsonDecode(response.body);
       return body['data']['Data']['workouts'] ?? [];
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The getWorkoutsFavoritesString Errror is: ${e.toString()}');
       return [];
     }
   }

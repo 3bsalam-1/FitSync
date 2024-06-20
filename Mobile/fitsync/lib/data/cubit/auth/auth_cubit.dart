@@ -8,9 +8,9 @@ import '../../../services/pref.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_snackbar_message.dart';
 import '../../../shared/widgets/login_comp/loading_dialog.dart';
-import '../../repository/login_res/code_confirm_repo.dart';
-import '../../repository/login_res/password_repo.dart';
-import '../../repository/login_res/user_auth_repo.dart';
+import '../../repository/auth/code_confirm_repo.dart';
+import '../../repository/auth/password_repo.dart';
+import '../../repository/auth/user_auth_repo.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthCubitState> {

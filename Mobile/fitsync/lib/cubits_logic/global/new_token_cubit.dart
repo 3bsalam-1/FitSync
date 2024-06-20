@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../data/repository/login_res/user_auth_repo.dart';
+import '../../data/repository/auth/user_auth_repo.dart';
 import '../../services/pref.dart';
 
 class NewTokenCubit extends Cubit<bool> {

@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 import '../../../services/pref.dart';
-import '../../repository/login_res/user_auth_repo.dart';
+import '../../repository/auth/user_auth_repo.dart';
 import '../../repository/user/user_avatar_repo.dart';
 part 'avatar_profile_state.dart';
 

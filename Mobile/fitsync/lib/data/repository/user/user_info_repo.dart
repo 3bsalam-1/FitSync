@@ -42,7 +42,7 @@ class UserInfoRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The sendUserInfo Errror is: ${e.toString()}');
       return null;
     }
   }
@@ -62,7 +62,7 @@ class UserInfoRepo {
           UserPersonalInfoGetModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The getUserInfo Errror is: ${e.toString()}');
       return null;
     }
   }
@@ -104,7 +104,7 @@ class UserInfoRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The updateUserInfo Errror is: ${e.toString()}');
       return null;
     }
   }

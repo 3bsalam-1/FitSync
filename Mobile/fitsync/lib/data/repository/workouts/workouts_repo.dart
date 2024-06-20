@@ -25,7 +25,7 @@ class WorkoutsRepo {
       List<WorkoutsModel> data = body.map((json) => WorkoutsModel.fromJSON(json)).toList();
       return data;
     } catch (e) {
-      debugPrint('The Error is: ${e.toString()}');
+      debugPrint('The getWorkoutsData Error is: ${e.toString()}');
       return null;
     }
   }
@@ -39,7 +39,7 @@ class WorkoutsRepo {
       List<WorkoutsModel> data = body.map((json) => WorkoutsModel.fromJSON(json)).toList();
       return data;
     } catch (e) {
-      debugPrint('The Error is: ${e.toString()}');
+      debugPrint('The getAllWorkoutsData Error is: ${e.toString()}');
       return null;
     }
   }
@@ -63,7 +63,7 @@ class WorkoutsRepo {
       List<WorkoutsModel> data = body.map((json) => WorkoutsModel.fromJSON(json)).toList();
       return data;
     } catch (e) {
-      debugPrint('The Error is: ${e.toString()}');
+      debugPrint('The getWorkoutsChallenges Error is: ${e.toString()}');
       return null;
     }
   }
@@ -75,7 +75,7 @@ class WorkoutsRepo {
       var data = jsonDecode(response.body);
       return data;
     } catch (e) {
-      debugPrint('The Error is: ${e.toString()}');
+      debugPrint('The getWorkoutsImages Error is: ${e.toString()}');
       return null;
     }
   }

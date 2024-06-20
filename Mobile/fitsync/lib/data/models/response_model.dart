@@ -15,6 +15,6 @@ class ResponseModel {
     token: json['token'] ?? '',
     message: json['message'] ?? '',
     status: json['status'] ?? '',
-    data: json['data']['userInfo'] ?? '',
+    data: json['data'] == null? '' : json['data']['userInfo'],
   );
 }

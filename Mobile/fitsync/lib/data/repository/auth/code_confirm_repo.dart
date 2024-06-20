@@ -25,7 +25,7 @@ class CodeConfirmRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The confirmCodeVerfiy Errror is: ${e.toString()}');
       return null;
     }
   }
@@ -43,7 +43,7 @@ class CodeConfirmRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The sendCodeToVerfiy Errror is: ${e.toString()}');
       return null;
     }
   }
@@ -64,7 +64,7 @@ class CodeConfirmRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The codeReset Errror is: ${e.toString()}');
       return null;
     }
   }

@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../shared/const/base_url.dart';
 import '../models/response_model.dart';
-import 'login_res/user_auth_repo.dart';
+import 'auth/user_auth_repo.dart';
 
 Future<ResponseModel?> saveVitalInfo({
   required num steps,

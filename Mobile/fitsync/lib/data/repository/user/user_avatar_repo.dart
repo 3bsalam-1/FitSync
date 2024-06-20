@@ -30,7 +30,7 @@ class UserAvatarRepo {
       final data = jsonDecode(body);
       return ResponseModel.fromJson(data);
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The changeUserAvatar Errror is: ${e.toString()}');
       return null;
     }
   }
