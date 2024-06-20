@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import '../../../services/pref.dart';
 import '../../models/workouts_model.dart';
@@ -20,14 +20,18 @@ class FavoriteWorkoutsCubit extends Cubit<FavoriteWorkoutsState> {
   }) {
     isFavorite = true;
     emit(FavoriteWorkoutsAdded());
-    auth.userLogin(
+    auth
+        .userLogin(
       email: Prefs.getString("email")!,
       password: Prefs.getString("password")!,
-    ).then((value) {
-      favoriteRepo.addWorkoutsToFavorites(
+    )
+        .then((value) {
+      favoriteRepo
+          .addWorkoutsToFavorites(
         workouts: workouts,
         userId: userId,
-      ).then((response) {
+      )
+          .then((response) {
         if (response!.status == 'Success') {
           getAllFavoriteWorkouts();
           emit(FavoriteWorkoutsAdded());

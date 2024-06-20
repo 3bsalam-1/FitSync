@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 import '../../../services/isolate_service.dart';
 import '../../models/user_personal_info_model.dart';
@@ -66,7 +66,7 @@ class WorkoutsCubit extends Cubit<WorkoutsState> {
       }
     }
   }
-  
+
   void showAllChallenges() {
     viewAllChallenge = !viewAllChallenge;
     emit(WorkoutsGetFavorite());

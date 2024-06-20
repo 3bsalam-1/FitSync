@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:meta/meta.dart';
 import '../../../services/pref.dart';
@@ -19,10 +19,12 @@ class AvatarProfileCubit extends Cubit<AvatarProfileState> {
       final pickedFile = await picker.pickImage(source: ImageSource.gallery);
       if (pickedFile != null) {
         imageSelected = File(pickedFile.path);
-        auth.userLogin(
+        auth
+            .userLogin(
           email: Prefs.getString('email')!,
           password: Prefs.getString('password')!,
-        ).then((value) {
+        )
+            .then((value) {
           if (value != null) {
             Prefs.setString("token", value.token!);
             saveChangedAvatar(imageSelected);
@@ -40,14 +42,16 @@ class AvatarProfileCubit extends Cubit<AvatarProfileState> {
       final pickedFile = await picker.pickImage(source: ImageSource.camera);
       if (pickedFile != null) {
         imageSelected = File(pickedFile.path);
-        auth.userLogin(
+        auth
+            .userLogin(
           email: Prefs.getString('email')!,
           password: Prefs.getString('password')!,
-        ).then((value) {
+        )
+            .then((value) {
           if (value != null) {
             Prefs.setString("token", value.token!);
             saveChangedAvatar(imageSelected);
-          } 
+          }
         });
         emit(AvatarProfileLoading());
       }
@@ -58,10 +62,12 @@ class AvatarProfileCubit extends Cubit<AvatarProfileState> {
 
   void saveChangedAvatar(File? selectedImage) {
     if (selectedImage != null) {
-      avatarRepo.changeUserAvatar(
+      avatarRepo
+          .changeUserAvatar(
         token: Prefs.getString("token")!,
         image: selectedImage,
-      ).then((response) {
+      )
+          .then((response) {
         if (response!.status != "Error") {
           emit(AvatarProfileSelected(selectedImage));
         } else {
