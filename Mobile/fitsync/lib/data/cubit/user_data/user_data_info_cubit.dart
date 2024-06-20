@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../services/decode_jwt.dart';
@@ -20,9 +20,11 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
     required UserPersonalInfoModel info,
     required BuildContext context,
   }) {
-    userRepo.sendUserInfo(
+    userRepo
+        .sendUserInfo(
       info: info,
-    ).then((response) {
+    )
+        .then((response) {
       ScaffoldMessenger.of(context).clearSnackBars();
       if (response != null) {
         if (response.status == 'Success') {
@@ -78,7 +80,8 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
     required num cholesterolLevel,
     required num bloodSugar,
   }) {
-    userRepo.updateUserInfo(
+    userRepo
+        .updateUserInfo(
       weight: weight,
       height: height,
       birthdate: birthdate,
@@ -89,7 +92,8 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
       backPain: backPain,
       cholesterolLevel: cholesterolLevel,
       bloodSugar: bloodSugar,
-    ).then((value) async {
+    )
+        .then((value) async {
       if (value != null) {
         if (value.token != null) {
           await Prefs.setString('token', value.token!);

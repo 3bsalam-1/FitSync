@@ -87,7 +87,8 @@ class HeightUpdateScreen extends StatelessWidget {
       backgroundColor: white,
       body: MultiBlocListener(
         listeners: [
-          BlocListener<TextFormValidationCubit, TextFormValidationState>(
+          BlocListener<TextFormValidationCubit,
+              TextFormValidationState>(
             listener: (context, state) {
               if (state is TallValidation) {
                 if (state.errorText == null) {
@@ -127,7 +128,8 @@ class HeightUpdateScreen extends StatelessWidget {
             },
           ),
         ],
-        child: BlocBuilder<TextFormValidationCubit, TextFormValidationState>(
+        child: BlocBuilder<TextFormValidationCubit,
+            TextFormValidationState>(
           builder: (context, state) {
             if (state is TallSwitchConverter) {
               return BodyTallQuestion(
@@ -166,7 +168,8 @@ class WeightUpdateScreen extends StatelessWidget {
       backgroundColor: white,
       body: MultiBlocListener(
         listeners: [
-          BlocListener<TextFormValidationCubit, TextFormValidationState>(
+          BlocListener<TextFormValidationCubit,
+              TextFormValidationState>(
             listener: (context, state) {
               if (state is WeightValidation) {
                 if (state.errorText == null) {
@@ -206,7 +209,8 @@ class WeightUpdateScreen extends StatelessWidget {
             },
           ),
         ],
-        child: BlocBuilder<TextFormValidationCubit, TextFormValidationState>(
+        child: BlocBuilder<TextFormValidationCubit,
+            TextFormValidationState>(
           builder: (context, state) {
             if (state is WeightSwitchConverter) {
               return BodyWeightQuestion(
@@ -245,7 +249,8 @@ class DateBirthUpdateScreen extends StatelessWidget {
       backgroundColor: white,
       body: MultiBlocListener(
         listeners: [
-          BlocListener<TextFormValidationCubit, TextFormValidationState>(
+          BlocListener<TextFormValidationCubit,
+              TextFormValidationState>(
             listener: (context, state) {
               if (state is BirthValidation) {
                 if (state.errorText == null) {
@@ -284,7 +289,8 @@ class DateBirthUpdateScreen extends StatelessWidget {
             },
           ),
         ],
-        child: BlocBuilder<TextFormValidationCubit, TextFormValidationState>(
+        child: BlocBuilder<TextFormValidationCubit,
+            TextFormValidationState>(
           builder: (context, isValidated) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
@@ -436,7 +442,8 @@ class BloodSugarUpdate extends StatelessWidget {
           },
         ),
       ],
-      child: BlocBuilder<TextFormValidationCubit, TextFormValidationState>(
+      child:
+          BlocBuilder<TextFormValidationCubit, TextFormValidationState>(
         builder: (context, state) => WritingBodyQuestion(
           onPressed: () {
             context.read<TextFormValidationCubit>().bloodSugarValidate();
@@ -462,7 +469,8 @@ class SystolicBloodUpdate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
+    return BlocConsumer<TextFormValidationCubit,
+        TextFormValidationState>(
       listener: (context, state) {
         if (state is SystolicBloodValidation) {
           if (state.errorText == null) {
@@ -496,7 +504,8 @@ class DiastolicBloodUpdate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
+    return BlocConsumer<TextFormValidationCubit,
+        TextFormValidationState>(
       listener: (context, state) {
         if (state is DiastolicBloodValidation) {
           if (state.errorText == null) {
@@ -530,7 +539,8 @@ class CholesterolLevelUpdate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
+    return BlocConsumer<TextFormValidationCubit,
+        TextFormValidationState>(
       listener: (context, state) {
         if (state is CholesterolValidation) {
           if (state.errorText == null) {

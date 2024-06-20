@@ -2,7 +2,7 @@ class ResponseModel {
   final String? token;
   final String? message;
   final String? status;
-  final Map<String, dynamic>? data;
+  final dynamic data;
 
   ResponseModel({
     required this.token,
@@ -15,6 +15,6 @@ class ResponseModel {
     token: json['token'] ?? '',
     message: json['message'] ?? '',
     status: json['status'] ?? '',
-    data: json['data'] == null? '' : json['data']['userInfo'],
+    data: json['data'] == null? '' : json['data']['userInfo'] ?? '',
   );
 }

@@ -16,16 +16,16 @@ class NavigationPageCubit extends Cubit<Widget> {
   int isSelected = 0;
 
   final List<Widget> _pages = [
-    const HomePage(),//0
-    const WorkoutsScreen(),//1
-    DietScreen(),//2
-    const ActivityMainScreen(),//3
-    const ProfileMainScreen(),//4
-    const SleepActivityScreen(),//5
-    const DailyStepsActivityScreen(),//6
-    const HydrationActivityScreen(),//7
-    const DailyIntakeActivityScreen(),//8
-    const SavedWorkoutsMain(),//9
+    const HomePage(), //0
+    const WorkoutsScreen(), //1
+    DietScreen(), //2
+    const ActivityMainScreen(), //3
+    const ProfileMainScreen(), //4
+    const SleepActivityScreen(), //5
+    const DailyStepsActivityScreen(), //6
+    const HydrationActivityScreen(), //7
+    const DailyIntakeActivityScreen(), //8
+    const SavedWorkoutsMain(), //9
   ];
 
   void changePage(int index) {
