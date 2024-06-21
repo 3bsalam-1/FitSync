@@ -9,18 +9,28 @@ part 'emergency_contact_state.dart';
 class EmergencyContactCubit extends Cubit<EmergencyContactState> {
   EmergencyContactCubit() : super(EmergencyContactInitial());
   var phone = TextEditingController();
+  bool isValidate = false;
 
   void savePhoneNumber() async {
     if (phone.text.isNotEmpty) {
-      var permission = await Permission.phone.request();
-      if (permission.isGranted) {
-        Prefs.setString('phone-emergency', phone.text);
-        emit(SaveEmergencyContact());
+      if (isValidate) {
+        var permission = await Permission.phone.request();
+        if (permission.isGranted) {
+          Prefs.setString('phone-emergency', phone.text);
+          emit(SaveEmergencyContact());
+        } else {
+          emit(PermissionDeniedEmergencyContact());
+        }
       } else {
-        emit(PermissionDeniedEmergencyContact());
+        emit(EmptyEmergencyContact('The Phone number is invalide'));
       }
     } else {
-      emit(EmptyEmergencyContact());
+      emit(EmptyEmergencyContact('Please Enter a Phone number'));
     }
+  }
+
+  void checkValidation(bool value) {
+    isValidate = value;
+    emit(EmergencyContactInitial());
   }
 }

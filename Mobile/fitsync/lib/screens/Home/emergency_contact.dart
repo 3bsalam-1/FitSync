@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -5,8 +6,9 @@ import '../../cubits_logic/global/emergency_contact_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
+import 'package:intl_phone_number_input/intl_phone_number_input.dart';
+
 import '../../shared/widgets/global/custom_button.dart';
-import '../../shared/widgets/home_comp/parameters_textfield.dart';
 
 class EmergencyContact extends StatelessWidget {
   const EmergencyContact({super.key});
@@ -60,54 +62,110 @@ class EmergencyContact extends StatelessWidget {
           builder: (context, state) {
             final provider = context.read<EmergencyContactCubit>();
             return CustomAnimatedOpacity(
-              child: Stack(
-                children: [
-                  Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: 25,
-                          left: 18,
-                          bottom: 12,
+              child: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Phone Number',
+                      style: GoogleFonts.poppins(
+                        color: gray2,
+                        fontSize: 16,
+                      ),
+                    ),
+                    Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                            width: 1,
+                            color: gray2,
+                          ),
                         ),
-                        child: Row(
-                          children: [
-                            Text(
-                              'Phone Number',
-                              style: GoogleFonts.poppins(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 20,
-                                color: black,
+                      ),
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            bottom: 10,
+                            top: 10,
+                            left: 0,
+                            child: Container(
+                              height: 30,
+                              width: 115,
+                              decoration: BoxDecoration(
+                                color: Colors.grey.shade300,
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: const Row(
+                                children: [
+                                  Spacer(),
+                                  Icon(
+                                    CupertinoIcons.chevron_down,
+                                    size: 16,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                ],
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                          SizedBox(
+                            height: 50,
+                            child: InternationalPhoneNumberInput(
+                              onInputChanged: (PhoneNumber number) {
+                                debugPrint(number.phoneNumber);
+                              },
+                              onInputValidated: (value) {
+                                provider.checkValidation(value);
+                              },
+                              selectorTextStyle: const TextStyle(
+                                color: Colors.black,
+                              ),
+                              selectorConfig: const SelectorConfig(
+                                selectorType:
+                                    PhoneInputSelectorType.BOTTOM_SHEET,
+                                setSelectorButtonAsPrefixIcon: false,
+                                leadingPadding: 10,
+                                trailingSpace: true,
+                              ),
+                              initialValue: PhoneNumber(isoCode: 'EG'),
+                              textFieldController: provider.phone,
+                              formatInput: false,
+                              keyboardType:
+                                  const TextInputType.numberWithOptions(
+                                signed: true,
+                                decimal: true,
+                              ),
+                              inputDecoration: const InputDecoration(
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Colors.transparent,
+                                  ),
+                                ),
+                                floatingLabelAlignment:
+                                    FloatingLabelAlignment.start,
+                              ),
+                              textStyle: const TextStyle(color: black),
+                            ),
+                          ),
+                        ],
                       ),
-                      ParametersTextFormField(
-                        label: "phone",
-                        controller: provider.phone,
-                        keyboardType: TextInputType.number,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * (150 / 926),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 180),
-                        child: CustomButton(
-                          label: "Save",
-                          onPressed: () {
-                            provider.savePhoneNumber();
-                          },
-                        ),
-                      ),
-                    ],
-                  )
-                ],
+                    ),
+                    const Spacer(),
+                    CustomButton(
+                      label: "Save",
+                      onPressed: () {
+                        provider.savePhoneNumber();
+                      },
+                    ),
+                  ],
+                ),
               ),
             );
           },

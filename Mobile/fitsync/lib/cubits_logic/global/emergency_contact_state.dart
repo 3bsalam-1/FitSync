@@ -22,11 +22,19 @@ final class SaveEmergencyContact extends EmergencyContactState {
 }
 
 final class EmptyEmergencyContact extends EmergencyContactState {
+  final String message;
+  EmptyEmergencyContact(this.message);
+
   void showDialog(context) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        backgroundColor: red,
-        content: Text('Please Enter a Phone number'),
+      customSnackbarMessage(
+        context,
+        backColor: red9,
+        icon: Icons.warning_rounded,
+        title: 'Faliure message',
+        subTitle: message,
+        contentColor: white,
+        duration: const Duration(seconds: 3),
       ),
     );
   }
@@ -35,11 +43,14 @@ final class EmptyEmergencyContact extends EmergencyContactState {
 final class PermissionDeniedEmergencyContact extends EmergencyContactState {
   void showDialog(context) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        backgroundColor: red,
-        content: Text(
-          'Can not save phone number The Permission was Denied',
-        ),
+      customSnackbarMessage(
+        context,
+        backColor: yellow2,
+        icon: Icons.warning_rounded,
+        title: 'Warning message',
+        subTitle: 'Can not save phone number The Permission was Denied',
+        contentColor: black,
+        duration: const Duration(seconds: 3),
       ),
     );
   }
