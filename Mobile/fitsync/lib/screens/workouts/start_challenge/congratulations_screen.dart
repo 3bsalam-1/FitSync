@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../../shared/widgets/global/custom_image.dart';
 import '../../home_main_screen.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -30,27 +31,32 @@ class CongratulationsScreen extends StatelessWidget {
       body: Column(
         children: [
           CustomAnimatedOpacity(
-            child: Image.network(
-              provider.finishedExercises < provider.exerciseTimeSec.length - 2
-              ? 'https://drive.google.com/uc?export=view&id=1JpjfUzUxBext6RM7BMrH5pxtqeoAwdzD'
-              : 'https://drive.google.com/uc?export=view&id=1gU581cW1gc2R8I2xw_3qO3ZwNjgBR-KS',
+            child: CustomImage(
+              imageUrl: provider.finishedExercises <
+                      provider.exerciseTimeSec.length - 2
+                  ? 'https://drive.google.com/uc?export=view&id=1JpjfUzUxBext6RM7BMrH5pxtqeoAwdzD'
+                  : 'https://drive.google.com/uc?export=view&id=1gU581cW1gc2R8I2xw_3qO3ZwNjgBR-KS',
               width: 230,
               height: 280,
               fit: BoxFit.fill,
+              iconSize: 50,
+              errorColor: red2,
             ),
           ),
           CustomAnimatedOpacity(
             child: Text(
               provider.finishedExercises < provider.exerciseTimeSec.length ~/ 2
                   ? 'Keep going'
-                  : provider.finishedExercises < provider.exerciseTimeSec.length - 2
-                    ? 'Keep up'
-                    : 'Congratulations!',
+                  : provider.finishedExercises <
+                          provider.exerciseTimeSec.length - 2
+                      ? 'Keep up'
+                      : 'Congratulations!',
               style: GoogleFonts.poppins(
                 fontSize: 35,
-                color: provider.finishedExercises < provider.exerciseTimeSec.length - 2
-                  ? gray14
-                  : gold2,
+                color: provider.finishedExercises <
+                        provider.exerciseTimeSec.length - 2
+                    ? gray14
+                    : gold2,
                 fontWeight: FontWeight.w800,
               ),
             ),
@@ -59,9 +65,10 @@ class CongratulationsScreen extends StatelessWidget {
             child: Text(
               provider.finishedExercises < provider.exerciseTimeSec.length ~/ 2
                   ? 'You can finish the challenge'
-                  : provider.finishedExercises < provider.exerciseTimeSec.length - 2
-                    ? 'You Almost to finish the challenge'
-                    : 'You have completed the workout',
+                  : provider.finishedExercises <
+                          provider.exerciseTimeSec.length - 2
+                      ? 'You Almost to finish the challenge'
+                      : 'You have completed the workout',
               style: GoogleFonts.poppins(
                 fontSize: 20,
                 color: black,
@@ -105,7 +112,9 @@ class CongratulationsScreen extends StatelessWidget {
                     WorkoutsViewChallenge(
                       workoutsIndex: currentWorkoutIndex + 1,
                       workouts: provider.allWorkouts,
-                      imagePath: context.read<WorkoutsCubit>().workoutsImages!['${(currentWorkoutIndex + 1)%10}'],
+                      imagePath: context
+                          .read<WorkoutsCubit>()
+                          .workoutsImages!['${(currentWorkoutIndex + 1) % 10}'],
                     ),
                   );
                 }

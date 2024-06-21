@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:fitsync/data/cubit/user_data/user_data_info_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +25,9 @@ class HomeMainScreen extends StatelessWidget {
             if (state) {
               context.read<UserDataInfoCubit>().getUserDataInfo(context);
             }
+            Timer.periodic(const Duration(minutes: 3), (timer) {
+              context.read<SmartWatchCubit>().getSmartWatchData();
+            });
           },
         ),
         BlocListener<SmartWatchCubit, SmartWatchState>(

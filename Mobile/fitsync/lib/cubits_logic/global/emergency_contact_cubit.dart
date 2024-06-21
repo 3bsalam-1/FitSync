@@ -16,7 +16,7 @@ class EmergencyContactCubit extends Cubit<EmergencyContactState> {
       if (isValidate) {
         var permission = await Permission.phone.request();
         if (permission.isGranted) {
-          Prefs.setString('phone-emergency', phone.text);
+          Prefs.setString('phone-emergency', '0${phone.text}');
           emit(SaveEmergencyContact());
         } else {
           emit(PermissionDeniedEmergencyContact());

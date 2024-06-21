@@ -7,15 +7,14 @@ import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:timezone/timezone.dart' as tz;
 import 'package:timezone/data/latest.dart' as tz;
+
 late Timer t;
 
 class LocalNotificationServices {
   static var notificationPlugin = FlutterLocalNotificationsPlugin();
 
   static onTap(NotificationResponse details) {
-    if (details.payload == 'Heart-Attack' && details.notificationResponseType == NotificationResponseType.selectedNotification) {
-      t.cancel();
-    }
+    t.cancel();
   }
 
   static Future<void> init() async {
@@ -60,7 +59,7 @@ class LocalNotificationServices {
     );
     // todo here make it leas if need to test it
     t = Timer(
-      const Duration(minutes: 1),
+      const Duration(seconds: 30),
       () async {
         // To open phone call
         String? number = Prefs.getString('phone-emergency');
