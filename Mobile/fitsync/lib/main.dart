@@ -2,6 +2,7 @@ import 'cubits_logic/diet_logic/filter_logic/cubit/filter_cubit.dart';
 import 'cubits_logic/global/dark_mode_cubit.dart';
 import 'cubits_logic/global/emergency_contact_cubit.dart';
 import 'cubits_logic/global/internet_connectivity_cubit.dart';
+import 'cubits_logic/global/location_cubit.dart';
 import 'cubits_logic/global/new_token_cubit.dart';
 import 'cubits_logic/global/notification_cubit.dart';
 import 'cubits_logic/smart_watch/hydration_activity_cubit.dart';
@@ -116,6 +117,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => EmergencyContactCubit(),
+        ),
+        BlocProvider(
+          create: (context) => LocationCubit()..getLocation(),
         ),
       ],
       child: BlocBuilder<DarkModeCubit, ThemeData>(

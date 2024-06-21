@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../cubits_logic/global/location_cubit.dart';
 import '../../../../data/cubit/user_data/avatar_profile_cubit.dart';
 import '../../../../services/pref.dart';
 import '../../../colors/colors.dart';
@@ -164,14 +165,17 @@ class ProfileAvatarEdit extends StatelessWidget {
                     color: white,
                     size: 20,
                   ),
-                  // todo show the city name location of the user
-                  Text(
-                    'New York',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14,
-                      color: white,
-                      fontWeight: FontWeight.w500,
-                    ),
+                  BlocBuilder<LocationCubit, String?>(
+                    builder: (context, state) {
+                      return Text(
+                        state ?? '_',
+                        style: GoogleFonts.poppins(
+                          fontSize: 14,
+                          color: white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),

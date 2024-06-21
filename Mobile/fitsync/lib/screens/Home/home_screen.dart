@@ -204,7 +204,9 @@ class HomePage extends StatelessWidget {
                                       Positioned(
                                         top: 33,
                                         child: Text(
-                                          smartData?.activeCalories.toStringAsFixed(2) ?? "0",
+                                          smartData?.activeCalories
+                                                  .toStringAsFixed(2) ??
+                                              "0",
                                           style: GoogleFonts.poppins(
                                             fontWeight: FontWeight.w500,
                                             fontSize: 26,
@@ -450,7 +452,7 @@ class HomePage extends StatelessWidget {
                     child: InkWell(
                       onTap: () {
                         AnimatedNavigator().push(
-                          context, 
+                          context,
                           const HeartBeatScreen(),
                         );
                       },
@@ -459,8 +461,8 @@ class HomePage extends StatelessWidget {
                           Container(
                             width:
                                 MediaQuery.of(context).size.width * (184 / 428),
-                            height:
-                                MediaQuery.of(context).size.height * (170 / 926),
+                            height: MediaQuery.of(context).size.height *
+                                (170 / 926),
                             decoration: BoxDecoration(
                                 color: white,
                                 borderRadius: BorderRadius.circular(19),
@@ -476,7 +478,8 @@ class HomePage extends StatelessWidget {
                               Row(
                                 children: [
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Padding(
                                         padding: const EdgeInsets.only(
@@ -510,8 +513,8 @@ class HomePage extends StatelessWidget {
                                               smartData?.heartRate == 0
                                           ? Container(
                                               color: purple5,
-                                              margin:
-                                                  const EdgeInsets.only(top: 30),
+                                              margin: const EdgeInsets.only(
+                                                  top: 30),
                                               width: MediaQuery.of(context)
                                                       .size
                                                       .width *
@@ -528,8 +531,8 @@ class HomePage extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(left: 20),
                             child: Container(
-                              width:
-                                  MediaQuery.of(context).size.width * (184 / 428),
+                              width: MediaQuery.of(context).size.width *
+                                  (184 / 428),
                               height: MediaQuery.of(context).size.height *
                                   (170 / 926),
                               decoration: BoxDecoration(
@@ -609,24 +612,28 @@ class HomePage extends StatelessWidget {
                                         ],
                                       ),
                                       SizedBox(
-                                        width: MediaQuery.of(context).size.width *
-                                            (15 / 428),
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                (15 / 428),
                                       ),
                                       Image.asset(
                                         "assets/images/glass.png",
                                         height: 34,
-                                        width: MediaQuery.of(context).size.width *
-                                            (33 / 428),
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                (33 / 428),
                                       ),
                                       SizedBox(
-                                        width: MediaQuery.of(context).size.width *
-                                            (15 / 428),
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                (15 / 428),
                                       ),
                                       Image.asset(
                                         "assets/images/glass.png",
                                         height: 34,
-                                        width: MediaQuery.of(context).size.width *
-                                            (33 / 428),
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                (33 / 428),
                                       ),
                                     ],
                                   ),
@@ -661,7 +668,10 @@ class HomePage extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      AnimatedNavigator().push(context, TipsAndTricksScreen());
+                      AnimatedNavigator().push(
+                        context,
+                        const TipsAndTricksScreen(),
+                      );
                     },
                     child: const TipsAndTricksWidget(
                       imageUrl: "assets/images/walking.jfif",

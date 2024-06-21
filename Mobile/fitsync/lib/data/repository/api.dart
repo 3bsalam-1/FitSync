@@ -15,7 +15,7 @@ class Api {
             "there is a problem with status code ${response.statusCode}");
       }
     } catch (e) {
-      print("The Error is: ${e.toString()}");
+      debugPrint("The Error is: ${e.toString()}");
     }
   }
 
@@ -33,7 +33,7 @@ class Api {
             "there is a problem with status code ${response.statusCode}");
       }
     } catch (e) {
-      print('The Error is: ${e.toString()}');
+      debugPrint('The Error is: ${e.toString()}');
     }
   }
 }

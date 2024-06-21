@@ -62,7 +62,6 @@ dependencies:
   workmanager: ^0.5.2
   timezone: ^0.9.3
   android_intent_plus: ^5.0.2
-  location: ^6.0.2
   
 dev_dependencies:
   flutter_test:
