@@ -39,12 +39,12 @@ class VerificationPage extends StatelessWidget {
             } else if (state is AuthSuccess) {
               state.showSucceussdialog(context);
             } else if (state is AuthLogin) {
-              AnimatedNavigator().pushAndRemoveUntilScale(
+              AnimatedNavigator().pushAndRemoveUntil(
                 context,
                 const WelcomeSurveyScreen(),
               );
             } else if (state is AuthResetCode) {
-              AnimatedNavigator().pushScale(
+              AnimatedNavigator().push(
                 context,
                 const NewPasswordScreen(),
               );

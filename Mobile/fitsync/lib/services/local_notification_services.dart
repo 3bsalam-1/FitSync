@@ -13,7 +13,7 @@ class LocalNotificationServices {
   static var notificationPlugin = FlutterLocalNotificationsPlugin();
 
   static onTap(NotificationResponse details) {
-    if (details.payload == 'Heart-Attack') {
+    if (details.payload == 'Heart-Attack' && details.notificationResponseType == NotificationResponseType.selectedNotification) {
       t.cancel();
     }
   }

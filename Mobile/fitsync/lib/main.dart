@@ -113,7 +113,7 @@ class MyApp extends StatelessWidget {
           create: (context) => HydrationActivityCubit(),
         ),
         BlocProvider(
-          create: (context) => NotificationCubit()..initNotifications(),
+          create: (context) => NotificationCubit(),
         ),
         BlocProvider(
           create: (context) => EmergencyContactCubit(),

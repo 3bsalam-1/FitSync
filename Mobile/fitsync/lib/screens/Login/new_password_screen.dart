@@ -42,7 +42,7 @@ class NewPasswordScreen extends StatelessWidget {
             } else if (state is AuthSuccess) {
               state.showSucceussdialog(context);
             } else if (state is AuthLogin) {
-              AnimatedNavigator().pushReplacementScale(
+              AnimatedNavigator().pushAndRemoveUntil(
                 context,
                 const PasswordChangedScreen(),
               );

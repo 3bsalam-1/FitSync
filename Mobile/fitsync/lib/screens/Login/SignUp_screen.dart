@@ -32,7 +32,7 @@ class SignUp extends StatelessWidget {
             } else if (state is AuthSuccess) {
               state.showSucceussdialog(context);
             } else if (state is AuthRegister) {
-              AnimatedNavigator().pushReplacementScale(
+              AnimatedNavigator().pushAndRemoveUntil(
                 context,
                 VerificationPage(
                   onPressed: () {

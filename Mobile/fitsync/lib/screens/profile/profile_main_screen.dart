@@ -1,6 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits_logic/global/dark_mode_cubit.dart';
-import '../../cubits_logic/global/navigation_page_cubit.dart';
 import '../../cubits_logic/global/notification_cubit.dart';
 import '../../services/local_notification_services.dart';
 import '../../services/pref.dart';
@@ -88,7 +87,8 @@ class ProfileMainScreen extends StatelessWidget {
                       CustomCardSwitch(
                         title: 'Dark Mode',
                         icon: Icons.dark_mode_outlined,
-                        value: state.brightness == Brightness.light? false: true,
+                        value:
+                            state.brightness == Brightness.light ? false : true,
                         onChanged: (value) {
                           context.read<DarkModeCubit>().toggleTheme();
                         },
@@ -105,21 +105,22 @@ class ProfileMainScreen extends StatelessWidget {
                         title: 'Language',
                         icon: Icons.language,
                       ),
-                      BlocBuilder<NotificationCubit, bool>(
-                        builder: (context, isAccepted) {
+                      BlocConsumer<NotificationCubit, NotificationState>(
+                        listener: (context, state) {
+                          if (state is NotificationDenied) {
+                            state.showDialog(context);
+                          }
+                        },
+                        builder: (context, state) {
                           return CustomCardSwitch(
                             title: 'Notifications',
                             icon: Icons.notifications_none,
-                            value: isAccepted,
+                            value: context.read<NotificationCubit>().data,
                             onChanged: (value) {
-                              // todo here testing heart attack 
+                              // todo here testing heart attack testing
                               LocalNotificationServices.showAlarmNotification(40);
-                              if (!isAccepted) { 
-                                context.read<NotificationCubit>().initNotifications();
-                              } else {
-                                context.read<NotificationCubit>().cancelNotifications();
-                              }
-                              context.read<NotificationCubit>().setNotifications(value);
+                              // todo /////////////////////////////////////////
+                              context.read<NotificationCubit>().initNotifications(value);
                             },
                           );
                         },
@@ -176,11 +177,13 @@ class ProfileMainScreen extends StatelessWidget {
                                         TextButton(
                                           onPressed: () {
                                             Prefs.setBool('isLogin', false);
+                                            if (Prefs.getString(
+                                                  'watch-permission',
+                                                ) !=
+                                                null) {
+                                              Prefs.remove('watch-permission');
+                                            }
                                             Prefs.remove('user');
-                                            Prefs.remove('watch-permission');
-                                            context
-                                                .read<NavigationPageCubit>()
-                                                .changePage(0);
                                             AnimatedNavigator()
                                                 .pushAndRemoveUntil(
                                               context,

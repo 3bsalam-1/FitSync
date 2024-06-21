@@ -8,6 +8,7 @@ import 'package:fitsync/shared/widgets/login_comp/custom_textformfield.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
+import '../../cubits_logic/global/navigation_page_cubit.dart';
 import '../../cubits_logic/splash_screen_next_cubit.dart';
 import '../../data/cubit/auth/auth_cubit.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
@@ -35,7 +36,8 @@ class LoginPage extends StatelessWidget {
               } else if (state is AuthSuccess) {
                 state.showSucceussdialog(context);
               } else if (state is AuthLogin) {
-                AnimatedNavigator().pushReplacementScale(
+                context.read<NavigationPageCubit>().changePage(0);
+                AnimatedNavigator().pushAndRemoveUntil(
                   context,
                   context.read<SplashScreenNextCubit>().loginNextScreen(),
                 );
@@ -62,7 +64,8 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         const Padding(
-                          padding: EdgeInsets.only(top: 4, left: 19, bottom: 35),
+                          padding:
+                              EdgeInsets.only(top: 4, left: 19, bottom: 35),
                           child: Text(
                             'Glad to see you again',
                             style: TextStyle(
@@ -156,15 +159,14 @@ class LoginPage extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             children: [
                               Icon_Button(
-                                principle_widget: Image.asset(
-                                  "assets/images/Icons/google_icon.png",
-                                  width: 24,
-                                  height: 24,
-                                ),
-                                onPressed: () async {
-                                  await signInWithGoogle(context);
-                                }
-                              ),
+                                  principle_widget: Image.asset(
+                                    "assets/images/Icons/google_icon.png",
+                                    width: 24,
+                                    height: 24,
+                                  ),
+                                  onPressed: () async {
+                                    await signInWithGoogle(context);
+                                  }),
                               const SizedBox(width: 12),
                               Icon_Button(
                                 principle_widget: const Icon(
@@ -205,7 +207,8 @@ class LoginPage extends StatelessWidget {
                                 context.read<AuthCubit>().email.clear();
                                 context.read<AuthCubit>().password.clear();
                                 context.read<AuthCubit>().isObscure = true;
-                                context.read<AuthCubit>().autovalidateMode = AutovalidateMode.disabled;
+                                context.read<AuthCubit>().autovalidateMode =
+                                    AutovalidateMode.disabled;
                                 AnimatedNavigator().push(
                                   context,
                                   const SignUp(),

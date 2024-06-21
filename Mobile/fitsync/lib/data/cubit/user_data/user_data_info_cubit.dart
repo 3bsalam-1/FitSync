@@ -51,7 +51,6 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
     Prefs.remove('bloodSugare');
     Prefs.remove('bmr');
     Prefs.remove('bp');
-    Prefs.remove('theme');
   }
 
   void getUserDataInfo(BuildContext context) {

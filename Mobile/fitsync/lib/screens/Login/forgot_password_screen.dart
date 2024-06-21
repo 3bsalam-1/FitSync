@@ -41,7 +41,7 @@ class ForgotPasswordPage extends StatelessWidget {
             } else if (state is AuthFaliure) {
               state.showFaliure(context);
             } else if (state is AuthForgetPassword) {
-              AnimatedNavigator().pushScale(
+              AnimatedNavigator().push(
                 context,
                 VerificationPage(
                   onPressed: () {

@@ -83,12 +83,14 @@ class AuthCubit extends Cubit<AuthCubitState> {
               Prefs.setString('token', response.token!);
               Prefs.setString('email', email.text);
               Prefs.setString('password', password.text);
-              emit(AuthSuccess('Login Successfully'));
+              emit(AuthSuccess(message: 'Login Successfully'));
               Future.delayed(
                 const Duration(seconds: 3),
                 () {
                   ScaffoldMessenger.of(context).clearSnackBars();
-                  emit(AuthLogin());
+                  Future.delayed(const Duration(milliseconds: 500), () {
+                    emit(AuthLogin());
+                  });
                 },
               );
             }
@@ -132,12 +134,19 @@ class AuthCubit extends Cubit<AuthCubitState> {
               Prefs.setString('token', response.token!);
               Prefs.setString('email', email.text);
               Prefs.setString('password', password.text);
-              emit(AuthSuccess('The code has sent to your email'));
+              emit(AuthSuccess(
+                message: 'The code has sent to your email',
+                backcontent: purple10,
+                icon: Icons.info,
+                title: 'Info message',
+              ));
               Future.delayed(
                 const Duration(seconds: 3),
                 () {
                   ScaffoldMessenger.of(context).clearSnackBars();
-                  emit(AuthRegister());
+                  Future.delayed(const Duration(milliseconds: 500), () {
+                    emit(AuthRegister());
+                  });
                 },
               );
             }
@@ -192,15 +201,22 @@ class AuthCubit extends Cubit<AuthCubitState> {
               Prefs.setBool('isLogin', true);
               // The user still no take the survey
               Prefs.setBool('takeSurvey', false);
-              emit(AuthSuccess('The Verification Success'));
+              emit(AuthSuccess(
+                message: 'The Verification Success',
+                backcontent: purple10,
+                icon: Icons.info,
+                title: 'Info message',
+              ));
               Future.delayed(
                 const Duration(seconds: 3),
                 () {
                   ScaffoldMessenger.of(context).clearSnackBars();
-                  for (var item in opt) {
-                    item.clear();
-                  }
-                  emit(AuthLogin());
+                  Future.delayed(const Duration(milliseconds: 500), () {
+                    for (var item in opt) {
+                      item.clear();
+                    }
+                    emit(AuthLogin());
+                  });
                 },
               );
             }
@@ -232,12 +248,19 @@ class AuthCubit extends Cubit<AuthCubitState> {
             if (response.status! == 'Error') {
               emit(AuthFaliure(response.message!));
             } else {
-              emit(AuthSuccess(response.message!));
+              emit(AuthSuccess(
+                message: response.message!,
+                backcontent: purple10,
+                icon: Icons.info,
+                title: 'Info message',
+              ));
               Future.delayed(
                 const Duration(seconds: 3),
                 () {
                   ScaffoldMessenger.of(context).clearSnackBars();
-                  emit(AuthForgetPassword());
+                  Future.delayed(const Duration(milliseconds: 500), () {
+                    emit(AuthForgetPassword());
+                  });
                 },
               );
             }
@@ -264,11 +287,18 @@ class AuthCubit extends Cubit<AuthCubitState> {
       )
           .then((response) {
         ScaffoldMessenger.of(context).clearSnackBars();
-        if (response != null) {
-          emit(AuthSuccess(response.message!));
-        } else {
-          emit(AuthFaliure('Something went wrong in server'));
-        }
+        Future.delayed(const Duration(milliseconds: 500), () {
+          if (response != null) {
+            emit(AuthSuccess(
+              message: response.message!,
+              backcontent: purple10,
+              icon: Icons.info,
+              title: 'Info message',
+            ));
+          } else {
+            emit(AuthFaliure('Something went wrong in server'));
+          }
+        });
       });
       // show dailog for waiting the process to finish
       emit(AuthLoading());
@@ -298,15 +328,22 @@ class AuthCubit extends Cubit<AuthCubitState> {
             } else {
               // There is no error then go to the home page & save token
               Prefs.setString('token', response.token!);
-              emit(AuthSuccess('The Verification Success'));
+              emit(AuthSuccess(
+                message: 'The Verification Success',
+                backcontent: purple10,
+                icon: Icons.info,
+                title: 'Info message',
+              ));
               Future.delayed(
                 const Duration(seconds: 3),
                 () {
                   ScaffoldMessenger.of(context).clearSnackBars();
-                  for (var item in opt) {
-                    item.clear();
-                  }
-                  emit(AuthResetCode());
+                  Future.delayed(const Duration(milliseconds: 500), () {
+                    for (var item in opt) {
+                      item.clear();
+                    }
+                    emit(AuthResetCode());
+                  });
                 },
               );
             }
@@ -342,12 +379,22 @@ class AuthCubit extends Cubit<AuthCubitState> {
             } else {
               // There is no error then go to the home page & save token
               Prefs.setString('token', response.token!);
-              emit(AuthSuccess('The updating password Success'));
+              emit(AuthSuccess(
+                message: 'The updating password Success',
+                backcontent: purple10,
+                icon: Icons.info,
+                title: 'Info message',
+              ));
               Future.delayed(
                 const Duration(seconds: 3),
                 () {
                   ScaffoldMessenger.of(context).clearSnackBars();
-                  emit(AuthLogin());
+                  Future.delayed(
+                    const Duration(milliseconds: 500),
+                    () {
+                      emit(AuthLogin());
+                    },
+                  );
                 },
               );
             }

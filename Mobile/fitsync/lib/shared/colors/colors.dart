@@ -68,6 +68,7 @@ const Color gray21 = Color(0xffD9D9D9);
 const Color gray22 = Color(0xffF8F8F8);
 const Color gray23 = Color(0xffE1E6EE);
 const Color yellow1 = Color(0xffFFDF6F);
+const Color yellow2 = Color(0xffFFC13F);
 const Color orange = Color(0xffFF8C4C);
 const Color blue2 = Color(0xff0065D0);
 const Color dark = Color(0xff494949);

@@ -17,12 +17,12 @@ final class AuthFaliure extends AuthCubitState {
   void showFaliure(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       customSnackbarMessage(
-        context, 
-        backColor: red9, 
-        icon: FontAwesomeIcons.triangleExclamation, 
+        context,
+        backColor: red9,
+        icon: FontAwesomeIcons.triangleExclamation,
         title: 'Faliure message',
         subTitle: message,
-        contentColor: white, 
+        contentColor: white,
         duration: const Duration(minutes: 1),
       ),
     );
@@ -31,18 +31,26 @@ final class AuthFaliure extends AuthCubitState {
 
 final class AuthSuccess extends AuthCubitState {
   final String message;
+  final Color backcontent;
+  final String title;
+  final IconData icon;
 
-  AuthSuccess(this.message);
+  AuthSuccess({
+    required this.message,
+    this.backcontent = green,
+    this.title = 'Success message',
+    this.icon = FontAwesomeIcons.circleCheck,
+  });
 
   void showSucceussdialog(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       customSnackbarMessage(
-        context, 
-        backColor: green, 
-        icon: FontAwesomeIcons.circleCheck, 
+        context,
+        backColor: green,
+        icon: FontAwesomeIcons.circleCheck,
         title: 'Success message',
         subTitle: message,
-        contentColor: white, 
+        contentColor: white,
         duration: const Duration(minutes: 1),
       ),
     );
