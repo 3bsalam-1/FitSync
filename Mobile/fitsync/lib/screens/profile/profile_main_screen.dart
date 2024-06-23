@@ -2,8 +2,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits_logic/global/dark_mode_cubit.dart';
 import '../../cubits_logic/global/notification_cubit.dart';
 import '../../services/local_notification_services.dart';
-import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/custom_card_icon.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/custom_card_switch.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +11,9 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 //import '../../shared/widgets/global/custom_menu_button.dart';
+import '../../shared/widgets/profile_comp.dart/profile_main/custom_show_dialog.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/profile_card.dart';
-import '../splash/start_screen.dart';
+import '../Login/forgot_password_screen.dart';
 import 'reminder_main_screen.dart';
 
 class ProfileMainScreen extends StatelessWidget {
@@ -97,13 +98,27 @@ class ProfileMainScreen extends StatelessWidget {
                         title: 'Privacy',
                         icon: Icons.lock_outline,
                       ),
-                      const CustomCardIcon(
+                      CustomCardIcon(
                         title: 'Security',
                         icon: Icons.security_outlined,
+                        onTap: () {
+                          AnimatedNavigator().push(
+                            context,
+                            const ForgotPasswordPage(),
+                          );
+                        },
                       ),
-                      const CustomCardIcon(
+                      CustomCardIcon(
                         title: 'Language',
                         icon: Icons.language,
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return const CustomShowLangDialog();
+                            },
+                          );
+                        },
                       ),
                       BlocConsumer<NotificationCubit, NotificationState>(
                         listener: (context, state) {
@@ -118,15 +133,20 @@ class ProfileMainScreen extends StatelessWidget {
                             value: context.read<NotificationCubit>().data,
                             onChanged: (value) {
                               // todo here testing heart attack testing
-                              LocalNotificationServices.showAlarmNotification(40);
+                              if (value) {
+                                LocalNotificationServices.showAlarmNotification(
+                                    40);
+                              }
                               // todo /////////////////////////////////////////
-                              context.read<NotificationCubit>().initNotifications(value);
+                              context
+                                  .read<NotificationCubit>()
+                                  .initNotifications(value);
                             },
                           );
                         },
                       ),
                       const SizedBox(height: 15),
-                      Text(
+                      customTranslateText(
                         'Support',
                         style: GoogleFonts.poppins(
                           fontSize: 16,
@@ -149,75 +169,9 @@ class ProfileMainScreen extends StatelessWidget {
                         onTap: () {
                           showDialog(
                             context: context,
-                            builder: (context) => Dialog(
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 12,
-                                  vertical: 22,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(12),
-                                  color: white,
-                                ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      'Are you sure that you want to logout?',
-                                      style: GoogleFonts.poppins(
-                                        color: black,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 20),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        TextButton(
-                                          onPressed: () {
-                                            Prefs.setBool('isLogin', false);
-                                            if (Prefs.getString(
-                                                  'watch-permission',
-                                                ) !=
-                                                null) {
-                                              Prefs.remove('watch-permission');
-                                            }
-                                            Prefs.remove('user');
-                                            AnimatedNavigator()
-                                                .pushAndRemoveUntil(
-                                              context,
-                                              const StartScreen(),
-                                            );
-                                          },
-                                          child: Text(
-                                            'Logout',
-                                            style: GoogleFonts.poppins(
-                                              color: purple5,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ),
-                                        TextButton(
-                                          onPressed: () {
-                                            Navigator.of(context).pop(context);
-                                          },
-                                          child: Text(
-                                            'Cancel',
-                                            style: GoogleFonts.poppins(
-                                              color: black,
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
+                            builder: (context) {
+                              return const CustomShowLogoutDialog();
+                            },
                           );
                         },
                       ),

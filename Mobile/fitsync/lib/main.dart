@@ -5,6 +5,7 @@ import 'cubits_logic/global/internet_connectivity_cubit.dart';
 import 'cubits_logic/global/location_cubit.dart';
 import 'cubits_logic/global/new_token_cubit.dart';
 import 'cubits_logic/global/notification_cubit.dart';
+import 'cubits_logic/global/translate_lang_cubit.dart';
 import 'cubits_logic/smart_watch/hydration_activity_cubit.dart';
 import 'cubits_logic/smart_watch/smart_watch_cubit.dart';
 import 'cubits_logic/splash_screen_next_cubit.dart';
@@ -120,6 +121,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => LocationCubit()..getLocation(),
+        ),
+        BlocProvider(
+          create: (context) => TranslatelangCubit(),
         ),
       ],
       child: BlocBuilder<DarkModeCubit, ThemeData>(
