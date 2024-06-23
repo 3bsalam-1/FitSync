@@ -1,0 +1,199 @@
+.Survey .box-card {
+  max-width: 550px !important;
+  padding: 20.75px 58.5px;
+  height: calc(100vh - 110px);
+  margin: 0 auto;
+}
+.Survey .box-card .Back {
+  width: 41.25px;
+  height: 41.25px;
+  background: #d1c6fc;
+  display: block;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.Survey .Back svg {
+  color: white;
+}
+.Survey .box-card h1 {
+  font-size: 19.5px;
+  font-weight: bold;
+}
+.Survey .Continue {
+  position: absolute;
+  bottom: 20.75px;
+  left: 58.5px;
+
+  width: calc(100% - 117px) !important;
+  height: 77.25px !important;
+  background: var(
+    --main-background-color,
+    linear-gradient(273.46deg, #8d70f8 19.25%, #9dcdff 126.19%)
+  );
+  color: white;
+  padding: 0;
+  border: none;
+  font-size: 19.5px;
+  font-weight: bold;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+.Survey .box-card .MTop-110 {
+  margin-top: 110.25px;
+}
+.Survey .box-card input {
+  padding: 0;
+}
+/* Gender------------------------------- */
+.Survey .box-card h2 {
+  font-size: 18.75px;
+  font-weight: 500;
+  margin-top: 15px;
+  color: var(--paragraph-color, #8f8f8f);
+}
+.Survey .box-card .box {
+  margin-top: 55px;
+}
+.Survey .box-card .box button {
+  width: 139.53px;
+  height: 139.53px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 15px auto;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.Survey .box-card .box button:first-child {
+  background: var(--frist-color, #8d70f8);
+}
+.Survey .box-card .box button:last-child {
+  background: #d1c6fc;
+}
+.Survey .box-card .box button svg {
+  width: 47.84px;
+  height: 47.84px;
+  margin-bottom: 18px;
+}
+/* birth------------------------------- */
+
+.Survey .box-card .birth div {
+  position: relative;
+  margin-bottom: 15px;
+}
+.Survey .box-card .birth label {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  color: #ada4a5;
+  font-size: 15px;
+  font-weight: 500;
+}
+.Survey .box-card .birth .DD,
+.Survey .box-card .birth .MM,
+.Survey .box-card .birth .YYYY {
+  width: 131.25px;
+  height: 86.25px;
+  text-align: center;
+  font-size: 21.75px;
+  font-weight: 500;
+}
+/* Weight & Height------------------------------------------------ */
+.Survey .box-card .toggle-button-cover {
+  margin: 42.5px auto 0;
+  background: var(--frist-color, #8d6ff8);
+  width: 145px;
+  height: 40px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+.Survey .box-card .toggle-button-cover .active {
+  font-weight: bold;
+  background: white;
+  color: #7b6f72;
+  width: 75px;
+  height: 111%;
+  padding: 10px 0 8px !important;
+  border-radius: 44%;
+  -webkit-border-radius: 44%;
+  -moz-border-radius: 44%;
+  -ms-border-radius: 44%;
+  -o-border-radius: 44%;
+}
+.Survey .box-card .toggle-button-cover .Kg,
+.Survey .box-card .toggle-button-cover .cm {
+  cursor: pointer;
+  padding-left: 22px;
+}
+.Survey .box-card .toggle-button-cover .bs,
+.Survey .box-card .toggle-button-cover .ft {
+  cursor: pointer;
+  padding-right: 22px;
+}
+/* experience------------------------------------------------ */
+.Survey .box-card .btn-text {
+  display: block;
+  background: transparent;
+  border: 1.13px solid #c4c0bb;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 25px 24px;
+  margin: 10px 0;
+  width: 100%;
+  text-align: start;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+.Survey .box-card button:focus {
+  border: 2px solid var(--frist-color, #8d6ff8);
+}
+/* NoteBack------------------------------------------------ */
+.Survey .box-card .NoteBack h1 {
+  max-width: 268px;
+  font-size: 17.5px;
+  margin: 0 auto;
+}
+.Survey .box-card .NoteBack h1 span {
+  color: var(--frist-color, #8d6ff8);
+}
+/* Edit img  */
+.Survey .box-card .NoteBack img {
+  position: relative;
+  top: 0;
+  left: 0;
+  max-height: 260px;
+  width: auto;
+}
+.Survey .box-card .NoteBack p {
+  text-align: start;
+  color: var(--second-color, #726d65);
+  font-size: 18px;
+  max-width: 383.25px;
+  font-weight: 500;
+  margin: 40px auto;
+}
+.Survey .box-card .NoteBack .Continue {
+  width: 100%;
+}

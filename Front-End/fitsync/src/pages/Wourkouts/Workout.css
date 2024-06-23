@@ -1,0 +1,217 @@
+/* start backgroundBody   ###############################################*/
+.Workout .backgroundWorkout img {
+  height: calc(50vh - 116px);
+  width: 100%;
+}
+.Workout .backgroundWorkout h1 {
+  position: absolute;
+  color: white;
+  font-size: 60px;
+  font-weight: 800;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  text-shadow: 3px 0px 0px rgb(0 0 0 / 100%),
+    4px -1px 0px rgb(255 255 255/ 100%);
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 768px) {
+  .Workout .backgroundWorkout img {
+    height: calc(50vh - 169.25px);
+  }
+}
+.Workout .bg-image {
+  width: 100%;
+  height: 100%;
+}
+.Workout .bg-image::after {
+  content: "";
+  background-color: rgb(0 0 0 / 50%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  -moz-border-radius: 7.5px;
+  -ms-border-radius: 7.5px;
+  -o-border-radius: 7.5px;
+}
+/* start backgroundBody   ###############################################*/
+/* start Filters   ###############################################*/
+.Workout .Filters .show {
+  display: block !important;
+}
+.Workout .Filters button {
+  padding: 10px 14px;
+  margin-right: 28px;
+  background: transparent;
+  color: #868179;
+  font-weight: 500;
+  font-size: 13.5px;
+  border: 1px solid #dee2e6;
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+.Workout .Filters button svg {
+  color: #8d6ff8;
+}
+.Workout .Filters .box-filter {
+  display: none;
+  background: white;
+  color: #7b6f72;
+  padding: 43px 21px;
+  box-shadow: 0px 7px 15px 0px #00000012;
+  border: 1px solid #dee2e6;
+  border-radius: 0px 0px 7.5px 7.5px;
+  -webkit-border-radius: 0px 0px 7.5px 7.5px;
+  -moz-border-radius: 0px 0px 7.5px 7.5px;
+  -ms-border-radius: 0px 0px 7.5px 7.5px;
+  -o-border-radius: 0px 0px 7.5px 7.5px;
+}
+
+.Workout .Filters .form-group svg {
+  color: #8d6ff8;
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+.Workout .Filters .form-group input {
+  width: 460px;
+  padding: 10px 30px;
+  margin: 10px 0;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+h3 {
+  margin-bottom: 25px;
+  color: #000000;
+  font-size: 20px;
+  font-weight: 600;
+}
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+.checkbox-label input {
+  display: none;
+}
+.custom-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.checkbox-label input:checked + .custom-checkbox {
+  background-color: #7c4dff;
+  border-color: #7c4dff;
+}
+.checkbox-label input:checked + .custom-checkbox:after {
+  content: "✔";
+  color: white;
+  font-size: 12px;
+}
+.checkbox-label input:focus + .custom-checkbox {
+  box-shadow: 0 0 3px #7c4dff;
+}
+.exercise-plans {
+  display: flex;
+  flex-direction: column;
+}
+.exercise-plan {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+.exercise-plan h4 {
+  margin: 0 0 10px 0;
+}
+.exercise-plan p {
+  margin: 5px 0;
+}
+/* End Filters   ###############################################*/
+/* start Recent   ###############################################*/
+.Workout .Recent h2 {
+  color: #524ff5;
+  margin: 68px 0;
+  text-transform: uppercase;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 10px;
+}
+.Workout .Recent .row .col {
+  cursor: pointer;
+  box-shadow: 0px 10px 40px 0px #00000012;
+  width: 410px;
+  padding: 0;
+  border: none;
+}
+.Workout .Recent .row .col > img {
+  height: 280px;
+}
+.Workout .Recent .row .card-body {
+  text-transform: capitalize;
+  margin: 20px 20px 20px 25px;
+  padding: 0;
+}
+.Workout .Recent .row .card-body h4 {
+  font-size: 20px;
+  font-weight: 400;
+}
+.Workout .Recent .row .card-body p {
+  color: #6a6a6a;
+  font-size: 15px;
+  font-weight: 400;
+}
+.Workout .Recent .row .card-body div {
+  color: #8d6ff8;
+  font-size: 15px;
+  font-weight: 500;
+}
+.Workout .Recent .row .card-body div span {
+  margin-left: 20px;
+}
+.Workout .Recent .row {
+  transition: scale 0.25s ease-in, opacity 0.25s ease-in, filter 0.25s ease-in;
+  -webkit-transition: scale 0.25s ease-in, opacity 0.25s ease-in,
+    filter 0.25s ease-in;
+  -moz-transition: scale 0.25s ease-in, opacity 0.25s ease-in,
+    filter 0.25s ease-in;
+  -ms-transition: scale 0.25s ease-in, opacity 0.25s ease-in,
+    filter 0.25s ease-in;
+  -o-transition: scale 0.25s ease-in, opacity 0.25s ease-in,
+    filter 0.25s ease-in;
+}
+.Workout .Recent .card:hover {
+  box-shadow: 0px 10px 40px 0px #00000075;
+}
+.Workout .Recent .row:has(.card:hover) .card:not(:hover) {
+  opacity: 0.3;
+}
+
+/* End Recent   ###############################################*/
