@@ -7,6 +7,7 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/hydration_comp/draggable_scroll_hydration.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_app_bar.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 
 class HydrationActivityScreen extends StatelessWidget {
   const HydrationActivityScreen({super.key});
@@ -28,7 +29,7 @@ class HydrationActivityScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 30),
-                    Text(
+                    customTranslateText(
                       'Today you took ',
                       style: GoogleFonts.poppins(
                         fontSize: 24,
@@ -39,7 +40,7 @@ class HydrationActivityScreen extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
+                        customTranslateText(
                           '${provider.waterTaked / 1000} L',
                           style: GoogleFonts.poppins(
                             fontSize: 24,
@@ -47,7 +48,7 @@ class HydrationActivityScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        Text(
+                        customTranslateText(
                           ' of water',
                           style: GoogleFonts.poppins(
                             fontSize: 24,
@@ -62,7 +63,7 @@ class HydrationActivityScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Text(
+                    customTranslateText(
                       provider.waterTaked == 0
                           ? 'Bad Hydrated  take more water'
                           : 'Almost there!  Keep Hydrated',

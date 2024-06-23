@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../services/convert_ms.dart';
-
+import '../../global/custom_translate_text.dart';
 class AnimatedCircleProgress extends StatefulWidget {
   final int seconds;
   final int current;
@@ -72,7 +72,7 @@ class _AnimatedCircleProgressState extends State<AnimatedCircleProgress> {
             strokeWidth: 16.0,
           ),
         ),
-        Text(
+        customTranslateText(
           convertSecondsToMS(counter),
           style: GoogleFonts.poppins(
             fontSize: 50,

@@ -7,6 +7,7 @@ import '../../data/models/workouts_model.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/global/error_internet_connection.dart';
 import '../../shared/widgets/workouts_comp/workouts_list/custom_workouts_list.dart';
 import '../../shared/widgets/workouts_comp/workouts_list/text_form_search.dart';
@@ -30,7 +31,7 @@ class WorkoutsListSearchScreen extends StatelessWidget {
         appBar: AppBar(
           scrolledUnderElevation: 0,
           backgroundColor: white,
-          title: Text(
+          title: customTranslateText(
             'Workout List',
             style: GoogleFonts.poppins(
               fontSize: 22,
@@ -106,7 +107,8 @@ class WorkoutsListSearchScreen extends StatelessWidget {
                       if (state is InternetConnectivityOFF) {
                         return const ErrorInternetConnection();
                       }
-                      return BlocBuilder<FiltersWorkoutsCubit, List<WorkoutsModel>>(
+                      return BlocBuilder<FiltersWorkoutsCubit,
+                          List<WorkoutsModel>>(
                         builder: (context, state) {
                           final provider = context.read<FiltersWorkoutsCubit>();
                           if (provider.input.text.isNotEmpty &&
@@ -114,7 +116,7 @@ class WorkoutsListSearchScreen extends StatelessWidget {
                             if (state.isNotEmpty) {
                               return const CustomWorkoutsList();
                             }
-                            return Text(
+                            return customTranslateText(
                               "No Result",
                               style: GoogleFonts.poppins(
                                 color: gray3,

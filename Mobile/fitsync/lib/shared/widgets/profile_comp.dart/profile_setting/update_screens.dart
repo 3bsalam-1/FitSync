@@ -16,6 +16,7 @@ import '../../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import '../../../../shared/widgets/survey_comp/custom_snackbar.dart';
 import '../../global/custom_animated_opacity.dart';
 import '../../global/custom_button.dart';
+import '../../global/custom_translate_text.dart';
 import '../../survey_comp/choices_comp/choices_body_question.dart';
 import '../../survey_comp/choices_comp/custom_card.dart';
 import '../../survey_comp/choices_comp/question_survey.dart';
@@ -87,8 +88,7 @@ class HeightUpdateScreen extends StatelessWidget {
       backgroundColor: white,
       body: MultiBlocListener(
         listeners: [
-          BlocListener<TextFormValidationCubit,
-              TextFormValidationState>(
+          BlocListener<TextFormValidationCubit, TextFormValidationState>(
             listener: (context, state) {
               if (state is TallValidation) {
                 if (state.errorText == null) {
@@ -128,8 +128,7 @@ class HeightUpdateScreen extends StatelessWidget {
             },
           ),
         ],
-        child: BlocBuilder<TextFormValidationCubit,
-            TextFormValidationState>(
+        child: BlocBuilder<TextFormValidationCubit, TextFormValidationState>(
           builder: (context, state) {
             if (state is TallSwitchConverter) {
               return BodyTallQuestion(
@@ -168,8 +167,7 @@ class WeightUpdateScreen extends StatelessWidget {
       backgroundColor: white,
       body: MultiBlocListener(
         listeners: [
-          BlocListener<TextFormValidationCubit,
-              TextFormValidationState>(
+          BlocListener<TextFormValidationCubit, TextFormValidationState>(
             listener: (context, state) {
               if (state is WeightValidation) {
                 if (state.errorText == null) {
@@ -209,8 +207,7 @@ class WeightUpdateScreen extends StatelessWidget {
             },
           ),
         ],
-        child: BlocBuilder<TextFormValidationCubit,
-            TextFormValidationState>(
+        child: BlocBuilder<TextFormValidationCubit, TextFormValidationState>(
           builder: (context, state) {
             if (state is WeightSwitchConverter) {
               return BodyWeightQuestion(
@@ -249,8 +246,7 @@ class DateBirthUpdateScreen extends StatelessWidget {
       backgroundColor: white,
       body: MultiBlocListener(
         listeners: [
-          BlocListener<TextFormValidationCubit,
-              TextFormValidationState>(
+          BlocListener<TextFormValidationCubit, TextFormValidationState>(
             listener: (context, state) {
               if (state is BirthValidation) {
                 if (state.errorText == null) {
@@ -289,8 +285,7 @@ class DateBirthUpdateScreen extends StatelessWidget {
             },
           ),
         ],
-        child: BlocBuilder<TextFormValidationCubit,
-            TextFormValidationState>(
+        child: BlocBuilder<TextFormValidationCubit, TextFormValidationState>(
           builder: (context, isValidated) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
@@ -298,7 +293,7 @@ class DateBirthUpdateScreen extends StatelessWidget {
               children: [
                 CustomAnimatedOpacity(
                   duration: const Duration(milliseconds: 700),
-                  child: Text(
+                  child: customTranslateText(
                     'What’s Your Date of Birth?',
                     style: GoogleFonts.poppins(
                       fontSize: 26,
@@ -347,7 +342,7 @@ class DateBirthUpdateScreen extends StatelessWidget {
                       },
                       child: CustomAnimatedOpacity(
                         duration: const Duration(milliseconds: 700),
-                        child: Text(
+                        child: customTranslateText(
                           context
                                   .read<TextFormValidationCubit>()
                                   .birthDateController
@@ -442,8 +437,7 @@ class BloodSugarUpdate extends StatelessWidget {
           },
         ),
       ],
-      child:
-          BlocBuilder<TextFormValidationCubit, TextFormValidationState>(
+      child: BlocBuilder<TextFormValidationCubit, TextFormValidationState>(
         builder: (context, state) => WritingBodyQuestion(
           onPressed: () {
             context.read<TextFormValidationCubit>().bloodSugarValidate();
@@ -469,8 +463,7 @@ class SystolicBloodUpdate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TextFormValidationCubit,
-        TextFormValidationState>(
+    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
       listener: (context, state) {
         if (state is SystolicBloodValidation) {
           if (state.errorText == null) {
@@ -504,8 +497,7 @@ class DiastolicBloodUpdate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TextFormValidationCubit,
-        TextFormValidationState>(
+    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
       listener: (context, state) {
         if (state is DiastolicBloodValidation) {
           if (state.errorText == null) {
@@ -539,8 +531,7 @@ class CholesterolLevelUpdate extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<TextFormValidationCubit,
-        TextFormValidationState>(
+    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
       listener: (context, state) {
         if (state is CholesterolValidation) {
           if (state.errorText == null) {
@@ -638,7 +629,7 @@ class GenderUpdateScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 26),
-              Text(
+              customTranslateText(
                 'What’s Your Gender ?',
                 style: GoogleFonts.poppins(
                   fontSize: 26,

@@ -6,6 +6,7 @@ import 'package:fitsync/shared/widgets/home_comp/page2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 
 class TipsAndTricksScreen extends StatelessWidget {
   const TipsAndTricksScreen({super.key});
@@ -35,13 +36,13 @@ class TipsAndTricksScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 15),
             child: CustomAnimatedOpacity(
               child: Center(
-                child: Text(
+                child: customTranslateText(
                   "Tips & Tricks",
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
                     fontSize: 22,
                     color: black,
-              
+
                     // fontFamily:
                   ),
                 ),
@@ -61,30 +62,30 @@ class TipsAndTricksScreen extends StatelessWidget {
         body: CustomAnimatedOpacity(
           child: Column(
             children: [
-              const TabBar(
-                indicator: UnderlineTabIndicator(
+              TabBar(
+                indicator: const UnderlineTabIndicator(
                   borderSide: BorderSide(width: 1, color: purple5),
                   insets: EdgeInsets.only(bottom: 13),
                 ),
                 dividerHeight: 0,
                 indicatorSize: TabBarIndicatorSize.label,
                 labelColor: purple5,
-                labelStyle: TextStyle(
+                labelStyle: const TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),
                 unselectedLabelColor: black,
-                unselectedLabelStyle: TextStyle(
+                unselectedLabelStyle: const TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),
-                padding: EdgeInsets.only(right: 15, top: 11),
+                padding: const EdgeInsets.only(right: 15, top: 11),
                 tabs: [
                   Tab(
-                    child: Text('Recent'),
+                    child: customTranslateText('Recent'),
                   ),
                   Tab(
-                    child: Text('Recommend '),
+                    child: customTranslateText('Recommend '),
                   ),
                 ],
               ),

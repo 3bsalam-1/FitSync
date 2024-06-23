@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
+import '../../shared/widgets/global/custom_translate_text.dart';
+
 class DietListScreen extends StatelessWidget {
   const DietListScreen({super.key});
 
@@ -29,7 +31,7 @@ class DietListScreen extends StatelessWidget {
                 size: 40,
               )),
         ),
-        title: Text(
+        title: customTranslateText(
           'Diet List',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,

@@ -4,6 +4,7 @@ import '../../../services/pref.dart';
 import '../../colors/colors.dart';
 import 'custom_animated_opacity.dart';
 import 'custom_image.dart';
+import '../global/custom_translate_text.dart';
 
 PreferredSizeWidget customAppBar(
   BuildContext context,
@@ -14,7 +15,7 @@ PreferredSizeWidget customAppBar(
     backgroundColor: white,
     scrolledUnderElevation: 0,
     title: CustomAnimatedOpacity(
-      child: Text(
+      child: customTranslateText(
         title,
         style: GoogleFonts.poppins(
           fontSize: 24,

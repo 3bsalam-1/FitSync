@@ -6,6 +6,7 @@ import '../../../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_image.dart';
+import '../../global/custom_translate_text.dart';
 
 class SavedWorkOuts extends StatelessWidget {
   const SavedWorkOuts({super.key});
@@ -21,7 +22,7 @@ class SavedWorkOuts extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                customTranslateText(
                   'Saved Workouts',
                   style: GoogleFonts.poppins(
                     fontSize: 22,
@@ -36,7 +37,7 @@ class SavedWorkOuts extends StatelessWidget {
                       context.read<NavigationPageCubit>().changePage(9);
                     });
                   },
-                  child: Text(
+                  child: customTranslateText(
                     'View all',
                     style: GoogleFonts.poppins(
                       fontSize: 16,
@@ -70,7 +71,8 @@ class SavedWorkOuts extends StatelessWidget {
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(12),
                             child: CustomImage(
-                              imageUrl: provider.workoutsImages!['${index % 10}'],
+                              imageUrl:
+                                  provider.workoutsImages!['${index % 10}'],
                               width: 250,
                               height: 180,
                               fit: BoxFit.cover,
@@ -91,8 +93,9 @@ class SavedWorkOuts extends StatelessWidget {
                                 children: [
                                   SizedBox(
                                     width: 120,
-                                    child: Text(
-                                      providerFav.favoriteWorkouts![index].category,
+                                    child: customTranslateText(
+                                      providerFav
+                                          .favoriteWorkouts![index].category,
                                       style: GoogleFonts.poppins(
                                         fontSize: 18,
                                         color: white,
@@ -103,7 +106,7 @@ class SavedWorkOuts extends StatelessWidget {
                                   const SizedBox(height: 8),
                                   SizedBox(
                                     width: 130,
-                                    child: Text(
+                                    child: customTranslateText(
                                       'Finish this exercise in ${providerFav.favoriteWorkouts![index].planDurationMn} minutes',
                                       style: GoogleFonts.poppins(
                                         fontSize: 12,

@@ -2,7 +2,7 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import '../../global/custom_translate_text.dart';
 import '../../../../data/cubit/workouts/filters_workouts_cubit.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../../data/models/workouts_model.dart';
@@ -54,7 +54,7 @@ class CustomWorkoutsList extends StatelessWidget {
                   errorColor: red,
                 ),
                 const SizedBox(width: 12),
-                Text(
+                customTranslateText(
                   provider.namesResults.isNotEmpty
                       ? provider.namesResults[index]
                       : state[index].category,

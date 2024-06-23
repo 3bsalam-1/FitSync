@@ -6,7 +6,7 @@ import '../../../../data/models/workouts_model.dart';
 import '../../../../services/convert_ms.dart';
 import '../../../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
-
+import '../../global/custom_translate_text.dart';
 import '../../global/custom_image.dart';
 
 class WorkoutsListChallenges extends StatelessWidget {
@@ -47,7 +47,9 @@ class WorkoutsListChallenges extends StatelessWidget {
           child: Row(
             children: [
               CustomImage(
-                imageUrl: context.read<WorkoutsCubit>().workoutsImages![workouts.exercisePlan[index].trim()],
+                imageUrl: context
+                    .read<WorkoutsCubit>()
+                    .workoutsImages![workouts.exercisePlan[index].trim()],
                 height: 77,
                 width: 79,
                 fit: BoxFit.fill,
@@ -59,7 +61,7 @@ class WorkoutsListChallenges extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  customTranslateText(
                     workouts.exercisePlan[index],
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -69,7 +71,7 @@ class WorkoutsListChallenges extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  Text(
+                  customTranslateText(
                     getTimeEachExercise(
                         workouts.planDurationMn, context)[index],
                     style: GoogleFonts.poppins(
@@ -102,10 +104,10 @@ class WorkoutsListChallenges extends StatelessWidget {
       },
     );
     context.read<CounterTimeChallenges>().initalizeExerciseTimeSec(
-      seconds,
-      singleTime,
-      length,
-    );
+          seconds,
+          singleTime,
+          length,
+        );
     return times;
   }
 }

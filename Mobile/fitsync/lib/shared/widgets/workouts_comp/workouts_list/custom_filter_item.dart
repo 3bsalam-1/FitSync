@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../data/cubit/workouts/filters_workouts_cubit.dart';
 import '../../../../data/models/workouts_model.dart';
 import '../../../colors/colors.dart';
+import '../../global/custom_translate_text.dart';
 
 class CustomFilterItem extends StatelessWidget {
   final void Function() onTap;
@@ -34,7 +35,7 @@ class CustomFilterItem extends StatelessWidget {
                 color: selectedLabel.contains(label) ? purple5 : gray13,
                 borderRadius: BorderRadius.circular(25),
               ),
-              child: Text(
+              child: customTranslateText(
                 label,
                 style: GoogleFonts.poppins(
                   fontSize: 13.5,

@@ -12,7 +12,7 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
-
+import '../../shared/widgets/global/custom_translate_text.dart';
 class HeartBeatScreen extends StatefulWidget {
   const HeartBeatScreen({super.key});
 
@@ -45,7 +45,7 @@ class _HeartBeatScreenState extends State<HeartBeatScreen> {
         ),
         title: Center(
           child: CustomAnimatedOpacity(
-            child: Text(
+            child: customTranslateText(
               "Heart",
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w600,
@@ -95,7 +95,7 @@ class _HeartBeatScreenState extends State<HeartBeatScreen> {
                       const SizedBox(
                         height: 5,
                       ),
-                      Text(
+                      customTranslateText(
                         "${smartData == null ? "_" : smartData!.heartRate == 0 ? 75 : smartData!.heartRate}",
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
@@ -103,7 +103,7 @@ class _HeartBeatScreenState extends State<HeartBeatScreen> {
                           color: black,
                         ),
                       ),
-                      Text(
+                      customTranslateText(
                         "unit: BPM",
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w500,
@@ -132,7 +132,7 @@ class _HeartBeatScreenState extends State<HeartBeatScreen> {
                         children: [
                           Row(
                             children: [
-                              Text(
+                              customTranslateText(
                                 "Spo2",
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w500,
@@ -143,7 +143,7 @@ class _HeartBeatScreenState extends State<HeartBeatScreen> {
                               const SizedBox(
                                 width: 10,
                               ),
-                              Text(
+                              customTranslateText(
                                 "(spo2)",
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w500,
@@ -156,7 +156,7 @@ class _HeartBeatScreenState extends State<HeartBeatScreen> {
                           const SizedBox(
                             height: 5,
                           ),
-                          Text(
+                          customTranslateText(
                             "${smartData?.bloodOxygen ?? '_'}%",
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w500,
@@ -183,7 +183,7 @@ class _HeartBeatScreenState extends State<HeartBeatScreen> {
                       children: [
                         Row(
                           children: [
-                            Text(
+                            customTranslateText(
                               "Blood",
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w500,
@@ -194,7 +194,7 @@ class _HeartBeatScreenState extends State<HeartBeatScreen> {
                             const SizedBox(
                               width: 10,
                             ),
-                            Text(
+                            customTranslateText(
                               "(mmHg)",
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w500,
@@ -207,7 +207,7 @@ class _HeartBeatScreenState extends State<HeartBeatScreen> {
                         const SizedBox(
                           height: 5,
                         ),
-                        Text(
+                        customTranslateText(
                           "${smartData?.systolic ?? '_'}/${smartData?.diastolic ?? '_'}",
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w500,

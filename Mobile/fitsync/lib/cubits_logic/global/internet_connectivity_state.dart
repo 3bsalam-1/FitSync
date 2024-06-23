@@ -12,11 +12,14 @@ final class InternetConnectivityOFF extends InternetConnectivityState {}
 final class InternetConnectivityOFFWithData extends InternetConnectivityState {
   void showDialog(context) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        duration: Duration(days: 1),
+      SnackBar(
+        duration: const Duration(days: 1),
         backgroundColor: gray10,
-        content: Text(
+        content: customTranslateText(
           "There is no internet connection",
+          style: const TextStyle(
+            color: white,
+          ),
         ),
       ),
     );

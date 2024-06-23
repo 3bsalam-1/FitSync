@@ -1,6 +1,7 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../global/custom_translate_text.dart';
 
 class CustomIngredientsWidget extends StatelessWidget {
   final String imageUrl;
@@ -35,14 +36,14 @@ class CustomIngredientsWidget extends StatelessWidget {
               children: [
                 SizedBox(
                   width: 69,
-                  child: Text(
+                  child: customTranslateText(
                     label1,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w400,
                       fontSize: 12,
                       color: black2,
                     ),
-                   maxLines: 1,
+                    maxLines: 1,
                   ),
                 ),
               ],
@@ -50,7 +51,7 @@ class CustomIngredientsWidget extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 2),
-            child: Text(
+            child: customTranslateText(
               label2,
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w400,

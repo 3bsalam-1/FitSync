@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
+import '../../global/custom_translate_text.dart';
 import 'user_info.dart';
 import 'user_square_info.dart';
 
@@ -53,7 +54,7 @@ class ProfileUserInfo extends StatelessWidget {
                 onPressed: () {
                   // todo here delete the user account
                 },
-                child: Text(
+                child: customTranslateText(
                   'Delete Account',
                   style: GoogleFonts.poppins(
                     fontSize: 14,

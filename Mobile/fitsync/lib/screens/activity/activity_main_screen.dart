@@ -7,6 +7,7 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/custom_chart_column.dart';
 import '../../shared/widgets/activity_comp/custom_progress_challenge.dart';
 import '../../shared/widgets/global/custom_menu_button.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
 
 class ActivityMainScreen extends StatelessWidget {
@@ -22,7 +23,7 @@ class ActivityMainScreen extends StatelessWidget {
           automaticallyImplyLeading: false,
           elevation: 0,
           scrolledUnderElevation: 0,
-          title: Text(
+          title: customTranslateText(
             'Activity',
             style: GoogleFonts.poppins(
               fontSize: 22,
@@ -122,7 +123,7 @@ class ActivityMainScreen extends StatelessWidget {
                       data: weekData?.weekDataCalories,
                     ),
                     const SizedBox(height: 30),
-                    Text(
+                    customTranslateText(
                       'Challenges Progress',
                       style: GoogleFonts.poppins(
                         fontSize: 18,

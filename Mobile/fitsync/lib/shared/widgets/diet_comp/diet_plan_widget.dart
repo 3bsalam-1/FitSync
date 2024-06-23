@@ -4,6 +4,7 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../global/custom_translate_text.dart';
 
 class DietPlanWidget extends StatelessWidget {
   String imageUrl;
@@ -18,7 +19,11 @@ class DietPlanWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => AnimatedNavigator().push(context, MealOverviewScreen(diet: diet,)),
+      onTap: () => AnimatedNavigator().push(
+          context,
+          MealOverviewScreen(
+            diet: diet,
+          )),
       child: Row(
         children: [
           const SizedBox(
@@ -43,7 +48,7 @@ class DietPlanWidget extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
-                child: Text(
+                child: customTranslateText(
                   text,
                   style: GoogleFonts.poppins(
                     textStyle: const TextStyle(

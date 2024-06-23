@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import '../../shared/colors/colors.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 part 'internet_connectivity_state.dart';
 
 class InternetConnectivityCubit extends Cubit<InternetConnectivityState> {

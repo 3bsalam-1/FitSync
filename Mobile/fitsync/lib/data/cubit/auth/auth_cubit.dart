@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../services/pref.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_snackbar_message.dart';
+import '../../../shared/widgets/global/custom_translate_text.dart';
 import '../../../shared/widgets/login_comp/loading_dialog.dart';
 import '../../repository/login_res/code_confirm_repo.dart';
 import '../../repository/login_res/password_repo.dart';

@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 import 'data_info.dart';
+import '../../global/custom_translate_text.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({super.key});
@@ -39,7 +40,7 @@ Widget cardInfo({
   return Row(
     mainAxisSize: MainAxisSize.min,
     children: [
-      Text(
+      customTranslateText(
         title,
         style: GoogleFonts.poppins(
           fontSize: 14,
@@ -53,7 +54,7 @@ Widget cardInfo({
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
+            customTranslateText(
               data,
               style: GoogleFonts.poppins(
                 fontSize: 14,

@@ -5,6 +5,7 @@ import '../../data/cubit/workouts/workouts_cubit.dart';
 import '../../data/models/workouts_model.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_button.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/workouts_comp/workouts_list/custom_filter_item.dart';
 import 'package:flutter/material.dart';
 import '../../shared/colors/colors.dart';
@@ -30,7 +31,7 @@ class FiltersWorkoutsScreen extends StatelessWidget {
         ),
         centerTitle: true,
         title: CustomAnimatedOpacity(
-          child: Text(
+          child: customTranslateText(
             'Filter',
             style: GoogleFonts.poppins(
               fontSize: 22,
@@ -57,7 +58,7 @@ class FiltersWorkoutsScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 20),
-                    const Text('Category'),
+                    customTranslateText('Category'),
                     const SizedBox(height: 12),
                     Row(
                       children: [
@@ -85,7 +86,7 @@ class FiltersWorkoutsScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 17),
-                    const Text('Target Muscle'),
+                    customTranslateText('Target Muscle'),
                     const SizedBox(height: 12),
                     Row(
                       children: [
@@ -188,7 +189,7 @@ class FiltersWorkoutsScreen extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 17),
-                    const Text('Impact Level'),
+                    customTranslateText('Impact Level'),
                     const SizedBox(height: 12),
                     Row(
                       children: [

@@ -3,21 +3,21 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../global/custom_translate_text.dart';
 
 class Page2 extends StatelessWidget {
-   Page2({
+  Page2({
     required this.diet,
     super.key,
   });
 
   FoodModel diet;
   String ingredients = "";
-  
 
   @override
   Widget build(BuildContext context) {
-    ingredients=diet.Description;
-    List<String> splitted= ingredients.split(',');
+    ingredients = diet.Description;
+    List<String> splitted = ingredients.split(',');
 
     return Column(
       children: [
@@ -26,7 +26,7 @@ class Page2 extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 10),
-              child: Text(
+              child: customTranslateText(
                 "Ingredients That You \nWill Need",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
@@ -37,7 +37,7 @@ class Page2 extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(right: 20, bottom: 12),
-              child: Text(
+              child: customTranslateText(
                 '6 items',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w400,
@@ -48,8 +48,7 @@ class Page2 extends StatelessWidget {
             )
           ],
         ),
-        
-         Row(
+        Row(
           children: [
             CustomIngredientsWidget(
                 imageUrl: "assets/images/Icons/Flour-Icon.png",

@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_image.dart';
+import '../../global/custom_translate_text.dart';
 import 'custom_start_button.dart';
 
 class CardItems extends StatelessWidget {
@@ -56,7 +57,7 @@ class CardItems extends StatelessWidget {
               children: [
                 SizedBox(
                   width: width * 0.42,
-                  child: Text(
+                  child: customTranslateText(
                     workouts.category,
                     style: GoogleFonts.poppins(
                       fontSize: 22,
@@ -84,7 +85,7 @@ class CardItems extends StatelessWidget {
                         size: 17,
                       ),
                       const SizedBox(width: 5),
-                      Text(
+                      customTranslateText(
                         '${workouts.planDurationMn} Minutes Workout',
                         style: GoogleFonts.poppins(
                           fontSize: 12,

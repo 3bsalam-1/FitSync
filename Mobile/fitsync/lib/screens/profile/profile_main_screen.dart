@@ -31,7 +31,7 @@ class ProfileMainScreen extends StatelessWidget {
               scrolledUnderElevation: 0,
               backgroundColor: white,
               title: CustomAnimatedOpacity(
-                child: Text(
+                child: customTranslateText(
                   'Profile',
                   style: GoogleFonts.poppins(
                     fontSize: 22,
@@ -76,7 +76,7 @@ class ProfileMainScreen extends StatelessWidget {
                     children: [
                       const ProfileCard(),
                       const SizedBox(height: 15),
-                      Text(
+                      customTranslateText(
                         'Settings & Preferences',
                         style: GoogleFonts.poppins(
                           fontSize: 16,

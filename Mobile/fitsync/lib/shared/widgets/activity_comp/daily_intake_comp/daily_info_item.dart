@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
+import '../../global/custom_translate_text.dart';
 
 class DailyInfoItem extends StatelessWidget {
   final String label;
@@ -38,7 +39,7 @@ class DailyInfoItem extends StatelessWidget {
               color: purple5,
             ),
             const SizedBox(width: 3),
-            Text(
+            customTranslateText(
               label,
               style: GoogleFonts.poppins(
                 fontSize: 15,

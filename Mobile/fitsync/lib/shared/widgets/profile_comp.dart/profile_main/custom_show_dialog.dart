@@ -126,7 +126,7 @@ class CustomShowLangDialog extends StatelessWidget {
                     Navigator.pop(context);
                   },
                   child: Text(
-                    'arabic',
+                    'العربية',
                     style: GoogleFonts.poppins(
                       color: state == 'ar' ? purple2 : black,
                       fontSize: 16,

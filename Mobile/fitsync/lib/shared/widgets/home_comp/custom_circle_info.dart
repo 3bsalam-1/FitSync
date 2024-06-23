@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
-
+import '../global/custom_translate_text.dart';
 class CustomCircleInfo extends StatelessWidget {
   final double progress;
   final String label;
@@ -36,7 +36,7 @@ class CustomCircleInfo extends StatelessWidget {
                   strokeCap: StrokeCap.round,
                 ),
               ),
-              Text(
+              customTranslateText(
                 progress.toStringAsFixed(0),
                 style: GoogleFonts.poppins(
                   color: black,
@@ -50,7 +50,7 @@ class CustomCircleInfo extends StatelessWidget {
         const SizedBox(
           width: 12,
         ),
-        Text(
+        customTranslateText(
           label,
           style: GoogleFonts.poppins(
             color: black,

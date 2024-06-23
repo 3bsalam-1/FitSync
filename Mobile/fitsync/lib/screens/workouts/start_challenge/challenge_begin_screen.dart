@@ -7,6 +7,7 @@ import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/widgets/global/custom_image.dart';
+import '../../../shared/widgets/global/custom_translate_text.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import '../../../shared/widgets/workouts_comp/workouts_challenges/animated_circle_progress.dart';
 import '../../../cubits_logic/workouts/counter_time_challenges.dart';
@@ -35,7 +36,8 @@ class ChallengeBeginScreen extends StatelessWidget {
             WorkoutsViewChallenge(
               workouts: providerTime.allWorkouts,
               workoutsIndex: providerTime.currentWorkoutIndex,
-              imagePath: workoutsImages!['${context.read<CounterTimeChallenges>().currentWorkoutIndex}'],
+              imagePath: workoutsImages![
+                  '${context.read<CounterTimeChallenges>().currentWorkoutIndex}'],
             ),
           );
         },
@@ -50,16 +52,17 @@ class ChallengeBeginScreen extends StatelessWidget {
             children: [
               CustomAnimatedOpacity(
                 child: CustomImage(
-                imageUrl: workoutsImages![workouts.exercisePlan[indexExercise].trim()],
-                width: 200,
-                height: 200,
-                fit: BoxFit.contain,
-                errorColor: red,
-                iconSize: 55,
-              ),
+                  imageUrl: workoutsImages![
+                      workouts.exercisePlan[indexExercise].trim()],
+                  width: 200,
+                  height: 200,
+                  fit: BoxFit.contain,
+                  errorColor: red,
+                  iconSize: 55,
+                ),
               ),
               CustomAnimatedOpacity(
-                child: Text(
+                child: customTranslateText(
                   workouts.exercisePlan[indexExercise],
                   style: GoogleFonts.poppins(
                     fontSize: 26,
@@ -99,7 +102,8 @@ class ChallengeBeginScreen extends StatelessWidget {
                               WorkoutsViewChallenge(
                                 workoutsIndex: provider.currentWorkoutIndex,
                                 workouts: provider.allWorkouts,
-                                imagePath: workoutsImages['${provider.currentWorkoutIndex}'],
+                                imagePath: workoutsImages[
+                                    '${provider.currentWorkoutIndex}'],
                               ),
                             );
                           }

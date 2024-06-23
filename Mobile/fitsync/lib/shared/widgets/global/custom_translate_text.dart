@@ -3,16 +3,22 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../cubits_logic/global/translate_lang_cubit.dart';
 
-Widget customTranslateText(String text, {required TextStyle style}) {
+Widget customTranslateText(
+  String text, {
+  TextStyle? style,
+  int? maxLines,
+  TextOverflow? overflow,
+  TextAlign? textAlign,
+}) {
   return BlocBuilder<TranslatelangCubit, String>(
     builder: (context, state) {
       final provider = context.read<TranslatelangCubit>();
       return FutureBuilder(
-          future: provider.toArabic(text),
+          future: state == 'ar' ? provider.toArabic(text) : null,
           builder: (_, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Text(
-                text,
+                '---',
                 style: style,
               );
             }
@@ -21,17 +27,26 @@ Widget customTranslateText(String text, {required TextStyle style}) {
                 return Text(
                   state == 'ar' ? snapshot.data!.toString() : text,
                   style: style,
+                  maxLines: maxLines,
+                  overflow: overflow,
+                  textAlign: textAlign,
                 );
               } else {
                 return Text(
                   text,
                   style: style,
+                  maxLines: maxLines,
+                  overflow: overflow,
+                  textAlign: textAlign,
                 );
               }
             } else {
               return Text(
                 text,
                 style: style,
+                maxLines: maxLines,
+                overflow: overflow,
+                textAlign: textAlign,
               );
             }
           });

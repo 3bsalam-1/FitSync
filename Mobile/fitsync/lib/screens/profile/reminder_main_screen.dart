@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_app_bar.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/profile_comp.dart/list_reminder_items.dart';
 
 class ReminderMainScreen extends StatelessWidget {
@@ -41,7 +42,7 @@ class ReminderMainScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    customTranslateText(
                       'Soon',
                       style: GoogleFonts.poppins(
                         fontSize: 18,
@@ -49,7 +50,7 @@ class ReminderMainScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Text(
+                    customTranslateText(
                       'View All',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
@@ -65,7 +66,7 @@ class ReminderMainScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    customTranslateText(
                       'Upcoming',
                       style: GoogleFonts.poppins(
                         fontSize: 18,
@@ -73,7 +74,7 @@ class ReminderMainScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    Text(
+                    customTranslateText(
                       'View All',
                       style: GoogleFonts.poppins(
                         fontSize: 16,

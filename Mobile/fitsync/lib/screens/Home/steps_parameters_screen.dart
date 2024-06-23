@@ -9,6 +9,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 
 class StepsParametersScreen extends StatelessWidget {
   const StepsParametersScreen({super.key});
@@ -35,13 +36,13 @@ class StepsParametersScreen extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CustomAnimatedOpacity(
-              child: Text(
+              child: customTranslateText(
                 "Steps Parameters",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 22,
                   color: black,
-              
+
                   // fontFamily:
                 ),
               ),
@@ -63,11 +64,11 @@ class StepsParametersScreen extends StatelessWidget {
                   Column(
                     children: [
                       Padding(
-                        padding:
-                            const EdgeInsets.only(top: 25, left: 18, bottom: 12),
+                        padding: const EdgeInsets.only(
+                            top: 25, left: 18, bottom: 12),
                         child: Row(
                           children: [
-                            Text(
+                            customTranslateText(
                               'Quantity per day',
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
@@ -93,7 +94,8 @@ class StepsParametersScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * (150 / 926),
+                        height:
+                            MediaQuery.of(context).size.height * (150 / 926),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 180),

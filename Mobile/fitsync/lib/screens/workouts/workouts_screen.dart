@@ -6,6 +6,7 @@ import '../../data/cubit/workouts/workouts_cubit.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/global/error_internet_connection.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/skeleton_workouts.dart';
@@ -25,7 +26,7 @@ class WorkoutsScreen extends StatelessWidget {
           scrolledUnderElevation: 0,
           backgroundColor: white,
           leading: null,
-          title: Text(
+          title: customTranslateText(
             'Workouts',
             style: GoogleFonts.poppins(
               fontSize: 22,

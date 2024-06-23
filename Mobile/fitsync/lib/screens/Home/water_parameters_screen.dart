@@ -7,6 +7,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 
 class WaterParametersScreen extends StatelessWidget {
   const WaterParametersScreen({super.key});
@@ -33,13 +34,13 @@ class WaterParametersScreen extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CustomAnimatedOpacity(
-              child: Text(
+              child: customTranslateText(
                 "Water Parameters",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
                   fontSize: 22,
                   color: black,
-              
+
                   // fontFamily:
                 ),
               ),
@@ -68,7 +69,7 @@ class WaterParametersScreen extends StatelessWidget {
                         ),
                         child: Row(
                           children: [
-                            Text(
+                            customTranslateText(
                               'Quantity per day',
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
@@ -85,11 +86,11 @@ class WaterParametersScreen extends StatelessWidget {
                         keyboardType: TextInputType.number,
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsets.only(top: 12, left: 18, bottom: 12),
+                        padding: const EdgeInsets.only(
+                            top: 12, left: 18, bottom: 12),
                         child: Row(
                           children: [
-                            Text(
+                            customTranslateText(
                               'Number of glasses per day',
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
@@ -111,7 +112,8 @@ class WaterParametersScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * (150 / 926),
+                        height:
+                            MediaQuery.of(context).size.height * (150 / 926),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 180),

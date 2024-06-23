@@ -2,6 +2,7 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
+import '../global/custom_translate_text.dart';
 
 class CustomSavedRecipesWidget extends StatelessWidget {
   final String imageUrl;
@@ -60,16 +61,14 @@ class CustomSavedRecipesWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 10, top: 15),
                 child: Container(
-                 // width: 180,
-                  child: Text(
+                  // width: 180,
+                  child: customTranslateText(
                     label1,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
                       color: black,
-                      
                     ),
-                    
                     textAlign: TextAlign.justify,
                   ),
                 ),
@@ -78,7 +77,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10),
                 child: Container(
                   width: 100,
-                  child: Text(
+                  child: customTranslateText(
                     label2,
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w500,
@@ -103,7 +102,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                   )),
               Padding(
                 padding: const EdgeInsets.only(right: 13),
-                child: Text(
+                child: customTranslateText(
                   'More Info',
                   style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,

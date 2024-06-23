@@ -9,6 +9,7 @@ import 'card_items.dart';
 import 'list_levels_mode.dart';
 import 'saved_workouts.dart';
 import 'workouts_challenge_card.dart';
+import '../../global/custom_translate_text.dart';
 
 class WorkOustBody extends StatelessWidget {
   const WorkOustBody({super.key});
@@ -52,7 +53,7 @@ class WorkOustBody extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          customTranslateText(
                             'Saved Workouts',
                             style: GoogleFonts.poppins(
                               fontSize: 22,
@@ -70,7 +71,7 @@ class WorkOustBody extends StatelessWidget {
                                     .changePage(9);
                               });
                             },
-                            child: Text(
+                            child: customTranslateText(
                               'View all',
                               style: GoogleFonts.poppins(
                                 fontSize: 16,
@@ -84,7 +85,7 @@ class WorkOustBody extends StatelessWidget {
                         ],
                       ),
                       const SizedBox(height: 50),
-                      Text(
+                      customTranslateText(
                         "There is NO saved workouts",
                         style: GoogleFonts.poppins(
                           fontSize: 17,

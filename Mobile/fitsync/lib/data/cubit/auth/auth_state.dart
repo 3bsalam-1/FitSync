@@ -80,10 +80,13 @@ final class AuthResetCode extends AuthCubitState {}
 final class InternetConnectivityOFF extends AuthCubitState {
   void showConnectionError(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
+      SnackBar(
         backgroundColor: gray10,
-        content: Text(
+        content: customTranslateText(
           "There is no internet connection",
+          style: const TextStyle(
+            color: white,
+          ),
         ),
       ),
     );

@@ -5,6 +5,7 @@ import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../data/models/workouts_model.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_image.dart';
+import '../../../shared/widgets/global/custom_translate_text.dart';
 
 class SavedWorkOutsScreen extends StatelessWidget {
   final List<WorkoutsModel> workoutsFav;
@@ -53,7 +54,7 @@ class SavedWorkOutsScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        customTranslateText(
                           workouts.category,
                           style: GoogleFonts.poppins(
                             fontSize: 22,
@@ -61,7 +62,7 @@ class SavedWorkOutsScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        Text(
+                        customTranslateText(
                           '${workouts.exercisePlan.length} Exercises',
                           style: GoogleFonts.poppins(
                             fontSize: 12,
@@ -69,7 +70,7 @@ class SavedWorkOutsScreen extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        Text(
+                        customTranslateText(
                           '${workouts.planDurationMn} Minutes',
                           style: GoogleFonts.poppins(
                             fontSize: 12,
@@ -83,7 +84,9 @@ class SavedWorkOutsScreen extends StatelessWidget {
                       width: 130,
                       height: 108,
                       fit: BoxFit.fill,
-                      imageUrl: context.read<WorkoutsCubit>().workoutsImages!['${index % 10}'],
+                      imageUrl: context
+                          .read<WorkoutsCubit>()
+                          .workoutsImages!['${index % 10}'],
                       errorColor: red,
                       iconSize: 45,
                     ),

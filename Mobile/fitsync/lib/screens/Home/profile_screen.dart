@@ -12,6 +12,7 @@ import 'package:iconly/iconly.dart';
 import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 import '../profile/profile_informtion_screen.dart';
 import '../profile/write_reminder_screen.dart';
 import 'emergency_contact.dart';
@@ -27,7 +28,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: white,
         automaticallyImplyLeading: false,
         title: CustomAnimatedOpacity(
-          child: Text(
+          child: customTranslateText(
             "Hello ${Prefs.getStringList("user")![1]}",
             style: const TextStyle(
               fontWeight: FontWeight.w600,
@@ -108,7 +109,9 @@ class ProfilePage extends StatelessWidget {
                       context.read<SmartWatchCubit>().isSmartWatchConnected();
                     }
                   }
-                  context.read<SmartWatchCubit>().intializeSmartWatchConnection();
+                  context
+                      .read<SmartWatchCubit>()
+                      .intializeSmartWatchConnection();
                 },
               ),
               const Divider(
@@ -123,7 +126,7 @@ class ProfilePage extends StatelessWidget {
                 scale: 24,
                 onTap: () {
                   AnimatedNavigator().push(
-                    context, 
+                    context,
                     const WriteReminderScreen(),
                   );
                 },
@@ -140,7 +143,7 @@ class ProfilePage extends StatelessWidget {
                 scale: 24,
                 onTap: () {
                   AnimatedNavigator().push(
-                    context, 
+                    context,
                     const WaterParametersScreen(),
                   );
                 },
@@ -158,7 +161,7 @@ class ProfilePage extends StatelessWidget {
                 w: 3,
                 onTap: () {
                   AnimatedNavigator().push(
-                    context, 
+                    context,
                     const SleepParametersScreen(),
                   );
                 },
@@ -176,7 +179,7 @@ class ProfilePage extends StatelessWidget {
                 w: 3,
                 onTap: () {
                   AnimatedNavigator().push(
-                    context, 
+                    context,
                     const StepsParametersScreen(),
                   );
                 },

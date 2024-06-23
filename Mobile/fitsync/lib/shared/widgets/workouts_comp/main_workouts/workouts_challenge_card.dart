@@ -7,7 +7,7 @@ import '../../../colors/colors.dart';
 import '../../global/animated_navigator.dart';
 import '../../global/custom_image.dart';
 import 'custom_start_button.dart';
-
+import '../../global/custom_translate_text.dart';
 class WorkOutsChallengCard extends StatelessWidget {
   const WorkOutsChallengCard({super.key});
 
@@ -21,7 +21,7 @@ class WorkOutsChallengCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              customTranslateText(
                 'Challenges',
                 style: GoogleFonts.poppins(
                   fontSize: 22,
@@ -33,7 +33,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                 onPressed: () {
                   provider.showAllChallenges();
                 },
-                child: Text(
+                child: customTranslateText(
                   'View all',
                   style: GoogleFonts.poppins(
                     fontSize: 16,
@@ -84,7 +84,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 30),
-                          child: Text(
+                          child: customTranslateText(
                             '7 x ${provider.viewAllChallenge ? index + 1 : DateTime.now().weekday} CHALLENGE',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
@@ -93,7 +93,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Text(
+                        customTranslateText(
                           provider.viewAllChallenge
                               ? provider.challenges![index].category
                               : provider.challenges![DateTime.now().weekday - 1]
