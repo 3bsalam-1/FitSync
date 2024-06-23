@@ -1,0 +1,58 @@
+[
+  {
+    "Exercise Plan": "Jumping Jacks, High Knees, Leg Press, Mountain Climbers, Squats, Deadlifts",
+    "Category": "Cardio",
+    "Impact Level": "Advanced",
+    "Total Plan Duration (minutes)": "65",
+    "Calories Burned (Plan)": "900.0",
+    "Target Muscle Group": "Full Body (Cardio), Cardio, Lower Body, Quadriceps, Hamstrings, Glutes, Core, Shoulders, Hips, Quadriceps, Hamstrings, Glutes, Back, Glutes, Hamstrings"
+  },
+  {
+    "Exercise Plan": "High Knees, Squats, Mountain Climbers, Jumping Jacks, Plank, Burpees",
+    "Category": "Flexibility",
+    "Impact Level": "Advanced",
+    "Total Plan Duration (minutes)": "65",
+    "Calories Burned (Plan)": "852.0",
+    "Target Muscle Group": "Cardio, Lower Body, Quadriceps, Hamstrings, Glutes, Core, Shoulders, Hips, Full Body (Cardio), Core (Abdominals, Lower Back), Full Body (Cardio, Strength)"
+  },
+  {
+    "Exercise Plan": "Russian Twists, Deadlifts, Plank Jacks, Mountain Climbers, Bicep Curls, Plank",
+    "Category": "Strength",
+    "Impact Level": "Advanced",
+    "Total Plan Duration (minutes)": "70",
+    "Calories Burned (Plan)": "768.0",
+    "Target Muscle Group": "Core (Obliques), Back, Glutes, Hamstrings, Core, Cardio, Core, Shoulders, Hips, Biceps, Forearms, Core (Abdominals, Lower Back)"
+  },
+  {
+    "Exercise Plan": "Sit-ups, Bicep Curls, Pull-ups, Jumping Jacks, Push-ups, Jump Rope",
+    "Category": "Cardio",
+    "Impact Level": "Intermediate",
+    "Total Plan Duration (minutes)": "70",
+    "Calories Burned (Plan)": "640.0",
+    "Target Muscle Group": "Core, Biceps, Forearms, Back, Biceps, Full Body (Cardio), Chest, Shoulders, Triceps, Cardio, Full Body"
+  },
+  {
+    "Exercise Plan": "Plank Jacks, Burpees, Calf Raises, Bicep Curls, Plank, Leg Press",
+    "Category": "Cardio",
+    "Impact Level": "Beginner",
+    "Total Plan Duration (minutes)": "70",
+    "Calories Burned (Plan)": "520.0",
+    "Target Muscle Group": "Core, Cardio, Full Body (Cardio, Strength), Calves, Biceps, Forearms, Core (Abdominals, Lower Back), Quadriceps, Hamstrings, Glutes"
+  },
+  {
+    "Exercise Plan": "Bicep Curls, Bench Press, Push-ups, Lunges, Russian Twists, Leg Press",
+    "Category": "Flexibility",
+    "Impact Level": "Intermediate",
+    "Total Plan Duration (minutes)": "60",
+    "Calories Burned (Plan)": "740.0",
+    "Target Muscle Group": "Biceps, Forearms, Chest, Shoulders, Triceps, Chest, Shoulders, Triceps, Quadriceps, Hamstrings, Glutes, Core (Obliques), Quadriceps, Hamstrings, Glutes"
+  },
+  {
+    "Exercise Plan": "Push-ups, Calf Raises, Box Jumps, Sit-ups, Russian Twists, Lunges",
+    "Category": "Cardio",
+    "Impact Level": "Advanced",
+    "Total Plan Duration (minutes)": "75",
+    "Calories Burned (Plan)": "792.0",
+    "Target Muscle Group": "Chest, Shoulders, Triceps, Calves, Legs, Cardio, Core, Core (Obliques), Quadriceps, Hamstrings, Glutes"
+  }
+]

@@ -1,0 +1,65 @@
+.boxCirclePercentage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-direction: column;
+}
+.boxCirclePercentage > svg {
+  position: absolute;
+  top: 27px;
+  color: #8d6ff8;
+  font-size: 25px;
+}
+.boxCirclePercentage .percent svg {
+  position: relative;
+  width: 175px;
+  height: 175px;
+}
+.boxCirclePercentage .percent svg circle {
+  fill: none;
+  width: 175px;
+  height: 175px;
+  stroke-width: 10;
+  stroke: #000;
+  transform: translate(5px, 5px);
+  -webkit-transform: translate(5px, 5px);
+  -moz-transform: translate(5px, 5px);
+  -ms-transform: translate(5px, 5px);
+  -o-transform: translate(5px, 5px);
+
+  stroke-dashoffset: 504;
+  stroke-dasharray: 504;
+  stroke-linecap: round;
+}
+.boxCirclePercentage .percent svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: #e3e3e3;
+}
+.boxCirclePercentage .percent svg circle:nth-child(2) {
+  /* stroke-dashoffset: calc(504 - (504 * 87) / 100); */
+  stroke: #8d6ff8;
+}
+.boxCirclePercentage .percent .number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+}
+.boxCirclePercentage .percent .number h2 {
+  font-size: 30px;
+  color: #8d6ff8;
+}
+.boxCirclePercentage .text {
+  color: #868179;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  position: absolute;
+  bottom: 35px;
+}

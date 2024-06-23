@@ -1,0 +1,151 @@
+/* Start box-card ------------------------------ */
+.box-card {
+  position: relative;
+  max-width: 515px;
+  padding: 30px;
+  margin: 0px auto 3px;
+  background-color: white;
+  box-shadow: 7.5px 30px 52.5px 0px #00000012;
+
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
+}
+.box-card p.Welcome {
+  color: var(--paragraph-color, #8f8f8f);
+  margin: 0;
+  font-size: 18.75px;
+  font-weight: 500;
+}
+.box-card h1 {
+  font-size: 22.5px;
+  font-weight: bold;
+  margin-bottom: 17.75px;
+}
+.box-card input {
+  display: block;
+  height: 60px;
+  width: 100%;
+  font-size: 19.5px;
+  font-weight: 400;
+  margin-bottom: 17.25px;
+  padding: 20px 51px 20px 66.75px;
+  border: 2px solid var(--bg-color, #c4c0bb);
+
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+.box-card .field svg,
+.box-card .field > img,
+.box-card .password > img {
+  color: var(--icon-color, #7b6f72);
+  position: absolute;
+  left: 27px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+.box-card .password button {
+  color: var(--icon-color, #7b6f72);
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 21px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+.box-card .password button:hover {
+  border: none;
+  outline: none;
+}
+.box-card .forgot a {
+  color: var(--frist-color, #8d6ff8);
+  margin-bottom: 48px;
+}
+.box-card input[type="submit"] {
+  background: var(
+    --main-background-color,
+    linear-gradient(273.46deg, #8d70f8 19.25%, #9dcdff 126.19%)
+  );
+  padding: 0;
+  border: none;
+  height: 65px;
+  width: 100%;
+  color: white;
+  font-size: 19.5px;
+  font-weight: bold;
+  border-radius: 74.25px;
+  -webkit-border-radius: 74.25px;
+  -moz-border-radius: 74.25px;
+  -ms-border-radius: 74.25px;
+  -o-border-radius: 74.25px;
+}
+.box-card form + p {
+  color: var(--icon-color, #7b6f72);
+  font-weight: 400;
+  font-size: 19.5px;
+  margin: 20px auto;
+}
+
+.Google,
+.Facebook {
+  width: 100%;
+  height: 65px;
+  font-size: 19.5px;
+  font-weight: 500;
+  border-radius: 74.25px;
+  -webkit-border-radius: 74.25px;
+  -moz-border-radius: 74.25px;
+  -ms-border-radius: 74.25px;
+  -o-border-radius: 74.25px;
+}
+.Google img,
+.Facebook img {
+  height: 30.75px;
+}
+.box-card .Google {
+  margin-bottom: 12px;
+  font-size: 22px;
+  background: #f0ecf4;
+}
+.box-card .Facebook {
+  color: white;
+  background: #4864b4;
+}
+.box-card + div {
+  color: var(--paragraph-color, #8f8f8f);
+  font-size: 19.5px;
+  font-weight: 500;
+}
+.box-card + div a {
+  color: var(--frist-color, #8d6ff8);
+  text-decoration: underline;
+}
+.box-card + div a:hover {
+  color: black;
+  font-weight: bold;
+}
+@media (max-width: 992px) {
+  .box-card input {
+    font-size: 13.5px;
+  }
+  .Google,
+  .Facebook {
+    font-size: 13px;
+  }
+  .box-card .Google {
+    font-size: 15px;
+  }
+}
