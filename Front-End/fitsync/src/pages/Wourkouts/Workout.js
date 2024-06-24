@@ -1,19 +1,17 @@
 import React, { useEffect, useReducer, useState } from "react";
 import "../Home.css";
 import "./Workout.css";
-import Datawork from "./DataWorkout.json";
-import DataAll from "./DataAll.json";
-import Datachallange from "./DataChallange.json";
 import HeaderProfile from "../../components/HeaderProfile";
 import Footer from "../../components/Footer";
 import ErrorMessage from "../../components/ErrorMessage";
 import { useNavigate } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 
 const Workout = () => {
   const [recent, setrecent] = useState([]);
   const [challenges, setchallenges] = useState([]);
-  // const [allPlan, setallPlan] = useState([]);
+  const [AllData, setAllData] = useState([]);
+  const [AllRecommended, setAllRecommended] = useState([]);
 
   const reducer = (prev, next) => ({ ...prev, ...next });
   const [{ error, message }, setErrorMessage] = useReducer(reducer, {
@@ -22,58 +20,79 @@ const Workout = () => {
   });
 
   // Read Data
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     // try {
-  //     //   const apiUrl =
-  //     //     "https://fitsync-ai-api.onrender.com/workout?Gender=1&Knee_pain=0&Back_pain=0&Diabeties=0&Heart_Disease=1&Hypertension=1";
-  //     //   const response = await axios.get(apiUrl);
-  //     //   console.log(response); // Assuming the response contains data
-  //     // } catch (error) {
-  //     //   console.error("Error fetching Code:", error);
-  //     // }
-  //     try {
-  //       const apiUrl = `https://fitsync-ai-api.onrender.com/calories?Age=59&Gender=1&Weight=96&Height=162&Activity_Level=4&Systolic_BP=95&Diastolic_BP=80&Cholesterol_Level=247&Blood_Sugar=105&Hypertension=0&Low_Pressure=0&Diabetes=0&Heart_Condition=1&BMR=1680`;
-  //       const response = await fetch(apiUrl);
-  //       const data = await response.json();
-  //       console.log("Data", data);
-  //       // setrecent(data); // uncomment this line if you want to call the setrecent function
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-  //   // const fetchchallenges = async () => {
-  //   //   try {
-  //   //     const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-  //   //     const apiUrl =
-  //   //       "https://fitsync-ai-api.onrender.com/challenges?ID=0&Gender=1&Knee_pain=0&Back_pain=0&Diabeties=0&Heart_Disease=1&Hypertension=1";
-  //   //     const response = await fetch(proxyUrl + apiUrl);
-  //   //     const data = await response.json();
-  //   //     setchallenges(data);
-  //   //     console.log("challenges", data);
-  //   //   } catch (error) {
-  //   //     console.error("Error fetching data:", error);
-  //   //   }
-  //   // };
-  //   fetchData();
-  //   // fetchchallenges();
-  // }, []);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setrecent(Datawork);
-        setchallenges(Datachallange);
+        const apiUrl = `https://fitsync-ai-api.onrender.com/workout?Gender=${sessionStorage.getItem(
+          "gender"
+        )}&Knee_pain=${sessionStorage.getItem(
+          "kneePain"
+        )}&Back_pain=${sessionStorage.getItem(
+          "backPain"
+        )}&Diabeties=${sessionStorage.getItem(
+          "diabetes"
+        )}&Heart_Disease=${sessionStorage.getItem(
+          "heartCondition"
+        )}&Hypertension=${sessionStorage.getItem("hypertension")}`;
+        const response = await axios.get(apiUrl);
+        setrecent(response.data);
       } catch (error) {
-        setErrorMessage({
-          error: true,
-          message: "An error occurred while fetching data",
-        });
+        console.error("Error fetching Code:", error);
       }
     };
-
+    const fetchChallenges = async () => {
+      try {
+        const apiUrl = `https://fitsync-ai-api.onrender.com/challenges?Gender=${sessionStorage.getItem(
+          "gender"
+        )}&Knee_pain=${sessionStorage.getItem(
+          "kneePain"
+        )}&Back_pain=${sessionStorage.getItem(
+          "backPain"
+        )}&Diabeties=${sessionStorage.getItem(
+          "diabetes"
+        )}&Heart_Disease=${sessionStorage.getItem(
+          "heartCondition"
+        )}&Hypertension=${sessionStorage.getItem("hypertension")}`;
+        const response = await axios.get(apiUrl);
+        setchallenges(response.data);
+      } catch (error) {
+        console.error("Error fetching Code:", error);
+      }
+    };
+    const fetchAllData = async () => {
+      try {
+        const apiUrl = "https://fitsync-ai-api.onrender.com/all_workouts";
+        const response = await axios.get(apiUrl);
+        setAllData(response.data);
+      } catch (error) {
+        console.error("Error fetching Code:", error);
+      }
+    };
+    const fetchAllRecommended = async () => {
+      try {
+        const apiUrl = `https://fitsync-ai-api.onrender.com/all_recommended_workouts?${sessionStorage.getItem(
+          "gender"
+        )}&Knee_pain=${sessionStorage.getItem(
+          "kneePain"
+        )}&Back_pain=${sessionStorage.getItem(
+          "backPain"
+        )}&Diabeties=${sessionStorage.getItem(
+          "diabetes"
+        )}&Heart_Disease=${sessionStorage.getItem(
+          "heartCondition"
+        )}&Hypertension=${sessionStorage.getItem("hypertension")}`;
+        const response = await axios.get(apiUrl);
+        setAllRecommended(response.data);
+      } catch (error) {
+        console.error("Error fetching Code:", error);
+      }
+    };
     fetchData();
+    fetchChallenges();
+    fetchAllData();
+    fetchAllRecommended();
   }, []);
+
   // Show Box Filter #############################################################
   function toggleFilter() {
     const boxFilter = document.getElementById("boxFilter");
@@ -84,9 +103,9 @@ const Workout = () => {
   //Filter using my all Data #############################################################
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedImpactLevels, setSelectedImpactLevels] = useState([]);
-  const categories = [...new Set(DataAll.map((plan) => plan.Category))];
+  const categories = [...new Set(AllRecommended.map((plan) => plan.Category))];
   const impactLevels = [
-    ...new Set(DataAll.map((plan) => plan["Impact Level"])),
+    ...new Set(AllRecommended.map((plan) => plan["Impact Level"])),
   ];
   const handleCheckboxChange = (setSelected, value) => {
     setSelected((prevSelected) =>
@@ -95,7 +114,7 @@ const Workout = () => {
         : [...prevSelected, value]
     );
   };
-  const filteredPlans = DataAll.filter(
+  const filteredPlans = AllRecommended.filter(
     (plan) =>
       (selectedCategories.length === 0 ||
         selectedCategories.includes(plan.Category)) &&
@@ -112,7 +131,7 @@ const Workout = () => {
   const handleSearch = (e) => {
     const searchText = e.target.value.toLowerCase();
     setSearchTerm(searchText);
-    const filteredData = Datachallange.filter((plan) =>
+    const filteredData = AllData.filter((plan) =>
       plan.Category.toLowerCase().includes(searchText)
     );
     setFilteredData(filteredData);
@@ -233,7 +252,7 @@ const Workout = () => {
             <input
               type="text"
               className="form-control"
-              placeholder="Search my exercises (Category)"
+              placeholder="Search min All Data (Category)"
               value={searchTerm}
               onChange={handleSearch}
             />
@@ -281,7 +300,7 @@ const Workout = () => {
       {/* Filter search */}
       <div className="box" style={{ display: isBoxVisible ? "block" : "none" }}>
         <div className="exercise-plans Recent text-center mt-5 mb-5">
-          <h2>Recommended{"  "}exercises</h2>
+          <h2>All Plans</h2>
           <div className="container text-start">
             <div className="row row-cols-3 gap-3 justify-content-evenly">
               {filteredData.map((plan, index) => (
@@ -314,7 +333,7 @@ const Workout = () => {
       {/* Filter checkbox */}
       {anySelected && (
         <div className="exercise-plans Recent text-center mt-5 mb-5">
-          <h2>All Plans</h2>
+          <h2>Recommended{"  "}exercises</h2>
           <div className="container text-start">
             <div className="row row-cols-3 gap-3 justify-content-evenly">
               {filteredPlans.map((plan, index) => (

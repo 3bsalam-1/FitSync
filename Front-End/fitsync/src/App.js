@@ -18,6 +18,11 @@ import OverviewDiet from "./pages/Diet/OverviewDiet";
 import PrivateRoute from "./routes/PrivateRoutes";
 import PrivateRouteHome from "./routes/PrivateRouteHome";
 import PrivateRouteUserverify from "./routes/PrivateRouteUserverify";
+import Account from "./pages/account/Account";
+import Calender from "./pages/account/Calender";
+import EditProfile from "./pages/account/EditProfile";
+import Favourites from "./pages/account/Favourites";
+import Notifications from "./pages/account/Notifications";
 
 function App() {
   window.onscroll = () => {
@@ -37,13 +42,8 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/" Component={LandingPage} />
-        {/* <Route path="/" Component={Home} /> */}
         <Route path="/login" Component={Login} />
         <Route path="/signup" Component={Signup} />
-        <Route path="/Workout" Component={Workout} />
-        <Route path="/Exercise" Component={Exercise} />
-        <Route path="/Diet" Component={Diet} />
-        <Route path="/OverviewDiet" Component={OverviewDiet} />
         <Route path="/ForgetPassword" Component={ForgetPassword} />
         <Route
           path="/UserVerification"
@@ -86,10 +86,66 @@ function App() {
           }
         />
         <Route
+          path="/Exercise"
+          element={
+            <PrivateRouteHome>
+              <Exercise />
+            </PrivateRouteHome>
+          }
+        />
+        <Route
           path="/Diet"
           element={
             <PrivateRouteHome>
-              <Workout />
+              <Diet />
+            </PrivateRouteHome>
+          }
+        />
+        <Route
+          path="/OverviewDiet"
+          element={
+            <PrivateRouteHome>
+              <OverviewDiet />
+            </PrivateRouteHome>
+          }
+        />
+        <Route
+          path="/Account"
+          element={
+            <PrivateRouteHome>
+              <Account />
+            </PrivateRouteHome>
+          }
+        />
+        <Route
+          path="/Calender"
+          element={
+            <PrivateRouteHome>
+              <Calender />
+            </PrivateRouteHome>
+          }
+        />
+        <Route
+          path="/EditProfile"
+          element={
+            <PrivateRouteHome>
+              <EditProfile />
+            </PrivateRouteHome>
+          }
+        />
+        <Route
+          path="/Favourites"
+          element={
+            <PrivateRouteHome>
+              <Favourites />
+            </PrivateRouteHome>
+          }
+        />
+        <Route
+          path="/Notifications"
+          element={
+            <PrivateRouteHome>
+              <Notifications />
             </PrivateRouteHome>
           }
         />

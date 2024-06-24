@@ -8,8 +8,92 @@ import ProgressCard from "../components/ProgressCard";
 import CircleNumber from "../components/CircleNumber";
 import HeaderProfile from "../components/HeaderProfile";
 import Footer from "../components/Footer";
+import axios from "axios";
 
 const Home = () => {
+  // User Data
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const apiUrl = "https://fitsync.onrender.com/api/userInfo";
+        const response = await axios.get(apiUrl, {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
+          },
+        });
+        window.sessionStorage.setItem(
+          "weight",
+          response.data.data.userInfo.weight
+        );
+        window.sessionStorage.setItem(
+          "height",
+          response.data.data.userInfo.height
+        );
+        window.sessionStorage.setItem(
+          "birthdate",
+          response.data.data.userInfo.birthdate
+        );
+        window.sessionStorage.setItem(
+          "gender",
+          response.data.data.userInfo.gender
+        );
+        window.sessionStorage.setItem(
+          "activityLevel",
+          response.data.data.userInfo.activityLevel
+        );
+        window.sessionStorage.setItem(
+          "systolicBP",
+          response.data.data.userInfo.systolicBP
+        );
+        window.sessionStorage.setItem(
+          "diastolicBP",
+          response.data.data.userInfo.diastolicBP
+        );
+        window.sessionStorage.setItem(
+          "cholesterolLevel",
+          response.data.data.userInfo.cholesterolLevel
+        );
+        window.sessionStorage.setItem(
+          "bloodsugar",
+          response.data.data.userInfo.bloodsugar
+        );
+        window.sessionStorage.setItem(
+          "hypertension",
+          response.data.data.userInfo.hypertension
+        );
+        window.sessionStorage.setItem(
+          "diabetes",
+          response.data.data.userInfo.diabetes
+        );
+        window.sessionStorage.setItem(
+          "heartCondition",
+          response.data.data.userInfo.heartCondition
+        );
+        window.sessionStorage.setItem(
+          "LowPressure",
+          response.data.data.userInfo.LowPressure
+        );
+        window.sessionStorage.setItem("BMR", response.data.data.userInfo.BMR);
+        window.sessionStorage.setItem(
+          "kneePain",
+          response.data.data.userInfo.kneePain
+        );
+        window.sessionStorage.setItem(
+          "backPain",
+          response.data.data.userInfo.backPain
+        );
+        window.sessionStorage.setItem(
+          "isActive",
+          response.data.data.userInfo.isActive
+        );
+        window.sessionStorage.setItem("__v", response.data.data.userInfo.__v);
+      } catch (error) {
+        console.error("Error fetching Code:", error);
+      }
+    };
+    fetchData();
+  }, []);
   // Graph
   const [chartGraph, setChartGraph] = useState(1);
   const viewGraph = (n, event) => {

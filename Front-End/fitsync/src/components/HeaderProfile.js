@@ -96,7 +96,7 @@ const HeaderProfile = ({ Home = "", Workout = "", Diet = "" }) => {
                   </Link>
                 </li>
                 <li className="mb-4">
-                  <Link className="d-flex align-items-center" to="/login">
+                  <Link className="d-flex align-items-center" to="/Account">
                     <FontAwesomeIcon icon="fa-solid fa-gear" />
                     Account
                   </Link>
