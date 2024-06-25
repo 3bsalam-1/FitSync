@@ -2,8 +2,8 @@ const router = require('express').Router();
 const vitalsignalController = require('../controllers/vitalSig.controller');
 const {protect} = require('../controllers/auth.controller')
 
-
-router.route('/').get(protect,vitalsignalController.getvitalsignal);
-router.route('/').post(protect,vitalsignalController.postvitalsignal);
+router.use(protect)
+router.route('/').get(vitalsignalController.getvitalsignal);
+router.route('/').post(vitalsignalController.postvitalsignal);
 
 module.exports = router;
