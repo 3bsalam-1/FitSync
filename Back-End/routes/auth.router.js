@@ -28,5 +28,7 @@ router.post(
 
 router.post("/ContinueWithGoogle", authController.ContinueWithGoogle);
 
+router.get("/logout", authController.logout);
+
 
 module.exports = router;

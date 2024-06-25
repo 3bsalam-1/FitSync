@@ -1,25 +1,31 @@
 const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
-const firebase = require("firebase/app");
-const { getStorage, ref, uploadBytes } = require("firebase/storage");
-const firebaseConfig = require("../config/firebase");
+const cloudinary = require('../config/cloudinary');
 const asyncWrapper = require("../utils/asyncWrapper");
 const AppError = require("../utils/appError");
 const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
 const userInfo = require("../models/userInfo.model");
 
-const signToken = async (user) => {
+const signToken = async (user,res) => {
+  let token;
+  const cookieOptions = {
+    expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN*24*60*60*1000),
+    secure: true,
+    httpOnly: true
+  };
   if (user.firstTime) {
-    return jwt.sign(
+    token = jwt.sign(
       { id: user._id, firstTime: user.firstTime },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
   } else {
-    return jwt.sign({ id: user._id, user }, process.env.JWT_SECRET, {
-      expiresIn: "30d",
+    token =jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_EXPIRES_IN,
     });
   }
+  res.cookie('jwt',token,cookieOptions);
+  return token;
 };
 
 const filterObj = (obj, ...allowedFields) => {
@@ -29,6 +35,28 @@ const filterObj = (obj, ...allowedFields) => {
   });
   return newObj;
 };
+
+exports.getUser = asyncWrapper(async (req, res, next) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+  if (!user) {
+    res.status(404).json({
+      status: FAIL,
+      message: "User not found",
+    });
+  } else {
+    res.status(200).json({
+      status: SUCCESS,
+      user: {
+        firstName: user.firstName,
+        lastName: user.lastName,
+        username: user.username,
+        email: user.email,
+        avatar: user.avatar,
+      },
+    });
+  }
+});
 
 exports.updatePassword = asyncWrapper(async (req, res, next) => {
   const oldPassword = req.body.oldPassword;
@@ -40,33 +68,12 @@ exports.updatePassword = asyncWrapper(async (req, res, next) => {
   user.passwordConfirm = req.body.passwordConfirm;
   await user.save();
 
-  const token = await signToken(user);
+  const token = await signToken(user,res);
   res.status(200).json({
     status: SUCCESS,
     token,
     message: "Password updated",
   });
-});
-
-firebase.initializeApp(firebaseConfig.firebaseConfig);
-const storage = getStorage();
-
-exports.changeAvatar = asyncWrapper(async (req, res, next) => {
-  const ext = req.file.mimetype.split("/")[1];
-  const fileName = `${
-    req.file.originalname.split(".")[0]
-  }-${Date.now()}.${ext}`;
-  const storageRef = ref(storage, `Avatar/${fileName}`);
-  const snapshot = await uploadBytes(storageRef, req.file.buffer);
-  const user = await User.findById(req.user._id);
-  user.avatar = `https://firebasestorage.googleapis.com/v0/b/${
-    storageRef.bucket
-  }/o/${encodeURIComponent(snapshot.metadata.fullPath)}?alt=media`;
-  await user.save({ validateBeforeSave: false });
-  const token = await signToken(user);
-  res
-    .status(201)
-    .json({ status: "SUCCESS", message: "Avatar changed done", token });
 });
 
 exports.updateMe = asyncWrapper(async (req, res, next) => {
@@ -81,13 +88,12 @@ exports.updateMe = asyncWrapper(async (req, res, next) => {
   }
 
   const filteredObj = filterObj(req.body, "firstName", "lastName", "username");
-
   const user = await User.findByIdAndUpdate(req.user._id, filteredObj, {
     runValidators: true,
     new: true,
   });
 
-  const token = await signToken(user);
+  const token = await signToken(user,res);
 
   res.status(200).json({
     status: SUCCESS,
@@ -95,4 +101,28 @@ exports.updateMe = asyncWrapper(async (req, res, next) => {
     token,
     user,
   });
+});
+
+exports.changeAvatar = asyncWrapper(async (req, res, next) => {
+  const { file } = req;
+  if (!file) {
+    return next(AppError.create("Please upload an image file", "Error", 400));
+  }
+  const user = await User.findById(req.user._id);
+  if (user.avatar && user.avatar.public_id) {
+      await cloudinary.uploader.destroy(user.avatar.public_id);
+  }
+  const result = await cloudinary.uploader.upload(file.path, {
+    resource_type: "image",
+    transformation: [
+      { width: 500, height: 500, crop: "limit" } 
+    ]
+  });
+  user.avatar = {
+    url: result.secure_url,
+    public_id: result.public_id
+  };
+  await user.save({ validateBeforeSave: false });
+  const token = await signToken(user,res);
+  res.status(201).json({ status: "SUCCESS", message: "Avatar changed done", token});
 });
