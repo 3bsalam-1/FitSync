@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import "./Login.css";
 import Loading from "../components/Loading";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import { toast } from "react-toastify";
-import { Global } from "../context/Global";
 import { Link, useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import ErrorMessage from "../components/ErrorMessage";
@@ -14,7 +13,6 @@ import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const link = useNavigate();
-  const { setUser } = useContext(Global);
 
   // Input that are taken from the user ################################################################
   const reducer = (prev, next) => ({ ...prev, ...next });
@@ -101,7 +99,6 @@ const Login = () => {
       const data = await response.json();
       toast.success("Registered successfully");
       authToken = data.token;
-      setUser({ authToken });
       window.sessionStorage.setItem("authToken", authToken);
       setLoading(false);
       let firstTime = jwtDecode(authToken).firstTime;
@@ -109,8 +106,7 @@ const Login = () => {
         window.sessionStorage.setItem("firstTime", firstTime);
         link("/WelcomScreen");
       } else {
-        window.sessionStorage.setItem("survey", true);
-        link("/home");
+        link("/Home");
       }
     } catch (err) {
       setErrorMessage({
@@ -147,7 +143,6 @@ const Login = () => {
       toast.success("Registered successfully");
 
       authToken = data.token;
-      setUser({ authToken });
       window.sessionStorage.setItem("authToken", authToken);
       setLoading(false);
       let firstTime = jwtDecode(authToken).firstTime;
@@ -155,8 +150,7 @@ const Login = () => {
         window.sessionStorage.setItem("firstTime", firstTime);
         link("/WelcomScreen");
       } else {
-        window.sessionStorage.setItem("survey", true);
-        link("/home");
+        link("/Home");
       }
     } catch (err) {
       setErrorMessage({

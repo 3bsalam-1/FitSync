@@ -1,11 +1,10 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import "./Login.css";
 import "./Signup.css";
 import Loading from "../components/Loading";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { jwtDecode } from "jwt-decode";
-import { Global } from "../context/Global";
 import { Link, useNavigate } from "react-router-dom";
 import { useGoogleLogin } from "@react-oauth/google";
 import ErrorMessage from "../components/ErrorMessage";
@@ -15,7 +14,6 @@ import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Signup = () => {
   const link = useNavigate();
-  const { setUser } = useContext(Global);
   // Input that are taken from the user ################################################################
   const reducer = (prev, next) => ({ ...prev, ...next });
   const [
@@ -43,12 +41,10 @@ const Signup = () => {
       for (let i = 0; i < bgLoadingElements.length; i++) {
         bgLoadingElements[i].classList.add("bg-Opacity");
       }
-      console.log("loading...", bgLoadingElements.length);
     } else {
       for (let i = 0; i < bgLoadingElements.length; i++) {
         bgLoadingElements[i].classList.remove("bg-Opacity");
       }
-      console.log("End", bgLoadingElements.length);
     }
   }, [loading]);
 
@@ -131,8 +127,6 @@ const Signup = () => {
         const data = await response.json();
         authToken = data.token; // Assign the token to the variable
         toast.success("Registered successfully");
-        console.log("authToken in sign up", authToken);
-        setUser({ authToken });
         window.sessionStorage.setItem("authToken", authToken);
         setLoading(false);
         window.sessionStorage.setItem("Userverify", true);
@@ -173,7 +167,6 @@ const Signup = () => {
       toast.success("Registered successfully");
 
       authToken = data.token;
-      setUser({ authToken });
       window.sessionStorage.setItem("authToken", authToken);
       setLoading(false);
       let firstTime = jwtDecode(authToken).firstTime;
@@ -181,8 +174,7 @@ const Signup = () => {
         window.sessionStorage.setItem("firstTime", firstTime);
         link("/WelcomScreen");
       } else {
-        window.sessionStorage.setItem("survey", true);
-        link("/home");
+        link("/Home");
       }
     } catch (err) {
       setErrorMessage({

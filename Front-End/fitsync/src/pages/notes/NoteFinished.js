@@ -23,11 +23,8 @@ const NoteFinished = ({ onPrevious, onSubmit }) => {
     }
   }, [loading]);
   // submit ################################################################
-  // let authToken;
+  const authToken = window.sessionStorage.getItem("authToken");
   const handleSubmit = async () => {
-    console.log("User", user);
-    console.log("Token", user.authToken);
-    console.log(Object.values(user.Weight)[0]);
     try {
       setLoading(true);
       const response = await fetch(
@@ -36,7 +33,7 @@ const NoteFinished = ({ onPrevious, onSubmit }) => {
           method: "POST",
           headers: {
             "content-type": "application/json",
-            Authorization: `Bearer ${user.authToken}`,
+            Authorization: `Bearer ${authToken}`,
           },
           body: JSON.stringify({
             weight: parseInt(Object.values(user.Weight)[0]),
