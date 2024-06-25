@@ -1,34 +1,20 @@
-import 'cubits_logic/bluetooth/bluetooth_cubit.dart';
+import 'cubits_logic/new_token_cubit.dart';
+import 'cubits_logic/smart_watch/smart_watch_cubit.dart';
 import 'cubits_logic/splash_screen_next_cubit.dart';
-import 'package:fitsync/cubits_logic/diet_logic/counter/counter_cubit.dart';
-import 'package:fitsync/cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.dart';
-import 'package:fitsync/cubits_logic/diet_logic/favoriteIcon/cubit/favourite_icon_cubit.dart';
-import 'package:fitsync/screens/Diet/diet_screen.dart';
-import 'package:fitsync/screens/Diet/empty_state_screen.dart';
-import 'package:fitsync/screens/Diet/meal_overview_screen.dart';
-import 'package:fitsync/screens/Home/article_screen.dart';
-import 'package:fitsync/screens/Home/calories_parameters_screen.dart';
-import 'package:fitsync/screens/Home/heart_beat_screen.dart';
-import 'package:fitsync/screens/Home/home_screen.dart';
-import 'package:fitsync/screens/Home/notifications_screen.dart';
-import 'package:fitsync/screens/Home/profile_screen.dart';
-import 'package:fitsync/screens/Home/sleep_parameters_screen.dart';
-import 'package:fitsync/screens/Home/steps_parameters_screen.dart';
-import 'package:fitsync/screens/Home/tips&tricks_screen.dart';
-import 'package:fitsync/screens/Home/water_parameters_screen.dart';
-import 'package:fitsync/screens/Login/SignUp_screen.dart';
-import 'package:fitsync/screens/Login/login_screen.dart';
-import 'package:fitsync/screens/splash_screen.dart';
+import 'cubits_logic/diet_logic/counter/counter_cubit.dart';
+import 'cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.dart';
+import 'cubits_logic/diet_logic/favoriteIcon/cubit/favourite_icon_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'cubits_logic/navigation_page_cubit.dart';
-import 'cubits_logic/survey_logic/animated_list_view.dart';
 import 'cubits_logic/survey_logic/choise_questions_cubit.dart';
 import 'cubits_logic/survey_logic/text_form_validation_cubit.dart';
+import 'cubits_logic/workouts/counter_time_challenges.dart';
 import 'cubits_logic/workouts/week_dates.dart';
-import 'data/cubit/auth_cubit.dart';
+import 'data/cubit/auth/auth_cubit.dart';
+import 'data/cubit/user_data/user_data_info_cubit.dart';
+import 'data/cubit/workouts/workouts_cubit.dart';
 import 'screens/splash/splash_screen.dart';
-import 'screens/splash/start_screen.dart';
 import 'services/pref.dart';
 
 void main() async {
@@ -48,13 +34,7 @@ class MyApp extends StatelessWidget {
           create: (context) => TextFormValidationCubit(),
         ),
         BlocProvider(
-          create: (context) => BluetoothCubit()..checkBluetoothConnectivity(),
-        ),
-        BlocProvider(
           create: (context) => ChoiseQuestionsCubit(),
-        ),
-        BlocProvider(
-          create: (context) => AnimatedListView()..startAnimation(),
         ),
         BlocProvider(
           create: (context) => WeekDatesCubit()..showWeekDays(),
@@ -67,6 +47,8 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => SplashScreenNextCubit(),
+        ),
+        BlocProvider(
           create: (context) => CounterCubit(),
         ),
         BlocProvider(
@@ -75,8 +57,23 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FavouriteIconCubit(),
         ),
+        BlocProvider(
+          create: (context) => UserDataInfoCubit(),
+        ),
+        BlocProvider(
+          create: (context) => NewTokenCubit()..getNewToken(),
+        ),
+        BlocProvider(
+          create: (context) => WorkoutsCubit(),
+        ),
+        BlocProvider(
+          create: (context) => CounterTimeChallenges(),
+        ),
+        BlocProvider(
+          create: (context) => SmartWatchCubit()..intializeSmartWatchConnection(),
+        ),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),

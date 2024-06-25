@@ -1,11 +1,13 @@
-import '../../shared/widgets/profile_comp.dart/custom_card_icon.dart';
-import '../../shared/widgets/profile_comp.dart/custom_card_switch.dart';
+import '../../services/pref.dart';
+import '../../shared/widgets/profile_comp.dart/profile_main/custom_card_icon.dart';
+import '../../shared/widgets/profile_comp.dart/profile_main/custom_card_switch.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_menu_button.dart';
-import '../../shared/widgets/profile_comp.dart/profile_card.dart';
+import '../../shared/widgets/profile_comp.dart/profile_main/profile_card.dart';
+import '../splash/start_screen.dart';
 import 'reminder_main_screen.dart';
 
 class ProfileMainScreen extends StatelessWidget {
@@ -93,9 +95,76 @@ class ProfileMainScreen extends StatelessWidget {
                 title: 'Help & Support',
                 icon: Icons.question_mark_outlined,
               ),
-              const CustomCardIcon(
+              CustomCardIcon(
                 title: 'Logout',
                 icon: Icons.logout_sharp,
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => Dialog(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 22,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          color: white,
+                        ),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Are you sure that you want to logout?',
+                              style: GoogleFonts.poppins(
+                                color: black,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                TextButton(
+                                  onPressed: () {
+                                    Prefs.setBool('isLogin', false);
+                                    Prefs.remove('user');
+                                    AnimatedNavigator().pushAndRemoveUntil(
+                                      context,
+                                      const StartScreen(),
+                                    );
+                                  },
+                                  child: Text(
+                                    'Logout',
+                                    style: GoogleFonts.poppins(
+                                      color: purple5,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                                TextButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop(context);
+                                  },
+                                  child: Text(
+                                    'Cancel',
+                                    style: GoogleFonts.poppins(
+                                      color: black,
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 25),
             ],

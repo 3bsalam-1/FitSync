@@ -1,5 +1,4 @@
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../shared/widgets/workouts_comp/workouts_list/custom_filter_item.dart';
 import 'package:flutter/material.dart';
 import '../../shared/colors/colors.dart';
@@ -64,25 +63,6 @@ class FiltersWorkoutsScreen extends StatelessWidget {
               Text('Fitness Tool'),
               SizedBox(height: 12),
               CustomFilterItem(label: 'Bodyweight'),
-              SizedBox(height: 12),
-              Text('Stance'),
-              SizedBox(height: 12),
-              Row(
-                children: [
-                  CustomFilterItem(label: 'Standing'),
-                  CustomFilterItem(label: 'On the floor'),
-                ],
-              ),
-              SizedBox(height: 12),
-              Text('Difficulty'),
-              SizedBox(height: 12),
-              Row(
-                children: [
-                  CustomFilterItem(label: 'Easy'),
-                  CustomFilterItem(label: 'Medium'),
-                  CustomFilterItem(label: 'Hard'),
-                ],
-              ),
               SizedBox(height: 12),
               Text('Impact Level'),
               SizedBox(height: 12),

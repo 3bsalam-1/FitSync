@@ -1,13 +1,27 @@
-import 'package:fitsync/shared/widgets/global/custom_button.dart';
+import '../../cubits_logic/workouts/counter_time_challenges.dart';
+import '../../data/cubit/user_data/user_data_info_cubit.dart';
+import '../../data/models/workouts_model.dart';
+import '../home_main_screen.dart';
+import 'start_challenge/start_challenge_screen.dart';
+import '../../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../data/cubit/workouts/workouts_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_challenges_time.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_list_challenges.dart';
 
 class WorkoutsViewChallenge extends StatelessWidget {
-  const WorkoutsViewChallenge({super.key});
+  final int workoutsIndex;
+  final List<WorkoutsModel> workouts;
+  
+  const WorkoutsViewChallenge({
+    super.key, 
+    required this.workoutsIndex,
+    required this.workouts,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +42,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   opacity: 0.6,
+                  // todo change image here
                   image: AssetImage('assets/images/fullBody.png'),
                 ),
               ),
@@ -37,7 +52,10 @@ class WorkoutsViewChallenge extends StatelessWidget {
               left: 15,
               child: IconButton(
                 onPressed: () {
-                  AnimatedNavigator().pop(context);
+                  AnimatedNavigator().pushAndRemoveUntil(
+                    context,
+                    const HomeMainScreen(),
+                  );
                 },
                 icon: Container(
                   width: 37,
@@ -67,8 +85,9 @@ class WorkoutsViewChallenge extends StatelessWidget {
                 ),
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(40),
-                      topRight: Radius.circular(40)),
+                    topLeft: Radius.circular(40),
+                    topRight: Radius.circular(40),
+                  ),
                   color: white,
                 ),
                 child: Column(
@@ -79,35 +98,51 @@ class WorkoutsViewChallenge extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Full Body',
+                          workouts[workoutsIndex].category,
                           style: GoogleFonts.poppins(
                             fontSize: 24,
                             color: black,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        IconButton(
-                          onPressed: () {
-                            // todo add to the saved workouts
+                        BlocBuilder<WorkoutsCubit, WorkoutsState>(
+                          builder: (context, state) {
+                            final provider = context.read<WorkoutsCubit>();
+                            return IconButton(
+                              onPressed: () {
+                                context.read<WorkoutsCubit>().addWorkoutsToFavorites(
+                                  userId: context.read<UserDataInfoCubit>()
+                                          .userData!
+                                          .userId,
+                                  workouts: workouts[workoutsIndex],
+                                );
+                              },
+                              icon: Icon(
+                                Icons.favorite,
+                                color: provider.isFavorite ? purple5 : gray14,
+                                size: 25,
+                              ),
+                            );
                           },
-                          icon: const Icon(
-                            Icons.favorite,
-                            color: purple5,
-                            size: 25,
-                          ),
                         ),
                       ],
                     ),
                     const SizedBox(height: 9),
-                    const WorkoutsChallengesTime(),
+                    WorkoutsChallengesTime(workouts: workouts[workoutsIndex]),
                     const SizedBox(height: 9),
-                    const WorkoutsListChallenges(),
+                    WorkoutsListChallenges(workouts: workouts[workoutsIndex]),
                     const Spacer(),
                     CustomButton(
                       label: 'Start',
                       horizontalPadding: width * 0.14,
                       onPressed: () {
-                        // todo go to the start challenge screen
+                        context.read<CounterTimeChallenges>().initalizeAllWorkouts(workouts);
+                        AnimatedNavigator().push(
+                          context,
+                          StartChallengeScreen(
+                            workoutsIndex: workoutsIndex,
+                          ),
+                        );
                       },
                     ),
                     const SizedBox(height: 10),

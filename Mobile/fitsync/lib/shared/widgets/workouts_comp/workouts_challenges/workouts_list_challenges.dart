@@ -1,25 +1,31 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-
+import '../../../../cubits_logic/workouts/counter_time_challenges.dart';
+import '../../../../data/models/workouts_model.dart';
+import '../../../../services/convert_ms.dart';
 import '../../../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 
 class WorkoutsListChallenges extends StatelessWidget {
-  const WorkoutsListChallenges({super.key});
+  final WorkoutsModel workouts;
+  const WorkoutsListChallenges({super.key, required this.workouts});
 
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     return Container(
-      height: height * 0.36,
+      height: height * 0.38,
       padding: const EdgeInsets.symmetric(vertical: 12),
       child: ListView.separated(
-        itemCount: 3,
+        shrinkWrap: true,
+        itemCount: workouts.exercisePlan.length,
         separatorBuilder: (context, index) => const SizedBox(height: 20),
         itemBuilder: (context, index) => Container(
           padding: const EdgeInsets.symmetric(
             vertical: 12,
             horizontal: 20,
           ),
+          margin: const EdgeInsets.symmetric(horizontal: 8),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
@@ -29,14 +35,16 @@ class WorkoutsListChallenges extends StatelessWidget {
             color: white,
             boxShadow: [
               BoxShadow(
-                color: gray4.withOpacity(0.2),
+                color: gray4.withOpacity(0.1),
                 blurRadius: 8,
+                spreadRadius: 2,
               ),
             ],
           ),
           child: Row(
             children: [
               Image.asset(
+                // todo show image here
                 'assets/images/pullup.png',
                 fit: BoxFit.fill,
                 width: 79,
@@ -48,7 +56,9 @@ class WorkoutsListChallenges extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Reclining to big toe',
+                    workouts.exercisePlan[index],
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       color: black,
@@ -56,7 +66,7 @@ class WorkoutsListChallenges extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '00:30',
+                    getTimeEachExercise(workouts.planDurationMn, context)[index],
                     style: GoogleFonts.poppins(
                       fontSize: 14,
                       color: gray4,
@@ -70,5 +80,27 @@ class WorkoutsListChallenges extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  List<String> getTimeEachExercise(String totalTime, BuildContext context) {
+    int seconds = (double.parse(totalTime) * 60).toInt();
+    int length = workouts.exercisePlan.length;
+    int singleTime = (seconds / length).floor();
+    List<String> times = List.generate(
+      length,
+      (index) {
+        if (index == 0) {
+          return convertSecondsToMS(seconds - (length-1)*singleTime);
+        } else {
+          return convertSecondsToMS(singleTime);
+        }
+      },
+    );
+    context.read<CounterTimeChallenges>().initalizeExerciseTimeSec(
+      seconds, 
+      singleTime, 
+      length,
+    );
+    return times;
   }
 }

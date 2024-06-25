@@ -55,3 +55,13 @@ final class CholesterolValidation extends TextFormValidationState {
   CholesterolValidation(this.errorText);
 }
 
+final class BmrValidation extends TextFormValidationState {
+  final String? errorText;
+  BmrValidation(this.errorText);
+}
+
+final class BloodPressureValidation extends TextFormValidationState {
+  final String? errorText;
+
+  BloodPressureValidation(this.errorText);
+}

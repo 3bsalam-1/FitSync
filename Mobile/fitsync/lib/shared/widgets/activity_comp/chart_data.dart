@@ -5,16 +5,6 @@ class ChartData {
   final dynamic y;
 }
 
-List<ChartData> dataSleep = [
-  ChartData('Sun', 7),
-  ChartData('Mon', 8),
-  ChartData('Tues', 9),
-  ChartData('Wed', 7),
-  ChartData('Thurs', 9),
-  ChartData('Fri', 6),
-  ChartData('Sat', 9.5),
-];
-
 List<ChartData> dataSteps = [
   ChartData('Sun', 6000),
   ChartData('Mon', 7000),
@@ -25,22 +15,52 @@ List<ChartData> dataSteps = [
   ChartData('Sat', 8500),
 ];
 
-List<ChartData> dataWater = [
-  ChartData('Sun', 1),
-  ChartData('Mon', 2),
-  ChartData('Tues', 2.5),
-  ChartData('Wed', 3),
-  ChartData('Thurs', 3.3),
-  ChartData('Fri', 3.8),
-  ChartData('Sat', 4),
-];
+List<ChartData> showSmartWatchDataWeekly(
+  List<double>? dataValues,
+  List<int>? dataDays,
+) {
+  List<double> heartRateAve = [];
+  List<int> days = [];
+  List<String> weeks = ['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
+  List<ChartData> weekData = [];
+  late int index;
 
-List<ChartData> dataCalories = [
-  ChartData('Sun', 890),
-  ChartData('Mon', 800),
-  ChartData('Tues', 1200),
-  ChartData('Wed', 800),
-  ChartData('Thurs', 1200),
-  ChartData('Fri', 800),
-  ChartData('Sat', 1200),
-];
+  if (dataDays != null && dataValues != null) {
+    if (dataDays.isNotEmpty) {
+      days = dataDays.toSet().toList();
+      for (int day in days) {
+        index = dataDays.indexOf(day);
+        if (index != -1) {
+          heartRateAve.add(dataValues[index]);
+        }
+      }
+    }
+  }
+
+  int indexDay = 0;
+  bool isFound = false;
+  for (int i = 0; i < weeks.length; i++) {
+    isFound = days.contains(i + 1);
+    if (isFound) {
+      weekData.add(ChartData(
+        weeks[i],
+        heartRateAve[indexDay],
+      ));
+      ++indexDay;
+    } else {
+      weekData.add(ChartData(
+        weeks[i],
+        0,
+      ));
+    }
+  }
+  return weekData;
+}
+
+double getTotalData(List<ChartData> data) {
+  double sum = 0;
+  for (var element in data) {
+    sum += element.y as num;
+  }
+  return sum.roundToDouble();
+}
