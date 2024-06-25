@@ -1,0 +1,35 @@
+.Error {
+  max-width: 327px;
+  padding: 10px;
+  border-radius: 8px;
+  position: fixed;
+  right: 60px;
+  top: 60px;
+  z-index: 1030;
+}
+.Error svg {
+  height: 24px;
+  padding: 0 10px 0 0;
+  cursor: pointer;
+}
+.hidden {
+  display: none !important;
+}
+.Error button {
+  border: none;
+  background: none;
+}
+.Error button svg {
+  margin-top: 7px;
+  padding: 0 10px;
+}
+.Error h1 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+}
+.Error p {
+  font-size: 13px;
+  font-weight: 400;
+  margin: 0;
+}

@@ -1,0 +1,282 @@
+/* Start Global Rule -----------------------------------*/
+a {
+  color: black;
+}
+/* End Global Rule -----------------------------------*/
+
+/* Start backgroundBody -----------------------------------*/
+.backgroundBody img {
+  height: calc(100vh - 116px);
+  width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .backgroundBody img {
+    height: calc(100vh - 169.25px);
+  }
+}
+/* End backgroundBody -----------------------------------*/
+/* Start Recorddata -----------------------------------*/
+.Recorddata div.box {
+  position: relative;
+  width: 300px;
+  height: 125px;
+  padding: 20px;
+  margin: 3px;
+  border: 1.5px solid #c4c0bb;
+  box-shadow: 0px 22.5px 37.5px 0px #00000012;
+  border-radius: 7.5px;
+  -webkit-border-radius: 7.5px;
+  -moz-border-radius: 7.5px;
+  -ms-border-radius: 7.5px;
+  -o-border-radius: 7.5px;
+}
+.Recorddata h2 {
+  font-weight: 500;
+  font-size: 26.25px;
+  color: var(--frist-color, #8d6ff8);
+}
+.Recorddata p {
+  font-weight: 500;
+  font-size: 18px;
+  color: #868179;
+}
+.Recorddata div img {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+.Recorddata {
+  transition: scale 0.25s ease-in, opacity 0.25s ease-in, filter 0.25s ease-in;
+  -webkit-transition: scale 0.25s ease-in, opacity 0.25s ease-in,
+    filter 0.25s ease-in;
+  -moz-transition: scale 0.25s ease-in, opacity 0.25s ease-in,
+    filter 0.25s ease-in;
+  -ms-transition: scale 0.25s ease-in, opacity 0.25s ease-in,
+    filter 0.25s ease-in;
+  -o-transition: scale 0.25s ease-in, opacity 0.25s ease-in,
+    filter 0.25s ease-in;
+}
+.active-Recorddata {
+  box-shadow: 0px 10px 40px 0px #00000075 !important;
+}
+.Recorddata .box:hover {
+  cursor: pointer;
+  box-shadow: 0px 10px 40px 0px #00000075;
+}
+.Recorddata:has(.box:hover) .box:not(:hover) {
+  opacity: 0.3;
+}
+/* End Recorddata -----------------------------------*/
+/* Start Chart -----------------------------------*/
+
+.Chartgraph .Return-ratio {
+  width: 345px;
+  height: 430px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 0.75px solid #c4c0bb;
+  box-shadow: 0px 22.5px 37.5px 0px #00000012;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.Chartgraph .Return-ratio > h2 {
+  font-size: 18.75px;
+  font-weight: bold;
+  margin-top: 24px;
+  color: var(--frist-color, #8d6ff8);
+}
+@media screen and (max-width: 1182px) {
+  .Chartgraph > div {
+    flex-direction: column;
+  }
+}
+/* circle */
+.Chartgraph .Return-ratio .boxCirclePercentage {
+  position: absolute;
+  left: 50%;
+  top: 100px;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+/* circle */
+
+.Chartgraph .Return-ratio .row {
+  position: absolute;
+  bottom: 30px;
+  left: 35px;
+}
+.Chartgraph .Return-ratio .row .col h2 {
+  font-size: 26.25px;
+  font-weight: bold;
+  color: var(--frist-color, #8d6ff8);
+}
+.Chartgraph .Return-ratio .row .col svg {
+  width: 12.75px;
+  height: 13.8px;
+  color: #8d6ff8;
+  margin-right: 3px;
+}
+.Chartgraph .Return-ratio .row .col span {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #868179;
+}
+.Chartgraph .Return-ratio .row .col:last-child {
+  flex-grow: 2;
+}
+.Chartgraph .Return-ratio .box-water {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+.Chartgraph .Return-ratio .box-water button {
+  border: none;
+  background: #8d6ff8;
+  width: 37.5px;
+  height: 37.5px;
+  border-radius: 50%;
+}
+.Chartgraph .Return-ratio .box-water button svg {
+  color: white;
+}
+.Chartgraph .Return-ratio .box-water + p {
+  color: #868179;
+  font-size: 16.5px;
+  font-weight: 500;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+.Chartgraph .Chatr-ProgressCard {
+  flex-direction: column;
+  box-shadow: 0px 22.5px 37.5px 0px #00000012;
+  margin: 10px 0;
+  padding: 25px 25px 0 25px;
+
+  border: 0.75px solid #c4c0bb;
+  border-radius: 8px;
+  width: 510px;
+  height: 459px;
+}
+.Chartgraph .Return-ratio .Steps {
+  position: absolute;
+  bottom: 30px;
+  gap: 45px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+.Chartgraph .Return-ratio .Steps div span {
+  color: #868179;
+  font-size: 12px;
+  font-weight: 500;
+}
+.Chartgraph .Return-ratio .Steps div svg {
+  font-size: 20px;
+  border: 1px solid;
+  padding: 10px;
+  border-radius: 50%;
+  border-width: 4px;
+}
+.Chartgraph .Return-ratio .Steps div:nth-child(1) svg {
+  color: #42c9f4;
+  border-color: #42c9f4;
+}
+.Chartgraph .Return-ratio .Steps div:nth-child(2) svg {
+  color: #8d6ff8;
+  border-color: #8d6ff8;
+}
+.Chartgraph .Return-ratio .Steps div:nth-child(3) svg {
+  color: #4285f4;
+  border-color: #4285f4;
+}
+/* End Chart -----------------------------------*/
+/* Start lifestyle -----------------------------------*/
+.lifestyle div.title {
+  width: fit-content;
+}
+.lifestyle div.title h2 {
+  font-weight: 700;
+  font-size: clamp(60px, 12vw, 150px);
+  color: #f5f5f5;
+  text-transform: uppercase;
+}
+.lifestyle div.title p {
+  font-size: clamp(20px, 2vw, 40px);
+  font-weight: 700;
+  color: var(--frist-color, #8d6ff8);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.lifestyle div.row .col > p {
+  font-size: clamp(14px, 2vw, 22.5px);
+  font-weight: 500;
+  color: #726d65;
+}
+.lifestyle div.row .col div.box {
+  background: #f0f0f0;
+  max-width: 503.25px;
+  padding: 20px;
+  margin-bottom: 15px;
+}
+.lifestyle div.row .col div.box h3 {
+  font-size: 22.5px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.lifestyle div.row .col div.box p {
+  font-size: 15px;
+  font-weight: 500;
+  color: #6a6a6a;
+  text-transform: capitalize;
+}
+.lifestyle .row .col:last-child img {
+  position: absolute;
+  right: 35px;
+}
+@media (max-width: 1198px) {
+  .lifestyle .row .col:last-child {
+    display: none;
+  }
+}
+
+/* End lifestyle -----------------------------------*/
+/* Start Recommended -----------------------------------*/
+.Recommended .Recommended-title h2 {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.4em;
+  color: #524ff5;
+}
+.Recommended .Recommended-title h3 {
+  font-size: 33.75px;
+  font-weight: 700;
+  color: #1b2129;
+  margin-bottom: 50px;
+}
+/* End Recommended -----------------------------------*/

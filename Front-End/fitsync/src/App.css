@@ -1,0 +1,29 @@
+html {
+  scroll-behavior: smooth;
+}
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+}
+:root {
+  --main-background-color: linear-gradient(
+    273.46deg,
+    #8d70f8 19.25%,
+    #9dcdff 126.19%
+  );
+  --frist-color: #8d6ff8;
+  --second-color: #726d65;
+  --bg-color: #c4c0bb;
+  --icon-color: #7b6f72;
+  --dark-color: #485059;
+  --paragraph-color: #8f8f8f;
+}
+.bg-Opacity {
+  opacity: 0.4;
+  pointer-events: none;
+}

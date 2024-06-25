@@ -1,0 +1,35 @@
+.box-card div.fname-lname {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  margin-bottom: 17.25px;
+}
+.box-card div.fname-lname div {
+  height: 100%;
+}
+.box-card .characters span,
+.box-card .privacy label span {
+  color: var(--frist-color, #8d6ff8);
+}
+.box-card .privacy {
+  margin-bottom: 40px;
+  max-width: 368.25px;
+}
+.box-card .privacy input {
+  width: 22.5px;
+  height: 21.75px;
+  flex-basis: 28px;
+  margin: 0;
+}
+.box-card .privacy label {
+  text-align: start;
+  margin-left: 9.75px;
+  font-size: 13.5px;
+  font-weight: bold;
+  line-height: 15px;
+}
+@media (max-width: 992px) {
+  .box-card div.fname-lname {
+    display: contents;
+  }
+}

@@ -1,0 +1,58 @@
+.welcomscreen h2 {
+  font-weight: 400;
+  font-size: 26.25px;
+}
+/* Edit margin-bottom: */
+.welcomscreen h1 {
+  font-weight: bold;
+  font-size: 45px;
+  color: var(--first-color, #8d6ff8);
+  margin-bottom: 60px;
+}
+/* Edit width */
+.welcomscreen .exercise .box {
+  max-width: 335px;
+  box-shadow: none;
+  margin: 0 auto;
+  padding: 0;
+}
+.welcomscreen .exercise .box img {
+  max-height: 300.5px;
+  border-radius: 22.5px;
+  -webkit-border-radius: 22.5px;
+  -moz-border-radius: 22.5px;
+  -ms-border-radius: 22.5px;
+  -o-border-radius: 22.5px;
+}
+.welcomscreen .exercise .box p {
+  color: black;
+  font-size: 18.75px;
+  font-weight: 400;
+  max-width: 238px;
+  margin: 26.25px auto;
+}
+/* Edit width and height and font-size*/
+.welcomscreen .Continue {
+  width: 445.5px;
+  height: 77.25px;
+  background: var(
+    --main-background-color,
+    linear-gradient(273.46deg, #8d70f8 19.25%, #9dcdff 126.19%)
+  );
+  color: white;
+  padding: 0;
+  border: none;
+  font-size: 19.5px;
+  font-weight: bold;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+@media (max-width: 577px) {
+  .welcomscreen .Continue {
+    width: 100%;
+  }
+}
