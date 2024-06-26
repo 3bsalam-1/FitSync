@@ -309,11 +309,9 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
 
 exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
   let { name, email, avatar,googleId } = req.body;
-  
-  // Retrieve user data based on email
+
   let user = await User.findOne({email,googleId});
 
-  // If user exists, return token
   if (user) {
     const token = await signToken(user,res);
     return res.status(200).json({
@@ -322,7 +320,6 @@ exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
     });
   }
 
-  // User doesn't exist, proceed to create new account
   name = name.split(" ");
   let firstName = name[0];
   let lastName = name[1];
@@ -333,14 +330,12 @@ exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
   };
   let username = generateUsername(firstName, lastName);
 
-  // Ensure username uniqueness
   let existingUser = await User.findOne({ username });
   while (existingUser) {
     username = generateUsername(firstName, lastName);
     existingUser = await User.findOne({ username });
   }
 
-  // Create new user
   user = new User({
     firstName,
     lastName,
@@ -352,7 +347,6 @@ exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
 
   await user.save({ validateBeforeSave: false });
 
-  // Return token
   const token = await signToken(user,res);
   res.status(200).json({
     status: SUCCESS,
