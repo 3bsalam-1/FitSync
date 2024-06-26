@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
+import '../../global/custom_translate_text.dart';
 
 class SleepHours extends StatelessWidget {
   final String current;
@@ -19,7 +20,7 @@ class SleepHours extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Text(
+        customTranslateText(
           title,
           style: GoogleFonts.poppins(
             fontSize: 20,
@@ -41,7 +42,7 @@ class SleepHours extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            Text(
+           Text(
               basic,
               style: GoogleFonts.poppins(
                 fontSize: 14,

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';

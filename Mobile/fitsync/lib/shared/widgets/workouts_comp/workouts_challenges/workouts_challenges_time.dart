@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../data/models/workouts_model.dart';
+import '../../../../services/convert_ms.dart';
 import '../../../colors/colors.dart';
-
+import '../../global/custom_translate_text.dart';
 class WorkoutsChallengesTime extends StatelessWidget {
-  const WorkoutsChallengesTime({super.key});
+  final WorkoutsModel workouts;
+  const WorkoutsChallengesTime({super.key, required this.workouts});
 
   @override
   Widget build(BuildContext context) {
@@ -24,8 +27,8 @@ class WorkoutsChallengesTime extends StatelessWidget {
                 color: purple5,
               ),
               const SizedBox(width: 5),
-              Text(
-                '60:00',
+              customTranslateText(
+                convertToMS(workouts.planDurationMn),
                 style: GoogleFonts.poppins(
                   fontSize: 12,
                   color: purple5,
@@ -51,8 +54,8 @@ class WorkoutsChallengesTime extends StatelessWidget {
                 color: purple5,
               ),
               const SizedBox(width: 5),
-              Text(
-                '20 Exercises',
+              customTranslateText(
+                '${workouts.exercisePlan.length} Exercises',
                 style: GoogleFonts.poppins(
                   fontSize: 12,
                   color: purple5,

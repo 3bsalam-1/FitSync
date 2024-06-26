@@ -3,6 +3,7 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../global/custom_translate_text.dart';
 
 List<int> count1 = List.filled(100, 0);
 
@@ -17,7 +18,6 @@ class Page2 extends StatelessWidget {
 
   FoodModel diet;
   String ingredients = "";
-  
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class Page2 extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 10),
-              child: Text(
+              child: customTranslateText(
                 "Ingredients That You \nWill Need",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,

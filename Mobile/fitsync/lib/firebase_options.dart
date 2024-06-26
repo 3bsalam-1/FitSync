@@ -44,38 +44,42 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAZG5f5zuchWTyi5ejqqeUo-7l0SGPw7dw',
-    appId: '1:615688637589:web:fd678f4349d019bc42df9c',
-    messagingSenderId: '615688637589',
-    projectId: 'fit-sync-8544d',
-    authDomain: 'fit-sync-8544d.firebaseapp.com',
-    storageBucket: 'fit-sync-8544d.appspot.com',
-    measurementId: 'G-FCQP4X5WT6',
+    apiKey: 'AIzaSyCTFrDe_PfZAqVdSMhzCnKwk588GQzFY9I',
+    appId: '1:288739641258:web:fcfe0c14b9a187a385cdd3',
+    messagingSenderId: '288739641258',
+    projectId: 'fitsync-app-50831',
+    authDomain: 'fitsync-app-50831.firebaseapp.com',
+    storageBucket: 'fitsync-app-50831.appspot.com',
+    measurementId: 'G-4NGTS87TFQ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBwLFLTXnHWNICn61rCQM9WYN17LUszJ0k',
-    appId: '1:615688637589:android:d5c3f227548265d142df9c',
-    messagingSenderId: '615688637589',
-    projectId: 'fit-sync-8544d',
-    storageBucket: 'fit-sync-8544d.appspot.com',
+    apiKey: 'AIzaSyCAxaL9XIp2Y7Gwyd1uwqUEhUO8E1nX1-Q',
+    appId: '1:288739641258:android:23756547e9e3060385cdd3',
+    messagingSenderId: '288739641258',
+    projectId: 'fitsync-app-50831',
+    storageBucket: 'fitsync-app-50831.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBOwu5XJg6Cms0F6LaPwan20n_xDZBMC7s',
-    appId: '1:615688637589:ios:42f20b4ae728019142df9c',
-    messagingSenderId: '615688637589',
-    projectId: 'fit-sync-8544d',
-    storageBucket: 'fit-sync-8544d.appspot.com',
+    apiKey: 'AIzaSyDoIhxd2vh1BCcu1NB2O37r2xm5WPgvKj4',
+    appId: '1:288739641258:ios:ebb5359e8c0ce40985cdd3',
+    messagingSenderId: '288739641258',
+    projectId: 'fitsync-app-50831',
+    storageBucket: 'fitsync-app-50831.appspot.com',
+    androidClientId: '288739641258-du9i1j0q564k9k1s5nblf0lhupuf514o.apps.googleusercontent.com',
+    iosClientId: '288739641258-mfugaeihv433kvr9vgblmf8686q2krfc.apps.googleusercontent.com',
     iosBundleId: 'com.example.fitsync',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBOwu5XJg6Cms0F6LaPwan20n_xDZBMC7s',
-    appId: '1:615688637589:ios:a35e827ef94f655542df9c',
-    messagingSenderId: '615688637589',
-    projectId: 'fit-sync-8544d',
-    storageBucket: 'fit-sync-8544d.appspot.com',
+    apiKey: 'AIzaSyDoIhxd2vh1BCcu1NB2O37r2xm5WPgvKj4',
+    appId: '1:288739641258:ios:2d2979aa75d694da85cdd3',
+    messagingSenderId: '288739641258',
+    projectId: 'fitsync-app-50831',
+    storageBucket: 'fitsync-app-50831.appspot.com',
+    androidClientId: '288739641258-du9i1j0q564k9k1s5nblf0lhupuf514o.apps.googleusercontent.com',
+    iosClientId: '288739641258-gif5sagfm596d5a636m78nnddivk0o2l.apps.googleusercontent.com',
     iosBundleId: 'com.example.fitsync.RunnerTests',
   );
 }

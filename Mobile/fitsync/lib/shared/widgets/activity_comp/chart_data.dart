@@ -1,3 +1,8 @@
+import '../../../services/pref.dart';
+import '../../../services/smart_watch_services.dart';
+
+final smartWatch = SmartWatchServices();
+
 class ChartData {
   ChartData(this.x, this.y);
 
@@ -5,42 +10,99 @@ class ChartData {
   final dynamic y;
 }
 
-List<ChartData> dataSleep = [
-  ChartData('Sun', 7),
-  ChartData('Mon', 8),
-  ChartData('Tues', 9),
-  ChartData('Wed', 7),
-  ChartData('Thurs', 9),
-  ChartData('Fri', 6),
-  ChartData('Sat', 9.5),
-];
+class SmartWatchWeekData {
+  final List<ChartData> weekDataSleep;
+  final List<ChartData> weekDataSteps;
+  final List<ChartData> weekDataWater;
+  final List<ChartData> weekDataCalories;
+  final double totalSleep;
+  final double totalSteps;
+  final double totalWater;
+  final double totalCalories;
 
-List<ChartData> dataSteps = [
-  ChartData('Sun', 6000),
-  ChartData('Mon', 7000),
-  ChartData('Tues', 8000),
-  ChartData('Wed', 6000),
-  ChartData('Thurs', 8000),
-  ChartData('Fri', 4800),
-  ChartData('Sat', 8500),
-];
+  SmartWatchWeekData({
+    required this.weekDataSleep,
+    required this.weekDataSteps,
+    required this.weekDataWater,
+    required this.weekDataCalories,
+    required this.totalSleep,
+    required this.totalSteps,
+    required this.totalWater,
+    required this.totalCalories,
+  });
+}
 
-List<ChartData> dataWater = [
-  ChartData('Sun', 1),
-  ChartData('Mon', 2),
-  ChartData('Tues', 2.5),
-  ChartData('Wed', 3),
-  ChartData('Thurs', 3.3),
-  ChartData('Fri', 3.8),
-  ChartData('Sat', 4),
-];
+Future<SmartWatchWeekData> showSmartWatchDataWeekly() async {
+  List<String> weeks = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
+  List<ChartData> defualtData = [
+    ChartData('Mon', 0),
+    ChartData('Tues', 0),
+    ChartData('Wed', 0),
+    ChartData('Thurs', 0),
+    ChartData('Fri', 0),
+    ChartData('Sat', 0),
+    ChartData('Sun', 0),
+  ];
+  List<ChartData> weekDataSleep = [];
+  List<ChartData> weekDataSteps = [];
+  List<ChartData> weekDataWater = [];
+  List<ChartData> weekDataCalories = [];
+  double totalSleep = 0;
+  double totalSteps = 0;
+  double totalWater = 0;
+  double totalCalories = 0;
+  int j = 0;
 
-List<ChartData> dataCalories = [
-  ChartData('Sun', 890),
-  ChartData('Mon', 800),
-  ChartData('Tues', 1200),
-  ChartData('Wed', 800),
-  ChartData('Thurs', 1200),
-  ChartData('Fri', 800),
-  ChartData('Sat', 1200),
-];
+  if (Prefs.getBool("watch-permission") != null) {
+    if (Prefs.getBool("watch-permission")!) {
+      for (int i = 0; i < 7; i++) {
+        var sleep = await smartWatch.getSleepData(i + 1, i);
+        weekDataSleep.add(ChartData(
+          weeks[j],
+          sleep!,
+        ));
+        var steps = await smartWatch.getStepsData(i + 1, i);
+        weekDataSteps.add(ChartData(
+          weeks[j],
+          steps!,
+        ));
+        var water = await smartWatch.getWaterData(i + 1, i);
+        weekDataWater.add(ChartData(
+          weeks[j],
+          water!["waterL"]!,
+        ));
+        var calories = await smartWatch.getActiveCaloriesData(i + 1, i);
+        weekDataCalories.add(ChartData(
+          weeks[j],
+          calories!,
+        ));
+        totalSleep += sleep.toDouble();
+        totalSteps += steps.toDouble();
+        totalWater += water["waterL"]!.toDouble();
+        totalCalories += calories.toDouble();
+        ++j;
+      }
+    } else {
+      weekDataSleep = defualtData;
+      weekDataSteps = defualtData;
+      weekDataWater = defualtData;
+      weekDataCalories = defualtData;
+    }
+  } else {
+    weekDataSleep = defualtData;
+    weekDataSteps = defualtData;
+    weekDataWater = defualtData;
+    weekDataCalories = defualtData;
+  }
+
+  return SmartWatchWeekData(
+    weekDataSleep: weekDataSleep,
+    weekDataSteps: weekDataSteps,
+    weekDataWater: weekDataWater,
+    weekDataCalories: weekDataCalories,
+    totalSleep: totalSleep,
+    totalSteps: totalSteps,
+    totalWater: totalWater,
+    totalCalories: totalCalories,
+  );
+}

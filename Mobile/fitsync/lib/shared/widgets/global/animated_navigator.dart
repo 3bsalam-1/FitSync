@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AnimatedNavigator {
-
   void pushAndRemoveUntil(BuildContext context, Widget screen) {
     Navigator.pushAndRemoveUntil(
       context, 
