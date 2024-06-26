@@ -51,27 +51,28 @@ class SavedRecipesScreen extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          CustomSavedRecipesWidget(
-            imageUrl: "assets/images/Green Salad.jfif",
-            label1: 'Green Salad',
-            label2: "100% Healthy\nFits in Budget",
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          CustomSavedRecipesWidget(
-            imageUrl: "assets/images/Egg Sandwich.jfif",
-            label1: 'Egg Sandwich',
-            label2: "98% Healthy\nFits in Budget",
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          CustomSavedRecipesWidget(
-            imageUrl: "assets/images/steak.jfif",
-            label1: 'Steak',
-            label2: "88% Healthy\nFits in Budget",
-          ),
+          // CustomSavedRecipesWidget(
+          //   diet: ,
+          //   imageUrl: "assets/images/Green Salad.jfif",
+          //   label1: 'Green Salad',
+          //   label2: "100% Healthy\nFits in Budget",
+          // ),
+          // SizedBox(
+          //   height: 10,
+          // ),
+          // CustomSavedRecipesWidget(
+          //   imageUrl: "assets/images/Egg Sandwich.jfif",
+          //   label1: 'Egg Sandwich',
+          //   label2: "98% Healthy\nFits in Budget",
+          // ),
+          // SizedBox(
+          //   height: 10,
+          // ),
+          // CustomSavedRecipesWidget(
+          //   imageUrl: "assets/images/steak.jfif",
+          //   label1: 'Steak',
+          //   label2: "88% Healthy\nFits in Budget",
+          // ),
           SizedBox(
             height: 10,
           ),

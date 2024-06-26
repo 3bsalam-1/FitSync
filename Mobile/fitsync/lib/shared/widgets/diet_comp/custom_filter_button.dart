@@ -6,7 +6,8 @@ import '../global/custom_translate_text.dart';
 
 class CustomFilterButton extends StatefulWidget {
   final String label;
-  const CustomFilterButton({super.key, required this.label});
+ // String value;
+   CustomFilterButton({super.key, required this.label});
 
   @override
   State<CustomFilterButton> createState() => _CustomFilterItemState();
@@ -14,6 +15,7 @@ class CustomFilterButton extends StatefulWidget {
 
 class _CustomFilterItemState extends State<CustomFilterButton> {
   bool isSelected = false;
+  //String value="";
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,6 +24,7 @@ class _CustomFilterItemState extends State<CustomFilterButton> {
         onTap: () {
           setState(() {
             isSelected = !isSelected;
+            //value=widget.label;
           });
         },
         child: Container(

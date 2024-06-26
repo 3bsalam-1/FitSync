@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class PageMeal extends StatelessWidget {
-  const PageMeal({super.key});
+   PageMeal({
+    required String this.path,
+    super.key});
 
+  String path;
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -15,7 +18,7 @@ class PageMeal extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20.0),
                     child: Image.asset(
-                      "assets/images/Chocolate appo.png",
+                      path,
                       fit: BoxFit.fill,
                     ),
                   ),

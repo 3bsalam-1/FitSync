@@ -30,6 +30,7 @@ import 'services/pref.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 import 'services/work_manager_services.dart';
+import 'cubits_logic/diet_logic/for_weight/cubit/changestate_cubit.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -124,6 +125,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => TranslatelangCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ChangestateCubit(),
         ),
       ],
       child: BlocBuilder<DarkModeCubit, ThemeData>(

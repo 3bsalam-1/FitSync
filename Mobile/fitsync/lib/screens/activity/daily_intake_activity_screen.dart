@@ -49,7 +49,6 @@ class DailyIntakeActivityScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        // todo here add value of the
                         customTranslateText(
                           '${data == null ? "_" : (data.activeCalories * 1000).toStringAsFixed(2)} cal',
                           style: GoogleFonts.poppins(

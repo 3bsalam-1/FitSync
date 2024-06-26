@@ -1,5 +1,6 @@
 import 'package:fitsync/cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.dart';
 import 'package:fitsync/data/models/food_model.dart';
+import 'package:fitsync/data/repository/food/all_food.dart';
 import 'package:fitsync/data/repository/food/food_repo.dart';
 import 'package:fitsync/screens/Diet/diet_list.dart';
 import 'package:fitsync/screens/Diet/saved_recipes_screen.dart';
@@ -85,16 +86,24 @@ class DietScreen extends StatelessWidget {
                     return SizedBox(
                       height: 140,
                       child: ListView.builder(
-                        scrollDirection: Axis.horizontal,
-                        itemCount: food.length,
-                        physics: const BouncingScrollPhysics(),
-                        // separatorBuilder: (context, index) => const SizedBox(height: 25),
-                        itemBuilder: (context, index) => DietPlanWidget(
-                          diet: food[index],
-                          imageUrl: "assets/images/chicken.jfif",
-                          text: food[index].Catagory,
-                        ),
-                      ),
+                          scrollDirection: Axis.horizontal,
+                          itemCount: food.length,
+                          physics: const BouncingScrollPhysics(),
+                          // separatorBuilder: (context, index) => const SizedBox(height: 25),
+                          itemBuilder: (context, index) {
+                            String displayName = food[index].Name;
+                            if (displayName.length > 12) {
+                              displayName =
+                                  displayName.substring(0, 12) + '...';
+                            }
+
+                            return DietPlanWidget(
+                              diet: food[index],
+                              imageUrl:
+                                  "assets/images/food/${food[index].Catagory}1.jpg",
+                              text: displayName,
+                            );
+                          }),
                     );
                   } else {
                     return  Column(
@@ -185,7 +194,13 @@ class DietScreen extends StatelessWidget {
                                 color: purple5),
 
                             child: DropdownButton(
-                              items: ["Vegetables", "Fruits", "grains", "meat"]
+                              items: [
+                                "Vegetables",
+                                "Fruits",
+                                "Grains",
+                                "Legumes",
+                                "Protein Foods"
+                              ]
                                   .map((e) => DropdownMenuItem(
                                       child: customTranslateText(
                                         "${e}",
@@ -268,25 +283,285 @@ class DietScreen extends StatelessWidget {
                       // ),
 
                       FutureBuilder(
-                          future: FoodPlan().getFoodPlan(),
+                          future: AllFood().getAllFood(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              List<FoodModel> food = snapshot.data!;
+                              int i = 1;
+                              food = food
+                                  .where((item) =>
+                                      item.Catagory.toLowerCase()
+                                          .contains("chilli".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("broccoli".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("tomato".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("potato".toLowerCase()))
+                                  .toList();
+                              return SizedBox(
+                                height: 140,
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: food.length,
+                                    physics: const BouncingScrollPhysics(),
+                                    // separatorBuilder: (context, index) => const SizedBox(height: 25),
+                                    itemBuilder: (context, index) {
+                                      String displayName = food[index].Name;
+                                      if (displayName.length > 12) {
+                                        displayName =
+                                            displayName.substring(0, 12) +
+                                                '...';
+                                      }
+                                      return DietPlanWidget(
+                                        diet: food[index],
+                                        imageUrl:
+                                            "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
+                                        text: displayName,
+                                      );
+                                    }),
+                              );
+                            } else {
+                              return const Column(
+                                children: [
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      CircularProgressIndicator(),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                ],
+                              );
+                            }
+                          }),
+                    if (context.read<DropDownButtonCubit>().selectedItem ==
+                        "Fruits")
+                      FutureBuilder(
+                          future: AllFood().getAllFood(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              List<FoodModel> food = snapshot.data!;
+                              int i = 1;
+                              food = food
+                                  .where((item) =>
+                                      item.Catagory.toLowerCase().contains(
+                                          "strawberry".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("mango".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("apple".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("banana".toLowerCase()))
+                                  .toList();
+                              return SizedBox(
+                                height: 140,
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: food.length,
+                                    physics: const BouncingScrollPhysics(),
+                                    // separatorBuilder: (context, index) => const SizedBox(height: 25),
+                                    itemBuilder: (context, index) {
+                                      String displayName = food[index].Name;
+                                      if (displayName.length > 12) {
+                                        displayName =
+                                            displayName.substring(0, 12) +
+                                                '...';
+                                      }
+                                      return DietPlanWidget(
+                                        diet: food[index],
+                                        imageUrl:
+                                            "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
+                                        text: displayName,
+                                      );
+                                    }),
+                              );
+                            } else {
+                              return const Column(
+                                children: [
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      CircularProgressIndicator(),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                ],
+                              );
+                            }
+                          }),
+                    if (context.read<DropDownButtonCubit>().selectedItem ==
+                        "Grains")
+                      FutureBuilder(
+                          future: AllFood().getAllFood(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              List<FoodModel> food = snapshot.data!;
+                              int i = 1;
+                              food = food
+                                  .where((item) =>
+                                      item.Catagory.toLowerCase()
+                                          .contains("poha".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("rice".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("bread".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("khichdi".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("corn".toLowerCase()))
+                                  .toList();
+                              return SizedBox(
+                                height: 140,
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: food.length,
+                                    physics: const BouncingScrollPhysics(),
+                                    // separatorBuilder: (context, index) => const SizedBox(height: 25),
+                                    itemBuilder: (context, index) {
+                                      String displayName = food[index].Name;
+                                      if (displayName.length > 12) {
+                                        displayName =
+                                            displayName.substring(0, 12) +
+                                                '...';
+                                      }
+
+                                      return DietPlanWidget(
+                                        diet: food[index],
+                                        imageUrl:
+                                            "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
+                                        text: displayName,
+                                      );
+                                    }),
+                              );
+                            } else {
+                              return const Column(
+                                children: [
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      CircularProgressIndicator(),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                ],
+                              );
+                            }
+                          }),
+                    if (context.read<DropDownButtonCubit>().selectedItem ==
+                        "Legumes")
+                      FutureBuilder(
+                          future: AllFood().getAllFood(),
+                          builder: (context, snapshot) {
+                            if (snapshot.hasData) {
+                              List<FoodModel> food = snapshot.data!;
+                              int i = 1;
+                              food = food
+                                  .where((item) => item.Catagory.toLowerCase()
+                                      .contains("dal".toLowerCase()))
+                                  .toList();
+                              return SizedBox(
+                                height: 140,
+                                child: ListView.builder(
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: food.length,
+                                    physics: const BouncingScrollPhysics(),
+                                    // separatorBuilder: (context, index) => const SizedBox(height: 25),
+                                    itemBuilder: (context, index) {
+                                      String displayName = food[index].Name;
+                                      if (displayName.length > 12) {
+                                        displayName =
+                                            displayName.substring(0, 12) +
+                                                '...';
+                                      }
+                                      return DietPlanWidget(
+                                        diet: food[index],
+                                        imageUrl:
+                                            "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
+                                        text: displayName,
+                                      );
+                                    }),
+                              );
+                            } else {
+                              return const Column(
+                                children: [
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      CircularProgressIndicator(),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 45,
+                                  ),
+                                ],
+                              );
+                            }
+                          }),
+                    if (context.read<DropDownButtonCubit>().selectedItem ==
+                        "Protein Foods")
+                      FutureBuilder(
+                          future: AllFood().getAllFood(),
                           builder: (context, snapshot) {
                             if (snapshot.hasData) {
                               List<FoodModel> food = snapshot.data!;
 
+                              food = food
+                                  .where((item) =>
+                                      item.Catagory.toLowerCase()
+                                          .contains("egg".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("kofta".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("chicken".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("fish".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("milk".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("kebabs".toLowerCase()) ||
+                                      item.Catagory.toLowerCase()
+                                          .contains("tikka".toLowerCase()))
+                                  .toList();
                               return SizedBox(
                                 height: 140,
                                 child: ListView.builder(
-                                  scrollDirection: Axis.horizontal,
-                                  itemCount: food.length,
-                                  physics: const BouncingScrollPhysics(),
-                                  // separatorBuilder: (context, index) => const SizedBox(height: 25),
-                                  itemBuilder: (context, index) =>
-                                      DietPlanWidget(
-                                    diet: food[index],
-                                    imageUrl: "assets/images/chicken.jfif",
-                                    text: food[index].Catagory,
-                                  ),
-                                ),
+                                    scrollDirection: Axis.horizontal,
+                                    itemCount: food.length,
+                                    physics: const BouncingScrollPhysics(),
+                                    // separatorBuilder: (context, index) => const SizedBox(height: 25),
+                                    itemBuilder: (context, index) {
+                                      String displayName = food[index].Name;
+                                      if (displayName.length > 12) {
+                                        displayName =
+                                            displayName.substring(0, 12) +
+                                                '...';
+                                      }
+                                      return DietPlanWidget(
+                                        diet: food[index],
+                                        imageUrl:
+                                            "assets/images/food/${food[index].Catagory}1.jpg",
+                                        text: displayName,
+                                      );
+                                    }),
                               );
                             } else {
                               return const Column(
@@ -314,8 +589,8 @@ class DietScreen extends StatelessWidget {
             Row(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(left: 18, top: 30, bottom: 20),
-                  child: customTranslateText(
+                  padding: const EdgeInsets.only(left: 18, top: 16, bottom: 10),
+                  child: Text(
                     "Saved Recipes",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(

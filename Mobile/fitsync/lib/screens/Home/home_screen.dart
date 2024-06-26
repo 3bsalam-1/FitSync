@@ -1,8 +1,11 @@
+import 'package:fitsync/data/models/all_calories.dart';
+import 'package:fitsync/data/repository/food/all_calories.dart';
 import 'package:fitsync/screens/Home/notifications_screen.dart';
 import 'package:fitsync/screens/Home/profile_screen.dart';
 import 'package:fitsync/screens/Home/tips&tricks_screen.dart';
 import 'package:fitsync/services/pref.dart';
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/diet_comp/page1.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:fitsync/shared/widgets/home_comp/custom_properties_card.dart';
@@ -19,8 +22,34 @@ import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/home_comp/custom_circle_info.dart';
 import 'heart_beat_screen.dart';
 
-class HomePage extends StatelessWidget {
+double totalDailyCalories = 0;
+
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
+  void initState() {
+    super.initState();
+    loadCalorieData();
+  }
+
+  Future<void> loadCalorieData() async {
+    try {
+      AllCaloriesModel calorieData = await AllCalories().getAllCalories();
+
+      setState(() {
+        totalDailyCalories = calorieData.totalDailyCalories;
+      });
+    } catch (e) {
+      // Handle the error accordingly
+      print(e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
