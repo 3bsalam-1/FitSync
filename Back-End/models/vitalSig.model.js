@@ -24,7 +24,12 @@ const dataSchema = new mongoose.Schema({
     },
   ],
   inTake: Number,
-  burned: Number,
+  burned: [
+    {
+      burned: Number,
+      timestamps: Date,
+    },
+  ],
   activeHours: Number
 });
 

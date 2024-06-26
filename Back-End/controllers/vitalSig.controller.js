@@ -68,14 +68,12 @@ exports.postBurned = asyncWrapper(async (req, res, next) =>{
   if (!vitalData) {
     vitalData = new vitalsignal({
       userId,
-      burned,
+      burned: [{ burned, timestamps: Date.now() }],
     });
   } else {
-    vitalData.burned = burned;
+    vitalData.burned.push({ burned, timestamps: Date.now() });
   }
-
   await vitalData.save();
-
   res.status(201).json({
     status: SUCCESS,
   });
