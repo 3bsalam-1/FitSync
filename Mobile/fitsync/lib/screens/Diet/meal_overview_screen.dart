@@ -1,3 +1,5 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:fitsync/data/models/food_model.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
 import 'package:fitsync/shared/widgets/diet_comp/meal_overview_page.dart';
@@ -12,11 +14,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../../shared/widgets/global/custom_translate_text.dart';
+
 class MealOverviewScreen extends StatelessWidget {
-  MealOverviewScreen({super.key});
+  MealOverviewScreen({required this.diet, super.key});
 
   final _controller = PageController();
-
+  FoodModel diet;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -30,14 +34,15 @@ class MealOverviewScreen extends StatelessWidget {
             child: IconButton(
                 onPressed: () {
                   AnimatedNavigator().pop(context);
+                 
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_circle_left,
                   color: purple3,
                   size: 40,
                 )),
           ),
-          title: Text(
+          title: customTranslateText(
             'Meal Tracker',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
@@ -63,10 +68,10 @@ class MealOverviewScreen extends StatelessWidget {
               child: PageView(
                 controller: _controller,
                 children: [
-                  PageMeal(),
-                  PageMeal(),
-                  PageMeal(),
-                  PageMeal(),
+                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
+                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
+                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
+                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
                 ],
               ),
             ),
@@ -87,12 +92,17 @@ class MealOverviewScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 20, top: 15),
-                  child: Text(
-                    "Chocolate appo",
-                    style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 22,
-                      color: black,
+                  child: Container(
+                    width: 270,
+                    
+                    child: Text(
+                      diet.Name,
+                      style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 22,
+                        color: black,
+                      ),
+                      maxLines: 2,
                     ),
                   ),
                 ),
@@ -115,7 +125,7 @@ class MealOverviewScreen extends StatelessWidget {
                     left: 20,
                   ),
                   child: Text(
-                    '99% Healthy',
+                    'Healthy',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 12,
@@ -131,7 +141,7 @@ class MealOverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(
                     left: 20,
                   ),
-                  child: Text(
+                  child: customTranslateText(
                     'Fits in Budget',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
@@ -158,13 +168,18 @@ class MealOverviewScreen extends StatelessWidget {
                     fontSize: 18,
                   ),
                   tabs: [
-                    Tab(child: Text('Overview')),
-                    Tab(child: Text('Ingredients')),
+                    Tab(child: customTranslateText('Overview')),
+                    Tab(child: customTranslateText('Ingredients')),
                   ]),
             ),
             Container(
               height: 250,
-              child: TabBarView(children: [Page1(), Page2()]),
+              child: TabBarView(children: [
+                Page1(
+                  diet: diet,
+                ),
+                Page2(diet: diet)
+              ]),
             )
           ],
         ),

@@ -29,7 +29,9 @@ class VerificationPage extends StatelessWidget {
         backgroundColor: white,
         body: BlocConsumer<AuthCubit, AuthCubitState>(
           listener: (context, state) {
-            if (state is AuthLoading) {
+            if (state is InternetConnectivityOFF) {
+              state.showConnectionError(context);
+            } else if (state is AuthLoading) {
               FocusScope.of(context).unfocus();
               state.showLoadingDialog(context);
             } else if (state is AuthFaliure) {
@@ -37,12 +39,12 @@ class VerificationPage extends StatelessWidget {
             } else if (state is AuthSuccess) {
               state.showSucceussdialog(context);
             } else if (state is AuthLogin) {
-              AnimatedNavigator().pushAndRemoveUntilScale(
+              AnimatedNavigator().pushAndRemoveUntil(
                 context,
                 const WelcomeSurveyScreen(),
               );
             } else if (state is AuthResetCode) {
-              AnimatedNavigator().pushScale(
+              AnimatedNavigator().push(
                 context,
                 const NewPasswordScreen(),
               );

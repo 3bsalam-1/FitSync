@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
+import '../global/custom_translate_text.dart';
 
 class SavedRecipesWidget extends StatelessWidget {
   final String imageUrl;
@@ -59,28 +60,24 @@ class SavedRecipesWidget extends StatelessWidget {
         Positioned(
           top: 25,
           left: 8,
-          child: Text(
+          child: customTranslateText(
             label1,
             style: GoogleFonts.poppins(
-              
-                fontWeight: FontWeight.w500,
-                fontSize: 12,
-                color: white,
-              
+              fontWeight: FontWeight.w500,
+              fontSize: 12,
+              color: white,
             ),
           ),
         ),
         Positioned(
           left: 8,
           bottom: 34,
-          child: Text(
+          child: customTranslateText(
             label2,
             style: GoogleFonts.poppins(
-              
-                fontWeight: FontWeight.w500,
-                fontSize: 10,
-                color: white,
-              
+              fontWeight: FontWeight.w500,
+              fontSize: 10,
+              color: white,
             ),
           ),
         ),
@@ -88,14 +85,12 @@ class SavedRecipesWidget extends StatelessWidget {
           top: 70,
           right: 79,
           child: TextButton(
-            child: Text(
+            child: customTranslateText(
               "More Info",
               style: GoogleFonts.poppins(
-               
-                  fontWeight: FontWeight.w700,
-                  fontSize: 7,
-                  color: white,
-                
+                fontWeight: FontWeight.w700,
+                fontSize: 7,
+                color: white,
               ),
             ),
             onPressed: () {},

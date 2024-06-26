@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
+import '../../shared/widgets/global/custom_translate_text.dart';
+
 class SavedRecipesScreen extends StatelessWidget {
   SavedRecipesScreen({super.key});
 
@@ -16,16 +18,19 @@ class SavedRecipesScreen extends StatelessWidget {
       backgroundColor: white,
       appBar: AppBar(
         backgroundColor: white,
-        leading: IconButton(
-            onPressed: () {
-              AnimatedNavigator().pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_circle_left,
-              color: purple3,
-              size: 40,
-            )),
-        title: Text(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 6),
+          child: IconButton(
+              onPressed: () {
+                AnimatedNavigator().pop(context);
+              },
+              icon: Icon(
+                Icons.arrow_circle_left,
+                color: purple3,
+                size: 40,
+              )),
+        ),
+        title: customTranslateText(
           'Saved Recipes',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
@@ -36,7 +41,7 @@ class SavedRecipesScreen extends StatelessWidget {
         centerTitle: true,
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10.0),
+            padding: const EdgeInsets.only(right: 20.0),
             child: UserWidget(),
           ),
         ],
@@ -46,27 +51,28 @@ class SavedRecipesScreen extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          CustomSavedRecipesWidget(
-            imageUrl: "assets/images/Green Salad.jfif",
-            label1: 'Green Salad',
-            label2: "100% Healthy\n Fits in Budget",
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          CustomSavedRecipesWidget(
-            imageUrl: "assets/images/Egg Sandwich.jfif",
-            label1: 'Egg Sandwich',
-            label2: "98% Healthy\nFits in Budget",
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          CustomSavedRecipesWidget(
-            imageUrl: "assets/images/steak.jfif",
-            label1: 'Steak',
-            label2: "88% Healthy\nFits in Budget",
-          ),
+          // CustomSavedRecipesWidget(
+          //   diet: ,
+          //   imageUrl: "assets/images/Green Salad.jfif",
+          //   label1: 'Green Salad',
+          //   label2: "100% Healthy\nFits in Budget",
+          // ),
+          // SizedBox(
+          //   height: 10,
+          // ),
+          // CustomSavedRecipesWidget(
+          //   imageUrl: "assets/images/Egg Sandwich.jfif",
+          //   label1: 'Egg Sandwich',
+          //   label2: "98% Healthy\nFits in Budget",
+          // ),
+          // SizedBox(
+          //   height: 10,
+          // ),
+          // CustomSavedRecipesWidget(
+          //   imageUrl: "assets/images/steak.jfif",
+          //   label1: 'Steak',
+          //   label2: "88% Healthy\nFits in Budget",
+          // ),
           SizedBox(
             height: 10,
           ),

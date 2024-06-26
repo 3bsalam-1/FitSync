@@ -3,7 +3,6 @@ import 'password_changed_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:iconly/iconly.dart';
 import '../../data/cubit/auth/auth_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
@@ -34,14 +33,16 @@ class NewPasswordScreen extends StatelessWidget {
         ),
         body: BlocConsumer<AuthCubit, AuthCubitState>(
           listener: (context, state) {
-            if (state is AuthLoading) {
+            if (state is InternetConnectivityOFF) {
+              state.showConnectionError(context);
+            } else if (state is AuthLoading) {
               state.showLoadingDialog(context);
             } else if (state is AuthFaliure) {
               state.showFaliure(context);
             } else if (state is AuthSuccess) {
               state.showSucceussdialog(context);
             } else if (state is AuthLogin) {
-              AnimatedNavigator().pushReplacementScale(
+              AnimatedNavigator().pushAndRemoveUntil(
                 context,
                 const PasswordChangedScreen(),
               );
@@ -79,13 +80,13 @@ class NewPasswordScreen extends StatelessWidget {
                     height: 40,
                   ),
                   CustomizeTextFormField(
-                    icon: IconlyLight.lock,
+                    icon: Icons.lock_outline,
                     hintText: "Password",
                     controller: context.read<AuthCubit>().password,
                     obscureText: context.read<AuthCubit>().isObscure,
                     suffixIcon: context.read<AuthCubit>().isObscure
-                        ? IconlyLight.hide
-                        : IconlyLight.show,
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility_outlined,
                     onPressed: () {
                       context.read<AuthCubit>().obscureCheck();
                     },
@@ -100,13 +101,13 @@ class NewPasswordScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 25),
                   CustomizeTextFormField(
-                    icon: IconlyLight.lock,
+                    icon: Icons.lock_outline,
                     hintText: "Confirm Password",
                     controller: context.read<AuthCubit>().confirmPassword,
                     obscureText: context.read<AuthCubit>().isObscureConfirm,
                     suffixIcon: context.read<AuthCubit>().isObscureConfirm
-                        ? IconlyLight.hide
-                        : IconlyLight.show,
+                        ? Icons.visibility_off_outlined
+                        : Icons.visibility_outlined,
                     onPressed: () {
                       context.read<AuthCubit>().obscureCheckConfirm();
                     },

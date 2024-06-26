@@ -1,26 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../../../colors/colors.dart';
+import '../../global/custom_translate_text.dart';
 
-class CustomCardSwitch extends StatefulWidget {
+class CustomCardSwitch extends StatelessWidget {
   final IconData icon;
   final String title;
-  final void Function()? process;
+  final bool value;
+  final void Function(bool)? onChanged;
 
   const CustomCardSwitch({
     super.key,
     required this.title,
     required this.icon,
-    this.process,
+    this.value = false,
+    this.onChanged,
   });
-
-  @override
-  State<CustomCardSwitch> createState() => _CustomCardSwitchState();
-}
-
-class _CustomCardSwitchState extends State<CustomCardSwitch> {
-  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -47,13 +42,13 @@ class _CustomCardSwitchState extends State<CustomCardSwitch> {
       child: Row(
         children: [
           Icon(
-            widget.icon,
+            icon,
             color: purple4,
             size: 30,
           ),
           const SizedBox(width: 8),
-          Text(
-            widget.title,
+          customTranslateText(
+            title,
             style: GoogleFonts.poppins(
               fontSize: 14,
               color: gray4,
@@ -62,19 +57,13 @@ class _CustomCardSwitchState extends State<CustomCardSwitch> {
           ),
           const Spacer(),
           Switch(
-            value: isSelected,
+            value: value,
             activeTrackColor: purple4,
             activeColor: white,
             inactiveTrackColor: gray7,
             inactiveThumbColor: white,
             materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            onChanged: (value) {
-              setState(() {
-                isSelected = value;
-              });
-              // todo here add process to the function
-              widget.process;
-            },
+            onChanged: onChanged,
           ),
         ],
       ),

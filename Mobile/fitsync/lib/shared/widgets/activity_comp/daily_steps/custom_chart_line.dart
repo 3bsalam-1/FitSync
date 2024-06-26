@@ -6,7 +6,7 @@ import '../../global/custom_animated_opacity.dart';
 import '../chart_data.dart';
 
 class CustomChartLine extends StatelessWidget {
-  final List<ChartData> data;
+  final List<ChartData>? data;
   const CustomChartLine({
     super.key,
     required this.data,

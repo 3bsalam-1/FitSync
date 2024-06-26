@@ -12,7 +12,6 @@ const fileFilter = (req, file, cb) => {
   return cb(AppError.create("file must be an image", "Error", 400), false);
 };
 
-
 const storage = multer.diskStorage({
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -24,7 +23,6 @@ const upload = multer({ storage: storage, fileFilter });
 router.use(authController.protect);
 router.route("/updatePassword").patch(userController.updatePassword);
 
-
 router.patch(
   "/changeAvatar",
   upload.single("avatar"),
@@ -32,6 +30,5 @@ router.patch(
 );
 
 router.route("/updateMe").patch(userController.updateMe);
-
 
 module.exports = router;

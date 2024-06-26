@@ -1,10 +1,13 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../../shared/widgets/global/custom_button.dart';
+import '../../../shared/widgets/global/custom_image.dart';
+import '../../../shared/widgets/global/custom_translate_text.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import '../../../shared/widgets/workouts_comp/workouts_challenges/animated_circle_progress.dart';
 import '../../../cubits_logic/workouts/counter_time_challenges.dart';
@@ -23,14 +26,18 @@ class ChallengeBeginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
+    final workoutsImages = context.read<WorkoutsCubit>().workoutsImages;
+    final providerTime = context.read<CounterTimeChallenges>();
     return Scaffold(
       appBar: customIconAppBar(
         onPressed: () {
           AnimatedNavigator().pushAndRemoveUntil(
             context,
             WorkoutsViewChallenge(
-              workouts: context.read<CounterTimeChallenges>().allWorkouts,
-              workoutsIndex: context.read<CounterTimeChallenges>().currentWorkoutIndex,
+              workouts: providerTime.allWorkouts,
+              workoutsIndex: providerTime.currentWorkoutIndex,
+              imagePath: workoutsImages![
+                  '${context.read<CounterTimeChallenges>().currentWorkoutIndex}'],
             ),
           );
         },
@@ -44,16 +51,18 @@ class ChallengeBeginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               CustomAnimatedOpacity(
-                child: Image.asset(
-                  // todo show the image workout
-                  'assets/images/start_challenge.png',
+                child: CustomImage(
+                  imageUrl: workoutsImages![
+                      workouts.exercisePlan[indexExercise].trim()],
                   width: 200,
                   height: 200,
                   fit: BoxFit.contain,
+                  errorColor: red,
+                  iconSize: 55,
                 ),
               ),
               CustomAnimatedOpacity(
-                child: Text(
+                child: customTranslateText(
                   workouts.exercisePlan[indexExercise],
                   style: GoogleFonts.poppins(
                     fontSize: 26,
@@ -84,8 +93,8 @@ class ChallengeBeginScreen extends StatelessWidget {
                         if (provider.isPrevouis[indexExercise]) {
                           if (indexExercise != 0) {
                             context.read<CounterTimeChallenges>().setCounter(
-                              provider.exerciseTimeSec[indexExercise - 1],
-                            );
+                                  provider.exerciseTimeSec[indexExercise - 1],
+                                );
                             AnimatedNavigator().pop(context);
                           } else {
                             AnimatedNavigator().pushAndRemoveUntil(
@@ -93,6 +102,8 @@ class ChallengeBeginScreen extends StatelessWidget {
                               WorkoutsViewChallenge(
                                 workoutsIndex: provider.currentWorkoutIndex,
                                 workouts: provider.allWorkouts,
+                                imagePath: workoutsImages[
+                                    '${provider.currentWorkoutIndex}'],
                               ),
                             );
                           }
@@ -104,19 +115,20 @@ class ChallengeBeginScreen extends StatelessWidget {
                     CustomButton(
                       label: 'Skip',
                       onPressed: () {
-                        if (indexExercise < provider.exerciseTimeSec.length - 1) {
+                        if (indexExercise <
+                            provider.exerciseTimeSec.length - 1) {
                           context.read<CounterTimeChallenges>().setCounter(
-                            provider.exerciseTimeSec[indexExercise + 1],
-                          );
+                                provider.exerciseTimeSec[indexExercise + 1],
+                              );
                           AnimatedNavigator().push(
                             context,
                             RestChallengeScreen(
-                              workoutIndex: provider.currentWorkoutIndex, 
-                              nextExercise: indexExercise+1,
+                              workoutIndex: provider.currentWorkoutIndex,
+                              nextExercise: indexExercise + 1,
                             ),
                           );
                         } else {
-                          // todo here save done exercises 
+                          // todo here save done exercises
                           provider.getExerciseResult(workouts);
                           AnimatedNavigator().push(
                             context,

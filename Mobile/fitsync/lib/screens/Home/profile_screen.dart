@@ -1,4 +1,3 @@
-import 'package:fitsync/screens/Home/calories_parameters_screen.dart';
 import 'package:fitsync/screens/Home/sleep_parameters_screen.dart';
 import 'package:fitsync/screens/Home/steps_parameters_screen.dart';
 import 'package:fitsync/screens/Home/water_parameters_screen.dart';
@@ -8,7 +7,15 @@ import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:fitsync/shared/widgets/home_comp/profile_custom_widget.dart';
 import 'package:fitsync/shared/widgets/home_comp/profile_widget_1.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
+import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
+import '../../services/pref.dart';
+import '../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
+import '../profile/profile_informtion_screen.dart';
+import '../profile/write_reminder_screen.dart';
+import 'emergency_contact.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -19,141 +26,173 @@ class ProfilePage extends StatelessWidget {
       backgroundColor: white,
       appBar: AppBar(
         backgroundColor: white,
-        title: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-          Column(children: [
-            Text(
-              "Hello Alex",
-              style: TextStyle(
-                fontWeight: FontWeight.w600,
-                fontSize: 26,
-                color: black,
-                // fontFamily:
-              ),
+        automaticallyImplyLeading: false,
+        title: CustomAnimatedOpacity(
+          child: customTranslateText(
+            "Hello ${Prefs.getStringList("user")![1]}",
+            style: const TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 26,
+              color: black,
+              // fontFamily:
             ),
-          ])
-        ]),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 20.0),
-            child: UserWidget(),
+          ),
+        ),
+        actions: const [
+          CustomAnimatedOpacity(
+            child: Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: UserWidget(),
+            ),
           ),
         ],
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 35,
+      body: BlocListener<SmartWatchCubit, SmartWatchState>(
+        listener: (context, state) {
+          if (state is SmartWatchConnection) {
+            context.read<SmartWatchCubit>().getSmartWatchData();
+          }
+          if (state is SmartWatchAlreadyConnected) {
+            context.read<SmartWatchCubit>().getSmartWatchData();
+            state.showSucceussdialog(context);
+          }
+        },
+        child: CustomAnimatedOpacity(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 35,
+              ),
+              const Divider(
+                thickness: 1,
+                color: gray6,
+                endIndent: 20,
+                indent: 20,
+              ),
+              ProfileWidget(
+                label: "Edit Profile",
+                icon: IconlyLight.edit_square,
+                onPressed: () {
+                  AnimatedNavigator()
+                      .push(context, const ProfileInformationScreen());
+                },
+              ),
+              const Divider(
+                thickness: 1,
+                color: gray6,
+                endIndent: 20,
+                indent: 20,
+              ),
+              ProfileWidget(
+                label: "Add Emergency Contact",
+                icon: IconlyLight.calling,
+                onPressed: () {
+                  AnimatedNavigator().push(
+                    context,
+                    const EmergencyContact(),
+                  );
+                },
+              ),
+              const Divider(
+                thickness: 1,
+                color: gray6,
+                endIndent: 20,
+                indent: 20,
+              ),
+              ProfileWidget1(
+                imageUrl: "assets/images/Icons/watch.PNG",
+                label: "Connect with smartwatch",
+                scale: 24,
+                onTap: () {
+                  if (Prefs.getBool("watch-permission") != null) {
+                    if (Prefs.getBool("watch-permission")!) {
+                      context.read<SmartWatchCubit>().isSmartWatchConnected();
+                    }
+                  }
+                  context
+                      .read<SmartWatchCubit>()
+                      .intializeSmartWatchConnection();
+                },
+              ),
+              const Divider(
+                thickness: 1,
+                color: gray6,
+                endIndent: 20,
+                indent: 20,
+              ),
+              ProfileWidget1(
+                imageUrl: "assets/images/Icons/remianderIcon.png",
+                label: "Create a Remainder ",
+                scale: 24,
+                onTap: () {
+                  AnimatedNavigator().push(
+                    context,
+                    const WriteReminderScreen(),
+                  );
+                },
+              ),
+              const Divider(
+                thickness: 1,
+                color: gray6,
+                endIndent: 20,
+                indent: 20,
+              ),
+              ProfileWidget1(
+                imageUrl: "assets/images/Icons/waterIcon.png",
+                label: "Water Parameters",
+                scale: 24,
+                onTap: () {
+                  AnimatedNavigator().push(
+                    context,
+                    const WaterParametersScreen(),
+                  );
+                },
+              ),
+              const Divider(
+                thickness: 1,
+                color: gray6,
+                endIndent: 20,
+                indent: 20,
+              ),
+              ProfileWidget1(
+                imageUrl: "assets/images/Icons/sleepIcon.png",
+                label: "Sleep Parameters",
+                scale: 22,
+                w: 3,
+                onTap: () {
+                  AnimatedNavigator().push(
+                    context,
+                    const SleepParametersScreen(),
+                  );
+                },
+              ),
+              const Divider(
+                thickness: 1,
+                color: gray6,
+                endIndent: 20,
+                indent: 20,
+              ),
+              ProfileWidget1(
+                imageUrl: "assets/images/Icons/sportIcon.png",
+                label: "Steps Parameters",
+                scale: 20,
+                w: 3,
+                onTap: () {
+                  AnimatedNavigator().push(
+                    context,
+                    const StepsParametersScreen(),
+                  );
+                },
+              ),
+              const Divider(
+                thickness: 1,
+                color: gray6,
+                endIndent: 20,
+                indent: 20,
+              ),
+            ],
           ),
-          Divider(
-            thickness: 1,
-            color: gray6,
-            endIndent: 20,
-            indent: 20,
-          ),
-          ProfileWidget(
-            label: "Edit Profile",
-            icon: IconlyLight.edit_square,
-          ),
-          Divider(
-            thickness: 1,
-            color: gray6,
-            endIndent: 20,
-            indent: 20,
-          ),
-          ProfileWidget(
-            label: "Add Emergency Contact",
-            icon: IconlyLight.calling,
-          ),
-          Divider(
-            thickness: 1,
-            color: gray6,
-            endIndent: 20,
-            indent: 20,
-          ),
-          ProfileWidget1(
-            imageUrl: "assets/images/Icons/watch.PNG",
-            label: "Connect with smartwatch",
-            scale: 24,
-            onTap: () {},
-          ),
-          Divider(
-            thickness: 1,
-            color: gray6,
-            endIndent: 20,
-            indent: 20,
-          ),
-          ProfileWidget1(
-            imageUrl: "assets/images/Icons/remianderIcon.png",
-            label: "Create a Remainder ",
-            scale: 24,
-            onTap: () {},
-          ),
-          Divider(
-            thickness: 1,
-            color: gray6,
-            endIndent: 20,
-            indent: 20,
-          ),
-          ProfileWidget1(
-            imageUrl: "assets/images/Icons/caloriesIcon.png",
-            label: " Calorie Parameters",
-            scale: 18,
-            w: 2,
-            onTap: () {
-              AnimatedNavigator().push(context, CalorieScreen());
-            },
-          ),
-          Divider(
-            thickness: 1,
-            color: gray6,
-            endIndent: 20,
-            indent: 20,
-          ),
-          ProfileWidget1(
-            imageUrl: "assets/images/Icons/waterIcon.png",
-            label: "Water Parameters",
-            scale: 24,
-            onTap: () {
-              AnimatedNavigator().push(context, WaterParametersScreen());
-            },
-          ),
-          Divider(
-            thickness: 1,
-            color: gray6,
-            endIndent: 20,
-            indent: 20,
-          ),
-          ProfileWidget1(
-            imageUrl: "assets/images/Icons/sleepIcon.png",
-            label: "Sleep Parameters",
-            scale: 22,
-            w: 3,
-            onTap: () {
-              AnimatedNavigator().push(context, SleepParametersScreen());
-            },
-          ),
-          Divider(
-            thickness: 1,
-            color: gray6,
-            endIndent: 20,
-            indent: 20,
-          ),
-          ProfileWidget1(
-            imageUrl: "assets/images/Icons/sportIcon.png",
-            label: "Steps Parameters",
-            scale: 20,
-            w: 3,
-            onTap: () {
-              AnimatedNavigator().push(context, StepsParametersScreen());
-            },
-          ),
-          Divider(
-            thickness: 1,
-            color: gray6,
-            endIndent: 20,
-            indent: 20,
-          ),
-        ],
+        ),
       ),
     );
   }

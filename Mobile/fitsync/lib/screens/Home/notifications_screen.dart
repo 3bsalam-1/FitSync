@@ -4,6 +4,8 @@ import 'package:fitsync/shared/widgets/home_comp/notifications_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../shared/widgets/global/custom_translate_text.dart';
+
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
 
@@ -23,7 +25,7 @@ class NotificationsScreen extends StatelessWidget {
             )),
         title: Padding(
           padding: const EdgeInsets.only(left: 40),
-          child: Text(
+          child: customTranslateText(
             "Notifications",
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
@@ -43,7 +45,7 @@ class NotificationsScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 25, left: 18, bottom: 12),
               child: Row(
                 children: [
-                  Text(
+                  customTranslateText(
                     'Today',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
@@ -129,7 +131,7 @@ class NotificationsScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 50, left: 18, bottom: 27),
               child: Row(
                 children: [
-                  Text(
+                  customTranslateText(
                     'A week ago',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,

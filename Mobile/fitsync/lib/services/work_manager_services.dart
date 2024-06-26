@@ -1,0 +1,44 @@
+
+import 'package:workmanager/workmanager.dart';
+import '../data/repository/vital_info.dart';
+import 'local_notification_services.dart';
+import 'smart_watch_services.dart';
+
+class WorkManagersServices {
+  void showHeartRate() async {
+    await Workmanager().registerPeriodicTask(
+      'HR1',
+      'heart rate',
+      frequency: const Duration(minutes: 2),
+    );
+  }
+
+  Future<void> init() async {
+    await Workmanager().initialize(
+      actionTask,
+      // todo replace it into false in realse mode
+      isInDebugMode: true,
+    );
+    showHeartRate();
+  }
+
+  void cancelAllTasks() {
+    Workmanager().cancelAll();
+  }
+}
+
+@pragma('vm:entry-point')
+void actionTask() {
+  Workmanager().executeTask((taskName, inputData) async {
+    await SmartWatchServices().initSmartWatch();
+    var heartRate = await SmartWatchServices().getHeartRateData() ?? 75;
+    var steps = await SmartWatchServices().getStepsData() ?? 0;
+    if (heartRate <= 50 || heartRate >= 85) {
+      await LocalNotificationServices.showAlarmNotification(heartRate);
+    }
+    if (DateTime.now().hour == 23) {
+      await saveVitalInfo(steps: steps, heartRate: heartRate);
+    }
+    return Future.value(true);
+  });
+}

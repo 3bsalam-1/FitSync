@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../../colors/colors.dart';
+import '../../global/custom_animated_opacity.dart';
+import '../../global/custom_translate_text.dart';
 import 'user_info.dart';
 import 'user_square_info.dart';
 
@@ -11,7 +13,6 @@ class ProfileUserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final data = context.read<UserDataInfoCubit>().userData;
     return Expanded(
       child: Container(
         decoration: const BoxDecoration(
@@ -33,26 +34,35 @@ class ProfileUserInfo extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            UserSquareInfo(data: data!),
+            BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
+              builder: (context, state) {
+                final data = context.read<UserDataInfoCubit>().userData;
+                return CustomAnimatedOpacity(child: UserSquareInfo(data: data));
+              },
+            ),
             const SizedBox(height: 25),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15),
-              width: double.maxFinite,
-              child: const UserInfo(),
+            CustomAnimatedOpacity(
+              child: Container(
+                margin: const EdgeInsets.symmetric(horizontal: 15),
+                width: double.maxFinite,
+                child: const UserInfo(),
+              ),
             ),
             const Spacer(flex: 2),
-            TextButton(
-              onPressed: () {
-                // todo here delete the user account
-              },
-              child: Text(
-                'Delete Account',
-                style: GoogleFonts.poppins(
-                  fontSize: 14,
-                  color: red2,
-                  fontWeight: FontWeight.w700,
-                  decoration: TextDecoration.underline,
-                  decorationColor: red2,
+            CustomAnimatedOpacity(
+              child: TextButton(
+                onPressed: () {
+                  // todo here delete the user account
+                },
+                child: customTranslateText(
+                  'Delete Account',
+                  style: GoogleFonts.poppins(
+                    fontSize: 14,
+                    color: red2,
+                    fontWeight: FontWeight.w700,
+                    decoration: TextDecoration.underline,
+                    decorationColor: red2,
+                  ),
                 ),
               ),
             ),

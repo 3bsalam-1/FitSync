@@ -1,8 +1,11 @@
+import random
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from model.model import food_prediction, calories_prediction, heart_beat_prediction, workout_prediction, __version__ as model_version
 import pandas as pd
+import datetime
 
+random_state = 48
 app = FastAPI()
 
 app.add_middleware(
@@ -26,14 +29,19 @@ def workout(Gender: int,
     Diabeties: int,
     Heart_Disease: int,
     Hypertension: int):
+    global random_state
+
     input_list = [0, Gender, Knee_pain, Back_pain, Diabeties, Heart_Disease, Hypertension]
     prediction = workout_prediction(input_list)
     df = pd.read_csv('Clusterd_Workout_Data.csv')
     df = df[df['Cluster'] == prediction]
     df = df.rename(columns={"ExerciseType": "Category", "Difficulty": "Impact Level"})
-    # Randomly select 3 records from the DataFrame
-    random_records = df[['Exercise Plan','Category','Impact Level','Total Plan Duration (minutes)','Calories Burned (Plan)','Target Muscle Group']].sample(n=3, random_state=42)
-    # Convert DataFrame to list of dictionaries
+
+    current_time = datetime.datetime.now().time()
+    if current_time.hour == 0 and current_time.minute <= 1 :  # 12:00 AM to 1:00 AM
+        random_state = random.randint(1, 100)  # generate a random integer between 1 and 100
+
+    random_records = df[['Exercise Plan','Category','Impact Level','Total Plan Duration (minutes)','Calories Burned (Plan)','Target Muscle Group']].sample(n=3, random_state=random_state)
     return [{k: str(v).strip() for k, v in record.items()} for record in random_records.to_dict(orient='records')]
 
 @app.get('/challenges')
@@ -43,13 +51,19 @@ def challenges(Gender: int,
     Diabeties: int,
     Heart_Disease: int,
     Hypertension: int):
+    global random_state
+    
     input_list = [0, Gender, Knee_pain, Back_pain, Diabeties, Heart_Disease, Hypertension]
     prediction = workout_prediction(input_list)
     df = pd.read_csv('Clusterd_Workout_Data.csv')
     df = df[df['Cluster'] == prediction]
     df = df.rename(columns={"ExerciseType": "Category", "Difficulty": "Impact Level"})
-    # Randomly select 3 records from the DataFrame
-    random_records = df[['Exercise Plan','Category','Impact Level','Total Plan Duration (minutes)','Calories Burned (Plan)','Target Muscle Group']].sample(n=7, random_state=49)
+    
+    current_time = datetime.datetime.now().time()
+    if current_time.hour == 0 and current_time.minute <= 1 :  # 12:00 AM to 1:00 AM
+        random_state = random.randint(1, 100)  # generate a random integer between 1 and 100
+
+    random_records = df[['Exercise Plan','Category','Impact Level','Total Plan Duration (minutes)','Calories Burned (Plan)','Target Muscle Group']].sample(n=7, random_state=random_state+1)
     # Convert DataFrame to list of dictionaries
     return [{k: str(v).strip() for k, v in record.items()} for record in random_records.to_dict(orient='records')]
 
@@ -96,13 +110,17 @@ def Ingredients(Ingredient:str):
 def food(Diabeties: int,
     Heart_Disease: int,
     Hypertension: int):
+    global random_state
     input_list = [0, Diabeties, Heart_Disease, Hypertension]
     prediction = food_prediction(input_list)
     df = pd.read_csv('Clusterd_Food_Data.csv')
     df = df[df['Cluster'] == prediction].drop(columns=["Unnamed: 0", "id", "Cluster"])
     
-    # Randomly select 3 records from the DataFrame
-    random_records = df.sample(n=3, random_state=42)
+    current_time = datetime.datetime.now().time()
+    if current_time.hour == 0 and current_time.minute <= 1 :  # 12:00 AM to 1:00 AM
+        random_state = random.randint(1, 100)  # generate a random integer between 1 and 100
+
+    random_records = df.sample(n=3, random_state=random_state)
     # Convert DataFrame to list of dictionaries
     return [{k: str(v).strip() for k, v in record.items()} for record in random_records.to_dict(orient='records')]
 

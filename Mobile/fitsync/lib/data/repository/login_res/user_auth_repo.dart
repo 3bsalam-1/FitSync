@@ -27,7 +27,7 @@ class UserAuthRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The userRegister Errror is: ${e.toString()}');
       return null;
     }
   }
@@ -52,7 +52,7 @@ class UserAuthRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The userLogin Errror is: ${e.toString()}');
       return null;
     }
   }

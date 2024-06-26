@@ -1,0 +1,21 @@
+import 'package:fitsync/data/models/response_model.dart';
+import 'package:fitsync/data/repository/api.dart';
+import 'package:fitsync/services/pref.dart';
+import 'package:fitsync/shared/const/base_url.dart';
+
+class ContinueWithGoogle {
+  Future<ResponseModel> continueWithGoogle({
+    required String name,
+    required String email,
+    required String avatar,
+  }) async {
+    Map<String, dynamic> data = await Api().post(
+        url: "$baseUrl/api/auth/ContinueWithGoogle",
+        body: {"name": name, "email": email, "avatar": avatar});
+     
+     ResponseModel token = ResponseModel.fromJson(data);
+    // print("token from api${token.token}");
+     Prefs.setString('token',token.token!);
+    return token ;
+  }
+}

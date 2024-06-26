@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import '../../colors/colors.dart';
+import '../global/custom_translate_text.dart';
 import 'chart_data.dart';
 
 class CustomChartColumn extends StatelessWidget {
@@ -12,7 +13,7 @@ class CustomChartColumn extends StatelessWidget {
   final String value;
   final double maxYlabel;
   final double minYlabel;
-  final List<ChartData> data;
+  final List<ChartData>? data;
   final double increaseData;
   final double? interval;
   final double delayAnimation;
@@ -64,7 +65,7 @@ class CustomChartColumn extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  customTranslateText(
                     title,
                     style: GoogleFonts.poppins(
                       fontSize: 16,
@@ -85,7 +86,7 @@ class CustomChartColumn extends StatelessWidget {
               ),
               SizedBox(
                 width: width * 0.7,
-                child: Text(
+                child: customTranslateText(
                   subTitle,
                   style: GoogleFonts.poppins(
                     fontSize: 13,

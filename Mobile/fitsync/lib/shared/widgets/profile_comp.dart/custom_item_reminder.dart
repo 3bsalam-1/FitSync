@@ -2,13 +2,14 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../colors/colors.dart';
 import 'package:flutter/material.dart';
+import '../global/custom_translate_text.dart';
 
 class CustomItemReminder extends StatelessWidget {
   const CustomItemReminder({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return UnconstrainedBox( 
+    return UnconstrainedBox(
       child: Container(
         width: 160,
         height: 140,
@@ -32,7 +33,7 @@ class CustomItemReminder extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                customTranslateText(
                   'Cardio',
                   style: GoogleFonts.poppins(
                     fontSize: 16,
@@ -65,7 +66,7 @@ class CustomItemReminder extends StatelessWidget {
             Container(
               width: 90,
               padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Text(
+              child: customTranslateText(
                 'Time to cardio exercise',
                 style: GoogleFonts.poppins(
                   fontSize: 12,
@@ -83,7 +84,7 @@ class CustomItemReminder extends StatelessWidget {
                 borderRadius: BorderRadius.circular(4),
                 color: white,
               ),
-              child: Text(
+              child: customTranslateText(
                 'Today , 4:50',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.poppins(

@@ -72,7 +72,7 @@ class WelcomeScreen extends StatelessWidget {
             const Spacer(),
             BlocListener<SplashScreenNextCubit, Widget>(
               listener: (context, state) {
-                AnimatedNavigator().pushReplacementScale(
+                AnimatedNavigator().pushAndRemoveUntil(
                   context,
                   state,
                 );

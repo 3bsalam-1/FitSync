@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
+import '../global/custom_translate_text.dart';
 
 class SquareInfo extends StatelessWidget {
   final String value;
@@ -31,7 +32,7 @@ class SquareInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
+          customTranslateText(
             value,
             style: GoogleFonts.poppins(
               fontSize: 14,
@@ -39,7 +40,7 @@ class SquareInfo extends StatelessWidget {
               fontWeight: FontWeight.w700,
             ),
           ),
-          Text(
+          customTranslateText(
             title,
             style: GoogleFonts.poppins(
               fontSize: 12,

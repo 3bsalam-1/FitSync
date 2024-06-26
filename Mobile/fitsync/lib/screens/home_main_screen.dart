@@ -1,10 +1,14 @@
+import 'dart:async';
+
 import 'package:fitsync/data/cubit/user_data/user_data_info_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import '../cubits_logic/navigation_page_cubit.dart';
-import '../cubits_logic/new_token_cubit.dart';
+import '../cubits_logic/global/internet_connectivity_cubit.dart';
+import '../cubits_logic/global/navigation_page_cubit.dart';
+import '../cubits_logic/global/new_token_cubit.dart';
 import '../cubits_logic/smart_watch/smart_watch_cubit.dart';
+import '../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../data/cubit/workouts/workouts_cubit.dart';
 import '../shared/colors/colors.dart';
 import '../shared/widgets/item_bottom_app_bar.dart';
@@ -21,6 +25,9 @@ class HomeMainScreen extends StatelessWidget {
             if (state) {
               context.read<UserDataInfoCubit>().getUserDataInfo(context);
             }
+            Timer.periodic(const Duration(minutes: 3), (timer) {
+              context.read<SmartWatchCubit>().getSmartWatchData();
+            });
           },
         ),
         BlocListener<SmartWatchCubit, SmartWatchState>(
@@ -40,16 +47,29 @@ class HomeMainScreen extends StatelessWidget {
                     context.read<UserDataInfoCubit>().userData!,
                   );
               context.read<WorkoutsCubit>().getAllWorkouts();
-              context.read<WorkoutsCubit>().getFavoriteWorkouts();
+              context.read<FavoriteWorkoutsCubit>().getAllFavoriteWorkouts();
             }
           },
         ),
       ],
       child: Scaffold(
         body:
-            BlocBuilder<NavigationPageCubit, Widget>(builder: (context, page) {
-          return page;
-        }),
+            BlocListener<InternetConnectivityCubit, InternetConnectivityState>(
+          listener: (context, state) {
+            if (state is InternetConnectivityOFFWithData) {
+              state.showDialog(context);
+            }
+            if (state is InternetConnectivityON) {
+              ScaffoldMessenger.of(context).clearSnackBars();
+              context.read<NewTokenCubit>().getNewToken();
+            }
+          },
+          child: BlocBuilder<NavigationPageCubit, Widget>(
+            builder: (context, page) {
+              return page;
+            },
+          ),
+        ),
         backgroundColor: white,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: Padding(
