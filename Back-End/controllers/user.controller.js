@@ -1,11 +1,21 @@
 const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
+<<<<<<< HEAD
+
 const cloudinary = require("../config/cloudinary");
+
+=======
+const cloudinary = require("../config/cloudinary");
+>>>>>>> main
 const asyncWrapper = require("../utils/asyncWrapper");
 const AppError = require("../utils/appError");
 const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
 const userInfo = require("../models/userInfo.model");
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 const signToken = async (user, res) => {
   let token;
   const cookieOptions = {
@@ -14,6 +24,10 @@ const signToken = async (user, res) => {
     ),
     secure: true,
     httpOnly: true,
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
   };
   if (user.firstTime) {
     token = jwt.sign(
@@ -22,6 +36,10 @@ const signToken = async (user, res) => {
       { expiresIn: "1h" }
     );
   } else {
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
     token = jwt.sign(
       { id: user._id, firstTime: user.firstTime,
         firstName: user.firstName,
@@ -37,6 +55,10 @@ const signToken = async (user, res) => {
     );
   }
   res.cookie("jwt", token, cookieOptions);
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
   return token;
 };
 
@@ -48,6 +70,10 @@ const filterObj = (obj, ...allowedFields) => {
   return newObj;
 };
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 
 exports.updatePassword = asyncWrapper(async (req, res, next) => {
   const oldPassword = req.body.oldPassword;
@@ -59,7 +85,14 @@ exports.updatePassword = asyncWrapper(async (req, res, next) => {
   user.passwordConfirm = req.body.passwordConfirm;
   await user.save();
 
+<<<<<<< HEAD
+  
   const token = await signToken(user, res);
+
+
+=======
+  const token = await signToken(user, res);
+>>>>>>> main
   res.status(200).json({
     status: SUCCESS,
     token,
@@ -85,6 +118,10 @@ exports.updateMe = asyncWrapper(async (req, res, next) => {
   });
 
   const token = await signToken(user, res);
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
 
   res.status(200).json({
     status: SUCCESS,
@@ -101,6 +138,10 @@ exports.changeAvatar = asyncWrapper(async (req, res, next) => {
   }
   const user = await User.findById(req.user._id);
   if (user.avatar && user.avatar.public_id) {
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
     await cloudinary.uploader.destroy(user.avatar.public_id);
   }
   const result = await cloudinary.uploader.upload(file.path, {
@@ -117,3 +158,7 @@ exports.changeAvatar = asyncWrapper(async (req, res, next) => {
     .status(201)
     .json({ status: "SUCCESS", message: "Avatar changed done", token });
 });
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
