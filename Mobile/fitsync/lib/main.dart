@@ -98,7 +98,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: HomeMainScreen(),
+        home: LoginPage(),
       ),
     );
   }
