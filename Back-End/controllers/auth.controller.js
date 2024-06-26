@@ -7,6 +7,7 @@ const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
 const sendEmail = require("../utils/email");
 const userInfo = require("../models/userInfo.model");
 
+
 const signToken = async (user, res) => {
   let token;
   const cookieOptions = {
@@ -15,6 +16,7 @@ const signToken = async (user, res) => {
     ),
     secure: true,
     httpOnly: true,
+
   };
   if (user.firstTime) {
     token = jwt.sign(
@@ -23,6 +25,7 @@ const signToken = async (user, res) => {
       { expiresIn: "1h" }
     );
   } else {
+
     token = jwt.sign(
       { id: user._id, firstTime: user.firstTime,
         firstName: user.firstName,
@@ -38,6 +41,7 @@ const signToken = async (user, res) => {
     );
   }
   res.cookie("jwt", token, cookieOptions);
+
   return token;
 };
 
@@ -346,6 +350,7 @@ exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
   });
 
   await user.save({ validateBeforeSave: false });
+
 
   const token = await signToken(user,res);
   res.status(200).json({

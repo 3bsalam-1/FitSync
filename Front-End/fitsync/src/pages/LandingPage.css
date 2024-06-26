@@ -1,0 +1,447 @@
+/* Start Global Rule -----------------------------------*/
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: black;
+}
+/* End Global Rule -----------------------------------*/
+/* Start header -----------------------------------*/
+nav {
+  padding-top: 32px;
+  background: transparent;
+}
+.LandingPage nav button:hover {
+  color: black;
+  box-shadow: 1px 0px 10px 4px #00000054;
+}
+nav .logo img {
+  width: 43.86px;
+  margin-right: 4.63px;
+}
+nav .logo > p {
+  margin: 0;
+  font-size: 37.5px;
+  font-weight: bold;
+}
+nav .logo span {
+  text-transform: uppercase;
+  background: var(
+    --main-background-color,
+    linear-gradient(273.46deg, #8d70f8 19.25%, #9dcdff 126.19%)
+  );
+  background-clip: text;
+  color: transparent;
+}
+nav .btn {
+  width: 147.75px;
+  height: 45px;
+  font-size: 13.5px;
+  font-weight: bold;
+  color: white;
+  background: var(
+    --main-background-color,
+    linear-gradient(273.46deg, #8d70f8 19.25%, #9dcdff 126.19%)
+  );
+}
+nav.scrolled {
+  background: white;
+}
+/* End header -----------------------------------*/
+
+/* Start body ----------------------------------------------------------------------*/
+/* Start download -----------------------------------*/
+.download {
+  height: calc(100vh - 92px);
+  margin-top: -40px;
+}
+.download .text-box {
+  order: 0;
+}
+.download h1 {
+  font-size: 45px;
+  font-weight: bold;
+}
+.download h1 span {
+  color: var(--frist-color, #8d6ff8);
+}
+.download p {
+  font-size: 22.5px;
+  font-weight: 500;
+  margin: 32px 0;
+}
+.download .btn {
+  width: 207.75px;
+  height: 45px;
+  font-size: 13.5px;
+  font-weight: bold;
+  color: white;
+  background: var(
+    --main-background-color,
+    linear-gradient(273.46deg, #8d70f8 19.25%, #9dcdff 126.19%)
+  );
+}
+.download button:hover {
+  color: black;
+  box-shadow: 1px 0px 10px 4px #00000054;
+}
+.download .btn:hover {
+  color: black;
+}
+.download .images .Landphone {
+  height: 850px;
+  position: absolute;
+  top: -387px;
+  right: 0;
+  z-index: -1;
+}
+.download .images .Landworkout {
+  width: 215px;
+  height: 90px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+}
+.download .images .Landdiet {
+  width: 146px;
+  height: 190px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+}
+@media screen and (max-width: 992px) {
+  .download {
+    padding-top: 130px;
+  }
+  .download .text-box {
+    order: 2;
+  }
+  .download .images {
+    max-width: 360px;
+    height: 250px;
+    margin: 0 auto;
+  }
+  .download .images .Landphone {
+    position: relative;
+    height: 430px;
+    top: -135px;
+  }
+  .download .images .Landworkout {
+    width: 145px;
+    height: 70px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+  .download .images .Landdiet {
+    width: 85px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+  .download h1 {
+    font-size: 35px;
+  }
+  .download p {
+    font-size: 18.5px;
+  }
+}
+/* End download -----------------------------------*/
+/* Start exercise -----------------------------------*/
+.exercise {
+  padding-top: 8rem;
+}
+.exercise .box {
+  box-shadow: 0px 22.5px 52.5px 0px #00000012;
+  background: white;
+  max-width: 349.5px;
+  max-height: 483px;
+  padding: 24px;
+  margin: 0 auto;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.exercise h2 {
+  margin-top: 27.75px;
+  margin-bottom: 19.5px;
+  font-size: 19.5px;
+  font-weight: 500;
+}
+.exercise p {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--second-color, #726d65);
+  margin-bottom: 22px;
+}
+.exercise button {
+  margin: 0 auto;
+  width: 125.25px;
+  height: 45px;
+  font-size: 13.5px;
+  font-weight: 400;
+  border: none;
+  color: white;
+  background: var(
+    --main-background-color,
+    linear-gradient(273.46deg, #8d70f8 19.25%, #9dcdff 126.19%)
+  );
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+.exercise button:hover {
+  color: black;
+  box-shadow: 1px 0px 10px 4px #00000054;
+}
+/* End exercise -----------------------------------*/
+/* Start follow -----------------------------------*/
+.follow,
+.habits,
+.track {
+  max-height: 600px;
+}
+.follow img,
+.habits img,
+.track img {
+  position: relative;
+  z-index: -1;
+}
+.follow h2:first-child span {
+  color: var(--frist-color, #8d6ff8);
+}
+.follow h2:first-child span + span {
+  color: var(--second-color, #726d65);
+}
+.follow .text-box {
+  position: relative;
+  top: -35px;
+}
+.follow h2 {
+  width: 686px;
+  font-size: 45px;
+  font-weight: 500;
+}
+@media screen and (max-width: 992px) {
+  .follow .text-box {
+    text-align: center;
+    order: 2;
+  }
+  .follow h2 {
+    width: auto;
+    font-size: 30px;
+    margin: 0 auto;
+  }
+  .follow .image {
+    margin: 0 auto;
+  }
+}
+/* End follow -----------------------------------*/
+/* Start  habits -----------------------------------*/
+.habits .text-box {
+  position: relative;
+  top: -35px;
+}
+.habits .text-box h2 {
+  width: 485px;
+  font-size: 45px;
+  font-weight: 500;
+  margin-bottom: 26.25px;
+}
+.habits .text-box h2 span {
+  color: var(--frist-color, #8d6ff8);
+}
+.habits .text-box p {
+  width: 479px;
+  font-size: 22.5px;
+  font-weight: 500;
+  color: var(--second-color, #726d65);
+}
+@media screen and (max-width: 992px) {
+  .habits .text-box {
+    text-align: center;
+  }
+  .habits .text-box h2 {
+    width: auto;
+    font-size: 30px;
+  }
+  .habits .text-box p {
+    width: auto;
+  }
+  .habits .image {
+    margin: 0 auto;
+  }
+}
+/* End  habits -----------------------------------*/
+/* Start  track -----------------------------------*/
+.track .text-box {
+  order: 0;
+  position: relative;
+  top: -35px;
+}
+.track .text-box h2 {
+  width: 333px;
+  font-size: 45px;
+  font-weight: 500;
+  margin-bottom: 24.75px;
+}
+.track .text-box h2 span {
+  color: var(--frist-color, #8d6ff8);
+}
+.track .text-box p {
+  width: 519px;
+  font-size: 22.5px;
+  font-weight: 500;
+  color: var(--second-color, #726d65);
+}
+@media screen and (max-width: 992px) {
+  .track .text-box {
+    text-align: center;
+    order: 2;
+  }
+  .track .text-box h2 {
+    width: auto;
+    font-size: 30px;
+  }
+  .track .text-box p {
+    width: auto;
+  }
+  .track .image {
+    margin: 0 auto;
+  }
+}
+/* End  track -----------------------------------*/
+/* Start  healthy -----------------------------------*/
+.healthy .text-box {
+  width: 825px;
+  margin: 50px auto 0;
+}
+.healthy .text-box h2 {
+  font-size: 45px;
+  font-weight: 500;
+  margin-bottom: 18px;
+}
+.healthy .text-box h2 span {
+  color: var(--frist-color, #8d6ff8);
+}
+.healthy .text-box p {
+  font-size: 22.5px;
+  font-weight: 500;
+  color: var(--second-color, #726d65);
+}
+.healthy img {
+  max-height: 782px;
+}
+@media screen and (max-width: 992px) {
+  .healthy .text-box {
+    width: auto;
+  }
+  .healthy .text-box p {
+    font-size: 17.5px;
+  }
+}
+/* End  healthy -----------------------------------*/
+/* Start  application -----------------------------------*/
+.application {
+  overflow: hidden;
+  background-color: #ded7f6;
+  height: 460.5px;
+}
+.application .image img {
+  height: 460px;
+  position: relative;
+  right: 120px;
+}
+.application .text-box h2 {
+  font-size: 30px;
+  font-weight: 500;
+}
+.application .text-box h2 + p {
+  max-width: 490px;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--second-color, #726d65);
+  margin-top: 9.75;
+  margin-bottom: 39.25px;
+}
+.application .text-box .start {
+  width: 93px;
+  height: 28.5px;
+  margin-bottom: 12.75px;
+  font-size: 10.5px;
+  font-weight: 500;
+  border: none;
+  background: white;
+  color: var(--frist-color, #8d6ff8);
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+}
+.application .text-box .start:hover,
+.application .text-box .btndownload:hover {
+  color: black;
+  box-shadow: 1px 0px 10px 4px #00000054;
+}
+.application .text-box p + div {
+  max-width: 470px;
+}
+.application .text-box .btndownload {
+  border: none;
+  width: 207.75px;
+  height: 58.5px;
+  font-size: 10.5px;
+  font-weight: 400;
+  color: white;
+  background: var(
+    --main-background-color,
+    linear-gradient(273.46deg, #8d70f8 19.25%, #9dcdff 126.19%)
+  );
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+.application .text-box .btndownload svg {
+  height: 23.25px;
+  width: 23.25px;
+}
+.application .text-box .btndownload p {
+  position: relative;
+  text-align: start;
+  margin: 0;
+}
+.application .text-box .btndownload span {
+  font-weight: bold;
+  font-size: 11.25px;
+}
+.application .text-box .btndownload p::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  left: -17px;
+  top: 0;
+  background-color: white;
+}
+@media screen and (max-width: 992px) {
+  .application .text-box {
+    padding: 30px;
+  }
+  .application .text-box .btndownload {
+    margin-bottom: 15px;
+  }
+  .application .image {
+    display: none;
+  }
+}
+/* End  application -----------------------------------*/
+/* End body ----------------------------------------------------------------------*/

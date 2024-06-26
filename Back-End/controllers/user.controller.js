@@ -1,10 +1,13 @@
 const User = require("../models/user.model");
 const jwt = require("jsonwebtoken");
+
 const cloudinary = require("../config/cloudinary");
+
 const asyncWrapper = require("../utils/asyncWrapper");
 const AppError = require("../utils/appError");
 const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
 const userInfo = require("../models/userInfo.model");
+
 
 const signToken = async (user, res) => {
   let token;
@@ -14,6 +17,7 @@ const signToken = async (user, res) => {
     ),
     secure: true,
     httpOnly: true,
+
   };
   if (user.firstTime) {
     token = jwt.sign(
@@ -22,6 +26,7 @@ const signToken = async (user, res) => {
       { expiresIn: "1h" }
     );
   } else {
+
     token = jwt.sign(
       { id: user._id, firstTime: user.firstTime,
         firstName: user.firstName,
@@ -37,6 +42,7 @@ const signToken = async (user, res) => {
     );
   }
   res.cookie("jwt", token, cookieOptions);
+
   return token;
 };
 
@@ -49,6 +55,7 @@ const filterObj = (obj, ...allowedFields) => {
 };
 
 
+
 exports.updatePassword = asyncWrapper(async (req, res, next) => {
   const oldPassword = req.body.oldPassword;
   const user = await User.findById(req.user._id).select("+password");
@@ -59,7 +66,10 @@ exports.updatePassword = asyncWrapper(async (req, res, next) => {
   user.passwordConfirm = req.body.passwordConfirm;
   await user.save();
 
+  
   const token = await signToken(user, res);
+
+
   res.status(200).json({
     status: SUCCESS,
     token,
@@ -86,6 +96,7 @@ exports.updateMe = asyncWrapper(async (req, res, next) => {
 
   const token = await signToken(user, res);
 
+
   res.status(200).json({
     status: SUCCESS,
     message: "User updated",
@@ -101,6 +112,7 @@ exports.changeAvatar = asyncWrapper(async (req, res, next) => {
   }
   const user = await User.findById(req.user._id);
   if (user.avatar && user.avatar.public_id) {
+
     await cloudinary.uploader.destroy(user.avatar.public_id);
   }
   const result = await cloudinary.uploader.upload(file.path, {
@@ -117,3 +129,4 @@ exports.changeAvatar = asyncWrapper(async (req, res, next) => {
     .status(201)
     .json({ status: "SUCCESS", message: "Avatar changed done", token });
 });
+
