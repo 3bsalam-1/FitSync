@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
+import '../global/custom_translate_text.dart';
 
 class CustomMenuButton extends StatelessWidget {
   final List<String> labels;
@@ -27,7 +28,7 @@ class CustomMenuButton extends StatelessWidget {
           labels.length,
           (index) => PopupMenuItem(
             value: index,
-            child: Text(
+            child: customTranslateText(
               labels[index],
               style: GoogleFonts.poppins(
                 color: purple5,

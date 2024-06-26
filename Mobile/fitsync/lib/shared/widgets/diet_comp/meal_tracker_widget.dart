@@ -27,7 +27,7 @@ class MealTrackerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(left: 8, bottom: 8, right: 6, top: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -63,7 +63,7 @@ class MealTrackerWidget extends StatelessWidget {
                     text: label3,
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
-                        fontSize: 18,
+                        fontSize: 13,
                         color: gray11)),
               ],
             ),

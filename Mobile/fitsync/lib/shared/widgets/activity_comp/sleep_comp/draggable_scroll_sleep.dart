@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
-import '../chart_data.dart';
+import '../../global/custom_translate_text.dart';
 import '../custom_chart_column.dart';
 import 'progress_bar_sleep_hours.dart';
 import 'sleep_hours.dart';
@@ -36,7 +36,7 @@ class DraggableScrollSleep extends StatelessWidget {
       ),
       child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
         builder: (context, state) {
-          final data = context.read<SmartWatchCubit>().smartWatchData;
+          final weekData = context.read<SmartWatchCubit>().smartWatchWeek;
           return SingleChildScrollView(
             child: Column(
               children: [
@@ -89,7 +89,7 @@ class DraggableScrollSleep extends StatelessWidget {
                     opacity: value,
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.easeIn,
-                    child: Text(
+                    child: customTranslateText(
                       'you slept better than 53% of users',
                       style: GoogleFonts.poppins(
                         fontSize: 10,
@@ -103,7 +103,7 @@ class DraggableScrollSleep extends StatelessWidget {
                 CustomAnimatedOpacity(
                   child: Align(
                     alignment: Alignment.topLeft,
-                    child: Text(
+                    child: customTranslateText(
                       'Analytics',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
@@ -124,12 +124,10 @@ class DraggableScrollSleep extends StatelessWidget {
                     },
                     labelFormat: '{value}:00',
                     increaseData: 0.24,
-                    maxYlabel: 10,
-                    minYlabel: 5,
-                    data: showSmartWatchDataWeekly(
-                      data?.sleep,
-                      data?.sleepDay,
-                    ),
+                    maxYlabel: 20,
+                    minYlabel: 0,
+                    interval: 4,
+                    data: weekData?.weekDataSleep,
                   ),
                 ),
               ],

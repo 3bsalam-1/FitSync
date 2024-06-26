@@ -22,7 +22,7 @@ class PasswordRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The forgetPassword Errror is: ${e.toString()}');
       return null;
     }
   }
@@ -49,7 +49,7 @@ class PasswordRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Error is: ${e.toString()}');
+      debugPrint('The resetPassword Error is: ${e.toString()}');
       return null;
     }
   }
@@ -78,7 +78,7 @@ class PasswordRepo {
       ResponseModel responseData = ResponseModel.fromJson(data);
       return responseData;
     } catch (e) {
-      debugPrint('The Errror is: ${e.toString()}');
+      debugPrint('The updatePassword Errror is: ${e.toString()}');
       return null;
     }
   }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
+import '../../global/custom_translate_text.dart';
 
 class ProgressDailyGools extends StatelessWidget {
   final double progress;
@@ -51,14 +52,12 @@ class ProgressDailyGools extends StatelessWidget {
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                Text(
-                  'of daily goals',
-                  style: GoogleFonts.poppins(
-                    fontSize: 10,
-                    fontWeight: FontWeight.w500,
-                    color: gray15,
-                  )
-                ),
+                customTranslateText('of daily goals',
+                    style: GoogleFonts.poppins(
+                      fontSize: 10,
+                      fontWeight: FontWeight.w500,
+                      color: gray15,
+                    )),
               ],
             ),
           ],

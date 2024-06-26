@@ -1,6 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../../shared/widgets/global/custom_image.dart';
+import '../../../shared/widgets/global/custom_translate_text.dart';
 import 'challenge_begin_screen.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +38,7 @@ class RestChallengeScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 15),
             CustomAnimatedOpacity(
-              child: Text(
+              child: customTranslateText(
                 'Take Rest!',
                 style: GoogleFonts.poppins(
                   fontSize: 40,
@@ -61,7 +63,7 @@ class RestChallengeScreen extends StatelessWidget {
                       );
                     });
                   }
-                  return Text(
+                  return customTranslateText(
                     '00:${seconds <= 9 ? '0$seconds' : seconds}',
                     style: GoogleFonts.poppins(
                       fontSize: 35,
@@ -83,7 +85,7 @@ class RestChallengeScreen extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: CustomAnimatedOpacity(
-                child: Text(
+                child: customTranslateText(
                   'Next Movement(${nextExercise + 1}/${workouts.exercisePlan.length})',
                   style: GoogleFonts.poppins(
                     fontSize: 20,
@@ -96,7 +98,7 @@ class RestChallengeScreen extends StatelessWidget {
             Align(
               alignment: Alignment.centerLeft,
               child: CustomAnimatedOpacity(
-                child: Text(
+                child: customTranslateText(
                   workouts.exercisePlan[nextExercise],
                   style: GoogleFonts.poppins(
                     fontSize: 20,
@@ -108,12 +110,14 @@ class RestChallengeScreen extends StatelessWidget {
             ),
             const Spacer(),
             CustomAnimatedOpacity(
-              child: Image.asset(
-                // todo next Challenge image
-                'assets/images/start_challenge.png',
+              child: CustomImage(
+                imageUrl: context.read<WorkoutsCubit>().workoutsImages![
+                    workouts.exercisePlan[nextExercise].trim()],
                 width: 200,
                 height: 200,
-                fit: BoxFit.contain,
+                fit: BoxFit.fill,
+                errorColor: red,
+                iconSize: 55,
               ),
             ),
             const Spacer(),

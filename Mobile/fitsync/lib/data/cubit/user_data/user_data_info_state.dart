@@ -27,17 +27,44 @@ final class UserDataFailure extends UserDataInfoState {
 
   void showFaliure(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
+      customSnackbarMessage(
+        context,
+        backColor: red9,
+        icon: FontAwesomeIcons.triangleExclamation,
+        title: 'Faliure message',
+        subTitle: message,
+        contentColor: white,
+        duration: const Duration(minutes: 1),
+      ),
+    );
+  }
+}
+
+final class UserUpdateLoading extends UserDataInfoState {
+  void showLoadingDialog(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         padding: EdgeInsets.zero,
         elevation: 0,
-        duration: const Duration(minutes: 1),
+        duration: const Duration(days: 1),
         backgroundColor: black.withOpacity(0.3),
-        content: CustomSnackbarMessage(
-          title: 'Faliure message',
-          subTitle: message,
-          backColor: red9,
-          icon: FontAwesomeIcons.triangleExclamation,
-        ),
+        content: const LoadingDialog(),
+      ),
+    );
+  }
+}
+
+final class UserUpdateSuccess extends UserDataInfoState {
+  void showSucceussdialog(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      customSnackbarMessage(
+        context, 
+        backColor: purple10, 
+        icon: FontAwesomeIcons.circleCheck, 
+        title: 'Success message',
+        subTitle: 'The data was updated successfully',
+        contentColor: white, 
+        duration: const Duration(minutes: 1),
       ),
     );
   }

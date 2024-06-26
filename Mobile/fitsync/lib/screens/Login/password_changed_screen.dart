@@ -48,7 +48,7 @@ class PasswordChangedScreen extends StatelessWidget {
             horizontalPadding: 70,
             label: 'Back to login',
             onPressed: () {
-              AnimatedNavigator().pushReplacementScale(
+              AnimatedNavigator().pushAndRemoveUntil(
                 context,
                 const LoginPage(),
               );

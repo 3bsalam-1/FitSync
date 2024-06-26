@@ -5,12 +5,14 @@ class SkeletonContainerLoading extends StatefulWidget {
   final double height;
   final double width;
   final double borderRaduis;
+  final Widget? child;
 
   const SkeletonContainerLoading({
     super.key,
     required this.height,
     required this.width,
     this.borderRaduis = 10,
+    this.child,
   });
 
   @override
@@ -74,7 +76,7 @@ class _SkeletonContainerLoadingState extends State<SkeletonContainerLoading>
           end: Alignment.bottomRight,
         ),
       ),
-      child: Container(),
+      child: widget.child,
     );
   }
 }

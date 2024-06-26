@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
+import '../global/custom_translate_text.dart';
 
 class CustomButton extends StatelessWidget {
   final String label;
@@ -49,7 +50,7 @@ class CustomButton extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Text(
+          child: customTranslateText(
             label,
             style: GoogleFonts.poppins(
               fontSize: 18,

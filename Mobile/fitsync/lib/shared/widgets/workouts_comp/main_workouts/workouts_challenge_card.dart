@@ -5,8 +5,9 @@ import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
 import '../../global/animated_navigator.dart';
+import '../../global/custom_image.dart';
 import 'custom_start_button.dart';
-
+import '../../global/custom_translate_text.dart';
 class WorkOutsChallengCard extends StatelessWidget {
   const WorkOutsChallengCard({super.key});
 
@@ -20,7 +21,7 @@ class WorkOutsChallengCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              customTranslateText(
                 'Challenges',
                 style: GoogleFonts.poppins(
                   fontSize: 22,
@@ -32,7 +33,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                 onPressed: () {
                   provider.showAllChallenges();
                 },
-                child: Text(
+                child: customTranslateText(
                   'View all',
                   style: GoogleFonts.poppins(
                     fontSize: 16,
@@ -47,7 +48,8 @@ class WorkOutsChallengCard extends StatelessWidget {
           SizedBox(
             height: 205,
             child: ListView.separated(
-              itemCount: provider.viewAllChallenge ? provider.challenges!.length : 1,
+              itemCount:
+                  provider.viewAllChallenge ? provider.challenges!.length : 1,
               physics: const BouncingScrollPhysics(),
               scrollDirection: Axis.horizontal,
               separatorBuilder: (context, index) => const SizedBox(width: 30),
@@ -65,11 +67,13 @@ class WorkOutsChallengCard extends StatelessWidget {
                         topLeft: Radius.circular(10),
                         bottomLeft: Radius.circular(10),
                       ),
-                      child: Image.asset(
-                        'assets/images/workouts.png',
-                        height: 200,
+                      child: CustomImage(
+                        imageUrl: provider.workoutsImages!['${index % 10}'],
+                        height: 205,
                         width: provider.viewAllChallenge ? 135 : width * 0.42,
                         fit: BoxFit.cover,
+                        errorColor: red,
+                        iconSize: 55,
                       ),
                     ),
                     const SizedBox(width: 20),
@@ -80,7 +84,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 30),
-                          child: Text(
+                          child: customTranslateText(
                             '7 x ${provider.viewAllChallenge ? index + 1 : DateTime.now().weekday} CHALLENGE',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
@@ -89,10 +93,11 @@ class WorkOutsChallengCard extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Text(
+                        customTranslateText(
                           provider.viewAllChallenge
                               ? provider.challenges![index].category
-                              : provider.challenges![DateTime.now().weekday-1].category,
+                              : provider.challenges![DateTime.now().weekday - 1]
+                                  .category,
                           style: GoogleFonts.poppins(
                             fontSize: 22,
                             color: white,
@@ -106,9 +111,11 @@ class WorkOutsChallengCard extends StatelessWidget {
                               context,
                               WorkoutsViewChallenge(
                                 workouts: provider.challenges!,
+                                imagePath:
+                                    provider.workoutsImages!['${index % 10}'],
                                 workoutsIndex: provider.viewAllChallenge
                                     ? index
-                                    : DateTime.now().weekday-1,
+                                    : DateTime.now().weekday - 1,
                               ),
                             );
                           },
