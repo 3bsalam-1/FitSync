@@ -7,5 +7,6 @@ router.route("/").post(userInfoController.createUserInfo);
 router.route("/").get(userInfoController.getUserInfo);
 router.route("/isActive").patch(userInfoController.isActive);
 router.route("/").patch(userInfoController.updateUserInfo);
+router.route("/diseases").patch(userInfoController.updateDiseases);
 
 module.exports = router;

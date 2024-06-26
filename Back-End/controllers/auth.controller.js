@@ -7,12 +7,14 @@ const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
 const sendEmail = require("../utils/email");
 const userInfo = require("../models/userInfo.model");
 
-const signToken = async (user,res) => {
+const signToken = async (user, res) => {
   let token;
   const cookieOptions = {
-    expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN*24*60*60*1000),
+    expires: new Date(
+      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+    ),
     secure: true,
-    httpOnly: true
+    httpOnly: true,
   };
   if (user.firstTime) {
     token = jwt.sign(
@@ -21,11 +23,21 @@ const signToken = async (user,res) => {
       { expiresIn: "1h" }
     );
   } else {
-    token =jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: process.env.JWT_EXPIRES_IN,
-    });
+    token = jwt.sign(
+      { id: user._id, firstTime: user.firstTime,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        username:  user.username, 
+        email: user.email,
+        avatar: user.avatar.url,
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: process.env.JWT_EXPIRES_IN,
+      }
+    );
   }
-  res.cookie('jwt',token,cookieOptions);
+  res.cookie("jwt", token, cookieOptions);
   return token;
 };
 

@@ -6,6 +6,11 @@ const userInfoSchema = new mongoose.Schema({
         ref: 'user',
         required: [true, 'UserId is required']
     },
+    diseases: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'disease',
+        required: [true, 'disease id is required']
+    },
     weight: {
         type: Number,
         required: [true, 'Weight is required']
@@ -44,33 +49,9 @@ const userInfoSchema = new mongoose.Schema({
         type: Number,
         required: [true, 'Blood Sugar is required']
     },
-    hypertension: {
-        type: Number,
-        default: 0
-    },
-    diabetes: {
-        type: Number,
-        default: 0
-    },
-    heartCondition: {
-        type: Number,
-        default: 0
-    },
-    LowPressure: {
-        type: Number,
-        required: [true, 'LowPressure is required']
-    },
     BMR: {
         type: Number,
         required: [true, 'BMR is required']
-    },
-    kneePain: {
-        type: Number,
-        default: 0
-    },
-    backPain: {
-        type: Number,
-        default: 0
     },
     isActive: {
         type: Boolean,
