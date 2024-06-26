@@ -7,23 +7,31 @@ const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
 const sendEmail = require("../utils/email");
 const userInfo = require("../models/userInfo.model");
 
-const signToken = async (user) => {
+const signToken = async (user,res) => {
+  let token;
+  const cookieOptions = {
+    expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN*24*60*60*1000),
+    secure: true,
+    httpOnly: true
+  };
   if (user.firstTime) {
-    return jwt.sign(
+    token = jwt.sign(
       { id: user._id, firstTime: user.firstTime },
       process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
   } else {
-    return jwt.sign({ id: user._id, user }, process.env.JWT_SECRET, {
-      expiresIn: "30d",
+    token =jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+      expiresIn: process.env.JWT_EXPIRES_IN,
     });
   }
+  res.cookie('jwt',token,cookieOptions);
+  return token;
 };
 
 exports.loginWith = asyncWrapper(async (req, res, next) => {
   const user = req.user;
-  let token = await signToken(user);
+  let token = await signToken(user,res);
   res.status(200).json({
     status: SUCCESS,
     token,
@@ -35,7 +43,7 @@ exports.Register = asyncWrapper(async (req, res, next) => {
   newUser.code = Math.random().toString().slice(2, 8);
   newUser.codeExpires = Date.now() + 10 * 60 * 1000;
   await newUser.save();
-  const token = await signToken(newUser);
+  const token = await signToken(newUser,res);
   try {
     await sendEmail({
       email: newUser.email,
@@ -105,7 +113,7 @@ exports.verfiyAccount = asyncWrapper(async (req, res, next) => {
   user.code = undefined;
   user.codeExpires = undefined;
   await user.save({ validateBeforeSave: false });
-  const token = await signToken(user);
+  const token = await signToken(user,res);
   res.status(200).json({
     status: SUCCESS,
     token,
@@ -137,7 +145,7 @@ exports.Login = asyncWrapper(async (req, res, next) => {
   if (!user || !(await user.correctPassword(password, user.password))) {
     return next(AppError.create("Incorrect email or password", ERROR, 401));
   }
-  let token = await signToken(user);
+  let token = await signToken(user,res);
   res.status(200).json({
     status: SUCCESS,
     token,
@@ -146,13 +154,14 @@ exports.Login = asyncWrapper(async (req, res, next) => {
 
 exports.protectForVerfiy = asyncWrapper(async (req, res, next) => {
   let token;
-  if (
+  if(req.cookies.jwt)
+    token = req.cookies.jwt;
+  else if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {
     token = req.headers.authorization.split(" ")[1];
   }
-
   if (!token) {
     return next(AppError.create("Invalid token", ERROR, 401));
   }
@@ -165,7 +174,9 @@ exports.protectForVerfiy = asyncWrapper(async (req, res, next) => {
 
 exports.protect = asyncWrapper(async (req, res, next) => {
   let token;
-  if (
+  if(req.cookies.jwt)
+    token = req.cookies.jwt;
+  else if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {
@@ -277,7 +288,7 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
   user.codeExpires = undefined;
   user.isVerify = true;
   await user.save();
-  const token = await signToken(user);
+  const token = await signToken(user,res);
   res.status(200).json({
     status: SUCCESS,
     token,
@@ -285,14 +296,14 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
 });
 
 exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
-  let { name, email, avatar } = req.body;
+  let { name, email, avatar,googleId } = req.body;
   
   // Retrieve user data based on email
-  let user = await User.findOne({ email });
+  let user = await User.findOne({email,googleId});
 
   // If user exists, return token
   if (user) {
-    const token = await signToken(user);
+    const token = await signToken(user,res);
     return res.status(200).json({
       status: SUCCESS,
       token,
@@ -330,9 +341,19 @@ exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
   await user.save({ validateBeforeSave: false });
 
   // Return token
-  const token = await signToken(user);
+  const token = await signToken(user,res);
   res.status(200).json({
     status: SUCCESS,
     token,
   });
 });
+
+exports.logout = asyncWrapper(async (req, res, next) => {
+  res.cookie('jwt', 'logging out', {
+      expires: new Date(Date.now() + 10 * 1000),
+      httpOnly: true
+  })
+  res.status(200).json({
+      status: 'success'
+  })
+})

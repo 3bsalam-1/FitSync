@@ -1,0 +1,73 @@
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.slider-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  -webkit-transition: transform 0.5s ease-in-out;
+  -moz-transition: transform 0.5s ease-in-out;
+  -ms-transition: transform 0.5s ease-in-out;
+  -o-transition: transform 0.5s ease-in-out;
+}
+.slider-slide {
+  min-width: 520px;
+  min-height: 349px;
+  background: #eee;
+  margin: 0 96px;
+  padding: 20px 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+@media (max-width: 768px) {
+  .slider-slide {
+    min-width: 300px; /* Adjusted to fit smaller screens better */
+    min-height: 200px; /* Adjusted to fit smaller screens better */
+    margin: 0 20px; /* Adjusted margin for better spacing on smaller screens */
+  }
+}
+
+.slider-slide button {
+  font-size: clamp(10px, 2vw, 13.5px);
+  font-weight: 400;
+  color: #8d6ff8;
+  border: none;
+  padding: 6px 15px;
+  border-radius: 20px;
+  background: white;
+}
+.slider-slide span {
+  position: absolute;
+  right: 20px;
+  color: white;
+  font-size: clamp(10px, 2vw, 13.5px);
+  font-weight: 500;
+}
+.slider-slide .recomend-noteText {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  font-size: clamp(14px, 2vw, 22px);
+  font-weight: 600;
+}
+
+.slider-controls {
+  max-width: 300px;
+  margin: 40px auto;
+}
+.slider-button {
+  border: none;
+  background: transparent;
+}
+.slider-button svg {
+  height: 57px;
+  color: #485059;
+}
+.slider-button:hover > svg {
+  color: #8d6ff8;
+}

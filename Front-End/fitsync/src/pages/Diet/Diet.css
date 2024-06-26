@@ -1,0 +1,15 @@
+/* start Diet Plan   ###############################################*/
+.Diet .Diet-Plan .row .col .Diet-card-text h5 {
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+  margin: 0;
+}
+.Diet .Diet-Plan .row .col .Diet-card-text h5 span {
+  font-weight: 600;
+  font-size: 13px;
+  margin: 0;
+  color: #8d6ff8;
+}
+
+/* End Diet Plan   ###############################################*/
