@@ -1,4 +1,6 @@
 import 'package:fitsync/cubits_logic/diet_logic/filter_logic/cubit/filter_cubit.dart';
+import 'package:fitsync/cubits_logic/diet_logic/for_weight/cubit/changestate_cubit.dart';
+import 'package:fitsync/screens/home_main_screen.dart';
 import 'package:fitsync/screens/workouts/filters_workouts_screen.dart';
 import 'package:fitsync/screens/workouts/workouts_list_search_screen.dart';
 import 'package:fitsync/screens/workouts/workouts_screen.dart';
@@ -89,11 +91,14 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => FilterCubit(),
         ),
+         BlocProvider(
+          create: (context) => ChangestateCubit(),
+        ),
       ],
       child: MaterialApp(
         title: 'FitSync',
         debugShowCheckedModeBanner: false,
-        home: DietScreen(),
+        home: HomeMainScreen(),
       ),
     );
   }

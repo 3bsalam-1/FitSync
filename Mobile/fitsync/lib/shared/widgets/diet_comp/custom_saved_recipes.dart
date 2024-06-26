@@ -1,4 +1,9 @@
+import 'package:fitsync/data/models/food_model.dart';
+import 'package:fitsync/screens/Diet/meal_overview_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
+import 'package:fitsync/shared/widgets/diet_comp/page2.dart';
+import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
@@ -8,12 +13,13 @@ class CustomSavedRecipesWidget extends StatelessWidget {
   final String label1;
   final String label2;
   CustomSavedRecipesWidget({
+    required this.diet,
     required this.imageUrl,
     required this.label1,
     required this.label2,
     super.key,
   });
-
+  FoodModel diet;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -60,16 +66,14 @@ class CustomSavedRecipesWidget extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 10, top: 15),
                 child: Container(
-                 // width: 180,
+                  // width: 180,
                   child: Text(
                     label1,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 14,
                       color: black,
-                      
                     ),
-                    
                     textAlign: TextAlign.justify,
                   ),
                 ),
@@ -103,12 +107,26 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                   )),
               Padding(
                 padding: const EdgeInsets.only(right: 13),
-                child: Text(
-                  'More Info',
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 10,
-                      color: purple5),
+                child: InkWell(
+                  onTap: () {
+                    AnimatedNavigator().push(
+                        context,
+                        MealOverviewScreen(
+                          diet: diet,
+                        ));
+                    weight = 0;
+                    for (int i = 0; i < 100; i++) {
+                      count1[i] = 0;
+                    }
+                    calories = 0;
+                  },
+                  child: Text(
+                    'More Info',
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 10,
+                        color: purple5),
+                  ),
                 ),
               ),
             ],

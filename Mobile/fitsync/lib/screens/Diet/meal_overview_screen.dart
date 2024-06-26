@@ -34,6 +34,7 @@ class MealOverviewScreen extends StatelessWidget {
             child: IconButton(
                 onPressed: () {
                   AnimatedNavigator().pop(context);
+                 
                 },
                 icon: const Icon(
                   Icons.arrow_circle_left,
@@ -67,10 +68,10 @@ class MealOverviewScreen extends StatelessWidget {
               child: PageView(
                 controller: _controller,
                 children: [
-                  PageMeal(),
-                  PageMeal(),
-                  PageMeal(),
-                  PageMeal(),
+                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
+                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
+                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
+                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
                 ],
               ),
             ),
@@ -93,6 +94,7 @@ class MealOverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, top: 15),
                   child: Container(
                     width: 270,
+                    
                     child: Text(
                       diet.Name,
                       style: GoogleFonts.poppins(
@@ -124,7 +126,7 @@ class MealOverviewScreen extends StatelessWidget {
                     left: 20,
                   ),
                   child: Text(
-                    '99% Healthy',
+                    'Healthy',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
                       fontSize: 12,

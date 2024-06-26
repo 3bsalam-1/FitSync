@@ -21,6 +21,8 @@ class FilterCubit extends Cubit<FilterState> {
   Color realcolor2 = gray13;
   Color realcolor3 = gray13;
 
+  
+
   changeColor1() {
     realbuttoncolor = changebuttoncolor1;
     realbuttoncolor1 = gray13;
