@@ -13,6 +13,9 @@ import '../../shared/widgets/workouts_comp/main_workouts/skeleton_workouts.dart'
 import '../../shared/widgets/workouts_comp/main_workouts/workouts_body.dart';
 import 'workouts_list_search_screen.dart';
 
+bool isActiveCurrent = false;
+bool changeActivity = true;
+
 class WorkoutsScreen extends StatelessWidget {
   const WorkoutsScreen({super.key});
 
@@ -66,8 +69,7 @@ class WorkoutsScreen extends StatelessWidget {
               },
               builder: (context, state) {
                 final provider = context.read<WorkoutsCubit>();
-                if (provider.allworkouts != null &&
-                    provider.data != null &&
+                if (provider.data != null &&
                     provider.challenges != null) {
                   return const SingleChildScrollView(
                     child: Padding(

@@ -1,3 +1,5 @@
+import 'dart:ui';
+import 'package:flutter/services.dart';
 import 'cubits_logic/diet_logic/filter_logic/cubit/filter_cubit.dart';
 import 'cubits_logic/global/dark_mode_cubit.dart';
 import 'cubits_logic/global/emergency_contact_cubit.dart';
@@ -40,7 +42,11 @@ void main() async {
     Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     ),
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]),
   ]);
+  DartPluginRegistrant.ensureInitialized();
   runApp(const MyApp());
 }
 

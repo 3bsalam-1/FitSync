@@ -16,6 +16,8 @@ import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_challenges_time.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_list_challenges.dart';
 
+late DateTime startWorkouts;
+
 class WorkoutsViewChallenge extends StatelessWidget {
   final int workoutsIndex;
   final String imagePath;
@@ -156,6 +158,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
                         label: 'Start',
                         horizontalPadding: width * 0.14,
                         onPressed: () {
+                          startWorkouts = DateTime.now();
                           ScaffoldMessenger.of(context).clearSnackBars();
                           context
                               .read<CounterTimeChallenges>()

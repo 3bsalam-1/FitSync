@@ -11,6 +11,7 @@ import '../../../shared/widgets/global/custom_translate_text.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import '../../../shared/widgets/workouts_comp/workouts_challenges/animated_circle_progress.dart';
 import '../../../cubits_logic/workouts/counter_time_challenges.dart';
+import '../workouts_screen.dart';
 import '../workouts_view_challenge.dart';
 import 'congratulations_screen.dart';
 import 'rest_challenge_screen.dart';
@@ -130,6 +131,13 @@ class ChallengeBeginScreen extends StatelessWidget {
                         } else {
                           // todo here save done exercises
                           provider.getExerciseResult(workouts);
+                          startWorkouts = startWorkouts.subtract(
+                            Duration(
+                              minutes: DateTime.now().minute,
+                              hours: DateTime.now().hour,
+                            ),
+                          );
+                          changeActivity = true;
                           AnimatedNavigator().push(
                             context,
                             CongratulationsScreen(

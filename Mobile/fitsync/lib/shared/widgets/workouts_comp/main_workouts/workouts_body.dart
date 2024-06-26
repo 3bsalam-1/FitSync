@@ -23,12 +23,13 @@ class WorkOustBody extends StatelessWidget {
         const ListLevelsMode(),
         const SizedBox(height: 22),
         BlocBuilder<WorkoutsCubit, WorkoutsState>(builder: (context, state) {
+          final dataLevel = context.read<WorkoutsCubit>().dataLevel;
           return SizedBox(
             height: 200,
             child: ListView.separated(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: context.read<WorkoutsCubit>().dataLevel.length,
+              itemCount: dataLevel.length > 10? 10: dataLevel.length,
               separatorBuilder: (context, index) => const SizedBox(width: 20),
               itemBuilder: (context, index) => CardItems(
                 workoutIndex: index,

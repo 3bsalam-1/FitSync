@@ -4,6 +4,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fitsync/data/models/user_data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../../services/decode_jwt.dart';
 import '../../../services/pref.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_snackbar_message.dart';
@@ -85,6 +86,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
               Prefs.setString('email', email.text);
               Prefs.setString('password', password.text);
               emit(AuthSuccess(message: 'Login Successfully'));
+              decodeJWT();
               Future.delayed(
                 const Duration(seconds: 3),
                 () {

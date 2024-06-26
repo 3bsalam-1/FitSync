@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../shared/const/base_url.dart';
-import '../models/response_model.dart';
-import 'login_res/user_auth_repo.dart';
+import '../../../shared/const/base_url.dart';
+import '../../models/response_model.dart';
+import '../login_res/user_auth_repo.dart';
 
 Future<ResponseModel?> saveVitalInfo({
   required num steps,
   required num heartRate,
+  required num sleep,
 }) async {
   var prefs = await SharedPreferences.getInstance();
   ResponseModel? token = await UserAuthRepo().userLogin(
@@ -26,6 +27,7 @@ Future<ResponseModel?> saveVitalInfo({
         body: jsonEncode({
           "steps": steps,
           "avaheartbeat": heartRate,
+          "sleepHours": sleep,
         }),
       );
       Map<String, dynamic> data = jsonDecode(response.body);
