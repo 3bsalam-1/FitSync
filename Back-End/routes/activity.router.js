@@ -12,5 +12,10 @@ router
   .route("/completed")
   .get(activityController.getCompleted)
   .post(activityController.postCompleted);
+  
+router
+  .route("/fav-meal")
+  .get(activityController.getFavMeal)
+  .post(activityController.postFavMeal);
 
 module.exports = router;

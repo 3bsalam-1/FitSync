@@ -38,6 +38,42 @@ exports.postWorkout = asyncWrapper(async (req, res, next) => {
 });
 
 
+exports.getFavMeal = asyncWrapper(async (req, res, next) => {
+  const userId = req.user._id;
+  const favMeal = await ACTIVITY.findOne({ userId });
+  res.status(201).json({
+    status: SUCCESS,
+    data: {
+      Data: favMeal.favMeal,
+    },
+  });
+});
+
+
+exports.postFavMeal = asyncWrapper(async (req, res, next) => {
+  const userId = req.user._id;
+  let curFavMeal = await ACTIVITY.findOne({ userId });
+  let { favMeal } = req.body;
+
+  if (!curFavMeal) {
+    curFavMeal = new ACTIVITY({
+      userId,
+      favMeal: Array.from(new Set(favMeal))
+    });
+  } else {
+    for (let el of favMeal) {
+      if (!curFavMeal.favMeal.includes(el)) {
+        curFavMeal.favMeal.push(el);
+      }
+    }
+  }
+  await curFavMeal.save();
+  res.status(201).json({
+    status: SUCCESS,
+  });
+});
+
+
 exports.getCompleted = asyncWrapper(async (req, res, next) => {
   const userId = req.user._id;
   const completed = await ACTIVITY.findOne({ userId });
