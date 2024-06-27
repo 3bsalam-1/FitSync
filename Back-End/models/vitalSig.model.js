@@ -23,14 +23,20 @@ const dataSchema = new mongoose.Schema({
       timestamps: Date,
     },
   ],
-  inTake: Number,
+  inTake:{
+    type: Number,
+    default: 0,
+  },
   burned: [
     {
       burned: Number,
       timestamps: Date,
     },
   ],
-  activeHours: Number
+  activeHours:{
+    type: Number,
+    default: 0,
+  }
 });
 
 module.exports = mongoose.model("vitalsignal", dataSchema);
