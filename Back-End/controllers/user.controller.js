@@ -72,7 +72,7 @@ exports.changeAvatar = asyncWrapper(async (req, res, next) => {
   }
   const result = await cloudinary.uploader.upload(file.path, {
     resource_type: "image",
-    transformation: [{ width: 500, height: 500, crop: "limit" }],
+    transformation: [{ width: 500, height: 500}],
   });
   user.avatar = {
     url: result.secure_url,
