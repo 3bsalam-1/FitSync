@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
@@ -8,6 +9,7 @@ import '../../global/animated_navigator.dart';
 import '../../global/custom_image.dart';
 import 'custom_start_button.dart';
 import '../../global/custom_translate_text.dart';
+
 class WorkOutsChallengCard extends StatelessWidget {
   const WorkOutsChallengCard({super.key});
 
@@ -93,15 +95,20 @@ class WorkOutsChallengCard extends StatelessWidget {
                             ),
                           ),
                         ),
-                        customTranslateText(
-                          provider.viewAllChallenge
-                              ? provider.challenges![index].category
-                              : provider.challenges![DateTime.now().weekday - 1]
-                                  .category,
-                          style: GoogleFonts.poppins(
-                            fontSize: 22,
-                            color: white,
-                            fontWeight: FontWeight.w600,
+                        SizedBox(
+                          width: 150,
+                          child: customTranslateText(
+                            provider.viewAllChallenge
+                                ? provider.challenges![index].category
+                                : provider
+                                    .challenges![DateTime.now().weekday - 1]
+                                    .category,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.poppins(
+                              fontSize: 22,
+                              color: white,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                         const SizedBox(height: 10),
