@@ -4,6 +4,7 @@ const User = require("../models/user.model");
 const asyncWrapper = require("../utils/asyncWrapper");
 const AppError = require("../utils/appError");
 const { FAIL, SUCCESS, ERROR } = require("../utils/httpStatusText");
+const  { signToken } = require("../utils/generateToken");
 
 exports.createUserInfo = asyncWrapper(async (req, res, next) => {
   let UserInfo = await userInfo.findOne({ userId: req.user._id });
@@ -27,12 +28,14 @@ exports.createUserInfo = asyncWrapper(async (req, res, next) => {
   let user = await User.findById(req.user._id).select("-__v");
   user.firstTime = false;
   user.save({ validateBeforeSave: false });
+  const token = await signToken(user, res);
   res.status(201).json({
     status: SUCCESS,
     data: {
       userInfo: newUserInfo,
       disease: newDisease
     },
+    token,
   });
 });
 
