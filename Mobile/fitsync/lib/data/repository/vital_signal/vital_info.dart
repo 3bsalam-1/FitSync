@@ -34,7 +34,7 @@ Future<ResponseModel?> saveVitalInfo({
       );
       Map<String, dynamic> data = jsonDecode(response.body);
       ResponseModel body = ResponseModel.fromJson(data);
-      debugPrint("The Response data of vital-info is $body");
+      debugPrint("The Response data of vital-info is ${body.status}");
       return body;
     } catch (e) {
       debugPrint('The Errror is: ${e.toString()}');
@@ -65,7 +65,7 @@ Future<ResponseModel?> saveActiveHours(num activeHours) async {
       );
       Map<String, dynamic> data = jsonDecode(response.body);
       ResponseModel body = ResponseModel.fromJson(data);
-      debugPrint("The Response data of vital-info is $body");
+      debugPrint("The Response data of saveActiveHours is ${body.status}");
       return body;
     } catch (e) {
       debugPrint('The Errror is: ${e.toString()}');
@@ -90,7 +90,7 @@ Future<VitalInfoModel?> getVitalInfo() async {
         },
       );
       Map<String, dynamic> json = jsonDecode(response.body);
-      VitalInfoModel data = VitalInfoModel.fromJson(json['data']['Data']);
+      VitalInfoModel? data = VitalInfoModel.fromJson(json['data']['Data']);
       debugPrint("The Response get data of vital-info is $data");
       return data;
     } catch (e) {
@@ -123,7 +123,8 @@ Future<ResponseModel?> saveBurnedInfo({
       );
       Map<String, dynamic> data = jsonDecode(response.body);
       ResponseModel body = ResponseModel.fromJson(data);
-      debugPrint("The Response data of save burned Info data is $body");
+      debugPrint(
+          "The Response data of save burned Info data is ${body.status}");
       return body;
     } catch (e) {
       debugPrint('The Errror is: ${e.toString()}');

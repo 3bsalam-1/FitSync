@@ -31,7 +31,7 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
           // The user is take the survey so they will save as login to the app
           Prefs.setBool('isLogin', true);
           decodeJWT();
-          Future.delayed(const Duration(milliseconds: 400), () {
+          Future.delayed(const Duration(seconds: 2), () {
             emit(UserDataSuccess());
           });
         } else {

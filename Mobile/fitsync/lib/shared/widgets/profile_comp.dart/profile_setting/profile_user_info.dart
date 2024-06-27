@@ -22,52 +22,54 @@ class ProfileUserInfo extends StatelessWidget {
             topRight: Radius.circular(45),
           ),
         ),
-        child: Column(
-          children: [
-            const SizedBox(height: 10),
-            Container(
-              height: 7,
-              width: 70,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: gray7.withOpacity(0.7),
+        child: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Container(
+                height: 7,
+                width: 70,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  color: gray7.withOpacity(0.7),
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
-              builder: (context, state) {
-                final data = context.read<UserDataInfoCubit>().userData;
-                return CustomAnimatedOpacity(child: UserSquareInfo(data: data));
-              },
-            ),
-            const SizedBox(height: 25),
-            CustomAnimatedOpacity(
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 15),
-                width: double.maxFinite,
-                child: const UserInfo(),
-              ),
-            ),
-            const Spacer(flex: 2),
-            CustomAnimatedOpacity(
-              child: TextButton(
-                onPressed: () {
-                  // todo here delete the user account
+              const SizedBox(height: 20),
+              BlocBuilder<UserDataInfoCubit, UserDataInfoState>(
+                builder: (context, state) {
+                  final data = context.read<UserDataInfoCubit>().userData;
+                  return CustomAnimatedOpacity(
+                      child: UserSquareInfo(data: data));
                 },
-                child: customTranslateText(
-                  'Delete Account',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14,
-                    color: red2,
-                    fontWeight: FontWeight.w700,
-                    decoration: TextDecoration.underline,
-                    decorationColor: red2,
+              ),
+              const SizedBox(height: 25),
+              CustomAnimatedOpacity(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 15),
+                  width: double.maxFinite,
+                  child: const UserInfo(),
+                ),
+              ),
+              CustomAnimatedOpacity(
+                child: TextButton(
+                  onPressed: () {
+                    // todo here delete the user account
+                  },
+                  child: customTranslateText(
+                    'Delete Account',
+                    style: GoogleFonts.poppins(
+                      fontSize: 14,
+                      color: red2,
+                      fontWeight: FontWeight.w700,
+                      decoration: TextDecoration.underline,
+                      decorationColor: red2,
+                    ),
                   ),
                 ),
               ),
-            ),
-            const Spacer(flex: 1),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -23,48 +23,47 @@ class CustomDayItem extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               itemBuilder: (context, index) {
-                return InkWell(
-                  onTap: () {
-                    context.read<WeekDatesCubit>().isSeleced(index);
-                  },
-                  child: Container(
-                    width: width / getWeekDates().length - 14,
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 5,
-                      vertical: 12,
-                    ),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(70),
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 5,
-                          spreadRadius: 2,
-                          color: gray2.withOpacity(0.1),
-                        ),
-                      ],
-                      gradient: LinearGradient(
-                        colors:
-                            index == context.read<WeekDatesCubit>().isSelected
-                                ? [
-                                    purple2,
-                                    cyan,
-                                  ]
-                                : [
-                                    white,
-                                    white,
-                                  ],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
+                return Container(
+                  width: width / getWeekDates().length - 17,
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 5,
+                    vertical: 12,
+                  ),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(70),
+                    boxShadow: [
+                      BoxShadow(
+                        blurRadius: 5,
+                        spreadRadius: 2,
+                        color: gray2.withOpacity(0.1),
                       ),
+                    ],
+                    gradient: LinearGradient(
+                      colors: index == context.read<WeekDatesCubit>().isSelected
+                          ? [
+                              purple2,
+                              cyan,
+                            ]
+                          : [
+                              white,
+                              white,
+                            ],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                     ),
-                    child: Center(
+                  ),
+                  child: Center(
+                    child: InkWell(
+                      onTap: () {
+                        //context.read<WeekDatesCubit>().isSeleced(index);
+                      },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             state[index][0]!,
                             style: GoogleFonts.poppins(
-                              fontSize: 14,
+                              fontSize: 12,
                               color: index ==
                                       context.read<WeekDatesCubit>().isSelected
                                   ? white
@@ -75,7 +74,7 @@ class CustomDayItem extends StatelessWidget {
                           Text(
                             state[index][1]!,
                             style: GoogleFonts.poppins(
-                              fontSize: 14,
+                              fontSize: 12,
                               color: index ==
                                       context.read<WeekDatesCubit>().isSelected
                                   ? white

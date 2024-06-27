@@ -45,7 +45,7 @@ Widget cardInfo({
         style: GoogleFonts.poppins(
           fontSize: 14,
           color: gray4,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w500,
         ),
       ),
       const Spacer(),
@@ -59,7 +59,7 @@ Widget cardInfo({
               style: GoogleFonts.poppins(
                 fontSize: 14,
                 color: gray4,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
               ),
             ),
             const SizedBox(width: 5),

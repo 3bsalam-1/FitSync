@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../data/cubit/user_data/user_data_info_cubit.dart';
@@ -71,13 +72,16 @@ class ProfileCard extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Text(
-                      Prefs.getString('email')!,
-                      overflow: TextOverflow.ellipsis,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14,
-                        color: gray4,
-                        fontWeight: FontWeight.w600,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width - 170,
+                      child: Text(
+                        Prefs.getString('email')!,
+                        overflow: TextOverflow.ellipsis,
+                        style: GoogleFonts.poppins(
+                          fontSize: 13,
+                          color: gray4,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
                   ],

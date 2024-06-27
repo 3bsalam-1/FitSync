@@ -38,32 +38,32 @@ List<DataInfo> getDataInfo(UserPersonalInfoGetModel? data) {
     ),
     DataInfo(
       label: 'Height',
-      value: data != null ? data.height.toString() : '_',
+      value: data != null ? '${data.height} cm' : '_cm',
       onPressed: null,
     ),
     DataInfo(
       label: 'Weight',
-      value: data != null ? data.weight.toString() : '_',
+      value: data != null ? '${data.weight} kg' : '_kg',
       onPressed: null,
     ),
     DataInfo(
       label: 'Blood-sugar',
-      value: data != null ? data.bloodSugar.toString() : '_',
+      value: data != null ? '${data.bloodSugar} Mg/dL' : '_Mg/dL',
       onPressed: null,
     ),
     DataInfo(
       label: 'Systolic-blood-pressure',
-      value: data != null ? data.systolicBP.toString() : '_',
+      value: data != null ? '${data.systolicBP} SYS' : '_SYS',
       onPressed: null,
     ),
     DataInfo(
       label: 'Diastolic-blood-pressure',
-      value: data != null ? data.diastolicBP.toString() : '_',
+      value: data != null ? '${data.diastolicBP} DIA' : '_DIA',
       onPressed: null,
     ),
     DataInfo(
       label: 'Cholesterol-level',
-      value: data != null ? data.cholesterolLevel.toString() : '_',
+      value: data != null ? '${data.cholesterolLevel} Mg/dL' : '_Mg/dL',
       onPressed: null,
     ),
     DataInfo(

@@ -59,6 +59,7 @@ class CardItems extends StatelessWidget {
                   width: width * 0.42,
                   child: customTranslateText(
                     workouts.category,
+                    overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.poppins(
                       fontSize: 22,
                       color: white,
@@ -67,10 +68,7 @@ class CardItems extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 8,
-                  ),
+                  padding: const EdgeInsets.all(6.5),
                   margin: const EdgeInsets.symmetric(vertical: 12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
@@ -82,13 +80,13 @@ class CardItems extends StatelessWidget {
                       const Icon(
                         Icons.access_time_sharp,
                         color: white,
-                        size: 17,
+                        size: 15,
                       ),
                       const SizedBox(width: 5),
                       customTranslateText(
                         '${workouts.planDurationMn} Minutes Workout',
                         style: GoogleFonts.poppins(
-                          fontSize: 12,
+                          fontSize: 10,
                           color: white,
                           fontWeight: FontWeight.w500,
                         ),
