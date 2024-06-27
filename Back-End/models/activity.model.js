@@ -18,7 +18,12 @@ const activitySchema = new mongoose.Schema({
         default: false,
       },
     ], 
-  }
+  },
+  favMeal:[
+    {
+      type: String,
+    },
+  ],
 });
 
 module.exports = mongoose.model("saved_activity", activitySchema);
