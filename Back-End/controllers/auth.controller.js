@@ -107,11 +107,11 @@ exports.Login = asyncWrapper(async (req, res, next) => {
     );
   }
   const user = await User.findOne({ email }).select("+password");
-  if (!user || !(await user.correctPassword(password, user.password))) {
-    return next(AppError.create("Incorrect email or password", ERROR, 401));
-  }
   if (!user.password) {
     return next(AppError.create("Try login by another way", ERROR, 400));
+  }
+  if (!user || !(await user.correctPassword(password, user.password))) {
+    return next(AppError.create("Incorrect email or password", ERROR, 401));
   }
   if (!user.isVerify) {
     await user.deleteOne();
