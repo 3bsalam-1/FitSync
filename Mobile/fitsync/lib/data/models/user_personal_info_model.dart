@@ -56,6 +56,7 @@ class UserPersonalInfoGetModel {
   final num bmr;
   final int kneePain;
   final int backPain;
+  final bool isActive;
 
   UserPersonalInfoGetModel({
     required this.userId,
@@ -75,27 +76,29 @@ class UserPersonalInfoGetModel {
     required this.bmr,
     required this.kneePain,
     required this.backPain,
+    required this.isActive,
   });
 
   factory UserPersonalInfoGetModel.fromJson(Map<String, dynamic> json) {
     return UserPersonalInfoGetModel(
-      userId: json['data']['userInfo']['userId'],
-      weight: json['data']['userInfo']['weight'],
-      height: json['data']['userInfo']['height'],
-      birthdate: DateTime.parse(json['data']['userInfo']['birthdate']),
-      gender: json['data']['userInfo']['gender'],
-      activityLevel: json['data']['userInfo']['activityLevel'],
-      systolicBP: json['data']['userInfo']['systolicBP'],
-      diastolicBP: json['data']['userInfo']['diastolicBP'],
-      cholesterolLevel: json['data']['userInfo']['cholesterolLevel'],
-      bloodSugar: json['data']['userInfo']['bloodsugar'],
-      hypertension: json['data']['userInfo']['hypertension'],
-      diabetes: json['data']['userInfo']['diabetes'],
-      heartCondition: json['data']['userInfo']['heartCondition'],
-      lowPressure: json['data']['userInfo']['LowPressure'],
-      bmr: json['data']['userInfo']['BMR'],
-      kneePain: json['data']['userInfo']['kneePain'],
-      backPain: json['data']['userInfo']['backPain'],
+      userId: json['data']['diseases']['userId'],
+      weight: json['data']['weight'],
+      height: json['data']['height'],
+      birthdate: DateTime.parse(json['data']['birthdate']),
+      gender: json['data']['gender'],
+      activityLevel: json['data']['activityLevel'],
+      systolicBP: json['data']['systolicBP'],
+      diastolicBP: json['data']['diastolicBP'],
+      cholesterolLevel: json['data']['cholesterolLevel'],
+      bloodSugar: json['data']['bloodsugar'],
+      hypertension: json['data']['diseases']['hypertension'],
+      diabetes: json['data']['diseases']['diabetes'],
+      heartCondition: json['data']['diseases']['heartCondition'],
+      lowPressure: json['data']['diseases']['LowPressure'],
+      bmr: json['data']['BMR'],
+      kneePain: json['data']['diseases']['kneePain'],
+      backPain: json['data']['diseases']['backPain'],
+      isActive: json['data']['isActive'],
     );
   }
 }

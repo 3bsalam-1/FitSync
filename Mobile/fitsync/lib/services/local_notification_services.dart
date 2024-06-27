@@ -70,13 +70,6 @@ class LocalNotificationServices {
               data: 'tel:$number',
             );
             await intent.launch();
-          } else {
-            // todo here add the emergency phone
-            const AndroidIntent intent = AndroidIntent(
-              action: 'android.intent.action.CALL',
-              data: 'tel:01093384013',
-            );
-            await intent.launch();
           }
         }
       },

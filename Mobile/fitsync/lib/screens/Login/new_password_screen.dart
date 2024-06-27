@@ -8,8 +8,16 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/login_comp/custom_textformfield.dart';
 
-class NewPasswordScreen extends StatelessWidget {
+class NewPasswordScreen extends StatefulWidget {
   const NewPasswordScreen({super.key});
+
+  @override
+  State<NewPasswordScreen> createState() => _NewPasswordScreenState();
+}
+
+class _NewPasswordScreenState extends State<NewPasswordScreen> {
+  var password = TextEditingController();
+  var confirmPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +90,7 @@ class NewPasswordScreen extends StatelessWidget {
                   CustomizeTextFormField(
                     icon: Icons.lock_outline,
                     hintText: "Password",
-                    controller: context.read<AuthCubit>().password,
+                    controller: password,
                     obscureText: context.read<AuthCubit>().isObscure,
                     suffixIcon: context.read<AuthCubit>().isObscure
                         ? Icons.visibility_off_outlined
@@ -103,7 +111,7 @@ class NewPasswordScreen extends StatelessWidget {
                   CustomizeTextFormField(
                     icon: Icons.lock_outline,
                     hintText: "Confirm Password",
-                    controller: context.read<AuthCubit>().confirmPassword,
+                    controller: confirmPassword,
                     obscureText: context.read<AuthCubit>().isObscureConfirm,
                     suffixIcon: context.read<AuthCubit>().isObscureConfirm
                         ? Icons.visibility_off_outlined
@@ -114,8 +122,7 @@ class NewPasswordScreen extends StatelessWidget {
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'can Not be empty';
-                      } else if (value !=
-                          context.read<AuthCubit>().password.text) {
+                      } else if (value != password.text) {
                         return 'Password do not match';
                       }
                       return null;
@@ -126,7 +133,11 @@ class NewPasswordScreen extends StatelessWidget {
                     label: 'Update Password',
                     onPressed: () {
                       FocusScope.of(context).unfocus();
-                      context.read<AuthCubit>().resetPassword(context);
+                      context.read<AuthCubit>().resetPassword(
+                            context,
+                            password: password.text,
+                            confirmPassword: confirmPassword.text,
+                          );
                     },
                   ),
                 ],

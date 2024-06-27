@@ -17,12 +17,7 @@ part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthCubitState> {
   AuthCubit() : super(AuthCubitInitial());
-  var email = TextEditingController();
-  var password = TextEditingController();
-  var confirmPassword = TextEditingController();
-  var username = TextEditingController();
-  var firstName = TextEditingController();
-  var lastName = TextEditingController();
+
   var keyValidateSignin = GlobalKey<FormState>();
   var keyValidateSignup = GlobalKey<FormState>();
   var keyValidatePass = GlobalKey<FormState>();
@@ -63,7 +58,11 @@ class AuthCubit extends Cubit<AuthCubitState> {
     emit(AuthCubitInitial());
   }
 
-  void signin(BuildContext context) async {
+  void signin(
+    BuildContext context, {
+    required String email,
+    required String password,
+  }) async {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
     if (keyValidateSignin.currentState!.validate()) {
@@ -71,8 +70,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
       if (checkWifi) {
         auth
             .userLogin(
-          email: email.text,
-          password: password.text,
+          email: email,
+          password: password,
         )
             .then((response) {
           ScaffoldMessenger.of(context).clearSnackBars();
@@ -83,8 +82,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
             } else {
               // There is no error then go to the home page & save token
               Prefs.setString('token', response.token!);
-              Prefs.setString('email', email.text);
-              Prefs.setString('password', password.text);
+              Prefs.setString('email', email);
+              Prefs.setString('password', password);
               emit(AuthSuccess(message: 'Login Successfully'));
               decodeJWT();
               Future.delayed(
@@ -109,7 +108,15 @@ class AuthCubit extends Cubit<AuthCubitState> {
     }
   }
 
-  void register(BuildContext context) async {
+  void register(
+    BuildContext context, {
+    required String email,
+    required String firstName,
+    required String lastName,
+    required String username,
+    required String password,
+    required String confirmPassword,
+  }) async {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
     if (keyValidateSignup.currentState!.validate() && agreePolicy) {
@@ -118,12 +125,12 @@ class AuthCubit extends Cubit<AuthCubitState> {
         auth
             .userRegister(
           userData: UserDataModel(
-            firstName: firstName.text,
-            lastName: lastName.text,
-            username: username.text,
-            email: email.text,
-            password: password.text,
-            passwordConfirm: confirmPassword.text,
+            firstName: firstName,
+            lastName: lastName,
+            username: username,
+            email: email,
+            password: password,
+            passwordConfirm: confirmPassword,
           ),
         )
             .then((response) {
@@ -135,8 +142,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
             } else {
               // There is no error then go to the home page & save token
               Prefs.setString('token', response.token!);
-              Prefs.setString('email', email.text);
-              Prefs.setString('password', password.text);
+              Prefs.setString('email', email);
+              Prefs.setString('password', password);
               emit(AuthSuccess(
                 message: 'The code has sent to your email',
                 backcontent: purple10,
@@ -203,7 +210,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
               // The user is created account so they will save as login to the app
               Prefs.setBool('isLogin', true);
               // The user still no take the survey
-              Prefs.setBool('takeSurvey', false);
+              decodeJWT();
               emit(AuthSuccess(
                 message: 'The Verification Success',
                 backcontent: purple10,
@@ -237,13 +244,13 @@ class AuthCubit extends Cubit<AuthCubitState> {
     }
   }
 
-  void forgetPassword(BuildContext context) async {
-    if (email.text.isNotEmpty) {
+  void forgetPassword(BuildContext context, {required String email}) async {
+    if (email.isNotEmpty) {
       bool checkWifi = await isInternetConnectivityON();
       if (checkWifi) {
         pass
             .forgetPassword(
-          email: email.text,
+          email: email,
         )
             .then((response) {
           ScaffoldMessenger.of(context).clearSnackBars();
@@ -363,14 +370,18 @@ class AuthCubit extends Cubit<AuthCubitState> {
     }
   }
 
-  void resetPassword(BuildContext context) async {
+  void resetPassword(
+    BuildContext context, {
+    required String password,
+    required String confirmPassword,
+  }) async {
     if (keyValidatePass.currentState!.validate()) {
       bool checkWifi = await isInternetConnectivityON();
       if (checkWifi) {
         pass
             .resetPassword(
-          password: password.text,
-          passwordConfirm: confirmPassword.text,
+          password: password,
+          passwordConfirm: confirmPassword,
           token: Prefs.getString('token')!,
         )
             .then((response) {

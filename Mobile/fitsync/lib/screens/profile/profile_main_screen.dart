@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits_logic/global/dark_mode_cubit.dart';
 import '../../cubits_logic/global/notification_cubit.dart';
 import '../../services/local_notification_services.dart';
+import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/custom_card_icon.dart';
@@ -104,7 +105,9 @@ class ProfileMainScreen extends StatelessWidget {
                         onTap: () {
                           AnimatedNavigator().push(
                             context,
-                            const ForgotPasswordPage(),
+                            ForgotPasswordPage(
+                              userEmail: Prefs.getString('email')!,
+                            ),
                           );
                         },
                       ),

@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-
 import '../../../shared/const/base_url.dart';
 import '../../models/response_model.dart';
 
@@ -20,6 +18,7 @@ class PasswordRepo {
       );
       var data = jsonDecode(response.body);
       ResponseModel responseData = ResponseModel.fromJson(data);
+      debugPrint('The forgetPassword response is: ${response.statusCode}');
       return responseData;
     } catch (e) {
       debugPrint('The forgetPassword Errror is: ${e.toString()}');
@@ -47,6 +46,7 @@ class PasswordRepo {
       );
       var data = jsonDecode(response.body);
       ResponseModel responseData = ResponseModel.fromJson(data);
+      debugPrint('The restPassword response is: ${response.statusCode}');
       return responseData;
     } catch (e) {
       debugPrint('The resetPassword Error is: ${e.toString()}');
@@ -76,6 +76,7 @@ class PasswordRepo {
       );
       var data = jsonDecode(response.body);
       ResponseModel responseData = ResponseModel.fromJson(data);
+      debugPrint('The updatePassword response is: ${response.statusCode}');
       return responseData;
     } catch (e) {
       debugPrint('The updatePassword Errror is: ${e.toString()}');

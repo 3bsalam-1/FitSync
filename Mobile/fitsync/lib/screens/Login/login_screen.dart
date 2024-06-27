@@ -14,8 +14,16 @@ import '../../data/cubit/auth/auth_cubit.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import 'forgot_password_screen.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  var email = TextEditingController();
+  var password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +87,7 @@ class LoginPage extends StatelessWidget {
                           icon: IconlyLight.message,
                           horizontalPadding: 25,
                           hintText: "Email",
-                          controller: context.read<AuthCubit>().email,
+                          controller: email,
                           validator: (value) {
                             if (value!.isEmpty) {
                               return 'can Not be empty';
@@ -100,7 +108,7 @@ class LoginPage extends StatelessWidget {
                           icon: IconlyLight.lock,
                           horizontalPadding: 25,
                           hintText: "Password",
-                          controller: context.read<AuthCubit>().password,
+                          controller: password,
                           obscureText: context.read<AuthCubit>().isObscure,
                           suffixIcon: context.read<AuthCubit>().isObscure
                               ? IconlyLight.hide
@@ -126,10 +134,11 @@ class LoginPage extends StatelessWidget {
                             padding: const EdgeInsets.only(right: 27),
                             child: TextButton(
                               onPressed: () {
-                                context.read<AuthCubit>().password.clear();
                                 AnimatedNavigator().push(
                                   context,
-                                  const ForgotPasswordPage(),
+                                  ForgotPasswordPage(
+                                    userEmail: email.text,
+                                  ),
                                 );
                               },
                               child: const Text(
@@ -150,7 +159,11 @@ class LoginPage extends StatelessWidget {
                           label: "Log in",
                           onPressed: () {
                             FocusScope.of(context).unfocus();
-                            context.read<AuthCubit>().signin(context);
+                            context.read<AuthCubit>().signin(
+                                  context,
+                                  email: email.text,
+                                  password: password.text,
+                                );
                           },
                         ),
                         const SizedBox(height: 22),
@@ -204,9 +217,6 @@ class LoginPage extends StatelessWidget {
                             ),
                             TextButton(
                               onPressed: () {
-                                context.read<AuthCubit>().email.clear();
-                                context.read<AuthCubit>().password.clear();
-                                context.read<AuthCubit>().isObscure = true;
                                 context.read<AuthCubit>().autovalidateMode =
                                     AutovalidateMode.disabled;
                                 AnimatedNavigator().push(

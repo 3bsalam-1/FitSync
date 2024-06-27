@@ -1,6 +1,6 @@
-import 'package:fitsync/data/repository/heart_rate/check_heart_rate.dart';
+import 'package:fitsync/data/repository/vital_signal/check_heart_rate.dart';
 import 'package:workmanager/workmanager.dart';
-import '../data/repository/heart_rate/vital_info.dart';
+import '../data/repository/vital_signal/vital_info.dart';
 import '../screens/workouts/workouts_screen.dart';
 import 'local_notification_services.dart';
 import 'smart_watch_services.dart';

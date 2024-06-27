@@ -12,8 +12,20 @@ import 'package:iconly/iconly.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import 'verification_screen.dart';
 
-class SignUp extends StatelessWidget {
+class SignUp extends StatefulWidget {
   const SignUp({super.key});
+
+  @override
+  State<SignUp> createState() => _SignUpState();
+}
+
+class _SignUpState extends State<SignUp> {
+  var email = TextEditingController();
+  var password = TextEditingController();
+  var confirmPassword = TextEditingController();
+  var username = TextEditingController();
+  var firstName = TextEditingController();
+  var lastName = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +47,7 @@ class SignUp extends StatelessWidget {
               AnimatedNavigator().pushAndRemoveUntil(
                 context,
                 VerificationPage(
-                  onPressed: () {
-                    context.read<AuthCubit>().verifyCode(context);
-                  },
-                  sendCodeAgain: () {
-                    context.read<AuthCubit>().sendCodeAgain(context);
-                  },
-                  email: context.read<AuthCubit>().email.text,
+                  email: email.text,
                 ),
               );
             }
@@ -82,7 +88,7 @@ class SignUp extends StatelessWidget {
                         icon: IconlyLight.profile,
                         hintText: " User Name",
                         horizontalPadding: 25,
-                        controller: context.read<AuthCubit>().username,
+                        controller: username,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'can Not be empty';
@@ -104,7 +110,7 @@ class SignUp extends StatelessWidget {
                                 hintText: "First Name",
                                 horizontalPadding: 4,
                                 icon: IconlyLight.profile,
-                                controller: context.read<AuthCubit>().firstName,
+                                controller: firstName,
                                 validator: (value) {
                                   if (value!.isEmpty) {
                                     return 'can Not be empty';
@@ -121,7 +127,7 @@ class SignUp extends StatelessWidget {
                                 hintText: "Last Name",
                                 horizontalPadding: 4,
                                 icon: IconlyLight.profile,
-                                controller: context.read<AuthCubit>().lastName,
+                                controller: lastName,
                                 validator: (value) {
                                   if (value!.isEmpty) {
                                     return 'can Not be empty';
@@ -143,7 +149,7 @@ class SignUp extends StatelessWidget {
                         icon: IconlyLight.message,
                         hintText: "Email",
                         horizontalPadding: 25,
-                        controller: context.read<AuthCubit>().email,
+                        controller: email,
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'can Not be empty';
@@ -164,7 +170,7 @@ class SignUp extends StatelessWidget {
                         icon: IconlyLight.lock,
                         hintText: "Password",
                         horizontalPadding: 25,
-                        controller: context.read<AuthCubit>().password,
+                        controller: password,
                         obscureText: context.read<AuthCubit>().isObscure,
                         suffixIcon: context.read<AuthCubit>().isObscure
                             ? IconlyLight.hide
@@ -189,7 +195,7 @@ class SignUp extends StatelessWidget {
                         icon: IconlyLight.lock,
                         hintText: "Confirm Password",
                         horizontalPadding: 25,
-                        controller: context.read<AuthCubit>().confirmPassword,
+                        controller: confirmPassword,
                         obscureText: context.read<AuthCubit>().isObscureConfirm,
                         suffixIcon: context.read<AuthCubit>().isObscureConfirm
                             ? IconlyLight.hide
@@ -200,8 +206,7 @@ class SignUp extends StatelessWidget {
                         validator: (value) {
                           if (value!.isEmpty) {
                             return 'can Not be empty';
-                          } else if (value !=
-                              context.read<AuthCubit>().password.text) {
+                          } else if (value != password.text) {
                             return 'Password do not match';
                           }
                           return null;
@@ -223,7 +228,9 @@ class SignUp extends StatelessWidget {
                                 side: BorderSide(
                                   color: context.read<AuthCubit>().agreeCheck ==
                                               1 ||
-                                          context.read<AuthCubit>().agreeCheck ==
+                                          context
+                                                  .read<AuthCubit>()
+                                                  .agreeCheck ==
                                               -1
                                       ? gray2
                                       : red,
@@ -288,7 +295,15 @@ class SignUp extends StatelessWidget {
                         label: "Sign Up",
                         onPressed: () {
                           FocusScope.of(context).unfocus();
-                          context.read<AuthCubit>().register(context);
+                          context.read<AuthCubit>().register(
+                                context,
+                                email: email.text,
+                                username: username.text,
+                                password: password.text,
+                                confirmPassword: confirmPassword.text,
+                                firstName: firstName.text,
+                                lastName: lastName.text,
+                              );
                         },
                       ),
                       const SizedBox(height: 25),
@@ -339,12 +354,6 @@ class SignUp extends StatelessWidget {
                           ),
                           TextButton(
                             onPressed: () {
-                              context.read<AuthCubit>().username.clear();
-                              context.read<AuthCubit>().firstName.clear();
-                              context.read<AuthCubit>().lastName.clear();
-                              context.read<AuthCubit>().email.clear();
-                              context.read<AuthCubit>().password.clear();
-                              context.read<AuthCubit>().confirmPassword.clear();
                               context.read<AuthCubit>().isObscure = true;
                               context.read<AuthCubit>().autovalidateMode =
                                   AutovalidateMode.disabled;

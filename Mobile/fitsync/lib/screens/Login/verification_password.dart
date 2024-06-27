@@ -1,4 +1,3 @@
-import 'package:fitsync/screens/survey/welcome_survey_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_button.dart';
@@ -9,10 +8,10 @@ import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/login_comp/custom_otp_widget.dart';
 import 'new_password_screen.dart';
 
-class VerificationPage extends StatelessWidget {
+class VerificationPasswordPage extends StatelessWidget {
   final String email;
 
-  const VerificationPage({
+  const VerificationPasswordPage({
     super.key,
     required this.email,
   });
@@ -34,11 +33,6 @@ class VerificationPage extends StatelessWidget {
               state.showFaliure(context);
             } else if (state is AuthSuccess) {
               state.showSucceussdialog(context);
-            } else if (state is AuthLogin) {
-              AnimatedNavigator().pushAndRemoveUntil(
-                context,
-                const WelcomeSurveyScreen(),
-              );
             } else if (state is AuthResetCode) {
               AnimatedNavigator().push(
                 context,
@@ -135,7 +129,7 @@ class VerificationPage extends StatelessWidget {
                   CustomButton(
                     label: "Verify Code",
                     onPressed: () {
-                      context.read<AuthCubit>().verifyCode(context);
+                      context.read<AuthCubit>().resetCode(context);
                     },
                   ),
                   const SizedBox(height: 40),
@@ -152,7 +146,10 @@ class VerificationPage extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
-                          context.read<AuthCubit>().sendCodeAgain(context);
+                          context.read<AuthCubit>().forgetPassword(
+                          context,
+                          email: email,
+                        );
                         },
                         child: Text(
                           'Resend email',

@@ -25,6 +25,7 @@ class UserAuthRepo {
       );
       var data = jsonDecode(response.body);
       ResponseModel responseData = ResponseModel.fromJson(data);
+      debugPrint('The register data is ${responseData.message}');
       return responseData;
     } catch (e) {
       debugPrint('The userRegister Errror is: ${e.toString()}');
@@ -50,6 +51,7 @@ class UserAuthRepo {
       );
       var data = jsonDecode(response.body);
       ResponseModel responseData = ResponseModel.fromJson(data);
+      debugPrint('The login data is ${responseData.message}');
       return responseData;
     } catch (e) {
       debugPrint('The userLogin Errror is: ${e.toString()}');
