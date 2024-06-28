@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits_logic/global/dark_mode_cubit.dart';
 import '../../cubits_logic/global/notification_cubit.dart';
-import '../../services/local_notification_services.dart';
 import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_translate_text.dart';
@@ -136,10 +135,9 @@ class ProfileMainScreen extends StatelessWidget {
                             value: context.read<NotificationCubit>().data,
                             onChanged: (value) {
                               // todo here testing heart attack testing
-                              if (value) {
-                                LocalNotificationServices.showAlarmNotification(
-                                    40);
-                              }
+                              // if (value) {
+                              //   LocalNotificationServices.showAlarmNotification(40);
+                              // }
                               // todo /////////////////////////////////////////
                               context
                                   .read<NotificationCubit>()

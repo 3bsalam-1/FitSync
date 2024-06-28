@@ -23,6 +23,7 @@ import 'cubits_logic/workouts/counter_time_challenges.dart';
 import 'cubits_logic/workouts/selected_level_mode.dart';
 import 'cubits_logic/workouts/week_dates.dart';
 import 'data/cubit/auth/auth_cubit.dart';
+import 'data/cubit/user_data/avatar_profile_cubit.dart';
 import 'data/cubit/user_data/user_data_info_cubit.dart';
 import 'data/cubit/workouts/favorite_workouts_cubit.dart';
 import 'data/cubit/workouts/filters_workouts_cubit.dart';
@@ -134,6 +135,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ChangestateCubit(),
+        ),
+        BlocProvider(
+          create: (context) => AvatarProfileCubit(),
         ),
       ],
       child: BlocBuilder<DarkModeCubit, ThemeData>(
