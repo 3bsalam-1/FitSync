@@ -4,6 +4,7 @@ import '../../cubits_logic/global/notification_cubit.dart';
 import '../../services/local_notification_services.dart';
 import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
+import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/custom_card_icon.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/custom_card_switch.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +32,7 @@ class ProfileMainScreen extends StatelessWidget {
               scrolledUnderElevation: 0,
               backgroundColor: white,
               title: CustomAnimatedOpacity(
-                child: Text(
+                child: customTranslateText(
                   'Profile',
                   style: GoogleFonts.poppins(
                     fontSize: 22,
@@ -76,7 +77,7 @@ class ProfileMainScreen extends StatelessWidget {
                     children: [
                       const ProfileCard(),
                       const SizedBox(height: 15),
-                      Text(
+                      customTranslateText(
                         'Settings & Preferences',
                         style: GoogleFonts.poppins(
                           fontSize: 16,
@@ -148,7 +149,7 @@ class ProfileMainScreen extends StatelessWidget {
                         },
                       ),
                       const SizedBox(height: 15),
-                      Text(
+                      customTranslateText(
                         'Support',
                         style: GoogleFonts.poppins(
                           fontSize: 16,

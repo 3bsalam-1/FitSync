@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/global/navigation_page_cubit.dart';
 import '../colors/colors.dart';
+import 'global/custom_translate_text.dart';
 
 class ItemBottomAppBar extends StatelessWidget {
   final String label;
@@ -42,7 +43,7 @@ class ItemBottomAppBar extends StatelessWidget {
               const SizedBox(height: 4),
               Padding(
                 padding: EdgeInsets.only(left: paddingLeft),
-                child: Text(
+                child: customTranslateText(
                   label,
                   style: GoogleFonts.poppins(
                     fontSize: 12,

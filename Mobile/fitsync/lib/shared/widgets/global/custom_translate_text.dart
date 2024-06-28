@@ -13,12 +13,13 @@ Widget customTranslateText(
   return BlocBuilder<TranslatelangCubit, String>(
     builder: (context, state) {
       final provider = context.read<TranslatelangCubit>();
+      final String translate = text.toLowerCase();
       return FutureBuilder(
-          future: state == 'ar' ? provider.toArabic(text) : null,
+          future: state == 'ar' ? provider.toArabic(translate) : null,
           builder: (_, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return Text(
-                '---',
+                text,
                 style: style,
               );
             }

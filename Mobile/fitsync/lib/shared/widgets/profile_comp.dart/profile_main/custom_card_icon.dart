@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
+import '../../global/custom_translate_text.dart';
 
 class CustomCardIcon extends StatelessWidget {
   final IconData icon;
@@ -46,7 +47,7 @@ class CustomCardIcon extends StatelessWidget {
               size: 30,
             ),
             const SizedBox(width: 8),
-            Text(
+            customTranslateText(
               title,
               style: GoogleFonts.poppins(
                 fontSize: 14,
