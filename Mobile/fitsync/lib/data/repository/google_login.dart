@@ -1,6 +1,5 @@
 import 'package:fitsync/data/models/response_model.dart';
 import 'package:fitsync/data/repository/api.dart';
-import 'package:fitsync/services/pref.dart';
 import 'package:fitsync/shared/const/base_url.dart';
 import 'package:flutter/material.dart';
 
