@@ -12,7 +12,6 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 class HeartBeatScreen extends StatefulWidget {
   const HeartBeatScreen({super.key});

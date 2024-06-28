@@ -7,7 +7,6 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/global/custom_button.dart';
 
 class EmergencyContact extends StatelessWidget {

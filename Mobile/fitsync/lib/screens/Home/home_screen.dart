@@ -5,7 +5,6 @@ import 'package:fitsync/screens/Home/profile_screen.dart';
 import 'package:fitsync/screens/Home/tips&tricks_screen.dart';
 import 'package:fitsync/services/pref.dart';
 import 'package:fitsync/shared/colors/colors.dart';
-import 'package:fitsync/shared/widgets/diet_comp/page1.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:fitsync/shared/widgets/home_comp/custom_properties_card.dart';

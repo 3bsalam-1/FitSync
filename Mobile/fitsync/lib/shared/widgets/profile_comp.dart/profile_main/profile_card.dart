@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../data/cubit/user_data/avatar_profile_cubit.dart';
 import '../../../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../../../screens/profile/profile_informtion_screen.dart';
 import '../../../../services/pref.dart';
@@ -45,17 +46,19 @@ class ProfileCard extends StatelessWidget {
           builder: (context, state) {
             return Row(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(15),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: CustomImage(
-                      imageUrl: Prefs.getStringList('user')![3],
-                      height: 60,
-                      width: 60,
-                      fit: BoxFit.fill,
-                      errorColor: red,
-                      iconSize: 40,
+                BlocBuilder<AvatarProfileCubit, AvatarProfileState>(
+                  builder: (context, statee) => ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(100),
+                      child: CustomImage(
+                        imageUrl: Prefs.getStringList('user')![3],
+                        height: 60,
+                        width: 60,
+                        fit: BoxFit.fill,
+                        errorColor: red,
+                        iconSize: 40,
+                      ),
                     ),
                   ),
                 ),

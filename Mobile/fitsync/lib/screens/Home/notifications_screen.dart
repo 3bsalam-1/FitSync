@@ -4,8 +4,6 @@ import 'package:fitsync/shared/widgets/home_comp/notifications_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../shared/widgets/global/custom_translate_text.dart';
-
 class NotificationsScreen extends StatelessWidget {
   const NotificationsScreen({super.key});
 
