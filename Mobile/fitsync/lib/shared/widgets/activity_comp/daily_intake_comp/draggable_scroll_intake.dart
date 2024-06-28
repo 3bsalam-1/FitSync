@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../../data/models/workouts_model.dart';
@@ -94,8 +93,10 @@ class DraggableScrollIntake extends StatelessWidget {
                 CustomAnimatedOpacity(
                   child: CustomButtonActivity(
                     label: 'Add Meal',
-                    onPressed: () {
+                    onPressed: () async {
                       // todo here add meal
+                      //double inTake = deit challenge 
+                      //await saveInTakeInfo(inTake);
                     },
                     icon: Icons.apple_rounded,
                   ),

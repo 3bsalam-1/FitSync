@@ -133,3 +133,34 @@ Future<ResponseModel?> saveBurnedInfo({
   }
   return null;
 }
+
+Future<ResponseModel?> saveInTakeInfo(num inTake) async {
+  var prefs = await SharedPreferences.getInstance();
+  prefs.reload();
+  ResponseModel? token = await UserAuthRepo().userLogin(
+    email: prefs.getString('email')!,
+    password: prefs.getString('password')!,
+  );
+  if (token != null) {
+    try {
+      http.Response response = await http.post(
+        Uri.parse('$baseUrl/api/vitalsignal/inTake'),
+        headers: {
+          'Authorization': 'Bearer ${token.token!}',
+          "Content-Type": "application/json",
+        },
+        body: jsonEncode({
+          "inTake": inTake,
+        }),
+      );
+      Map<String, dynamic> data = jsonDecode(response.body);
+      ResponseModel body = ResponseModel.fromJson(data);
+      debugPrint("The Response data of saveInTakeInfo is ${body.status}");
+      return body;
+    } catch (e) {
+      debugPrint('The Errror is: ${e.toString()}');
+      return null;
+    }
+  }
+  return null;
+}
