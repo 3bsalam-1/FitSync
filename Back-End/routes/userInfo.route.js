@@ -2,9 +2,11 @@ const router = require("express").Router();
 const userInfoController = require("../controllers/userInfo.controller");
 const { protect } = require("../controllers/auth.controller");
 
-router.route("/").post(protect, userInfoController.createUserInfo);
-router.route("/").get(protect, userInfoController.getUserInfo);
-router.route("/isActive").patch(protect, userInfoController.isActive);
-router.route("/").patch(protect, userInfoController.updateUserInfo);
+router.use(protect)
+router.route("/").post(userInfoController.createUserInfo);
+router.route("/").get(userInfoController.getUserInfo);
+router.route("/isActive").patch(userInfoController.isActive);
+router.route("/").patch(userInfoController.updateUserInfo);
+router.route("/diseases").patch(userInfoController.updateDiseases);
 
 module.exports = router;

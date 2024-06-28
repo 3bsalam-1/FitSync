@@ -17,17 +17,80 @@ exports.getvitalsignal = asyncWrapper(async (req, res, next) => {
 exports.postvitalsignal = asyncWrapper(async (req, res, next) => {
   const userId = req.user._id;
   let vitalData = await vitalsignal.findOne({ userId });
-  const { steps, avaheartbeat } = req.body;
+  const { steps, avaheartbeat, sleepHours } = req.body;
 
   if (!vitalData) {
     vitalData = new vitalsignal({
       userId,
       steps: [{ steps, timestamps: Date.now() }],
+      sleepHours: [{ sleepHours, timestamps: Date.now() }],
       avaheartbeat: [{ avaheartbeat, timestamps: Date.now() }],
     });
   } else {
     vitalData.steps.push({ steps, timestamps: Date.now() });
+    vitalData.sleepHours.push({ sleepHours, timestamps: Date.now() });
     vitalData.avaheartbeat.push({ avaheartbeat, timestamps: Date.now() });
+  }
+
+  await vitalData.save();
+
+  res.status(201).json({
+    status: SUCCESS,
+  });
+});
+
+exports.postInTake = asyncWrapper(async (req, res, next) =>{
+  const userId = req.user._id;
+  let vitalData = await vitalsignal.findOne({ userId });
+  const { inTake } = req.body;
+
+  if (!vitalData) {
+    vitalData = new vitalsignal({
+      userId,
+      inTake,
+    });
+  } else {
+    vitalData.inTake += inTake;
+  }
+
+  await vitalData.save();
+
+  res.status(201).json({
+    status: SUCCESS,
+  });
+});
+
+exports.postBurned = asyncWrapper(async (req, res, next) =>{
+  const userId = req.user._id;
+  let vitalData = await vitalsignal.findOne({ userId });
+  const { burned } = req.body;
+
+  if (!vitalData) {
+    vitalData = new vitalsignal({
+      userId,
+      burned: [{ burned, timestamps: Date.now() }],
+    });
+  } else {
+    vitalData.burned.push({ burned, timestamps: Date.now() });
+  }
+  await vitalData.save();
+  res.status(201).json({
+    status: SUCCESS,
+  });
+});
+
+exports.postActiveHours = asyncWrapper(async (req, res, next) =>{
+  const userId = req.user._id;
+  let vitalData = await vitalsignal.findOne({ userId });
+  const { activeHours } = req.body;
+
+  if (!vitalData) {
+    vitalData = new vitalsignal({
+      userId,
+      activeHours,
+    });
+  } else {
+    vitalData.activeHours += activeHours;
   }
 
   await vitalData.save();

@@ -1,0 +1,26 @@
+[
+  {
+    "Name": "chocolate and almond rum ball h",
+    "Catagory": "almond",
+    "Description": "Chocolate Sponge Eggless, Dark Chocolate, Single Cream, Almonds, Caster Sugar, Instant Coffee Powder, Dark Rum",
+    "Veg_non": "1",
+    "Nutrient": "magnesium",
+    "Diet": "high_protien_diet high_fiber_diet ketogenic_diet gluten_free_diet"
+  },
+  {
+    "Name": "chocolate appo",
+    "Catagory": "chocolate",
+    "Description": "rice, coconut, baking powder, vanilla extract, cinnamon powder, brown sugar, unsweetened cocoa powder, salt, chocolate chips, butter",
+    "Veg_non": "1",
+    "Nutrient": "magnesium",
+    "Diet": "high_protien_diet high_fiber_diet ketogenic_diet"
+  },
+  {
+    "Name": "sweet chilli almonds",
+    "Catagory": "chilli",
+    "Description": "almonds whole, egg white, curry leaves, salt, sugar (fine grain), red chilli powder",
+    "Veg_non": "1",
+    "Nutrient": "vitamin_a",
+    "Diet": "alkaline_diet low_fat_diet paleo_diet Mediterranean_diet low_sodium_diet high_fiber_diet high_protien_diet dash_diet"
+  }
+]
