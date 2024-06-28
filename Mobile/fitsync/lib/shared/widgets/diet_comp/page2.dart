@@ -9,7 +9,6 @@ List<int> count1 = List.filled(100, 0);
 
 //bool check=true;
 
-
 class Page2 extends StatelessWidget {
   Page2({
     required this.diet,
@@ -24,19 +23,18 @@ class Page2 extends StatelessWidget {
     ingredients = diet.Description;
     List<String> splitted = ingredients.split(', ');
     splitted.toSet().toList();
-  //   List<int> count = [];
-  //   for (int i = 0; i < splitted.length; i++) {
-  //     count.add(0);
-  //   }
-   
-  //  if(check){
-  //   for (int i = 0; i < 100; i++) {
-  //     count1.add(0);
-  //   }
-  //   check=false;
-  //  }
-    
-   
+    //   List<int> count = [];
+    //   for (int i = 0; i < splitted.length; i++) {
+    //     count.add(0);
+    //   }
+
+    //  if(check){
+    //   for (int i = 0; i < 100; i++) {
+    //     count1.add(0);
+    //   }
+    //   check=false;
+    //  }
+
     return Column(
       children: [
         Row(
@@ -44,7 +42,7 @@ class Page2 extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 20, top: 10),
-              child: customTranslateText(
+              child: Text(
                 "Ingredients That You \nWill Need",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
@@ -78,7 +76,7 @@ class Page2 extends StatelessWidget {
             // separatorBuilder: (context, index) => const SizedBox(height: 25),
             itemBuilder: (context, index) => CustomIngredientsWidget(
               label1: splitted[index].length > 26
-                  ? splitted[index].substring(0, 25)+"..."
+                  ? splitted[index].substring(0, 25) + "..."
                   : splitted[index],
               num: count1[index],
               ind: index,

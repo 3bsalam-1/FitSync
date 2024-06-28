@@ -82,7 +82,7 @@ final class InternetConnectivityOFF extends AuthCubitState {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         backgroundColor: gray10,
-        content: customTranslateText(
+        content: Text(
           "There is no internet connection",
           style: const TextStyle(
             color: white,

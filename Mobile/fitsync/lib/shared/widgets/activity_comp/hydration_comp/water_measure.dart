@@ -2,7 +2,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_translate_text.dart';
 
 class WaterMeasure extends StatelessWidget {
   final double progress;
@@ -121,11 +120,11 @@ class WaterMeasure extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 9),
-          Center(
+          const Center(
             child: SizedBox(
               width: 335,
               child: DefaultTextStyle(
-                style: const TextStyle(
+                style:  TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
                   color: gray3,
@@ -134,10 +133,10 @@ class WaterMeasure extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    customTranslateText('Poor'),
-                    customTranslateText('Good'),
-                    customTranslateText('Almost'),
-                    customTranslateText('Perfect!'),
+                    Text('Poor'),
+                    Text('Good'),
+                    Text('Almost'),
+                    Text('Perfect!'),
                   ],
                 ),
               ),

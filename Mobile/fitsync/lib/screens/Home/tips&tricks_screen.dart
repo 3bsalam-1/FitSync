@@ -36,7 +36,7 @@ class TipsAndTricksScreen extends StatelessWidget {
             padding: const EdgeInsets.only(left: 15),
             child: CustomAnimatedOpacity(
               child: Center(
-                child: customTranslateText(
+                child: Text(
                   "Tips & Tricks",
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w600,
@@ -82,10 +82,10 @@ class TipsAndTricksScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(right: 15, top: 11),
                 tabs: [
                   Tab(
-                    child: customTranslateText('Recent'),
+                    child: Text('Recent'),
                   ),
                   Tab(
-                    child: customTranslateText('Recommend '),
+                    child: Text('Recommend '),
                   ),
                 ],
               ),

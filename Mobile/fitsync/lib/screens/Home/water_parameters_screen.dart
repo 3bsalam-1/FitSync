@@ -34,7 +34,7 @@ class WaterParametersScreen extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CustomAnimatedOpacity(
-              child: customTranslateText(
+              child: Text(
                 "Water Parameters",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
@@ -69,7 +69,7 @@ class WaterParametersScreen extends StatelessWidget {
                         ),
                         child: Row(
                           children: [
-                            customTranslateText(
+                            Text(
                               'Quantity per day',
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
@@ -90,7 +90,7 @@ class WaterParametersScreen extends StatelessWidget {
                             top: 12, left: 18, bottom: 12),
                         child: Row(
                           children: [
-                            customTranslateText(
+                            Text(
                               'Number of glasses per day',
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,

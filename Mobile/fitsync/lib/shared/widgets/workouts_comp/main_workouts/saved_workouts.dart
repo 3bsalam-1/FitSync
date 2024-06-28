@@ -6,7 +6,6 @@ import '../../../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_image.dart';
-import '../../global/custom_translate_text.dart';
 
 class SavedWorkOuts extends StatelessWidget {
   const SavedWorkOuts({super.key});
@@ -22,7 +21,7 @@ class SavedWorkOuts extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                customTranslateText(
+                Text(
                   'Saved Workouts',
                   style: GoogleFonts.poppins(
                     fontSize: 22,
@@ -37,7 +36,7 @@ class SavedWorkOuts extends StatelessWidget {
                       context.read<NavigationPageCubit>().changePage(9);
                     });
                   },
-                  child: customTranslateText(
+                  child: Text(
                     'View all',
                     style: GoogleFonts.poppins(
                       fontSize: 16,
@@ -93,7 +92,7 @@ class SavedWorkOuts extends StatelessWidget {
                                 children: [
                                   SizedBox(
                                     width: 120,
-                                    child: customTranslateText(
+                                    child: Text(
                                       providerFav
                                           .favoriteWorkouts![index].category,
                                       style: GoogleFonts.poppins(
@@ -106,7 +105,7 @@ class SavedWorkOuts extends StatelessWidget {
                                   const SizedBox(height: 8),
                                   SizedBox(
                                     width: 130,
-                                    child: customTranslateText(
+                                    child: Text(
                                       'Finish this exercise in ${providerFav.favoriteWorkouts![index].planDurationMn} minutes',
                                       style: GoogleFonts.poppins(
                                         fontSize: 12,

@@ -35,7 +35,7 @@ class EmergencyContact extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CustomAnimatedOpacity(
-              child: customTranslateText(
+              child: Text(
                 "Emergency Contact",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
@@ -67,7 +67,7 @@ class EmergencyContact extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    customTranslateText(
+                    Text(
                       'Phone Number',
                       style: GoogleFonts.poppins(
                         color: gray2,

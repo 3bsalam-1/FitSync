@@ -35,7 +35,7 @@ class SleepParametersScreen extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CustomAnimatedOpacity(
-              child: customTranslateText(
+              child: Text(
                 "Sleep Parameters",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
@@ -70,7 +70,7 @@ class SleepParametersScreen extends StatelessWidget {
                         ),
                         child: Row(
                           children: [
-                            customTranslateText(
+                            Text(
                               'Quantity per day',
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,

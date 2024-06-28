@@ -28,7 +28,7 @@ class PercentIndicatorWidget extends StatelessWidget {
           percent: (label1 / 100),
           progressColor: color,
           circularStrokeCap: CircularStrokeCap.round,
-          center: customTranslateText(
+          center: Text(
             label1.toString(),
             style: GoogleFonts.overpass(
               fontWeight: FontWeight.w600,
@@ -40,7 +40,7 @@ class PercentIndicatorWidget extends StatelessWidget {
         SizedBox(
           width: 10,
         ),
-        customTranslateText(
+        Text(
           label2,
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w500,

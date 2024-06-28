@@ -32,7 +32,7 @@ class ParametersTextFormField extends StatelessWidget {
             contentPadding: const EdgeInsets.only(left: 15),
             suffix: Padding(
               padding: const EdgeInsets.only(right: 15),
-              child: customTranslateText(
+              child: Text(
                 label,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,

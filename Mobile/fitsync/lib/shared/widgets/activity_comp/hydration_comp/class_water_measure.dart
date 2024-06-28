@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_translate_text.dart';
 
 class ClassWaterMeasure extends StatelessWidget {
   final void Function()? onIncreamet;
@@ -64,7 +63,7 @@ class ClassWaterMeasure extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 22),
-        customTranslateText(
+        Text(
           label,
           style: GoogleFonts.poppins(
             fontSize: 16,

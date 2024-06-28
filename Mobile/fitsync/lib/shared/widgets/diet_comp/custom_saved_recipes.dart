@@ -68,7 +68,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10, top: 15),
                 child: Container(
                   // width: 180,
-                  child: customTranslateText(
+                  child: Text(
                     label1,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
@@ -83,7 +83,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 10),
                 child: Container(
                   width: 100,
-                  child: customTranslateText(
+                  child: Text(
                     label2,
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w500,
@@ -121,7 +121,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                     }
                     calories = 0;
                   },
-                  child: customTranslateText(
+                  child: Text(
                     'More Info',
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,

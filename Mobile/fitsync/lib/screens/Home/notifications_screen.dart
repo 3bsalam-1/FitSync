@@ -25,7 +25,7 @@ class NotificationsScreen extends StatelessWidget {
             )),
         title: Padding(
           padding: const EdgeInsets.only(left: 40),
-          child: customTranslateText(
+          child: Text(
             "Notifications",
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
@@ -45,7 +45,7 @@ class NotificationsScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 25, left: 18, bottom: 12),
               child: Row(
                 children: [
-                  customTranslateText(
+                  Text(
                     'Today',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
@@ -131,7 +131,7 @@ class NotificationsScreen extends StatelessWidget {
               padding: const EdgeInsets.only(top: 50, left: 18, bottom: 27),
               child: Row(
                 children: [
-                  customTranslateText(
+                  Text(
                     'A week ago',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,

@@ -7,7 +7,6 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/daily_intake_comp/draggable_scroll_intake.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_app_bar.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 class DailyIntakeActivityScreen extends StatelessWidget {
   const DailyIntakeActivityScreen({super.key});
@@ -30,7 +29,7 @@ class DailyIntakeActivityScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const SizedBox(height: 30),
-                    customTranslateText(
+                    Text(
                       'Today you have',
                       style: GoogleFonts.poppins(
                         fontSize: 24,
@@ -41,7 +40,7 @@ class DailyIntakeActivityScreen extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        customTranslateText(
+                        Text(
                           'Consumed ',
                           style: GoogleFonts.poppins(
                             fontSize: 24,
@@ -49,7 +48,7 @@ class DailyIntakeActivityScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        customTranslateText(
+                        Text(
                           '${data == null ? "0" : (data.activeCalories * 1000).toStringAsFixed(2)} cal',
                           style: GoogleFonts.poppins(
                             fontSize: 24,

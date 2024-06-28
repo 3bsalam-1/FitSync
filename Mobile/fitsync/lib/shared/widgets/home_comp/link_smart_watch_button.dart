@@ -40,7 +40,7 @@ class LinkSmartWatchButton extends StatelessWidget {
             const SizedBox(
               width: 5,
             ),
-            customTranslateText(
+            Text(
               "Link Smart Watch",
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w600,

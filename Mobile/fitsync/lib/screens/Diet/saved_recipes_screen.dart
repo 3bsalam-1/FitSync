@@ -30,7 +30,7 @@ class SavedRecipesScreen extends StatelessWidget {
                 size: 40,
               )),
         ),
-        title: customTranslateText(
+        title: Text(
           'Saved Recipes',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,

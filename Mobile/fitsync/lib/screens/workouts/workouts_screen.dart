@@ -6,7 +6,6 @@ import '../../data/cubit/workouts/workouts_cubit.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/global/error_internet_connection.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/skeleton_workouts.dart';
@@ -29,7 +28,7 @@ class WorkoutsScreen extends StatelessWidget {
           scrolledUnderElevation: 0,
           backgroundColor: white,
           leading: null,
-          title: customTranslateText(
+          title: Text(
             'Workouts',
             style: GoogleFonts.poppins(
               fontSize: 22,
@@ -69,8 +68,7 @@ class WorkoutsScreen extends StatelessWidget {
               },
               builder: (context, state) {
                 final provider = context.read<WorkoutsCubit>();
-                if (provider.data != null &&
-                    provider.challenges != null) {
+                if (provider.data != null && provider.challenges != null) {
                   return const SingleChildScrollView(
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 15),

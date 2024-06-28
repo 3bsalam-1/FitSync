@@ -15,7 +15,7 @@ final class InternetConnectivityOFFWithData extends InternetConnectivityState {
       SnackBar(
         duration: const Duration(days: 1),
         backgroundColor: gray10,
-        content: customTranslateText(
+        content: Text(
           "There is no internet connection",
           style: const TextStyle(
             color: white,

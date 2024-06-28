@@ -5,7 +5,6 @@ import '../../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../../../services/pref.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
-import '../../global/custom_translate_text.dart';
 import '../custom_chart_column.dart';
 import 'progress_bar_sleep_hours.dart';
 import 'sleep_hours.dart';
@@ -103,7 +102,7 @@ class DraggableScrollSleep extends StatelessWidget {
                     opacity: value,
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.easeIn,
-                    child: customTranslateText(
+                    child: Text(
                       'you slept better than 53% of users',
                       style: GoogleFonts.poppins(
                         fontSize: 10,
@@ -117,7 +116,7 @@ class DraggableScrollSleep extends StatelessWidget {
                 CustomAnimatedOpacity(
                   child: Align(
                     alignment: Alignment.topLeft,
-                    child: customTranslateText(
+                    child: Text(
                       'Analytics',
                       style: GoogleFonts.poppins(
                         fontSize: 16,

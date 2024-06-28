@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
@@ -8,7 +7,6 @@ import '../../../colors/colors.dart';
 import '../../global/animated_navigator.dart';
 import '../../global/custom_image.dart';
 import 'custom_start_button.dart';
-import '../../global/custom_translate_text.dart';
 
 class WorkOutsChallengCard extends StatelessWidget {
   const WorkOutsChallengCard({super.key});
@@ -23,7 +21,7 @@ class WorkOutsChallengCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              customTranslateText(
+              Text(
                 'Challenges',
                 style: GoogleFonts.poppins(
                   fontSize: 22,
@@ -35,7 +33,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                 onPressed: () {
                   provider.showAllChallenges();
                 },
-                child: customTranslateText(
+                child: Text(
                   'View all',
                   style: GoogleFonts.poppins(
                     fontSize: 16,
@@ -86,7 +84,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 30),
-                          child: customTranslateText(
+                          child: Text(
                             '7 x ${provider.viewAllChallenge ? index + 1 : DateTime.now().weekday} CHALLENGE',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
@@ -97,7 +95,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                         ),
                         SizedBox(
                           width: 150,
-                          child: customTranslateText(
+                          child: Text(
                             provider.viewAllChallenge
                                 ? provider.challenges![index].category
                                 : provider

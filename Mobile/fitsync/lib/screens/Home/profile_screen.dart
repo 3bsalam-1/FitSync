@@ -28,7 +28,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: white,
         automaticallyImplyLeading: false,
         title: CustomAnimatedOpacity(
-          child: customTranslateText(
+          child: Text(
             "Hello ${Prefs.getStringList("user")![1]}",
             style: const TextStyle(
               fontWeight: FontWeight.w600,

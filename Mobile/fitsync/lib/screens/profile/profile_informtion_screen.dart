@@ -8,7 +8,6 @@ import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/profile_comp.dart/profile_setting/profile_avatar_edit.dart';
 import '../../shared/widgets/profile_comp.dart/profile_setting/profile_user_info.dart';
 
@@ -22,7 +21,7 @@ class ProfileInformationScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: CustomAnimatedOpacity(
-            child: customTranslateText(
+            child: Text(
               'Profile',
               style: GoogleFonts.poppins(
                 fontSize: 22,
@@ -71,10 +70,10 @@ class ProfileInformationScreen extends StatelessWidget {
                     state is InternetConnectivityOFF) {
                   ScaffoldMessenger.of(context).clearSnackBars();
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      duration: const Duration(days: 1),
+                    const SnackBar(
+                      duration: Duration(days: 1),
                       backgroundColor: gray10,
-                      content: customTranslateText(
+                      content: Text(
                         "There is no internet connection",
                       ),
                     ),

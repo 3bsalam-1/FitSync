@@ -30,7 +30,7 @@ class ProfileWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.only(left: 14),
-          child: customTranslateText(
+          child: Text(
             label,
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,

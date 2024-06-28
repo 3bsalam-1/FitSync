@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_translate_text.dart';
 
 class CircleProgress extends StatelessWidget {
   final double progress;
@@ -51,7 +50,7 @@ class CircleProgress extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10),
-                customTranslateText(
+                Text(
                   'steps',
                   style: GoogleFonts.poppins(
                     fontSize: 10,

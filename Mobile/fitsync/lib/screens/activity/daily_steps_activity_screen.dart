@@ -8,7 +8,6 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/daily_steps/draggable_scroll_daily_steps.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_app_bar.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 class DailyStepsActivityScreen extends StatelessWidget {
   const DailyStepsActivityScreen({super.key});
@@ -36,7 +35,7 @@ class DailyStepsActivityScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 30),
-                    customTranslateText(
+                    Text(
                       'You have walked',
                       style: GoogleFonts.poppins(
                         fontSize: 24,
@@ -47,7 +46,7 @@ class DailyStepsActivityScreen extends StatelessWidget {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        customTranslateText(
+                        Text(
                           '${getProgressPrecent(actualData: steps, goal: (goalSteps * 1300))}%',
                           style: GoogleFonts.poppins(
                             fontSize: 24,
@@ -55,7 +54,7 @@ class DailyStepsActivityScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        customTranslateText(
+                        Text(
                           ' of your goal',
                           style: GoogleFonts.poppins(
                             fontSize: 24,

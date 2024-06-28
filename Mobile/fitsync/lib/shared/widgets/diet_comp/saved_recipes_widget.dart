@@ -60,7 +60,7 @@ class SavedRecipesWidget extends StatelessWidget {
         Positioned(
           top: 25,
           left: 8,
-          child: customTranslateText(
+          child: Text(
             label1,
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w500,
@@ -72,7 +72,7 @@ class SavedRecipesWidget extends StatelessWidget {
         Positioned(
           left: 8,
           bottom: 34,
-          child: customTranslateText(
+          child: Text(
             label2,
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w500,
@@ -85,7 +85,7 @@ class SavedRecipesWidget extends StatelessWidget {
           top: 70,
           right: 79,
           child: TextButton(
-            child: customTranslateText(
+            child: Text(
               "More Info",
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w700,

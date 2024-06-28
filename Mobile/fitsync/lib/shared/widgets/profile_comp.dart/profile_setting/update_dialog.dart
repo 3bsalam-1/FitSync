@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 import '../../global/animated_navigator.dart';
-import '../../global/custom_translate_text.dart';
 
 class UpdateDialog extends StatelessWidget {
   final Widget content;
@@ -39,7 +38,7 @@ class UpdateDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () {},
-          child: customTranslateText(
+          child: Text(
             'Save',
             style: GoogleFonts.poppins(
               fontSize: 15,
@@ -52,7 +51,7 @@ class UpdateDialog extends StatelessWidget {
           onPressed: () {
             AnimatedNavigator().pop(context);
           },
-          child: customTranslateText(
+          child: Text(
             'Cancel',
             style: GoogleFonts.poppins(
               fontSize: 14,

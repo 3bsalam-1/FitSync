@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/workouts/selected_level_mode.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_translate_text.dart';
 
 class ListLevelsMode extends StatelessWidget {
   const ListLevelsMode({super.key});
@@ -40,7 +39,7 @@ class ListLevelsMode extends StatelessWidget {
                   ),
                 ),
                 child: Center(
-                  child: customTranslateText(
+                  child: Text(
                     context.read<SelectedLevelMode>().level[index],
                     style: GoogleFonts.poppins(
                       fontSize: 11.6,

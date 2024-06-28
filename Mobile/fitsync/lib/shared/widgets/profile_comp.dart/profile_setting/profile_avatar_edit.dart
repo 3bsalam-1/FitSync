@@ -8,7 +8,6 @@ import '../../../../services/pref.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
 import '../../global/custom_image.dart';
-import '../../global/custom_translate_text.dart';
 import '../../global/skeleton_container_loading.dart';
 
 class ProfileAvatarEdit extends StatelessWidget {
@@ -100,7 +99,7 @@ class ProfileAvatarEdit extends StatelessWidget {
                                   Navigator.of(context).pop();
                                   provider.selectImageFromGallery();
                                 },
-                                child: customTranslateText(
+                                child: Text(
                                   'Photo Gallery',
                                   style: GoogleFonts.poppins(
                                     fontSize: 16,
@@ -114,7 +113,7 @@ class ProfileAvatarEdit extends StatelessWidget {
                                   Navigator.of(context).pop();
                                   provider.selectImageFromCamera();
                                 },
-                                child: customTranslateText(
+                                child: Text(
                                   'Camera',
                                   style: GoogleFonts.poppins(
                                     fontSize: 16,
@@ -168,7 +167,7 @@ class ProfileAvatarEdit extends StatelessWidget {
                   ),
                   BlocBuilder<LocationCubit, String?>(
                     builder: (context, state) {
-                      return customTranslateText(
+                      return Text(
                         state ?? '_',
                         style: GoogleFonts.poppins(
                           fontSize: 14,

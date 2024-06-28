@@ -5,7 +5,6 @@ import '../../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
 import '../../../shared/colors/colors.dart';
-import '../../../shared/widgets/global/custom_translate_text.dart';
 
 class EmptySavedWorkoutsScreen extends StatelessWidget {
   const EmptySavedWorkoutsScreen({super.key});
@@ -24,7 +23,7 @@ class EmptySavedWorkoutsScreen extends StatelessWidget {
         Container(
           width: double.maxFinite,
           padding: EdgeInsets.symmetric(horizontal: width * 0.2),
-          child: customTranslateText(
+          child: Text(
             'Your Saved Workout is empty you can discover latest workout now',
             textAlign: TextAlign.center,
             style: GoogleFonts.poppins(

@@ -6,8 +6,8 @@ import '../global/custom_translate_text.dart';
 
 class CustomFilterButton extends StatefulWidget {
   final String label;
- // String value;
-   CustomFilterButton({super.key, required this.label});
+  // String value;
+  CustomFilterButton({super.key, required this.label});
 
   @override
   State<CustomFilterButton> createState() => _CustomFilterItemState();
@@ -36,7 +36,7 @@ class _CustomFilterItemState extends State<CustomFilterButton> {
             color: isSelected ? purple5 : gray13,
             borderRadius: BorderRadius.circular(25),
           ),
-          child: customTranslateText(
+          child: Text(
             widget.label,
             style: GoogleFonts.poppins(
               fontSize: 10,

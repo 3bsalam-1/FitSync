@@ -57,7 +57,7 @@ class DietPlanWidget extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
-                child: customTranslateText(
+                child: Text(
                   text,
                   style: GoogleFonts.poppins(
                     textStyle: const TextStyle(
