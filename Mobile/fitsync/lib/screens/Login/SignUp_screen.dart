@@ -1,4 +1,3 @@
-import '../../cubits_logic/google_login/login_with_google.dart';
 import '../../data/cubit/auth/auth_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
@@ -317,7 +316,7 @@ class _SignUpState extends State<SignUp> {
                               height: 24,
                             ),
                             onPressed: () async {
-                              await signInWithGoogle(context);
+                              context.read<AuthCubit>().signInWithGoogle(context);
                             },
                           ),
                           Icon_Button(

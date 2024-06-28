@@ -4,7 +4,7 @@ import 'package:fitsync/screens/Home/home_screen.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-Future signInWithGoogle(context) async {
+Future signInWithGodogle(context) async {
   // Trigger the authentication flow
   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 

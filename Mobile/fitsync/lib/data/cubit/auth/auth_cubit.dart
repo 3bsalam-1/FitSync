@@ -9,8 +9,12 @@ import '../../../services/pref.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_snackbar_message.dart';
 import '../../../shared/widgets/login_comp/loading_dialog.dart';
+import '../../models/response_model.dart';
 import '../../repository/login_res/code_confirm_repo.dart';
 import '../../repository/login_res/password_repo.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitsync/data/repository/google_login.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../repository/login_res/user_auth_repo.dart';
 part 'auth_state.dart';
 
@@ -420,5 +424,51 @@ class AuthCubit extends Cubit<AuthCubitState> {
         emit(InternetConnectivityOFF());
       }
     }
+  }
+
+  void signInWithGoogle(context) async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    if (googleUser == null) return;
+
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication googleAuth =
+        await googleUser.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth.accessToken,
+      idToken: googleAuth.idToken,
+    );
+
+    ResponseModel? response = await ContinueWithGoogle().continueWithGoogle(
+      name: "${googleUser.displayName}",
+      email: googleUser.email,
+      avatar: "${googleUser.photoUrl}",
+    );
+    if (response != null) {
+      if (response.token != null) {
+        Prefs.setString('token', response.token!);
+        Prefs.setString('email', googleUser.email);
+        emit(AuthSuccess(message: 'Login Successfully'));
+        decodeJWT();
+        Future.delayed(
+          const Duration(seconds: 3),
+          () {
+            ScaffoldMessenger.of(context).clearSnackBars();
+            Future.delayed(const Duration(milliseconds: 500), () {
+              emit(AuthLogin());
+            });
+          },
+        );
+      } else {
+        emit(AuthFaliure('Something went wrong in server'));
+      }
+    } else {
+      emit(AuthFaliure('There is no wi-fi connection'));
+    }
+    // Once signed in, return the UserCredential
+    FirebaseAuth.instance.signInWithCredential(credential);
+    FirebaseAuth.instance.signOut();
   }
 }

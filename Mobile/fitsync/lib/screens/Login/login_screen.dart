@@ -1,4 +1,3 @@
-import 'package:fitsync/cubits_logic/google_login/login_with_google.dart';
 import 'package:fitsync/screens/Login/signup_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
@@ -178,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
                                     height: 24,
                                   ),
                                   onPressed: () async {
-                                    await signInWithGoogle(context);
+                                    context.read<AuthCubit>().signInWithGoogle(context);
                                   }),
                               const SizedBox(width: 12),
                               Icon_Button(
