@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:fitsync/data/cubit/user_data/user_data_info_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +8,6 @@ import '../cubits_logic/global/new_token_cubit.dart';
 import '../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../data/cubit/workouts/workouts_cubit.dart';
-import '../data/repository/vital_signal/vital_info.dart';
 import '../shared/colors/colors.dart';
 import '../shared/widgets/item_bottom_app_bar.dart';
 
@@ -24,12 +21,9 @@ class HomeMainScreen extends StatelessWidget {
         BlocListener<NewTokenCubit, bool>(
           listener: (context, state) {
             if (state) {
-              getVitalInfo();
+              context.read<SmartWatchCubit>().callVitalInfo();
               context.read<UserDataInfoCubit>().getUserDataInfo(context);
             }
-            Timer.periodic(const Duration(minutes: 3), (timer) {
-              context.read<SmartWatchCubit>().getSmartWatchData();
-            });
           },
         ),
         BlocListener<SmartWatchCubit, SmartWatchState>(

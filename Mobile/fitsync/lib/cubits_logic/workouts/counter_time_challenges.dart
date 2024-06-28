@@ -1,5 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/models/workouts_model.dart';
+import '../../data/repository/vital_signal/vital_info.dart';
+import '../../screens/workouts/workouts_view_challenge.dart';
 
 class CounterTimeChallenges extends Cubit<int> {
   CounterTimeChallenges() : super(15);
@@ -54,5 +56,22 @@ class CounterTimeChallenges extends Cubit<int> {
 
     totalExerciseTime = (totalExerciseTime ~/ 60);
     emit(20);
+  }
+
+  void saveWorkoutsActiveHours() async {
+    var currentHours = DateTime.now().hour == 0 ? 24 : DateTime.now().hour;
+    if (startWorkouts.hour == 0) {
+      currentHours = (currentHours - 24).abs();
+    } else {
+      currentHours = (currentHours - startWorkouts.hour).abs();
+    }
+    startWorkouts = startWorkouts.subtract(
+      Duration(
+        minutes: DateTime.now().minute,
+      ),
+    );
+    int result = (currentHours * 60) + (startWorkouts.minute).abs();
+    await saveActiveHours(result);
+    emit(15);
   }
 }

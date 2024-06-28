@@ -72,3 +72,5 @@ final class SmartWatchSaveSleepData extends SmartWatchState {
     );
   }
 }
+
+final class VitalInfoData extends SmartWatchState {}

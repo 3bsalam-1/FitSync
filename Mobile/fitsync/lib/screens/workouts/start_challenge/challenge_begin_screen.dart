@@ -129,14 +129,8 @@ class ChallengeBeginScreen extends StatelessWidget {
                             ),
                           );
                         } else {
-                          // todo here save done exercises
                           provider.getExerciseResult(workouts);
-                          startWorkouts = startWorkouts.subtract(
-                            Duration(
-                              minutes: DateTime.now().minute,
-                              hours: DateTime.now().hour,
-                            ),
-                          );
+                          provider.saveWorkoutsActiveHours();
                           changeActivity = true;
                           AnimatedNavigator().push(
                             context,

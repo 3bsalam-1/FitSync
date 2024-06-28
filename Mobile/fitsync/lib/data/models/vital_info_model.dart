@@ -20,29 +20,37 @@ class VitalInfoModel {
       inTake: json['inTake'],
       activeHours: json['activeHours'],
       steps: ListVitalInfo.getVitalInfoList(json['steps'], dataName: 'steps'),
-      avaheartbeat: ListVitalInfo.getVitalInfoList(json['avaheartbeat'], dataName: 'avaheartbeat'),
-      sleepHours: ListVitalInfo.getVitalInfoList(json['sleepHours'], dataName: 'sleepHours'),
-      burned: ListVitalInfo.getVitalInfoList(json['burned'], dataName: 'burned'),
+      avaheartbeat: ListVitalInfo.getVitalInfoList(json['avaheartbeat'],
+          dataName: 'avaheartbeat'),
+      sleepHours: ListVitalInfo.getVitalInfoList(json['sleepHours'],
+          dataName: 'sleepHours'),
+      burned:
+          ListVitalInfo.getVitalInfoList(json['burned'], dataName: 'burned'),
     );
   }
 }
 
 class ListVitalInfo {
   final DateTime date;
-  final num value;
+  final dynamic value;
 
   ListVitalInfo({
     required this.date,
     required this.value,
   });
 
-  factory ListVitalInfo.fromJson(Map<String, dynamic> json,
-      {required String dataName}) {
-    return ListVitalInfo(date: json['timestamps'], value: json[dataName]);
+  factory ListVitalInfo.fromJson(
+    Map<String, dynamic> json, {
+    required String dataName,
+  }) {
+    return ListVitalInfo(
+      date: DateTime.parse(json['timestamps']),
+      value: json[dataName],
+    );
   }
 
   static List<ListVitalInfo> getVitalInfoList(
-    List<Map<String, dynamic>> body, {
+    List<dynamic> body, {
     required String dataName,
   }) {
     List<ListVitalInfo> data = body

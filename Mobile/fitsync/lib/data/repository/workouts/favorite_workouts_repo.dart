@@ -45,18 +45,20 @@ class FavoriteWorkoutsRepo {
       );
       Map<String, dynamic> body = jsonDecode(response.body);
       List<WorkoutsModel> favoriteWorkouts = [];
-      List<dynamic> favoritesBody = body['data']['Data']['workouts'];
+      List<dynamic> favoritesBody = body['data']['Data'];
       for (var element in favoritesBody) {
         List<String> data = element.split('*');
         if (data.length > 4) {
           favoriteWorkouts.add(
             WorkoutsModel(
-              exercisePlan: convertStringToList(data[0].replaceAll('[', '').replaceAll(']', '')),
+              exercisePlan: convertStringToList(
+                  data[0].replaceAll('[', '').replaceAll(']', '')),
               category: data[1],
               level: data[2],
               planDurationMn: data[3],
               calBurned: data[4],
-              targetMuscle: convertStringToList(data[5].replaceAll('[', '').replaceAll(']', '')),
+              targetMuscle: convertStringToList(
+                  data[5].replaceAll('[', '').replaceAll(']', '')),
             ),
           );
         }
@@ -84,5 +86,4 @@ class FavoriteWorkoutsRepo {
       return [];
     }
   }
-
 }

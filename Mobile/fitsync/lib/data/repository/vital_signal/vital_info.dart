@@ -91,7 +91,7 @@ Future<VitalInfoModel?> getVitalInfo() async {
       );
       Map<String, dynamic> json = jsonDecode(response.body);
       VitalInfoModel? data = VitalInfoModel.fromJson(json['data']['Data']);
-      debugPrint("The Response get data of vital-info is $data");
+      debugPrint("The Response get data of vital-info is ${data.toString()}");
       return data;
     } catch (e) {
       debugPrint('The get vital-info Errror is: ${e.toString()}');
