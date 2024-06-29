@@ -271,9 +271,9 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
 });
 
 exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
-  let { name, email, avatar,googleId } = req.body;
+  let { name, email, avatar } = req.body;
 
-  let user = await User.findOne({email,googleId});
+  let user = await User.findOne({email});
 
   if (user) {
     const token = await signToken(user,res);
@@ -305,7 +305,6 @@ exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
     username,
     email,
     avatar,
-    googleId,
     isVerify: true, 
   });
 
