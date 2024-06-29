@@ -1,3 +1,5 @@
+import '../../cubits_logic/global/navigation_page_cubit.dart';
+import '../../cubits_logic/splash_screen_next_cubit.dart';
 import '../../data/cubit/auth/auth_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
@@ -48,6 +50,12 @@ class _SignUpState extends State<SignUp> {
                 VerificationPage(
                   email: email.text,
                 ),
+              );
+            } else if (state is AuthLogin) {
+              context.read<NavigationPageCubit>().changePage(0);
+              AnimatedNavigator().pushAndRemoveUntil(
+                context,
+                context.read<SplashScreenNextCubit>().loginNextScreen(),
               );
             }
           },
@@ -316,7 +324,9 @@ class _SignUpState extends State<SignUp> {
                               height: 24,
                             ),
                             onPressed: () async {
-                              context.read<AuthCubit>().signInWithGoogle(context);
+                              context
+                                  .read<AuthCubit>()
+                                  .signInWithGoogle(context);
                             },
                           ),
                           Icon_Button(

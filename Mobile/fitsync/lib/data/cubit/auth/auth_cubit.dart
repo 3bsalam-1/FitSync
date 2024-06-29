@@ -12,7 +12,6 @@ import '../../../shared/widgets/login_comp/loading_dialog.dart';
 import '../../models/response_model.dart';
 import '../../repository/login_res/code_confirm_repo.dart';
 import '../../repository/login_res/password_repo.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitsync/data/repository/google_login.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import '../../repository/login_res/user_auth_repo.dart';
@@ -428,18 +427,10 @@ class AuthCubit extends Cubit<AuthCubitState> {
 
   void signInWithGoogle(context) async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-
-    if (googleUser == null) return;
-
-    // Obtain the auth details from the request
-    final GoogleSignInAuthentication googleAuth =
-        await googleUser.authentication;
-
-    // Create a new credential
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
+    if (googleUser == null) {
+      emit(AuthFaliure('Something went wrong in server'));
+      return;
+    }
 
     ResponseModel? response = await ContinueWithGoogle().continueWithGoogle(
       name: "${googleUser.displayName}",
@@ -467,8 +458,5 @@ class AuthCubit extends Cubit<AuthCubitState> {
     } else {
       emit(AuthFaliure('There is no wi-fi connection'));
     }
-    // Once signed in, return the UserCredential
-    FirebaseAuth.instance.signInWithCredential(credential);
-    FirebaseAuth.instance.signOut();
   }
 }

@@ -41,13 +41,15 @@ class CustomShowLogoutDialog extends StatelessWidget {
                 TextButton(
                   onPressed: () {
                     Prefs.setBool('isLogin', false);
-                    if (Prefs.getString(
+                    if (Prefs.getBool(
                           'watch-permission',
                         ) !=
                         null) {
                       Prefs.remove('watch-permission');
                     }
-                    Prefs.remove('user');
+                    if (Prefs.getStringList('user') != null) {
+                      Prefs.remove('user');
+                    }
                     AnimatedNavigator().pushAndRemoveUntil(
                       context,
                       const StartScreen(),

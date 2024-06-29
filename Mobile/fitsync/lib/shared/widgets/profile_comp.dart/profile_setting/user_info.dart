@@ -62,11 +62,11 @@ Widget cardInfo({
               ),
             ),
             const SizedBox(width: 5),
-            const Icon(
-              Icons.arrow_forward_ios,
-              size: 15,
-              color: purple2,
-            ),
+            // const Icon(
+            //   Icons.arrow_forward_ios,
+            //   size: 15,
+            //   color: purple2,
+            // ),
           ],
         ),
       ),

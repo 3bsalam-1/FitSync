@@ -71,7 +71,7 @@ Future<SmartWatchWeekData> showSmartWatchDataWeekly() async {
           weeks[j],
           water!["waterL"]!,
         ));
-        var calories = await smartWatch.getActiveCaloriesData(i + 1, i);
+        var calories = await smartWatch.getCaloriesData(i + 1, i);
         weekDataCalories.add(ChartData(
           weeks[j],
           calories!,
