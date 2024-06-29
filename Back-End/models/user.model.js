@@ -64,7 +64,6 @@ const userSchema = new mongoose.Schema({
   },
   codeExpires: Date,
   passwordChangeAt: Date,
-  googleId: String,
 });
 
 userSchema.pre("save", async function (next) {
