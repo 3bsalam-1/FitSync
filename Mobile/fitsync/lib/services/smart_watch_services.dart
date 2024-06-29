@@ -70,8 +70,12 @@ class SmartWatchServices {
       );
       List<dynamic> allData = healthData["records"];
       if (allData.isNotEmpty) {
-        Map<dynamic, dynamic> data = allData.last["samples"][0];
-        heartRate = data.values.first;
+        for (Map<dynamic, dynamic> data in allData) {
+          List<dynamic> samples = data['samples'];
+          if (samples.isNotEmpty) {
+            heartRate = samples[0]['beatsPerMinute'];
+          }
+        }
       }
       debugPrint("the heart rate is $heartRate");
       return heartRate ?? 0;
@@ -204,7 +208,7 @@ class SmartWatchServices {
       if (allData.isNotEmpty) {
         calories = 0;
         for (var data in allData) {
-          num? c = data["kilocalories"] ?? 0;
+          num? c = data["energy"]["kilocalories"] ?? 0;
           calories = calories! + c!;
         }
       }

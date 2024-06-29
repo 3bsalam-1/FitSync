@@ -26,13 +26,6 @@ class HomeMainScreen extends StatelessWidget {
             }
           },
         ),
-        BlocListener<SmartWatchCubit, SmartWatchState>(
-          listener: (context, state) {
-            if (state is SmartWatchConnection) {
-              context.read<SmartWatchCubit>().getSmartWatchData();
-            }
-          },
-        ),
         BlocListener<UserDataInfoCubit, UserDataInfoState>(
           listener: (context, state) {
             if (state is UserDataSuccess) {
@@ -52,6 +45,7 @@ class HomeMainScreen extends StatelessWidget {
         body:
             BlocListener<InternetConnectivityCubit, InternetConnectivityState>(
           listener: (context, state) {
+            context.read<SmartWatchCubit>().getSmartWatchData();
             if (state is InternetConnectivityOFFWithData) {
               state.showDialog(context);
             }

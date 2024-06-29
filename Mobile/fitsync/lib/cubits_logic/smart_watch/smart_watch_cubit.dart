@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_health_connect/flutter_health_connect.dart';
@@ -55,12 +53,7 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
   void getSmartWatchData() async {
     if (Prefs.getBool("watch-permission") != null) {
       if (Prefs.getBool("watch-permission")!) {
-        Timer.periodic(
-          const Duration(minutes: 2),
-          (timer) async {
-             smartWatchData = await isolate.getSmartWatchDataService();
-          },
-        );
+        smartWatchData = await isolate.getSmartWatchDataService();
         if (smartWatchData != null) {
           emit(SmartWatchData());
         }
