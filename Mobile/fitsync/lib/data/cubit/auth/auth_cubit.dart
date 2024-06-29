@@ -441,6 +441,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
       if (response.token != null) {
         Prefs.setString('token', response.token!);
         Prefs.setString('email', googleUser.email);
+        googleUser.clearAuthCache;
+        await GoogleSignIn().disconnect();
         emit(AuthSuccess(message: 'Login Successfully'));
         decodeJWT();
         Future.delayed(
