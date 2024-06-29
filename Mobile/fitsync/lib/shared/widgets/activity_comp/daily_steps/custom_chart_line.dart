@@ -39,8 +39,8 @@ class CustomChartLine extends StatelessWidget {
             majorTickLines: const MajorTickLines(width: 0),
           ),
           primaryYAxis: const NumericAxis(
-            minimum: 4000,
-            maximum: 9000,
+            minimum: 0,
+            maximum: 2500,
             labelStyle: TextStyle(
               fontSize: 0,
             ),
@@ -62,8 +62,8 @@ class CustomChartLine extends StatelessWidget {
                 borderColor: cyan5,
               ),
               dataSource: data,
-              xValueMapper: (ChartData data, _) => data.x,
-              yValueMapper: (ChartData data, _) => data.y,
+              xValueMapper: (ChartData dataSource, _) => dataSource.x,
+              yValueMapper: (ChartData dataSource, _) => dataSource.y,
               color: white,
               width: 4,
             ),
