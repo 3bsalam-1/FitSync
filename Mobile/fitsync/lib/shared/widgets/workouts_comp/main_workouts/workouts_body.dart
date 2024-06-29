@@ -47,7 +47,11 @@ class WorkOustBody extends StatelessWidget {
           builder: (context, state) {
             final provider = context.read<FavoriteWorkoutsCubit>();
             return provider.favoriteWorkouts!.isNotEmpty
-                ? const SavedWorkOuts()
+                ? state is FavoriteWorkoutsLoading
+                    ? const CircularProgressIndicator(
+                        color: purple,
+                      )
+                    : const SavedWorkOuts()
                 : Column(
                     children: [
                       Row(

@@ -39,6 +39,7 @@ class FavoriteWorkoutsCubit extends Cubit<FavoriteWorkoutsState> {
           emit(FavoriteWorkoutsFaliure());
         }
       });
+      emit(FavoriteWorkoutsLoading());
     });
   }
 
@@ -47,6 +48,7 @@ class FavoriteWorkoutsCubit extends Cubit<FavoriteWorkoutsState> {
       favoriteWorkouts = response;
       emit(FavoriteWorkoutsGetAll());
     });
+    emit(FavoriteWorkoutsLoading());
   }
 
   void isFavoriteWorkouts(WorkoutsModel workouts) {
@@ -54,9 +56,11 @@ class FavoriteWorkoutsCubit extends Cubit<FavoriteWorkoutsState> {
       if (element.toString() == workouts.toString()) {
         isFavorite = true;
         emit(FavoriteWorkoutsGetAll());
-        break;
+        return;
       }
     }
+    isFavorite = false;
+    emit(FavoriteWorkoutsGetAll());
   }
 
   void setFavoriteToInitial() {
