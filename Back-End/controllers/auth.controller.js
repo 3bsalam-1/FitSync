@@ -107,11 +107,8 @@ exports.Login = asyncWrapper(async (req, res, next) => {
     );
   }
   const user = await User.findOne({ email }).select("+password");
-  if (!user.password) {
-    return next(AppError.create("Try login by another way", ERROR, 400));
-  }
   if (!user || !(await user.correctPassword(password, user.password))) {
-    return next(AppError.create("Incorrect email or password", ERROR, 401));
+    return next(AppError.create("Incorrect email or password. Try login by another way", ERROR, 401));
   }
   if (!user.isVerify) {
     await user.deleteOne();
@@ -274,9 +271,9 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
 });
 
 exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
-  let { name, email, avatar,googleId } = req.body;
+  let { name, email, avatar } = req.body;
 
-  let user = await User.findOne({email,googleId});
+  let user = await User.findOne({email});
 
   if (user) {
     const token = await signToken(user,res);
