@@ -31,7 +31,6 @@ class ProfileInformationScreen extends StatelessWidget {
         leading: CustomAnimatedOpacity(
           child: IconButton(
             onPressed: () {
-              ScaffoldMessenger.of(context).clearSnackBars();
               Future.delayed(const Duration(seconds: 1), () {
                 AnimatedNavigator().pop(context);
               });
@@ -63,19 +62,6 @@ class ProfileInformationScreen extends StatelessWidget {
         listeners: [
           BlocListener<InternetConnectivityCubit, InternetConnectivityState>(
             listener: (context, state) {
-              if (state is InternetConnectivityOFFWithData ||
-                  state is InternetConnectivityOFF) {
-                ScaffoldMessenger.of(context).clearSnackBars();
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    duration: Duration(days: 1),
-                    backgroundColor: gray10,
-                    content: Text(
-                      "There is no internet connection",
-                    ),
-                  ),
-                );
-              }
               if (state is InternetConnectivityON) {
                 context.read<NewTokenCubit>().getNewToken();
               }

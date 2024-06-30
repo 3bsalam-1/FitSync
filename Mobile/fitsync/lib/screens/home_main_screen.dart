@@ -37,6 +37,9 @@ class HomeMainScreen extends StatelessWidget {
                   );
               context.read<WorkoutsCubit>().getAllWorkouts();
               context.read<FavoriteWorkoutsCubit>().getAllFavoriteWorkouts();
+              context.read<InternetConnectivityCubit>().checkIfHasData(
+                    context.read<WorkoutsCubit>().allworkouts,
+                  );
             }
           },
         ),

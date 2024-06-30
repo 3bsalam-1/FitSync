@@ -18,7 +18,7 @@ class WorkManagersServices {
     await Workmanager().initialize(
       actionTask,
       // todo replace it into false in realse mode
-      isInDebugMode: true,
+      isInDebugMode: false,
     );
     showHeartRate();
   }

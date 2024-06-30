@@ -122,14 +122,14 @@ class ActivityMainScreen extends StatelessWidget {
                       data: weekData?.weekDataCalories,
                     ),
                     const SizedBox(height: 30),
-                    Text(
-                      'Challenges Progress',
-                      style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        color: black,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    // Text(
+                    //   'Challenges Progress',
+                    //   style: GoogleFonts.poppins(
+                    //     fontSize: 18,
+                    //     color: black,
+                    //     fontWeight: FontWeight.w600,
+                    //   ),
+                    // ),
                     // const SizedBox(height: 22),
                     // const CustomProgressChallenge(
                     //   title: '12 Days',
