@@ -2,7 +2,7 @@ import 'package:fitsync/data/models/all_calories.dart';
 import 'package:fitsync/data/repository/food/all_calories.dart';
 import 'package:fitsync/screens/Home/notifications_screen.dart';
 import 'package:fitsync/screens/Home/profile_screen.dart';
-import 'package:fitsync/screens/Home/tips&tricks_screen.dart';
+import 'package:fitsync/screens/Home/tips_tricks_screen.dart';
 import 'package:fitsync/services/pref.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
