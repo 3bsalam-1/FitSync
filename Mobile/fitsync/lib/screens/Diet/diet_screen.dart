@@ -9,15 +9,12 @@ import 'package:fitsync/shared/widgets/diet_comp/diet_plan_widget.dart';
 import 'package:fitsync/shared/widgets/diet_comp/saved_recipes_widget.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
-import '../../shared/widgets/global/custom_translate_text.dart';
-
 class DietScreen extends StatelessWidget {
-  DietScreen({super.key});
+  const DietScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +50,10 @@ class DietScreen extends StatelessWidget {
                       color: purple2,
                     ),
                     onPressed: () {
-                      AnimatedNavigator().push(context, DietListScreen());
+                      AnimatedNavigator().push(
+                        context,
+                        const DietListScreen(),
+                      );
                     },
                   ),
                 ),
@@ -66,7 +66,7 @@ class DietScreen extends StatelessWidget {
                   child: Text(
                     "Follow your plan every day",
                     style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontWeight: FontWeight.w500,
                         fontSize: 16,
                         color: gray3,
@@ -74,7 +74,7 @@ class DietScreen extends StatelessWidget {
                     ),
                   )),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             FutureBuilder(
@@ -94,7 +94,7 @@ class DietScreen extends StatelessWidget {
                             String displayName = food[index].Name;
                             if (displayName.length > 12) {
                               displayName =
-                                  displayName.substring(0, 12) + '...';
+                                  '${displayName.substring(0, 12)}...';
                             }
 
                             return DietPlanWidget(
@@ -106,7 +106,7 @@ class DietScreen extends StatelessWidget {
                           }),
                     );
                   } else {
-                    return Column(
+                    return const Column(
                       children: [
                         SizedBox(
                           height: 45,
@@ -174,7 +174,7 @@ class DietScreen extends StatelessWidget {
                           child: Text(
                             "Popular Meals",
                             style: GoogleFonts.poppins(
-                              textStyle: TextStyle(
+                              textStyle: const TextStyle(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 22,
                                 color: black3,
@@ -202,11 +202,10 @@ class DietScreen extends StatelessWidget {
                                 "Protein Foods"
                               ]
                                   .map((e) => DropdownMenuItem(
+                                      value: e,
                                       child: Text(
-                                        "${e}",
-                                        style: TextStyle(),
-                                      ),
-                                      value: e))
+                                        e,
+                                      )))
                                   .toList(),
                               onChanged: (val) {
                                 context
@@ -219,7 +218,7 @@ class DietScreen extends StatelessWidget {
                               value: context
                                   .read<DropDownButtonCubit>()
                                   .selectedItem,
-                              icon: Row(
+                              icon: const Row(
                                 children: [
                                   SizedBox(
                                     width: 8,
@@ -236,9 +235,9 @@ class DietScreen extends StatelessWidget {
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500),
                               padding:
-                                  EdgeInsets.only(left: 6, right: 6, top: 1),
+                                  const EdgeInsets.only(left: 6, right: 6, top: 1),
                               isDense: true,
-                              underline: VerticalDivider(
+                              underline: const VerticalDivider(
                                 thickness: 0,
                               ),
                               dropdownColor: purple5,
@@ -310,8 +309,7 @@ class DietScreen extends StatelessWidget {
                                       String displayName = food[index].Name;
                                       if (displayName.length > 12) {
                                         displayName =
-                                            displayName.substring(0, 12) +
-                                                '...';
+                                            '${displayName.substring(0, 12)}...';
                                       }
                                       return DietPlanWidget(
                                         diet: food[index],
@@ -370,8 +368,7 @@ class DietScreen extends StatelessWidget {
                                       String displayName = food[index].Name;
                                       if (displayName.length > 12) {
                                         displayName =
-                                            displayName.substring(0, 12) +
-                                                '...';
+                                            '${displayName.substring(0, 12)}...';
                                       }
                                       return DietPlanWidget(
                                         diet: food[index],
@@ -432,8 +429,7 @@ class DietScreen extends StatelessWidget {
                                       String displayName = food[index].Name;
                                       if (displayName.length > 12) {
                                         displayName =
-                                            displayName.substring(0, 12) +
-                                                '...';
+                                            '${displayName.substring(0, 12)}...';
                                       }
 
                                       return DietPlanWidget(
@@ -486,8 +482,7 @@ class DietScreen extends StatelessWidget {
                                       String displayName = food[index].Name;
                                       if (displayName.length > 12) {
                                         displayName =
-                                            displayName.substring(0, 12) +
-                                                '...';
+                                            '${displayName.substring(0, 12)}...';
                                       }
                                       return DietPlanWidget(
                                         diet: food[index],
@@ -552,8 +547,7 @@ class DietScreen extends StatelessWidget {
                                       String displayName = food[index].Name;
                                       if (displayName.length > 12) {
                                         displayName =
-                                            displayName.substring(0, 12) +
-                                                '...';
+                                            '${displayName.substring(0, 12)}...';
                                       }
                                       return DietPlanWidget(
                                         diet: food[index],
@@ -593,7 +587,7 @@ class DietScreen extends StatelessWidget {
                   child: Text(
                     "Saved Recipes",
                     style: GoogleFonts.poppins(
-                      textStyle: TextStyle(
+                      textStyle: const TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 22,
                         color: black3,
@@ -601,17 +595,17 @@ class DietScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 InkWell(
                   onTap: () {
-                    AnimatedNavigator().push(context, SavedRecipesScreen());
+                    AnimatedNavigator().push(context, const SavedRecipesScreen());
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(right: 18),
                     child: Text(
                       "View All",
                       style: GoogleFonts.poppins(
-                        textStyle: TextStyle(
+                        textStyle: const TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
                           color: purple5,
@@ -626,7 +620,7 @@ class DietScreen extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     width: 18,
                   ),
                   SavedRecipesWidget(
@@ -634,7 +628,7 @@ class DietScreen extends StatelessWidget {
                     label1: 'Steak',
                     label2: '88% Healthy\nFits in Budget',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 18,
                   ),
                   SavedRecipesWidget(
@@ -642,7 +636,7 @@ class DietScreen extends StatelessWidget {
                     label1: 'Egg Salad',
                     label2: '99% Healthy\nFits in Budget',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 18,
                   ),
                   SavedRecipesWidget(
@@ -650,7 +644,7 @@ class DietScreen extends StatelessWidget {
                     label1: 'Caesar Salad',
                     label2: '92% Healthy\nFits in Budget',
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 18,
                   ),
                 ],

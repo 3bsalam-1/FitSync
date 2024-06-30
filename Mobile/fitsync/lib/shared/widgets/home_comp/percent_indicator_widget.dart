@@ -2,7 +2,6 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import '../global/custom_translate_text.dart';
 
 class PercentIndicatorWidget extends StatelessWidget {
   final Color color;
@@ -37,7 +36,7 @@ class PercentIndicatorWidget extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           width: 10,
         ),
         Text(

@@ -6,11 +6,11 @@ import 'package:fitsync/shared/widgets/diet_comp/page2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../global/custom_translate_text.dart';
 
 int weight = 0;
 int calories = 0;
 
+// ignore: must_be_immutable
 class CustomIngredientsWidget extends StatelessWidget {
   //final String imageUrl;
   final String label1;
@@ -61,7 +61,7 @@ class CustomIngredientsWidget extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 2),
                     child: Text(
-                      "${num} gm",
+                      "$num gm",
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
                         fontSize: 10,
@@ -103,7 +103,7 @@ class CustomIngredientsWidget extends StatelessWidget {
                                   while (i < words.length) {
                                     ingredintCals = await IngredientCalories()
                                         .getIngrediantCalories(words[i++]);
-                                    if (!ingredintCals.isEmpty) {
+                                    if (ingredintCals.isNotEmpty) {
                                       calories -= (int.parse(ingredintCals[0]
                                                   .caloriesPer100Grams) /
                                               2)
@@ -154,7 +154,7 @@ class CustomIngredientsWidget extends StatelessWidget {
                                 while (i < words.length) {
                                   ingredintCals = await IngredientCalories()
                                       .getIngrediantCalories(words[i++]);
-                                  if (!ingredintCals.isEmpty) {
+                                  if (ingredintCals.isNotEmpty) {
                                     calories += (int.parse(ingredintCals[0]
                                                 .caloriesPer100Grams) /
                                             2)
@@ -176,7 +176,7 @@ class CustomIngredientsWidget extends StatelessWidget {
                               // run();
                               fun();
                             },
-                            child: Text(
+                            child: const Text(
                               '+',
                               style: TextStyle(color: white, fontSize: 15),
                             ),

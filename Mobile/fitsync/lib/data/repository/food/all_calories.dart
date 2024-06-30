@@ -1,7 +1,6 @@
 import 'package:fitsync/data/models/all_calories.dart';
 import 'package:fitsync/data/repository/api.dart';
 import 'package:fitsync/data/repository/user/user_info_repo.dart';
-import '../../models/user_personal_info_model.dart';
 
 class AllCalories{
 Future<AllCaloriesModel>getAllCalories()async{

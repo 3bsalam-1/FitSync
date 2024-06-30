@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
       });
     } catch (e) {
       // Handle the error accordingly
-      print(e);
+      debugPrint('$e');
     }
   }
 

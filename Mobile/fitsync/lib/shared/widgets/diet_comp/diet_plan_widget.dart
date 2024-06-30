@@ -6,8 +6,8 @@ import 'package:fitsync/shared/widgets/diet_comp/page2.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../global/custom_translate_text.dart';
 
+// ignore: must_be_immutable
 class DietPlanWidget extends StatelessWidget {
   String imageUrl;
   String text;

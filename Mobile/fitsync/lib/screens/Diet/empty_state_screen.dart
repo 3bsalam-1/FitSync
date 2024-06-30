@@ -1,15 +1,12 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
-
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../shared/widgets/global/custom_translate_text.dart';
-
 class EmptyStateScreen extends StatelessWidget {
-  EmptyStateScreen({super.key});
+  const EmptyStateScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +18,7 @@ class EmptyStateScreen extends StatelessWidget {
             onPressed: () {
               AnimatedNavigator().pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_circle_left,
               color: purple3,
               size: 40,
@@ -35,9 +32,9 @@ class EmptyStateScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        actions: [
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 10.0),
+            padding: EdgeInsets.only(right: 10.0),
             child: UserWidget(),
           ),
         ],

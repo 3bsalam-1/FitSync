@@ -15,6 +15,7 @@ class _HeartGraphState extends State<HeartGraph> {
   //late List<LiveData> chartData;
   late List<LiveData> chartData;
   late ChartSeriesController _chartSeriesController;
+  late Timer timer;
 
   List<LiveData> getChartData() {
     List<LiveData> data = [];
@@ -54,7 +55,7 @@ class _HeartGraphState extends State<HeartGraph> {
   void initState() {
     super.initState();
     chartData = getChartData();
-    Timer.periodic(const Duration(seconds: 1), updateDataSource);
+    timer = Timer.periodic(const Duration(seconds: 1), updateDataSource);
   }
 
   int time = 100;
@@ -93,6 +94,12 @@ class _HeartGraphState extends State<HeartGraph> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 }
 

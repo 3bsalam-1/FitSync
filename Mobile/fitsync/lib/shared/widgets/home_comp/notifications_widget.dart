@@ -1,7 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../global/custom_translate_text.dart';
 
 class NotificationsWidget extends StatelessWidget {
   final String imageUrl;
@@ -47,7 +46,7 @@ class NotificationsWidget extends StatelessWidget {
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(
@@ -66,18 +65,18 @@ class NotificationsWidget extends StatelessWidget {
           padding: const EdgeInsets.only(right: 5),
           child: PopupMenuButton(
             onSelected: (value) {
-              print('Selected: $value');
+              debugPrint('Selected: $value');
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'option_1',
                 child: Text('Option 1'),
               ),
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'option_2',
                 child: Text('Option 2'),
               ),
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'option_3',
                 child: Text('Option 3'),
               ),

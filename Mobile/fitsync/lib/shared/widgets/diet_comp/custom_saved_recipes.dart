@@ -7,8 +7,8 @@ import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../global/custom_translate_text.dart';
 
+// ignore: must_be_immutable
 class CustomSavedRecipesWidget extends StatelessWidget {
   final String imageUrl;
   final String label1;
@@ -49,7 +49,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
             child: Container(
               width: MediaQuery.of(context).size.width * (78 / 428),
               height: MediaQuery.of(context).size.height * (78 / 926),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: ClipRRect(
@@ -66,6 +66,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10, top: 15),
+                // ignore: avoid_unnecessary_containers
                 child: Container(
                   // width: 180,
                   child: Text(
@@ -81,7 +82,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
-                child: Container(
+                child: SizedBox(
                   width: 100,
                   child: Text(
                     label2,
@@ -95,13 +96,13 @@ class CustomSavedRecipesWidget extends StatelessWidget {
               ),
             ],
           ),
-          Spacer(),
+          const Spacer(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     IconlyBold.heart,
                     color: purple5,
                     size: 20,

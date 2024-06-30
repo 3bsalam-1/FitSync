@@ -3,12 +3,12 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../global/custom_translate_text.dart';
 
 List<int> count1 = List.filled(100, 0);
 
 //bool check=true;
 
+// ignore: must_be_immutable
 class Page2 extends StatelessWidget {
   Page2({
     required this.diet,
@@ -64,7 +64,7 @@ class Page2 extends StatelessWidget {
             )
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         SizedBox(
@@ -76,7 +76,7 @@ class Page2 extends StatelessWidget {
             // separatorBuilder: (context, index) => const SizedBox(height: 25),
             itemBuilder: (context, index) => CustomIngredientsWidget(
               label1: splitted[index].length > 26
-                  ? splitted[index].substring(0, 25) + "..."
+                  ? "${splitted[index].substring(0, 25)}..."
                   : splitted[index],
               num: count1[index],
               ind: index,

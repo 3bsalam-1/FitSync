@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fitsync/data/repository/google_login.dart';
-import 'package:fitsync/screens/Home/home_screen.dart';
 import 'package:fitsync/screens/home_main_screen.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -26,5 +25,5 @@ Future signInWithGodogle(context) async {
   
   // Once signed in, return the UserCredential
   await FirebaseAuth.instance.signInWithCredential(credential);
-  AnimatedNavigator().pushAndRemoveUntil(context , HomeMainScreen());
+  AnimatedNavigator().pushAndRemoveUntil(context , const HomeMainScreen());
 }

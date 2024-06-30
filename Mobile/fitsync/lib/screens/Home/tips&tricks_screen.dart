@@ -6,7 +6,6 @@ import 'package:fitsync/shared/widgets/home_comp/page2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 class TipsAndTricksScreen extends StatelessWidget {
   const TipsAndTricksScreen({super.key});
@@ -61,25 +60,25 @@ class TipsAndTricksScreen extends StatelessWidget {
         ),
         body: CustomAnimatedOpacity(
           child: Column(
-            children: [
-              TabBar(
-                indicator: const UnderlineTabIndicator(
+            children:  [
+              const TabBar(
+                indicator:  UnderlineTabIndicator(
                   borderSide: BorderSide(width: 1, color: purple5),
                   insets: EdgeInsets.only(bottom: 13),
                 ),
                 dividerHeight: 0,
                 indicatorSize: TabBarIndicatorSize.label,
                 labelColor: purple5,
-                labelStyle: const TextStyle(
+                labelStyle:  TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),
                 unselectedLabelColor: black,
-                unselectedLabelStyle: const TextStyle(
+                unselectedLabelStyle:  TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 16,
                 ),
-                padding: const EdgeInsets.only(right: 15, top: 11),
+                padding:  EdgeInsets.only(right: 15, top: 11),
                 tabs: [
                   Tab(
                     child: Text('Recent'),
@@ -91,7 +90,7 @@ class TipsAndTricksScreen extends StatelessWidget {
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.8,
-                child: const TabBarView(children: [
+                child:  const TabBarView(children: [
                   Page1(),
                   Page2(),
                 ]),

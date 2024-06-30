@@ -18,7 +18,7 @@ class NavigationPageCubit extends Cubit<Widget> {
   final List<Widget> _pages = [
     const HomePage(), //0
     const WorkoutsScreen(), //1
-    DietScreen(), //2
+    const DietScreen(), //2
     const ActivityMainScreen(), //3
     const ProfileMainScreen(), //4
     const SleepActivityScreen(), //5

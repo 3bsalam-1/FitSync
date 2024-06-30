@@ -3,7 +3,6 @@ import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 class ArticleScreen extends StatelessWidget {
   const ArticleScreen({super.key});
@@ -37,7 +36,7 @@ class ArticleScreen extends StatelessWidget {
               onPressed: () {
                 AnimatedNavigator().pop(context);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_circle_left,
                 color: purple3,
                 size: 40,
@@ -85,7 +84,7 @@ class ArticleScreen extends StatelessWidget {
                 Container(
                   width: MediaQuery.of(context).size.width * (50 / 428),
                   height: MediaQuery.of(context).size.height * (5 / 926),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                       color: gray12),
                 ),
@@ -97,7 +96,7 @@ class ArticleScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           Container(
-                            padding: EdgeInsets.only(left: 6, right: 6),
+                            padding: const EdgeInsets.only(left: 6, right: 6),
                             //width: MediaQuery.of(context).size.width * (100 / 428),
                             height:
                                 MediaQuery.of(context).size.height * (22 / 926),
@@ -123,12 +122,12 @@ class ArticleScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 20, right: 20),
                       child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             IconlyLight.time_circle,
                             size: 18,
                             color: purple5,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 6,
                           ),
                           Text(
@@ -160,7 +159,7 @@ class ArticleScreen extends StatelessWidget {
                             child: Container(
                               decoration: const BoxDecoration(
                                   color: Colors.white, shape: BoxShape.circle),
-                              child: CircleAvatar(
+                              child: const CircleAvatar(
                                 backgroundColor: Colors.white,
                                 foregroundImage: AssetImage(
                                   "assets/images/person.jfif",
@@ -168,7 +167,7 @@ class ArticleScreen extends StatelessWidget {
                               ),
                             ),
                           )),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
@@ -187,6 +186,7 @@ class ArticleScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
+                  // ignore: avoid_unnecessary_containers
                   child: Container(
                     //height: MediaQuery.of(context).size.height,
                     child: Column(
@@ -200,7 +200,7 @@ class ArticleScreen extends StatelessWidget {
                             color: black2,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Padding(
@@ -218,7 +218,7 @@ class ArticleScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Padding(
@@ -236,7 +236,7 @@ class ArticleScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                       ],

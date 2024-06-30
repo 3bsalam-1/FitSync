@@ -2,7 +2,6 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../global/custom_translate_text.dart';
 
 class ProfileWidget extends StatelessWidget {
   final String label;

@@ -4,12 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../global/custom_translate_text.dart';
 
+// ignore: must_be_immutable
 class SavedRecipesWidget extends StatelessWidget {
   final String imageUrl;
   final String label1;
   final String label2;
+  // ignore: non_constant_identifier_names
   Color IconColor = white;
   SavedRecipesWidget({
     super.key,
@@ -26,7 +27,7 @@ class SavedRecipesWidget extends StatelessWidget {
         Container(
           width: MediaQuery.of(context).size.width * (163 / 428),
           height: MediaQuery.of(context).size.height * (135 / 926),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
           child: ClipRRect(
@@ -46,7 +47,7 @@ class SavedRecipesWidget extends StatelessWidget {
             builder: (context, state) {
               return IconButton(
                 alignment: Alignment.topRight,
-                icon: Icon(IconlyBold.heart),
+                icon: const Icon(IconlyBold.heart),
                 onPressed: () {
                   IconColor = IconColor == white ? purple5 : white;
                   context.read<FavouriteIconCubit>().changeIconColor();

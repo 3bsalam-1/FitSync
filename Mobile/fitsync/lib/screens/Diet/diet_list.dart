@@ -1,10 +1,7 @@
-import 'dart:ffi';
-
 import 'package:fitsync/data/models/food_model.dart';
 import 'package:fitsync/data/repository/food/all_food.dart';
 import 'package:fitsync/screens/Diet/filter_diet_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
-import 'package:fitsync/shared/widgets/diet_comp/custom_filter_button.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_saved_recipes.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
@@ -114,7 +111,7 @@ class _DietListScreenState extends State<DietListScreen> {
     });
   }
 
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   void dispose() {
@@ -255,8 +252,7 @@ class _DietListScreenState extends State<DietListScreen> {
                           imageUrl:
                               "assets/images/food/${_filteredItems[index].Catagory}1.jpg",
                           label1: _filteredItems[index].Name.length > 20
-                              ? _filteredItems[index].Name.substring(0, 18) +
-                                  "..."
+                              ? "${_filteredItems[index].Name.substring(0, 18)}..."
                               : _filteredItems[index].Name,
                           label2: "Healthy\nFits in Budget",
                         ),

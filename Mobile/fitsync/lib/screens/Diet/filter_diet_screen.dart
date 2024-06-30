@@ -7,17 +7,18 @@ import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 List<String> filter1 = [];
 String foodType = "";
 
+// ignore: must_be_immutable
 class FilterDietScreen extends StatelessWidget {
   final Function() filterFunc;
 
   FilterDietScreen({super.key, required this.filterFunc});
 
-  DietListScreen DietList = DietListScreen();
+  // ignore: non_constant_identifier_names
+  DietListScreen DietList = const DietListScreen();
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +51,7 @@ class FilterDietScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: DefaultTextStyle(
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
             color: gray4,
@@ -60,9 +61,9 @@ class FilterDietScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 20),
-                  Text('Category'),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 20),
+                  const Text('Category'),
+                  const SizedBox(height: 12),
                   Row(
                     children: [
                       Padding(
@@ -250,9 +251,9 @@ class FilterDietScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Text('Nutrient'),
-                  SizedBox(height: 12),
-                  Column(
+                  const Text('Nutrient'),
+                  const SizedBox(height: 12),
+                  const Column(
                     children: [
                       Row(
                         children: [
@@ -269,19 +270,19 @@ class FilterDietScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 12),
-                  Text('Diet'),
-                  SizedBox(height: 12),
-                  Row(
+                  const SizedBox(height: 12),
+                  const Text('Diet'),
+                  const SizedBox(height: 12),
+                  const Row(
                     children: [
                       CustomFilterButton(label: 'Ketagenic'),
                       CustomFilterButton(label: 'Gluten free'),
                       CustomFilterButton(label: 'Low fat'),
                     ],
                   ),
-                  SizedBox(height: 12),
-                  Text('Dietary Type'),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
+                  const Text('Dietary Type'),
+                  const SizedBox(height: 12),
                   Row(
                     children: [
                       Padding(

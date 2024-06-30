@@ -2,7 +2,6 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../global/custom_translate_text.dart';
 import '../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../../services/pref.dart';
 

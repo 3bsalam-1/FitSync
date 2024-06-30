@@ -2,7 +2,6 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../global/custom_translate_text.dart';
 
 class TipsAndTricksWidget extends StatelessWidget {
   final String imageUrl;
@@ -48,7 +47,7 @@ class TipsAndTricksWidget extends StatelessWidget {
           left: 10,
           top: 10,
           child: Container(
-            padding: EdgeInsets.only(left: 6, right: 6),
+            padding: const EdgeInsets.only(left: 6, right: 6),
             // width: MediaQuery.of(context).size.width * (48 / 428),
             height: MediaQuery.of(context).size.height * (22 / 926),
             decoration: BoxDecoration(
@@ -95,7 +94,7 @@ class TipsAndTricksWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 6,
               ),
               RichText(
@@ -122,13 +121,13 @@ class TipsAndTricksWidget extends StatelessWidget {
           right: 10,
           top: 10,
           child: Row(
-            children: [
-              Icon(
+            children:  [
+              const Icon(
                 IconlyBold.time_circle,
                 size: 20,
                 color: white,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 10,
               ),
               Text(

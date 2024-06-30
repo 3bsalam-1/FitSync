@@ -1,8 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
-
 part 'filter_state.dart';
 
 class FilterCubit extends Cubit<FilterState> {

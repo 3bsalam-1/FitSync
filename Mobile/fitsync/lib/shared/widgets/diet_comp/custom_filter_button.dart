@@ -2,12 +2,10 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../global/custom_translate_text.dart';
-
 class CustomFilterButton extends StatefulWidget {
   final String label;
   // String value;
-  CustomFilterButton({super.key, required this.label});
+  const CustomFilterButton({super.key, required this.label});
 
   @override
   State<CustomFilterButton> createState() => _CustomFilterItemState();

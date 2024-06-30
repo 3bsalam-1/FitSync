@@ -16,7 +16,7 @@ class NotificationsScreen extends StatelessWidget {
             onPressed: () {
               AnimatedNavigator().pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_circle_left,
               color: purple3,
               size: 40,
@@ -54,7 +54,7 @@ class NotificationsScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 8,
             ),
             NotificationsWidget(
@@ -63,7 +63,7 @@ class NotificationsScreen extends StatelessWidget {
               label2: "About 1 minutes ago",
               colors: [blue.withOpacity(0.2), blue1.withOpacity(0.2)],
             ),
-            Divider(
+            const Divider(
               color: gray17,
               height: 40,
               thickness: 1.3,
@@ -76,7 +76,7 @@ class NotificationsScreen extends StatelessWidget {
                 label1: "Don’t miss your lowerbody workout",
                 label2: "About 3 hours ago",
                 colors: [pink.withOpacity(0.2), pink1.withOpacity(0.2)]),
-            Divider(
+            const Divider(
               color: gray17,
               height: 40,
               thickness: 1.3,
@@ -88,7 +88,7 @@ class NotificationsScreen extends StatelessWidget {
                 label1: "Hey, let’s add some meals for your b..",
                 label2: "About 3 hours ago",
                 colors: [blue.withOpacity(0.2), blue1.withOpacity(0.2)]),
-            Divider(
+            const Divider(
               color: gray17,
               height: 40,
               thickness: 1.3,
@@ -100,7 +100,7 @@ class NotificationsScreen extends StatelessWidget {
                 label1: "Congratulations, You have finished A..",
                 label2: "29 May",
                 colors: [blue.withOpacity(0.2), blue1.withOpacity(0.2)]),
-            Divider(
+            const Divider(
               color: gray17,
               height: 40,
               thickness: 1.3,
@@ -112,7 +112,7 @@ class NotificationsScreen extends StatelessWidget {
                 label1: "Hey, it’s time for lunch",
                 label2: "8 April",
                 colors: [blue.withOpacity(0.2), blue1.withOpacity(0.2)]),
-            Divider(
+            const Divider(
               color: gray17,
               height: 40,
               thickness: 1.3,
@@ -145,7 +145,7 @@ class NotificationsScreen extends StatelessWidget {
                 label1: "Ups, You have missed your Lowerbo...",
                 label2: "3 April",
                 colors: [pink.withOpacity(0.2), pink1.withOpacity(0.2)]),
-            Divider(
+            const Divider(
               color: gray17,
               height: 40,
               thickness: 1.3,
@@ -158,7 +158,7 @@ class NotificationsScreen extends StatelessWidget {
                 label1: "Hey, let’s add some meals for your b..",
                 label2: "About 3 hours ago",
                 colors: [blue.withOpacity(0.2), blue1.withOpacity(0.2)]),
-            SizedBox(
+            const SizedBox(
               height: 30,
             )
           ],
