@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_animated_opacity.dart';
 import '../../global/custom_button.dart';
 import '../../global/custom_text_form_field.dart';
 import 'custom_toggle_switch.dart';
@@ -26,71 +25,59 @@ class BodyWeightQuestion extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomAnimatedOpacity(
-            duration: const Duration(milliseconds: 700),
-            child: Text(
-              'What’s Your Weight?',
-              style: GoogleFonts.poppins(
-                fontSize: 26,
-                color: black,
-                fontWeight: FontWeight.w600,
-              ),
+          Text(
+            'What’s Your Weight?',
+            style: GoogleFonts.poppins(
+              fontSize: 26,
+              color: black,
+              fontWeight: FontWeight.w600,
             ),
           ),
           const Spacer(),
-          CustomAnimatedOpacity(
-            duration: const Duration(milliseconds: 700),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                SizedBox(
-                  width: width * 0.47,
-                  child: CustomTextFormField(
-                    hintText: '0',
-                    textAlign: TextAlign.right,
-                    keyboardType: TextInputType.number,
-                    controller:
-                        context.read<TextFormValidationCubit>().weightController,
-                  ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              SizedBox(
+                width: width * 0.47,
+                child: CustomTextFormField(
+                  hintText: '0',
+                  textAlign: TextAlign.right,
+                  keyboardType: TextInputType.number,
+                  controller:
+                      context.read<TextFormValidationCubit>().weightController,
                 ),
-                const SizedBox(width: 5),
-                Text(
-                  label,
-                  style: GoogleFonts.poppins(
-                    fontSize: 16,
-                    color: black,
-                    fontWeight: FontWeight.w500,
-                  ),
+              ),
+              const SizedBox(width: 5),
+              Text(
+                label,
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  color: black,
+                  fontWeight: FontWeight.w500,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
           const SizedBox(height: 25),
-          CustomAnimatedOpacity(
-            duration: const Duration(milliseconds: 700),
-            child: Center(
-              child: CustomToggleSwitch(
-                onTap1: () {
-                  context.read<TextFormValidationCubit>().convertToKg();
-                },
-                isSelected: isSelected,
-                onTap2: () {
-                  context.read<TextFormValidationCubit>().convertToBs();
-                },
-              ),
+          Center(
+            child: CustomToggleSwitch(
+              onTap1: () {
+                context.read<TextFormValidationCubit>().convertToKg();
+              },
+              isSelected: isSelected,
+              onTap2: () {
+                context.read<TextFormValidationCubit>().convertToBs();
+              },
             ),
           ),
           const Spacer(),
-          CustomAnimatedOpacity(
-            duration: const Duration(milliseconds: 700),
-            child: CustomButton(
-              label: 'Continue',
-              horizontalPadding: 0,
-              onPressed: () {
-                context.read<TextFormValidationCubit>().weightValidate();
-              },
-            ),
+          CustomButton(
+            label: 'Continue',
+            horizontalPadding: 0,
+            onPressed: () {
+              context.read<TextFormValidationCubit>().weightValidate();
+            },
           ),
           const SizedBox(height: 30),
         ],

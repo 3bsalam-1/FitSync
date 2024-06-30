@@ -1,4 +1,4 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc/bloc.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
@@ -7,6 +7,8 @@ part 'filter_state.dart';
 
 class FilterCubit extends Cubit<FilterState> {
   FilterCubit() : super(FilterInitial());
+
+  
 
   Color realbuttoncolor = gray13;
   Color realbuttoncolor1 = gray13;
@@ -26,6 +28,7 @@ class FilterCubit extends Cubit<FilterState> {
     realbuttoncolor1 = gray13;
     realbuttoncolor2 = gray13;
     realbuttoncolor3 = gray13;
+    
 
     emit(FilterInitial());
   }

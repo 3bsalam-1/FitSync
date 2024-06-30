@@ -1,29 +1,61 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../data/cubit/workouts/workouts_cubit.dart';
-import '../../../data/models/workouts_model.dart';
 import '../../../shared/colors/colors.dart';
-import '../../../shared/widgets/global/custom_image.dart';
-import '../../../shared/widgets/global/custom_translate_text.dart';
+import '../../../shared/widgets/global/animated_navigator.dart';
 
 class SavedWorkOutsScreen extends StatelessWidget {
-  final List<WorkoutsModel> workoutsFav;
-  const SavedWorkOutsScreen({super.key, required this.workoutsFav});
+  const SavedWorkOutsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(height: 20),
-        Expanded(
-          child: ListView.separated(
-            itemCount: workoutsFav.length,
-            physics: const BouncingScrollPhysics(),
-            separatorBuilder: (context, index) => const SizedBox(height: 25),
-            itemBuilder: (context, index) {
-              final workouts = workoutsFav[index];
-              return Container(
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: white,
+        scrolledUnderElevation: 0,
+        elevation: 0,
+        title: const Text('Saved Workout'),
+        titleTextStyle: GoogleFonts.poppins(
+          fontSize: 22,
+          color: black,
+          fontWeight: FontWeight.w600,
+        ),
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            AnimatedNavigator().pop(context);
+          },
+          icon: const Icon(
+            Icons.arrow_circle_left,
+            color: purple3,
+            size: 40,
+          ),
+        ),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 7,
+              right: 12,
+            ),
+            child: CircleAvatar(
+              radius: 20,
+              child: Image.asset(
+                'assets/images/profile.png',
+                fit: BoxFit.fill,
+              ),
+            ),
+          ),
+        ],
+      ),
+      backgroundColor: white,
+      body: Column(
+        children: [
+          const SizedBox(height: 20),
+          Expanded(
+            child: ListView.separated(
+              itemCount: 8,
+              physics: const BouncingScrollPhysics(),
+              separatorBuilder: (context, index) => const SizedBox(height: 25),
+              itemBuilder: (context, index) => Container(
                 padding: const EdgeInsets.only(
                   left: 22,
                   top: 12,
@@ -54,24 +86,24 @@ class SavedWorkOutsScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        customTranslateText(
-                          workouts.category,
+                        Text(
+                          'Full Body',
                           style: GoogleFonts.poppins(
                             fontSize: 22,
                             color: black,
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        customTranslateText(
-                          '${workouts.exercisePlan.length} Exercises',
+                        Text(
+                          '20 Exercises',
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             color: gray4,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        customTranslateText(
-                          '${workouts.planDurationMn} Minutes',
+                        Text(
+                          '60 Minutes',
                           style: GoogleFonts.poppins(
                             fontSize: 12,
                             color: gray4,
@@ -80,24 +112,20 @@ class SavedWorkOutsScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    CustomImage(
+                    Image.asset(
+                      'assets/images/pullup.png',
                       width: 130,
                       height: 108,
                       fit: BoxFit.fill,
-                      imageUrl: context
-                          .read<WorkoutsCubit>()
-                          .workoutsImages!['${index % 10}'],
-                      errorColor: red,
-                      iconSize: 45,
                     ),
                   ],
                 ),
-              );
-            },
+              ),
+            ),
           ),
-        ),
-        const SizedBox(height: 20),
-      ],
+          const SizedBox(height: 20),
+        ],
+      ),
     );
   }
 }

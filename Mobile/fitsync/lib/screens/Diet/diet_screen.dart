@@ -14,8 +14,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
-import '../../shared/widgets/global/custom_translate_text.dart';
-
 class DietScreen extends StatelessWidget {
   DietScreen({super.key});
 
@@ -33,7 +31,7 @@ class DietScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 18, top: 10),
                   child: Align(
                     alignment: Alignment.centerLeft,
-                    child: customTranslateText(
+                    child: Text(
                       "Diet Plan",
                       style: GoogleFonts.poppins(
                         textStyle: const TextStyle(
@@ -63,7 +61,7 @@ class DietScreen extends StatelessWidget {
               padding: const EdgeInsets.only(left: 18, top: 10),
               child: Align(
                   alignment: Alignment.centerLeft,
-                  child: customTranslateText(
+                  child: Text(
                     "Follow your plan every day",
                     style: GoogleFonts.poppins(
                       textStyle: TextStyle(
@@ -106,7 +104,7 @@ class DietScreen extends StatelessWidget {
                           }),
                     );
                   } else {
-                    return  Column(
+                    return const Column(
                       children: [
                         SizedBox(
                           height: 45,
@@ -114,7 +112,7 @@ class DietScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            customTranslateText(
+                            Text(
                               "your plan is loading ...  ",
                               style: TextStyle(fontSize: 18),
                             ),
@@ -171,7 +169,7 @@ class DietScreen extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.only(
                               left: 20, top: 30, bottom: 25),
-                          child: customTranslateText(
+                          child: Text(
                             "Popular Meals",
                             style: GoogleFonts.poppins(
                               textStyle: TextStyle(
@@ -202,7 +200,7 @@ class DietScreen extends StatelessWidget {
                                 "Protein Foods"
                               ]
                                   .map((e) => DropdownMenuItem(
-                                      child: customTranslateText(
+                                      child: Text(
                                         "${e}",
                                         style: TextStyle(),
                                       ),
@@ -608,7 +606,7 @@ class DietScreen extends StatelessWidget {
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(right: 18),
-                    child: customTranslateText(
+                    child: Text(
                       "View All",
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(

@@ -31,7 +31,6 @@ class ExerciseSurveyRestrictScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             CustomAnimatedOpacity(
-              duration: const Duration(milliseconds: 700),
               child: SizedBox(
                 width: double.maxFinite,
                 child: Text(
@@ -45,7 +44,6 @@ class ExerciseSurveyRestrictScreen extends StatelessWidget {
               ),
             ),
             CustomAnimatedOpacity(
-              duration: const Duration(milliseconds: 700),
               child: Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 25,
@@ -69,7 +67,6 @@ class ExerciseSurveyRestrictScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             CustomAnimatedOpacity(
-              duration: const Duration(milliseconds: 700),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width - 40,
                 child: Text(
@@ -84,7 +81,6 @@ class ExerciseSurveyRestrictScreen extends StatelessWidget {
             ),
             const Spacer(),
             CustomAnimatedOpacity(
-              duration: const Duration(milliseconds: 700),
               child: CustomButton(
                 label: 'continue',
                 onPressed: () {

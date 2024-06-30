@@ -12,17 +12,17 @@ Future signInWithGoogle(context) async {
   if (googleUser == null) return;
 
   // Obtain the auth details from the request
-  final GoogleSignInAuthentication googleAuth =
-      await googleUser.authentication;
+  final GoogleSignInAuthentication? googleAuth =
+      await googleUser?.authentication;
 
   // Create a new credential
   final credential = GoogleAuthProvider.credential(
-    accessToken: googleAuth.accessToken,
-    idToken: googleAuth.idToken,
+    accessToken: googleAuth?.accessToken,
+    idToken: googleAuth?.idToken,
   );
   //print("name is ${googleUser!.displayName}");
   //print("email is ${googleUser.email}");
-  ContinueWithGoogle().continueWithGoogle(name: "${googleUser.displayName}", email: googleUser.email, avatar: "${googleUser.photoUrl}");
+  ContinueWithGoogle().continueWithGoogle(name: "${googleUser.displayName}", email: "${googleUser.email}", avatar: "${googleUser.photoUrl}");
   
   // Once signed in, return the UserCredential
   await FirebaseAuth.instance.signInWithCredential(credential);

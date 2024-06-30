@@ -1,9 +1,5 @@
-import 'package:fitsync/cubits_logic/survey_logic/text_form_validation_cubit.dart';
-import 'package:fitsync/data/cubit/user_data/user_data_info_cubit.dart';
-import 'package:fitsync/data/models/user_personal_info_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../cubits_logic/survey_logic/choise_questions_cubit.dart';
-import '../../../services/pref.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import 'create_plan_screen.dart';
 import 'exercise_survey_restrict_screen.dart';
@@ -83,10 +79,10 @@ class ChoiceKneePainQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChoiceBodyQuestion(
-      question: questionSurvey[3],
-      questionIndex: 3,
+      question: questionSurvey[4],
+      questionIndex: 4,
       onPress: () {
-        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[3];
+        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[4];
         if (selectedAnswer == 0) {
           AnimatedNavigator().push(
             context,
@@ -112,10 +108,10 @@ class ChoiceDiabetesQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChoiceBodyQuestion(
-      question: questionSurvey[4],
-      questionIndex: 4,
+      question: questionSurvey[6],
+      questionIndex: 6,
       onPress: () {
-        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[4];
+        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[6];
         if (selectedAnswer == 0) {
           AnimatedNavigator().push(
             context,
@@ -138,14 +134,14 @@ class ChoiceHeartDiseaseQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChoiceBodyQuestion(
-      question: questionSurvey[5],
-      questionIndex: 5,
+      question: questionSurvey[7],
+      questionIndex: 7,
       onPress: () {
-        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[5];
+        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[7];
         if (selectedAnswer == 0) {
           AnimatedNavigator().push(
             context,
-            const BloodPressureQuestion(),
+            const ChoiceHypertensionQuestion(),
           );
         } else {
           AnimatedNavigator().push(
@@ -164,14 +160,14 @@ class ChoiceHypertensionQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChoiceBodyQuestion(
-      question: questionSurvey[6],
-      questionIndex: 6,
+      question: questionSurvey[8],
+      questionIndex: 8,
       onPress: () {
-        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[6];
+        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[7];
         if (selectedAnswer == 0) {
           AnimatedNavigator().push(
             context,
-            const BmrQuestion(),
+            const ChoiceSleepQuestion(),
           );
         } else {
           AnimatedNavigator().push(
@@ -190,8 +186,8 @@ class ChoiceSleepQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChoiceBodyQuestion(
-      question: questionSurvey[7],
-      questionIndex: 7,
+      question: questionSurvey[9],
+      questionIndex: 9,
       onPress: () {
         AnimatedNavigator().push(
           context,
@@ -208,73 +204,14 @@ class ChoiceDailyWaterQuestion extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChoiceBodyQuestion(
-      question: questionSurvey[8],
-      questionIndex: 8,
+      question: questionSurvey[10],
+      questionIndex: 10,
       onPress: () {
         AnimatedNavigator().push(
           context,
-          const VegetarianChoiceQuestion(),
+          const CreatePlanScreen(),
         );
       },
-    );
-  }
-}
-
-class VegetarianChoiceQuestion extends StatelessWidget {
-  const VegetarianChoiceQuestion({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocListener<UserDataInfoCubit, UserDataInfoState>(
-      listener: (context, state) {
-        if (state is UserDataFailure) {
-          state.showFaliure(context);
-        } else if (state is UserDataLoading) {
-          state.showLoadingDialog(context);
-        } else if (state is UserDataSuccess) {
-          context.read<UserDataInfoCubit>().removeData();
-          AnimatedNavigator().push(
-            context,
-            const CreatePlanScreen(),
-          );
-        }
-      },
-      child: ChoiceBodyQuestion(
-        question: questionSurvey[9],
-        questionIndex: 9,
-        onPress: () {
-          bool backPain = context.read<ChoiseQuestionsCubit>().answers[2] == 0? false: true;
-          bool kneePain = context.read<ChoiseQuestionsCubit>().answers[3] == 0? false: true;
-          bool diabetes = context.read<ChoiseQuestionsCubit>().answers[4] == 0? false: true;
-          bool heartCondition = context.read<ChoiseQuestionsCubit>().answers[5] == 0? false: true;
-          bool hypertension = context.read<ChoiseQuestionsCubit>().answers[6] == 0? false: true;
-          bool vegetarian = context.read<ChoiseQuestionsCubit>().answers[9] == 0? false: true;
-          int activeLevel = context.read<ChoiseQuestionsCubit>().answers[1];
-          
-          context.read<UserDataInfoCubit>().saveUserData(
-            context: context,
-            info: UserPersonalInfoModel(
-              weight: Prefs.getDouble('weight')!, 
-              height: Prefs.getDouble('height')!,
-              birthdate: context.read<TextFormValidationCubit>().birthDateController, 
-              gender: Prefs.getInt('gender')!, 
-              activityLevel: activeLevel, 
-              systolicBP: Prefs.getDouble('sys')?? 10, 
-              diastolicBP: Prefs.getDouble('dias') ?? 10, 
-              cholesterolLevel: Prefs.getDouble('chol') ?? 10, 
-              bloodSugar: Prefs.getDouble('bloodSugare') ?? 10, 
-              hypertension: hypertension, 
-              diabetes: diabetes, 
-              heartCondition: heartCondition, 
-              lowPressure: Prefs.getDouble('bP')!, 
-              bmr: Prefs.getDouble('bmr')!, 
-              kneePain: kneePain, 
-              backPain: backPain, 
-              vegetarian: vegetarian,
-            ), 
-          );
-        },
-      ),
     );
   }
 }

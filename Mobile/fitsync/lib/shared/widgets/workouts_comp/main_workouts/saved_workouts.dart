@@ -1,143 +1,114 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../cubits_logic/global/navigation_page_cubit.dart';
-import '../../../../data/cubit/workouts/favorite_workouts_cubit.dart';
-import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_image.dart';
-import '../../global/custom_translate_text.dart';
 
 class SavedWorkOuts extends StatelessWidget {
   const SavedWorkOuts({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<FavoriteWorkoutsCubit, FavoriteWorkoutsState>(
-      builder: (context, state) {
-        final providerFav = context.read<FavoriteWorkoutsCubit>();
-        final provider = context.read<WorkoutsCubit>();
-        return Column(
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                customTranslateText(
-                  'Saved Workouts',
-                  style: GoogleFonts.poppins(
-                    fontSize: 22,
-                    color: black,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    providerFav.showAllSavedWorkouts();
-                    Future.delayed(const Duration(milliseconds: 500), () {
-                      context.read<NavigationPageCubit>().changePage(9);
-                    });
-                  },
-                  child: customTranslateText(
-                    'View all',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16,
-                      color: providerFav.viewAllFavorites ? purple2 : gray14,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ),
-              ],
+            Text(
+              'Saved Workouts',
+              style: GoogleFonts.poppins(
+                fontSize: 22,
+                color: black,
+                fontWeight: FontWeight.w600,
+              ),
             ),
-            const SizedBox(height: 22),
-            SizedBox(
-              height: 180,
-              child: ListView.separated(
-                itemCount: providerFav.favoriteWorkouts!.length,
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                separatorBuilder: (context, index) => const SizedBox(width: 30),
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 250,
-                    height: 180,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: black,
+            TextButton(
+              onPressed: () {
+                // ToDo show all the saved workouts
+              },
+              child: Text(
+                'View all',
+                style: GoogleFonts.poppins(
+                  fontSize: 16,
+                  color: purple2,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 22),
+        SizedBox(
+          height: 180,
+          child: ListView.separated(
+              itemCount: 5,
+              physics: const BouncingScrollPhysics(),
+              scrollDirection: Axis.horizontal,
+              separatorBuilder: (context, index) => const SizedBox(width: 30),
+              itemBuilder: (context, index) {
+                return Container(
+                  width: 250,
+                  height: 180,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(5),
+                    color: black,
+                    image: const DecorationImage(
+                      opacity: 0.6,
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        'assets/images/pullup.png',
+                      ),
                     ),
-                    child: Stack(
-                      children: [
-                        Opacity(
-                          opacity: 0.5,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(12),
-                            child: CustomImage(
-                              imageUrl:
-                                  provider.workoutsImages!['${index % 10}'],
-                              width: 250,
-                              height: 180,
-                              fit: BoxFit.cover,
-                              iconSize: 60,
-                              errorColor: red,
-                            ),
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 15),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 15),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    width: 120,
-                                    child: customTranslateText(
-                                      providerFav
-                                          .favoriteWorkouts![index].category,
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 18,
-                                        color: white,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  SizedBox(
-                                    width: 130,
-                                    child: customTranslateText(
-                                      'Finish this exercise in ${providerFav.favoriteWorkouts![index].planDurationMn} minutes',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 12,
-                                        color: white,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                            SizedBox(
+                              width: 80,
+                              child: Text(
+                                'Pull up exercise',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 18,
+                                  color: white,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
-                            const Padding(
-                              padding: EdgeInsets.only(top: 10, right: 10),
-                              child: Icon(
-                                Icons.favorite,
-                                color: white,
-                                size: 30,
+                            SizedBox(height: 8),
+                            SizedBox(
+                              width: 130,
+                              child: Text(
+                                'Finish this exercise in 15 minutes',
+                                style: GoogleFonts.poppins(
+                                  fontSize: 12,
+                                  color: white,
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ],
                         ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-            const SizedBox(height: 20),
-          ],
-        );
-      },
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, right: 10),
+                        child: Icon(
+                          Icons.favorite,
+                          color: white,
+                          size: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }),
+        ),
+        const SizedBox(height: 20),
+      ],
     );
   }
 }

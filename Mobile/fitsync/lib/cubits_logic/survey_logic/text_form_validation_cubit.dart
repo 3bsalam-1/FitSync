@@ -1,5 +1,7 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:meta/meta.dart';
+
 import '../../services/pref.dart';
 part 'text_form_validation_state.dart';
 
@@ -14,8 +16,6 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   final systolicController = TextEditingController();
   final diastolicController = TextEditingController();
   final cholesterolController = TextEditingController();
-  final bmrController = TextEditingController();
-  final bloodPressureController = TextEditingController();
   bool isCmSelected = true;
   bool isKgSelected = true;
 
@@ -24,7 +24,7 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
       try {
         int age = int.parse(ageController.text);
         if (age >= 7 && age <= 100) {
-          Prefs.setInt('age', age);
+          Prefs.setString('age', ageController.text);
           emit(AgeValidation(null));
         } else {
           emit(AgeValidation('The age must be between 7-100'));
@@ -42,10 +42,10 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
       try {
         double weight = double.parse(weightController.text);
         if (weight >= 30 && weight <= 400 && isKgSelected) {
-          Prefs.setDouble('weight', weight);
+          Prefs.setString('weight', weightController.text);
           emit(WeightValidation(null));
         } else if (weight >= 66 && weight <= 880 && !isKgSelected) {
-          Prefs.setDouble('weight', (weight / 2.2).roundToDouble());
+          Prefs.setString('weight', (weight * 2.2).toString());
           emit(WeightValidation(null));
         } else {
           emit(WeightValidation('The weight must be between 30-400'));
@@ -103,7 +103,7 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
       emit(BirthValidation('Can not be empty please select birth date'));
     }
   }
-
+  
   void updateBirthDateValue(String value) {
     birthDateController = value;
     emit(TextFormValidationInitial());
@@ -114,10 +114,13 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
       try {
         double tall = double.parse(tallController.text);
         if (tall >= 50 && tall <= 220 && isCmSelected) {
-          Prefs.setDouble('height', tall);
+          Prefs.setString('tall', tallController.text);
           emit(TallValidation(null));
         } else if (tall >= 1.64 && tall <= 7.22 && !isCmSelected) {
-          Prefs.setDouble('height', (tall / 0.032808399).roundToDouble());
+          Prefs.setString(
+              'tall',
+              (double.parse(tallController.text) / 0.032808399)
+                  .toStringAsFixed(2));
           emit(TallValidation(null));
         } else {
           emit(TallValidation('The value must be between 50-220'));
@@ -175,8 +178,8 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   void bloodSugarValidate() {
     if (bloodSugarController.text.isNotEmpty) {
       try {
-        var bloodSugar = double.parse(bloodSugarController.text);
-        Prefs.setDouble('bloodSugare', bloodSugar);
+        double.parse(bloodSugarController.text);
+        Prefs.setString('bloodSugar', bloodSugarController.text);
         emit(BloodSugarValidation(null));
       } on FormatException {
         emit(BloodSugarValidation('The value must be a number'));
@@ -189,8 +192,8 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   void systolicBloodValidate() {
     if (systolicController.text.isNotEmpty) {
       try {
-        var sys = double.parse(systolicController.text);
-        Prefs.setDouble('sys', sys);
+        double.parse(systolicController.text);
+        Prefs.setString('systolic', systolicController.text);
         emit(SystolicBloodValidation(null));
       } on FormatException {
         emit(SystolicBloodValidation('The value must be a number'));
@@ -203,8 +206,8 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   void diastolicBloodValidate() {
     if (diastolicController.text.isNotEmpty) {
       try {
-        var dias = double.parse(diastolicController.text);
-        Prefs.setDouble('dias', dias);
+        double.parse(diastolicController.text);
+        Prefs.setString('diastolic', diastolicController.text);
         emit(DiastolicBloodValidation(null));
       } on FormatException {
         emit(DiastolicBloodValidation('The value must be a number'));
@@ -217,42 +220,14 @@ class TextFormValidationCubit extends Cubit<TextFormValidationState> {
   void cholesterolValidate() {
     if (cholesterolController.text.isNotEmpty) {
       try {
-        var chol = double.parse(cholesterolController.text);
-        Prefs.setDouble('chol', chol);
+        double.parse(cholesterolController.text);
+        Prefs.setString('chole', cholesterolController.text);
         emit(CholesterolValidation(null));
       } on FormatException {
         emit(CholesterolValidation('The value must be a number'));
       }
     } else {
       emit(CholesterolValidation('Can not be empty'));
-    }
-  }
-
-  void bmrValidate() {
-    if (bmrController.text.isNotEmpty) {
-      try {
-        var bmr = double.parse(bmrController.text);
-        Prefs.setDouble('bmr', bmr);
-        emit(BmrValidation(null));
-      } on FormatException {
-        emit(BmrValidation('The value must be a number'));
-      }
-    } else {
-      emit(BmrValidation('Can not be empty'));
-    }
-  }
-
-  void bloodPressureValidate() {
-    if (bloodPressureController.text.isNotEmpty) {
-      try {
-        var bp = double.parse(bloodPressureController.text);
-        Prefs.setDouble('bP', bp);
-        emit(BloodPressureValidation(null));
-      } on FormatException {
-        emit(BloodPressureValidation('The value must be a number'));
-      }
-    } else {
-      emit(BloodPressureValidation('Can not be empty'));
     }
   }
 }

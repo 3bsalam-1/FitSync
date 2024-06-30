@@ -2,16 +2,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_translate_text.dart';
 
 class WaterMeasure extends StatelessWidget {
   final double progress;
-  final double waterTaked;
 
   const WaterMeasure({
     super.key,
     required this.progress,
-    required this.waterTaked,
   });
 
   @override
@@ -23,21 +20,15 @@ class WaterMeasure extends StatelessWidget {
         children: [
           Row(
             children: [
-              AnimatedContainer(
-                duration: const Duration(milliseconds: 900),
-                width: progress >= 94
-                    ? 308
-                    : progress > 9
-                        ? 360 * (progress / 100) - 30
-                        : 10,
+              SizedBox(
+                width: 300 * (progress / 100),
               ),
               Stack(
                 alignment: Alignment.center,
                 children: [
                   Transform.rotate(
                     angle: 45 / 180 * pi,
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 900),
+                    child: Container(
                       width: 50,
                       height: 50,
                       decoration: const BoxDecoration(
@@ -58,7 +49,8 @@ class WaterMeasure extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '${waterTaked.toInt()}',
+                    // todo the value of the water ML
+                    '750',
                     style: GoogleFonts.poppins(
                       fontSize: 16,
                       color: white,
@@ -82,10 +74,9 @@ class WaterMeasure extends StatelessWidget {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: UnconstrainedBox(
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 900),
+                  child: Container(
                     height: 53,
-                    width: progress <= 2 ? 50 : 360 * (progress / 100) - 6,
+                    width: 360 * (progress / 100) - 4,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(60),
                       color: cyan6,
@@ -97,8 +88,7 @@ class WaterMeasure extends StatelessWidget {
           ),
           const SizedBox(height: 9),
           Center(
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 900),
+            child: SizedBox(
               height: 17,
               child: ListView.builder(
                 itemCount: 67,
@@ -121,11 +111,11 @@ class WaterMeasure extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 9),
-          Center(
+          const Center(
             child: SizedBox(
               width: 335,
               child: DefaultTextStyle(
-                style: const TextStyle(
+                style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
                   color: gray3,
@@ -134,10 +124,10 @@ class WaterMeasure extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    customTranslateText('Poor'),
-                    customTranslateText('Good'),
-                    customTranslateText('Almost'),
-                    customTranslateText('Perfect!'),
+                    Text('Poor'),
+                    Text('Good'),
+                    Text('Almost'),
+                    Text('Perfect!'),
                   ],
                 ),
               ),

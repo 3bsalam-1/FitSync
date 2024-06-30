@@ -2,16 +2,14 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../global/custom_translate_text.dart';
 
 class ProfileWidget1 extends StatelessWidget {
-  final String imageUrl;
-  final String label;
+  String imageUrl;
+  String label;
   final double scale;
-  final double? w;
+  double? w;
   final void Function()? onTap;
-
-  const ProfileWidget1({
+  ProfileWidget1({
     required this.imageUrl,
     required this.label,
     required this.scale,
@@ -35,7 +33,7 @@ class ProfileWidget1 extends StatelessWidget {
             )),
         Padding(
           padding: const EdgeInsets.only(left: 10),
-          child: customTranslateText(
+          child: Text(
             label,
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
@@ -45,10 +43,10 @@ class ProfileWidget1 extends StatelessWidget {
             textAlign: TextAlign.justify,
           ),
         ),
-        const Spacer(),
+        Spacer(),
         IconButton(
             onPressed: onTap,
-            icon: const Icon(
+            icon: Icon(
               IconlyLight.arrow_right_2,
               color: purple5,
               weight: 25,

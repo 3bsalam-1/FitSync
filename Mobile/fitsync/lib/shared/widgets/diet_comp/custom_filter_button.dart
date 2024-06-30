@@ -2,7 +2,6 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../global/custom_translate_text.dart';
 
 class CustomFilterButton extends StatefulWidget {
   final String label;
@@ -36,7 +35,7 @@ class _CustomFilterItemState extends State<CustomFilterButton> {
             color: isSelected ? purple5 : gray13,
             borderRadius: BorderRadius.circular(25),
           ),
-          child: customTranslateText(
+          child: Text(
             widget.label,
             style: GoogleFonts.poppins(
               fontSize: 10,

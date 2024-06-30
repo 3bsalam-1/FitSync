@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
 import 'question_survey.dart';
 
-class ListQuestionItem extends StatefulWidget {
+class ListQuestionItem extends StatelessWidget {
+  final bool isStarted;
   final int index;
   final int indexAnswer;
   final QuestionModel question;
@@ -13,51 +14,24 @@ class ListQuestionItem extends StatefulWidget {
     super.key,
     required this.index,
     required this.indexAnswer,
+    required this.isStarted,
     required this.question,
     required this.onTap,
   });
 
   @override
-  State<ListQuestionItem> createState() => _ListQuestionItemState();
-}
-
-class _ListQuestionItemState extends State<ListQuestionItem> with SingleTickerProviderStateMixin {
-  late Animation<double> animation;
-  late AnimationController controller;
-  
-  @override
-  void initState() {
-    super.initState();
-    controller = AnimationController(
-      duration: const Duration(seconds: 1),
-      vsync: this,
-    );
-    animation = Tween<double>(begin: 2000, end: 0).animate(controller)..addListener(() {
-      setState(() {});
-    });
-    
-    controller.forward();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    controller.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
       curve: Curves.easeInOut,
-      transform: Matrix4.translationValues(animation.value, 0, 0),
-      duration: Duration(milliseconds: 800 + (200 * widget.index)),
+      transform: Matrix4.translationValues(isStarted ? 0 : 2000, 0, 0),
+      duration: Duration(milliseconds: 800 + (200 * index)),
       decoration: BoxDecoration(
         color: white,
         borderRadius: BorderRadius.circular(19),
         border: Border.all(
           width: 2,
           // index = 1 for the answer checking if it selected or NOT
-          color: widget.indexAnswer == widget.index ? purple2 : white,
+          color: indexAnswer == index ? purple2 : white,
         ),
         boxShadow: [
           BoxShadow(
@@ -69,18 +43,17 @@ class _ListQuestionItemState extends State<ListQuestionItem> with SingleTickerPr
         ],
       ),
       child: InkWell(
-        onTap: widget.onTap,
+        onTap: onTap,
         borderRadius: BorderRadius.circular(19),
         child: Container(
           width: double.infinity,
           padding: const EdgeInsets.only(
             left: 19,
-            right: 19,
             top: 33,
             bottom: 33,
           ),
           child: Text(
-            widget.question.choice[widget.index],
+            question.choice[index],
             style: GoogleFonts.poppins(
               fontSize: 20,
               color: black,

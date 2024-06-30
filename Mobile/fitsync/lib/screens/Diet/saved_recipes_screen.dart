@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
-import '../../shared/widgets/global/custom_translate_text.dart';
-
 class SavedRecipesScreen extends StatelessWidget {
   SavedRecipesScreen({super.key});
 
@@ -30,7 +28,7 @@ class SavedRecipesScreen extends StatelessWidget {
                 size: 40,
               )),
         ),
-        title: customTranslateText(
+        title: Text(
           'Saved Recipes',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,

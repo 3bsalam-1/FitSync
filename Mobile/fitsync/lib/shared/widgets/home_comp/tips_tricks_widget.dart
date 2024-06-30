@@ -2,7 +2,6 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../global/custom_translate_text.dart';
 
 class TipsAndTricksWidget extends StatelessWidget {
   final String imageUrl;
@@ -54,7 +53,7 @@ class TipsAndTricksWidget extends StatelessWidget {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50), color: white),
             child: Center(
-              child: customTranslateText(
+              child: Text(
                 label1,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
@@ -131,7 +130,7 @@ class TipsAndTricksWidget extends StatelessWidget {
               SizedBox(
                 width: 10,
               ),
-              customTranslateText(
+              Text(
                 label5,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,

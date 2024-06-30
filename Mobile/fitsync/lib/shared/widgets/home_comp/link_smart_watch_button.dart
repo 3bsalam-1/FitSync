@@ -1,10 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../global/custom_translate_text.dart';
-import '../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
-import '../../../services/pref.dart';
 
 class LinkSmartWatchButton extends StatelessWidget {
   const LinkSmartWatchButton({
@@ -14,14 +10,7 @@ class LinkSmartWatchButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {
-        if (Prefs.getBool("watch-permission") != null) {
-          if (Prefs.getBool("watch-permission")!) {
-            context.read<SmartWatchCubit>().isSmartWatchConnected();
-          }
-        }
-        context.read<SmartWatchCubit>().intializeSmartWatchConnection();
-      },
+      onTap: () {},
       child: Container(
         width: MediaQuery.of(context).size.width * (386 / 428),
         height: MediaQuery.of(context).size.height * (60 / 926),
@@ -37,10 +26,10 @@ class LinkSmartWatchButton extends StatelessWidget {
               "assets/images/Icons/watch.PNG",
               width: 20,
             ),
-            const SizedBox(
+            SizedBox(
               width: 5,
             ),
-            customTranslateText(
+            Text(
               "Link Smart Watch",
               style: GoogleFonts.poppins(
                 fontWeight: FontWeight.w600,

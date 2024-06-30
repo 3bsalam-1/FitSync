@@ -32,8 +32,7 @@ class BloodSugarQuestion extends StatelessWidget {
         onPressed: () {
           context.read<TextFormValidationCubit>().bloodSugarValidate();
         },
-        controller:
-            context.read<TextFormValidationCubit>().bloodSugarController,
+        controller: context.read<TextFormValidationCubit>().bloodSugarController,
         labelQuestion: 'Please Enter Blood Sugar Level?',
         labelField: '0',
         labelMeagure: 'Mg/dL',
@@ -87,7 +86,7 @@ class DiastolicBloodQuestion extends StatelessWidget {
             AnimatedNavigator().push(
               context,
               const ExerciseSurveyScreen(
-                screen: BloodPressureQuestion(),
+                screen: ChoiceHypertensionQuestion(),
               ),
             );
           } else {
@@ -121,7 +120,7 @@ class CholesterolLevelQuestion extends StatelessWidget {
             AnimatedNavigator().push(
               context,
               const ExerciseSurveyScreen(
-                screen: BmrQuestion(),
+                screen: ChoiceSleepQuestion(),
               ),
             );
           } else {
@@ -138,72 +137,6 @@ class CholesterolLevelQuestion extends StatelessWidget {
         labelQuestion: 'Please Enter cholesterol level?',
         labelField: '0',
         labelMeagure: 'Mg/dL',
-      ),
-    );
-  }
-}
-
-
-class BloodPressureQuestion extends StatelessWidget {
-  const BloodPressureQuestion({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
-      listener: (context, state) {
-        if (state is BloodPressureValidation) {
-          if (state.errorText == null) {
-            FocusScope.of(context).unfocus();
-            AnimatedNavigator().push(
-              context,
-              const ChoiceHypertensionQuestion(),
-            );
-          } else {
-            customSnackBar(context, state.errorText!);
-          }
-        }
-      },
-      builder: (context, state) => WritingBodyQuestion(
-        onPressed: () {
-          context.read<TextFormValidationCubit>().bloodPressureValidate();
-        },
-        controller:
-            context.read<TextFormValidationCubit>().bloodPressureController,
-        labelQuestion: 'Please Enter Blood Pressure Level?',
-        labelField: '0',
-        labelMeagure: 'mmHg',
-      ),
-    );
-  }
-}
-
-class BmrQuestion extends StatelessWidget {
-  const BmrQuestion({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocConsumer<TextFormValidationCubit, TextFormValidationState>(
-      listener: (context, state) {
-        if (state is BmrValidation) {
-          if (state.errorText == null) {
-            FocusScope.of(context).unfocus();
-            AnimatedNavigator().push(
-              context,
-              const ChoiceSleepQuestion(),
-            );
-          } else {
-            customSnackBar(context, state.errorText!);
-          }
-        }
-      },
-      builder: (context, state) => WritingBodyQuestion(
-        onPressed: () {
-          context.read<TextFormValidationCubit>().bmrValidate();
-        },
-        controller: context.read<TextFormValidationCubit>().bmrController,
-        labelQuestion: 'Please Enter Your BMR?',
-        labelField: '0',
-        labelMeagure: 'kcal/day',
       ),
     );
   }

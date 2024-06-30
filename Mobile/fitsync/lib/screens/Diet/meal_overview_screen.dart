@@ -14,10 +14,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../shared/widgets/global/custom_translate_text.dart';
-
 class MealOverviewScreen extends StatelessWidget {
-  MealOverviewScreen({required this.diet, super.key});
+  MealOverviewScreen({
+    required this.diet,
+    super.key});
 
   final _controller = PageController();
   FoodModel diet;
@@ -42,7 +42,7 @@ class MealOverviewScreen extends StatelessWidget {
                   size: 40,
                 )),
           ),
-          title: customTranslateText(
+          title: Text(
             'Meal Tracker',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
@@ -103,6 +103,7 @@ class MealOverviewScreen extends StatelessWidget {
                         color: black,
                       ),
                       maxLines: 2,
+                                 
                     ),
                   ),
                 ),
@@ -141,7 +142,7 @@ class MealOverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(
                     left: 20,
                   ),
-                  child: customTranslateText(
+                  child: Text(
                     'Fits in Budget',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
@@ -168,18 +169,13 @@ class MealOverviewScreen extends StatelessWidget {
                     fontSize: 18,
                   ),
                   tabs: [
-                    Tab(child: customTranslateText('Overview')),
-                    Tab(child: customTranslateText('Ingredients')),
+                    Tab(child: Text('Overview')),
+                    Tab(child: Text('Ingredients')),
                   ]),
             ),
             Container(
               height: 250,
-              child: TabBarView(children: [
-                Page1(
-                  diet: diet,
-                ),
-                Page2(diet: diet)
-              ]),
+              child: TabBarView(children: [Page1(diet: diet,), Page2(diet:diet)]),
             )
           ],
         ),

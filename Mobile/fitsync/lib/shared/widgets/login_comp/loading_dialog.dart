@@ -7,44 +7,33 @@ class LoadingDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.transparent,
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height,
-      child: UnconstrainedBox(
-        child: Container(
-          height: 250,
-          width: 250,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: white,
-          ),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
-                  height: 120,
-                  width: 120,
-                  child: CircularProgressIndicator(
-                    color: green2,
-                    backgroundColor: gray4.withOpacity(0.2),
-                    strokeWidth: 12,
-                    strokeCap: StrokeCap.round,
-                  ),
-                ),
-                const SizedBox(height: 22),
-                Text(
-                  'In Progress',
-                  style: GoogleFonts.poppins(
-                    color: green2,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 22,
-                  ),
-                ),
-              ],
+    return AlertDialog(
+      backgroundColor: white,
+      content: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 22),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            SizedBox(
+              height: 120,
+              width: 120,
+              child: CircularProgressIndicator(
+                color: green2,
+                backgroundColor: gray4.withOpacity(0.2),
+                strokeWidth: 12,
+                strokeCap: StrokeCap.round,
+              ),
             ),
-          ),
+            const SizedBox(height: 22),
+            Text(
+              'In Progress',
+              style: GoogleFonts.poppins(
+                color: green2,
+                fontWeight: FontWeight.w600,
+                fontSize: 22,
+              ),
+            ),
+          ],
         ),
       ),
     );

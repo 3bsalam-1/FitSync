@@ -6,8 +6,6 @@ import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../shared/widgets/global/custom_translate_text.dart';
-
 class EmptyStateScreen extends StatelessWidget {
   EmptyStateScreen({super.key});
 
@@ -26,7 +24,7 @@ class EmptyStateScreen extends StatelessWidget {
               color: purple3,
               size: 40,
             )),
-        title: customTranslateText(
+        title: Text(
           'Saved Recipes',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
@@ -55,7 +53,7 @@ class EmptyStateScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * (322 / 428),
                 height: MediaQuery.of(context).size.height * (430 / 926),
               ),
-              customTranslateText(
+              Text(
                 ' Your Saved Recipes is\nempty you can discover\n   latest Recipes now',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/workouts/selected_level_mode.dart';
-import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_translate_text.dart';
+
 class ListLevelsMode extends StatelessWidget {
   const ListLevelsMode({super.key});
 
@@ -21,28 +20,26 @@ class ListLevelsMode extends StatelessWidget {
           builder: (context, state) {
             return InkWell(
               onTap: () {
+                // TODO here change cart when pressing the level mode
                 context.read<SelectedLevelMode>().selectedLevel(index);
-                context.read<WorkoutsCubit>().selectWorkoutsByLevel(
-                      context.read<SelectedLevelMode>().level[index],
-                    );
               },
               child: AnimatedContainer(
-                duration: const Duration(milliseconds: 400),
+                duration: const Duration(milliseconds: 500),
                 padding: const EdgeInsets.symmetric(horizontal: 7),
                 margin: const EdgeInsets.symmetric(horizontal: 2),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(8),
                   color: state == index ? purple5 : white,
                   border: Border.all(
-                    width: 1.2,
+                    width: 1.4,
                     color: state == index ? purple5 : gray4,
                   ),
                 ),
                 child: Center(
-                  child: customTranslateText(
+                  child: Text(
                     context.read<SelectedLevelMode>().level[index],
                     style: GoogleFonts.poppins(
-                      fontSize: 13,
+                      fontSize: 14,
                       color: state == index ? white : gray4,
                       fontWeight: FontWeight.w600,
                     ),

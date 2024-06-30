@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../global/custom_translate_text.dart';
+
 import '../../../colors/colors.dart';
 
 class CustomStartButton extends StatelessWidget {
@@ -24,7 +24,7 @@ class CustomStartButton extends StatelessWidget {
             color: purple5,
           ),
         ),
-        child: customTranslateText(
+        child: Text(
           'Start Now',
           style: GoogleFonts.poppins(
             fontSize: 12,

@@ -1,8 +1,9 @@
 import 'package:google_fonts/google_fonts.dart';
+
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
+
 import '../../shared/widgets/global/animated_navigator.dart';
-import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import '../Login/login_screen.dart';
 import '../Login/signup_screen.dart';
@@ -12,90 +13,88 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PopScope(
-      canPop: false,
-      child: Scaffold(
-        backgroundColor: white,
-        body: CustomAnimatedOpacity(
-          child: Column(
-            children: [
-              ClipPath(
-                clipper: ClipPathClass(),
-                child: Container(
-                  width: double.infinity,
-                  padding: const EdgeInsets.only(top: 40),
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        purple,
-                        purple,
-                        cyan,
-                      ],
-                      end: Alignment.topLeft,
-                      begin: Alignment.bottomRight,
-                    ),
-                  ),
-                  child: Image.asset(
-                    'assets/images/splash/run.png',
-                  ),
+    return Scaffold(
+      backgroundColor: white,
+      body: Column(
+        children: [
+          ClipPath(
+            clipper: ClipPathClass(),
+            child: Container(
+              width: double.infinity,
+              padding: const EdgeInsets.only(top: 40),
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    purple,
+                    purple,
+                    cyan,
+                  ],
+                  end: Alignment.topLeft,
+                  begin: Alignment.bottomRight,
                 ),
               ),
-              const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'Keep ',
-                    style: GoogleFonts.poppins(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
-                      color: purple,
-                    ),
-                  ),
-                  Text(
-                    'Your Body Fit & Strong',
-                    style: GoogleFonts.poppins(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w700,
-                      color: black,
-                    ),
-                  ),
-                ],
+              child: Image.asset(
+                'assets/images/splash/run.png',
               ),
+            ),
+          ),
+          const Spacer(),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
               Text(
-                'Try it now to begin your life',
+                'Keep ',
                 style: GoogleFonts.poppins(
                   fontSize: 22,
-                  fontWeight: FontWeight.w500,
-                  color: gray,
+                  fontWeight: FontWeight.w700,
+                  color: purple,
                 ),
               ),
-              const Spacer(),
-              CustomButton(
-                label: 'Sign In',
-                onPressed: () {
-                  AnimatedNavigator().pushAndRemoveUntil(
-                    context,
-                    const LoginPage(),
-                  );
-                },
+              Text(
+                'Your Body Fit & Strong',
+                style: GoogleFonts.poppins(
+                  fontSize: 22,
+                  fontWeight: FontWeight.w700,
+                  color: black,
+                ),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              CustomButton(
-                label: 'Sign Up',
-                onPressed: () {
-                  AnimatedNavigator().pushAndRemoveUntil(
-                    context,
-                    const SignUp(),
-                  );
-                },
-              ),
-              const Spacer(),
             ],
           ),
-        ),
+          Text(
+            'Try it now to begin your life',
+            style: GoogleFonts.poppins(
+              fontSize: 22,
+              fontWeight: FontWeight.w500,
+              color: gray,
+            ),
+          ),
+          const Spacer(),
+          CustomButton(
+            label: 'Sign In',
+            onPressed: () {
+              AnimatedNavigator().pushAndRemoveUntil(
+                context,
+                const LoginPage(),
+              );
+            },
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          CustomButton(
+            label: 'Sign Up',
+            textColor: purple2,
+            borderColor: purple2,
+            colors: const [white, white],
+            onPressed: () {
+              AnimatedNavigator().pushAndRemoveUntil(
+                context,
+                const SignUp(),
+              );
+            },
+          ),
+          const Spacer(),
+        ],
       ),
     );
   }

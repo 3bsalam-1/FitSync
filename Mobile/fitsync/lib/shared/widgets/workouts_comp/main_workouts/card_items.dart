@@ -1,27 +1,13 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../data/cubit/workouts/favorite_workouts_cubit.dart';
-import '../../../../data/cubit/workouts/workouts_cubit.dart';
-import '../../../../data/models/workouts_model.dart';
+
 import '../../global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_image.dart';
-import '../../global/custom_translate_text.dart';
 import 'custom_start_button.dart';
 
 class CardItems extends StatelessWidget {
-  final WorkoutsModel workouts;
-  final int workoutIndex;
-  final String imagePath;
-
-  const CardItems({
-    super.key,
-    required this.workouts,
-    required this.workoutIndex,
-    required this.imagePath,
-  });
+  const CardItems({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +17,7 @@ class CardItems extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         color: black,
       ),
-      width: width - 30,
+      width: width,
       height: 200,
       child: Row(
         children: [
@@ -40,13 +26,11 @@ class CardItems extends StatelessWidget {
               topLeft: Radius.circular(10),
               bottomLeft: Radius.circular(10),
             ),
-            child: CustomImage(
+            child: Image.asset(
+              'assets/images/workouts.png',
               height: 200,
               width: width * 0.42,
               fit: BoxFit.cover,
-              imageUrl: imagePath,
-              errorColor: red,
-              iconSize: 55,
             ),
           ),
           Padding(
@@ -57,8 +41,8 @@ class CardItems extends StatelessWidget {
               children: [
                 SizedBox(
                   width: width * 0.42,
-                  child: customTranslateText(
-                    workouts.category,
+                  child: Text(
+                    'Strong Glutes Lean Legs',
                     style: GoogleFonts.poppins(
                       fontSize: 22,
                       color: white,
@@ -85,8 +69,8 @@ class CardItems extends StatelessWidget {
                         size: 17,
                       ),
                       const SizedBox(width: 5),
-                      customTranslateText(
-                        '${workouts.planDurationMn} Minutes Workout',
+                      Text(
+                        '15 Minutes Workout',
                         style: GoogleFonts.poppins(
                           fontSize: 12,
                           color: white,
@@ -97,16 +81,10 @@ class CardItems extends StatelessWidget {
                   ),
                 ),
                 CustomStartButton(onTap: () {
-                  context
-                      .read<FavoriteWorkoutsCubit>()
-                      .isFavoriteWorkouts(workouts);
+                  // TODO start the workouts
                   AnimatedNavigator().push(
                     context,
-                    WorkoutsViewChallenge(
-                      workoutsIndex: workoutIndex,
-                      workouts: context.read<WorkoutsCubit>().dataLevel,
-                      imagePath: imagePath,
-                    ),
+                    const WorkoutsViewChallenge(),
                   );
                 }),
               ],

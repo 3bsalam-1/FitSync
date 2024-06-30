@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/activity_comp/chart_data.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -52,9 +53,10 @@ class _HeartGraphState extends State<HeartGraph> {
 
   @override
   void initState() {
+    // TODO: implement initState
     super.initState();
     chartData = getChartData();
-    Timer.periodic(const Duration(seconds: 1), updateDataSource);
+    Timer.periodic(Duration(seconds: 1), updateDataSource);
   }
 
   int time = 100;
@@ -68,31 +70,29 @@ class _HeartGraphState extends State<HeartGraph> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 70,
-      width: 150,
-      child: SfCartesianChart(
-        plotAreaBorderColor: white,
-        primaryXAxis: const CategoryAxis(
-          isVisible: false,
-        ),
-        primaryYAxis: const NumericAxis(
-          isVisible: false,
-        ),
-        series: <LineSeries<LiveData, int>>[
-          LineSeries<LiveData, int>(
-              onRendererCreated: (ChartSeriesController controller) {
-                _chartSeriesController = controller;
-              },
-
-              // Bind data source
-              dataSource: chartData,
-              pointColorMapper: (LiveData data, _) => data.color,
-              xValueMapper: (LiveData data, _) => data.time,
-              yValueMapper: (LiveData data, _) => data.speed)
-        ],
-      ),
-    );
+    return Container(
+        height: 70,
+        width: 150,
+        child: SfCartesianChart(
+            plotAreaBorderColor: white,
+            primaryXAxis: CategoryAxis(
+              isVisible: false,
+            ),
+            primaryYAxis: NumericAxis(
+              isVisible: false,
+            ),
+            series: <LineSeries<LiveData, int>>[
+              LineSeries<LiveData, int>(
+                  onRendererCreated: (ChartSeriesController controller) {
+                    _chartSeriesController = controller;
+                  },
+                  
+                  // Bind data source
+                  dataSource: chartData,
+                  pointColorMapper: (LiveData data, _) => data.color,
+                  xValueMapper: (LiveData data, _) => data.time,
+                  yValueMapper: (LiveData data, _) => data.speed)
+            ]));
   }
 }
 

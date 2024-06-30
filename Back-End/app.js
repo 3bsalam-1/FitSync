@@ -23,7 +23,10 @@ const userRouter = require("./routes/user.router");
 const authCW = require("./routes/authCW.router");
 const userInfoRouter = require("./routes/userInfo.route");
 const vitalsignalRouter = require("./routes/vitalSig.route");
+<<<<<<< HEAD
 const activityRouter = require("./routes/activity.router");
+=======
+>>>>>>> parent of ff3a7fc (change)
 
 const app = express();
 app.use(cookieParser());
@@ -61,13 +64,20 @@ app.use('/api',limitar);
 app.use(mongoSanitize());
 app.use(xss());
 
+app.use("/home", (req, res, next) => {
+  res.send("<h1>home screen</h1>");
+});
 
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/auth", authCW);
 app.use("/api/userInfo", userInfoRouter);
 app.use("/api/vitalsignal", vitalsignalRouter);
+<<<<<<< HEAD
 app.use("/api", activityRouter);
+=======
+
+>>>>>>> parent of ff3a7fc (change)
 
 app.use("/hello-world", (req, res, next) => {
   res.send("Hello World");

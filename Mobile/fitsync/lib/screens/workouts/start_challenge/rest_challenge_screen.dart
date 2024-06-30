@@ -1,10 +1,4 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../data/cubit/workouts/workouts_cubit.dart';
-import '../../../shared/widgets/global/custom_animated_opacity.dart';
-import '../../../shared/widgets/global/custom_image.dart';
-import '../../../shared/widgets/global/custom_translate_text.dart';
-import 'challenge_begin_screen.dart';
-import '../../../shared/widgets/global/custom_button.dart';
+import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../shared/colors/colors.dart';
@@ -12,18 +6,10 @@ import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 
 class RestChallengeScreen extends StatelessWidget {
-  final int nextExercise;
-  final int workoutIndex;
-
-  const RestChallengeScreen({
-    super.key,
-    required this.workoutIndex,
-    required this.nextExercise,
-  });
+  const RestChallengeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final workouts = context.read<WorkoutsCubit>().dataLevel[workoutIndex];
     return Scaffold(
       appBar: customIconAppBar(
         onPressed: () {
@@ -37,102 +23,70 @@ class RestChallengeScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const SizedBox(height: 15),
-            CustomAnimatedOpacity(
-              child: customTranslateText(
-                'Take Rest!',
+            Text(
+              'Take Rest!',
+              style: GoogleFonts.poppins(
+            fontSize: 40,
+            color: purple5,
+            fontWeight: FontWeight.w800,
+          ),
+            ),
+            TweenAnimationBuilder<double>(
+              tween: Tween<double>(begin: 0.0, end: 1),
+              duration: const Duration(seconds: 20),
+              builder: (context, value, _) {
+                int seconds = (value * 20).toInt();
+                return Text(
+                  '00:${seconds <= 9 ? '0$seconds' : seconds}',
+                  style: GoogleFonts.poppins(
+            fontSize: 35,
+            color: black,
+            fontWeight: FontWeight.w600,
+          ),
+                );
+              },
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 22),
+              child: Divider(
+                color: gray7,
+              ),
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Next Movement(2/7)',
                 style: GoogleFonts.poppins(
-                  fontSize: 40,
-                  color: purple5,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-            ),
-            CustomAnimatedOpacity(
-              child: TweenAnimationBuilder<double>(
-                tween: Tween<double>(begin: 0.0, end: 1),
-                duration: const Duration(seconds: 20),
-                builder: (context, value, _) {
-                  int seconds = (value * 20).toInt();
-                  if (seconds == 20) {
-                    Future.delayed(const Duration(milliseconds: 300), () {
-                      AnimatedNavigator().push(
-                        context,
-                        ChallengeBeginScreen(
-                          indexExercise: nextExercise,
-                        ),
-                      );
-                    });
-                  }
-                  return customTranslateText(
-                    '00:${seconds <= 9 ? '0$seconds' : seconds}',
-                    style: GoogleFonts.poppins(
-                      fontSize: 35,
-                      color: black,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  );
-                },
-              ),
-            ),
-            const CustomAnimatedOpacity(
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 22),
-                child: Divider(
-                  color: gray7,
-                ),
+            fontSize: 20,
+            color: gray7,
+            fontWeight: FontWeight.w600,
+          ),
               ),
             ),
             Align(
               alignment: Alignment.centerLeft,
-              child: CustomAnimatedOpacity(
-                child: customTranslateText(
-                  'Next Movement(${nextExercise + 1}/${workouts.exercisePlan.length})',
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    color: gray7,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ),
-            ),
-            Align(
-              alignment: Alignment.centerLeft,
-              child: CustomAnimatedOpacity(
-                child: customTranslateText(
-                  workouts.exercisePlan[nextExercise],
-                  style: GoogleFonts.poppins(
-                    fontSize: 20,
-                    color: black,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
+              child: Text(
+                'Cow Pose',
+                style: GoogleFonts.poppins(
+            fontSize: 20,
+            color: black,
+            fontWeight: FontWeight.w600,
+          ),
               ),
             ),
             const Spacer(),
-            CustomAnimatedOpacity(
-              child: CustomImage(
-                imageUrl: context.read<WorkoutsCubit>().workoutsImages![
-                    workouts.exercisePlan[nextExercise].trim()],
-                width: 200,
-                height: 200,
-                fit: BoxFit.fill,
-                errorColor: red,
-                iconSize: 55,
-              ),
+            Image.asset(
+              'assets/images/start_challenge.png',
+              width: 200,
+              height: 200,
+              fit: BoxFit.contain,
             ),
             const Spacer(),
-            CustomAnimatedOpacity(
-              child: CustomButton(
-                label: 'Skip Rest',
-                onPressed: () {
-                  AnimatedNavigator().push(
-                    context,
-                    ChallengeBeginScreen(
-                      indexExercise: nextExercise,
-                    ),
-                  );
-                },
-              ),
+            CustomButton(
+              label: 'Skip Rest',
+              onPressed: () {
+                // todo Skip Rest
+              },
             ),
             const SizedBox(height: 30),
           ],

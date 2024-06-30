@@ -85,9 +85,9 @@ VS_VERSION_INFO VERSIONINFO
  FILETYPE VFT_APP
  FILESUBTYPE 0x0L
 BEGIN
-    FLUTTER_BLOCK "StringFileInfo"
+    BLOCK "StringFileInfo"
     BEGIN
-        FLUTTER_BLOCK "040904e4"
+        BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
             VALUE "FileDescription", "fitsync" "\0"
@@ -99,7 +99,7 @@ BEGIN
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
-    FLUTTER_BLOCK "VarFileInfo"
+    BLOCK "VarFileInfo"
     BEGIN
         VALUE "Translation", 0x409, 1252
     END

@@ -6,12 +6,14 @@ class ChoiceGender extends Cubit<int> {
   ChoiceGender() : super(-1);
 
   void isMale() {
-    Prefs.setInt('gender', 0);
+    // todo check if the user take the survey
+    Prefs.setString('gender', 'male');
     emit(0);
   }
 
   void isFemale() {
-    Prefs.setInt('gender', 1);
+    // todo first check if the user take the survey
+    Prefs.setString('gender', 'female');
     emit(1);
   }
 }

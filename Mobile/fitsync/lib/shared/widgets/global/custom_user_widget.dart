@@ -1,7 +1,5 @@
-import '../../../shared/colors/colors.dart';
+import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
-import '../../../services/pref.dart';
-import 'custom_image.dart';
 
 class UserWidget extends StatelessWidget {
   const UserWidget({
@@ -11,19 +9,25 @@ class UserWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(2),
+      height: MediaQuery.of(context).size.height * (50 / 926),
+      width: MediaQuery.of(context).size.width * (48 / 428),
       decoration: const BoxDecoration(
-        color: gray8,
+        gradient: LinearGradient(colors: [gray7, gray8]),
         shape: BoxShape.circle,
       ),
-      child: CustomImage(
-        imageUrl: Prefs.getStringList("user")![3],
-        width: 50,
-        height: 50,
-        fit: BoxFit.fill,
-        iconSize: 20,
-        border: 99,
-        errorColor: red,
+      child: Padding(
+        //this padding will be you border size
+        padding: const EdgeInsets.all(3.0),
+        child: Container(
+          decoration: const BoxDecoration(
+            color: Colors.white, 
+            shape: BoxShape.circle,
+          ),
+          child: const CircleAvatar(
+            backgroundColor: Colors.white,
+            foregroundImage: AssetImage("assets/images/avatar.jfif"),
+          ),
+        ),
       ),
     );
   }

@@ -7,7 +7,6 @@ import 'package:intl/intl.dart';
 import '../../../cubits_logic/survey_logic/text_form_validation_cubit.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
-import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import '../../../shared/widgets/survey_comp/custom_snackbar.dart';
@@ -42,78 +41,66 @@ class DateBirthScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              CustomAnimatedOpacity(
-                duration: const Duration(milliseconds: 700),
-                child: Text(
-                  'What’s Your Date of Birth?',
-                  style: GoogleFonts.poppins(
-                    fontSize: 26,
-                    color: black,
-                    fontWeight: FontWeight.w600,
-                  ),
+              Text(
+                'What’s Your Date of Birth?',
+                style: GoogleFonts.poppins(
+                  fontSize: 26,
+                  color: black,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
               const Spacer(),
-              CustomAnimatedOpacity(
-                duration: const Duration(milliseconds: 700),
-                child: Center(
-                  child: TextButton(
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) => GestureDetector(
-                          onTap: () {
-                            AnimatedNavigator().pop(context);
+              Center(
+                child: TextButton(
+                  onPressed: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) => GestureDetector(
+                        onTap: () {
+                          AnimatedNavigator().pop(context);
+                        },
+                        child: DatePickerWidget(
+                          looping: true,
+                          firstDate: DateTime(DateTime.now().year - 90, 01, 01),
+                          lastDate: DateTime(DateTime.now().year - 8, 1, 1),
+                          initialDate: DateTime(1991, 10, 12),
+                          dateFormat: "dd-MMM-yyyy",
+                          locale: DatePicker.localeFromString('en'),
+                          onChange: (DateTime newDate, _) {
+                            context.read<TextFormValidationCubit>().updateBirthDateValue(
+                              DateFormat('dd/MM/yyy').format(newDate).toString(),
+                            );
                           },
-                          child: DatePickerWidget(
-                            looping: true,
-                            firstDate: DateTime(DateTime.now().year - 90, 01, 01),
-                            lastDate: DateTime(DateTime.now().year - 8, 1, 1),
-                            initialDate: DateTime(1991, 10, 12),
-                            dateFormat: "dd-MMM-yyyy",
-                            locale: DatePicker.localeFromString('en'),
-                            onChange: (DateTime newDate, _) {
-                              context.read<TextFormValidationCubit>().updateBirthDateValue(
-                                DateFormat('yyy-MM-dd').format(newDate),
-                              );
-                            },
-                            pickerTheme: const DateTimePickerTheme(
-                              itemTextStyle: TextStyle(
-                                color: black,
-                                fontSize: 19,
-                              ),
-                              dividerColor: purple5,
+                          pickerTheme: const DateTimePickerTheme(
+                            itemTextStyle: TextStyle(
+                              color: black,
+                              fontSize: 19,
                             ),
+                            dividerColor: purple5,
                           ),
                         ),
-                      );
-                    },
-                    child: CustomAnimatedOpacity(
-                      duration: const Duration(milliseconds: 700),
-                      child: Text(
-                        context.read<TextFormValidationCubit>().birthDateController.isEmpty
-                        ? 'DD/MM/YYYY'
-                        : context.read<TextFormValidationCubit>().birthDateController,
-                        style: GoogleFonts.poppins(
-                          fontSize: 26,
-                          color: gray3,
-                          fontWeight: FontWeight.w500,
-                        ),
                       ),
+                    );
+                  },
+                  child: Text(
+                    context.read<TextFormValidationCubit>().birthDateController.isEmpty 
+                    ? 'DD/MM/YYYY'
+                    : context.read<TextFormValidationCubit>().birthDateController,
+                    style: GoogleFonts.poppins(
+                      fontSize: 26,
+                      color: gray3,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
               ),
               const Spacer(),
-              CustomAnimatedOpacity(
-                duration: const Duration(milliseconds: 700),
-                child: CustomButton(
-                  label: 'Continue',
-                  horizontalPadding: 0,
-                  onPressed: () {
-                    context.read<TextFormValidationCubit>().birthDateValidate();
-                  },
-                ),
+              CustomButton(
+                label: 'Continue',
+                horizontalPadding: 0,
+                onPressed: () {
+                  context.read<TextFormValidationCubit>().birthDateValidate();
+                },
               ),
               const SizedBox(height: 30),
             ],

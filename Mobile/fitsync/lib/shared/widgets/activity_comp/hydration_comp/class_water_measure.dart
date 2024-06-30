@@ -1,19 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_translate_text.dart';
 
 class ClassWaterMeasure extends StatelessWidget {
-  final void Function()? onIncreamet;
-  final void Function()? onDecrement;
-  final String label;
-
-  const ClassWaterMeasure({
-    super.key,
-    required this.onIncreamet,
-    required this.onDecrement,
-    required this.label,
-  });
+  const ClassWaterMeasure({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +14,9 @@ class ClassWaterMeasure extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
-              onPressed: onDecrement,
+              onPressed: () {
+                // todo minus
+              },
               icon: const CircleAvatar(
                 radius: 20,
                 backgroundColor: purple5,
@@ -50,7 +42,9 @@ class ClassWaterMeasure extends StatelessWidget {
               ),
             ),
             IconButton(
-              onPressed: onIncreamet,
+              onPressed: () {
+                // todo add
+              },
               icon: const CircleAvatar(
                 radius: 20,
                 backgroundColor: purple5,
@@ -64,8 +58,9 @@ class ClassWaterMeasure extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 22),
-        customTranslateText(
-          label,
+        Text(
+          // todo show the number of glasses that was selected
+          '1x Glass 200ml',
           style: GoogleFonts.poppins(
             fontSize: 16,
             color: black,

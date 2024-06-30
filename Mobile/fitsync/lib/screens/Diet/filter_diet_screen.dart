@@ -7,7 +7,6 @@ import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 List<String> filter1=[];
 String foodType="";
@@ -42,7 +41,7 @@ class FilterDietScreen extends StatelessWidget {
                 size: 40,
               )),
         ),
-        title: customTranslateText(
+        title: Text(
           'Filter',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
@@ -66,7 +65,7 @@ class FilterDietScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(height: 20),
-                  customTranslateText('Category'),
+                  Text('Category'),
                   SizedBox(height: 12),
                   Row(
                     children: [
@@ -88,7 +87,7 @@ class FilterDietScreen extends StatelessWidget {
                                   context.read<FilterCubit>().realbuttoncolor,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: customTranslateText(
+                            child: Text(
                               'Fruits',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -122,7 +121,7 @@ class FilterDietScreen extends StatelessWidget {
                                   context.read<FilterCubit>().realbuttoncolor1,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: customTranslateText(
+                            child: Text(
                               'Vegetables',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -156,7 +155,7 @@ class FilterDietScreen extends StatelessWidget {
                                   context.read<FilterCubit>().realbuttoncolor2,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: customTranslateText(
+                            child: Text(
                               'Protein',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -194,7 +193,7 @@ class FilterDietScreen extends StatelessWidget {
                                   context.read<FilterCubit>().realbuttoncolor3,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: customTranslateText(
+                            child: Text(
                               'Grains',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -212,7 +211,7 @@ class FilterDietScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  customTranslateText('Nutrient'),
+                  Text('Nutrient'),
                   SizedBox(height: 12),
                   Column(
                     children: [
@@ -233,7 +232,7 @@ class FilterDietScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 12),
-                  customTranslateText('Diet'),
+                  Text('Diet'),
                   SizedBox(height: 12),
                   Row(
                     children: [
@@ -243,7 +242,7 @@ class FilterDietScreen extends StatelessWidget {
                     ],
                   ),
                   SizedBox(height: 12),
-                  customTranslateText('Dietary Type'),
+                  Text('Dietary Type'),
                   SizedBox(height: 12),
                   Row(
                     children: [
@@ -265,7 +264,7 @@ class FilterDietScreen extends StatelessWidget {
                               context.read<FilterCubit>().realcolor1,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: customTranslateText(
+                            child: Text(
                               'Omnivore',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -297,7 +296,7 @@ class FilterDietScreen extends StatelessWidget {
                               context.read<FilterCubit>().realcolor2,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: customTranslateText(
+                            child: Text(
                               'Vegetarian',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
