@@ -42,8 +42,8 @@ class DietPlanWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                width: MediaQuery.of(context).size.width * (159 / 428),
-                height: MediaQuery.of(context).size.height * (128 / 926),
+                width: 160,
+                height: 100,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(10)),
                 ),

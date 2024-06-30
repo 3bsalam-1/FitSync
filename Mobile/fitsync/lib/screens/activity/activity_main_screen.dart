@@ -5,7 +5,7 @@ import '../../cubits_logic/global/navigation_page_cubit.dart';
 import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/activity_comp/custom_chart_column.dart';
-import '../../shared/widgets/activity_comp/custom_progress_challenge.dart';
+//import '../../shared/widgets/activity_comp/custom_progress_challenge.dart';
 import '../../shared/widgets/global/custom_menu_button.dart';
 import '../../shared/widgets/workouts_comp/main_workouts/custom_date_item.dart';
 
@@ -130,39 +130,39 @@ class ActivityMainScreen extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    const SizedBox(height: 22),
-                    const CustomProgressChallenge(
-                      title: '12 Days',
-                      subTitle: '15 Days Jump Rope Challenge',
-                      progress: 'In Progress',
-                      progressColor: gold3,
-                      icon: Icons.check,
-                      progressPrecent: 40,
-                    ),
-                    const CustomProgressChallenge(
-                      title: '30 Days',
-                      subTitle: '30 Days No Soda Challenge',
-                      progress: 'Completed',
-                      progressColor: green,
-                      icon: Icons.check,
-                      progressPrecent: 100,
-                    ),
-                    const CustomProgressChallenge(
-                      title: '20 Days',
-                      subTitle: '30 Days Push Up Challenge',
-                      progress: 'Halted',
-                      progressColor: red3,
-                      icon: Icons.clear_sharp,
-                      progressPrecent: 65,
-                    ),
-                    const CustomProgressChallenge(
-                      title: '30 Days',
-                      subTitle: '7 Days Fruit Fast Challenge',
-                      progress: 'Completed',
-                      progressColor: green,
-                      icon: Icons.check,
-                      progressPrecent: 100,
-                    ),
+                    // const SizedBox(height: 22),
+                    // const CustomProgressChallenge(
+                    //   title: '12 Days',
+                    //   subTitle: '15 Days Jump Rope Challenge',
+                    //   progress: 'In Progress',
+                    //   progressColor: gold3,
+                    //   icon: Icons.check,
+                    //   progressPrecent: 40,
+                    // ),
+                    // const CustomProgressChallenge(
+                    //   title: '30 Days',
+                    //   subTitle: '30 Days No Soda Challenge',
+                    //   progress: 'Completed',
+                    //   progressColor: green,
+                    //   icon: Icons.check,
+                    //   progressPrecent: 100,
+                    // ),
+                    // const CustomProgressChallenge(
+                    //   title: '20 Days',
+                    //   subTitle: '30 Days Push Up Challenge',
+                    //   progress: 'Halted',
+                    //   progressColor: red3,
+                    //   icon: Icons.clear_sharp,
+                    //   progressPrecent: 65,
+                    // ),
+                    // const CustomProgressChallenge(
+                    //   title: '30 Days',
+                    //   subTitle: '7 Days Fruit Fast Challenge',
+                    //   progress: 'Completed',
+                    //   progressColor: green,
+                    //   icon: Icons.check,
+                    //   progressPrecent: 100,
+                    // ),
                   ],
                 );
               },

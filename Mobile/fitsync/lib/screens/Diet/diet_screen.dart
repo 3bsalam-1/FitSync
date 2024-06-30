@@ -234,8 +234,8 @@ class DietScreen extends StatelessWidget {
                                   color: white,
                                   fontSize: 12,
                                   fontWeight: FontWeight.w500),
-                              padding:
-                                  const EdgeInsets.only(left: 6, right: 6, top: 1),
+                              padding: const EdgeInsets.only(
+                                  left: 6, right: 6, top: 1),
                               isDense: true,
                               underline: const VerticalDivider(
                                 thickness: 0,
@@ -598,7 +598,8 @@ class DietScreen extends StatelessWidget {
                 const Spacer(),
                 InkWell(
                   onTap: () {
-                    AnimatedNavigator().push(context, const SavedRecipesScreen());
+                    AnimatedNavigator()
+                        .push(context, const SavedRecipesScreen());
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(right: 18),
