@@ -115,18 +115,11 @@ class ChoiceDiabetesQuestion extends StatelessWidget {
       question: questionSurvey[4],
       questionIndex: 4,
       onPress: () {
-        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[4];
-        if (selectedAnswer == 0) {
-          AnimatedNavigator().push(
-            context,
-            const ChoiceHeartDiseaseQuestion(),
-          );
-        } else {
-          AnimatedNavigator().push(
-            context,
-            const BloodSugarQuestion(),
-          );
-        }
+        context.read<ChoiseQuestionsCubit>().answers[4];
+        AnimatedNavigator().push(
+          context,
+          const BloodSugarQuestion(),
+        );
       },
     );
   }
@@ -141,18 +134,11 @@ class ChoiceHeartDiseaseQuestion extends StatelessWidget {
       question: questionSurvey[5],
       questionIndex: 5,
       onPress: () {
-        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[5];
-        if (selectedAnswer == 0) {
-          AnimatedNavigator().push(
-            context,
-            const BloodPressureQuestion(),
-          );
-        } else {
-          AnimatedNavigator().push(
-            context,
-            const SystolicBloodQuestion(),
-          );
-        }
+        context.read<ChoiseQuestionsCubit>().answers[5];
+        AnimatedNavigator().push(
+          context,
+          const SystolicBloodQuestion(),
+        );
       },
     );
   }
@@ -167,18 +153,11 @@ class ChoiceHypertensionQuestion extends StatelessWidget {
       question: questionSurvey[6],
       questionIndex: 6,
       onPress: () {
-        int selectedAnswer = context.read<ChoiseQuestionsCubit>().answers[6];
-        if (selectedAnswer == 0) {
-          AnimatedNavigator().push(
-            context,
-            const BmrQuestion(),
-          );
-        } else {
-          AnimatedNavigator().push(
-            context,
-            const CholesterolLevelQuestion(),
-          );
-        }
+        context.read<ChoiseQuestionsCubit>().answers[6];
+        AnimatedNavigator().push(
+          context,
+          const CholesterolLevelQuestion(),
+        );
       },
     );
   }
@@ -243,36 +222,52 @@ class VegetarianChoiceQuestion extends StatelessWidget {
         question: questionSurvey[9],
         questionIndex: 9,
         onPress: () {
-          bool backPain = context.read<ChoiseQuestionsCubit>().answers[2] == 0? false: true;
-          bool kneePain = context.read<ChoiseQuestionsCubit>().answers[3] == 0? false: true;
-          bool diabetes = context.read<ChoiseQuestionsCubit>().answers[4] == 0? false: true;
-          bool heartCondition = context.read<ChoiseQuestionsCubit>().answers[5] == 0? false: true;
-          bool hypertension = context.read<ChoiseQuestionsCubit>().answers[6] == 0? false: true;
-          bool vegetarian = context.read<ChoiseQuestionsCubit>().answers[9] == 0? false: true;
+          bool backPain = context.read<ChoiseQuestionsCubit>().answers[2] == 0
+              ? false
+              : true;
+          bool kneePain = context.read<ChoiseQuestionsCubit>().answers[3] == 0
+              ? false
+              : true;
+          bool diabetes = context.read<ChoiseQuestionsCubit>().answers[4] == 0
+              ? false
+              : true;
+          bool heartCondition =
+              context.read<ChoiseQuestionsCubit>().answers[5] == 0
+                  ? false
+                  : true;
+          bool hypertension =
+              context.read<ChoiseQuestionsCubit>().answers[6] == 0
+                  ? false
+                  : true;
+          bool vegetarian = context.read<ChoiseQuestionsCubit>().answers[9] == 0
+              ? false
+              : true;
           int activeLevel = context.read<ChoiseQuestionsCubit>().answers[1];
-          
+
           context.read<UserDataInfoCubit>().saveUserData(
-            context: context,
-            info: UserPersonalInfoModel(
-              weight: Prefs.getDouble('weight')!, 
-              height: Prefs.getDouble('height')!,
-              birthdate: context.read<TextFormValidationCubit>().birthDateController, 
-              gender: Prefs.getInt('gender')!, 
-              activityLevel: activeLevel, 
-              systolicBP: Prefs.getDouble('sys')?? 10, 
-              diastolicBP: Prefs.getDouble('dias') ?? 10, 
-              cholesterolLevel: Prefs.getDouble('chol') ?? 10, 
-              bloodSugar: Prefs.getDouble('bloodSugare') ?? 10, 
-              hypertension: hypertension, 
-              diabetes: diabetes, 
-              heartCondition: heartCondition, 
-              lowPressure: Prefs.getDouble('bP')!, 
-              bmr: Prefs.getDouble('bmr')!, 
-              kneePain: kneePain, 
-              backPain: backPain, 
-              vegetarian: vegetarian,
-            ), 
-          );
+                context: context,
+                info: UserPersonalInfoModel(
+                  weight: Prefs.getDouble('weight')!,
+                  height: Prefs.getDouble('height')!,
+                  birthdate: context
+                      .read<TextFormValidationCubit>()
+                      .birthDateController,
+                  gender: Prefs.getInt('gender')!,
+                  activityLevel: activeLevel,
+                  systolicBP: Prefs.getDouble('sys') ?? 10,
+                  diastolicBP: Prefs.getDouble('dias') ?? 10,
+                  cholesterolLevel: Prefs.getDouble('chol') ?? 10,
+                  bloodSugar: Prefs.getDouble('bloodSugare') ?? 10,
+                  hypertension: hypertension,
+                  diabetes: diabetes,
+                  heartCondition: heartCondition,
+                  lowPressure: Prefs.getDouble('bP')!,
+                  bmr: Prefs.getDouble('bmr')!,
+                  kneePain: kneePain,
+                  backPain: backPain,
+                  vegetarian: vegetarian,
+                ),
+              );
         },
       ),
     );

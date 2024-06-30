@@ -69,7 +69,7 @@ class _SignUpState extends State<SignUp> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const Padding(
-                        padding: EdgeInsets.only(left: 16, top: 60),
+                        padding: EdgeInsets.only(left: 16, top: 25),
                         child: Text(
                           'Hi!',
                           style: TextStyle(
@@ -265,7 +265,7 @@ class _SignUpState extends State<SignUp> {
                                       ),
                                     ),
                                     Text(
-                                      'terms pf service ',
+                                      'terms of service ',
                                       style: GoogleFonts.poppins(
                                         fontSize: 11,
                                         fontWeight: FontWeight.w500,
@@ -273,7 +273,7 @@ class _SignUpState extends State<SignUp> {
                                       ),
                                     ),
                                     Text(
-                                      'and our',
+                                      'and',
                                       style: GoogleFonts.poppins(
                                         fontSize: 11,
                                         fontWeight: FontWeight.w500,

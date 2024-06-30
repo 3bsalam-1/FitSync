@@ -15,7 +15,7 @@ List<QuestionModel> questionSurvey = [
     question: 'Any Previous experience workout?',
     choice: [
       'Yes, i workout regularly',
-      'Yes, less than a year',
+      'Yes, more than a year',
       'Yes, less than 1 year',
       'No, i dont’ have any previouss experience',
     ],
