@@ -9,7 +9,8 @@ Future<AllCaloriesModel>getAllCalories()async{
   
   
    final data=
-await Api().get(url: "https://fitsync-ai-api.onrender.com/calories?Age=59&Gender=${userInfo!.gender}&Weight=96&Height=162&Activity_Level=4&Systolic_BP=95&Diastolic_BP=80&Cholesterol_Level=247&Blood_Sugar=105&Hypertension=0&Low_Pressure=0&Diabetes=0&Heart_Condition=1&BMR=1680");
+   await Api().get(url: "https://fitsync-ai-api.onrender.com/calories?Age=59&Gender=1&Weight=96&Height=162&Activity_Level=4&Systolic_BP=95&Diastolic_BP=80&Cholesterol_Level=247&Blood_Sugar=105&Hypertension=0&Low_Pressure=0&Diabetes=0&Heart_Condition=1&BMR=1680");
+//await Api().get(url: "https://fitsync-ai-api.onrender.com/calories?Age=59&Gender=${userInfo!.gender}&Weight=96&Height=162&Activity_Level=4&Systolic_BP=95&Diastolic_BP=80&Cholesterol_Level=247&Blood_Sugar=105&Hypertension=0&Low_Pressure=0&Diabetes=0&Heart_Condition=1&BMR=1680");
   
 
 

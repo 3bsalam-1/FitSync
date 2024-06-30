@@ -1,3 +1,5 @@
+import 'package:fitsync/screens/home_main_screen.dart';
+
 import 'cubits_logic/diet_logic/filter_logic/cubit/filter_cubit.dart';
 import 'cubits_logic/global/dark_mode_cubit.dart';
 import 'cubits_logic/global/emergency_contact_cubit.dart';
@@ -136,7 +138,8 @@ class MyApp extends StatelessWidget {
             title: 'FitSync',
             theme: state,
             debugShowCheckedModeBanner: false,
-            home: const SplashScreen(),
+           // home: const SplashScreen(),
+            home: const HomeMainScreen(),
           );
         },
       ),
