@@ -33,8 +33,12 @@ class FavoriteWorkoutsCubit extends Cubit<FavoriteWorkoutsState> {
       )
           .then((response) {
         if (response!.status == 'Success') {
-          getAllFavoriteWorkouts();
           emit(FavoriteWorkoutsAdded());
+          emit(FavoriteWorkoutsLoading());
+          favoriteRepo.getWorkoutsFavorites().then((response) {
+            favoriteWorkouts = response;
+            emit(FavoriteWorkoutsGetAll());
+          });
         } else {
           emit(FavoriteWorkoutsFaliure());
         }

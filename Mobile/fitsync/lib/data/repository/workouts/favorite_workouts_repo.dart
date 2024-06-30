@@ -43,29 +43,29 @@ class FavoriteWorkoutsRepo {
           "Content-Type": "application/json",
         },
       );
-      Map<String, dynamic> body = jsonDecode(response.body);
+      String bodyData = response.body;
+      dynamic body = jsonDecode(bodyData);
       List<WorkoutsModel> favoriteWorkouts = [];
-      List<dynamic> favoritesBody = body['data']['Data'];
-      for (var element in favoritesBody) {
+      for (String element in body['data']['Data']) {
         List<String> data = element.split('*');
-        if (data.length > 4) {
-          favoriteWorkouts.add(
-            WorkoutsModel(
-              exercisePlan: convertStringToList(
-                  data[0].replaceAll('[', '').replaceAll(']', '')),
-              category: data[1],
-              level: data[2],
-              planDurationMn: data[3],
-              calBurned: data[4],
-              targetMuscle: convertStringToList(
-                  data[5].replaceAll('[', '').replaceAll(']', '')),
+        favoriteWorkouts.add(
+          WorkoutsModel(
+            exercisePlan: convertStringToList(
+              data[0].replaceAll('[', '').replaceAll(']', ''),
             ),
-          );
-        }
+            category: data[1],
+            level: data[2],
+            planDurationMn: data[3],
+            calBurned: data[4],
+            targetMuscle: convertStringToList(
+              data[5].replaceAll('[', '').replaceAll(']', ''),
+            ),
+          ),
+        );
       }
       return favoriteWorkouts;
     } catch (e) {
-      debugPrint('The getWorkoutsFavorites Errror is: ${e.toString()}');
+      debugPrint('The getWorkoutsFavorites Error is: ${e.toString()}');
       return [];
     }
   }

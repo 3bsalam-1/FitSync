@@ -46,60 +46,64 @@ class WorkOustBody extends StatelessWidget {
         BlocBuilder<WorkoutsCubit, WorkoutsState>(
           builder: (context, state) {
             final provider = context.read<FavoriteWorkoutsCubit>();
-            return provider.favoriteWorkouts!.isNotEmpty
-                ? state is FavoriteWorkoutsLoading
-                    ? const CircularProgressIndicator(
-                        color: purple,
-                      )
-                    : const SavedWorkOuts()
-                : Column(
+            if (state is FavoriteWorkoutsLoading &&
+                provider.favoriteWorkouts!.isNotEmpty) {
+              return const CircularProgressIndicator(
+                color: purple,
+              );
+            } else if (provider.favoriteWorkouts!.isNotEmpty) {
+              return const SavedWorkOuts();
+            } else {
+              return Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Saved Workouts',
-                            style: GoogleFonts.poppins(
-                              fontSize: 22,
-                              color: black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {
-                              provider.showAllSavedWorkouts();
-                              Future.delayed(const Duration(milliseconds: 500),
-                                  () {
-                                context
-                                    .read<NavigationPageCubit>()
-                                    .changePage(9);
-                              });
-                            },
-                            child: Text(
-                              'View all',
-                              style: GoogleFonts.poppins(
-                                fontSize: 16,
-                                color: provider.viewAllFavorites
-                                    ? purple2
-                                    : gray14,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 50),
                       Text(
-                        "There is NO saved workouts",
+                        'Saved Workouts',
                         style: GoogleFonts.poppins(
-                          fontSize: 17,
-                          color: gray14,
+                          fontSize: 22,
+                          color: black,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const SizedBox(height: 80),
+                      TextButton(
+                        onPressed: () {
+                          provider.showAllSavedWorkouts();
+                          Future.delayed(
+                            const Duration(milliseconds: 500),
+                            () {
+                              context
+                                  .read<FavoriteWorkoutsCubit>()
+                                  .getAllFavoriteWorkouts();
+                              context.read<NavigationPageCubit>().changePage(9);
+                            },
+                          );
+                        },
+                        child: Text(
+                          'View all',
+                          style: GoogleFonts.poppins(
+                            fontSize: 16,
+                            color: provider.viewAllFavorites ? purple2 : gray14,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
                     ],
-                  );
+                  ),
+                  const SizedBox(height: 50),
+                  Text(
+                    "There is NO saved workouts",
+                    style: GoogleFonts.poppins(
+                      fontSize: 17,
+                      color: gray14,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                  const SizedBox(height: 80),
+                ],
+              );
+            }
           },
         ),
       ],

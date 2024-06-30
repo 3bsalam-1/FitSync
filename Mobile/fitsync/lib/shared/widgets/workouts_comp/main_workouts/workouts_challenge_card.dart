@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
@@ -112,6 +113,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                         const SizedBox(height: 10),
                         CustomStartButton(
                           onTap: () {
+                            context.read<FavoriteWorkoutsCubit>().setFavoriteToInitial();
                             AnimatedNavigator().push(
                               context,
                               WorkoutsViewChallenge(

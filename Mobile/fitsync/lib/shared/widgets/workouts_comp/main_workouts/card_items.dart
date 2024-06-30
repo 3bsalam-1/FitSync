@@ -94,6 +94,7 @@ class CardItems extends StatelessWidget {
                   ),
                 ),
                 CustomStartButton(onTap: () {
+                  context.read<FavoriteWorkoutsCubit>().setFavoriteToInitial();
                   context
                       .read<FavoriteWorkoutsCubit>()
                       .isFavoriteWorkouts(workouts);

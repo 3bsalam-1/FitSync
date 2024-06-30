@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/global/internet_connectivity_cubit.dart';
-import '../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../data/cubit/workouts/workouts_cubit.dart';
 import '../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
@@ -60,7 +59,6 @@ class WorkoutsScreen extends StatelessWidget {
             return BlocConsumer<WorkoutsCubit, WorkoutsState>(
               listener: (context, state) {
                 if (state is WorkoutsLoaded) {
-                  context.read<FavoriteWorkoutsCubit>().setFavoriteToInitial();
                   context.read<InternetConnectivityCubit>().checkIfHasData(
                         context.read<WorkoutsCubit>().allworkouts,
                       );
