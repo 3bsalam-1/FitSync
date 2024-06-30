@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/global/translate_lang_cubit.dart';
+import '../../../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../../../screens/splash/start_screen.dart';
-import '../../../../services/pref.dart';
 import '../../../colors/colors.dart';
 import '../../global/animated_navigator.dart';
 import '../../global/custom_translate_text.dart';
@@ -40,16 +40,7 @@ class CustomShowLogoutDialog extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {
-                    Prefs.setBool('isLogin', false);
-                    if (Prefs.getBool(
-                          'watch-permission',
-                        ) !=
-                        null) {
-                      Prefs.remove('watch-permission');
-                    }
-                    if (Prefs.getStringList('user') != null) {
-                      Prefs.remove('user');
-                    }
+                    context.read<UserDataInfoCubit>().userLogout();
                     AnimatedNavigator().pushAndRemoveUntil(
                       context,
                       const StartScreen(),

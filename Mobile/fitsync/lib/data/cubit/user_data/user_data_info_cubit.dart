@@ -7,6 +7,7 @@ import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_snackbar_message.dart';
 import '../../../shared/widgets/login_comp/loading_dialog.dart';
 import '../../models/user_personal_info_model.dart';
+import '../../repository/login_res/user_auth_repo.dart';
 import '../../repository/user/user_info_repo.dart';
 part 'user_data_info_state.dart';
 
@@ -117,6 +118,20 @@ class UserDataInfoCubit extends Cubit<UserDataInfoState> {
       );
     } else {
       // todo here add new api for updating username
+    }
+  }
+
+  void userLogout() async {
+    await UserAuthRepo().userLogout();
+    Prefs.setBool('isLogin', false);
+    if (Prefs.getBool(
+          'watch-permission',
+        ) !=
+        null) {
+      Prefs.remove('watch-permission');
+    }
+    if (Prefs.getStringList('user') != null) {
+      Prefs.remove('user');
     }
   }
 }
