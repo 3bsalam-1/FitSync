@@ -29,9 +29,7 @@ class SmartWatchServices {
     if (Prefs.getBool('watch-permission') != null) {
       if (!Prefs.getBool("watch-permission")!) {
         await HealthConnectFactory.openHealthConnectSettings();
-        Future.delayed(const Duration(seconds: 2), () async {
-          permission = await HealthConnectFactory.hasPermissions(types);
-        });
+        permission = await HealthConnectFactory.hasPermissions(types);
       }
     }
     return permission;
