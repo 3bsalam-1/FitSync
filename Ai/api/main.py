@@ -101,7 +101,8 @@ def Ingredients(Ingredient:str):
     df = pd.read_csv('Calories.csv')
     df = df.drop(columns=['Unnamed: 0'])
     df = df.drop_duplicates()
-    n = df["Ingredient"].isin([Ingredient.capitalize()])
+    
+    n = df["Ingredient"].isin([Ingredient.title()])
     random_records = df[n]
     # Convert DataFrame to list of dictionaries
     return [{k: str(v).strip() for k, v in record.items()} for record in random_records.to_dict(orient='records')]
