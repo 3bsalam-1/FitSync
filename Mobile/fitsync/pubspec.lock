@@ -17,6 +17,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.2"
+  appcheck:
+    dependency: "direct main"
+    description:
+      name: appcheck
+      sha256: "2682c9c270c28d83f8d87d68bb607a83882778b14c6a8da19df423be1b386520"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   archive:
     dependency: transitive
     description:
@@ -600,6 +608,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  launch_app_store:
+    dependency: "direct main"
+    description:
+      name: launch_app_store
+      sha256: "3fe4a9574f4fc5e3097fc28571b5b1e134c57817c54d15c96dd6f76c6040803c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   leak_tracker:
     dependency: transitive
     description:

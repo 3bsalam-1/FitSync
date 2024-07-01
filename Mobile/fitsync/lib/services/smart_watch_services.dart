@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_health_connect/flutter_health_connect.dart';
 import '../data/models/smart_watch_model.dart';
+import 'pref.dart';
 
 class SmartWatchServices {
   final List<HealthConnectDataType> types = [
@@ -24,6 +25,14 @@ class SmartWatchServices {
     if (!permission) {
       await HealthConnectFactory.requestPermissions(types);
       permission = await HealthConnectFactory.hasPermissions(types);
+    }
+    if (Prefs.getBool('watch-permission') != null) {
+      if (!Prefs.getBool("watch-permission")!) {
+        await HealthConnectFactory.openHealthConnectSettings();
+        Future.delayed(const Duration(seconds: 2), () async {
+          permission = await HealthConnectFactory.hasPermissions(types);
+        });
+      }
     }
     return permission;
   }
