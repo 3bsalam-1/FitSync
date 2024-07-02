@@ -22,7 +22,6 @@ const BMR = ({ onPrevious, onNext }) => {
           className="ps-4"
           type="number"
           min={1}
-          max={300}
           onChange={onInputChange}
           placeholder="BMR"
         />

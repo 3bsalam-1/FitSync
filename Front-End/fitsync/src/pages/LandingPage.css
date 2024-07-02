@@ -178,7 +178,7 @@ nav.scrolled {
   color: var(--second-color, #726d65);
   margin-bottom: 22px;
 }
-.exercise button {
+/* .exercise button {
   margin: 0 auto;
   width: 125.25px;
   height: 45px;
@@ -199,7 +199,7 @@ nav.scrolled {
 .exercise button:hover {
   color: black;
   box-shadow: 1px 0px 10px 4px #00000054;
-}
+} */
 /* End exercise -----------------------------------*/
 /* Start follow -----------------------------------*/
 .follow,

@@ -1,12 +1,13 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useCallback, useEffect, useReducer, useState } from "react";
 import "../Home.css";
 import "./Diet.css";
-import Datafood from "./food.json";
-import DataAll from "./foodall.json";
+// import Datafood from "./food.json";
+// import DataAll from "./foodall.json";
 import HeaderProfile from "../../components/HeaderProfile";
 import Footer from "../../components/Footer";
 import ErrorMessage from "../../components/ErrorMessage";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Diet = () => {
   // Error Message #############################################################
@@ -17,20 +18,35 @@ const Diet = () => {
   });
   // Data #############################################################
   const [recent, setrecent] = useState([]);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setrecent(Datafood);
-      } catch (error) {
-        setErrorMessage({
-          error: true,
-          message: "An error occurred while fetching data",
-        });
-      }
-    };
+  const [DataAll, setDataAll] = useState([]);
+  // Read Data
+  const getApiUrl = (endpoint) => {
+    const diabetes = sessionStorage.getItem("diabetes");
+    const heartCondition = sessionStorage.getItem("heartCondition");
+    const hypertension = sessionStorage.getItem("hypertension");
 
+    return `https://fitsync-ai-api.onrender.com/${endpoint}?Diabeties=${diabetes}&Heart_Disease=${heartCondition}&Hypertension=${hypertension}`;
+  };
+  const fetchData = useCallback(async () => {
+    try {
+      const [recentResponse, DataAllResponse] = await Promise.all([
+        axios.get(getApiUrl("food")),
+        axios.get(getApiUrl("food_all")),
+      ]);
+      setrecent(recentResponse.data);
+      setDataAll(DataAllResponse.data);
+    } catch (error) {
+      setErrorMessage({
+        error: true,
+        message: "An error occurred while fetching data",
+      });
+    }
+  }, []); // empty array means this function is memoized once
+
+  useEffect(() => {
     fetchData();
-  }, []);
+  }, [fetchData]); // include fetchData as a dependency
+
   // Show Box Filter #############################################################
   function toggleFilter() {
     const boxFilter = document.getElementById("boxFilter");
@@ -76,7 +92,10 @@ const Diet = () => {
   // Storage Data
   const link = useNavigate();
   const toFood = (n) => {
-    window.sessionStorage.setItem("FoodName", recent[n]["Name"]);
+    window.sessionStorage.setItem(
+      "FoodName",
+      recent[n]["Name"].replace("/", "").replace("&amp;", "&")
+    );
     window.sessionStorage.setItem("FoodCatagory", recent[n]["Catagory"]);
     window.sessionStorage.setItem("FoodDescription", recent[n]["Description"]);
     window.sessionStorage.setItem("FoodVeg_non", recent[n]["Veg_non"]);
@@ -86,7 +105,10 @@ const Diet = () => {
     link("/OverviewDiet");
   };
   const toFoodAll = (n) => {
-    window.sessionStorage.setItem("FoodName", n["Name"]);
+    window.sessionStorage.setItem(
+      "FoodName",
+      n["Name"].replace("/", "").replace("&amp;", "&")
+    );
     window.sessionStorage.setItem("FoodCatagory", n["Catagory"]);
     window.sessionStorage.setItem("FoodDescription", n["Description"]);
     window.sessionStorage.setItem("FoodVeg_non", n["Veg_non"]);
@@ -197,12 +219,18 @@ const Diet = () => {
                   }}
                 >
                   <img
-                    src={"./images/Diet.png"} // Modify to use appropriate image based on plan
+                    src={`./images/diet/${
+                      plan
+                        ? plan.Name.replace("/", "").replace("&amp;", "&")
+                        : ""
+                    }.jpg`} // Modify to use appropriate image based on plan
                     className="card-img-top"
                     alt="..."
                   />
                   <div className="card-body">
-                    <h4 className="card-title">{plan.Name}</h4>
+                    <h4 className="card-title">
+                      {plan.Name.replace("/", "").replace("&amp;", "&")}
+                    </h4>
                     <p className="card-text">
                       {plan.Veg_non ? "Vigetarian" : " Not Vigetarian"}
                     </p>
@@ -237,22 +265,27 @@ const Diet = () => {
                   }}
                 >
                   <img
-                    src={"./images/Diet.png"} // Modify to use appropriate image based on plan
+                    src={`./images/diet/${
+                      plan
+                        ? plan.Name.replace("/", "").replace("&amp;", "&")
+                        : ""
+                    }.jpg`} // Modify to use appropriate image based on plan
                     className="card-img-top"
                     alt="..."
                   />
                   <div className="card-body">
-                    <h4 className="card-title">{plan.Name}</h4>
+                    <h4 className="card-title">
+                      {plan.Name.replace("/", "").replace("&amp;", "&")}
+                    </h4>
                     <p className="card-text">
                       {plan.Veg_non ? "Vigetarian" : " Not Vigetarian"}
                     </p>
                     <div className="Diet-card-text  d-flex flex-row justify-content-between">
                       <h5>
-                        Catagory: <span>{plan.Catagory}</span>
+                        Catagory: <span> {plan.Catagory}</span>
                       </h5>
                       <h5>
-                        Nutrient:
-                        <span> {plan.Nutrient}</span>
+                        Nutrient: <span> {plan.Nutrient}</span>
                       </h5>
                     </div>
                   </div>
@@ -277,13 +310,19 @@ const Diet = () => {
                   }}
                 >
                   <img
-                    src={"./images/Diet.png"}
+                    src={`./images/diet/${
+                      recent[0]
+                        ? recent[0].Name.replace("/", "").replace("&amp;", "&")
+                        : ""
+                    }.jpg`}
                     className="card-img-top"
                     alt="..."
                   />
                   <div className="card-body">
                     <h4 className="card-title">
-                      {recent.length > 0 ? recent[0].Name : "waiting......"}
+                      {recent.length > 0
+                        ? recent[0].Name.replace("/", "").replace("&amp;", "&")
+                        : "waiting......"}
                     </h4>
                     <p className="card-text">
                       {recent.length > 0
@@ -294,7 +333,7 @@ const Diet = () => {
                     </p>
                     <div className="Diet-card-text  d-flex flex-row justify-content-between">
                       <h5>
-                        Catagory:
+                        Catagory:{" "}
                         <span>
                           {recent.length > 0
                             ? recent[0].Catagory
@@ -302,7 +341,7 @@ const Diet = () => {
                         </span>
                       </h5>
                       <h5>
-                        Nutrient:
+                        Nutrient:{" "}
                         <span>
                           {recent.length > 0
                             ? recent[0].Nutrient
@@ -319,13 +358,19 @@ const Diet = () => {
                   }}
                 >
                   <img
-                    src={"./images/Diet.png"}
+                    src={`./images/diet/${
+                      recent[1]
+                        ? recent[1].Name.replace("/", "").replace("&amp;", "&")
+                        : ""
+                    }.jpg`}
                     className="card-img-top"
                     alt="..."
                   />
                   <div className="card-body">
                     <h4 className="card-title">
-                      {recent.length > 0 ? recent[1].Name : "waiting......"}
+                      {recent.length > 0
+                        ? recent[1].Name.replace("/", "").replace("&amp;", "&")
+                        : "waiting......"}
                     </h4>
                     <p className="card-text">
                       {recent.length > 0
@@ -336,7 +381,7 @@ const Diet = () => {
                     </p>
                     <div className="Diet-card-text  d-flex flex-row justify-content-between">
                       <h5>
-                        Catagory:
+                        Catagory:{" "}
                         <span>
                           {recent.length > 0
                             ? recent[1].Catagory
@@ -344,7 +389,7 @@ const Diet = () => {
                         </span>
                       </h5>
                       <h5>
-                        Nutrient:
+                        Nutrient:{" "}
                         <span>
                           {recent.length > 0
                             ? recent[1].Nutrient
@@ -361,13 +406,19 @@ const Diet = () => {
                   }}
                 >
                   <img
-                    src={"./images/Diet.png"}
+                    src={`./images/diet/${
+                      recent[2]
+                        ? recent[2].Name.replace("/", "").replace("&amp;", "&")
+                        : ""
+                    }.jpg`}
                     className="card-img-top"
                     alt="..."
                   />
                   <div className="card-body">
                     <h4 className="card-title">
-                      {recent.length > 0 ? recent[2].Name : "waiting......"}
+                      {recent.length > 0
+                        ? recent[2].Name.replace("/", "").replace("&amp;", "&")
+                        : "waiting......"}
                     </h4>
                     <p className="card-text">
                       {recent.length > 0
@@ -378,7 +429,7 @@ const Diet = () => {
                     </p>
                     <div className="Diet-card-text  d-flex flex-row justify-content-between">
                       <h5>
-                        Catagory:
+                        Catagory:{" "}
                         <span>
                           {recent.length > 0
                             ? recent[2].Catagory
@@ -386,7 +437,7 @@ const Diet = () => {
                         </span>
                       </h5>
                       <h5>
-                        Nutrient:
+                        Nutrient:{" "}
                         <span>
                           {recent.length > 0
                             ? recent[2].Nutrient
@@ -414,13 +465,19 @@ const Diet = () => {
                     }}
                   >
                     <img
-                      src={"./images/Diet.png"}
+                      src={`./images/diet/${
+                        plan
+                          ? plan.Name.replace("/", "").replace("&amp;", "&")
+                          : ""
+                      }.jpg`}
                       className="card-img-top"
                       alt="..."
                     />
                     <div className="card-body">
                       <h4 className="card-title">
-                        {plan.Name ? plan.Name : "waiting......"}
+                        {plan.Name
+                          ? plan.Name.replace("/", "").replace("&amp;", "&")
+                          : "waiting......"}
                       </h4>
                       <p className="card-text">
                         {plan.Veg_non !== undefined
@@ -431,13 +488,13 @@ const Diet = () => {
                       </p>
                       <div className="Diet-card-text d-flex flex-row justify-content-between">
                         <h5>
-                          Category:
+                          Category:{" "}
                           <span>
                             {plan.Catagory ? plan.Catagory : "waiting......"}
                           </span>
                         </h5>
                         <h5>
-                          Nutrient:
+                          Nutrient:{" "}
                           <span>
                             {plan.Nutrient ? plan.Nutrient : "waiting......"}
                           </span>

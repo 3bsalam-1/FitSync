@@ -80,11 +80,12 @@
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
 }
-.Survey .box-card .box button:first-child {
-  background: var(--frist-color, #8d70f8);
-}
-.Survey .box-card .box button:last-child {
+
+.Survey .box-card .box button {
   background: #d1c6fc;
+}
+.Survey .box-card .box button:focus {
+  background: var(--frist-color, #8d70f8);
 }
 .Survey .box-card .box button svg {
   width: 47.84px;

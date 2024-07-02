@@ -16,7 +16,7 @@ const Exercise = () => {
   const link = useNavigate();
 
   const TimeExercise = (
-    sessionStorage.getItem("TotalPlanDuration") / 200
+    sessionStorage.getItem("TotalPlanDuration") / 6
   ).toFixed(2);
   const Exerciseplan = sessionStorage.getItem("ExercisePlan").split(",");
 
@@ -62,7 +62,7 @@ const Exercise = () => {
     const sec = Math.floor(seconds % 60);
     return `${min}:${sec < 10 ? "0" : ""}${sec}`;
   };
-  // Complete Workout ############################################################
+  // Complete Workout  ############################################################
   const CompleteWorkout = () => {
     Swal.fire({
       title: "Congratulations!",
@@ -84,21 +84,27 @@ const Exercise = () => {
     });
   };
 
+  //  Add favorite Workout #############################################################
   const workoutString = `Exercise Plan: ${sessionStorage.getItem(
     "ExercisePlan"
-  )}$Category: ${sessionStorage.getItem(
+  )}*Category: ${sessionStorage.getItem(
     "Category"
-  )}$Impact Level: ${sessionStorage.getItem(
+  )}*Impact Level: ${sessionStorage.getItem(
     "ImpactLevel"
-  )}$Total Plan Duration (minutes):${sessionStorage.getItem(
+  )}*Total Plan Duration (minutes):${sessionStorage.getItem(
     "TotalPlanDuration"
-  )}$Calories Burned (Plan): ${sessionStorage.getItem(
+  )}*Calories Burned (Plan): ${sessionStorage.getItem(
     "CaloriesBurned"
-  )}$Target Muscle Group: ${sessionStorage.getItem("TargetMuscleGroup")} `;
-
+  )}*Target Muscle Group: ${sessionStorage.getItem("TargetMuscleGroup")} `;
   const addWorkout = async (e) => {
+    console.log("workoutString: ", workoutString);
     e.preventDefault();
-    if (!like) {
+
+    const maxRetries = 3;
+    let attempt = 0;
+    let success = false;
+
+    while (attempt < maxRetries && !success) {
       try {
         const response = await fetch(
           "https://fitsync.onrender.com/api/workout",
@@ -111,7 +117,7 @@ const Exercise = () => {
                 .trim()}`,
             },
             body: JSON.stringify({
-              workout: [workoutString, "plan"],
+              workout: workoutString,
             }),
           }
         );
@@ -125,8 +131,14 @@ const Exercise = () => {
         const data = await response.json();
         console.log("data", data);
         toast.success("Registered successfully");
+        success = true;
       } catch (err) {
-        console.error("Error:", err);
+        attempt++;
+        console.error(`Error on attempt ${attempt}:`, err);
+        if (attempt >= maxRetries) {
+          console.error("Max retries reached. Failed to add workout.");
+          toast.error("Failed to register workout. Please try again later.");
+        }
       }
     }
   };

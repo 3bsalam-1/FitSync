@@ -19,75 +19,65 @@ const Home = () => {
         const response = await axios.get(apiUrl, {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${sessionStorage.getItem("authToken")}`,
+            Authorization: `Bearer ${sessionStorage
+              .getItem("authToken")
+              .trim()}`,
           },
         });
-        window.sessionStorage.setItem(
-          "weight",
-          response.data.data.userInfo.weight
-        );
-        window.sessionStorage.setItem(
-          "height",
-          response.data.data.userInfo.height
-        );
+        window.sessionStorage.setItem("weight", response.data.data.weight);
+        window.sessionStorage.setItem("height", response.data.data.height);
         window.sessionStorage.setItem(
           "birthdate",
-          response.data.data.userInfo.birthdate
+          response.data.data.birthdate
         );
-        window.sessionStorage.setItem(
-          "gender",
-          response.data.data.userInfo.gender
-        );
+        window.sessionStorage.setItem("gender", response.data.data.gender);
         window.sessionStorage.setItem(
           "activityLevel",
-          response.data.data.userInfo.activityLevel
+          response.data.data.activityLevel
         );
         window.sessionStorage.setItem(
           "systolicBP",
-          response.data.data.userInfo.systolicBP
+          response.data.data.systolicBP
         );
         window.sessionStorage.setItem(
           "diastolicBP",
-          response.data.data.userInfo.diastolicBP
+          response.data.data.diastolicBP
         );
         window.sessionStorage.setItem(
           "cholesterolLevel",
-          response.data.data.userInfo.cholesterolLevel
+          response.data.data.cholesterolLevel
         );
         window.sessionStorage.setItem(
           "bloodsugar",
-          response.data.data.userInfo.bloodsugar
+          response.data.data.bloodsugar
         );
         window.sessionStorage.setItem(
           "hypertension",
-          response.data.data.userInfo.hypertension
+          response.data.data.diseases.hypertension
         );
         window.sessionStorage.setItem(
           "diabetes",
-          response.data.data.userInfo.diabetes
+          response.data.data.diseases.diabetes
         );
         window.sessionStorage.setItem(
           "heartCondition",
-          response.data.data.userInfo.heartCondition
+          response.data.data.diseases.heartCondition
         );
         window.sessionStorage.setItem(
           "LowPressure",
-          response.data.data.userInfo.LowPressure
+          response.data.data.diseases.LowPressure
         );
-        window.sessionStorage.setItem("BMR", response.data.data.userInfo.BMR);
+        window.sessionStorage.setItem("BMR", response.data.data.BMR);
         window.sessionStorage.setItem(
           "kneePain",
-          response.data.data.userInfo.kneePain
+          response.data.data.diseases.kneePain
         );
         window.sessionStorage.setItem(
           "backPain",
-          response.data.data.userInfo.backPain
+          response.data.data.diseases.backPain
         );
-        window.sessionStorage.setItem(
-          "isActive",
-          response.data.data.userInfo.isActive
-        );
-        window.sessionStorage.setItem("__v", response.data.data.userInfo.__v);
+        window.sessionStorage.setItem("isActive", response.data.data.isActive);
+        window.sessionStorage.setItem("__v", response.data.data.diseases.__v);
       } catch (error) {
         console.error("Error fetching Code:", error);
       }

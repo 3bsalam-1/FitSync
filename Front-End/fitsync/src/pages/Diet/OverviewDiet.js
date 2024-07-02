@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useMemo, useReducer, useState } from "react";
 import "../Home.css";
 import "./Diet.css";
 import "./OverviewDiet.css";
@@ -8,15 +8,220 @@ import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import Footer from "../../components/Footer";
 import HeaderProfile from "../../components/HeaderProfile";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-toastify";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const OverviewDiet = () => {
   const [like, setLike] = useState(false);
   const link = useNavigate();
 
-  const FoodDescription = sessionStorage.getItem("FoodDescription").split(",");
+  // Error Message #############################################################
+  const reducer = (prev, next) => ({ ...prev, ...next });
+  const [{ error, message }, setErrorMessage] = useReducer(reducer, {
+    error: false,
+    message: "",
+  });
+
+  //  Read Data #############################################################
+  const FoodDescription = useMemo(
+    () => sessionStorage.getItem("FoodDescription").split(","),
+    []
+  );
+  const [gmfood, setGmfood] = useState([]);
+  const [weights, setWeights] = useState([]);
+  const [calories, setCalories] = useState([]);
+  useEffect(() => {
+    const sendDescriptions = async () => {
+      try {
+        const foodData = [];
+        const initialWeights = FoodDescription.map(() => 10);
+
+        for (let description of FoodDescription) {
+          const items = description.split(",");
+          for (let item of items) {
+            const response = await axios.get(
+              `https://fitsync-ai-api.onrender.com/Ingredients?Ingredient=${item.trim()}`
+            );
+
+            if (response.data && response.data.length > 0) {
+              const caloriesValue = response.data[0]["Calories per 100 grams"];
+              foodData.push(caloriesValue);
+            } else {
+              foodData.push("No data available");
+            }
+          }
+        }
+        setGmfood(foodData);
+        setWeights(initialWeights);
+        setCalories(
+          foodData.map((cal, index) =>
+            cal !== "No data available"
+              ? (cal * initialWeights[index]) / 100
+              : 0
+          )
+        );
+      } catch (error) {
+        console.error("Error sending descriptions:", error);
+      }
+    };
+
+    sendDescriptions();
+  }, [FoodDescription]);
+  const handleIncrease = (index) => {
+    const newWeights = [...weights];
+    newWeights[index] += 10;
+    setWeights(newWeights);
+    updateCalories(newWeights);
+  };
+  const handleDecrease = (index) => {
+    const newWeights = [...weights];
+    if (newWeights[index] > 10) {
+      newWeights[index] -= 10;
+      setWeights(newWeights);
+      updateCalories(newWeights);
+    }
+  };
+  const updateCalories = (weights) => {
+    const updatedCalories = weights.map((weight, index) =>
+      gmfood[index] !== "No data available" ? (gmfood[index] * weight) / 100 : 0
+    );
+    setCalories(updatedCalories);
+  };
+
+  //  Add food to data and Add favorite #############################################################
+  const addfood = async () => {
+    try {
+      const Calories = calories.reduce((a, b) => a + b, 0).toFixed(2);
+      const response = await fetch(
+        "https://fitsync.onrender.com/api/vitalsignal/inTake",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${sessionStorage
+              .getItem("authToken")
+              .trim()}`,
+          },
+          body: JSON.stringify({
+            inTake: Calories,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const responseData = await response.json();
+        console.log("responseData", responseData);
+        return;
+      }
+
+      const data = await response.json();
+      console.log("data", data);
+      toast.success("Registered successfully");
+    } catch (err) {
+      console.error("Error:", err);
+    }
+  };
+
+  const DietString = `Name: ${sessionStorage.getItem(
+    "FoodName"
+  )}*Catagory: ${sessionStorage.getItem(
+    "FoodCatagory"
+  )}*Description: ${sessionStorage.getItem(
+    "FoodDescription"
+  )}*Veg_non:${sessionStorage.getItem(
+    "FoodVeg_non"
+  )}*Nutrient: ${sessionStorage.getItem(
+    "FoodNutrient"
+  )}*Diet: ${sessionStorage.getItem("FoodDiet")} `;
+  // const addfavorite = async (e) => {
+  //   console.log("DietString: ", DietString);
+  //   e.preventDefault();
+
+  //   const maxRetries = 3;
+  //   let attempt = 0;
+  //   let success = false;
+
+  //   while (attempt < maxRetries && !success) {
+  //     try {
+  //       const response = await fetch(
+  //         "https://fitsync.onrender.com/api/fav-meal",
+  //         {
+  //           method: "POST",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Authorization: `Bearer ${sessionStorage
+  //               .getItem("authToken")
+  //               .trim()}`,
+  //           },
+  //           body: JSON.stringify({
+  //             workout: DietString,
+  //           }),
+  //         }
+  //       );
+
+  //       if (!response.ok) {
+  //         const responseData = await response.json();
+  //         console.log("responseData", responseData);
+  //         return;
+  //       }
+
+  //       const data = await response.json();
+  //       console.log("data", data);
+  //       toast.success("Registered successfully");
+  //       success = true;
+  //     } catch (err) {
+  //       attempt++;
+  //       console.error(`Error on attempt ${attempt}:`, err);
+  //       if (attempt >= maxRetries) {
+  //         console.error("Max retries reached. Failed to add workout.");
+  //         toast.error("Failed to register workout. Please try again later.");
+  //       }
+  //     }
+  //   }
+  // };
+  const addfavorite = async (e) => {
+    console.log("DietString: ", DietString);
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "https://fitsync.onrender.com/api/fav-meal",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${sessionStorage
+              .getItem("authToken")
+              .trim()}`,
+          },
+          body: JSON.stringify({
+            favMeal: DietString,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const responseData = await response.json();
+        console.log("responseData", responseData);
+        return;
+      }
+
+      const data = await response.json();
+      console.log("data", data);
+      toast.success("Registered successfully");
+    } catch (err) {
+      console.error("Error:", err);
+    }
+  };
 
   return (
-    <div className="Home Workout">
+    <div className="Home Workout OverviewDiet">
+      {error ? (
+        <ErrorMessage
+          message={message}
+          ClosedError={(e) => setErrorMessage({ error: e, message: "" })}
+        />
+      ) : null}
       {/* Start Header   ###############################################    */}
       <HeaderProfile Diet="active" />
       {/* End Header   ###############################################    */}
@@ -54,7 +259,10 @@ const OverviewDiet = () => {
           <div className="col">
             <div className="card">
               <img
-                src={`./images/Diet.png`}
+                src={`./images/diet/${sessionStorage
+                  .getItem("FoodName")
+                  .replace("/", "")
+                  .replace("&amp;", "&")}.jpg`}
                 alt="Diet"
                 className="p-3"
                 style={{ width: "100%", height: "340px" }}
@@ -63,10 +271,18 @@ const OverviewDiet = () => {
                 <div className="d-flex align-items-center justify-content-between ">
                   <div className="d-flex flex-column align-items-start  ">
                     <p className="card-text m-0 me-3">
-                      Size : <span className="text-black"> 300</span>
+                      Size :{" "}
+                      <span className="text-black">
+                        {" "}
+                        {weights.reduce((a, b) => a + b, 0).toFixed(2)}
+                      </span>
                     </p>
                     <p className="card-text m-0 me-3">
-                      Calories : <span className="text-black"> 61</span>
+                      Calories :{" "}
+                      <span className="text-black">
+                        {" "}
+                        {calories.reduce((a, b) => a + b, 0).toFixed(2)}
+                      </span>
                     </p>
                     <p className="card-text m-0 me-3">
                       Nutrient :{" "}
@@ -79,13 +295,16 @@ const OverviewDiet = () => {
                       Diet:{" "}
                       <span className="text-black">
                         {" "}
-                        {sessionStorage.getItem("FoodDiet")}
+                        {sessionStorage
+                          .getItem("FoodDiet")
+                          .replaceAll("_", " ")}
                       </span>
                     </p>
                   </div>
                   <button
                     onClick={(e) => {
                       setLike(!like);
+                      addfavorite(e);
                     }}
                   >
                     {like ? (
@@ -98,7 +317,9 @@ const OverviewDiet = () => {
                 <h5 className="card-title text-capitalize">
                   {sessionStorage.getItem("FoodName")}
                 </h5>
-                <button className="btn-primary">Add Meal</button>
+                <button className="btn-primary" on onClick={addfood}>
+                  Add Meal
+                </button>
               </div>
             </div>
           </div>
@@ -110,17 +331,23 @@ const OverviewDiet = () => {
             {FoodDescription.map((description, index) => (
               <div
                 key={index}
-                className="exercises-box d-flex align-items-center mb-2 position-relative"
+                className="exercises-box d-flex align-items-center mb-2 p-3 position-relative"
               >
-                <img
-                  src={`./images/Dite.png`}
-                  alt="Dite"
-                  className="p-0 me-2"
-                  style={{ width: "80px", height: "80px" }}
-                />
-                <div className="text-box flex-grow-1 position-relative">
-                  <p className="fw-bold">{description.trim()}</p>
-                  <span className="text-black-50">"100gr" </span>
+                <div className="text-box flex-grow-1 position-relative  d-flex align-items-center justify-content-between">
+                  <div>
+                    <p className="fw-bold">{description.trim()}</p>
+                    <span className="text-black-50">
+                      {weights[index]} gm ={" "}
+                      {gmfood[index] !== "No data available"
+                        ? (gmfood[index] * weights[index]) / 100
+                        : "No data available"}{" "}
+                      Calories
+                    </span>
+                  </div>
+                  <div>
+                    <button onClick={() => handleDecrease(index)}>-</button>
+                    <button onClick={() => handleIncrease(index)}>+</button>
+                  </div>
                 </div>
               </div>
             ))}
