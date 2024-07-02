@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useCallback, useEffect, useReducer, useState } from "react";
 import "../Home.css";
 import "./Workout.css";
 import HeaderProfile from "../../components/HeaderProfile";
@@ -8,90 +8,58 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Workout = () => {
-  const [recent, setrecent] = useState([]);
-  const [challenges, setchallenges] = useState([]);
-  const [AllData, setAllData] = useState([]);
-  const [AllRecommended, setAllRecommended] = useState([]);
-
   const reducer = (prev, next) => ({ ...prev, ...next });
   const [{ error, message }, setErrorMessage] = useReducer(reducer, {
     error: false,
     message: "",
   });
 
+  const [recent, setRecent] = useState([]);
+  const [challenges, setChallenges] = useState([]);
+  const [AllData, setAllData] = useState([]);
+  const [AllRecommended, setAllRecommended] = useState([]);
+
   // Read Data
+  const getApiUrl = (endpoint) => {
+    const gender = sessionStorage.getItem("gender");
+    const kneePain = sessionStorage.getItem("kneePain");
+    const backPain = sessionStorage.getItem("backPain");
+    const diabetes = sessionStorage.getItem("diabetes");
+    const heartCondition = sessionStorage.getItem("heartCondition");
+    const hypertension = sessionStorage.getItem("hypertension");
+
+    return `https://fitsync-ai-api.onrender.com/${endpoint}?Gender=${gender}&Knee_pain=${kneePain}&Back_pain=${backPain}&Diabeties=${diabetes}&Heart_Disease=${heartCondition}&Hypertension=${hypertension}`;
+  };
+
+  const fetchData = useCallback(async () => {
+    try {
+      const [
+        recentResponse,
+        challengesResponse,
+        allDataResponse,
+        AllRecommendedResponse,
+      ] = await Promise.all([
+        axios.get(getApiUrl("workout")),
+        axios.get(getApiUrl("challenges")),
+        axios.get("https://fitsync-ai-api.onrender.com/all_workouts"),
+        axios.get(getApiUrl("all_recommended_workouts")),
+      ]);
+
+      setRecent(recentResponse.data);
+      setChallenges(challengesResponse.data);
+      setAllData(allDataResponse.data);
+      setAllRecommended(AllRecommendedResponse.data);
+    } catch (error) {
+      setErrorMessage({
+        error: true,
+        message: "An error occurred while fetching data",
+      });
+    }
+  }, []); // empty array means this function is memoized once
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const apiUrl = `https://fitsync-ai-api.onrender.com/workout?Gender=${sessionStorage.getItem(
-          "gender"
-        )}&Knee_pain=${sessionStorage.getItem(
-          "kneePain"
-        )}&Back_pain=${sessionStorage.getItem(
-          "backPain"
-        )}&Diabeties=${sessionStorage.getItem(
-          "diabetes"
-        )}&Heart_Disease=${sessionStorage.getItem(
-          "heartCondition"
-        )}&Hypertension=${sessionStorage.getItem("hypertension")}`;
-        const response = await axios.get(apiUrl);
-        setrecent(response.data);
-      } catch (error) {
-        console.error("Error fetching Code:", error);
-      }
-    };
-    const fetchChallenges = async () => {
-      try {
-        const apiUrl = `https://fitsync-ai-api.onrender.com/challenges?Gender=${sessionStorage.getItem(
-          "gender"
-        )}&Knee_pain=${sessionStorage.getItem(
-          "kneePain"
-        )}&Back_pain=${sessionStorage.getItem(
-          "backPain"
-        )}&Diabeties=${sessionStorage.getItem(
-          "diabetes"
-        )}&Heart_Disease=${sessionStorage.getItem(
-          "heartCondition"
-        )}&Hypertension=${sessionStorage.getItem("hypertension")}`;
-        const response = await axios.get(apiUrl);
-        setchallenges(response.data);
-      } catch (error) {
-        console.error("Error fetching Code:", error);
-      }
-    };
-    const fetchAllData = async () => {
-      try {
-        const apiUrl = "https://fitsync-ai-api.onrender.com/all_workouts";
-        const response = await axios.get(apiUrl);
-        setAllData(response.data);
-      } catch (error) {
-        console.error("Error fetching Code:", error);
-      }
-    };
-    const fetchAllRecommended = async () => {
-      try {
-        const apiUrl = `https://fitsync-ai-api.onrender.com/all_recommended_workouts?${sessionStorage.getItem(
-          "gender"
-        )}&Knee_pain=${sessionStorage.getItem(
-          "kneePain"
-        )}&Back_pain=${sessionStorage.getItem(
-          "backPain"
-        )}&Diabeties=${sessionStorage.getItem(
-          "diabetes"
-        )}&Heart_Disease=${sessionStorage.getItem(
-          "heartCondition"
-        )}&Hypertension=${sessionStorage.getItem("hypertension")}`;
-        const response = await axios.get(apiUrl);
-        setAllRecommended(response.data);
-      } catch (error) {
-        console.error("Error fetching Code:", error);
-      }
-    };
     fetchData();
-    fetchChallenges();
-    fetchAllData();
-    fetchAllRecommended();
-  }, []);
+  }, [fetchData]); // include fetchData as a dependency
 
   // Show Box Filter #############################################################
   function toggleFilter() {
@@ -103,7 +71,13 @@ const Workout = () => {
   //Filter using my all Data #############################################################
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedImpactLevels, setSelectedImpactLevels] = useState([]);
+  const [selectedTargets, setSelectedTargets] = useState([]);
   const categories = [...new Set(AllRecommended.map((plan) => plan.Category))];
+  const targetMuscleGroups = [
+    ...new Set(
+      AllRecommended.flatMap((plan) => plan["Target Muscle Group"].split(", "))
+    ),
+  ];
   const impactLevels = [
     ...new Set(AllRecommended.map((plan) => plan["Impact Level"])),
   ];
@@ -119,10 +93,16 @@ const Workout = () => {
       (selectedCategories.length === 0 ||
         selectedCategories.includes(plan.Category)) &&
       (selectedImpactLevels.length === 0 ||
-        selectedImpactLevels.includes(plan["Impact Level"]))
+        selectedImpactLevels.includes(plan["Impact Level"])) &&
+      (selectedTargets.length === 0 ||
+        selectedTargets.some((target) =>
+          plan["Target Muscle Group"].includes(target)
+        ))
   );
   const anySelected =
-    selectedCategories.length > 0 || selectedImpactLevels.length > 0;
+    selectedCategories.length > 0 ||
+    selectedImpactLevels.length > 0 ||
+    selectedTargets.length > 0;
   //Filter search using my all Data #############################################################
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState([]);
@@ -274,6 +254,22 @@ const Workout = () => {
                   />
                   <span className="custom-checkbox"></span>
                   {category}
+                </label>
+              ))}
+            </div>
+            <div className="column">
+              <h3>Target Muscle Groups</h3>
+              {targetMuscleGroups.map((target) => (
+                <label key={target} className="checkbox-label">
+                  <input
+                    type="checkbox"
+                    value={target}
+                    onChange={() =>
+                      handleCheckboxChange(setSelectedTargets, target)
+                    }
+                  />
+                  <span className="custom-checkbox"></span>
+                  {target}
                 </label>
               ))}
             </div>

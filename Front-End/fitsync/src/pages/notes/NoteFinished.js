@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import { Global } from "../../context/Global";
 import { toast } from "react-toastify";
 import Loading from "../../components/Loading";
+import ErrorMessage from "../../components/ErrorMessage";
 
 const NoteFinished = ({ onPrevious, onSubmit }) => {
   const { user } = useContext(Global);
@@ -22,8 +23,15 @@ const NoteFinished = ({ onPrevious, onSubmit }) => {
       console.log("End", bgLoadingElements.length);
     }
   }, [loading]);
+  // Error ################################################################
+  const reducer = (prev, next) => ({ ...prev, ...next });
+  const [{ error, message }, setErrorMessage] = useReducer(reducer, {
+    error: false,
+    message: "",
+  });
   // submit ################################################################
-  const authToken = window.sessionStorage.getItem("authToken");
+  let authToken = window.sessionStorage.getItem("authToken").trim();
+  console.log(Boolean(authToken));
   const handleSubmit = async () => {
     try {
       setLoading(true);
@@ -58,22 +66,33 @@ const NoteFinished = ({ onPrevious, onSubmit }) => {
       );
       if (!response.ok) {
         setLoading(false);
+        const responseData = await response.json();
+        setErrorMessage({ error: true, message: responseData.message });
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       const data = await response.json();
       toast.success("Registered successfully");
-      console.log("status", data.status);
-      console.log("data", data);
-      setLoading(false);
+      authToken = data.token;
+      window.sessionStorage.setItem("authToken", authToken);
       window.sessionStorage.setItem("survey", true);
+      setLoading(false);
       onSubmit();
     } catch (err) {
-      toast.error("Failed" + err.message);
+      setErrorMessage({
+        error: true,
+        message: err.message,
+      });
     }
   };
   return (
     <div>
       {loading ? <Loading /> : null}
+      {error ? (
+        <ErrorMessage
+          message={message}
+          ClosedError={(e) => setErrorMessage({ error: e, message: "" })}
+        />
+      ) : null}
       <div className="NoteBack">
         <button className="Back" onClick={onPrevious}>
           <i className="fa-solid fa-angle-left"></i>

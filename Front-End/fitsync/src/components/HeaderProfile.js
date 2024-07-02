@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./HeaderProfile.css";
 import { jwtDecode } from "jwt-decode";
 import { Link, useNavigate } from "react-router-dom";
@@ -6,23 +6,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const HeaderProfile = ({ Home = "", Workout = "", Diet = "" }) => {
   // User Data
-  let authToken = sessionStorage.getItem("authToken");
-  let UserName = "";
-  let UserImg = "";
-  if (authToken) {
-    try {
-      let UserData = jwtDecode(authToken);
+  const [userName, setUserName] = useState("");
+  const [userImg, setUserImg] = useState("");
+  const authToken = sessionStorage.getItem("authToken");
 
-      if (UserData && UserData.user) {
-        UserName = UserData.user.firstName + " " + UserData.user.lastName;
-        UserImg = UserData.user.avatar;
-      } else {
-        console.error("Decoded token does not contain expected user data");
+  useEffect(() => {
+    if (authToken) {
+      try {
+        const userData = jwtDecode(authToken);
+        if (userData) {
+          setUserName(`${userData.firstName} ${userData.lastName}`);
+          setUserImg(userData.avatar);
+        } else {
+          console.error("Decoded token does not contain expected user data");
+        }
+      } catch (error) {
+        console.error("Error decoding token:", error.message);
       }
-    } catch (error) {
-      console.error("Error decoding token:", error.message);
     }
-  }
+  }, [authToken]);
   // Logout profile
   const link = useNavigate();
   const handleLogout = () => {
@@ -60,9 +62,9 @@ const HeaderProfile = ({ Home = "", Workout = "", Diet = "" }) => {
             </Link>
           </div>
           <div className="profile d-flex align-items-center">
-            <img src={UserImg} alt="profile"></img>
+            <img src={userImg} alt="profile"></img>
             <div>
-              <h3>Hi {UserName} </h3>
+              <h3>Hi {userName} </h3>
               <button className="dropdown-profile" onClick={toggleMenu}>
                 My Fitness <FontAwesomeIcon icon="fa-solid fa-caret-down" />
               </button>

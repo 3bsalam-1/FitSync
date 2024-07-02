@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { toast } from "react-toastify";
-import { Global } from "../context/Global";
-import Swal from "sweetalert2";
 import "./verificationCode/ForgetPassword.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Loading from "../components/Loading";
+import ErrorMessage from "../components/ErrorMessage";
 
 const UserVerification = () => {
-  const { user, setUser } = useContext(Global);
   const link = useNavigate();
   // Input that are taken from the user ################################################################
   const [verification, setVerification] = useState({
@@ -56,11 +55,14 @@ const UserVerification = () => {
       }))
     );
   };
-  // console.log(user);
-  // console.log(user.authToken);
-  // console.log("firstTime", user.authToken.firstTime);
+  // Error ################################################################
+  const reducer = (prev, next) => ({ ...prev, ...next });
+  const [{ error, message }, setErrorMessage] = useReducer(reducer, {
+    error: false,
+    message: "",
+  });
   // Submit ################################################################
-  let authToken;
+  let authToken = sessionStorage.getItem("authToken");
   const handleSubmit = async (e) => {
     e.preventDefault();
     const enteredCode = Object.values(verification).join("");
@@ -73,7 +75,7 @@ const UserVerification = () => {
           method: "POST",
           headers: {
             "content-type": "application/json",
-            Authorization: `Bearer ${user.authToken}`,
+            Authorization: `Bearer ${authToken}`,
           },
           body: JSON.stringify({
             code: enteredCode,
@@ -81,23 +83,24 @@ const UserVerification = () => {
         }
       );
       if (!response.ok) {
-        Swal.fire({
-          title: "Error",
-          text: "Failed to login user",
-          icon: "error",
-        });
         setLoading(false);
+        const responseData = await response.json();
+        setErrorMessage({ error: true, message: responseData.message });
         return;
       }
       const data = await response.json();
       authToken = data.token;
+      window.sessionStorage.setItem("firstTime", true);
+      window.sessionStorage.setItem("authToken", authToken);
       toast.success("Registered successfully");
-      console.log("Data", data);
-      setUser({ authToken });
       setLoading(false);
       link("/WelcomScreen");
     } catch (err) {
-      toast.error("Failed" + err.message);
+      // toast.error("Failed" + err.message);
+      setErrorMessage({
+        error: true,
+        message: err.message,
+      });
     }
   };
   // Resend ################################################################
@@ -108,7 +111,7 @@ const UserVerification = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${user.authToken}`,
+            Authorization: `Bearer ${authToken}`,
           },
         }
       );
@@ -119,6 +122,13 @@ const UserVerification = () => {
   };
   return (
     <div className="ForgetPassword">
+      {loading ? <Loading /> : null}
+      {error ? (
+        <ErrorMessage
+          message={message}
+          ClosedError={(e) => setErrorMessage({ error: e, message: "" })}
+        />
+      ) : null}
       <nav className="sticky-top container">
         <div className="logo d-flex align-items-center">
           <img src="./images/logo.png" alt="logo"></img>
@@ -147,7 +157,6 @@ const UserVerification = () => {
                   onChange={(e) => onInputChange(e, `n${index + 1}`)}
                   maxLength={1}
                   onPaste={handlePaste}
-                  required
                 />
               </div>
             ))}

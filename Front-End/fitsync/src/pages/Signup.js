@@ -165,8 +165,6 @@ const Signup = () => {
       const data = await response.json();
       authToken = data.token;
       toast.success("Registered successfully");
-
-      authToken = data.token;
       window.sessionStorage.setItem("authToken", authToken);
       setLoading(false);
       let firstTime = jwtDecode(authToken).firstTime;
@@ -177,6 +175,7 @@ const Signup = () => {
         link("/Home");
       }
     } catch (err) {
+      toast.error("Failed" + err.message);
       setErrorMessage({
         error: true,
         message: "Failed to connect to the server",
@@ -220,7 +219,7 @@ const Signup = () => {
           </p>
         </div>
       </nav>
-      <div className="box-card text-center mt-4">
+      <div className="box-card text-center">
         <form onSubmit={submit}>
           <p className="Welcome">Hi!</p>
           <h1> Create your account</h1>
@@ -324,7 +323,7 @@ const Signup = () => {
           </div>
           <input type="submit" value="Sign Up" disabled={!agree} />
         </form>
-        <p className="mt-3 mb-3 text-black-50">or</p>
+        <p className="mt-1 mb-1 text-black-50">or</p>
         <div>
           <button
             className="Google btn btn-lg d-flex justify-content-around align-items-center"
@@ -339,7 +338,7 @@ const Signup = () => {
           </button>
         </div>
       </div>
-      <div className="text-center">
+      <div className="text-center mb-4">
         Do you have an account? <Link to="/login">Sign in</Link>
       </div>
     </div>

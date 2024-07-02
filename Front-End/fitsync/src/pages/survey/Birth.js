@@ -51,7 +51,7 @@ const Birth = ({ onPrevious, onNext }) => {
             <input
               className="YYYY"
               type="number"
-              min={new Date().getFullYear() - 150}
+              min={new Date().getFullYear() - 85}
               max={new Date().getFullYear()}
               onChange={(e) => onInputChange(e, "YYYY")}
               placeholder="YYYY"

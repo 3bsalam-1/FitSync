@@ -75,7 +75,7 @@ const LandingPage = () => {
                 </p>
               </figcaption>
             </figure>
-            <button>Read More</button>
+            {/* <button>Read More</button> */}
           </div>
           <div className="box">
             <figure>
@@ -92,7 +92,7 @@ const LandingPage = () => {
                 </p>
               </figcaption>
             </figure>
-            <button>Read More</button>
+            {/* <button>Read More</button> */}
           </div>
           <div className="box">
             <figure>
@@ -105,7 +105,7 @@ const LandingPage = () => {
                 </p>
               </figcaption>
             </figure>
-            <button>Read More</button>
+            {/* <button>Read More</button> */}
           </div>
         </div>
       </div>
