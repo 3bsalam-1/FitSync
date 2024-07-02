@@ -12,8 +12,6 @@ class FavoriteWorkoutsRepo {
     required String userId,
   }) async {
     try {
-      List<dynamic> favorites = await getWorkoutsFavoritesString();
-      favorites.add(workouts.toString());
       http.Response response = await http.post(
         Uri.parse('$baseUrl/api/workout'),
         headers: {
@@ -22,7 +20,7 @@ class FavoriteWorkoutsRepo {
         },
         body: jsonEncode({
           "userId": userId,
-          "workout": favorites,
+          "workout": workouts.toString(),
         }),
       );
       var json = jsonDecode(response.body);
@@ -66,23 +64,6 @@ class FavoriteWorkoutsRepo {
       return favoriteWorkouts;
     } catch (e) {
       debugPrint('The getWorkoutsFavorites Error is: ${e.toString()}');
-      return [];
-    }
-  }
-
-  Future<List<dynamic>> getWorkoutsFavoritesString() async {
-    try {
-      http.Response response = await http.get(
-        Uri.parse('$baseUrl/api/workout'),
-        headers: {
-          'Authorization': 'Bearer ${Prefs.getString('token')!}',
-          "Content-Type": "application/json",
-        },
-      );
-      Map<String, dynamic> body = jsonDecode(response.body);
-      return body['data']['Data']['workouts'] ?? [];
-    } catch (e) {
-      debugPrint('The getWorkoutsFavoritesString Errror is: ${e.toString()}');
       return [];
     }
   }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fitsync/data/models/user_data_model.dart';
@@ -82,6 +83,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
               // will show error massege which there something went wrong
               emit(AuthFaliure(response.message!));
             } else {
+              Prefs.setBool('google', false);
               // There is no error then go to the home page & save token
               Prefs.setString('token', response.token!);
               Prefs.setString('email', email);
@@ -431,7 +433,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
       emit(AuthFaliure('Something went wrong in server'));
       return;
     }
-
+    debugPrint('The email is ${googleUser.email}');
+    Prefs.setBool('google', true);
     ResponseModel? response = await ContinueWithGoogle().continueWithGoogle(
       name: "${googleUser.displayName}",
       email: googleUser.email,
@@ -441,6 +444,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
       if (response.token != null) {
         Prefs.setString('token', response.token!);
         Prefs.setString('email', googleUser.email);
+        Prefs.setString('userName', googleUser.photoUrl!);
+        Prefs.setString('avatar', googleUser.displayName!);
         googleUser.clearAuthCache;
         await GoogleSignIn().disconnect();
         emit(AuthSuccess(message: 'Login Successfully'));

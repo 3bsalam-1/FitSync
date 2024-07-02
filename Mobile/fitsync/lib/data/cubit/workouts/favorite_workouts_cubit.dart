@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import '../../../services/pref.dart';
+import '../../../cubits_logic/global/new_token_cubit.dart';
 import '../../models/workouts_model.dart';
 import '../../repository/workouts/favorite_workouts_repo.dart';
 import '../../repository/login_res/user_auth_repo.dart';
@@ -18,33 +18,25 @@ class FavoriteWorkoutsCubit extends Cubit<FavoriteWorkoutsState> {
     required WorkoutsModel workouts,
     required String userId,
   }) {
-    isFavorite = true;
+    isFavorite = !isFavorite;
     emit(FavoriteWorkoutsAdded());
-    auth
-        .userLogin(
-      email: Prefs.getString("email")!,
-      password: Prefs.getString("password")!,
-    )
-        .then((value) {
-      favoriteRepo
-          .addWorkoutsToFavorites(
-        workouts: workouts,
-        userId: userId,
-      )
-          .then((response) {
-        if (response!.status == 'Success') {
-          emit(FavoriteWorkoutsAdded());
-          emit(FavoriteWorkoutsLoading());
-          favoriteRepo.getWorkoutsFavorites().then((response) {
-            favoriteWorkouts = response;
-            emit(FavoriteWorkoutsGetAll());
-          });
-        } else {
-          emit(FavoriteWorkoutsFaliure());
-        }
-      });
-      emit(FavoriteWorkoutsLoading());
+    NewTokenCubit().getNewToken();
+    favoriteRepo.addWorkoutsToFavorites(
+      workouts: workouts,
+      userId: userId,
+    ).then((response) {
+      if (response!.status == 'Success') {
+        emit(FavoriteWorkoutsAdded());
+        emit(FavoriteWorkoutsLoading());
+        favoriteRepo.getWorkoutsFavorites().then((response) {
+          favoriteWorkouts = response;
+          emit(FavoriteWorkoutsGetAll());
+        });
+      } else {
+        emit(FavoriteWorkoutsFaliure());
+      }
     });
+    emit(FavoriteWorkoutsLoading());
   }
 
   void getAllFavoriteWorkouts() {

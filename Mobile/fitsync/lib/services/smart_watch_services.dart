@@ -24,14 +24,13 @@ class SmartWatchServices {
     permission = await HealthConnectFactory.hasPermissions(types);
     if (!permission) {
       await HealthConnectFactory.requestPermissions(types);
-      permission = await HealthConnectFactory.hasPermissions(types);
     }
     if (Prefs.getBool('watch-permission') != null) {
       if (!Prefs.getBool("watch-permission")!) {
         await HealthConnectFactory.openHealthConnectSettings();
-        permission = await HealthConnectFactory.hasPermissions(types);
       }
     }
+    permission = await HealthConnectFactory.hasPermissions(types);
     return permission;
   }
 

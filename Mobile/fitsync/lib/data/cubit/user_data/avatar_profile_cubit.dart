@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http_parser/http_parser.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../../cubits_logic/global/new_token_cubit.dart';
 import '../../../services/decode_jwt.dart';
 import '../../../services/pref.dart';
 import '../../../shared/colors/colors.dart';
@@ -27,18 +28,9 @@ class AvatarProfileCubit extends Cubit<AvatarProfileState> {
       final pickedFile = await picker.pickImage(source: ImageSource.gallery);
       if (pickedFile != null) {
         imageSelected = File(pickedFile.path);
-        auth
-            .userLogin(
-          email: Prefs.getString('email')!,
-          password: Prefs.getString('password')!,
-        )
-            .then((value) {
-          if (value != null) {
-            Prefs.setString("token", value.token!);
-            saveChangedAvatar(imageSelected);
-          }
-        });
+        NewTokenCubit().getNewToken();
         emit(AvatarProfileLoading());
+        saveChangedAvatar(imageSelected);
       }
     } catch (error) {
       emit(AvatarProfileFailure(error.toString()));
@@ -50,18 +42,9 @@ class AvatarProfileCubit extends Cubit<AvatarProfileState> {
       final pickedFile = await picker.pickImage(source: ImageSource.camera);
       if (pickedFile != null) {
         imageSelected = File(pickedFile.path);
-        auth
-            .userLogin(
-          email: Prefs.getString('email')!,
-          password: Prefs.getString('password')!,
-        )
-            .then((value) {
-          if (value != null) {
-            Prefs.setString("token", value.token!);
-            saveChangedAvatar(imageSelected);
-          }
-        });
+        NewTokenCubit().getNewToken();
         emit(AvatarProfileLoading());
+        saveChangedAvatar(imageSelected);
       }
     } catch (error) {
       emit(AvatarProfileFailure(error.toString()));

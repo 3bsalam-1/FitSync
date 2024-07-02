@@ -1,29 +1,22 @@
+import '../../../services/pref.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
+import '../../../cubits_logic/global/new_token_cubit.dart';
 import '../../../shared/const/base_url.dart';
 import '../../models/response_model.dart';
 import '../../models/vital_info_model.dart';
-import '../login_res/user_auth_repo.dart';
-
 Future<ResponseModel?> saveVitalInfo({
   required num steps,
   required num heartRate,
   required num sleep,
 }) async {
-  var prefs = await SharedPreferences.getInstance();
-  prefs.reload();
-  ResponseModel? token = await UserAuthRepo().userLogin(
-    email: prefs.getString('email')!,
-    password: prefs.getString('password')!,
-  );
-  if (token != null) {
+  NewTokenCubit().getNewToken();
     try {
       http.Response response = await http.post(
         Uri.parse('$baseUrl/api/vitalsignal'),
         headers: {
-          'Authorization': 'Bearer ${token.token!}',
+          'Authorization': 'Bearer ${Prefs.getString('token')!}',
           "Content-Type": "application/json",
         },
         body: jsonEncode({
@@ -40,23 +33,15 @@ Future<ResponseModel?> saveVitalInfo({
       debugPrint('The Errror is: ${e.toString()}');
       return null;
     }
-  }
-  return null;
 }
 
 Future<ResponseModel?> saveActiveHours(num activeHours) async {
-  var prefs = await SharedPreferences.getInstance();
-  prefs.reload();
-  ResponseModel? token = await UserAuthRepo().userLogin(
-    email: prefs.getString('email')!,
-    password: prefs.getString('password')!,
-  );
-  if (token != null) {
+  NewTokenCubit().getNewToken();
     try {
       http.Response response = await http.post(
         Uri.parse('$baseUrl/api/vitalsignal/active-hours'),
         headers: {
-          'Authorization': 'Bearer ${token.token!}',
+          'Authorization': 'Bearer ${Prefs.getString('token')!}',
           "Content-Type": "application/json",
         },
         body: jsonEncode({
@@ -71,22 +56,15 @@ Future<ResponseModel?> saveActiveHours(num activeHours) async {
       debugPrint('The Errror is: ${e.toString()}');
       return null;
     }
-  }
-  return null;
 }
 
 Future<VitalInfoModel?> getVitalInfo() async {
-  var prefs = await SharedPreferences.getInstance();
-  ResponseModel? token = await UserAuthRepo().userLogin(
-    email: prefs.getString('email')!,
-    password: prefs.getString('password')!,
-  );
-  if (token != null) {
+  NewTokenCubit().getNewToken();
     try {
       http.Response response = await http.get(
         Uri.parse('$baseUrl/api/vitalsignal'),
         headers: {
-          'Authorization': 'Bearer ${token.token!}',
+          'Authorization': 'Bearer ${Prefs.getString('token')}',
         },
       );
       Map<String, dynamic> json = jsonDecode(response.body);
@@ -97,24 +75,17 @@ Future<VitalInfoModel?> getVitalInfo() async {
       debugPrint('The get vital-info Errror is: ${e.toString()}');
       return null;
     }
-  }
-  return null;
 }
 
 Future<ResponseModel?> saveBurnedInfo({
   required num burned,
 }) async {
-  var prefs = await SharedPreferences.getInstance();
-  ResponseModel? token = await UserAuthRepo().userLogin(
-    email: prefs.getString('email')!,
-    password: prefs.getString('password')!,
-  );
-  if (token != null) {
+  NewTokenCubit().getNewToken();
     try {
       http.Response response = await http.post(
         Uri.parse('$baseUrl/api/vitalsignal/burned'),
         headers: {
-          'Authorization': 'Bearer ${token.token!}',
+          'Authorization': 'Bearer ${Prefs.getString('token')}',
           "Content-Type": "application/json",
         },
         body: jsonEncode({
@@ -130,23 +101,15 @@ Future<ResponseModel?> saveBurnedInfo({
       debugPrint('The Errror is: ${e.toString()}');
       return null;
     }
-  }
-  return null;
 }
 
 Future<ResponseModel?> saveInTakeInfo(num inTake) async {
-  var prefs = await SharedPreferences.getInstance();
-  prefs.reload();
-  ResponseModel? token = await UserAuthRepo().userLogin(
-    email: prefs.getString('email')!,
-    password: prefs.getString('password')!,
-  );
-  if (token != null) {
+  NewTokenCubit().getNewToken();
     try {
       http.Response response = await http.post(
         Uri.parse('$baseUrl/api/vitalsignal/inTake'),
         headers: {
-          'Authorization': 'Bearer ${token.token!}',
+          'Authorization': 'Bearer ${Prefs.getString('token')!}',
           "Content-Type": "application/json",
         },
         body: jsonEncode({
@@ -161,6 +124,4 @@ Future<ResponseModel?> saveInTakeInfo(num inTake) async {
       debugPrint('The Errror is: ${e.toString()}');
       return null;
     }
-  }
-  return null;
 }
