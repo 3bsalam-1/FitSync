@@ -22,13 +22,14 @@ exports.postWorkout = asyncWrapper(async (req, res, next) => {
   if (!curWorkout) {
     curWorkout = new ACTIVITY({
       userId,
-      workouts: Array.from(new Set(workout))
+      workouts: Array.from(new Set(workout)),
     });
   } else {
-    for (let el of workout) {
-      if (!curWorkout.workouts.includes(el)) {
-        curWorkout.workouts.push(el);
-      }
+    const index = curWorkout.workouts.indexOf(workout);
+    if (index !== -1) {
+      curWorkout.workouts.splice(index, 1);
+    }else{
+      curWorkout.workouts.push(workout);
     }
   }
   await curWorkout.save();
@@ -36,7 +37,6 @@ exports.postWorkout = asyncWrapper(async (req, res, next) => {
     status: SUCCESS,
   });
 });
-
 
 exports.getFavMeal = asyncWrapper(async (req, res, next) => {
   const userId = req.user._id;
@@ -49,7 +49,6 @@ exports.getFavMeal = asyncWrapper(async (req, res, next) => {
   });
 });
 
-
 exports.postFavMeal = asyncWrapper(async (req, res, next) => {
   const userId = req.user._id;
   let curFavMeal = await ACTIVITY.findOne({ userId });
@@ -58,13 +57,14 @@ exports.postFavMeal = asyncWrapper(async (req, res, next) => {
   if (!curFavMeal) {
     curFavMeal = new ACTIVITY({
       userId,
-      favMeal: Array.from(new Set(favMeal))
+      favMeal: Array.from(new Set(favMeal)),
     });
   } else {
-    for (let el of favMeal) {
-      if (!curFavMeal.favMeal.includes(el)) {
-        curFavMeal.favMeal.push(el);
-      }
+    const index = curFavMeal.favMeal.indexOf(favMeal);
+    if (index !== -1) {
+      curFavMeal.favMeal.splice(index, 1);
+    }else{
+      curFavMeal.favMeal.push(favMeal);
     }
   }
   await curFavMeal.save();
@@ -72,7 +72,6 @@ exports.postFavMeal = asyncWrapper(async (req, res, next) => {
     status: SUCCESS,
   });
 });
-
 
 exports.getCompleted = asyncWrapper(async (req, res, next) => {
   const userId = req.user._id;
@@ -89,17 +88,17 @@ exports.postCompleted = asyncWrapper(async (req, res, next) => {
   const userId = req.user._id;
   let curCompleted = await ACTIVITY.findOne({ userId });
   let { completed } = req.body;
-  if(!curCompleted){
+  if (!curCompleted) {
     curCompleted = new ACTIVITY({
       userId,
-      completed
-    })
-  }else{
+      completed,
+    });
+  } else {
     curCompleted.completed = completed;
   }
   await curCompleted.save();
   res.status(201).json({
     status: SUCCESS,
-    data: curCompleted.completed
+    data: curCompleted.completed,
   });
 });
