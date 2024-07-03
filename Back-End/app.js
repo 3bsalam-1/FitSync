@@ -57,7 +57,7 @@ app.use(express.json({ limit : '10kb'}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use(helmet());
-app.use('/api',limitar);
+//app.use('/api',limitar);
 app.use(mongoSanitize());
 app.use(xss());
 
