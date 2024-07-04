@@ -96,11 +96,11 @@ const Login = () => {
         setErrorMessage({ error: true, message: responseData.message });
         return;
       }
+      setLoading(false);
       const data = await response.json();
       toast.success("Registered successfully");
       authToken = data.token;
       window.sessionStorage.setItem("authToken", authToken);
-      setLoading(false);
       let firstTime = jwtDecode(authToken).firstTime;
       if (firstTime) {
         window.sessionStorage.setItem("firstTime", firstTime);

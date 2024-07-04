@@ -70,12 +70,12 @@ const HeaderProfile = ({ Home = "", Workout = "", Diet = "" }) => {
               </button>
 
               <ul className={isMenuVisible ? "visible" : "hidden"}>
-                <li className="mb-4">
+                {/* <li className="mb-4">
                   <Link className="d-flex align-items-center" to="/Calender">
                     <FontAwesomeIcon icon="fa-solid fa-calendar-days" />
                     Calender
                   </Link>
-                </li>
+                </li> */}
                 <li className="mb-4">
                   <Link className="d-flex align-items-center" to="/Favourites">
                     <FontAwesomeIcon icon="fa-regular fa-heart" />

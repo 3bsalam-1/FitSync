@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./LandingPage.css";
 import "./Home.css";
 import Barchart from "../components/BarChart";
-import Slider from "../components/Slider";
 import CirclePercentage from "../components/CirclePercentage";
 import ProgressCard from "../components/ProgressCard";
 import CircleNumber from "../components/CircleNumber";
@@ -235,8 +234,8 @@ const Home = () => {
         <div className="Chartgraph container Graph3">
           <div className="mt-5 mb-5 d-flex flex-wrap align-items-center justify-content-evenly">
             <Barchart
-              title="Water Consumed"
-              num="0.75 L"
+              title="Sleep Hours"
+              num=""
               DATA={[6578, 6787, 3245, 9876, 2324, 5123, 2435]}
             />
             <div className="Return-ratio position-relative">
@@ -325,15 +324,6 @@ const Home = () => {
         </div>
       </div>
       {/* End lifestyle   ###############################################    */}
-      {/* Start Recommended   ###############################################    */}
-      <div className="Recommended  mt-5 mb-5 ">
-        <div className="Recommended-title text-center">
-          <h2>Tips & Tricks</h2>
-          <h3>Recommended For You</h3>
-        </div>
-        <Slider />
-      </div>
-      {/* End Recommended   ###############################################    */}
       {/* Start Footer   ###############################################    */}
       <Footer />
       {/* End Footer   ###############################################    */}

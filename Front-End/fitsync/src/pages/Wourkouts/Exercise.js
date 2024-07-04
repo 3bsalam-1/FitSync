@@ -28,12 +28,12 @@ const Exercise = () => {
   // Edit Time and Complete ############################################################
   const [timeLeft, setTimeLeft] = useState(null);
   const [complete, setComplete] = useState([
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
+    true,
+    true,
+    true,
+    true,
+    true,
+    true,
   ]);
   const startCountdown = () => {
     setTimeLeft(TimeExercise * 60); // 8.33 minutes in seconds
@@ -85,6 +85,39 @@ const Exercise = () => {
   };
 
   //  Add favorite Workout #############################################################
+  const addWorkout = async () => {
+    const Calories = sessionStorage.getItem("CaloriesBurned");
+    try {
+      // const Calories = calories.reduce((a, b) => a + b, 0);
+      const response = await fetch(
+        "https://fitsync.onrender.com/api/vitalsignal/burned",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${sessionStorage
+              .getItem("authToken")
+              .trim()}`,
+          },
+          body: JSON.stringify({
+            burned: Calories,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const responseData = await response.json();
+        console.log("responseData", responseData);
+        return;
+      }
+
+      const data = await response.json();
+      console.log("data", data);
+      toast.success("Registered successfully");
+    } catch (err) {
+      console.error("Error:", err);
+    }
+  };
   const workoutString = `Exercise Plan: ${sessionStorage.getItem(
     "ExercisePlan"
   )}*Category: ${sessionStorage.getItem(
@@ -96,53 +129,90 @@ const Exercise = () => {
   )}*Calories Burned (Plan): ${sessionStorage.getItem(
     "CaloriesBurned"
   )}*Target Muscle Group: ${sessionStorage.getItem("TargetMuscleGroup")} `;
-  const addWorkout = async (e) => {
+  // const addWorkout = async (e) => {
+  //   console.log("workoutString: ", workoutString);
+  //   e.preventDefault();
+
+  //   const maxRetries = 3;
+  //   let attempt = 0;
+  //   let success = false;
+
+  //   while (attempt < maxRetries && !success) {
+  //     try {
+  //       const response = await fetch(
+  //         "https://fitsync.onrender.com/api/workout",
+  //         {
+  //           method: "POST",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Authorization: `Bearer ${sessionStorage
+  //               .getItem("authToken")
+  //               .trim()}`,
+  //           },
+  //           body: JSON.stringify({
+  //             workout: workoutString,
+  //           }),
+  //         }
+  //       );
+
+  //       if (!response.ok) {
+  //         const responseData = await response.json();
+  //         console.log("responseData", responseData);
+  //         return;
+  //       }
+
+  //       const data = await response.json();
+  //       console.log("data", data);
+  //       toast.success("Registered successfully");
+  //       success = true;
+  //     } catch (err) {
+  //       attempt++;
+  //       console.error(`Error on attempt ${attempt}:`, err);
+  //       if (attempt >= maxRetries) {
+  //         console.error("Max retries reached. Failed to add workout.");
+  //         toast.error("Failed to register workout. Please try again later.");
+  //       }
+  //     }
+  //   }
+  // };
+  const addfavorite = async (e) => {
     console.log("workoutString: ", workoutString);
     e.preventDefault();
+    try {
+      const response = await fetch("https://fitsync.onrender.com/api/workout", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${sessionStorage.getItem("authToken").trim()}`,
+        },
+        body: JSON.stringify({
+          workout: workoutString,
+        }),
+      });
 
-    const maxRetries = 3;
-    let attempt = 0;
-    let success = false;
-
-    while (attempt < maxRetries && !success) {
-      try {
-        const response = await fetch(
-          "https://fitsync.onrender.com/api/workout",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${sessionStorage
-                .getItem("authToken")
-                .trim()}`,
-            },
-            body: JSON.stringify({
-              workout: workoutString,
-            }),
-          }
-        );
-
-        if (!response.ok) {
-          const responseData = await response.json();
-          console.log("responseData", responseData);
-          return;
-        }
-
-        const data = await response.json();
-        console.log("data", data);
-        toast.success("Registered successfully");
-        success = true;
-      } catch (err) {
-        attempt++;
-        console.error(`Error on attempt ${attempt}:`, err);
-        if (attempt >= maxRetries) {
-          console.error("Max retries reached. Failed to add workout.");
-          toast.error("Failed to register workout. Please try again later.");
-        }
+      if (!response.ok) {
+        const responseData = await response.json();
+        console.log("responseData", responseData);
+        return;
       }
+      if (!like) {
+        Swal.fire({
+          title: "Added to favorites",
+          icon: "success",
+        });
+      } else {
+        Swal.fire({
+          title: "Deleted from favorites",
+          icon: "success",
+        });
+      }
+      const data = await response.json();
+      console.log("data", data);
+      toast.success("Registered successfully");
+    } catch (err) {
+      console.error("Error:", err);
     }
   };
-
   return (
     <div className="Home Workout">
       {/* Start Header   ###############################################    */}
@@ -221,7 +291,7 @@ const Exercise = () => {
                   <button
                     onClick={(e) => {
                       setLike(!like);
-                      addWorkout(e);
+                      addfavorite(e);
                     }}
                   >
                     {like ? (
@@ -245,7 +315,10 @@ const Exercise = () => {
                       ? "Next-continue btn btn-primary"
                       : "Next-hidden btn btn-primary"
                   }
-                  onClick={CompleteWorkout}
+                  onClick={() => {
+                    CompleteWorkout();
+                    addWorkout();
+                  }}
                 >
                   Workout Complete
                 </button>

@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import ErrorMessage from "../../components/ErrorMessage";
+import Swal from "sweetalert2";
 
 const OverviewDiet = () => {
   const [like, setLike] = useState(false);
@@ -89,10 +90,32 @@ const OverviewDiet = () => {
     setCalories(updatedCalories);
   };
 
+  // Complete Workout  ############################################################
+  const CompleteWorkout = () => {
+    Swal.fire({
+      title: "Congratulations!",
+      text: "You added the food to today's food",
+      imageUrl: "./images/Congratulations.png",
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: "Custom image",
+      confirmButtonText: "Go back home",
+      customClass: {
+        container: "custom-swal-modal",
+        title: "custom-swal-title",
+        htmlContainer: "custom-swal-text",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        link("/Home");
+      }
+    });
+  };
+
   //  Add food to data and Add favorite #############################################################
   const addfood = async () => {
     try {
-      const Calories = calories.reduce((a, b) => a + b, 0).toFixed(2);
+      const Calories = calories.reduce((a, b) => a + b, 0);
       const response = await fetch(
         "https://fitsync.onrender.com/api/vitalsignal/inTake",
         {
@@ -134,52 +157,7 @@ const OverviewDiet = () => {
   )}*Nutrient: ${sessionStorage.getItem(
     "FoodNutrient"
   )}*Diet: ${sessionStorage.getItem("FoodDiet")} `;
-  // const addfavorite = async (e) => {
-  //   console.log("DietString: ", DietString);
-  //   e.preventDefault();
 
-  //   const maxRetries = 3;
-  //   let attempt = 0;
-  //   let success = false;
-
-  //   while (attempt < maxRetries && !success) {
-  //     try {
-  //       const response = await fetch(
-  //         "https://fitsync.onrender.com/api/fav-meal",
-  //         {
-  //           method: "POST",
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //             Authorization: `Bearer ${sessionStorage
-  //               .getItem("authToken")
-  //               .trim()}`,
-  //           },
-  //           body: JSON.stringify({
-  //             workout: DietString,
-  //           }),
-  //         }
-  //       );
-
-  //       if (!response.ok) {
-  //         const responseData = await response.json();
-  //         console.log("responseData", responseData);
-  //         return;
-  //       }
-
-  //       const data = await response.json();
-  //       console.log("data", data);
-  //       toast.success("Registered successfully");
-  //       success = true;
-  //     } catch (err) {
-  //       attempt++;
-  //       console.error(`Error on attempt ${attempt}:`, err);
-  //       if (attempt >= maxRetries) {
-  //         console.error("Max retries reached. Failed to add workout.");
-  //         toast.error("Failed to register workout. Please try again later.");
-  //       }
-  //     }
-  //   }
-  // };
   const addfavorite = async (e) => {
     console.log("DietString: ", DietString);
     e.preventDefault();
@@ -205,7 +183,17 @@ const OverviewDiet = () => {
         console.log("responseData", responseData);
         return;
       }
-
+      if (!like) {
+        Swal.fire({
+          title: "Added to favorites",
+          icon: "success",
+        });
+      } else {
+        Swal.fire({
+          title: "Deleted from favorites",
+          icon: "success",
+        });
+      }
       const data = await response.json();
       console.log("data", data);
       toast.success("Registered successfully");
@@ -255,7 +243,7 @@ const OverviewDiet = () => {
             Explore Excercises <i className="fa-solid fa-arrow-right ms-2"></i>
           </button>
         </div>
-        <div className="plan row flex-wrap mt-3 mb-5">
+        <div className="plan row flex-wrap mt-3 mb-5 gap-2">
           <div className="col">
             <div className="card">
               <img
@@ -275,7 +263,8 @@ const OverviewDiet = () => {
                       <span className="text-black">
                         {" "}
                         {weights.reduce((a, b) => a + b, 0).toFixed(2)}
-                      </span>
+                      </span>{" "}
+                      gm
                     </p>
                     <p className="card-text m-0 me-3">
                       Calories :{" "}
@@ -317,7 +306,13 @@ const OverviewDiet = () => {
                 <h5 className="card-title text-capitalize">
                   {sessionStorage.getItem("FoodName")}
                 </h5>
-                <button className="btn-primary" on onClick={addfood}>
+                <button
+                  className="btn-primary"
+                  onClick={() => {
+                    addfood();
+                    CompleteWorkout();
+                  }}
+                >
                   Add Meal
                 </button>
               </div>
@@ -344,7 +339,7 @@ const OverviewDiet = () => {
                       Calories
                     </span>
                   </div>
-                  <div>
+                  <div className="d-flex">
                     <button onClick={() => handleDecrease(index)}>-</button>
                     <button onClick={() => handleIncrease(index)}>+</button>
                   </div>
