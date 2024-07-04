@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:fitsync/data/cubit/favourite_food/cubit/favourite_meal_cubit.dart';
 import 'package:fitsync/data/models/food_model.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
@@ -10,19 +11,20 @@ import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class MealOverviewScreen extends StatelessWidget {
-  MealOverviewScreen({
-    required this.diet,
-    super.key});
+  MealOverviewScreen({required this.diet, this.iconColor = false, super.key});
 
   final _controller = PageController();
   FoodModel diet;
+  bool iconColor;
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<FavouriteMealCubit>(context);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -34,7 +36,6 @@ class MealOverviewScreen extends StatelessWidget {
             child: IconButton(
                 onPressed: () {
                   AnimatedNavigator().pop(context);
-                 
                 },
                 icon: const Icon(
                   Icons.arrow_circle_left,
@@ -68,10 +69,18 @@ class MealOverviewScreen extends StatelessWidget {
               child: PageView(
                 controller: _controller,
                 children: [
-                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
-                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
-                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
-                  PageMeal(path: "assets/images/food/${diet.Catagory}1.jpg",),
+                  PageMeal(
+                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                  ),
+                  PageMeal(
+                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                  ),
+                  PageMeal(
+                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                  ),
+                  PageMeal(
+                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                  ),
                 ],
               ),
             ),
@@ -94,7 +103,6 @@ class MealOverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 20, top: 15),
                   child: Container(
                     width: 270,
-                    
                     child: Text(
                       diet.Name,
                       style: GoogleFonts.poppins(
@@ -103,19 +111,34 @@ class MealOverviewScreen extends StatelessWidget {
                         color: black,
                       ),
                       maxLines: 2,
-                                 
                     ),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 10, top: 15),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        IconlyBold.heart,
-                        color: purple5,
-                        size: 22,
-                      )),
+                  child: BlocBuilder<FavouriteMealCubit, FavouriteMealState>(
+                    builder: (context, state) {
+                      return IconButton(
+                          onPressed: () {
+                            //if(context.read<FavouriteMealCubit>().favoriteMeals.isNotEmpty)
+                            // context.read<FavouriteMealCubit>().isFavoriteMeal(_filteredItems[index]);
+                            if (!cubit.isFavoriteMeal(diet)) {
+                              cubit.addfoodTofavorites(meals: diet);
+                              // context.read<FavouriteMealCubit>().addfoodToFavorites(meals: _filteredItems[index], userId: "1234");
+                              // context.read<FavouriteMealCubit>().isFavorite=true;
+                              cubit.changeColor();
+                            } else {
+                              cubit.removefoodfromfavorites(meals: diet);
+                              cubit.changeColor();
+                            }
+                          },
+                          icon: Icon(
+                            IconlyBold.heart,
+                            color: cubit.isFavoriteMeal(diet) ? purple5 : gray2,
+                            size: 22,
+                          ));
+                    },
+                  ),
                 )
               ],
             ),
@@ -175,7 +198,12 @@ class MealOverviewScreen extends StatelessWidget {
             ),
             Container(
               height: 250,
-              child: TabBarView(children: [Page1(diet: diet,), Page2(diet:diet)]),
+              child: TabBarView(children: [
+                Page1(
+                  diet: diet,
+                ),
+                Page2(diet: diet)
+              ]),
             )
           ],
         ),

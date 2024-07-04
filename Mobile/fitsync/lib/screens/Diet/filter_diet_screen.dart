@@ -10,6 +10,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 List<String> filter1=[];
 String foodType="";
+String nutrientType="";
+String dietType="";
 
 class FilterDietScreen extends StatelessWidget {
 
@@ -217,16 +219,16 @@ class FilterDietScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          CustomFilterButton(label: 'Magnesium'),
-                          CustomFilterButton(label: 'Protien'),
-                          CustomFilterButton(label: 'Calcium'),
+                          CustomFilterButton(label: 'Magnesium',value: "magnesium",),
+                          CustomFilterButton(label: 'Protien',value: "protien",),
+                          CustomFilterButton(label: 'Calcium',value: "calcium",),
                           
                         ],
                       ),
                       Row(
                         children: [
-                          CustomFilterButton(label: 'Iron'),
-                          CustomFilterButton(label: 'Carbohydrates'),
+                          CustomFilterButton(label: 'Iron',value: "iron",),
+                          CustomFilterButton(label: 'Carbohydrates',value: "carbohydrates",),
                         ],
                       ),
                     ],
@@ -236,9 +238,9 @@ class FilterDietScreen extends StatelessWidget {
                   SizedBox(height: 12),
                   Row(
                     children: [
-                      CustomFilterButton(label: 'Ketagenic'),
-                      CustomFilterButton(label: 'Gluten free'),
-                      CustomFilterButton(label: 'Low fat'),
+                      CustomFilterButton(label: 'Ketagenic',value: "ketogenic_diet vegan_diet high_fiber_diet high_protien_diet dash_diet",),
+                      CustomFilterButton(label: 'Gluten free',value: "high_protien_diet low_fat_diet gluten_free_diet",),
+                      CustomFilterButton(label: 'Low fat',value: "low_fat_diet gluten_free_diet high_fiber_diet high_protien_diet dash_diet",),
                     ],
                   ),
                   SizedBox(height: 12),

@@ -1,3 +1,4 @@
+import 'package:fitsync/screens/Diet/diet_list.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
@@ -68,7 +69,9 @@ class EmptyStateScreen extends StatelessWidget {
           ),
           CustomButton(
             label: "Recipes",
-            onPressed: () {},
+            onPressed: () {
+              AnimatedNavigator().push(context, DietListScreen());
+            },
           ),
         ],
       ),

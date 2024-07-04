@@ -1,8 +1,11 @@
 import 'package:fitsync/cubits_logic/diet_logic/drop_down_button/cubit/drop_down_button_cubit.dart';
+import 'package:fitsync/data/cubit/favourite_food/cubit/favourite_meal_cubit.dart';
 import 'package:fitsync/data/models/food_model.dart';
 import 'package:fitsync/data/repository/food/all_food.dart';
+import 'package:fitsync/data/repository/food/favourite_food.dart';
 import 'package:fitsync/data/repository/food/food_repo.dart';
 import 'package:fitsync/screens/Diet/diet_list.dart';
+import 'package:fitsync/screens/Diet/empty_state_screen.dart';
 import 'package:fitsync/screens/Diet/saved_recipes_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/diet_plan_widget.dart';
@@ -19,6 +22,7 @@ class DietScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<FavouriteMealCubit>(context);
     return Scaffold(
       backgroundColor: white,
       body: SafeArea(
@@ -100,6 +104,7 @@ class DietScreen extends StatelessWidget {
                               imageUrl:
                                   "assets/images/food/${food[index].Catagory}1.jpg",
                               text: displayName,
+                              colorOfIcon: cubit.isFavoriteMeal(food[index]),
                             );
                           }),
                     );
@@ -316,6 +321,7 @@ class DietScreen extends StatelessWidget {
                                         imageUrl:
                                             "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
                                         text: displayName,
+                                        colorOfIcon: cubit.isFavoriteMeal(food[index]),
                                       );
                                     }),
                               );
@@ -376,6 +382,7 @@ class DietScreen extends StatelessWidget {
                                         imageUrl:
                                             "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
                                         text: displayName,
+                                        colorOfIcon: cubit.isFavoriteMeal(food[index]),
                                       );
                                     }),
                               );
@@ -439,6 +446,7 @@ class DietScreen extends StatelessWidget {
                                         imageUrl:
                                             "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
                                         text: displayName,
+                                        colorOfIcon: cubit.isFavoriteMeal(food[index]),
                                       );
                                     }),
                               );
@@ -492,6 +500,7 @@ class DietScreen extends StatelessWidget {
                                         imageUrl:
                                             "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
                                         text: displayName,
+                                        colorOfIcon: cubit.isFavoriteMeal(food[index]),
                                       );
                                     }),
                               );
@@ -558,6 +567,7 @@ class DietScreen extends StatelessWidget {
                                         imageUrl:
                                             "assets/images/food/${food[index].Catagory}1.jpg",
                                         text: displayName,
+                                        colorOfIcon: cubit.isFavoriteMeal(food[index]),
                                       );
                                     }),
                               );
@@ -602,6 +612,9 @@ class DietScreen extends StatelessWidget {
                 Spacer(),
                 InkWell(
                   onTap: () {
+                    // if (context.read<FavouriteMealCubit>().isData())
+                    //   AnimatedNavigator().push(context, EmptyStateScreen());
+                    // else
                     AnimatedNavigator().push(context, SavedRecipesScreen());
                   },
                   child: Padding(
@@ -620,40 +633,91 @@ class DietScreen extends StatelessWidget {
                 ),
               ],
             ),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 18,
-                  ),
-                  SavedRecipesWidget(
-                    imageUrl: 'assets/images/steak.jfif',
-                    label1: 'Steak',
-                    label2: '88% Healthy\nFits in Budget',
-                  ),
-                  SizedBox(
-                    width: 18,
-                  ),
-                  SavedRecipesWidget(
-                    imageUrl: 'assets/images/Egg Salad.jfif',
-                    label1: 'Egg Salad',
-                    label2: '99% Healthy\nFits in Budget',
-                  ),
-                  SizedBox(
-                    width: 18,
-                  ),
-                  SavedRecipesWidget(
-                    imageUrl: 'assets/images/Caesar Salad.jfif',
-                    label1: 'Caesar Salad',
-                    label2: '92% Healthy\nFits in Budget',
-                  ),
-                  SizedBox(
-                    width: 18,
-                  ),
-                ],
-              ),
+            BlocConsumer<FavouriteMealCubit, FavouriteMealState>(
+                listener: (context, state) {
+              // TODO: implement listener
+            }, builder: (context, state) {
+              if (context.read<FavouriteMealCubit>().isData()) {
+                return Center(
+                    child: Padding(
+                  padding: const EdgeInsets.only(top: 35),
+                  child: Text("There is no Saved Recipes",
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16,
+                          color: black3,
+                        ),
+                      )),
+                ));
+              } else {
+                return Expanded(
+                  child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: cubit.favoriteMeals!.length >= 3
+                          ? 3
+                          : cubit.favoriteMeals!.length,
+                      physics: const BouncingScrollPhysics(),
+                      //  separatorBuilder: (context, index) =>
+                      //  const SizedBox(width: 15),
+                      itemBuilder: (context, index) {
+                        String displayName = cubit.favoriteMeals![index].Name;
+                        if (displayName.length > 12) {
+                          displayName = displayName.substring(0, 12) + '...';
+                        }
+                        return SavedRecipesWidget(
+                            diet: cubit.favoriteMeals![index],
+                            imageUrl:
+                                "assets/images/food/${cubit.favoriteMeals![index].Catagory}1.jpg",
+                            label1: displayName,
+                            label2: "Healthy\nFits in Budget",
+                            onPressed: () {
+                              cubit.removefoodfromfavorites(
+                                  meals: cubit.favoriteMeals![index]);
+                                 
+                            });
+                      }),
+                );
+              }
+            }),
+            SizedBox(
+              width: 15,
             ),
+
+            // SingleChildScrollView(
+            //   scrollDirection: Axis.horizontal,
+            //   child: Row(
+            //     children: [
+            //       SizedBox(
+            //         width: 18,
+            //       ),
+            //       SavedRecipesWidget(
+            //         imageUrl: 'assets/images/steak.jfif',
+            //         label1: 'Steak',
+            //         label2: '88% Healthy\nFits in Budget',
+            //       ),
+            //       SizedBox(
+            //         width: 18,
+            //       ),
+            //       SavedRecipesWidget(
+            //         imageUrl: 'assets/images/Egg Salad.jfif',
+            //         label1: 'Egg Salad',
+            //         label2: '99% Healthy\nFits in Budget',
+            //       ),
+            //       SizedBox(
+            //         width: 18,
+            //       ),
+            //       SavedRecipesWidget(
+            //         imageUrl: 'assets/images/Caesar Salad.jfif',
+            //         label1: 'Caesar Salad',
+            //         label2: '92% Healthy\nFits in Budget',
+            //       ),
+            //       SizedBox(
+            //         width: 18,
+            //       ),
+            //     ],
+            //   ),
+            // ),
           ],
         ),
       ),
