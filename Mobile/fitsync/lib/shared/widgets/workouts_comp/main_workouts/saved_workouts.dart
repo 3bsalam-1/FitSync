@@ -48,90 +48,118 @@ class SavedWorkOuts extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 22),
-            SizedBox(
-              height: 180,
-              child: ListView.separated(
-                itemCount: providerFav.favoriteWorkouts!.length,
-                physics: const BouncingScrollPhysics(),
-                scrollDirection: Axis.horizontal,
-                separatorBuilder: (context, index) => const SizedBox(width: 30),
-                itemBuilder: (context, index) {
-                  return Container(
-                    width: 250,
-                    height: 180,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      color: black,
+            BlocBuilder<FavoriteWorkoutsCubit, FavoriteWorkoutsState>(
+              builder: (context, state) {
+                if (state is FavoriteWorkoutsLoading) {
+                  return const CircularProgressIndicator(
+                    color: purple,
+                  );
+                }
+                if (state is FavoriteWorkoutsEmpty) {
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 40, bottom: 50),
+                    child: Text(
+                      "There is NO saved workouts",
+                      style: GoogleFonts.poppins(
+                        fontSize: 17,
+                        color: gray14,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                    child: Stack(
-                      children: [
-                        Opacity(
-                          opacity: 0.5,
-                          child: ClipRRect(
+                  );
+                } else {
+                  return SizedBox(
+                    height: 180,
+                    child: ListView.separated(
+                      itemCount: providerFav.favoriteWorkouts!.length,
+                      physics: const BouncingScrollPhysics(),
+                      scrollDirection: Axis.horizontal,
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(width: 30),
+                      itemBuilder: (context, index) {
+                        return Container(
+                          width: 250,
+                          height: 180,
+                          decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(12),
-                            child: CustomImage(
-                              imageUrl:
-                                  provider.workoutsImages!['${index % 10}'],
-                              width: 250,
-                              height: 180,
-                              fit: BoxFit.cover,
-                              iconSize: 60,
-                              errorColor: red,
-                            ),
+                            color: black,
                           ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 15),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                          child: Stack(
+                            children: [
+                              Opacity(
+                                opacity: 0.5,
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(12),
+                                  child: CustomImage(
+                                    imageUrl: provider
+                                        .workoutsImages!['${index % 10}'],
+                                    width: 250,
+                                    height: 180,
+                                    fit: BoxFit.cover,
+                                    iconSize: 60,
+                                    errorColor: red,
+                                  ),
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  SizedBox(
-                                    width: 120,
-                                    child: Text(
-                                      providerFav
-                                          .favoriteWorkouts![index].category,
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 18,
-                                        color: white,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 15),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        SizedBox(
+                                          width: 120,
+                                          child: Text(
+                                            providerFav.favoriteWorkouts![index]
+                                                .category,
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 18,
+                                              color: white,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ),
+                                        const SizedBox(height: 8),
+                                        SizedBox(
+                                          width: 130,
+                                          child: Text(
+                                            'Finish this exercise in ${providerFav.favoriteWorkouts![index].planDurationMn} minutes',
+                                            style: GoogleFonts.poppins(
+                                              fontSize: 12,
+                                              color: white,
+                                              fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
-                                  const SizedBox(height: 8),
-                                  SizedBox(
-                                    width: 130,
-                                    child: Text(
-                                      'Finish this exercise in ${providerFav.favoriteWorkouts![index].planDurationMn} minutes',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 12,
-                                        color: white,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                  const Padding(
+                                    padding:
+                                        EdgeInsets.only(top: 10, right: 10),
+                                    child: Icon(
+                                      Icons.favorite,
+                                      color: white,
+                                      size: 30,
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
-                            const Padding(
-                              padding: EdgeInsets.only(top: 10, right: 10),
-                              child: Icon(
-                                Icons.favorite,
-                                color: white,
-                                size: 30,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        );
+                      },
                     ),
                   );
-                },
-              ),
+                }
+              },
             ),
             const SizedBox(height: 20),
           ],

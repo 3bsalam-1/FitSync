@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits_logic/global/dark_mode_cubit.dart';
 import '../../cubits_logic/global/notification_cubit.dart';
-import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/custom_card_icon.dart';
@@ -13,7 +12,8 @@ import '../../shared/widgets/global/animated_navigator.dart';
 //import '../../shared/widgets/global/custom_menu_button.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/custom_show_dialog.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/profile_card.dart';
-import '../Login/forgot_password_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../Login/new_password_screen.dart';
 import 'reminder_main_screen.dart';
 
 class ProfileMainScreen extends StatelessWidget {
@@ -94,19 +94,17 @@ class ProfileMainScreen extends StatelessWidget {
                           context.read<DarkModeCubit>().toggleTheme();
                         },
                       ),
-                      const CustomCardIcon(
-                        title: 'Privacy',
-                        icon: Icons.lock_outline,
-                      ),
+                      // const CustomCardIcon(
+                      //   title: 'Privacy',
+                      //   icon: Icons.lock_outline,
+                      // ),
                       CustomCardIcon(
                         title: 'Security',
                         icon: Icons.security_outlined,
                         onTap: () {
                           AnimatedNavigator().push(
                             context,
-                            ForgotPasswordPage(
-                              userEmail: Prefs.getString('email')!,
-                            ),
+                            const NewPasswordScreen(),
                           );
                         },
                       ),
@@ -160,9 +158,19 @@ class ProfileMainScreen extends StatelessWidget {
                         title: 'FAQ',
                         icon: Icons.abc,
                       ),
-                      const CustomCardIcon(
+                      CustomCardIcon(
                         title: 'Help & Support',
                         icon: Icons.question_mark_outlined,
+                        onTap: () async {
+                          String email =
+                              Uri.encodeComponent("fitsyncDeveloper@gmail.com");
+                          String subject =
+                              Uri.encodeComponent("Help & Support");
+                          String body = Uri.encodeComponent("");
+                          Uri mail = Uri.parse(
+                              "mailto:$email?subject=$subject&body=$body");
+                          await launchUrl(mail);
+                        },
                       ),
                       CustomCardIcon(
                         title: 'Logout',

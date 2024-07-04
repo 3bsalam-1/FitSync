@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fitsync/data/models/user_data_model.dart';

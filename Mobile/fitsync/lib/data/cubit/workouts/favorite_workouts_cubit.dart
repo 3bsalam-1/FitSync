@@ -21,16 +21,21 @@ class FavoriteWorkoutsCubit extends Cubit<FavoriteWorkoutsState> {
     isFavorite = !isFavorite;
     emit(FavoriteWorkoutsAdded());
     NewTokenCubit().getNewToken();
-    favoriteRepo.addWorkoutsToFavorites(
+    favoriteRepo
+        .addWorkoutsToFavorites(
       workouts: workouts,
       userId: userId,
-    ).then((response) {
+    )
+        .then((response) {
       if (response!.status == 'Success') {
         emit(FavoriteWorkoutsAdded());
         emit(FavoriteWorkoutsLoading());
         favoriteRepo.getWorkoutsFavorites().then((response) {
           favoriteWorkouts = response;
           emit(FavoriteWorkoutsGetAll());
+          if (favoriteWorkouts!.isEmpty) {
+            emit(FavoriteWorkoutsEmpty());
+          }
         });
       } else {
         emit(FavoriteWorkoutsFaliure());
