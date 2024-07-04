@@ -50,12 +50,13 @@ class SavedWorkOuts extends StatelessWidget {
             const SizedBox(height: 22),
             BlocBuilder<FavoriteWorkoutsCubit, FavoriteWorkoutsState>(
               builder: (context, state) {
+                var data = context.read<FavoriteWorkoutsCubit>().favoriteWorkouts;
                 if (state is FavoriteWorkoutsLoading) {
                   return const CircularProgressIndicator(
                     color: purple,
                   );
                 }
-                if (state is FavoriteWorkoutsEmpty) {
+                if (state is FavoriteWorkoutsEmpty || data!.isEmpty) {
                   return Padding(
                     padding: const EdgeInsets.only(top: 40, bottom: 50),
                     child: Text(
