@@ -47,9 +47,7 @@ class _SignUpState extends State<SignUp> {
             } else if (state is AuthRegister) {
               AnimatedNavigator().pushAndRemoveUntil(
                 context,
-                VerificationPage(
-                  email: email.text,
-                ),
+                const VerificationPage(),
               );
             } else if (state is AuthLogin) {
               context.read<NavigationPageCubit>().changePage(0);

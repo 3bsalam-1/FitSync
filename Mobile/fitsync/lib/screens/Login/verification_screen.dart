@@ -1,5 +1,6 @@
 import 'package:fitsync/screens/survey/welcome_survey_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../services/pref.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_button.dart';
 import 'package:flutter/material.dart';
@@ -10,12 +11,8 @@ import '../../shared/widgets/login_comp/custom_otp_widget.dart';
 import 'new_password_screen.dart';
 
 class VerificationPage extends StatelessWidget {
-  final String email;
 
-  const VerificationPage({
-    super.key,
-    required this.email,
-  });
+  const VerificationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +73,7 @@ class VerificationPage extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        email,
+                        Prefs.getString('email')!,
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w500,
                           fontSize: 11,
