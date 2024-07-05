@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../cubits_logic/global/dark_mode_cubit.dart';
 import '../../cubits_logic/global/notification_cubit.dart';
+import '../../shared/const/email_developer.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/profile_comp.dart/profile_main/custom_card_icon.dart';
@@ -163,7 +164,7 @@ class ProfileMainScreen extends StatelessWidget {
                         icon: Icons.question_mark_outlined,
                         onTap: () async {
                           String email =
-                              Uri.encodeComponent("fitsyncDeveloper@gmail.com");
+                              Uri.encodeComponent(emailDeveloper);
                           String subject =
                               Uri.encodeComponent("Help & Support");
                           String body = Uri.encodeComponent("");
