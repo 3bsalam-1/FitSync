@@ -93,7 +93,7 @@ class DietScreen extends StatelessWidget {
                           physics: const BouncingScrollPhysics(),
                           // separatorBuilder: (context, index) => const SizedBox(height: 25),
                           itemBuilder: (context, index) {
-                            String displayName = food[index].Name;
+                            String displayName = food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&");
                             if (displayName.length > 12) {
                               displayName =
                                   displayName.substring(0, 12) + '...';
@@ -102,7 +102,7 @@ class DietScreen extends StatelessWidget {
                             return DietPlanWidget(
                               diet: food[index],
                               imageUrl:
-                                  "assets/images/food/${food[index].Catagory}1.jpg",
+                                  "assets/images/diet/diet/${food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                               text: displayName,
                               colorOfIcon: cubit.isFavoriteMeal(food[index]),
                             );
@@ -310,7 +310,7 @@ class DietScreen extends StatelessWidget {
                                     physics: const BouncingScrollPhysics(),
                                     // separatorBuilder: (context, index) => const SizedBox(height: 25),
                                     itemBuilder: (context, index) {
-                                      String displayName = food[index].Name;
+                                      String displayName = food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&");
                                       if (displayName.length > 12) {
                                         displayName =
                                             displayName.substring(0, 12) +
@@ -319,7 +319,7 @@ class DietScreen extends StatelessWidget {
                                       return DietPlanWidget(
                                         diet: food[index],
                                         imageUrl:
-                                            "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
+                                            "assets/images/diet/diet/${food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                                         text: displayName,
                                         colorOfIcon: cubit.isFavoriteMeal(food[index]),
                                       );
@@ -371,7 +371,7 @@ class DietScreen extends StatelessWidget {
                                     physics: const BouncingScrollPhysics(),
                                     // separatorBuilder: (context, index) => const SizedBox(height: 25),
                                     itemBuilder: (context, index) {
-                                      String displayName = food[index].Name;
+                                      String displayName = food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&");
                                       if (displayName.length > 12) {
                                         displayName =
                                             displayName.substring(0, 12) +
@@ -380,7 +380,7 @@ class DietScreen extends StatelessWidget {
                                       return DietPlanWidget(
                                         diet: food[index],
                                         imageUrl:
-                                            "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
+                                            "assets/images/diet/diet/${food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                                         text: displayName,
                                         colorOfIcon: cubit.isFavoriteMeal(food[index]),
                                       );
@@ -434,7 +434,7 @@ class DietScreen extends StatelessWidget {
                                     physics: const BouncingScrollPhysics(),
                                     // separatorBuilder: (context, index) => const SizedBox(height: 25),
                                     itemBuilder: (context, index) {
-                                      String displayName = food[index].Name;
+                                      String displayName = food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&");
                                       if (displayName.length > 12) {
                                         displayName =
                                             displayName.substring(0, 12) +
@@ -444,7 +444,7 @@ class DietScreen extends StatelessWidget {
                                       return DietPlanWidget(
                                         diet: food[index],
                                         imageUrl:
-                                            "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
+                                            "assets/images/diet/diet/${food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                                         text: displayName,
                                         colorOfIcon: cubit.isFavoriteMeal(food[index]),
                                       );
@@ -489,7 +489,7 @@ class DietScreen extends StatelessWidget {
                                     physics: const BouncingScrollPhysics(),
                                     // separatorBuilder: (context, index) => const SizedBox(height: 25),
                                     itemBuilder: (context, index) {
-                                      String displayName = food[index].Name;
+                                      String displayName = food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&");
                                       if (displayName.length > 12) {
                                         displayName =
                                             displayName.substring(0, 12) +
@@ -498,7 +498,7 @@ class DietScreen extends StatelessWidget {
                                       return DietPlanWidget(
                                         diet: food[index],
                                         imageUrl:
-                                            "assets/images/food/${food[index].Catagory}${i <= 2 ? ++i : i = 1}.jpg",
+                                            "assets/images/diet/diet/${food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                                         text: displayName,
                                         colorOfIcon: cubit.isFavoriteMeal(food[index]),
                                       );
@@ -556,7 +556,7 @@ class DietScreen extends StatelessWidget {
                                     physics: const BouncingScrollPhysics(),
                                     // separatorBuilder: (context, index) => const SizedBox(height: 25),
                                     itemBuilder: (context, index) {
-                                      String displayName = food[index].Name;
+                                      String displayName = food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&");
                                       if (displayName.length > 12) {
                                         displayName =
                                             displayName.substring(0, 12) +
@@ -565,7 +565,7 @@ class DietScreen extends StatelessWidget {
                                       return DietPlanWidget(
                                         diet: food[index],
                                         imageUrl:
-                                            "assets/images/food/${food[index].Catagory}1.jpg",
+                                            "assets/images/diet/diet/${food[index].Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                                         text: displayName,
                                         colorOfIcon: cubit.isFavoriteMeal(food[index]),
                                       );
@@ -661,14 +661,14 @@ class DietScreen extends StatelessWidget {
                       //  separatorBuilder: (context, index) =>
                       //  const SizedBox(width: 15),
                       itemBuilder: (context, index) {
-                        String displayName = cubit.favoriteMeals![index].Name;
+                        String displayName = cubit.favoriteMeals![index].Name.replaceAll("/", "").replaceAll("&amp;", "&");
                         if (displayName.length > 12) {
                           displayName = displayName.substring(0, 12) + '...';
                         }
                         return SavedRecipesWidget(
                             diet: cubit.favoriteMeals![index],
                             imageUrl:
-                                "assets/images/food/${cubit.favoriteMeals![index].Catagory}1.jpg",
+                                "assets/images/diet/diet/${cubit.favoriteMeals![index].Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                             label1: displayName,
                             label2: "Healthy\nFits in Budget",
                             onPressed: () {

@@ -84,7 +84,8 @@ flutter:
     - assets/images/splash/
     - assets/images/Notifications_Images/
     - assets/images/tipsImages/
-    - assets/images/food/
+    - assets/images/diet/diet/
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

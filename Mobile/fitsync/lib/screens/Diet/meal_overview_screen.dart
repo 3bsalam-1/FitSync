@@ -70,16 +70,16 @@ class MealOverviewScreen extends StatelessWidget {
                 controller: _controller,
                 children: [
                   PageMeal(
-                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                    path: "assets/images/diet/diet/${diet.Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                   ),
                   PageMeal(
-                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                    path: "assets/images/diet/diet/${diet.Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                   ),
                   PageMeal(
-                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                    path: "assets/images/diet/diet/${diet.Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                   ),
                   PageMeal(
-                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                    path: "assets/images/diet/diet/${diet.Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                   ),
                 ],
               ),
@@ -104,7 +104,7 @@ class MealOverviewScreen extends StatelessWidget {
                   child: Container(
                     width: 270,
                     child: Text(
-                      diet.Name,
+                      diet.Name.replaceAll("/", "").replaceAll("&amp;", "&"),
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
                         fontSize: 22,

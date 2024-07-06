@@ -320,11 +320,11 @@ class _DietListScreenState extends State<DietListScreen> {
                                 return CustomSavedRecipesWidget(
                                                       diet: _filteredItems[index],
                                                       imageUrl:
-                                                          "assets/images/food/${_filteredItems[index].Catagory}1.jpg",
-                                                      label1: _filteredItems[index].Name.length > 20
-                                                          ? _filteredItems[index].Name.substring(0, 18) +
+                                                          "assets/images/diet/diet/${_filteredItems[index].Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
+                                                      label1: _filteredItems[index].Name.replaceAll("/", "").replaceAll("&amp;", "&").length > 20
+                                                          ? _filteredItems[index].Name.replaceAll("/", "").replaceAll("&amp;", "&").substring(0, 18) +
                                                               "..."
-                                                          : _filteredItems[index].Name,
+                                                          : _filteredItems[index].Name.replaceAll("/", "").replaceAll("&amp;", "&"),
                                                       label2: "Healthy\nFits in Budget",
                                                       onPressed: () {
                                                         cubit.changeColor();

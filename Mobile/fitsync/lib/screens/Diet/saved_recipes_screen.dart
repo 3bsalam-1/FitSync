@@ -111,11 +111,11 @@ class SavedRecipesScreen extends StatelessWidget {
                     itemBuilder: (context, index) => CustomSavedRecipesWidget(
                       diet: cubit.favoriteMeals![index],
                       imageUrl:
-                          "assets/images/food/${cubit.favoriteMeals![index].Catagory}1.jpg",
-                      label1: cubit.favoriteMeals![index].Name.length > 20
-                          ? cubit.favoriteMeals![index].Name.substring(0, 18) +
+                          "assets/images/diet/diet/${cubit.favoriteMeals![index].Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
+                      label1: cubit.favoriteMeals![index].Name.replaceAll("/", "").replaceAll("&amp;", "&").length > 20
+                          ? cubit.favoriteMeals![index].Name.replaceAll("/", "").replaceAll("&amp;", "&").substring(0, 18) +
                               "..."
-                          : cubit.favoriteMeals![index].Name,
+                          : cubit.favoriteMeals![index].Name.replaceAll("/", "").replaceAll("&amp;", "&"),
                       label2: "Healthy\nFits in Budget",
                       onPressed: () {
                         cubit.removefoodfromfavorites(

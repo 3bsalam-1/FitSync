@@ -1,8 +1,10 @@
 import 'package:fitsync/cubits_logic/diet_logic/counter/counter_cubit.dart';
 import 'package:fitsync/cubits_logic/diet_logic/for_weight/cubit/changestate_cubit.dart';
 import 'package:fitsync/data/models/food_model.dart';
+import 'package:fitsync/data/repository/food/all_calories.dart';
 import 'package:fitsync/screens/Diet/diet_screen.dart';
 import 'package:fitsync/screens/Home/home_screen.dart';
+import 'package:fitsync/screens/home_main_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
 import 'package:fitsync/shared/widgets/diet_comp/meal_tracker_widget.dart';
@@ -197,9 +199,9 @@ class Page1 extends StatelessWidget {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                         backgroundColor:
-                                            MaterialStateProperty.all<Color>(
+                                            WidgetStateProperty.all<Color>(
                                                 purple9),
-                                        shape: MaterialStateProperty.all<
+                                        shape: WidgetStateProperty.all<
                                                 RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
                                                 borderRadius:
@@ -217,9 +219,9 @@ class Page1 extends StatelessWidget {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                         backgroundColor:
-                                            MaterialStateProperty.all<Color>(
+                                            WidgetStateProperty.all<Color>(
                                                 purple9),
-                                        shape: MaterialStateProperty.all<
+                                        shape: WidgetStateProperty.all<
                                                 RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
                                                 borderRadius:
@@ -233,7 +235,7 @@ class Page1 extends StatelessWidget {
                                     onPressed: () {
                                       totalIntakeCalories += calories;
                                       AnimatedNavigator()
-                                          .push(context, DietScreen());
+                                          .push(context, HomeMainScreen());
                                     },
                                   ),
                                 ],
@@ -258,9 +260,9 @@ class Page1 extends StatelessWidget {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                         backgroundColor:
-                                            MaterialStateProperty.all<Color>(
+                                            WidgetStateProperty.all<Color>(
                                                 purple9),
-                                        shape: MaterialStateProperty.all<
+                                        shape: WidgetStateProperty.all<
                                                 RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
                                                 borderRadius:
@@ -278,9 +280,9 @@ class Page1 extends StatelessWidget {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                         backgroundColor:
-                                            MaterialStateProperty.all<Color>(
+                                            WidgetStateProperty.all<Color>(
                                                 purple9),
-                                        shape: MaterialStateProperty.all<
+                                        shape: WidgetStateProperty.all<
                                                 RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
                                                 borderRadius:
@@ -294,7 +296,7 @@ class Page1 extends StatelessWidget {
                                     onPressed: () {
                                       totalIntakeCalories += calories;
                                       AnimatedNavigator()
-                                          .push(context, DietScreen());
+                                          .push(context, HomeMainScreen());
                                     },
                                   ),
                                 ],
@@ -304,8 +306,10 @@ class Page1 extends StatelessWidget {
 
                       //addmeal = true;
                       //context.read<ChangestateCubit>().change();
+                      // print(AllCalories().getAllCalories());
 
-                      print(totalIntakeCalories);
+                      //  print(totalIntakeCalories);
+                      //print("object${totalDailyCalories}");
                     })
               ],
             );
