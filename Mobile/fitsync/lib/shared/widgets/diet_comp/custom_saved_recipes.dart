@@ -1,23 +1,30 @@
+import 'package:fitsync/data/cubit/favourite_food/cubit/favourite_meal_cubit.dart';
 import 'package:fitsync/data/models/food_model.dart';
 import 'package:fitsync/screens/Diet/meal_overview_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
 import 'package:fitsync/shared/widgets/diet_comp/page2.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
-// ignore: must_be_immutable
+
 class CustomSavedRecipesWidget extends StatelessWidget {
   final String imageUrl;
   final String label1;
   final String label2;
+  final void Function()? onPressed;
+  bool iconColor=false;
   CustomSavedRecipesWidget({
     required this.diet,
     required this.imageUrl,
     required this.label1,
     required this.label2,
+    required this.onPressed,
+    required this.iconColor,
     super.key,
   });
   FoodModel diet;
@@ -49,7 +56,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
             child: Container(
               width: MediaQuery.of(context).size.width * (78 / 428),
               height: MediaQuery.of(context).size.height * (78 / 926),
-              decoration: const BoxDecoration(
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
               child: ClipRRect(
@@ -66,10 +73,9 @@ class CustomSavedRecipesWidget extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(left: 10, top: 15),
-                // ignore: avoid_unnecessary_containers
                 child: Container(
                   // width: 180,
-                  child: Text(
+                  child: customTranslateText(
                     label1,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
@@ -82,9 +88,9 @@ class CustomSavedRecipesWidget extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10),
-                child: SizedBox(
+                child: Container(
                   width: 100,
-                  child: Text(
+                  child: customTranslateText(
                     label2,
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w500,
@@ -96,15 +102,15 @@ class CustomSavedRecipesWidget extends StatelessWidget {
               ),
             ],
           ),
-          const Spacer(),
+          Spacer(),
           Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
+                  onPressed: onPressed,
+                  icon: Icon(
                     IconlyBold.heart,
-                    color: purple5,
+                    color: iconColor?purple5:gray2,
                     size: 20,
                   )),
               Padding(
@@ -115,6 +121,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                         context,
                         MealOverviewScreen(
                           diet: diet,
+                          iconColor: iconColor,
                         ));
                     weight = 0;
                     for (int i = 0; i < 100; i++) {
@@ -122,7 +129,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                     }
                     calories = 0;
                   },
-                  child: Text(
+                  child: customTranslateText(
                     'More Info',
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,

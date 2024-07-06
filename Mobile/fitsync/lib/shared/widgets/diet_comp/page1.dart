@@ -1,19 +1,22 @@
+import 'package:fitsync/cubits_logic/diet_logic/counter/counter_cubit.dart';
 import 'package:fitsync/cubits_logic/diet_logic/for_weight/cubit/changestate_cubit.dart';
 import 'package:fitsync/data/models/food_model.dart';
+import 'package:fitsync/data/repository/food/all_calories.dart';
 import 'package:fitsync/screens/Diet/diet_screen.dart';
 import 'package:fitsync/screens/Home/home_screen.dart';
+import 'package:fitsync/screens/home_main_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
 import 'package:fitsync/shared/widgets/diet_comp/meal_tracker_widget.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 int totalIntakeCalories = 0;
 
-// ignore: must_be_immutable
 class Page1 extends StatelessWidget {
   Page1({
     required this.diet,
@@ -42,12 +45,11 @@ class Page1 extends StatelessWidget {
                         height: 30,
                         h: 0,
                         label1: 'Weight',
-                        label2: "$weight ",
+                        label2: "${weight} ",
                         label3: 'gm',
                         size: 14,
                       ),
                     ),
-                    // ignore: sized_box_for_whitespace
                     Container(
                       height: 80,
                       width: 0,
@@ -71,7 +73,6 @@ class Page1 extends StatelessWidget {
                         size: 14,
                       ),
                     ),
-                    // ignore: sized_box_for_whitespace
                     Container(
                       height: 80,
                       width: 0,
@@ -90,12 +91,11 @@ class Page1 extends StatelessWidget {
                         height: 24,
                         h: 2,
                         label1: 'Diet',
-                        label2: "${diet.Diet.substring(0, 10)}..",
+                        label2: diet.Diet.substring(0, 10) + "..",
                         label3: '',
                         size: 11,
                       ),
                     ),
-                    // ignore: sized_box_for_whitespace
                     Container(
                       height: 80,
                       width: 0,
@@ -149,7 +149,7 @@ class Page1 extends StatelessWidget {
                 //                 size: 15,
                 //               ),
                 //             ),
-                //             Text(
+                //             customTranslatecustomTranslateText(
                 //               (context.read<CounterCubit>().index).toString(),
                 //               style: GoogleFonts.poppins(
                 //                 fontWeight: FontWeight.w500,
@@ -186,12 +186,12 @@ class Page1 extends StatelessWidget {
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
-                                title: Text(
+                                title: customTranslateText(
                                   "Are you sure ?",
                                   style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w500),
                                 ),
-                                content: Text(
+                                content: customTranslateText(
                                   "when adding this meal your remaining calories will be ${(totalDailyCalories.round() - (totalIntakeCalories + calories)) >= 0 ? totalDailyCalories.round() - (totalIntakeCalories + calories) : 0} cals while your total daily calories = ${totalDailyCalories.round()} cals",
                                   style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w500),
@@ -200,14 +200,14 @@ class Page1 extends StatelessWidget {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                         backgroundColor:
-                                            MaterialStateProperty.all<Color>(
+                                            WidgetStateProperty.all<Color>(
                                                 purple9),
-                                        shape: MaterialStateProperty.all<
+                                        shape: WidgetStateProperty.all<
                                                 RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(8)))),
-                                    child: Text(
+                                    child: customTranslateText(
                                       "No",
                                       style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.w500,
@@ -220,14 +220,14 @@ class Page1 extends StatelessWidget {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                         backgroundColor:
-                                            MaterialStateProperty.all<Color>(
+                                            WidgetStateProperty.all<Color>(
                                                 purple9),
-                                        shape: MaterialStateProperty.all<
+                                        shape: WidgetStateProperty.all<
                                                 RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(8)))),
-                                    child: Text(
+                                    child: customTranslateText(
                                       "Yes",
                                       style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.w500,
@@ -236,7 +236,7 @@ class Page1 extends StatelessWidget {
                                     onPressed: () {
                                       totalIntakeCalories += calories;
                                       AnimatedNavigator()
-                                          .push(context, const DietScreen());
+                                          .push(context, HomeMainScreen());
                                     },
                                   ),
                                 ],
@@ -247,12 +247,12 @@ class Page1 extends StatelessWidget {
                             context: context,
                             builder: (BuildContext context) {
                               return AlertDialog(
-                                title: Text(
+                                title: customTranslateText(
                                   "Are you sure ?",
                                   style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w500),
                                 ),
-                                content: Text(
+                                content: customTranslateText(
                                   "you finish all calories for today !",
                                   style: GoogleFonts.poppins(
                                       fontWeight: FontWeight.w500),
@@ -261,14 +261,14 @@ class Page1 extends StatelessWidget {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                         backgroundColor:
-                                            MaterialStateProperty.all<Color>(
+                                            WidgetStateProperty.all<Color>(
                                                 purple9),
-                                        shape: MaterialStateProperty.all<
+                                        shape: WidgetStateProperty.all<
                                                 RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(8)))),
-                                    child: Text(
+                                    child: customTranslateText(
                                       "No",
                                       style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.w500,
@@ -281,14 +281,14 @@ class Page1 extends StatelessWidget {
                                   ElevatedButton(
                                     style: ButtonStyle(
                                         backgroundColor:
-                                            MaterialStateProperty.all<Color>(
+                                            WidgetStateProperty.all<Color>(
                                                 purple9),
-                                        shape: MaterialStateProperty.all<
+                                        shape: WidgetStateProperty.all<
                                                 RoundedRectangleBorder>(
                                             RoundedRectangleBorder(
                                                 borderRadius:
                                                     BorderRadius.circular(8)))),
-                                    child: Text(
+                                    child: customTranslateText(
                                       "Yes",
                                       style: GoogleFonts.poppins(
                                           fontWeight: FontWeight.w500,
@@ -297,7 +297,7 @@ class Page1 extends StatelessWidget {
                                     onPressed: () {
                                       totalIntakeCalories += calories;
                                       AnimatedNavigator()
-                                          .push(context, const DietScreen());
+                                          .push(context, HomeMainScreen());
                                     },
                                   ),
                                 ],
@@ -307,8 +307,10 @@ class Page1 extends StatelessWidget {
 
                       //addmeal = true;
                       //context.read<ChangestateCubit>().change();
+                      // print(AllCalories().getAllCalories());
 
-                      debugPrint('$totalIntakeCalories');
+                      //  print(totalIntakeCalories);
+                      //print("object${totalDailyCalories}");
                     })
               ],
             );

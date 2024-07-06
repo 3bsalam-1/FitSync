@@ -4,21 +4,27 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_filter_button.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-List<String> filter1 = [];
-String foodType = "";
+List<String> filter1=[];
+String foodType="";
+String nutrientType="";
+String dietType="";
 
-// ignore: must_be_immutable
 class FilterDietScreen extends StatelessWidget {
+
   final Function() filterFunc;
 
-  FilterDietScreen({super.key, required this.filterFunc});
 
-  // ignore: non_constant_identifier_names
-  DietListScreen DietList = const DietListScreen();
+   FilterDietScreen({super.key,
+   required this.filterFunc
+   });
+  
+  DietListScreen DietList = DietListScreen();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +44,7 @@ class FilterDietScreen extends StatelessWidget {
                 size: 40,
               )),
         ),
-        title: Text(
+        title: customTranslateText(
           'Filter',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
@@ -51,7 +57,7 @@ class FilterDietScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
         child: DefaultTextStyle(
-          style: const TextStyle(
+          style: TextStyle(
             fontSize: 14,
             fontWeight: FontWeight.w600,
             color: gray4,
@@ -61,9 +67,9 @@ class FilterDietScreen extends StatelessWidget {
               return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 20),
-                  const Text('Category'),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 20),
+                  customTranslateText('Category'),
+                  SizedBox(height: 12),
                   Row(
                     children: [
                       Padding(
@@ -71,13 +77,8 @@ class FilterDietScreen extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             context.read<FilterCubit>().changeColor1();
-                            isColor = false;
-                            filter1 = [
-                              "strawberry",
-                              "mango",
-                              "apple",
-                              "banana"
-                            ];
+                            isColor=false;
+                            filter1=["strawberry","mango","apple","banana"];
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
@@ -85,14 +86,11 @@ class FilterDietScreen extends StatelessWidget {
                               vertical: 5,
                             ),
                             decoration: BoxDecoration(
-                              color: isColor
-                                  ? context
-                                      .read<FilterCubit>()
-                                      .realbuttoncolor = gray13
-                                  : context.read<FilterCubit>().realbuttoncolor,
+                              color:isColor?context.read<FilterCubit>().realbuttoncolor=gray13:
+                                  context.read<FilterCubit>().realbuttoncolor,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: Text(
+                            child: customTranslateText(
                               'Fruits',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -113,13 +111,8 @@ class FilterDietScreen extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             context.read<FilterCubit>().changeColor2();
-                            isColor = false;
-                            filter1 = [
-                              "broccoli",
-                              "chilli",
-                              "tomato",
-                              "potato"
-                            ];
+                            isColor=false;
+                            filter1=["broccoli","chilli","tomato","potato"];
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
@@ -127,16 +120,11 @@ class FilterDietScreen extends StatelessWidget {
                               vertical: 5,
                             ),
                             decoration: BoxDecoration(
-                              color: isColor
-                                  ? context
-                                      .read<FilterCubit>()
-                                      .realbuttoncolor1 = gray13
-                                  : context
-                                      .read<FilterCubit>()
-                                      .realbuttoncolor1,
+                              color:isColor?context.read<FilterCubit>().realbuttoncolor1=gray13:
+                                  context.read<FilterCubit>().realbuttoncolor1,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: Text(
+                            child: customTranslateText(
                               'Vegetables',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -157,17 +145,8 @@ class FilterDietScreen extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             context.read<FilterCubit>().changeColor3();
-                            isColor = false;
-                            filter1 = [
-                              "egg",
-                              "kofta",
-                              "apple",
-                              "chicken",
-                              "fish",
-                              "milk",
-                              "kebabs",
-                              "tikka"
-                            ];
+                            isColor=false;
+                            filter1=["egg","kofta","apple","chicken","fish","milk","kebabs","tikka"];
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
@@ -175,16 +154,11 @@ class FilterDietScreen extends StatelessWidget {
                               vertical: 5,
                             ),
                             decoration: BoxDecoration(
-                              color: isColor
-                                  ? context
-                                      .read<FilterCubit>()
-                                      .realbuttoncolor2 = gray13
-                                  : context
-                                      .read<FilterCubit>()
-                                      .realbuttoncolor2,
+                              color:isColor?context.read<FilterCubit>().realbuttoncolor2=gray13:
+                                  context.read<FilterCubit>().realbuttoncolor2,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: Text(
+                            child: customTranslateText(
                               'Protein',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -209,14 +183,8 @@ class FilterDietScreen extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             context.read<FilterCubit>().changeColor4();
-                            isColor = false;
-                            filter1 = filter1 = [
-                              "corn",
-                              "khichdi",
-                              "rice",
-                              "bread",
-                              "poha"
-                            ];
+                            isColor=false;
+                            filter1=filter1=["corn","khichdi","rice","bread","poha"];
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
@@ -224,16 +192,11 @@ class FilterDietScreen extends StatelessWidget {
                               vertical: 5,
                             ),
                             decoration: BoxDecoration(
-                              color: isColor
-                                  ? context
-                                      .read<FilterCubit>()
-                                      .realbuttoncolor3 = gray13
-                                  : context
-                                      .read<FilterCubit>()
-                                      .realbuttoncolor3,
+                              color:isColor?context.read<FilterCubit>().realbuttoncolor3=gray13:
+                                  context.read<FilterCubit>().realbuttoncolor3,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: Text(
+                            child: customTranslateText(
                               'Grains',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -251,38 +214,39 @@ class FilterDietScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const Text('Nutrient'),
-                  const SizedBox(height: 12),
-                  const Column(
+                  customTranslateText('Nutrient'),
+                  SizedBox(height: 12),
+                  Column(
                     children: [
                       Row(
                         children: [
-                          CustomFilterButton(label: 'Magnesium'),
-                          CustomFilterButton(label: 'Protien'),
-                          CustomFilterButton(label: 'Calcium'),
+                          CustomFilterButton(label: 'Magnesium',value: "magnesium",),
+                          CustomFilterButton(label: 'Protien',value: "protien",),
+                          CustomFilterButton(label: 'Calcium',value: "calcium",),
+                          
                         ],
                       ),
                       Row(
                         children: [
-                          CustomFilterButton(label: 'Iron'),
-                          CustomFilterButton(label: 'Carbohydrates'),
+                          CustomFilterButton(label: 'Iron',value: "iron",),
+                          CustomFilterButton(label: 'Carbohydrates',value: "carbohydrates",),
                         ],
                       ),
                     ],
                   ),
-                  const SizedBox(height: 12),
-                  const Text('Diet'),
-                  const SizedBox(height: 12),
-                  const Row(
+                  SizedBox(height: 12),
+                  customTranslateText('Diet'),
+                  SizedBox(height: 12),
+                  Row(
                     children: [
-                      CustomFilterButton(label: 'Ketagenic'),
-                      CustomFilterButton(label: 'Gluten free'),
-                      CustomFilterButton(label: 'Low fat'),
+                      CustomFilterButton(label: 'Ketagenic',value: "ketogenic_diet vegan_diet high_fiber_diet high_protien_diet dash_diet",),
+                      CustomFilterButton(label: 'Gluten free',value: "high_protien_diet low_fat_diet gluten_free_diet",),
+                      CustomFilterButton(label: 'Low fat',value: "low_fat_diet gluten_free_diet high_fiber_diet high_protien_diet dash_diet",),
                     ],
                   ),
-                  const SizedBox(height: 12),
-                  const Text('Dietary Type'),
-                  const SizedBox(height: 12),
+                  SizedBox(height: 12),
+                  customTranslateText('Dietary Type'),
+                  SizedBox(height: 12),
                   Row(
                     children: [
                       Padding(
@@ -290,8 +254,8 @@ class FilterDietScreen extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             context.read<FilterCubit>().changeColor5();
-                            isColor = false;
-                            foodType = "";
+                            isColor=false;
+                            foodType="";
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
@@ -299,13 +263,11 @@ class FilterDietScreen extends StatelessWidget {
                               vertical: 5,
                             ),
                             decoration: BoxDecoration(
-                              color: isColor
-                                  ? context.read<FilterCubit>().realcolor1 =
-                                      gray13
-                                  : context.read<FilterCubit>().realcolor1,
+                              color: isColor?context.read<FilterCubit>().realcolor1=gray13:
+                              context.read<FilterCubit>().realcolor1,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: Text(
+                            child: customTranslateText(
                               'Omnivore',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -324,8 +286,8 @@ class FilterDietScreen extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             context.read<FilterCubit>().changeColor6();
-                            isColor = false;
-                            foodType = "1";
+                            isColor=false;
+                            foodType="1";
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
@@ -333,13 +295,11 @@ class FilterDietScreen extends StatelessWidget {
                               vertical: 5,
                             ),
                             decoration: BoxDecoration(
-                              color: isColor
-                                  ? context.read<FilterCubit>().realcolor2 =
-                                      gray13
-                                  : context.read<FilterCubit>().realcolor2,
+                              color: isColor?context.read<FilterCubit>().realcolor2=gray13:
+                              context.read<FilterCubit>().realcolor2,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: Text(
+                            child: customTranslateText(
                               'Vegetarian',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -358,8 +318,8 @@ class FilterDietScreen extends StatelessWidget {
                         child: InkWell(
                           onTap: () {
                             context.read<FilterCubit>().changeColor7();
-                            isColor = false;
-                            foodType = "0";
+                            isColor=false;
+                            foodType="0";
                           },
                           child: Container(
                             padding: const EdgeInsets.symmetric(
@@ -367,13 +327,11 @@ class FilterDietScreen extends StatelessWidget {
                               vertical: 5,
                             ),
                             decoration: BoxDecoration(
-                              color: isColor
-                                  ? context.read<FilterCubit>().realcolor3 =
-                                      gray13
-                                  : context.read<FilterCubit>().realcolor3,
+                              color:isColor?context.read<FilterCubit>().realcolor3=gray13:
+                               context.read<FilterCubit>().realcolor3,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: Text(
+                            child: customTranslateText(
                               'Carnivore',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,
@@ -395,10 +353,10 @@ class FilterDietScreen extends StatelessWidget {
                   CustomButton(
                     label: 'Done',
                     onPressed: () {
-                      // DietList.filterItemsfunction();
-                      filterFunc();
-                      // AnimatedNavigator().push(context, DietListScreen());
-                      AnimatedNavigator().pop(context);
+                     // DietList.filterItemsfunction();
+                     filterFunc();
+                     // AnimatedNavigator().push(context, DietListScreen());
+                     AnimatedNavigator().pop(context);
                     },
                     horizontalPadding: 10,
                   ),

@@ -1,12 +1,15 @@
+import 'package:fitsync/screens/Diet/diet_list.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
+
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class EmptyStateScreen extends StatelessWidget {
-  const EmptyStateScreen({super.key});
+  EmptyStateScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +21,12 @@ class EmptyStateScreen extends StatelessWidget {
             onPressed: () {
               AnimatedNavigator().pop(context);
             },
-            icon: const Icon(
+            icon: Icon(
               Icons.arrow_circle_left,
               color: purple3,
               size: 40,
             )),
-        title: Text(
+        title: customTranslateText(
           'Saved Recipes',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
@@ -32,9 +35,9 @@ class EmptyStateScreen extends StatelessWidget {
           ),
         ),
         centerTitle: true,
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 10.0),
+            padding: const EdgeInsets.only(right: 10.0),
             child: UserWidget(),
           ),
         ],
@@ -52,7 +55,7 @@ class EmptyStateScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * (322 / 428),
                 height: MediaQuery.of(context).size.height * (430 / 926),
               ),
-              Text(
+              customTranslateText(
                 ' Your Saved Recipes is\nempty you can discover\n   latest Recipes now',
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w500,
@@ -67,7 +70,9 @@ class EmptyStateScreen extends StatelessWidget {
           ),
           CustomButton(
             label: "Recipes",
-            onPressed: () {},
+            onPressed: () {
+              AnimatedNavigator().push(context, DietListScreen());
+            },
           ),
         ],
       ),

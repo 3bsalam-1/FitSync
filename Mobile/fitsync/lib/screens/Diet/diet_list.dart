@@ -1,10 +1,16 @@
+import 'dart:ffi';
+
+import 'package:fitsync/data/cubit/favourite_food/cubit/favourite_meal_cubit.dart';
 import 'package:fitsync/data/models/food_model.dart';
 import 'package:fitsync/data/repository/food/all_food.dart';
 import 'package:fitsync/screens/Diet/filter_diet_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/diet_comp/custom_filter_button.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_saved_recipes.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 
@@ -56,52 +62,110 @@ class _DietListScreenState extends State<DietListScreen> {
     if (filter1.isNotEmpty) {
       if (filter1.length == 4) {
         filterItems = _filteredItems
-            .where((item) =>
-                item.Catagory.toLowerCase()
-                    .contains(filter1[0].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[1].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[2].toLowerCase()) ||
-                item.Catagory.toLowerCase().contains(filter1[3].toLowerCase()))
+            .where((item) => foodType == ""
+                ? item.Catagory.toLowerCase()
+                        .contains(filter1[0].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[1].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[2].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                            .contains(filter1[3].toLowerCase()) &&
+                        item.Nutrient.toLowerCase()
+                            .contains(nutrientType.toLowerCase()) &&
+                        item.Diet.toLowerCase().contains(dietType.toLowerCase())
+                : item.Catagory.toLowerCase()
+                        .contains(filter1[0].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[1].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[2].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                            .contains(filter1[3].toLowerCase()) &&
+                        item.Veg_non.toLowerCase()
+                            .contains(foodType.toLowerCase()) &&
+                        item.Nutrient.toLowerCase()
+                            .contains(nutrientType.toLowerCase()) &&
+                        item.Diet.toLowerCase().contains(dietType.toLowerCase()))
             .toList();
       } else if (filter1.length == 5) {
         filterItems = _filteredItems
-            .where((item) =>
-                item.Catagory.toLowerCase()
-                    .contains(filter1[0].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[1].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[2].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[3].toLowerCase()) ||
-                item.Catagory.toLowerCase().contains(filter1[4].toLowerCase()))
+            .where((item) => foodType == ""
+                ? item.Catagory.toLowerCase().contains(filter1[0].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[1].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[2].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[3].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                            .contains(filter1[4].toLowerCase()) &&
+                        item.Nutrient.toLowerCase()
+                            .contains(nutrientType.toLowerCase()) &&
+                        item.Diet.toLowerCase().contains(dietType.toLowerCase())
+                : item.Catagory.toLowerCase()
+                        .contains(filter1[0].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[1].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[2].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[3].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                            .contains(filter1[4].toLowerCase()) &&
+                        item.Veg_non.toLowerCase()
+                            .contains(foodType.toLowerCase()) &&
+                        item.Nutrient.toLowerCase()
+                            .contains(nutrientType.toLowerCase()) &&
+                        item.Diet.toLowerCase().contains(dietType.toLowerCase()))
             .toList();
       } else if (filter1.length == 8) {
         filterItems = _filteredItems
-            .where((item) =>
-                item.Catagory.toLowerCase()
-                    .contains(filter1[0].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[1].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[2].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[3].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[4].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[5].toLowerCase()) ||
-                item.Catagory.toLowerCase()
-                    .contains(filter1[6].toLowerCase()) ||
-                item.Catagory.toLowerCase().contains(filter1[7].toLowerCase()))
+            .where((item) => foodType == ""
+                ? item.Catagory.toLowerCase().contains(filter1[0].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[1].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[2].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[3].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[4].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[5].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[6].toLowerCase()) ||
+                    item.Catagory.toLowerCase().contains(filter1[7].toLowerCase()) &&
+                        item.Nutrient.toLowerCase()
+                            .contains(nutrientType.toLowerCase()) &&
+                        item.Diet.toLowerCase().contains(dietType.toLowerCase())
+                : item.Catagory.toLowerCase().contains(filter1[0].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[1].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[2].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[3].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[4].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[5].toLowerCase()) ||
+                    item.Catagory.toLowerCase()
+                        .contains(filter1[6].toLowerCase()) ||
+                    item.Catagory.toLowerCase().contains(filter1[7].toLowerCase()) &&
+                        item.Veg_non.toLowerCase().contains(foodType.toLowerCase()) &&
+                        item.Nutrient.toLowerCase().contains(nutrientType.toLowerCase()) &&
+                        item.Diet.toLowerCase().contains(dietType.toLowerCase()))
             .toList();
       }
     } else {
       filterItems = _filteredItems
           .where(
-              (item) => item.Catagory.toLowerCase().contains("".toLowerCase()))
+              (item) => //item.Catagory.toLowerCase().contains("".toLowerCase())||
+                  item.Veg_non.toLowerCase().contains(foodType.toLowerCase()) &&
+                  item.Nutrient.toLowerCase()
+                      .contains(nutrientType.toLowerCase()) ||
+                  item.Diet.toLowerCase().contains(dietType.toLowerCase()))
           .toList();
     }
 
@@ -111,7 +175,7 @@ class _DietListScreenState extends State<DietListScreen> {
     });
   }
 
-  final TextEditingController _searchController = TextEditingController();
+  TextEditingController _searchController = TextEditingController();
 
   @override
   void dispose() {
@@ -121,6 +185,7 @@ class _DietListScreenState extends State<DietListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<FavouriteMealCubit>(context);
     return Scaffold(
       backgroundColor: white,
       appBar: AppBar(
@@ -137,7 +202,7 @@ class _DietListScreenState extends State<DietListScreen> {
                 size: 40,
               )),
         ),
-        title: Text(
+        title: customTranslateText(
           'Diet List',
           style: GoogleFonts.poppins(
             fontWeight: FontWeight.w600,
@@ -153,7 +218,9 @@ class _DietListScreenState extends State<DietListScreen> {
               onTap: () {
                 isColor = true;
                 filter1 = [];
-                foodType="";
+                foodType = "";
+                nutrientType = "";
+                dietType = "";
                 _searchController.clear();
 
                 AnimatedNavigator().push(
@@ -237,7 +304,7 @@ class _DietListScreenState extends State<DietListScreen> {
                 future: _futureItems,
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    // List<FoodModel> food = snapshot.data!;
+                   //  List<FoodModel> _filteredItems = snapshot.data!;
                     // filterItemsfunction();
 
                     return Expanded(
@@ -246,16 +313,41 @@ class _DietListScreenState extends State<DietListScreen> {
                         physics: const BouncingScrollPhysics(),
                         separatorBuilder: (context, index) =>
                             const SizedBox(height: 15),
-                        itemBuilder: (context, index) =>
-                            CustomSavedRecipesWidget(
-                          diet: _filteredItems[index],
-                          imageUrl:
-                              "assets/images/food/${_filteredItems[index].Catagory}1.jpg",
-                          label1: _filteredItems[index].Name.length > 20
-                              ? "${_filteredItems[index].Name.substring(0, 18)}..."
-                              : _filteredItems[index].Name,
-                          label2: "Healthy\nFits in Budget",
-                        ),
+                        itemBuilder: (context, index) {
+                          
+                          return
+                            BlocBuilder<FavouriteMealCubit, FavouriteMealState>(
+                              builder: (context, state) {
+                                return CustomSavedRecipesWidget(
+                                                      diet: _filteredItems[index],
+                                                      imageUrl:
+                                                          "assets/images/diet/diet/${_filteredItems[index].Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
+                                                      label1: _filteredItems[index].Name.replaceAll("/", "").replaceAll("&amp;", "&").length > 20
+                                                          ? _filteredItems[index].Name.replaceAll("/", "").replaceAll("&amp;", "&").substring(0, 18) +
+                                                              "..."
+                                                          : _filteredItems[index].Name.replaceAll("/", "").replaceAll("&amp;", "&"),
+                                                      label2: "Healthy\nFits in Budget",
+                                                      onPressed: () {
+                                                        cubit.changeColor();
+                                                        //if(context.read<FavouriteMealCubit>().favoriteMeals.isNotEmpty)
+                                                       // context.read<FavouriteMealCubit>().isFavoriteMeal(_filteredItems[index]);
+                                                        if(!cubit.isFavoriteMeal(_filteredItems[index])) {
+                                                          cubit.addfoodTofavorites(meals: _filteredItems[index]);
+                                                         // context.read<FavouriteMealCubit>().addfoodToFavorites(meals: _filteredItems[index], userId: "1234");
+                                                         // context.read<FavouriteMealCubit>().isFavorite=true;
+                                                         
+                                                        }
+                                                        else{
+                                                          cubit.removefoodfromfavorites(meals: _filteredItems[index]);
+                                                          cubit.changeColor();
+                                                        }
+                                                       // print("the favourite is ${cubit.isFavoriteMeal(_filteredItems[index],index)}");
+                            
+                                                      },
+                                                      iconColor:  cubit.isFavoriteMeal(_filteredItems[index]),
+                                                    );
+                              },
+                            );}
                       ),
                     );
                   } else {

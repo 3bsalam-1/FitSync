@@ -3,6 +3,7 @@ import 'package:fitsync/data/models/ingrediant_cals_model.dart';
 import 'package:fitsync/data/repository/food/ingrediant_cals.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/page2.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -49,7 +50,7 @@ class CustomIngredientsWidget extends StatelessWidget {
                   //   child: Image.asset(imageUrl),
                   // ),
 
-                  Text(
+                  customTranslateText(
                     label1,
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w400,
@@ -60,7 +61,7 @@ class CustomIngredientsWidget extends StatelessWidget {
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 2),
-                    child: Text(
+                    child: customTranslateText(
                       "$num gm",
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
@@ -129,7 +130,7 @@ class CustomIngredientsWidget extends StatelessWidget {
                               size: 13,
                             ),
                           ),
-                          // Text(
+                          // customTranslateText(
                           //   num.toString(),
                           //   style: GoogleFonts.poppins(
                           //     fontWeight: FontWeight.w500,

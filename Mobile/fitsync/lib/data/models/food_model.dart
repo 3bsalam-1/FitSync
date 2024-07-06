@@ -26,4 +26,11 @@ class FoodModel {
         Nutrient: jsonData['Nutrient'],
         Diet: jsonData['Diet']);
   }
+
+   String convertToString() {
+    return '$Name*$Catagory*$Description*$Veg_non*$Nutrient*$Diet';
+  }
+
+
+
 }

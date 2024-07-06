@@ -1,23 +1,31 @@
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:fitsync/data/cubit/favourite_food/cubit/favourite_meal_cubit.dart';
 import 'package:fitsync/data/models/food_model.dart';
 import 'package:fitsync/shared/colors/colors.dart';
+import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
 import 'package:fitsync/shared/widgets/diet_comp/meal_overview_page.dart';
+import 'package:fitsync/shared/widgets/diet_comp/meal_tracker_widget.dart';
 import 'package:fitsync/shared/widgets/diet_comp/page1.dart';
 import 'package:fitsync/shared/widgets/diet_comp/page2.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
+import 'package:fitsync/shared/widgets/global/custom_button.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-// ignore: must_be_immutable
 class MealOverviewScreen extends StatelessWidget {
-  MealOverviewScreen({required this.diet, super.key});
+  MealOverviewScreen({required this.diet, this.iconColor = false, super.key});
 
   final _controller = PageController();
   FoodModel diet;
+  bool iconColor;
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<FavouriteMealCubit>(context);
     return DefaultTabController(
       length: 2,
       child: Scaffold(
@@ -36,7 +44,7 @@ class MealOverviewScreen extends StatelessWidget {
                   size: 40,
                 )),
           ),
-          title: Text(
+          title: customTranslateText(
             'Meal Tracker',
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,
@@ -45,45 +53,45 @@ class MealOverviewScreen extends StatelessWidget {
             ),
           ),
           centerTitle: true,
-          actions: const [
+          actions: [
             Padding(
-              padding: EdgeInsets.only(right: 16),
+              padding: const EdgeInsets.only(right: 16),
               child: UserWidget(),
             ),
           ],
         ),
         body: Column(
           children: [
-            const SizedBox(
+            SizedBox(
               height: 20,
             ),
-            SizedBox(
+            Container(
               height: 200,
               child: PageView(
                 controller: _controller,
                 children: [
                   PageMeal(
-                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                    path: "assets/images/diet/diet/${diet.Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                   ),
                   PageMeal(
-                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                    path: "assets/images/diet/diet/${diet.Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                   ),
                   PageMeal(
-                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                    path: "assets/images/diet/diet/${diet.Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                   ),
                   PageMeal(
-                    path: "assets/images/food/${diet.Catagory}1.jpg",
+                    path: "assets/images/diet/diet/${diet.Name.replaceAll("/", "").replaceAll("&amp;", "&")}.jpg",
                   ),
                 ],
               ),
             ),
-            const SizedBox(
+            SizedBox(
               height: 10,
             ),
             SmoothPageIndicator(
               controller: _controller,
               count: 4,
-              effect: const SlideEffect(
+              effect: SlideEffect(
                   dotWidth: 8.0,
                   dotHeight: 8.0,
                   dotColor: gray9,
@@ -94,10 +102,10 @@ class MealOverviewScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 20, top: 15),
-                  child: SizedBox(
+                  child: Container(
                     width: 270,
-                    child: Text(
-                      diet.Name,
+                    child: customTranslateText(
+                      diet.Name.replaceAll("/", "").replaceAll("&amp;", "&"),
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w600,
                         fontSize: 22,
@@ -109,13 +117,29 @@ class MealOverviewScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(right: 10, top: 15),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        IconlyBold.heart,
-                        color: purple5,
-                        size: 22,
-                      )),
+                  child: BlocBuilder<FavouriteMealCubit, FavouriteMealState>(
+                    builder: (context, state) {
+                      return IconButton(
+                          onPressed: () {
+                            //if(context.read<FavouriteMealCubit>().favoriteMeals.isNotEmpty)
+                            // context.read<FavouriteMealCubit>().isFavoriteMeal(_filteredItems[index]);
+                            if (!cubit.isFavoriteMeal(diet)) {
+                              cubit.addfoodTofavorites(meals: diet);
+                              // context.read<FavouriteMealCubit>().addfoodToFavorites(meals: _filteredItems[index], userId: "1234");
+                              // context.read<FavouriteMealCubit>().isFavorite=true;
+                              cubit.changeColor();
+                            } else {
+                              cubit.removefoodfromfavorites(meals: diet);
+                              cubit.changeColor();
+                            }
+                          },
+                          icon: Icon(
+                            IconlyBold.heart,
+                            color: cubit.isFavoriteMeal(diet) ? purple5 : gray2,
+                            size: 22,
+                          ));
+                    },
+                  ),
                 )
               ],
             ),
@@ -125,7 +149,7 @@ class MealOverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(
                     left: 20,
                   ),
-                  child: Text(
+                  child: customTranslateText(
                     'Healthy',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
@@ -142,7 +166,7 @@ class MealOverviewScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(
                     left: 20,
                   ),
-                  child: Text(
+                  child: customTranslateText(
                     'Fits in Budget',
                     style: GoogleFonts.poppins(
                       fontWeight: FontWeight.w600,
@@ -153,25 +177,27 @@ class MealOverviewScreen extends StatelessWidget {
                 ),
               ],
             ),
-            TabBar(
-                indicatorSize: TabBarIndicatorSize.label,
-                indicatorWeight: 0.01,
-                indicatorColor: purple5,
-                labelColor: purple5,
-                labelStyle: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w600,
-                  fontSize: 18,
-                ),
-                unselectedLabelColor: black,
-                unselectedLabelStyle: GoogleFonts.poppins(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 18,
-                ),
-                tabs: const [
-                  Tab(child: Text('Overview')),
-                  Tab(child: Text('Ingredients')),
-                ]),
-            SizedBox(
+            Container(
+              child: TabBar(
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicatorWeight: 0.01,
+                  indicatorColor: purple5,
+                  labelColor: purple5,
+                  labelStyle: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 18,
+                  ),
+                  unselectedLabelColor: black,
+                  unselectedLabelStyle: GoogleFonts.poppins(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 18,
+                  ),
+                  tabs: [
+                    Tab(child: customTranslateText('Overview')),
+                    Tab(child: customTranslateText('Ingredients')),
+                  ]),
+            ),
+            Container(
               height: 250,
               child: TabBarView(children: [
                 Page1(
