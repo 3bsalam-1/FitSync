@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
-import '../../../services/pref.dart';
+import '../../../cubits_logic/global/new_token_cubit.dart';
 import '../../models/workouts_model.dart';
 import '../../repository/workouts/favorite_workouts_repo.dart';
 import '../../repository/login_res/user_auth_repo.dart';
@@ -18,28 +18,30 @@ class FavoriteWorkoutsCubit extends Cubit<FavoriteWorkoutsState> {
     required WorkoutsModel workouts,
     required String userId,
   }) {
-    isFavorite = true;
+    isFavorite = !isFavorite;
     emit(FavoriteWorkoutsAdded());
-    auth
-        .userLogin(
-      email: Prefs.getString("email")!,
-      password: Prefs.getString("password")!,
+    NewTokenCubit().getNewToken();
+    favoriteRepo
+        .addWorkoutsToFavorites(
+      workouts: workouts,
+      userId: userId,
     )
-        .then((value) {
-      favoriteRepo
-          .addWorkoutsToFavorites(
-        workouts: workouts,
-        userId: userId,
-      )
-          .then((response) {
-        if (response!.status == 'Success') {
-          getAllFavoriteWorkouts();
-          emit(FavoriteWorkoutsAdded());
-        } else {
-          emit(FavoriteWorkoutsFaliure());
-        }
-      });
+        .then((response) {
+      if (response!.status == 'Success') {
+        emit(FavoriteWorkoutsAdded());
+        emit(FavoriteWorkoutsLoading());
+        favoriteRepo.getWorkoutsFavorites().then((response) {
+          favoriteWorkouts = response;
+          emit(FavoriteWorkoutsGetAll());
+          if (favoriteWorkouts!.isEmpty) {
+            emit(FavoriteWorkoutsEmpty());
+          }
+        });
+      } else {
+        emit(FavoriteWorkoutsFaliure());
+      }
     });
+    emit(FavoriteWorkoutsLoading());
   }
 
   void getAllFavoriteWorkouts() {
@@ -47,6 +49,7 @@ class FavoriteWorkoutsCubit extends Cubit<FavoriteWorkoutsState> {
       favoriteWorkouts = response;
       emit(FavoriteWorkoutsGetAll());
     });
+    emit(FavoriteWorkoutsLoading());
   }
 
   void isFavoriteWorkouts(WorkoutsModel workouts) {
@@ -54,9 +57,11 @@ class FavoriteWorkoutsCubit extends Cubit<FavoriteWorkoutsState> {
       if (element.toString() == workouts.toString()) {
         isFavorite = true;
         emit(FavoriteWorkoutsGetAll());
-        break;
+        return;
       }
     }
+    isFavorite = false;
+    emit(FavoriteWorkoutsGetAll());
   }
 
   void setFavoriteToInitial() {

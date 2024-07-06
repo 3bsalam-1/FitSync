@@ -8,6 +8,7 @@ class DropDownButtonCubit extends Cubit<DropDownButtonState> {
 
   var selectedItem = "Vegetables";
 
+  // ignore: non_constant_identifier_names
   onChanged_function() {
     emit(DropDownButtonInitial());
   }

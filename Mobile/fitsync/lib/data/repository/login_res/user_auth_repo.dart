@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import '../../../services/pref.dart';
 import '../../../shared/const/base_url.dart';
 import '../../models/response_model.dart';
 import '../../models/user_data_model.dart';
@@ -25,6 +26,7 @@ class UserAuthRepo {
       );
       var data = jsonDecode(response.body);
       ResponseModel responseData = ResponseModel.fromJson(data);
+      debugPrint('The register data is ${responseData.message}');
       return responseData;
     } catch (e) {
       debugPrint('The userRegister Errror is: ${e.toString()}');
@@ -50,9 +52,30 @@ class UserAuthRepo {
       );
       var data = jsonDecode(response.body);
       ResponseModel responseData = ResponseModel.fromJson(data);
+      debugPrint('The login data is ${responseData.message}');
       return responseData;
     } catch (e) {
       debugPrint('The userLogin Errror is: ${e.toString()}');
+      return null;
+    }
+  }
+
+  // method for user logout
+  Future<ResponseModel?> userLogout() async {
+    try {
+      http.Response response = await http.get(
+        Uri.parse('$baseUrl/api/auth/logout'),
+        headers: {
+          'Content-Type': 'application/json',
+          "Authorization": "Bearer ${Prefs.getString('token')!}",
+        },
+      );
+      var data = jsonDecode(response.body);
+      ResponseModel? responseData = ResponseModel.fromJson(data);
+      debugPrint('The logout data is ${responseData.status}');
+      return responseData;
+    } catch (e) {
+      debugPrint('The userLogout Errror is: ${e.toString()}');
       return null;
     }
   }

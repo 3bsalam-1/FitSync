@@ -4,7 +4,6 @@ import '../../../cubits_logic/workouts/counter_time_challenges.dart';
 import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../../shared/widgets/global/custom_image.dart';
-import '../../../shared/widgets/global/custom_translate_text.dart';
 import '../../home_main_screen.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -45,7 +44,7 @@ class CongratulationsScreen extends StatelessWidget {
             ),
           ),
           CustomAnimatedOpacity(
-            child: customTranslateText(
+            child: Text(
               provider.finishedExercises < provider.exerciseTimeSec.length ~/ 2
                   ? 'Keep going'
                   : provider.finishedExercises <
@@ -63,7 +62,7 @@ class CongratulationsScreen extends StatelessWidget {
             ),
           ),
           CustomAnimatedOpacity(
-            child: customTranslateText(
+            child: Text(
               provider.finishedExercises < provider.exerciseTimeSec.length ~/ 2
                   ? 'You can finish the challenge'
                   : provider.finishedExercises <
@@ -149,7 +148,7 @@ Widget congratulateData({
     mainAxisSize: MainAxisSize.min,
     crossAxisAlignment: CrossAxisAlignment.center,
     children: [
-      customTranslateText(
+      Text(
         value,
         style: const TextStyle(
           color: black,
@@ -157,7 +156,7 @@ Widget congratulateData({
           fontWeight: FontWeight.w600,
         ),
       ),
-      customTranslateText(
+      Text(
         title,
         style: const TextStyle(
           color: black,

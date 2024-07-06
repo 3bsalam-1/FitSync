@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
+import '../../../../services/pref.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_animated_opacity.dart';
-import '../../global/custom_translate_text.dart';
 import '../custom_chart_column.dart';
 import 'progress_bar_sleep_hours.dart';
 import 'sleep_hours.dart';
@@ -37,6 +37,19 @@ class DraggableScrollSleep extends StatelessWidget {
       child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
         builder: (context, state) {
           final weekData = context.read<SmartWatchCubit>().smartWatchWeek;
+          final sleep = context
+                  .read<SmartWatchCubit>()
+                  .vitalInfodata
+                  ?.sleepHours
+                  .last
+                  .value ??
+              0;
+          final goalSleep = Prefs.getDouble("sleep-goal");
+          double precent = (goalSleep == null)
+              ? 100
+              : ((sleep / goalSleep) * 100) > 100
+                  ? 100
+                  : ((sleep / goalSleep) * 100);
           return SingleChildScrollView(
             child: Column(
               children: [
@@ -54,19 +67,19 @@ class DraggableScrollSleep extends StatelessWidget {
                 CustomAnimatedOpacity(
                   child: SizedBox(
                     width: width * 0.84,
-                    child: const Row(
+                    child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SleepInformation(
-                          title: 'Deep sleep 43%',
+                          title: 'Deep sleep ${precent.ceil()}%',
                           value: '3.18',
                         ),
                         SleepInformation(
-                          title: 'Light sleep 56%',
+                          title: 'Light sleep ${precent.ceil()}%',
                           value: '4.15',
                         ),
-                        SleepInformation(
+                        const SleepInformation(
                           title: 'Wake-up time',
                           value: '0.07',
                         ),
@@ -89,7 +102,7 @@ class DraggableScrollSleep extends StatelessWidget {
                     opacity: value,
                     duration: const Duration(milliseconds: 400),
                     curve: Curves.easeIn,
-                    child: customTranslateText(
+                    child: Text(
                       'you slept better than 53% of users',
                       style: GoogleFonts.poppins(
                         fontSize: 10,
@@ -103,7 +116,7 @@ class DraggableScrollSleep extends StatelessWidget {
                 CustomAnimatedOpacity(
                   child: Align(
                     alignment: Alignment.topLeft,
-                    child: customTranslateText(
+                    child: Text(
                       'Analytics',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
@@ -118,7 +131,8 @@ class DraggableScrollSleep extends StatelessWidget {
                   child: CustomChartColumn(
                     title: 'Sleep',
                     value: '',
-                    subTitle: 'you slept better the last 4 weeks',
+                    subTitle:
+                        'The total sleep hours in one week is ${weekData?.totalSleep ?? "_"} hours',
                     onPressed: () {
                       // todo
                     },

@@ -16,7 +16,6 @@ import '../../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import '../../../../shared/widgets/survey_comp/custom_snackbar.dart';
 import '../../global/custom_animated_opacity.dart';
 import '../../global/custom_button.dart';
-import '../../global/custom_translate_text.dart';
 import '../../survey_comp/choices_comp/choices_body_question.dart';
 import '../../survey_comp/choices_comp/custom_card.dart';
 import '../../survey_comp/choices_comp/question_survey.dart';
@@ -293,7 +292,7 @@ class DateBirthUpdateScreen extends StatelessWidget {
               children: [
                 CustomAnimatedOpacity(
                   duration: const Duration(milliseconds: 700),
-                  child: customTranslateText(
+                  child: Text(
                     'What’s Your Date of Birth?',
                     style: GoogleFonts.poppins(
                       fontSize: 26,
@@ -342,7 +341,7 @@ class DateBirthUpdateScreen extends StatelessWidget {
                       },
                       child: CustomAnimatedOpacity(
                         duration: const Duration(milliseconds: 700),
-                        child: customTranslateText(
+                        child: Text(
                           context
                                   .read<TextFormValidationCubit>()
                                   .birthDateController
@@ -629,7 +628,7 @@ class GenderUpdateScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 26),
-              customTranslateText(
+              Text(
                 'What’s Your Gender ?',
                 style: GoogleFonts.poppins(
                   fontSize: 26,

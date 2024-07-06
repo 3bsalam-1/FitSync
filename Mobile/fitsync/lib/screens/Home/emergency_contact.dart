@@ -7,7 +7,6 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 import '../../shared/widgets/global/custom_button.dart';
 
 class EmergencyContact extends StatelessWidget {
@@ -35,7 +34,7 @@ class EmergencyContact extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CustomAnimatedOpacity(
-              child: customTranslateText(
+              child: Text(
                 "Emergency Contact",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
@@ -67,7 +66,7 @@ class EmergencyContact extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    customTranslateText(
+                    Text(
                       'Phone Number',
                       style: GoogleFonts.poppins(
                         color: gray2,

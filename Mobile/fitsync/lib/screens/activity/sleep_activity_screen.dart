@@ -22,7 +22,7 @@ class SleepActivityScreen extends StatelessWidget {
       backgroundColor: white,
       body: BlocBuilder<SmartWatchCubit, SmartWatchState>(
         builder: (context, state) {
-          final sleep = context.read<SmartWatchCubit>().smartWatchData?.sleep.toDouble();
+          final sleep = context.read<SmartWatchCubit>().vitalInfodata?.sleepHours.last.value ?? 0;
           final goalSleep = Prefs.getDouble("sleep-goal");
           return Column(
             children: [

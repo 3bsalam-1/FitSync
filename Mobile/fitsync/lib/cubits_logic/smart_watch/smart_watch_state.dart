@@ -11,13 +11,32 @@ final class SmartWatchAlreadyConnected extends SmartWatchState {
   void showSucceussdialog(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
       customSnackbarMessage(
-        context, 
-        backColor: purple10, 
-        icon: Icons.info, 
+        context,
+        backColor: purple10,
+        icon: Icons.info,
         title: 'Info message',
         subTitle: 'The App Connected To Smart Watch Already!!',
-        contentColor: white, 
+        contentColor: white,
         duration: const Duration(seconds: 1),
+      ),
+    );
+  }
+}
+
+final class SmartWatchFailureConnection extends SmartWatchState {
+  final String message;
+  SmartWatchFailureConnection(this.message);
+
+  void showSucceussdialog(BuildContext context) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      customSnackbarMessage(
+        context,
+        backColor: yellow2,
+        icon: Icons.warning_rounded,
+        title: 'Warning message',
+        subTitle: message,
+        contentColor: black,
+        duration: const Duration(seconds: 2),
       ),
     );
   }
@@ -29,12 +48,12 @@ final class SmartWatchSaveWaterData extends SmartWatchState {
   void showDialog(context) {
     ScaffoldMessenger.of(context).showSnackBar(
       customSnackbarMessage(
-        context, 
-        backColor: purple10, 
-        icon: Icons.info, 
+        context,
+        backColor: purple10,
+        icon: Icons.info,
         title: 'Info message',
         subTitle: 'The water Data are Saved correctly',
-        contentColor: white, 
+        contentColor: white,
         duration: const Duration(seconds: 1),
       ),
     );
@@ -45,12 +64,12 @@ final class SmartWatchSaveDistanceData extends SmartWatchState {
   void showDialog(context) {
     ScaffoldMessenger.of(context).showSnackBar(
       customSnackbarMessage(
-        context, 
-        backColor: purple10, 
-        icon: Icons.info, 
+        context,
+        backColor: purple10,
+        icon: Icons.info,
         title: 'Info message',
         subTitle: 'The steps Data are Saved correctly',
-        contentColor: white, 
+        contentColor: white,
         duration: const Duration(seconds: 1),
       ),
     );
@@ -61,14 +80,16 @@ final class SmartWatchSaveSleepData extends SmartWatchState {
   void showDialog(context) {
     ScaffoldMessenger.of(context).showSnackBar(
       customSnackbarMessage(
-        context, 
-        backColor: purple10, 
-        icon: Icons.info, 
+        context,
+        backColor: purple10,
+        icon: Icons.info,
         title: 'Info message',
         subTitle: 'The sleep Data are Saved correctly',
-        contentColor: white, 
+        contentColor: white,
         duration: const Duration(seconds: 1),
       ),
     );
   }
 }
+
+final class VitalInfoData extends SmartWatchState {}

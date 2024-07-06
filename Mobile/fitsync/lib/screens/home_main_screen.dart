@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:fitsync/data/cubit/user_data/user_data_info_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,17 +21,8 @@ class HomeMainScreen extends StatelessWidget {
         BlocListener<NewTokenCubit, bool>(
           listener: (context, state) {
             if (state) {
+              context.read<SmartWatchCubit>().callVitalInfo();
               context.read<UserDataInfoCubit>().getUserDataInfo(context);
-            }
-            Timer.periodic(const Duration(minutes: 3), (timer) {
-              context.read<SmartWatchCubit>().getSmartWatchData();
-            });
-          },
-        ),
-        BlocListener<SmartWatchCubit, SmartWatchState>(
-          listener: (context, state) {
-            if (state is SmartWatchConnection) {
-              context.read<SmartWatchCubit>().getSmartWatchData();
             }
           },
         ),
@@ -48,6 +37,9 @@ class HomeMainScreen extends StatelessWidget {
                   );
               context.read<WorkoutsCubit>().getAllWorkouts();
               context.read<FavoriteWorkoutsCubit>().getAllFavoriteWorkouts();
+              context.read<InternetConnectivityCubit>().checkIfHasData(
+                    context.read<WorkoutsCubit>().allworkouts,
+                  );
             }
           },
         ),
@@ -56,6 +48,7 @@ class HomeMainScreen extends StatelessWidget {
         body:
             BlocListener<InternetConnectivityCubit, InternetConnectivityState>(
           listener: (context, state) {
+            context.read<SmartWatchCubit>().getSmartWatchData();
             if (state is InternetConnectivityOFFWithData) {
               state.showDialog(context);
             }

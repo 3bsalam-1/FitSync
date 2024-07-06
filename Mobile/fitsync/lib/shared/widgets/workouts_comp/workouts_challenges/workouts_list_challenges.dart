@@ -6,7 +6,6 @@ import '../../../../data/models/workouts_model.dart';
 import '../../../../services/convert_ms.dart';
 import '../../../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
-import '../../global/custom_translate_text.dart';
 import '../../global/custom_image.dart';
 
 class WorkoutsListChallenges extends StatelessWidget {
@@ -61,7 +60,7 @@ class WorkoutsListChallenges extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  customTranslateText(
+                  Text(
                     workouts.exercisePlan[index],
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -71,7 +70,7 @@ class WorkoutsListChallenges extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  customTranslateText(
+                  Text(
                     getTimeEachExercise(
                         workouts.planDurationMn, context)[index],
                     style: GoogleFonts.poppins(

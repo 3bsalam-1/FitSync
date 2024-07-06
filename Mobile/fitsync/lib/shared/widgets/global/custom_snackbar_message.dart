@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
-import '../global/custom_translate_text.dart';
 
 SnackBar customSnackbarMessage(
   context, {
@@ -37,7 +36,7 @@ SnackBar customSnackbarMessage(
             size: 20,
           ),
         ),
-        title: customTranslateText(
+        title: Text(
           title,
           style: GoogleFonts.poppins(
             fontSize: 13,
@@ -45,7 +44,7 @@ SnackBar customSnackbarMessage(
             color: contentColor,
           ),
         ),
-        subtitle: customTranslateText(
+        subtitle: Text(
           subTitle,
           maxLines: 2,
           overflow: TextOverflow.ellipsis,

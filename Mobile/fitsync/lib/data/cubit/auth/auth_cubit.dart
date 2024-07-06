@@ -4,24 +4,22 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fitsync/data/models/user_data_model.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../../../services/decode_jwt.dart';
 import '../../../services/pref.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_snackbar_message.dart';
-import '../../../shared/widgets/global/custom_translate_text.dart';
 import '../../../shared/widgets/login_comp/loading_dialog.dart';
+import '../../models/response_model.dart';
 import '../../repository/login_res/code_confirm_repo.dart';
 import '../../repository/login_res/password_repo.dart';
+import 'package:fitsync/data/repository/google_login.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../repository/login_res/user_auth_repo.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthCubitState> {
   AuthCubit() : super(AuthCubitInitial());
-  var email = TextEditingController();
-  var password = TextEditingController();
-  var confirmPassword = TextEditingController();
-  var username = TextEditingController();
-  var firstName = TextEditingController();
-  var lastName = TextEditingController();
+
   var keyValidateSignin = GlobalKey<FormState>();
   var keyValidateSignup = GlobalKey<FormState>();
   var keyValidatePass = GlobalKey<FormState>();
@@ -62,7 +60,11 @@ class AuthCubit extends Cubit<AuthCubitState> {
     emit(AuthCubitInitial());
   }
 
-  void signin(BuildContext context) async {
+  void signin(
+    BuildContext context, {
+    required String email,
+    required String password,
+  }) async {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
     if (keyValidateSignin.currentState!.validate()) {
@@ -70,8 +72,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
       if (checkWifi) {
         auth
             .userLogin(
-          email: email.text,
-          password: password.text,
+          email: email,
+          password: password,
         )
             .then((response) {
           ScaffoldMessenger.of(context).clearSnackBars();
@@ -80,11 +82,13 @@ class AuthCubit extends Cubit<AuthCubitState> {
               // will show error massege which there something went wrong
               emit(AuthFaliure(response.message!));
             } else {
+              Prefs.setBool('google', false);
               // There is no error then go to the home page & save token
               Prefs.setString('token', response.token!);
-              Prefs.setString('email', email.text);
-              Prefs.setString('password', password.text);
+              Prefs.setString('email', email);
+              Prefs.setString('password', password);
               emit(AuthSuccess(message: 'Login Successfully'));
+              decodeJWT();
               Future.delayed(
                 const Duration(seconds: 3),
                 () {
@@ -107,7 +111,15 @@ class AuthCubit extends Cubit<AuthCubitState> {
     }
   }
 
-  void register(BuildContext context) async {
+  void register(
+    BuildContext context, {
+    required String email,
+    required String firstName,
+    required String lastName,
+    required String username,
+    required String password,
+    required String confirmPassword,
+  }) async {
     autovalidateMode = AutovalidateMode.always;
     emit(AuthCubitInitial());
     if (keyValidateSignup.currentState!.validate() && agreePolicy) {
@@ -116,12 +128,12 @@ class AuthCubit extends Cubit<AuthCubitState> {
         auth
             .userRegister(
           userData: UserDataModel(
-            firstName: firstName.text,
-            lastName: lastName.text,
-            username: username.text,
-            email: email.text,
-            password: password.text,
-            passwordConfirm: confirmPassword.text,
+            firstName: firstName,
+            lastName: lastName,
+            username: username,
+            email: email,
+            password: password,
+            passwordConfirm: confirmPassword,
           ),
         )
             .then((response) {
@@ -133,8 +145,8 @@ class AuthCubit extends Cubit<AuthCubitState> {
             } else {
               // There is no error then go to the home page & save token
               Prefs.setString('token', response.token!);
-              Prefs.setString('email', email.text);
-              Prefs.setString('password', password.text);
+              Prefs.setString('email', email);
+              Prefs.setString('password', password);
               emit(AuthSuccess(
                 message: 'The code has sent to your email',
                 backcontent: purple10,
@@ -201,7 +213,7 @@ class AuthCubit extends Cubit<AuthCubitState> {
               // The user is created account so they will save as login to the app
               Prefs.setBool('isLogin', true);
               // The user still no take the survey
-              Prefs.setBool('takeSurvey', false);
+              decodeJWT();
               emit(AuthSuccess(
                 message: 'The Verification Success',
                 backcontent: purple10,
@@ -235,13 +247,13 @@ class AuthCubit extends Cubit<AuthCubitState> {
     }
   }
 
-  void forgetPassword(BuildContext context) async {
-    if (email.text.isNotEmpty) {
+  void forgetPassword(BuildContext context, {required String email}) async {
+    if (email.isNotEmpty) {
       bool checkWifi = await isInternetConnectivityON();
       if (checkWifi) {
         pass
             .forgetPassword(
-          email: email.text,
+          email: email,
         )
             .then((response) {
           ScaffoldMessenger.of(context).clearSnackBars();
@@ -361,14 +373,18 @@ class AuthCubit extends Cubit<AuthCubitState> {
     }
   }
 
-  void resetPassword(BuildContext context) async {
+  void resetPassword(
+    BuildContext context, {
+    required String password,
+    required String confirmPassword,
+  }) async {
     if (keyValidatePass.currentState!.validate()) {
       bool checkWifi = await isInternetConnectivityON();
       if (checkWifi) {
         pass
             .resetPassword(
-          password: password.text,
-          passwordConfirm: confirmPassword.text,
+          password: password,
+          passwordConfirm: confirmPassword,
           token: Prefs.getString('token')!,
         )
             .then((response) {
@@ -407,6 +423,46 @@ class AuthCubit extends Cubit<AuthCubitState> {
       } else {
         emit(InternetConnectivityOFF());
       }
+    }
+  }
+
+  void signInWithGoogle(context) async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    if (googleUser == null) {
+      emit(AuthFaliure('Something went wrong in server'));
+      return;
+    }
+    debugPrint('The email is ${googleUser.email}');
+    Prefs.setBool('google', true);
+    ResponseModel? response = await ContinueWithGoogle().continueWithGoogle(
+      name: "${googleUser.displayName}",
+      email: googleUser.email,
+      avatar: "${googleUser.photoUrl}",
+    );
+    if (response != null) {
+      if (response.token != null) {
+        Prefs.setString('token', response.token!);
+        Prefs.setString('email', googleUser.email);
+        Prefs.setString('userName', googleUser.photoUrl!);
+        Prefs.setString('avatar', googleUser.displayName!);
+        googleUser.clearAuthCache;
+        await GoogleSignIn().disconnect();
+        emit(AuthSuccess(message: 'Login Successfully'));
+        decodeJWT();
+        Future.delayed(
+          const Duration(seconds: 3),
+          () {
+            ScaffoldMessenger.of(context).clearSnackBars();
+            Future.delayed(const Duration(milliseconds: 500), () {
+              emit(AuthLogin());
+            });
+          },
+        );
+      } else {
+        emit(AuthFaliure('Something went wrong in server'));
+      }
+    } else {
+      emit(AuthFaliure('There is no wi-fi connection'));
     }
   }
 }

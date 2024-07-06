@@ -7,10 +7,10 @@ import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/widgets/global/custom_image.dart';
-import '../../../shared/widgets/global/custom_translate_text.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import '../../../shared/widgets/workouts_comp/workouts_challenges/animated_circle_progress.dart';
 import '../../../cubits_logic/workouts/counter_time_challenges.dart';
+import '../workouts_screen.dart';
 import '../workouts_view_challenge.dart';
 import 'congratulations_screen.dart';
 import 'rest_challenge_screen.dart';
@@ -62,7 +62,7 @@ class ChallengeBeginScreen extends StatelessWidget {
                 ),
               ),
               CustomAnimatedOpacity(
-                child: customTranslateText(
+                child: Text(
                   workouts.exercisePlan[indexExercise],
                   style: GoogleFonts.poppins(
                     fontSize: 26,
@@ -128,8 +128,9 @@ class ChallengeBeginScreen extends StatelessWidget {
                             ),
                           );
                         } else {
-                          // todo here save done exercises
                           provider.getExerciseResult(workouts);
+                          provider.saveWorkoutsActiveHours();
+                          changeActivity = true;
                           AnimatedNavigator().push(
                             context,
                             CongratulationsScreen(

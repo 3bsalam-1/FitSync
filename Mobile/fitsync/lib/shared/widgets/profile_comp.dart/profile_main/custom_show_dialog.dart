@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../../cubits_logic/global/translate_lang_cubit.dart';
+import '../../../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../../../screens/splash/start_screen.dart';
-import '../../../../services/pref.dart';
 import '../../../colors/colors.dart';
 import '../../global/animated_navigator.dart';
+import '../../global/custom_translate_text.dart';
 
 class CustomShowLogoutDialog extends StatelessWidget {
   const CustomShowLogoutDialog({super.key});
@@ -26,7 +26,7 @@ class CustomShowLogoutDialog extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
+            customTranslateText(
               'Are you sure that you want to logout?',
               style: GoogleFonts.poppins(
                 color: black,
@@ -40,20 +40,13 @@ class CustomShowLogoutDialog extends StatelessWidget {
               children: [
                 TextButton(
                   onPressed: () {
-                    Prefs.setBool('isLogin', false);
-                    if (Prefs.getString(
-                          'watch-permission',
-                        ) !=
-                        null) {
-                      Prefs.remove('watch-permission');
-                    }
-                    Prefs.remove('user');
+                    context.read<UserDataInfoCubit>().userLogout();
                     AnimatedNavigator().pushAndRemoveUntil(
                       context,
                       const StartScreen(),
                     );
                   },
-                  child: Text(
+                  child: customTranslateText(
                     'Logout',
                     style: GoogleFonts.poppins(
                       color: purple5,
@@ -66,7 +59,7 @@ class CustomShowLogoutDialog extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).pop(context);
                   },
-                  child: Text(
+                  child: customTranslateText(
                     'Cancel',
                     style: GoogleFonts.poppins(
                       color: black,

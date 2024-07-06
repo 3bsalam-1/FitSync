@@ -4,7 +4,6 @@ import '../../data/cubit/user_data/user_data_info_cubit.dart';
 import '../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../data/models/workouts_model.dart';
 import '../../shared/widgets/global/custom_image.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 import '../home_main_screen.dart';
 import 'start_challenge/start_challenge_screen.dart';
 import '../../../shared/widgets/global/custom_button.dart';
@@ -15,6 +14,8 @@ import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_challenges_time.dart';
 import '../../shared/widgets/workouts_comp/workouts_challenges/workouts_list_challenges.dart';
+
+late DateTime startWorkouts;
 
 class WorkoutsViewChallenge extends StatelessWidget {
   final int workoutsIndex;
@@ -115,7 +116,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          customTranslateText(
+                          Text(
                             workouts[workoutsIndex].category,
                             style: GoogleFonts.poppins(
                               fontSize: 24,
@@ -156,6 +157,7 @@ class WorkoutsViewChallenge extends StatelessWidget {
                         label: 'Start',
                         horizontalPadding: width * 0.14,
                         onPressed: () {
+                          startWorkouts = DateTime.now();
                           ScaffoldMessenger.of(context).clearSnackBars();
                           context
                               .read<CounterTimeChallenges>()

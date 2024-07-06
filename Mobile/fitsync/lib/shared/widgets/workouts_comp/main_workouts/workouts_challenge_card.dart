@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../../../../data/cubit/workouts/favorite_workouts_cubit.dart';
 import '../../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
 import '../../global/animated_navigator.dart';
 import '../../global/custom_image.dart';
 import 'custom_start_button.dart';
-import '../../global/custom_translate_text.dart';
+
 class WorkOutsChallengCard extends StatelessWidget {
   const WorkOutsChallengCard({super.key});
 
@@ -21,7 +22,7 @@ class WorkOutsChallengCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              customTranslateText(
+              Text(
                 'Challenges',
                 style: GoogleFonts.poppins(
                   fontSize: 22,
@@ -33,7 +34,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                 onPressed: () {
                   provider.showAllChallenges();
                 },
-                child: customTranslateText(
+                child: Text(
                   'View all',
                   style: GoogleFonts.poppins(
                     fontSize: 16,
@@ -84,7 +85,7 @@ class WorkOutsChallengCard extends StatelessWidget {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 30),
-                          child: customTranslateText(
+                          child: Text(
                             '7 x ${provider.viewAllChallenge ? index + 1 : DateTime.now().weekday} CHALLENGE',
                             style: GoogleFonts.poppins(
                               fontSize: 14,
@@ -93,20 +94,26 @@ class WorkOutsChallengCard extends StatelessWidget {
                             ),
                           ),
                         ),
-                        customTranslateText(
-                          provider.viewAllChallenge
-                              ? provider.challenges![index].category
-                              : provider.challenges![DateTime.now().weekday - 1]
-                                  .category,
-                          style: GoogleFonts.poppins(
-                            fontSize: 22,
-                            color: white,
-                            fontWeight: FontWeight.w600,
+                        SizedBox(
+                          width: 150,
+                          child: Text(
+                            provider.viewAllChallenge
+                                ? provider.challenges![index].category
+                                : provider
+                                    .challenges![DateTime.now().weekday - 1]
+                                    .category,
+                            overflow: TextOverflow.ellipsis,
+                            style: GoogleFonts.poppins(
+                              fontSize: 22,
+                              color: white,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ),
                         const SizedBox(height: 10),
                         CustomStartButton(
                           onTap: () {
+                            context.read<FavoriteWorkoutsCubit>().setFavoriteToInitial();
                             AnimatedNavigator().push(
                               context,
                               WorkoutsViewChallenge(

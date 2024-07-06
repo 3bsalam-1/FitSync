@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../colors/colors.dart';
-import '../global/custom_translate_text.dart';
 
 class ErrorInternetConnection extends StatefulWidget {
   const ErrorInternetConnection({super.key});
@@ -43,7 +42,7 @@ class _ErrorInternetConnectionState extends State<ErrorInternetConnection>
           const SizedBox(height: 20),
           AnimatedBuilder(
             animation: controller,
-            builder: (context, child) => customTranslateText(
+            builder: (context, child) => Text(
               "No Internet Connection",
               style: GoogleFonts.poppins(
                 fontSize: 19,

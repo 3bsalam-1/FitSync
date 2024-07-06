@@ -6,10 +6,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconly/iconly.dart';
 import '../../data/cubit/auth/auth_cubit.dart';
 import '../../shared/widgets/global/animated_navigator.dart';
-import 'verification_screen.dart';
+import 'verification_password.dart';
 
-class ForgotPasswordPage extends StatelessWidget {
-  const ForgotPasswordPage({super.key});
+class ForgotPasswordPage extends StatefulWidget {
+  final String userEmail;
+  const ForgotPasswordPage({super.key, required this.userEmail});
+
+  @override
+  State<ForgotPasswordPage> createState() => _ForgotPasswordPageState();
+}
+
+class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
+  var email = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -43,15 +51,7 @@ class ForgotPasswordPage extends StatelessWidget {
             } else if (state is AuthForgetPassword) {
               AnimatedNavigator().push(
                 context,
-                VerificationPage(
-                  onPressed: () {
-                    context.read<AuthCubit>().resetCode(context);
-                  },
-                  sendCodeAgain: () {
-                    context.read<AuthCubit>().forgetPassword(context);
-                  },
-                  email: context.read<AuthCubit>().email.text,
-                ),
+                VerificationPasswordPage(email: email.text),
               );
             }
           },
@@ -89,7 +89,7 @@ class ForgotPasswordPage extends StatelessWidget {
                   icon: IconlyLight.message,
                   hintText: "Email",
                   horizontalPadding: 25,
-                  controller: context.read<AuthCubit>().email,
+                  controller: email,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'can Not be empty';
@@ -113,7 +113,10 @@ class ForgotPasswordPage extends StatelessWidget {
                   label: "Reset Password",
                   onPressed: () {
                     FocusScope.of(context).unfocus();
-                    context.read<AuthCubit>().forgetPassword(context);
+                    context.read<AuthCubit>().forgetPassword(
+                          context,
+                          email: email.text,
+                        );
                   },
                 ),
               ],

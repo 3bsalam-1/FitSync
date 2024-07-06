@@ -1,23 +1,30 @@
+import 'package:fitsync/data/cubit/favourite_food/cubit/favourite_meal_cubit.dart';
 import 'package:fitsync/data/models/food_model.dart';
 import 'package:fitsync/screens/Diet/meal_overview_screen.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_ingredients_widget.dart';
 import 'package:fitsync/shared/widgets/diet_comp/page2.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../global/custom_translate_text.dart';
+
 
 class CustomSavedRecipesWidget extends StatelessWidget {
   final String imageUrl;
   final String label1;
   final String label2;
+  final void Function()? onPressed;
+  bool iconColor=false;
   CustomSavedRecipesWidget({
     required this.diet,
     required this.imageUrl,
     required this.label1,
     required this.label2,
+    required this.onPressed,
+    required this.iconColor,
     super.key,
   });
   FoodModel diet;
@@ -100,10 +107,10 @@ class CustomSavedRecipesWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               IconButton(
-                  onPressed: () {},
+                  onPressed: onPressed,
                   icon: Icon(
                     IconlyBold.heart,
-                    color: purple5,
+                    color: iconColor?purple5:gray2,
                     size: 20,
                   )),
               Padding(
@@ -114,6 +121,7 @@ class CustomSavedRecipesWidget extends StatelessWidget {
                         context,
                         MealOverviewScreen(
                           diet: diet,
+                          iconColor: iconColor,
                         ));
                     weight = 0;
                     for (int i = 0; i < 100; i++) {

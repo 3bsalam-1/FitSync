@@ -108,4 +108,18 @@ class UserInfoRepo {
       return null;
     }
   }
+
+  // void isUserActive() async {
+  //   try {
+  //     await http.patch(
+  //       Uri.parse('$baseUrl/api/userInfo/isActive'),
+  //       headers: {
+  //         'Authorization': 'Bearer ${Prefs.getString('token')!}',
+  //         'Content-Type': 'application/json',
+  //       },
+  //     );
+  //   } catch (e) {
+  //     debugPrint('The is user activite error is: ${e.toString()}');
+  //   }
+  // }
 }

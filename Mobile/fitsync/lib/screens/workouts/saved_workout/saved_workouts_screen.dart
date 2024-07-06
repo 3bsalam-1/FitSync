@@ -5,7 +5,6 @@ import '../../../data/cubit/workouts/workouts_cubit.dart';
 import '../../../data/models/workouts_model.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/custom_image.dart';
-import '../../../shared/widgets/global/custom_translate_text.dart';
 
 class SavedWorkOutsScreen extends StatelessWidget {
   final List<WorkoutsModel> workoutsFav;
@@ -54,7 +53,7 @@ class SavedWorkOutsScreen extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        customTranslateText(
+                        Text(
                           workouts.category,
                           style: GoogleFonts.poppins(
                             fontSize: 22,
@@ -62,7 +61,7 @@ class SavedWorkOutsScreen extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        customTranslateText(
+                        Text(
                           '${workouts.exercisePlan.length} Exercises',
                           style: GoogleFonts.poppins(
                             fontSize: 12,
@@ -70,7 +69,7 @@ class SavedWorkOutsScreen extends StatelessWidget {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        customTranslateText(
+                        Text(
                           '${workouts.planDurationMn} Minutes',
                           style: GoogleFonts.poppins(
                             fontSize: 12,

@@ -4,13 +4,15 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/custom_filter_button.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 List<String> filter1=[];
 String foodType="";
+String nutrientType="";
+String dietType="";
 
 class FilterDietScreen extends StatelessWidget {
 
@@ -218,16 +220,16 @@ class FilterDietScreen extends StatelessWidget {
                     children: [
                       Row(
                         children: [
-                          CustomFilterButton(label: 'Magnesium'),
-                          CustomFilterButton(label: 'Protien'),
-                          CustomFilterButton(label: 'Calcium'),
+                          CustomFilterButton(label: 'Magnesium',value: "magnesium",),
+                          CustomFilterButton(label: 'Protien',value: "protien",),
+                          CustomFilterButton(label: 'Calcium',value: "calcium",),
                           
                         ],
                       ),
                       Row(
                         children: [
-                          CustomFilterButton(label: 'Iron'),
-                          CustomFilterButton(label: 'Carbohydrates'),
+                          CustomFilterButton(label: 'Iron',value: "iron",),
+                          CustomFilterButton(label: 'Carbohydrates',value: "carbohydrates",),
                         ],
                       ),
                     ],
@@ -237,9 +239,9 @@ class FilterDietScreen extends StatelessWidget {
                   SizedBox(height: 12),
                   Row(
                     children: [
-                      CustomFilterButton(label: 'Ketagenic'),
-                      CustomFilterButton(label: 'Gluten free'),
-                      CustomFilterButton(label: 'Low fat'),
+                      CustomFilterButton(label: 'Ketagenic',value: "ketogenic_diet vegan_diet high_fiber_diet high_protien_diet dash_diet",),
+                      CustomFilterButton(label: 'Gluten free',value: "high_protien_diet low_fat_diet gluten_free_diet",),
+                      CustomFilterButton(label: 'Low fat',value: "low_fat_diet gluten_free_diet high_fiber_diet high_protien_diet dash_diet",),
                     ],
                   ),
                   SizedBox(height: 12),
@@ -329,7 +331,7 @@ class FilterDietScreen extends StatelessWidget {
                                context.read<FilterCubit>().realcolor3,
                               borderRadius: BorderRadius.circular(25),
                             ),
-                            child: Text(
+                            child: customTranslateText(
                               'Carnivore',
                               style: GoogleFonts.poppins(
                                 fontSize: 10,

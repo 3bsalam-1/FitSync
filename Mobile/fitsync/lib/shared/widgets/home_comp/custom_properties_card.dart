@@ -1,7 +1,7 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../global/custom_translate_text.dart';
+
 class CustomPropertiesCard extends StatelessWidget {
   final String label1;
   final String label2;
@@ -30,7 +30,7 @@ class CustomPropertiesCard extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          customTranslateText(
+          Text(
             label1,
             style: GoogleFonts.poppins(
               fontSize: 14,
@@ -38,10 +38,10 @@ class CustomPropertiesCard extends StatelessWidget {
               color: black4,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 2,
           ),
-          customTranslateText(
+          Text(
             label2,
             style: GoogleFonts.poppins(
               fontSize: 12,

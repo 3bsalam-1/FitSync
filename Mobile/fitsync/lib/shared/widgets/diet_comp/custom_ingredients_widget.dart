@@ -3,23 +3,22 @@ import 'package:fitsync/data/models/ingrediant_cals_model.dart';
 import 'package:fitsync/data/repository/food/ingrediant_cals.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/diet_comp/page2.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../global/custom_translate_text.dart';
 
 int weight = 0;
-int calories=0;
+int calories = 0;
 
-
+// ignore: must_be_immutable
 class CustomIngredientsWidget extends StatelessWidget {
   //final String imageUrl;
   final String label1;
   //int weight=0;
   int num;
   int ind;
-  double cal=0;
-  
+  double cal = 0;
 
   CustomIngredientsWidget({
     super.key,
@@ -28,7 +27,6 @@ class CustomIngredientsWidget extends StatelessWidget {
     required this.num,
     required this.ind,
   });
-  
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +62,7 @@ class CustomIngredientsWidget extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 2),
                     child: customTranslateText(
-                      "${num} gm",
+                      "$num gm",
                       style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
                         fontSize: 10,
@@ -97,33 +95,32 @@ class CustomIngredientsWidget extends StatelessWidget {
                                 count1[ind] = num;
                                 weight -= 50;
 
-                              List<IngrediantModel>ingredintCals=[];
-                              List<String>words=[];
-                              words= label1.split(' ');
+                                List<IngrediantModel> ingredintCals = [];
+                                List<String> words = [];
+                                words = label1.split(' ');
 
-                              fun()async{
-                               int i=0;
-                               while(i<words.length){
-                                ingredintCals= await IngredientCalories().getIngrediantCalories(words[i++]);
-                                if(!ingredintCals.isEmpty){
-                                calories-=(int.parse(ingredintCals[0].caloriesPer100Grams)/2).round();
+                                fun() async {
+                                  int i = 0;
+                                  while (i < words.length) {
+                                    ingredintCals = await IngredientCalories()
+                                        .getIngrediantCalories(words[i++]);
+                                    if (ingredintCals.isNotEmpty) {
+                                      calories -= (int.parse(ingredintCals[0]
+                                                  .caloriesPer100Grams) /
+                                              2)
+                                          .round();
+                                    } else {
+                                      calories -= 0;
+                                    }
+                                  }
+                                }
 
-                              }
-                              
-                              else{
-                                calories-=0;
-                              }
-                              
-                               }
+                                // run()async{
+                                //   await fun();
+                                //  // print(calories);
 
-                              }
-
-                              // run()async{
-                              //   await fun();
-                              //  // print(calories);
-
-                              // }
-                              // run();
+                                // }
+                                // run();
                                 fun();
                               }
                             },
@@ -133,7 +130,7 @@ class CustomIngredientsWidget extends StatelessWidget {
                               size: 13,
                             ),
                           ),
-                          // Text(
+                          // customTranslateText(
                           //   num.toString(),
                           //   style: GoogleFonts.poppins(
                           //     fontWeight: FontWeight.w500,
@@ -149,29 +146,27 @@ class CustomIngredientsWidget extends StatelessWidget {
                               count1[ind] = num;
                               weight += 50;
 
-                              List<IngrediantModel>ingredintCals=[];
-                              List<String>words=[];
-                              words= label1.split(' ');
+                              List<IngrediantModel> ingredintCals = [];
+                              List<String> words = [];
+                              words = label1.split(' ');
 
-                              fun()async{
-                               int i=0;
-                               while(i<words.length){
-                                ingredintCals= await IngredientCalories().getIngrediantCalories(words[i++]);
-                                if(!ingredintCals.isEmpty){
-                                calories+=(int.parse(ingredintCals[0].caloriesPer100Grams)/2).round();
+                              fun() async {
+                                int i = 0;
+                                while (i < words.length) {
+                                  ingredintCals = await IngredientCalories()
+                                      .getIngrediantCalories(words[i++]);
+                                  if (ingredintCals.isNotEmpty) {
+                                    calories += (int.parse(ingredintCals[0]
+                                                .caloriesPer100Grams) /
+                                            2)
+                                        .round();
+                                  } else {
+                                    calories += 0;
+                                  }
+                                }
 
-                              }
-                              
-                              else{
-                                calories+=0;
-                              }
-                              
-                               }
-
-                               
-                              // print(ingredintCals[0].caloriesPer100Grams);
-                             // print(ingredintCals[0].ingredient);
-                               
+                                // print(ingredintCals[0].caloriesPer100Grams);
+                                // print(ingredintCals[0].ingredient);
                               }
 
                               // run()async{
@@ -181,9 +176,8 @@ class CustomIngredientsWidget extends StatelessWidget {
                               // }
                               // run();
                               fun();
-                              
                             },
-                            child: Text(
+                            child: const Text(
                               '+',
                               style: TextStyle(color: white, fontSize: 15),
                             ),

@@ -12,7 +12,6 @@ import 'package:iconly/iconly.dart';
 import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../services/pref.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 import '../profile/profile_informtion_screen.dart';
 import '../profile/write_reminder_screen.dart';
 import 'emergency_contact.dart';
@@ -28,7 +27,7 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: white,
         automaticallyImplyLeading: false,
         title: CustomAnimatedOpacity(
-          child: customTranslateText(
+          child: Text(
             "Hello ${Prefs.getStringList("user")![1]}",
             style: const TextStyle(
               fontWeight: FontWeight.w600,
@@ -51,6 +50,9 @@ class ProfilePage extends StatelessWidget {
         listener: (context, state) {
           if (state is SmartWatchConnection) {
             context.read<SmartWatchCubit>().getSmartWatchData();
+          }
+          if (state is SmartWatchFailureConnection) {
+            state.showSucceussdialog(context);
           }
           if (state is SmartWatchAlreadyConnected) {
             context.read<SmartWatchCubit>().getSmartWatchData();

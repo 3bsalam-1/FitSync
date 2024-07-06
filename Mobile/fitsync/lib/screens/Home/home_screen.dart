@@ -1,11 +1,11 @@
+import 'package:fitsync/cubits_logic/diet_logic/water_add/water_add_cubit.dart';
 import 'package:fitsync/data/models/all_calories.dart';
 import 'package:fitsync/data/repository/food/all_calories.dart';
 import 'package:fitsync/screens/Home/notifications_screen.dart';
 import 'package:fitsync/screens/Home/profile_screen.dart';
-import 'package:fitsync/screens/Home/tips&tricks_screen.dart';
+import 'package:fitsync/screens/Home/tips_tricks_screen.dart';
 import 'package:fitsync/services/pref.dart';
 import 'package:fitsync/shared/colors/colors.dart';
-import 'package:fitsync/shared/widgets/diet_comp/page1.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:fitsync/shared/widgets/home_comp/custom_properties_card.dart';
@@ -23,6 +23,8 @@ import '../../shared/widgets/home_comp/custom_circle_info.dart';
 import 'heart_beat_screen.dart';
 
 double totalDailyCalories = 0;
+int cup = 0;
+String c = "";
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -47,7 +49,7 @@ class _HomePageState extends State<HomePage> {
       });
     } catch (e) {
       // Handle the error accordingly
-      print(e);
+      debugPrint('$e');
     }
   }
 
@@ -576,50 +578,98 @@ class _HomePageState extends State<HomePage> {
                                     color: black2.withOpacity(0.15),
                                   ),
                                 ]),
-                            child: Stack(children: [
-                              Row(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                            child: BlocBuilder<WaterAddCubit, WaterAddState>(
+                              builder: (context, state) {
+                                return Stack(children: [
+                                  Row(
                                     children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 24.53,
-                                          top: 12,
-                                        ),
-                                        child: Text(
-                                          "Water",
-                                          style: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.w500,
-                                            fontSize: 12,
-                                            color: black2,
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 24.53,
+                                              top: 12,
+                                            ),
+                                            child: Text(
+                                              "Water",
+                                              style: GoogleFonts.poppins(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: 12,
+                                                color: black2,
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 24.53, top: 4),
-                                        child: Text(
-                                          "${smartData?.waterL.floorToDouble() ?? "_"} L",
-                                          style: GoogleFonts.poppins(
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 12,
-                                            color: gray3,
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 24.53, top: 4),
+                                            child: cup > 1
+                                                ? Text(
+                                                    "${cup} cups",
+                                                    style: GoogleFonts.poppins(
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12,
+                                                      color: gray3,
+                                                    ),
+                                                  )
+                                                : Text(
+                                                    "${cup} cup",
+                                                    style: GoogleFonts.poppins(
+                                                      fontWeight:
+                                                          FontWeight.w600,
+                                                      fontSize: 12,
+                                                      color: gray3,
+                                                    ),
+                                                  ),
                                           ),
-                                        ),
+                                        ],
                                       ),
                                     ],
                                   ),
-                                ],
-                              ),
-                              Positioned(
-                                bottom: 30,
-                                left: 24.5,
-                                child: Row(
-                                  children: [
-                                    Stack(
+                                  Positioned(
+                                    bottom: 30,
+                                    left: 24.5,
+                                    child: Row(
                                       children: [
+                                        Stack(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/glass.png",
+                                              height: 34,
+                                              width: MediaQuery.of(context)
+                                                      .size
+                                                      .width *
+                                                  (33 / 428),
+                                            ),
+                                            Positioned(
+                                              top: 3,
+                                              child: InkWell(
+                                                onTap: () {
+                                                  cup++;
+                                                  context
+                                                      .read<WaterAddCubit>()
+                                                      .refreshCups();
+                                                },
+                                                child: Icon(
+                                                  Icons.add,
+                                                  color: blue2,
+                                                  size: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      (33 / 428),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              (15 / 428),
+                                        ),
                                         Image.asset(
                                           "assets/images/glass.png",
                                           height: 34,
@@ -628,43 +678,26 @@ class _HomePageState extends State<HomePage> {
                                                   .width *
                                               (33 / 428),
                                         ),
-                                        Positioned(
-                                          top: 3,
-                                          child: Icon(
-                                            Icons.add,
-                                            color: blue2,
-                                            size: MediaQuery.of(context)
-                                                    .size
-                                                    .width *
-                                                (33 / 428),
-                                          ),
+                                        SizedBox(
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              (15 / 428),
+                                        ),
+                                        Image.asset(
+                                          "assets/images/glass.png",
+                                          height: 34,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              (33 / 428),
                                         ),
                                       ],
                                     ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          (15 / 428),
-                                    ),
-                                    Image.asset(
-                                      "assets/images/glass.png",
-                                      height: 34,
-                                      width: MediaQuery.of(context).size.width *
-                                          (33 / 428),
-                                    ),
-                                    SizedBox(
-                                      width: MediaQuery.of(context).size.width *
-                                          (15 / 428),
-                                    ),
-                                    Image.asset(
-                                      "assets/images/glass.png",
-                                      height: 34,
-                                      width: MediaQuery.of(context).size.width *
-                                          (33 / 428),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ]),
+                                  ),
+                                ]);
+                              },
+                            ),
                           ),
                         ),
                       ],

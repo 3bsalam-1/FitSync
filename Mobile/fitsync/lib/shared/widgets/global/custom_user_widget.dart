@@ -1,3 +1,6 @@
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../data/cubit/user_data/avatar_profile_cubit.dart';
 import '../../../shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import '../../../services/pref.dart';
@@ -16,14 +19,19 @@ class UserWidget extends StatelessWidget {
         color: gray8,
         shape: BoxShape.circle,
       ),
-      child: CustomImage(
-        imageUrl: Prefs.getStringList("user")![3],
-        width: 50,
-        height: 50,
-        fit: BoxFit.fill,
-        iconSize: 20,
-        border: 99,
-        errorColor: red,
+      child: BlocBuilder<AvatarProfileCubit, AvatarProfileState>(
+        builder: (context, state) => ClipRRect(
+          borderRadius: BorderRadius.circular(100),
+          child: CustomImage(
+            imageUrl: Prefs.getStringList("user")![3],
+            width: 50,
+            height: 50,
+            fit: BoxFit.fill,
+            iconSize: 20,
+            border: 99,
+            errorColor: red,
+          ),
+        ),
       ),
     );
   }

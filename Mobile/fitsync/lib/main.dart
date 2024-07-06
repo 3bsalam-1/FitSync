@@ -1,3 +1,7 @@
+import 'dart:ui';
+import 'package:fitsync/cubits_logic/diet_logic/water_add/water_add_cubit.dart';
+import 'package:fitsync/data/cubit/favourite_food/cubit/favourite_meal_cubit.dart';
+import 'package:flutter/services.dart';
 import 'cubits_logic/diet_logic/filter_logic/cubit/filter_cubit.dart';
 import 'cubits_logic/global/dark_mode_cubit.dart';
 import 'cubits_logic/global/emergency_contact_cubit.dart';
@@ -21,6 +25,7 @@ import 'cubits_logic/workouts/counter_time_challenges.dart';
 import 'cubits_logic/workouts/selected_level_mode.dart';
 import 'cubits_logic/workouts/week_dates.dart';
 import 'data/cubit/auth/auth_cubit.dart';
+import 'data/cubit/user_data/avatar_profile_cubit.dart';
 import 'data/cubit/user_data/user_data_info_cubit.dart';
 import 'data/cubit/workouts/favorite_workouts_cubit.dart';
 import 'data/cubit/workouts/filters_workouts_cubit.dart';
@@ -40,7 +45,11 @@ void main() async {
     Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     ),
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]),
   ]);
+  DartPluginRegistrant.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -128,6 +137,15 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => ChangestateCubit(),
+        ),
+        BlocProvider(
+          create: (context) => AvatarProfileCubit(),
+        ),
+        BlocProvider(
+          create: (context) => WaterAddCubit(),
+        ),
+        BlocProvider(
+          create: (context) => FavouriteMealCubit(),
         ),
       ],
       child: BlocBuilder<DarkModeCubit, ThemeData>(

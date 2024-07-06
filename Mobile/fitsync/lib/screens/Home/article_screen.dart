@@ -3,7 +3,6 @@ import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 class ArticleScreen extends StatelessWidget {
   const ArticleScreen({super.key});
@@ -37,7 +36,7 @@ class ArticleScreen extends StatelessWidget {
               onPressed: () {
                 AnimatedNavigator().pop(context);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_circle_left,
                 color: purple3,
                 size: 40,
@@ -85,7 +84,7 @@ class ArticleScreen extends StatelessWidget {
                 Container(
                   width: MediaQuery.of(context).size.width * (50 / 428),
                   height: MediaQuery.of(context).size.height * (5 / 926),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                       color: gray12),
                 ),
@@ -97,7 +96,7 @@ class ArticleScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           Container(
-                            padding: EdgeInsets.only(left: 6, right: 6),
+                            padding: const EdgeInsets.only(left: 6, right: 6),
                             //width: MediaQuery.of(context).size.width * (100 / 428),
                             height:
                                 MediaQuery.of(context).size.height * (22 / 926),
@@ -106,7 +105,7 @@ class ArticleScreen extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(50),
                                 color: purple9),
                             child: Center(
-                              child: customTranslateText(
+                              child: Text(
                                 "healthy Food",
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w500,
@@ -123,15 +122,15 @@ class ArticleScreen extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 20, right: 20),
                       child: Row(
                         children: [
-                          Icon(
+                          const Icon(
                             IconlyLight.time_circle,
                             size: 18,
                             color: purple5,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 6,
                           ),
-                          customTranslateText(
+                          Text(
                             "7 Min read",
                             style: GoogleFonts.poppins(
                               fontWeight: FontWeight.w600,
@@ -160,7 +159,7 @@ class ArticleScreen extends StatelessWidget {
                             child: Container(
                               decoration: const BoxDecoration(
                                   color: Colors.white, shape: BoxShape.circle),
-                              child: CircleAvatar(
+                              child: const CircleAvatar(
                                 backgroundColor: Colors.white,
                                 foregroundImage: AssetImage(
                                   "assets/images/person.jfif",
@@ -168,10 +167,10 @@ class ArticleScreen extends StatelessWidget {
                               ),
                             ),
                           )),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      customTranslateText(
+                      Text(
                         "Robert John",
                         style: GoogleFonts.poppins(
                           fontWeight: FontWeight.w600,
@@ -187,12 +186,13 @@ class ArticleScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 20),
+                  // ignore: avoid_unnecessary_containers
                   child: Container(
                     //height: MediaQuery.of(context).size.height,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        customTranslateText(
+                        Text(
                           "What is a healthy diet?",
                           style: GoogleFonts.poppins(
                             fontWeight: FontWeight.w600,
@@ -200,7 +200,7 @@ class ArticleScreen extends StatelessWidget {
                             color: black2,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Padding(
@@ -208,7 +208,7 @@ class ArticleScreen extends StatelessWidget {
                           child: SizedBox(
                             width:
                                 MediaQuery.of(context).size.width * (377 / 428),
-                            child: customTranslateText(
+                            child: Text(
                               "A healthy diet is one that provides the necessary nutrients youbody needs to function properly while maintaining overallwell-being Include a variety of fruits and vegetables in different colors to ensure a range of vitamins and minerals Choose healthy fats, such as those found in olive oil, avocados, and nuts Pay attention to portion sizes to avoid overeating Use smaller plates to help with portion control",
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w400,
@@ -218,7 +218,7 @@ class ArticleScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Padding(
@@ -226,7 +226,7 @@ class ArticleScreen extends StatelessWidget {
                           child: SizedBox(
                             width:
                                 MediaQuery.of(context).size.width * (377 / 428),
-                            child: customTranslateText(
+                            child: Text(
                               "Drink plenty of water throughout the day to stay hydrated Water is essential for many bodily functions Reduce intake of processed foods, which often contain high levels of added sugars, salt, and unhealthy fats Enjoy treats and indulgentfoods in moderation. This allows for a balanced and sustainable approach to eating If you have specific healthconcerns or conditions, it's advisable to consult withhealthcare professionals or a registered dietitian for personalized Combine a healthy diet with regular physical activity for overall health and well-being Consider any dietary restrictions or preferences you may have, such as vegetarianism, veganism, or specific health conditions",
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w400,
@@ -236,7 +236,7 @@ class ArticleScreen extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 40,
                         ),
                       ],

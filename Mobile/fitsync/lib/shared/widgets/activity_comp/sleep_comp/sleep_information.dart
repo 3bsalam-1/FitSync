@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../colors/colors.dart';
-import '../../global/custom_translate_text.dart';
 
 class SleepInformation extends StatelessWidget {
   final String value;
@@ -35,7 +34,7 @@ class SleepInformation extends StatelessWidget {
               backgroundColor: purple5,
             ),
             const SizedBox(width: 3),
-            customTranslateText(
+            Text(
               title,
               style: GoogleFonts.poppins(
                 fontSize: 11,

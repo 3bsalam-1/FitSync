@@ -6,7 +6,6 @@ import '../../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../../shared/widgets/global/custom_button.dart';
 import '../../../shared/colors/colors.dart';
 import '../../../shared/widgets/global/animated_navigator.dart';
-import '../../../shared/widgets/global/custom_translate_text.dart';
 import '../../../shared/widgets/survey_comp/custom_icon_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'challenge_begin_screen.dart';
@@ -73,7 +72,7 @@ class _StartChallengeScreenState extends State<StartChallengeScreen> {
         children: [
           const Spacer(flex: 2),
           CustomAnimatedOpacity(
-            child: customTranslateText(
+            child: Text(
               'Get Ready!',
               style: GoogleFonts.poppins(
                 fontSize: 40,
@@ -97,7 +96,7 @@ class _StartChallengeScreenState extends State<StartChallengeScreen> {
                     strokeWidth: 16.0,
                   ),
                 ),
-                customTranslateText(
+                Text(
                   '$counter',
                   style: GoogleFonts.poppins(
                     fontSize: 50,

@@ -1,12 +1,12 @@
+import 'package:fitsync/screens/Diet/diet_list.dart';
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:fitsync/shared/widgets/global/animated_navigator.dart';
 import 'package:fitsync/shared/widgets/global/custom_button.dart';
+import 'package:fitsync/shared/widgets/global/custom_translate_text.dart';
 
 import 'package:fitsync/shared/widgets/global/custom_user_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 class EmptyStateScreen extends StatelessWidget {
   EmptyStateScreen({super.key});
@@ -70,7 +70,9 @@ class EmptyStateScreen extends StatelessWidget {
           ),
           CustomButton(
             label: "Recipes",
-            onPressed: () {},
+            onPressed: () {
+              AnimatedNavigator().push(context, DietListScreen());
+            },
           ),
         ],
       ),

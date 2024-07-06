@@ -1,7 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../global/custom_translate_text.dart';
 
 class ParametersTextFormField extends StatelessWidget {
   final String label;
@@ -32,7 +31,7 @@ class ParametersTextFormField extends StatelessWidget {
             contentPadding: const EdgeInsets.only(left: 15),
             suffix: Padding(
               padding: const EdgeInsets.only(right: 15),
-              child: customTranslateText(
+              child: Text(
                 label,
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,

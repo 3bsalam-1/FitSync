@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../cubits_logic/smart_watch/smart_watch_cubit.dart';
+import '../../../../data/cubit/workouts/workouts_cubit.dart';
+import '../../../../data/models/workouts_model.dart';
 import '../../global/custom_animated_opacity.dart';
 import 'package:flutter/material.dart';
 import '../../../colors/colors.dart';
@@ -34,7 +35,19 @@ class DraggableScrollIntake extends StatelessWidget {
       child: SingleChildScrollView(
         child: BlocBuilder<SmartWatchCubit, SmartWatchState>(
           builder: (context, state) {
-            final data = context.read<SmartWatchCubit>().smartWatchData;
+            final activeCalories = context
+                    .read<SmartWatchCubit>()
+                    .smartWatchData
+                    ?.activeCalories ??
+                0;
+            final workouts = context.read<WorkoutsCubit>().challenges;
+            final vitalInfo = context.read<SmartWatchCubit>().vitalInfodata;
+            final double precent =
+                ((activeCalories / totalCaloriesInWorkouts(workouts)) * 100) >
+                        100
+                    ? 100
+                    : ((activeCalories / totalCaloriesInWorkouts(workouts)) *
+                        100);
             return Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -48,9 +61,8 @@ class DraggableScrollIntake extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 30),
-                const CustomAnimatedOpacity(
-                  // todo here add progress goals
-                  child: ProgressDailyGools(progress: 40),
+                CustomAnimatedOpacity(
+                  child: ProgressDailyGools(progress: precent),
                 ),
                 const SizedBox(height: 50),
                 Row(
@@ -59,21 +71,19 @@ class DraggableScrollIntake extends StatelessWidget {
                     CustomAnimatedOpacity(
                       child: DailyInfoItem(
                         label: 'Consumed',
-                        value: "${data?.activeCalories.ceilToDouble() ?? '0'}",
+                        value: "${activeCalories.ceilToDouble()}",
                       ),
                     ),
-                    const CustomAnimatedOpacity(
-                      // todo here add inTake data
+                    CustomAnimatedOpacity(
                       child: DailyInfoItem(
                         label: 'Intake',
-                        value: '1820',
+                        value: '${vitalInfo?.inTake ?? 0}',
                       ),
                     ),
-                    const CustomAnimatedOpacity(
-                      // todo here add active hours here
+                    CustomAnimatedOpacity(
                       child: DailyInfoItem(
                         label: 'Active Hours',
-                        value: '5',
+                        value: '${vitalInfo?.activeHours ?? 0}',
                         icon: Icons.timeline_rounded,
                       ),
                     ),
@@ -83,8 +93,10 @@ class DraggableScrollIntake extends StatelessWidget {
                 CustomAnimatedOpacity(
                   child: CustomButtonActivity(
                     label: 'Add Meal',
-                    onPressed: () {
+                    onPressed: () async {
                       // todo here add meal
+                      //double inTake = deit challenge 
+                      //await saveInTakeInfo(inTake);
                     },
                     icon: Icons.apple_rounded,
                   ),
@@ -97,4 +109,15 @@ class DraggableScrollIntake extends StatelessWidget {
       ),
     );
   }
+}
+
+double totalCaloriesInWorkouts(List<WorkoutsModel>? challenges) {
+  double total = 0;
+  if (challenges != null) {
+    for (var element in challenges) {
+      total += double.parse(element.calBurned);
+    }
+    return total;
+  }
+  return total;
 }

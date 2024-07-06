@@ -1,7 +1,6 @@
 import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../global/custom_translate_text.dart';
 
 class NotificationsWidget extends StatelessWidget {
   final String imageUrl;
@@ -38,7 +37,7 @@ class NotificationsWidget extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                customTranslateText(
+                Text(
                   label1,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w500,
@@ -47,10 +46,10 @@ class NotificationsWidget extends StatelessWidget {
                   ),
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                customTranslateText(
+                Text(
                   label2,
                   style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w400,
@@ -66,20 +65,20 @@ class NotificationsWidget extends StatelessWidget {
           padding: const EdgeInsets.only(right: 5),
           child: PopupMenuButton(
             onSelected: (value) {
-              print('Selected: $value');
+              debugPrint('Selected: $value');
             },
             itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'option_1',
-                child: customTranslateText('Option 1'),
+                child: Text('Option 1'),
               ),
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'option_2',
-                child: customTranslateText('Option 2'),
+                child: Text('Option 2'),
               ),
-              PopupMenuItem<String>(
+              const PopupMenuItem<String>(
                 value: 'option_3',
-                child: customTranslateText('Option 3'),
+                child: Text('Option 3'),
               ),
             ],
             iconColor: gray3,

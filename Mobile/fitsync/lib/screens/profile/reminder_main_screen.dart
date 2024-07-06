@@ -5,8 +5,7 @@ import 'package:intl/intl.dart';
 import '../../shared/colors/colors.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
 import '../../shared/widgets/global/custom_app_bar.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
-import '../../shared/widgets/profile_comp.dart/list_reminder_items.dart';
+//import '../../shared/widgets/profile_comp.dart/list_reminder_items.dart';
 
 class ReminderMainScreen extends StatelessWidget {
   const ReminderMainScreen({super.key});
@@ -42,7 +41,7 @@ class ReminderMainScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    customTranslateText(
+                    Text(
                       'Soon',
                       style: GoogleFonts.poppins(
                         fontSize: 18,
@@ -50,7 +49,7 @@ class ReminderMainScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    customTranslateText(
+                    Text(
                       'View All',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
@@ -61,12 +60,24 @@ class ReminderMainScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const ListReminderItems(),
+                SizedBox(
+                  height: 80,
+                  child: Center(
+                    child: Text(
+                      "There is NO reminders",
+                      style: GoogleFonts.poppins(
+                        fontSize: 17,
+                        color: gray14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ), //const ListReminderItems(),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    customTranslateText(
+                    Text(
                       'Upcoming',
                       style: GoogleFonts.poppins(
                         fontSize: 18,
@@ -74,7 +85,7 @@ class ReminderMainScreen extends StatelessWidget {
                         fontWeight: FontWeight.w500,
                       ),
                     ),
-                    customTranslateText(
+                    Text(
                       'View All',
                       style: GoogleFonts.poppins(
                         fontSize: 16,
@@ -85,9 +96,20 @@ class ReminderMainScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const ListReminderItems(),
+                SizedBox(
+                  height: 80,
+                  child: Center(
+                    child: Text(
+                      "There is NO upcoming reminders",
+                      style: GoogleFonts.poppins(
+                        fontSize: 17,
+                        color: gray14,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
+                ), //const ListReminderItems(),
                 const SizedBox(height: 15),
-                const ListReminderItems(),
               ],
             ),
           ),

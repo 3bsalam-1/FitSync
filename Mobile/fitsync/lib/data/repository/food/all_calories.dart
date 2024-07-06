@@ -1,7 +1,6 @@
 import 'package:fitsync/data/models/all_calories.dart';
 import 'package:fitsync/data/repository/api.dart';
 import 'package:fitsync/data/repository/user/user_info_repo.dart';
-import '../../models/user_personal_info_model.dart';
 
 class AllCalories{
 Future<AllCaloriesModel>getAllCalories()async{
@@ -9,7 +8,7 @@ Future<AllCaloriesModel>getAllCalories()async{
   
   
    final data=
-await Api().get(url: "https://fitsync-ai-api.onrender.com/calories?Age=59&Gender=${userInfo!.gender}&Weight=96&Height=162&Activity_Level=4&Systolic_BP=95&Diastolic_BP=80&Cholesterol_Level=247&Blood_Sugar=105&Hypertension=0&Low_Pressure=0&Diabetes=0&Heart_Condition=1&BMR=1680");
+await Api().get(url: "https://fitsync-ai-api.onrender.com/calories?Age=59&Gender=${userInfo!.gender}&Weight=${userInfo.weight}&Height=${userInfo.height}&Activity_Level=${userInfo.activityLevel}&Systolic_BP=${userInfo.systolicBP}&Diastolic_BP=${userInfo.diastolicBP}&Cholesterol_Level=${userInfo.cholesterolLevel}&Blood_Sugar=${userInfo.bloodSugar}&Hypertension=${userInfo.hypertension}&Low_Pressure=${userInfo.lowPressure}&Diabetes=${userInfo.diabetes}&Heart_Condition=${userInfo.heartCondition}&BMR=${userInfo.bmr}");
   
 
 

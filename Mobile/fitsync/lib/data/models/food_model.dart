@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 class FoodModel {
   final String Name;
   final String Catagory;
@@ -24,4 +26,11 @@ class FoodModel {
         Nutrient: jsonData['Nutrient'],
         Diet: jsonData['Diet']);
   }
+
+   String convertToString() {
+    return '$Name*$Catagory*$Description*$Veg_non*$Nutrient*$Diet';
+  }
+
+
+
 }

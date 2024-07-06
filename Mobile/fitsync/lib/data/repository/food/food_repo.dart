@@ -1,10 +1,15 @@
 import 'package:fitsync/data/models/food_model.dart';
 import 'package:fitsync/data/repository/api.dart';
+import 'package:fitsync/data/repository/user/user_info_repo.dart';
 
 class FoodPlan{
 Future<List<FoodModel>>getFoodPlan()async{
+
+  var userInfo =  await UserInfoRepo().getUserInfo();
+
+
 List<dynamic> data=
-await Api().get(url: "https://fitsync-ai-api.onrender.com/food?Diabeties=0&Heart_Disease=1&Hypertension=1");
+await Api().get(url: "https://fitsync-ai-api.onrender.com/food?Diabeties=${userInfo!.diabetes}&Heart_Disease=${userInfo.heartCondition}&Hypertension=${userInfo.hypertension}");
 
 
 List<FoodModel> foodList=[];

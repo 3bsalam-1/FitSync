@@ -14,10 +14,13 @@ void decodeJWT() {
     // if (payloadMap is! Map<String, dynamic>) {
     //   throw Exception('invalid payload');
     // }
-    if (payloadMap['user'] != null) {
-      var data = UserDataGetModel.fromJson(payloadMap['user']);
-      Prefs.setStringList('user', [data.username, data.firstName, data.lastName, data.avatar]);
-      Prefs.setBool('survey', !payloadMap['user']['firstTime']);
+    Prefs.setBool('survey', !payloadMap['firstTime']);
+    if (!payloadMap['firstTime']) {
+      var data = UserDataGetModel.fromJson(payloadMap);
+      Prefs.setStringList(
+        'user',
+        [data.username, data.firstName, data.lastName, data.avatar],
+      );
     } else {
       Prefs.setBool('survey', false);
     }

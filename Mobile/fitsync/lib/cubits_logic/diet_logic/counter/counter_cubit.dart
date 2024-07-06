@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fitsync/data/models/ingrediant_cals_model.dart';
 import 'package:fitsync/data/repository/food/ingrediant_cals.dart';
 import 'package:meta/meta.dart';

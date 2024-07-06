@@ -13,12 +13,12 @@ class Page1 extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           InkWell(
               onTap: () {},
-              child: TipsAndTricksWidget(
+              child: const TipsAndTricksWidget(
                 imageUrl: "assets/images/walking.jfif",
                 label1: "Sport",
                 label2: "How Fit Can You Get From Just\n",
@@ -27,14 +27,14 @@ class Page1 extends StatelessWidget {
                     "walking is good for you, obviously, But can\nit whip you into shape ",
                 label5: "5 Min read",
               )),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           InkWell(
               onTap: () {
-                AnimatedNavigator().push(context, ArticleScreen());
+                AnimatedNavigator().push(context, const ArticleScreen());
               },
-              child: TipsAndTricksWidget(
+              child: const TipsAndTricksWidget(
                 imageUrl: "assets/images/tipsImages/food.jfif",
                 label1: "healthy food",
                 label2: "Confused by all the conflicting \n",
@@ -45,12 +45,12 @@ class Page1 extends StatelessWidget {
                 label6: " out there?",
                 label7: "healthy food",
               )),
-          SizedBox(
+          const SizedBox(
             height: 30,
           ),
           InkWell(
             onTap: () {},
-            child: TipsAndTricksWidget(
+            child: const TipsAndTricksWidget(
               imageUrl: "assets/images/tipsImages/health.jfif",
               label1: "health",
               label2: "How Fit Can You Get From Just\n",

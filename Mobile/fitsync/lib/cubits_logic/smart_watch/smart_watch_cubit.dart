@@ -1,8 +1,11 @@
+import 'package:appcheck/appcheck.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_health_connect/flutter_health_connect.dart';
+import 'package:launch_app_store/launch_app_store.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../../data/models/smart_watch_model.dart';
+import '../../data/models/vital_info_model.dart';
+import '../../data/repository/vital_signal/vital_info.dart';
 import '../../services/isolate_service.dart';
 import '../../services/pref.dart';
 import '../../services/smart_watch_services.dart';
@@ -21,22 +24,33 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
   SmartWatchModel? smartWatchData;
   SmartWatchWeekData? smartWatchWeek;
   late PermissionStatus isAccept;
+  VitalInfoModel? vitalInfodata;
   var glassesGoal = TextEditingController();
   var quantityGoal = TextEditingController();
   var distanceGoal = TextEditingController();
   var sleepGoal = TextEditingController();
 
-  void intializeSmartWatchConnection() {
-    watchService.initSmartWatch().then((value) async {
-      if (!value) {
-        await HealthConnectFactory.openHealthConnectSettings();
-        value = await watchService.initSmartWatch();
-      }
-      if (value) {
+  void intializeSmartWatchConnection() async {
+    bool isInstalled = await AppCheck.isAppInstalled(
+      'com.google.android.apps.healthdata',
+    );
+    if (isInstalled) {
+      watchService.initSmartWatch().then((value) async {
         Prefs.setBool("watch-permission", value);
-        emit(SmartWatchConnection());
-      }
-    });
+        if (value) {
+          emit(SmartWatchConnection());
+        } else {
+          emit(SmartWatchFailureConnection(
+            'The App need to be Connected To the Smart Watch',
+          ));
+        }
+      });
+    } else {
+      LaunchReview.launch(androidAppId: "com.google.android.apps.healthdata");
+      emit(SmartWatchFailureConnection(
+        'Need To install the health connect app',
+      ));
+    }
   }
 
   void isSmartWatchConnected() {
@@ -50,7 +64,7 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
   void getSmartWatchData() async {
     if (Prefs.getBool("watch-permission") != null) {
       if (Prefs.getBool("watch-permission")!) {
-        smartWatchData = await watchService.getSmartWatchData();
+        smartWatchData = await isolate.getSmartWatchDataService();
         if (smartWatchData != null) {
           emit(SmartWatchData());
         }
@@ -96,5 +110,10 @@ class SmartWatchCubit extends Cubit<SmartWatchState> {
       );
       emit(SmartWatchSaveSleepData());
     }
+  }
+
+  void callVitalInfo() async {
+    vitalInfodata = await getVitalInfo();
+    emit(VitalInfoData());
   }
 }

@@ -46,9 +46,9 @@ final class AuthSuccess extends AuthCubitState {
     ScaffoldMessenger.of(context).showSnackBar(
       customSnackbarMessage(
         context,
-        backColor: green,
-        icon: FontAwesomeIcons.circleCheck,
-        title: 'Success message',
+        backColor: backcontent,
+        icon: icon,
+        title: title,
         subTitle: message,
         contentColor: white,
         duration: const Duration(minutes: 1),
@@ -80,11 +80,11 @@ final class AuthResetCode extends AuthCubitState {}
 final class InternetConnectivityOFF extends AuthCubitState {
   void showConnectionError(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         backgroundColor: gray10,
-        content: customTranslateText(
+        content: Text(
           "There is no internet connection",
-          style: const TextStyle(
+          style: TextStyle(
             color: white,
           ),
         ),

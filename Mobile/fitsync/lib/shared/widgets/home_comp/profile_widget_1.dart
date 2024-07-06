@@ -2,7 +2,6 @@ import 'package:fitsync/shared/colors/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconly/iconly.dart';
-import '../global/custom_translate_text.dart';
 
 class ProfileWidget1 extends StatelessWidget {
   final String imageUrl;
@@ -35,7 +34,7 @@ class ProfileWidget1 extends StatelessWidget {
             )),
         Padding(
           padding: const EdgeInsets.only(left: 10),
-          child: customTranslateText(
+          child: Text(
             label,
             style: GoogleFonts.poppins(
               fontWeight: FontWeight.w600,

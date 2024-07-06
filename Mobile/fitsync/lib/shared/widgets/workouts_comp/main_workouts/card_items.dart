@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import '../../../../screens/workouts/workouts_view_challenge.dart';
 import '../../../colors/colors.dart';
 import '../../global/custom_image.dart';
-import '../../global/custom_translate_text.dart';
 import 'custom_start_button.dart';
 
 class CardItems extends StatelessWidget {
@@ -57,8 +56,9 @@ class CardItems extends StatelessWidget {
               children: [
                 SizedBox(
                   width: width * 0.42,
-                  child: customTranslateText(
+                  child: Text(
                     workouts.category,
+                    overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.poppins(
                       fontSize: 22,
                       color: white,
@@ -67,10 +67,7 @@ class CardItems extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 8,
-                  ),
+                  padding: const EdgeInsets.all(6.5),
                   margin: const EdgeInsets.symmetric(vertical: 12),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
@@ -82,13 +79,13 @@ class CardItems extends StatelessWidget {
                       const Icon(
                         Icons.access_time_sharp,
                         color: white,
-                        size: 17,
+                        size: 15,
                       ),
                       const SizedBox(width: 5),
-                      customTranslateText(
+                      Text(
                         '${workouts.planDurationMn} Minutes Workout',
                         style: GoogleFonts.poppins(
-                          fontSize: 12,
+                          fontSize: 10,
                           color: white,
                           fontWeight: FontWeight.w500,
                         ),
@@ -97,6 +94,7 @@ class CardItems extends StatelessWidget {
                   ),
                 ),
                 CustomStartButton(onTap: () {
+                  context.read<FavoriteWorkoutsCubit>().setFavoriteToInitial();
                   context
                       .read<FavoriteWorkoutsCubit>()
                       .isFavoriteWorkouts(workouts);

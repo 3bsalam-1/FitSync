@@ -8,7 +8,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../cubits_logic/smart_watch/smart_watch_cubit.dart';
 import '../../shared/widgets/global/custom_animated_opacity.dart';
-import '../../shared/widgets/global/custom_translate_text.dart';
 
 class SleepParametersScreen extends StatelessWidget {
   const SleepParametersScreen({super.key});
@@ -35,7 +34,7 @@ class SleepParametersScreen extends StatelessWidget {
           title: Padding(
             padding: const EdgeInsets.only(left: 15),
             child: CustomAnimatedOpacity(
-              child: customTranslateText(
+              child: Text(
                 "Sleep Parameters",
                 style: GoogleFonts.poppins(
                   fontWeight: FontWeight.w600,
@@ -70,7 +69,7 @@ class SleepParametersScreen extends StatelessWidget {
                         ),
                         child: Row(
                           children: [
-                            customTranslateText(
+                            Text(
                               'Quantity per day',
                               style: GoogleFonts.poppins(
                                 fontWeight: FontWeight.w600,
