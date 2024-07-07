@@ -1,0 +1,9 @@
+.LineChart {
+  margin: 10px 0;
+  padding: 25px 25px 0 25px;
+}
+@media screen and (min-width: 998px) {
+  .LineChart {
+    min-width: 650px;
+  }
+}

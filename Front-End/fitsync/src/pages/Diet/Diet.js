@@ -322,30 +322,26 @@ const Diet = () => {
                     <h4 className="card-title">
                       {recent.length > 0
                         ? recent[0].Name.replace("/", "").replace("&amp;", "&")
-                        : "waiting......"}
+                        : "------"}
                     </h4>
                     <p className="card-text">
                       {recent.length > 0
                         ? recent[0].Veg_non
                           ? "Vigetarian"
                           : " Not Vigetarian"
-                        : "waiting......"}
+                        : "------"}
                     </p>
                     <div className="Diet-card-text  d-flex flex-row justify-content-between">
                       <h5>
                         Catagory:{" "}
                         <span>
-                          {recent.length > 0
-                            ? recent[0].Catagory
-                            : "waiting......"}
+                          {recent.length > 0 ? recent[0].Catagory : "------"}
                         </span>
                       </h5>
                       <h5>
                         Nutrient:{" "}
                         <span>
-                          {recent.length > 0
-                            ? recent[0].Nutrient
-                            : "waiting......"}
+                          {recent.length > 0 ? recent[0].Nutrient : "------"}
                         </span>
                       </h5>
                     </div>
@@ -370,30 +366,26 @@ const Diet = () => {
                     <h4 className="card-title">
                       {recent.length > 0
                         ? recent[1].Name.replace("/", "").replace("&amp;", "&")
-                        : "waiting......"}
+                        : "------"}
                     </h4>
                     <p className="card-text">
                       {recent.length > 0
                         ? recent[1].Veg_non
                           ? "Vigetarian"
                           : " Not Vigetarian"
-                        : "waiting......"}
+                        : "------"}
                     </p>
                     <div className="Diet-card-text  d-flex flex-row justify-content-between">
                       <h5>
                         Catagory:{" "}
                         <span>
-                          {recent.length > 0
-                            ? recent[1].Catagory
-                            : "waiting......"}
+                          {recent.length > 0 ? recent[1].Catagory : "------"}
                         </span>
                       </h5>
                       <h5>
                         Nutrient:{" "}
                         <span>
-                          {recent.length > 0
-                            ? recent[1].Nutrient
-                            : "waiting......"}
+                          {recent.length > 0 ? recent[1].Nutrient : "------"}
                         </span>
                       </h5>
                     </div>
@@ -418,30 +410,26 @@ const Diet = () => {
                     <h4 className="card-title">
                       {recent.length > 0
                         ? recent[2].Name.replace("/", "").replace("&amp;", "&")
-                        : "waiting......"}
+                        : "------"}
                     </h4>
                     <p className="card-text">
                       {recent.length > 0
                         ? recent[2].Veg_non
                           ? "Vigetarian"
                           : " Not Vigetarian"
-                        : "waiting......"}
+                        : "------"}
                     </p>
                     <div className="Diet-card-text  d-flex flex-row justify-content-between">
                       <h5>
                         Catagory:{" "}
                         <span>
-                          {recent.length > 0
-                            ? recent[2].Catagory
-                            : "waiting......"}
+                          {recent.length > 0 ? recent[2].Catagory : "------"}
                         </span>
                       </h5>
                       <h5>
                         Nutrient:{" "}
                         <span>
-                          {recent.length > 0
-                            ? recent[2].Nutrient
-                            : "waiting......"}
+                          {recent.length > 0 ? recent[2].Nutrient : "------"}
                         </span>
                       </h5>
                     </div>
@@ -477,26 +465,26 @@ const Diet = () => {
                       <h4 className="card-title">
                         {plan.Name
                           ? plan.Name.replace("/", "").replace("&amp;", "&")
-                          : "waiting......"}
+                          : "------"}
                       </h4>
                       <p className="card-text">
                         {plan.Veg_non !== undefined
                           ? plan.Veg_non
                             ? "Vegetarian"
                             : "Not Vegetarian"
-                          : "waiting......"}
+                          : "------"}
                       </p>
                       <div className="Diet-card-text d-flex flex-row justify-content-between">
                         <h5>
                           Category:{" "}
                           <span>
-                            {plan.Catagory ? plan.Catagory : "waiting......"}
+                            {plan.Catagory ? plan.Catagory : "------"}
                           </span>
                         </h5>
                         <h5>
                           Nutrient:{" "}
                           <span>
-                            {plan.Nutrient ? plan.Nutrient : "waiting......"}
+                            {plan.Nutrient ? plan.Nutrient : "------"}
                           </span>
                         </h5>
                       </div>

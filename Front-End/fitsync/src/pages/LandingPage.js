@@ -210,14 +210,14 @@ const LandingPage = () => {
                 positive changes together
               </p>
               <div className="d-flex flex-wrap justify-content-around align-items-center">
-                <button className="btndownload d-flex justify-content-evenly align-items-center">
+                {/* <button className="btndownload d-flex justify-content-evenly align-items-center">
                   <i className="fa-brands fa-apple"></i>
                   <p>
                     Download on the
                     <br />
                     <span>Apple Store</span>
                   </p>
-                </button>
+                </button> */}
                 <button className="btndownload d-flex justify-content-evenly  align-items-center">
                   <i className="fa-brands fa-google-play"></i>
                   <p>

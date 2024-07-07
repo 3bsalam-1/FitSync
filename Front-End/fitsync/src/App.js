@@ -18,7 +18,6 @@ import OverviewDiet from "./pages/Diet/OverviewDiet";
 import PrivateRoute from "./routes/PrivateRoutes";
 import PrivateRouteHome from "./routes/PrivateRouteHome";
 import PrivateRouteUserverify from "./routes/PrivateRouteUserverify";
-import Account from "./pages/account/Account";
 import EditProfile from "./pages/account/EditProfile";
 import Favourites from "./pages/account/Favourites";
 import Notifications from "./pages/account/Notifications";
@@ -105,14 +104,6 @@ function App() {
           element={
             <PrivateRouteHome>
               <OverviewDiet />
-            </PrivateRouteHome>
-          }
-        />
-        <Route
-          path="/Account"
-          element={
-            <PrivateRouteHome>
-              <Account />
             </PrivateRouteHome>
           }
         />
