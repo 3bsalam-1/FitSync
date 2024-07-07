@@ -21,7 +21,7 @@ const ProgressCard = ({ days, title, progress, status }) => {
     <div className="progress-card">
       <div>
         <div className="header">
-          <span>{days} Days</span>
+          <span>{6} exercise</span>
           <h3>{title}</h3>
         </div>
         <div className="progress-bar">

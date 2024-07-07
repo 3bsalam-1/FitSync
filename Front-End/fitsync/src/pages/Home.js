@@ -8,8 +8,11 @@ import CircleNumber from "../components/CircleNumber";
 import HeaderProfile from "../components/HeaderProfile";
 import Footer from "../components/Footer";
 import axios from "axios";
+import LineChart from "../components/LineChart";
 
 const Home = () => {
+  const today = new Date();
+  const day = today.toLocaleDateString("en-US", { weekday: "long" });
   // User Data
   useEffect(() => {
     const fetchData = async () => {
@@ -125,32 +128,32 @@ const Home = () => {
           className={`box ${chartGraph === 1 ? "active-Recorddata" : ""}`}
           onClick={(event) => viewGraph(1, event)}
         >
-          <h2>13,100</h2>
-          <p>Calories Eaten</p>
+          {/* <h2>13,100</h2> */}
+          <h2>Calories Eaten</h2>
           <img src="./images/Calories.png" alt="Calories"></img>
         </div>
         <div
           className={`box ${chartGraph === 2 ? "active-Recorddata" : ""}`}
           onClick={(event) => viewGraph(2, event)}
         >
-          <h2>52,100</h2>
-          <p>Steps Taken</p>
+          {/* <h2>52,100</h2> */}
+          <h2>Steps Taken</h2>
           <img src="./images/Steps.png" alt="Steps"></img>
         </div>
         <div
           className={`box ${chartGraph === 3 ? "active-Recorddata" : ""}`}
           onClick={(event) => viewGraph(3, event)}
         >
-          <h2>0.75 L</h2>
-          <p>Water Consumed</p>
+          {/* <h2>0.75 L</h2> */}
+          <h2>Water Consumed</h2>
           <img src="./images/Water.png" alt="Water"></img>
         </div>
         <div
           className={`box ${chartGraph === 4 ? "active-Recorddata" : ""}`}
           onClick={(event) => viewGraph(4, event)}
         >
-          <h2>82 BPM</h2>
-          <p>Heart Measured </p>
+          {/* <h2>82 BPM</h2> */}
+          <h2>Heart Measured </h2>
           <img src="./images/Heart.png" alt="Heart"></img>
         </div>
       </div>
@@ -161,12 +164,12 @@ const Home = () => {
           <div className="mt-5 mb-5 d-flex align-items-center gap-5 justify-content-center">
             <Barchart
               title="Calories Eaten"
-              num="700 kcal"
-              DATA={[6578, 6787, 3245, 9876, 2324, 5123, 2435]}
+              // num="700 kcal"
+              DATA={[657, 678, 324, 987, 232, 512, 243]}
             />
 
             <div className="Return-ratio position-relative">
-              <h2>Sunday Activity</h2>
+              <h2>{day} Activity</h2>
               <CirclePercentage
                 Dashoffset={80}
                 iconlogo={<i className="fa-solid fa-fire"></i>}
@@ -203,11 +206,11 @@ const Home = () => {
           <div className="mt-5 mb-5 d-flex flex-wrap align-items-center justify-content-evenly">
             <Barchart
               title="Steps Taken"
-              num="3.2 km"
-              DATA={[6578, 6787, 3245, 9876, 2324, 5123, 2435]}
+              // num="3.2 km"
+              DATA={[657, 678, 324, 987, 232, 512, 243]}
             />
             <div className="Return-ratio position-relative">
-              <h2>Sunday Activity</h2>
+              <h2>{day} Activity</h2>
               <CircleNumber
                 Dashoffset={8000}
                 iconlogo={<i className="fa-solid fa-fire"></i>}
@@ -235,11 +238,11 @@ const Home = () => {
           <div className="mt-5 mb-5 d-flex flex-wrap align-items-center justify-content-evenly">
             <Barchart
               title="Sleep Hours"
-              num=""
-              DATA={[6578, 6787, 3245, 9876, 2324, 5123, 2435]}
+              // num=""
+              DATA={[657, 678, 324, 987, 232, 512, 243]}
             />
             <div className="Return-ratio position-relative">
-              <h2>Sunday Activity</h2>
+              <h2>{day} Activity</h2>
               <CirclePercentage
                 Dashoffset={WaterPercentage}
                 iconlogo={<i className="fa-solid fa-droplet"></i>}
@@ -253,38 +256,23 @@ const Home = () => {
                   <i className="fa-solid fa-plus"></i>
                 </button>
               </div>
-              <p>1x Glass 200ml</p>
+              <p>1x Glass 300ml</p>
             </div>
           </div>
         </div>
       )}
       {chartGraph === 4 && (
-        <div className="Chartgraph container Graph4">
-          <div className="Chatr-ProgressCard mt-5 mb-5 d-flex align-items-center">
+        <div className="Chartgraph container Graph4 mt-5 mb-5 d-flex flex-wrap  gap-4 align-items-center justify-content-center">
+          <div className="Chatr-ProgressCard d-flex align-items-center justify-content-center">
             <ProgressCard
-              days="12"
-              title="15 Days Jump Rope Challenge"
+              title="Exercises completed on the day"
               progress={40}
-              status="In Progress"
-            />
-            <ProgressCard
-              days="12"
-              title="15 Days Jump Rope Challenge"
-              progress={100}
               status="Completed"
             />
-            <ProgressCard
-              days="12"
-              title="15 Days Jump Rope Challenge"
-              progress={65}
-              status="Halted"
-            />
-            <ProgressCard
-              days="12"
-              title="15 Days Jump Rope Challenge"
-              progress={100}
-              status="Completed"
-            />
+          </div>
+          <div className=" W_LineChart position-relative">
+            <h2>{day} Activity</h2>
+            <LineChart DATA={[65, 59, 80, 81, 56, 55, 40]} />
           </div>
         </div>
       )}

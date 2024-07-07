@@ -380,25 +380,21 @@ const Workout = () => {
                   />
                   <div className="card-body">
                     <h4 className="card-title">
-                      {recent.length > 0
-                        ? recent[0]["Category"]
-                        : "waiting......"}
+                      {recent.length > 0 ? recent[0]["Category"] : "------"}
                     </h4>
                     <p className="card-text">
                       Level:{" "}
-                      {recent.length > 0
-                        ? recent[0]["Impact Level"]
-                        : "waiting......"}
+                      {recent.length > 0 ? recent[0]["Impact Level"] : "------"}
                     </p>
                     <div>
                       {recent.length > 0
                         ? recent[0]["Total Plan Duration (minutes)"]
-                        : "waiting......"}{" "}
+                        : "------"}{" "}
                       min
                       <span>
                         {recent.length > 0
                           ? recent[0]["Calories Burned (Plan)"]
-                          : "waiting......"}{" "}
+                          : "------"}{" "}
                         Calories
                       </span>
                     </div>
@@ -417,25 +413,21 @@ const Workout = () => {
                   />
                   <div className="card-body">
                     <h4 className="card-title">
-                      {recent.length > 0
-                        ? recent[1]["Category"]
-                        : "waiting......"}
+                      {recent.length > 0 ? recent[1]["Category"] : "------"}
                     </h4>
                     <p className="card-text">
                       Level:{" "}
-                      {recent.length > 0
-                        ? recent[1]["Impact Level"]
-                        : "waiting......"}
+                      {recent.length > 0 ? recent[1]["Impact Level"] : "------"}
                     </p>
                     <div>
                       {recent.length > 0
                         ? recent[1]["Total Plan Duration (minutes)"]
-                        : "waiting......"}{" "}
+                        : "------"}{" "}
                       min
                       <span>
                         {recent.length > 0
                           ? recent[1]["Calories Burned (Plan)"]
-                          : "waiting......"}{" "}
+                          : "------"}{" "}
                         Calories
                       </span>
                     </div>
@@ -454,25 +446,21 @@ const Workout = () => {
                   />
                   <div className="card-body">
                     <h4 className="card-title">
-                      {recent.length > 0
-                        ? recent[2]["Category"]
-                        : "waiting......"}
+                      {recent.length > 0 ? recent[2]["Category"] : "------"}
                     </h4>
                     <p className="card-text">
                       Level:{" "}
-                      {recent.length > 0
-                        ? recent[2]["Impact Level"]
-                        : "waiting......"}
+                      {recent.length > 0 ? recent[2]["Impact Level"] : "------"}
                     </p>
                     <div>
                       {recent.length > 0
                         ? recent[2]["Total Plan Duration (minutes)"]
-                        : "waiting......"}{" "}
+                        : "------"}{" "}
                       min
                       <span>
                         {recent.length > 0
                           ? recent[2]["Calories Burned (Plan)"]
-                          : "waiting......"}{" "}
+                          : "------"}{" "}
                         Calories
                       </span>
                     </div>
@@ -502,23 +490,23 @@ const Workout = () => {
                     <h4 className="card-title">
                       {challenges.length > 0
                         ? challenges[0]["Category"]
-                        : "waiting......"}
+                        : "------"}
                     </h4>
                     <p className="card-text">
                       Level:{" "}
                       {challenges.length > 0
                         ? challenges[0]["Impact Level"]
-                        : "waiting......"}
+                        : "------"}
                     </p>
                     <div>
                       {challenges.length > 0
                         ? challenges[0]["Total Plan Duration (minutes)"]
-                        : "waiting......"}{" "}
+                        : "------"}{" "}
                       min
                       <span>
                         {challenges.length > 0
                           ? challenges[0]["Calories Burned (Plan)"]
-                          : "waiting......"}{" "}
+                          : "------"}{" "}
                         Calories
                       </span>
                       <span className="text-danger">Day 1</span>
@@ -540,23 +528,23 @@ const Workout = () => {
                     <h4 className="card-title">
                       {challenges.length > 0
                         ? challenges[1]["Category"]
-                        : "waiting......"}
+                        : "------"}
                     </h4>
                     <p className="card-text">
                       Level:{" "}
                       {challenges.length > 0
                         ? challenges[1]["Impact Level"]
-                        : "waiting......"}
+                        : "------"}
                     </p>
                     <div>
                       {challenges.length > 0
                         ? challenges[1]["Total Plan Duration (minutes)"]
-                        : "waiting......"}{" "}
+                        : "------"}{" "}
                       min
                       <span>
                         {challenges.length > 0
                           ? challenges[1]["Calories Burned (Plan)"]
-                          : "waiting......"}{" "}
+                          : "------"}{" "}
                         Calories
                       </span>
                       <span className="text-danger">Day 2</span>
@@ -578,23 +566,23 @@ const Workout = () => {
                     <h4 className="card-title">
                       {challenges.length > 0
                         ? challenges[2]["Category"]
-                        : "waiting......"}
+                        : "------"}
                     </h4>
                     <p className="card-text">
                       Level:{" "}
                       {challenges.length > 0
                         ? challenges[2]["Impact Level"]
-                        : "waiting......"}
+                        : "------"}
                     </p>
                     <div>
                       {challenges.length > 0
                         ? challenges[2]["Total Plan Duration (minutes)"]
-                        : "waiting......"}{" "}
+                        : "------"}{" "}
                       min
                       <span>
                         {challenges.length > 0
                           ? challenges[2]["Calories Burned (Plan)"]
-                          : "waiting......"}{" "}
+                          : "------"}{" "}
                         Calories
                       </span>
                       <span className="text-danger">Day 3</span>
@@ -616,23 +604,23 @@ const Workout = () => {
                     <h4 className="card-title">
                       {challenges.length > 0
                         ? challenges[3]["Category"]
-                        : "waiting......"}
+                        : "------"}
                     </h4>
                     <p className="card-text">
                       Level:{" "}
                       {challenges.length > 0
                         ? challenges[3]["Impact Level"]
-                        : "waiting......"}
+                        : "------"}
                     </p>
                     <div>
                       {challenges.length > 0
                         ? challenges[3]["Total Plan Duration (minutes)"]
-                        : "waiting......"}{" "}
+                        : "------"}{" "}
                       min
                       <span>
                         {challenges.length > 0
                           ? challenges[3]["Calories Burned (Plan)"]
-                          : "waiting......"}{" "}
+                          : "------"}{" "}
                         Calories
                       </span>
                       <span className="text-danger">Day 4</span>
@@ -654,23 +642,23 @@ const Workout = () => {
                     <h4 className="card-title">
                       {challenges.length > 0
                         ? challenges[4]["Category"]
-                        : "waiting......"}
+                        : "------"}
                     </h4>
                     <p className="card-text">
                       Level:{" "}
                       {challenges.length > 0
                         ? challenges[4]["Impact Level"]
-                        : "waiting......"}
+                        : "------"}
                     </p>
                     <div>
                       {challenges.length > 0
                         ? challenges[4]["Total Plan Duration (minutes)"]
-                        : "waiting......"}{" "}
+                        : "------"}{" "}
                       min
                       <span>
                         {challenges.length > 0
                           ? challenges[4]["Calories Burned (Plan)"]
-                          : "waiting......"}{" "}
+                          : "------"}{" "}
                         Calories
                       </span>
                       <span className="text-danger">Day 5</span>
@@ -692,23 +680,23 @@ const Workout = () => {
                     <h4 className="card-title">
                       {challenges.length > 0
                         ? challenges[5]["Category"]
-                        : "waiting......"}
+                        : "------"}
                     </h4>
                     <p className="card-text">
                       Level:{" "}
                       {challenges.length > 0
                         ? challenges[5]["Impact Level"]
-                        : "waiting......"}
+                        : "------"}
                     </p>
                     <div>
                       {challenges.length > 0
                         ? challenges[5]["Total Plan Duration (minutes)"]
-                        : "waiting......"}{" "}
+                        : "------"}{" "}
                       min
                       <span>
                         {challenges.length > 0
                           ? challenges[5]["Calories Burned (Plan)"]
-                          : "waiting......"}{" "}
+                          : "------"}{" "}
                         Calories
                       </span>
                       <span className="text-danger">Day 6</span>
@@ -730,23 +718,23 @@ const Workout = () => {
                     <h4 className="card-title">
                       {challenges.length > 0
                         ? challenges[6]["Category"]
-                        : "waiting......"}
+                        : "------"}
                     </h4>
                     <p className="card-text">
                       Level:{" "}
                       {challenges.length > 0
                         ? challenges[6]["Impact Level"]
-                        : "waiting......"}
+                        : "------"}
                     </p>
                     <div>
                       {challenges.length > 0
                         ? challenges[6]["Total Plan Duration (minutes)"]
-                        : "waiting......"}{" "}
+                        : "------"}{" "}
                       min
                       <span>
                         {challenges.length > 0
                           ? challenges[6]["Calories Burned (Plan)"]
-                          : "waiting......"}{" "}
+                          : "------"}{" "}
                         Calories
                       </span>
                       <span className="text-danger">Day 7</span>

@@ -1,0 +1,337 @@
+.EditProfile .dashboard-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 24px 0;
+  margin: 0 0 0 0;
+}
+.EditProfile .heading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+  width: 312px;
+  z-index: 1;
+}
+.EditProfile .good-morning {
+  display: flex;
+  justify-content: flex-start;
+  flex-basis: auto;
+  position: relative;
+  width: 312px;
+  height: 20px;
+  color: #6e7484;
+  font-family: Inter, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.14px;
+  z-index: 2;
+}
+.EditProfile .dashboard-settings {
+  display: flex;
+  justify-content: flex-start;
+  flex-basis: auto;
+  position: relative;
+  width: 312px;
+  height: 26px;
+  color: #1d1f26;
+  font-family: Inter, var(--default-font-family);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 26px;
+  text-align: left;
+  white-space: nowrap;
+  z-index: 3;
+}
+.EditProfile .frame {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  z-index: 4;
+}
+.EditProfile .notifications {
+  display: flex;
+  gap: 10px;
+  position: relative;
+  width: 48px;
+  padding: 12px 12px 12px 12px;
+  background: #f5f7fa;
+  z-index: 11;
+}
+.EditProfile .bell {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background: url(./icon_Images/d0d6e4d4-5d93-4451-bdfd-7494743d11c0.png)
+    no-repeat center;
+  background-size: cover;
+  z-index: 12;
+}
+.EditProfile .ellipse {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  background-size: cover;
+  z-index: 13;
+  border-radius: 50%;
+}
+.EditProfile .contents {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 14;
+}
+.EditProfile .instructor-profile {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 15;
+}
+.EditProfile .account-settings {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  z-index: 16;
+}
+.EditProfile .frame-2 {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 17;
+}
+.EditProfile .frame-3 {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  z-index: 18;
+}
+.account-settings-text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 940px;
+  height: 32px;
+  color: #1d1f26;
+  font-family: Inter, var(--default-font-family);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.24px;
+  z-index: 19;
+}
+.EditProfile .avatar {
+  width: fit-content;
+  height: fit-content;
+  padding: 20px;
+  background: #f4f7f9;
+}
+.EditProfile .profile-photo {
+  position: relative;
+}
+.EditProfile .btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  width: 200px;
+  margin: -50px 0 0 0;
+  padding: 12px 12px 12px 12px;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 45;
+}
+.EditProfile .upload-simple {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  z-index: 46;
+}
+.EditProfile .upload-simple-d {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: url(./icon_Images/7eddb4bb-7a7a-41f8-8a9a-6411c1886884.png)
+    no-repeat center;
+  background-size: 100% 100%;
+  z-index: 47;
+}
+.EditProfile .upload-photo {
+  flex-basis: auto;
+  position: relative;
+  height: 20px;
+  color: #ffffff;
+  font-family: Inter, var(--default-font-family);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.14px;
+  z-index: 48;
+}
+.EditProfile .image {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  z-index: 44;
+}
+/* notification############################################################  */
+.EditProfile .notification-change-password {
+  display: flex;
+  gap: 24px;
+  position: relative;
+  z-index: 70;
+}
+.EditProfile .notifications-18 {
+  box-shadow: 7.5px 30px 52.5px 0px #00000012;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  position: relative;
+  min-width: 648px;
+  padding: 39px 32px 39px 32px;
+  background: #ffffff;
+  z-index: 71;
+}
+.EditProfile .notifications-19 {
+  display: flex;
+  justify-content: flex-start;
+  flex-basis: auto;
+  position: relative;
+  height: 32px;
+  color: #1d1f26;
+  font-family: Inter, var(--default-font-family);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.24px;
+  z-index: 72;
+}
+.EditProfile .change-password {
+  box-shadow: 7.5px 30px 52.5px 0px #00000012;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  min-width: 560px;
+  padding: 32px 32px 32px 32px;
+  background: #ffffff;
+  z-index: 105;
+}
+.EditProfile .change-password-35 {
+  display: flex;
+
+  justify-content: flex-start;
+
+  flex-basis: auto;
+  position: relative;
+
+  height: 32px;
+  color: #1d1f26;
+  font-family: Inter, var(--default-font-family);
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  text-align: left;
+  white-space: nowrap;
+  letter-spacing: -0.24px;
+  z-index: 106;
+}
+
+.EditProfile .change-password input {
+  display: block;
+  height: 60px;
+  width: 100%;
+  font-size: 19.5px;
+  font-weight: 400;
+  margin-bottom: 17.25px;
+  padding: 20px 51px 20px 66.75px;
+  border: 2px solid var(--bg-color, #c4c0bb);
+
+  border-radius: 7px;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -ms-border-radius: 7px;
+  -o-border-radius: 7px;
+}
+.EditProfile .change-password .field svg,
+.EditProfile .change-password .field > img,
+.EditProfile .change-password .password > img {
+  color: var(--icon-color, #7b6f72);
+  position: absolute;
+  left: 27px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+.EditProfile .change-password .password button {
+  color: var(--icon-color, #7b6f72);
+  background: transparent;
+  border: none;
+  position: absolute;
+  right: 21px;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+.EditProfile .change-password .password button:hover {
+  border: none;
+  outline: none;
+}
+/* ############################################################## */
+
+.EditProfile form label {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: #8c93a3;
+  margin-bottom: 4px;
+}
+.EditProfile form input {
+  padding: 6px 6px 6px 14px;
+  border: 1px solid #8c93a3;
+}
+.EditProfile form input[type="submit"] {
+  background: #8d6ff8;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+}
+.EditProfile .row .col div {
+  margin: 15px 10px;
+}
+.EditProfile .row .col:first-child {
+  min-width: 250px;
+  margin-top: 20px;
+}
+.EditProfile .row .col:first-child label,
+.EditProfile .notifications-18 label {
+  margin-left: 16px;
+}

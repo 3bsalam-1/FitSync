@@ -28,12 +28,12 @@ const Exercise = () => {
   // Edit Time and Complete ############################################################
   const [timeLeft, setTimeLeft] = useState(null);
   const [complete, setComplete] = useState([
-    true,
-    true,
-    true,
-    true,
-    true,
-    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
   ]);
   const startCountdown = () => {
     setTimeLeft(TimeExercise * 60); // 8.33 minutes in seconds
@@ -84,11 +84,42 @@ const Exercise = () => {
     });
   };
 
+  // activeHours  ############################################################
+  const [starttime, setstarttime] = useState("");
+  const [Endtime, setEndtime] = useState("");
+  const TimeactiveHours = () => {
+    const currentTime = new Date().toLocaleTimeString();
+    setstarttime(currentTime);
+    console.log(currentTime);
+  };
+  const EndtimeactiveHours = () => {
+    const currentTime = new Date().toLocaleTimeString();
+    setEndtime(currentTime);
+    console.log(currentTime);
+  };
+  const timeStringToFloat = (timeString) => {
+    const [time, modifier] = timeString.split(" ");
+    let [hours, minutes, seconds] = time.split(":").map(Number);
+
+    if (modifier === "PM" && hours < 12) {
+      hours += 12;
+    }
+    if (modifier === "AM" && hours === 12) {
+      hours = 0;
+    }
+
+    return hours + minutes / 60 + seconds / 3600;
+  };
   //  Add favorite Workout #############################################################
   const addWorkout = async () => {
     const Calories = sessionStorage.getItem("CaloriesBurned");
+    const startFloat = timeStringToFloat(starttime);
+    const endFloat = timeStringToFloat(Endtime);
+
+    let differenceInHours = endFloat - startFloat;
+    const activeHours = differenceInHours;
+    console.log("activeHours", differenceInHours);
     try {
-      // const Calories = calories.reduce((a, b) => a + b, 0);
       const response = await fetch(
         "https://fitsync.onrender.com/api/vitalsignal/burned",
         {
@@ -101,6 +132,35 @@ const Exercise = () => {
           },
           body: JSON.stringify({
             burned: Calories,
+          }),
+        }
+      );
+
+      if (!response.ok) {
+        const responseData = await response.json();
+        console.log("responseData", responseData);
+        return;
+      }
+
+      const data = await response.json();
+      console.log("data", data);
+      toast.success("Registered successfully");
+    } catch (err) {
+      console.error("Error:", err);
+    }
+    try {
+      const response = await fetch(
+        "https://fitsync.onrender.com/api/vitalsignal/active-hours",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${sessionStorage
+              .getItem("authToken")
+              .trim()}`,
+          },
+          body: JSON.stringify({
+            activeHours: activeHours,
           }),
         }
       );
@@ -344,7 +404,13 @@ const Exercise = () => {
               </video>
               <div className="card-body p-3">
                 <div className="d-flex align-items-center justify-content-between ">
-                  <button className="start" onClick={startCountdown}>
+                  <button
+                    className="start"
+                    onClick={() => {
+                      TimeactiveHours();
+                      startCountdown();
+                    }}
+                  >
                     Start the exercise
                   </button>
                   <h4>
@@ -559,7 +625,12 @@ const Exercise = () => {
               </video>
               <div className="card-body p-3">
                 <div className="d-flex align-items-center justify-content-between ">
-                  <button className="start" onClick={startCountdown}>
+                  <button
+                    className="start"
+                    onClick={() => {
+                      startCountdown();
+                    }}
+                  >
                     Start the exercise
                   </button>
                   <h4>
@@ -581,6 +652,7 @@ const Exercise = () => {
                   }
                   onClick={() => {
                     ShowCard(isShowCard + 1);
+                    EndtimeactiveHours();
                     setTimeLeft(null);
                   }}
                 >
