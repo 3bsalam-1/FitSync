@@ -1,122 +1,135 @@
-# FitSync - Comprehensive Fitness Synchronization Platform
+# FitSync - Holistic Fitness Synchronization Platform
 
-FitSync is a holistic fitness ecosystem designed to bridge the gap between workout tracking, nutrition management, and AI-driven insights. It seamlessly integrates a cross-platform mobile application, a responsive web dashboard, a robust backend API, and advanced AI models to provide users with a personalized health experience.
+FitSync is a comprehensive ecosystem designed to bridge the gap between workout tracking, nutrition management, and personalized health insights. By integrating a responsive web dashboard, a cross-platform mobile application, and an advanced AI engine, FitSync provides users with a seamless and intelligent fitness experience.
+
+---
 
 ## 🚀 Key Features
 
-*   **Cross-Platform Mobile App**: Built with Flutter, offering a native experience on both Android and iOS. Tracks workouts, diet, and integrates with health data.
-*   **Web Dashboard**: A React-based admin and user dashboard for detailed analytics, profile management, and visualization of fitness trends.
-*   **AI-Powered Insights**:
-    *   **Food Clustering**: Intelligent grouping of food items for better diet recommendations.
-    *   **Workout Recommendations**: AI models to suggest workouts based on user goals and history.
-    *   **Heart Beat Analysis**: Advanced analysis of heart rate data.
-*   **Secure Authentication**: Robust user management using JWT, OAuth (Google, Facebook), and Passport.js.
-*   **Real-Time Tracking**: Monitor progress with dynamic charts and logs.
+*   **Cross-Platform Mobile App**: Native experience on iOS and Android for on-the-go tracking.
+*   **Web Dashboard**: Detailed analytics and management portal for users and admins.
+*   **AI-Driven Insights**:
+    *   **Workout Recommendations**: Personalized routines based on goals and user history.
+    *   **Dietary Analysis**: Food clustering and calorie estimation.
+    *   **Health Monitoring**: Heart beat analysis and trend prediction.
+*   **Real-Time Synchronization**: Seamless data sync between mobile and web platforms.
+*   **Social Integration**: Community features and easy sharing.
 
-## 🛠️ Technology Stack
+---
 
-FitSync utilizes a modern, full-stack architecture:
+## 🏗 System Architecture
 
-### 📱 Mobile (Flutter)
-*   **Framework**: Flutter SDK (Dart)
-*   **State Management**: Bloc
-*   **Authentication**: Firebase Auth, Google Sign-In
-*   **Integrations**: Health Connect, Local Notifications
-*   **UI**: Cupertino Icons, Google Fonts, Syncfusion Charts
+FitSync operates on a modern full-stack architecture:
 
-### 💻 Front-End (Web)
+*   **Frontend (Web)**: React.js
+*   **Mobile**: Flutter (Dart)
+*   **Backend**: Node.js & Express.js
+*   **Database**: MongoDB
+*   **AI Engine**: Python (FastAPI)
+
+---
+
+## 🛠 Technology Stack
+
+### Mobile (`/Mobile`)
+*   **Framework**: Flutter
+*   **State Management**: Bloc / Cubit
+*   **Auth**: Firebase & Google Sign-In
+*   **Integration**: Health Connect
+
+### Frontend (`/Front-End`)
 *   **Framework**: React.js
-*   **Styling**: Vanilla CSS, FontAwesome
-*   **Charts**: Chart.js, ApexCharts
-*   **HTTP Client**: Axios
+*   **Charts**: ApexCharts, Chart.js
+*   **Icons**: FontAwesome
+*   **State**: Context API / Local State
 
-### 🔙 Back-End (API)
+### Backend (`/Back-End`)
 *   **Runtime**: Node.js
 *   **Framework**: Express.js
-*   **Database**: MongoDB (Mongoose ODM)
-*   **Authentication**: Passport.js, JWT, BCrypt
-*   **Security**: Helmet, XSS-Clean, Express-Rate-Limit
+*   **Security**: Passport.js, JWT, Helmet
+*   **Storage**: Cloudinary (Images), MongoDB (Data)
 
-### � AI & Data Science
-*   **Language**: Python
-*   **API Framework**: FastAPI
-*   **Libraries**: Pandas, Scikit-learn, NumPy, Diffusers, Transformers
-*   **Notebooks**: Jupyter for data collection and model training
+### AI Service (`/Ai`)
+*   **Framework**: FastAPI
+*   **ML Libraries**: Scikit-learn, Pandas, NumPy
+*   **Models**: Custom clustering and regression models
+
+---
 
 ## 📂 Project Structure
 
-```
+```bash
 FitSync/
-├── Ai/                 # AI Models, Notebooks, and FastAPI Service
-│   ├── api/            # FastAPI application
-│   ├── data/           # Datasets (CSV, etc.)
-│   └── models/         # Trained model files
-├── Back-End/           # Node.js/Express Server
-│   ├── config/         # DB and App Configuration
-│   ├── controllers/    # Route Logic
-│   ├── models/         # Mongoose Schemas
+├── Ai/                 # Python AI Service & Notebooks
+│   ├── api/            # FastAPI Application
+│   ├── data/           # Training Datasets
+│   └── models/         # Serialized ML Models
+├── Back-End/           # Node.js API Server
+│   ├── config/         # Environment Config
+│   ├── controllers/    # Request Handlers
+│   ├── models/         # Database Schemas
 │   └── routes/         # API Endpoints
-├── Front-End/          # React Web Application
-│   └── fitsync/        # React Source Code
-└── Mobile/             # Flutter Mobile Application
-    └── fitsync/        # Dart Source Code
+├── Front-End/          # React Web App
+│   └── fitsync/        # Source Code
+└── Mobile/             # Flutter App
+    └── fitsync/        # Source Code
 ```
+
+---
 
 ## 🏁 Getting Started
 
-Follow these instructions to set up the project locally.
-
 ### Prerequisites
-*   **Node.js** (v16+) & **npm**
-*   **Flutter SDK** (v3.0+)
-*   **Python** (v3.8+)
-*   **MongoDB** (Local or Atlas URI)
+*   Node.js (v18+)
+*   Python (v3.9+)
+*   Flutter SDK (v3.16+)
+*   MongoDB Instance
 
-### 1. Back-End Setup
-Navigate to the backend directory and install dependencies:
-```bash
-cd Back-End
-npm install
-```
-Create a `.env` file in `Back-End/` and configure your variables (PORT, MONGO_URI, JWT_SECRET, etc.).
-Start the server:
-```bash
-npm start
-```
+### Installation
 
-### 2. Front-End Setup
-Navigate to the frontend directory:
-```bash
-cd Front-End/fitsync
-npm install
-```
-Start the React development server:
-```bash
-npm start
-```
+1.  **Clone the Repository**
+    ```bash
+    git clone https://github.com/yourusername/FitSync.git
+    cd FitSync
+    ```
 
-### 3. Mobile App Setup
-Navigate to the mobile directory:
-```bash
-cd Mobile/fitsync
-flutter pub get
-```
-Run the app on an emulator or physical device:
-```bash
-flutter run
-```
+2.  **Setup Backend**
+    ```bash
+    cd Back-End
+    npm install
+    # Configure .env file
+    npm start
+    ```
 
-### 4. AI Service Setup
-Navigate to the AI API directory:
-```bash
-cd Ai/api
-pip install -r requirements.txt
-```
-Start the FastAPI server:
-```bash
-uvicorn main:app --reload
-```
+3.  **Setup AI Service**
+    ```bash
+    cd ../Ai/api
+    pip install -r requirements.txt
+    uvicorn main:app --reload
+    ```
+
+4.  **Setup Frontend**
+    ```bash
+    cd ../../Front-End/fitsync
+    npm install
+    npm start
+    ```
+
+5.  **Setup Mobile**
+    ```bash
+    cd ../../Mobile/fitsync
+    flutter pub get
+    flutter run
+    ```
+
+---
+
+
+## Credits
+
+This project was proudly created by **Tech Dragons 🐲**.
 
 ## 📄 License
 
-This project is licensed under the ISC License.
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
