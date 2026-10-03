@@ -273,7 +273,12 @@ exports.resetPassword = asyncWrapper(async (req, res, next) => {
 exports.ContinueWithGoogle = asyncWrapper(async (req, res, next) => {
   let { name, email, avatar } = req.body;
 
-  let user = await User.findOne({email});
+  if (typeof email !== "string" || email.trim() === "") {
+    return next(AppError.create("Invalid email", FAIL, 400));
+  }
+  email = email.trim().toLowerCase();
+
+  let user = await User.findOne({ email: { $eq: email } });
 
   if (user) {
     const token = await signToken(user,res);
